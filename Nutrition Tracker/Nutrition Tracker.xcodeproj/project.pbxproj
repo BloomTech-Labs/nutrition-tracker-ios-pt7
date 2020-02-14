@@ -3,27 +3,46 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
-		D68C702223F25400008AFDF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* ViewController.swift */; };
+		D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */; };
 		D68C702523F25400008AFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C702323F25400008AFDF0 /* Main.storyboard */; };
 		D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68C702623F25402008AFDF0 /* Assets.xcassets */; };
 		D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */; };
+		D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */; };
+		D68C704123F4E89E008AFDF0 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D68C703F23F4E89E008AFDF0 /* User.xcdatamodeld */; };
+		D68C704323F4EFA8008AFDF0 /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C704223F4EFA8008AFDF0 /* UserRepresentation.swift */; };
+		D68C704523F4F017008AFDF0 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C704423F4F017008AFDF0 /* CoreDataStack.swift */; };
+		D68C704723F4F066008AFDF0 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C704623F4F066008AFDF0 /* User+Convenience.swift */; };
+		D68C704D23F4F66B008AFDF0 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = D68C704C23F4F66B008AFDF0 /* schema.json */; };
+		D68C705023F4FAE3008AFDF0 /* LSLRegisterViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */; };
+		D68C705323F50793008AFDF0 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = D68C705223F50793008AFDF0 /* Apollo */; };
+		D68C705523F65948008AFDF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705423F65948008AFDF0 /* API.swift */; };
+		D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D68C702123F25400008AFDF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLRegisterViewController.swift; sourceTree = "<group>"; };
 		D68C702423F25400008AFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D68C702623F25402008AFDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D68C702923F25402008AFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D68C702B23F25402008AFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLLoginViewController.swift; sourceTree = "<group>"; };
+		D68C704023F4E89E008AFDF0 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		D68C704223F4EFA8008AFDF0 /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
+		D68C704423F4F017008AFDF0 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		D68C704623F4F066008AFDF0 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		D68C704C23F4F66B008AFDF0 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLRegisterViewController.graphql; sourceTree = "<group>"; };
+		D68C705423F65948008AFDF0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLLoginViewController.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68C705323F50793008AFDF0 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +76,80 @@
 		D68C701C23F25400008AFDF0 /* Nutrition Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				D68C701D23F25400008AFDF0 /* AppDelegate.swift */,
-				D68C701F23F25400008AFDF0 /* SceneDelegate.swift */,
-				D68C702123F25400008AFDF0 /* ViewController.swift */,
-				D68C702323F25400008AFDF0 /* Main.storyboard */,
-				D68C702623F25402008AFDF0 /* Assets.xcassets */,
-				D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */,
-				D68C702B23F25402008AFDF0 /* Info.plist */,
+				D68C703923F3B02E008AFDF0 /* Models */,
+				D68C703823F3B025008AFDF0 /* Model Controllers */,
+				D68C703C23F4E801008AFDF0 /* GraphQL */,
+				D68C703723F3B01A008AFDF0 /* Views */,
+				D68C703623F3B012008AFDF0 /* View Controllers */,
+				D68C703523F3B006008AFDF0 /* Storyboards */,
+				D68C703423F3AF07008AFDF0 /* Resources */,
 			);
 			path = "Nutrition Tracker";
+			sourceTree = "<group>";
+		};
+		D68C703423F3AF07008AFDF0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D68C701D23F25400008AFDF0 /* AppDelegate.swift */,
+				D68C701F23F25400008AFDF0 /* SceneDelegate.swift */,
+				D68C702623F25402008AFDF0 /* Assets.xcassets */,
+				D68C702B23F25402008AFDF0 /* Info.plist */,
+				D68C704C23F4F66B008AFDF0 /* schema.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D68C703523F3B006008AFDF0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D68C702323F25400008AFDF0 /* Main.storyboard */,
+				D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D68C703623F3B012008AFDF0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
+				D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D68C703723F3B01A008AFDF0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D68C703823F3B025008AFDF0 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		D68C703923F3B02E008AFDF0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D68C703F23F4E89E008AFDF0 /* User.xcdatamodeld */,
+				D68C704223F4EFA8008AFDF0 /* UserRepresentation.swift */,
+				D68C704423F4F017008AFDF0 /* CoreDataStack.swift */,
+				D68C704623F4F066008AFDF0 /* User+Convenience.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D68C703C23F4E801008AFDF0 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				D68C705423F65948008AFDF0 /* API.swift */,
+				D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */,
+				D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */,
+			);
+			name = GraphQL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +159,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D68C702E23F25402008AFDF0 /* Build configuration list for PBXNativeTarget "Nutrition Tracker" */;
 			buildPhases = (
+				D68C704B23F4F626008AFDF0 /* Generate Apollo GraphQL API */,
 				D68C701623F25400008AFDF0 /* Sources */,
 				D68C701723F25400008AFDF0 /* Frameworks */,
 				D68C701823F25400008AFDF0 /* Resources */,
@@ -83,6 +169,9 @@
 			dependencies = (
 			);
 			name = "Nutrition Tracker";
+			packageProductDependencies = (
+				D68C705223F50793008AFDF0 /* Apollo */,
+			);
 			productName = "Nutrition Tracker";
 			productReference = D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +201,9 @@
 				Base,
 			);
 			mainGroup = D68C701123F25400008AFDF0;
+			packageReferences = (
+				D68C705123F50793008AFDF0 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = D68C701B23F25400008AFDF0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,22 +218,52 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68C704D23F4F66B008AFDF0 /* schema.json in Resources */,
 				D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */,
+				D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */,
 				D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */,
+				D68C705023F4FAE3008AFDF0 /* LSLRegisterViewController.graphql in Resources */,
 				D68C702523F25400008AFDF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D68C704B23F4F626008AFDF0 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D68C701623F25400008AFDF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D68C702223F25400008AFDF0 /* ViewController.swift in Sources */,
+				D68C704123F4E89E008AFDF0 /* User.xcdatamodeld in Sources */,
+				D68C704323F4EFA8008AFDF0 /* UserRepresentation.swift in Sources */,
+				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
+				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
+				D68C704523F4F017008AFDF0 /* CoreDataStack.swift in Sources */,
+				D68C705523F65948008AFDF0 /* API.swift in Sources */,
+				D68C704723F4F066008AFDF0 /* User+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +461,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D68C705123F50793008AFDF0 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D68C705223F50793008AFDF0 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D68C705123F50793008AFDF0 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D68C703F23F4E89E008AFDF0 /* User.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D68C704023F4E89E008AFDF0 /* User.xcdatamodel */,
+			);
+			currentVersion = D68C704023F4E89E008AFDF0 /* User.xcdatamodel */;
+			path = User.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D68C701223F25400008AFDF0 /* Project object */;
 }
