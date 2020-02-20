@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D60BA2C623FCDF0300B3E6BF /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D60BA2C523FCDF0300B3E6BF /* Nunito-Regular.ttf */; };
+		D60BA2C823FCDF1500B3E6BF /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D60BA2C723FCDF1500B3E6BF /* Roboto-Regular.ttf */; };
+		D60BA2CA23FCDF2100B3E6BF /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D60BA2C923FCDF2100B3E6BF /* Roboto-Medium.ttf */; };
+		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
+		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
 		D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */; };
@@ -23,9 +28,18 @@
 		D68C705323F50793008AFDF0 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = D68C705223F50793008AFDF0 /* Apollo */; };
 		D68C705523F65948008AFDF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705423F65948008AFDF0 /* API.swift */; };
 		D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */; };
+		D68C705A23F6606B008AFDF0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C705823F6606B008AFDF0 /* Login.storyboard */; };
+		D68C705C23F660CA008AFDF0 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C705B23F660CA008AFDF0 /* Register.storyboard */; };
+		D68C705E23FABD15008AFDF0 /* AuthPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705D23FABD15008AFDF0 /* AuthPayload.swift */; };
+		D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D60BA2C523FCDF0300B3E6BF /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		D60BA2C723FCDF1500B3E6BF /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D60BA2C923FCDF2100B3E6BF /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +57,10 @@
 		D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLRegisterViewController.graphql; sourceTree = "<group>"; };
 		D68C705423F65948008AFDF0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLLoginViewController.graphql; sourceTree = "<group>"; };
+		D68C705923F6606B008AFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/Login.storyboard"; sourceTree = "<group>"; };
+		D68C705B23F660CA008AFDF0 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		D68C705D23FABD15008AFDF0 /* AuthPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPayload.swift; sourceTree = "<group>"; };
+		D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D60BA2C523FCDF0300B3E6BF /* Nunito-Regular.ttf */,
+				D60BA2C723FCDF1500B3E6BF /* Roboto-Regular.ttf */,
+				D60BA2C923FCDF2100B3E6BF /* Roboto-Medium.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		D60BA2CE23FCF4C100B3E6BF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */,
+				D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		D68C701123F25400008AFDF0 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +120,8 @@
 				D68C703623F3B012008AFDF0 /* View Controllers */,
 				D68C703523F3B006008AFDF0 /* Storyboards */,
 				D68C703423F3AF07008AFDF0 /* Resources */,
+				D60BA2C423FCDEDA00B3E6BF /* Fonts */,
+				D60BA2CE23FCF4C100B3E6BF /* Helpers */,
 			);
 			path = "Nutrition Tracker";
 			sourceTree = "<group>";
@@ -102,8 +141,10 @@
 		D68C703523F3B006008AFDF0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				D68C702323F25400008AFDF0 /* Main.storyboard */,
 				D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */,
+				D68C702323F25400008AFDF0 /* Main.storyboard */,
+				D68C705823F6606B008AFDF0 /* Login.storyboard */,
+				D68C705B23F660CA008AFDF0 /* Register.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -111,6 +152,7 @@
 		D68C703623F3B012008AFDF0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */,
 				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
 				D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */,
 			);
@@ -138,6 +180,7 @@
 				D68C704223F4EFA8008AFDF0 /* UserRepresentation.swift */,
 				D68C704423F4F017008AFDF0 /* CoreDataStack.swift */,
 				D68C704623F4F066008AFDF0 /* User+Convenience.swift */,
+				D68C705D23FABD15008AFDF0 /* AuthPayload.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -220,10 +263,15 @@
 			files = (
 				D68C704D23F4F66B008AFDF0 /* schema.json in Resources */,
 				D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */,
+				D60BA2C823FCDF1500B3E6BF /* Roboto-Regular.ttf in Resources */,
+				D68C705A23F6606B008AFDF0 /* Login.storyboard in Resources */,
 				D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */,
 				D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */,
 				D68C705023F4FAE3008AFDF0 /* LSLRegisterViewController.graphql in Resources */,
+				D60BA2C623FCDF0300B3E6BF /* Nunito-Regular.ttf in Resources */,
+				D60BA2CA23FCDF2100B3E6BF /* Roboto-Medium.ttf in Resources */,
 				D68C702523F25400008AFDF0 /* Main.storyboard in Resources */,
+				D68C705C23F660CA008AFDF0 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,12 +303,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
+				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C704123F4E89E008AFDF0 /* User.xcdatamodeld in Sources */,
 				D68C704323F4EFA8008AFDF0 /* UserRepresentation.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
+				D68C705E23FABD15008AFDF0 /* AuthPayload.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
+				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				D68C704523F4F017008AFDF0 /* CoreDataStack.swift in Sources */,
 				D68C705523F65948008AFDF0 /* API.swift in Sources */,
 				D68C704723F4F066008AFDF0 /* User+Convenience.swift in Sources */,
@@ -284,6 +336,14 @@
 				D68C702923F25402008AFDF0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D68C705823F6606B008AFDF0 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D68C705923F6606B008AFDF0 /* Base */,
+			);
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

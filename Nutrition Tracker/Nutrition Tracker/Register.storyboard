@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Nutrition Tracker-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LSLRegisterViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y0q-75-NCt">
+                                <rect key="frame" x="104.5" y="57" width="205" height="33"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightning" translatesAutoresizingMaskIntoConstraints="NO" id="0wj-n3-dHN">
+                                        <rect key="frame" x="0.0" y="0.0" width="16" height="33"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0Q-0D-2iD">
+                                        <rect key="frame" x="24" y="0.0" width="181" height="33"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7p-mz-Nxw">
+                                <rect key="frame" x="175" y="112" width="64.5" height="25"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="U6f-Ep-vzg">
+                                <rect key="frame" x="15" y="176" width="384" height="299"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First and lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KV-dY-kDK" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="tpG-6A-oeX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXl-ec-RRc" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="81" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="KwY-Dq-Yza"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+1 (999) 123 - 4567" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="db8-82-Dpb" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="162" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="bXe-ER-7Cw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nJa-IS-MTN" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="243" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="zvZ-oi-a3m"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-8a-EUB">
+                                <rect key="frame" x="60" y="613.5" width="43" height="32"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEN-W5-lvg" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="240" y="613.5" width="114" height="32"/>
+                                <color key="backgroundColor" red="0.42352941179999998" green="0.38823529410000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="EF2-fs-uhD"/>
+                                    <constraint firstAttribute="width" constant="114" id="wDC-A4-tez"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                <state key="normal" title="Lets Go!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uzz-wC-YBM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your one step closer to achieving your goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KD3-gY-x7b">
+                                <rect key="frame" x="38.5" y="515" width="337" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="P7p-mz-Nxw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2of-Hf-Fzh"/>
+                            <constraint firstItem="yEN-W5-lvg" firstAttribute="top" secondItem="KD3-gY-x7b" secondAttribute="bottom" constant="78" id="54V-Gr-EgI"/>
+                            <constraint firstItem="sRU-8a-EUB" firstAttribute="top" secondItem="KD3-gY-x7b" secondAttribute="bottom" constant="78" id="6Th-Dn-Oi8"/>
+                            <constraint firstItem="U6f-Ep-vzg" firstAttribute="top" secondItem="P7p-mz-Nxw" secondAttribute="bottom" constant="39" id="CpW-P9-haw"/>
+                            <constraint firstItem="U6f-Ep-vzg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="NEn-pT-u6V"/>
+                            <constraint firstItem="Y0q-75-NCt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P9p-3x-AGX"/>
+                            <constraint firstItem="KD3-gY-x7b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PpI-PP-IMV"/>
+                            <constraint firstItem="Y0q-75-NCt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="57" id="PqU-q8-eot"/>
+                            <constraint firstItem="KD3-gY-x7b" firstAttribute="top" secondItem="U6f-Ep-vzg" secondAttribute="bottom" constant="40" id="i2d-PX-IgS"/>
+                            <constraint firstItem="sRU-8a-EUB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="kgY-Nc-0S9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yEN-W5-lvg" secondAttribute="trailing" constant="60" id="p5N-JJ-GHl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U6f-Ep-vzg" secondAttribute="trailing" constant="15" id="qF4-gX-v4k"/>
+                            <constraint firstItem="P7p-mz-Nxw" firstAttribute="top" secondItem="Y0q-75-NCt" secondAttribute="bottom" constant="22" id="sZs-uq-m0y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nutrition Tracker" id="TRO-Ru-RXR"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="UXl-ec-RRc" id="mLr-dJ-yNW"/>
+                        <outlet property="nameTextField" destination="5KV-dY-kDK" id="a0q-PM-FRR"/>
+                        <outlet property="passwordTextField" destination="nJa-IS-MTN" id="mUM-e5-Gb1"/>
+                        <outlet property="phoneTextField" destination="db8-82-Dpb" id="AhH-6l-VVA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1908.6956521739132" y="-597.32142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lightning" width="16" height="20"/>
+    </resources>
+</document>

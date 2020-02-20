@@ -17,22 +17,34 @@ class LSLLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
     
     // MARK: - IBActions and Methods
     @IBAction func login(_ sender: UIButton) {
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LSLLoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
-    */
-
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 2.0
+        textField.layer.borderColor = UIColor(red: 0.251, green: 0.663, blue: 1, alpha: 1).cgColor
+        textField.layer.cornerRadius = 4
+        textField.layer.shadowColor = UIColor(red: 0.094, green: 0.565, blue: 1, alpha: 0.5).cgColor
+        textField.layer.shadowOpacity = 1
+        textField.layer.shadowRadius = 4
+        textField.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textField.layer.cornerRadius = 4
+        textField.layer.shadowOpacity = 0
+    }
 }
