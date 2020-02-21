@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Apollo
+import KeychainSwift
 
 class LSLRegisterViewController: UIViewController {
     
@@ -29,6 +31,27 @@ class LSLRegisterViewController: UIViewController {
 
     // MARK: - IBActions and Methods
     @IBAction func registerUser(_ sender: UIButton) {
+        guard let name = self.nameTextField.text, !name.isEmpty,
+            let email = self.emailTextField.text, !email.isEmpty,
+//            let phone = self.emailTextField.text,
+            let password = self.passwordTextField.text, !password.isEmpty else { return }
+        
+        apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { [weak self] result in
+            switch result {
+            case .success(let graphQLResult):
+                if let token = graphQLResult.data?.createUser.token {
+                let keychain = KeychainSwift()
+                keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
+                self?.dismiss(animated: true)
+              }
+
+              if let errors = graphQLResult.errors {
+                print("Errors from server: \(errors)")
+              }
+            case .failure(let error):
+              print("Error: \(error)")
+            }
+        }
     }
     
     @objc func dismissKeyboard() {
