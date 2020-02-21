@@ -12,6 +12,7 @@
 		D60BA2CA23FCDF2100B3E6BF /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D60BA2C923FCDF2100B3E6BF /* Roboto-Medium.ttf */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
+		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
 		D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */; };
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */,
 				D68C705323F50793008AFDF0 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +216,7 @@
 			name = "Nutrition Tracker";
 			packageProductDependencies = (
 				D68C705223F50793008AFDF0 /* Apollo */,
+				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
 			);
 			productName = "Nutrition Tracker";
 			productReference = D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */;
@@ -246,6 +249,7 @@
 			mainGroup = D68C701123F25400008AFDF0;
 			packageReferences = (
 				D68C705123F50793008AFDF0 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = D68C701B23F25400008AFDF0 /* Products */;
 			projectDirPath = "";
@@ -523,6 +527,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
 		D68C705123F50793008AFDF0 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
@@ -534,6 +546,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D60BA2D423FF79AD00B3E6BF /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
 		D68C705223F50793008AFDF0 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D68C705123F50793008AFDF0 /* XCRemoteSwiftPackageReference "apollo-ios" */;

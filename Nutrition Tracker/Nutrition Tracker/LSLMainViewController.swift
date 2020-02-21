@@ -7,26 +7,20 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class LSLMainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if apollo.store.cacheKeyForObject == nil {
+        if !self.isLoggedIn() {
             performSegue(withIdentifier: "LoginSegue", sender: self)
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func isLoggedIn() -> Bool {
+      let keychain = KeychainSwift()
+      return keychain.get(LSLLoginViewController.loginKeychainKey) != nil
     }
-    */
-
 }

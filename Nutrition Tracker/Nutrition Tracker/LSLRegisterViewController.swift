@@ -23,16 +23,25 @@ class LSLRegisterViewController: UIViewController {
         self.emailTextField.delegate = self
         self.phoneTextField.delegate = self
         self.passwordTextField.delegate = self
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
 
     // MARK: - IBActions and Methods
     @IBAction func registerUser(_ sender: UIButton) {
     }
     
+    @objc func dismissKeyboard() {
+        self.nameTextField.resignFirstResponder()
+        self.emailTextField.resignFirstResponder()
+        self.phoneTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+    }
 }
 
 extension LSLRegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
