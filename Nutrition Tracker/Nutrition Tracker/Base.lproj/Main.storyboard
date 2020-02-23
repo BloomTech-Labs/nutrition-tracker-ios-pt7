@@ -6,6 +6,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Nutrition Tracker-->
         <scene sceneID="URv-Qa-Okb">
@@ -15,25 +20,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are Logged In!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-A0-06q">
-                                <rect key="frame" x="16" y="138" width="382" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking your calories just got easier." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-A0-06q">
+                                <rect key="frame" x="16" y="138" width="382" height="25"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="options" translatesAutoresizingMaskIntoConstraints="NO" id="jRg-Tc-crl">
+                                <rect key="frame" x="40" y="211" width="334" height="247"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with friends, earn badges and crush your goals." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-dr-800">
+                                <rect key="frame" x="80" y="506" width="254" height="38.5"/>
+                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-lf-FI8">
+                                <rect key="frame" x="16" y="592.5" width="382" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-lu-tFp" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                        <color key="backgroundColor" red="0.42352941179999998" green="0.38823529410000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="CQr-yC-pS2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="9PM-ho-CfM" kind="showDetail" identifier="ShowLogin" id="uNz-gi-2rx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86x-lr-i1v" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="84" width="382" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="N0d-gq-S85"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
+                                        <color key="tintColor" red="0.42352941179999998" green="0.38823529410000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <segue destination="cLg-2i-y9g" kind="showDetail" identifier="ShowRegister" id="3RU-qj-0BW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rMW-A0-06q" firstAttribute="top" secondItem="2Ta-2h-Azf" secondAttribute="top" constant="50" id="3WF-uT-fdn"/>
+                            <constraint firstItem="O7b-dr-800" firstAttribute="top" secondItem="jRg-Tc-crl" secondAttribute="bottom" constant="48" id="5jT-nJ-FYP"/>
+                            <constraint firstItem="KOb-lf-FI8" firstAttribute="top" secondItem="O7b-dr-800" secondAttribute="bottom" constant="48" id="IoO-MN-ajT"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="jRg-Tc-crl" secondAttribute="trailing" constant="40" id="Mbi-GP-obf"/>
+                            <constraint firstItem="jRg-Tc-crl" firstAttribute="top" secondItem="rMW-A0-06q" secondAttribute="bottom" constant="48" id="MkK-Rv-an3"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="O7b-dr-800" secondAttribute="trailing" constant="80" id="Opx-FO-dz9"/>
+                            <constraint firstItem="O7b-dr-800" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="80" id="b2l-tL-O4n"/>
                             <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="rMW-A0-06q" secondAttribute="trailing" constant="16" id="cUk-2v-rr9"/>
+                            <constraint firstItem="jRg-Tc-crl" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="40" id="irr-JV-9J8"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="KOb-lf-FI8" secondAttribute="trailing" constant="16" id="mO7-9Z-GKg"/>
                             <constraint firstItem="rMW-A0-06q" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="sdT-gi-6Gh"/>
+                            <constraint firstItem="KOb-lf-FI8" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="wxo-hB-BO8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Ta-2h-Azf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nutrition Tracker" id="Sqk-Aw-9fj"/>
-                    <connections>
-                        <segue destination="9PM-ho-CfM" kind="presentation" identifier="LoginSegue" modalPresentationStyle="fullScreen" id="BGv-Hc-qWY"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HQ-uR-2t1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +96,15 @@
                 <viewControllerPlaceholder storyboardName="Login" id="9PM-ho-CfM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCg-hR-eLM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="130"/>
+            <point key="canvasLocation" x="1602" y="99"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="BmS-TV-Jff">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Register" id="cLg-2i-y9g" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wKN-wY-wQs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615" y="168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VbX-R5-PiA">
@@ -66,4 +125,7 @@
             <point key="canvasLocation" x="157" y="130"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="options" width="294" height="247"/>
+    </resources>
 </document>

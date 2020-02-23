@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bkV-pz-sfc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LqG-0j-sZf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -20,11 +20,11 @@
             <objects>
                 <viewController id="bkV-pz-sfc" customClass="LSLLoginViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iRT-bc-ndZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="isf-LJ-fVM">
-                                <rect key="frame" x="158" y="57" width="98.5" height="33"/>
+                                <rect key="frame" x="158" y="145" width="98.5" height="33"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lightning" translatesAutoresizingMaskIntoConstraints="NO" id="uJJ-ZI-jWN">
                                         <rect key="frame" x="0.0" y="0.0" width="16" height="33"/>
@@ -38,13 +38,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lets start crushing those goals!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjJ-uf-Gfh">
-                                <rect key="frame" x="95" y="134" width="224" height="19"/>
+                                <rect key="frame" x="95" y="222" width="224" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7p5-yX-rj0">
-                                <rect key="frame" x="15" y="228" width="384" height="132"/>
+                                <rect key="frame" x="15" y="316" width="384" height="132"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@gmail.com" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="6JH-eI-cW0" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="56"/>
@@ -65,11 +65,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tz-Rq-oLt" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="240" y="435" width="114" height="32"/>
+                                <rect key="frame" x="240" y="523" width="114" height="32"/>
                                 <color key="backgroundColor" red="0.42352941179999998" green="0.38823529410000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="CoR-39-8X8"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="114" id="HuU-99-WXm"/>
+                                    <constraint firstAttribute="height" constant="32" id="AwB-mV-dlh"/>
+                                    <constraint firstAttribute="width" constant="114" id="oKD-qF-s3S"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                 <state key="normal" title="Lets Go!">
@@ -80,16 +80,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfC-tB-wYo">
-                                <rect key="frame" x="60" y="435" width="48" height="30"/>
+                                <rect key="frame" x="60" y="523" width="48" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancel:" destination="bkV-pz-sfc" eventType="touchUpInside" id="MxA-gH-ANZ"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="jqb-be-Dcb">
-                                <rect key="frame" x="35" y="497" width="344" height="225"/>
+                                <rect key="frame" x="35" y="585" width="344" height="225"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifS-F2-CnS">
-                                <rect key="frame" x="24" y="221" width="47.5" height="14.5"/>
+                                <rect key="frame" x="24" y="309" width="47.5" height="14.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-aZ-YVv">
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="14.5"/>
@@ -116,7 +119,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYT-qs-NW2">
-                                <rect key="frame" x="24" y="297" width="70.5" height="14.5"/>
+                                <rect key="frame" x="24" y="385" width="70.5" height="14.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwB-tb-CSr">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="14.5"/>
@@ -147,29 +150,27 @@
                         <constraints>
                             <constraint firstItem="7p5-yX-rj0" firstAttribute="top" secondItem="RjJ-uf-Gfh" secondAttribute="bottom" constant="75" id="0pN-A2-aNd"/>
                             <constraint firstItem="jqb-be-Dcb" firstAttribute="centerX" secondItem="iRT-bc-ndZ" secondAttribute="centerX" id="1Pg-82-AQ1"/>
+                            <constraint firstItem="D3m-BI-8qd" firstAttribute="trailing" secondItem="6tz-Rq-oLt" secondAttribute="trailing" constant="60" id="1oh-xK-C2C"/>
+                            <constraint firstItem="tfC-tB-wYo" firstAttribute="leading" secondItem="D3m-BI-8qd" secondAttribute="leading" constant="60" id="6tA-Cu-CUU"/>
                             <constraint firstItem="isf-LJ-fVM" firstAttribute="top" secondItem="D3m-BI-8qd" secondAttribute="top" constant="57" id="7dP-nB-gWv"/>
                             <constraint firstItem="RjJ-uf-Gfh" firstAttribute="top" secondItem="isf-LJ-fVM" secondAttribute="bottom" constant="44" id="9GC-VP-fWs"/>
                             <constraint firstItem="7p5-yX-rj0" firstAttribute="leading" secondItem="D3m-BI-8qd" secondAttribute="leading" constant="15" id="9Xl-fI-5Vw"/>
-                            <constraint firstItem="D3m-BI-8qd" firstAttribute="trailing" secondItem="6tz-Rq-oLt" secondAttribute="trailing" constant="60" id="9ba-id-0ku"/>
+                            <constraint firstItem="6tz-Rq-oLt" firstAttribute="top" secondItem="7p5-yX-rj0" secondAttribute="bottom" constant="75" id="HOY-GH-zbI"/>
                             <constraint firstItem="isf-LJ-fVM" firstAttribute="centerX" secondItem="iRT-bc-ndZ" secondAttribute="centerX" id="HmU-8q-AOO"/>
                             <constraint firstItem="D3m-BI-8qd" firstAttribute="trailing" secondItem="jqb-be-Dcb" secondAttribute="trailing" constant="35" id="KV4-KS-2nI"/>
-                            <constraint firstItem="6tz-Rq-oLt" firstAttribute="top" secondItem="7p5-yX-rj0" secondAttribute="bottom" constant="75" id="NZb-e7-Nha"/>
                             <constraint firstItem="D3m-BI-8qd" firstAttribute="trailing" secondItem="7p5-yX-rj0" secondAttribute="trailing" constant="15" id="PWG-Br-8rI"/>
                             <constraint firstItem="IYT-qs-NW2" firstAttribute="top" secondItem="ifS-F2-CnS" secondAttribute="bottom" constant="61.5" id="Q5z-vV-6mG"/>
                             <constraint firstItem="jqb-be-Dcb" firstAttribute="leading" secondItem="D3m-BI-8qd" secondAttribute="leading" constant="35" id="Qw6-lp-NpK"/>
                             <constraint firstItem="tfC-tB-wYo" firstAttribute="top" secondItem="7p5-yX-rj0" secondAttribute="bottom" constant="75" id="UWj-AA-sKV"/>
-                            <constraint firstItem="6tz-Rq-oLt" firstAttribute="leading" secondItem="tfC-tB-wYo" secondAttribute="trailing" constant="132" id="egi-3g-3e7"/>
                             <constraint firstItem="IYT-qs-NW2" firstAttribute="leading" secondItem="D3m-BI-8qd" secondAttribute="leading" constant="24" id="gBH-RV-h4A"/>
                             <constraint firstItem="ifS-F2-CnS" firstAttribute="top" secondItem="D3m-BI-8qd" secondAttribute="top" constant="221" id="iOI-t9-v6g"/>
                             <constraint firstItem="jqb-be-Dcb" firstAttribute="bottom" secondItem="D3m-BI-8qd" secondAttribute="bottom" constant="-52" id="nww-kb-GoI"/>
-                            <constraint firstItem="tfC-tB-wYo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iRT-bc-ndZ" secondAttribute="leading" symbolic="YES" id="t57-nC-hkH"/>
                             <constraint firstItem="ifS-F2-CnS" firstAttribute="leading" secondItem="D3m-BI-8qd" secondAttribute="leading" constant="24" id="wVc-jl-1UQ"/>
                             <constraint firstItem="RjJ-uf-Gfh" firstAttribute="centerX" secondItem="iRT-bc-ndZ" secondAttribute="centerX" id="ymr-TY-25s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D3m-BI-8qd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nutrition Tracker" id="SzA-Dl-mNO"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="emailTextField" destination="6JH-eI-cW0" id="1wA-nf-XoT"/>
                         <outlet property="passwordTextField" destination="hL6-RO-Rcx" id="grl-lo-qoi"/>
@@ -178,7 +179,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLx-xj-nYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.91304347826099" y="-597.32142857142856"/>
+            <point key="canvasLocation" x="2794.202898550725" y="-597.32142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1HI-Lr-yka">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="LqG-0j-sZf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ksC-H7-Zdq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bkV-pz-sfc" kind="relationship" relationship="rootViewController" id="lZ0-KC-IWh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5o-fJ-3Oq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1884.057971014493" y="-597.32142857142856"/>
         </scene>
     </scenes>
     <resources>

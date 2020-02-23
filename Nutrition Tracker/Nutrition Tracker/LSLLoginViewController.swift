@@ -51,6 +51,10 @@ class LSLLoginViewController: UIViewController {
         }
     }
     
+    @IBAction func cancel(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
     @objc func dismissKeyboard() {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
@@ -67,6 +71,11 @@ class LSLLoginViewController: UIViewController {
     
     private func validate(email: String) -> Bool {
       return email.contains("@")
+    }
+    
+    static public func isLoggedIn() -> Bool {
+      let keychain = KeychainSwift()
+      return keychain.get(LSLLoginViewController.loginKeychainKey) != nil
     }
 }
 

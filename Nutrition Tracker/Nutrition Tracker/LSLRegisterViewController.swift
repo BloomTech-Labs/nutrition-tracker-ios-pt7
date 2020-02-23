@@ -54,6 +54,10 @@ class LSLRegisterViewController: UIViewController {
         }
     }
     
+    @IBAction func cancel(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
     @objc func dismissKeyboard() {
         self.nameTextField.resignFirstResponder()
         self.emailTextField.resignFirstResponder()

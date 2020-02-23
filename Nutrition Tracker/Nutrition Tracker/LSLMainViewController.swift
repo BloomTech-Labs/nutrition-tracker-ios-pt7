@@ -13,14 +13,5 @@ class LSLMainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if !self.isLoggedIn() {
-            performSegue(withIdentifier: "LoginSegue", sender: self)
-        }
-    }
-    
-    private func isLoggedIn() -> Bool {
-      let keychain = KeychainSwift()
-      return keychain.get(LSLLoginViewController.loginKeychainKey) != nil
     }
 }
