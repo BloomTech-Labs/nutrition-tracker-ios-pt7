@@ -20,23 +20,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking your calories just got easier." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-A0-06q">
-                                <rect key="frame" x="16" y="138" width="382" height="25"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-Jf-sOz">
+                                <rect key="frame" x="48" y="133" width="318" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking your calories just got easier." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-A0-06q">
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="76.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with friends, earn badges and crush your goals." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-dr-800">
+                                        <rect key="frame" x="0.0" y="100.5" width="318" height="49.5"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="options" translatesAutoresizingMaskIntoConstraints="NO" id="jRg-Tc-crl">
-                                <rect key="frame" x="40" y="211" width="334" height="247"/>
+                                <rect key="frame" x="60" y="325" width="294" height="247"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with friends, earn badges and crush your goals." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-dr-800">
-                                <rect key="frame" x="80" y="506" width="254" height="38.5"/>
-                                <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-lf-FI8">
-                                <rect key="frame" x="16" y="592.5" width="382" height="128"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-lf-FI8">
+                                <rect key="frame" x="16" y="614" width="382" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-lu-tFp" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
@@ -53,7 +58,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86x-lr-i1v" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84" width="382" height="44"/>
+                                        <rect key="frame" x="0.0" y="76" width="382" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="N0d-gq-S85"/>
                                         </constraints>
@@ -69,22 +74,23 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rMW-A0-06q" firstAttribute="top" secondItem="2Ta-2h-Azf" secondAttribute="top" constant="50" id="3WF-uT-fdn"/>
-                            <constraint firstItem="O7b-dr-800" firstAttribute="top" secondItem="jRg-Tc-crl" secondAttribute="bottom" constant="48" id="5jT-nJ-FYP"/>
-                            <constraint firstItem="KOb-lf-FI8" firstAttribute="top" secondItem="O7b-dr-800" secondAttribute="bottom" constant="48" id="IoO-MN-ajT"/>
-                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="jRg-Tc-crl" secondAttribute="trailing" constant="40" id="Mbi-GP-obf"/>
-                            <constraint firstItem="jRg-Tc-crl" firstAttribute="top" secondItem="rMW-A0-06q" secondAttribute="bottom" constant="48" id="MkK-Rv-an3"/>
-                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="O7b-dr-800" secondAttribute="trailing" constant="80" id="Opx-FO-dz9"/>
-                            <constraint firstItem="O7b-dr-800" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="80" id="b2l-tL-O4n"/>
-                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="rMW-A0-06q" secondAttribute="trailing" constant="16" id="cUk-2v-rr9"/>
-                            <constraint firstItem="jRg-Tc-crl" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="40" id="irr-JV-9J8"/>
-                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="KOb-lf-FI8" secondAttribute="trailing" constant="16" id="mO7-9Z-GKg"/>
-                            <constraint firstItem="rMW-A0-06q" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="sdT-gi-6Gh"/>
-                            <constraint firstItem="KOb-lf-FI8" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="wxo-hB-BO8"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="KOb-lf-FI8" secondAttribute="trailing" constant="16" id="5JN-15-OtO"/>
+                            <constraint firstItem="KOb-lf-FI8" firstAttribute="top" secondItem="jRg-Tc-crl" secondAttribute="bottom" constant="42" id="703-L8-onA"/>
+                            <constraint firstItem="zqM-Jf-sOz" firstAttribute="top" secondItem="2Ta-2h-Azf" secondAttribute="top" constant="45" id="R9H-vz-VJW"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="zqM-Jf-sOz" secondAttribute="trailing" constant="48" id="TJe-uH-sfj"/>
+                            <constraint firstItem="KOb-lf-FI8" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="WGH-ZP-Jmz"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="jRg-Tc-crl" secondAttribute="trailing" constant="60" id="fFD-qP-HOf"/>
+                            <constraint firstItem="jRg-Tc-crl" firstAttribute="top" secondItem="zqM-Jf-sOz" secondAttribute="bottom" constant="42" id="rnN-7r-Jok"/>
+                            <constraint firstItem="jRg-Tc-crl" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="60" id="wFm-by-jye"/>
+                            <constraint firstItem="zqM-Jf-sOz" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="48" id="x28-DF-F7v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Ta-2h-Azf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nutrition Tracker" id="Sqk-Aw-9fj"/>
+                    <connections>
+                        <outlet property="signInButton" destination="oZ9-lu-tFp" id="aFu-9O-gMM"/>
+                        <outlet property="signUpButton" destination="86x-lr-i1v" id="bxs-iw-DNT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HQ-uR-2t1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
