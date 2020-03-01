@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D60BA2C623FCDF0300B3E6BF /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D60BA2C523FCDF0300B3E6BF /* Nunito-Regular.ttf */; };
-		D60BA2C823FCDF1500B3E6BF /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D60BA2C723FCDF1500B3E6BF /* Roboto-Regular.ttf */; };
-		D60BA2CA23FCDF2100B3E6BF /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D60BA2C923FCDF2100B3E6BF /* Roboto-Medium.ttf */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
+		D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
 		D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */; };
@@ -25,17 +23,30 @@
 		D68C705323F50793008AFDF0 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = D68C705223F50793008AFDF0 /* Apollo */; };
 		D68C705523F65948008AFDF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705423F65948008AFDF0 /* API.swift */; };
 		D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */; };
-		D68C705A23F6606B008AFDF0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C705823F6606B008AFDF0 /* Login.storyboard */; };
-		D68C705C23F660CA008AFDF0 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C705B23F660CA008AFDF0 /* Register.storyboard */; };
 		D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */; };
+		D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1C24076FEF00477429 /* Muli-ExtraBold.ttf */; };
+		D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1D24076FEF00477429 /* Muli-Bold.ttf */; };
+		D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1E24076FEF00477429 /* Muli-Black.ttf */; };
+		D6A1CC2724076FF000477429 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1F24076FF000477429 /* Muli-SemiBold.ttf */; };
+		D6A1CC2824076FF000477429 /* Muli-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2024076FF000477429 /* Muli-Medium.ttf */; };
+		D6A1CC2924076FF000477429 /* Muli-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2124076FF000477429 /* Muli-Light.ttf */; };
+		D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2224076FF000477429 /* Muli-ExtraLight.ttf */; };
+		D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2324076FF000477429 /* Muli-Regular.ttf */; };
+		D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */; };
+		D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */; };
+		D6A1CC31240B383300477429 /* LSLTrackingMacrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC30240B383300477429 /* LSLTrackingMacrosViewController.swift */; };
+		D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */; };
+		D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */; };
+		D6A1CC37240B592C00477429 /* LSLMacroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */; };
+		D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */; };
+		D6A1CC3B240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */; };
+		D6A1CC3D240B601700477429 /* NutritionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* NutritionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D60BA2C523FCDF0300B3E6BF /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
-		D60BA2C723FCDF1500B3E6BF /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		D60BA2C923FCDF2100B3E6BF /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardViewController.swift; sourceTree = "<group>"; };
 		D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,9 +60,24 @@
 		D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLRegisterViewController.graphql; sourceTree = "<group>"; };
 		D68C705423F65948008AFDF0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLLoginViewController.graphql; sourceTree = "<group>"; };
-		D68C705923F6606B008AFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/Login.storyboard"; sourceTree = "<group>"; };
-		D68C705B23F660CA008AFDF0 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMainViewController.swift; sourceTree = "<group>"; };
+		D6A1CC1C24076FEF00477429 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
+		D6A1CC1D24076FEF00477429 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
+		D6A1CC1E24076FEF00477429 /* Muli-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Black.ttf"; sourceTree = "<group>"; };
+		D6A1CC1F24076FF000477429 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
+		D6A1CC2024076FF000477429 /* Muli-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Medium.ttf"; sourceTree = "<group>"; };
+		D6A1CC2124076FF000477429 /* Muli-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Light.ttf"; sourceTree = "<group>"; };
+		D6A1CC2224076FF000477429 /* Muli-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLight.ttf"; sourceTree = "<group>"; };
+		D6A1CC2324076FF000477429 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
+		D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLGettingPersonalViewController.swift; sourceTree = "<group>"; };
+		D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietaryPreferenceViewController.swift; sourceTree = "<group>"; };
+		D6A1CC30240B383300477429 /* LSLTrackingMacrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLTrackingMacrosViewController.swift; sourceTree = "<group>"; };
+		D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCalculateBMIViewController.swift; sourceTree = "<group>"; };
+		D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCell.swift; sourceTree = "<group>"; };
+		D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroTableViewCell.swift; sourceTree = "<group>"; };
+		D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		D6A1CC3C240B601700477429 /* NutritionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +96,14 @@
 		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D60BA2C523FCDF0300B3E6BF /* Nunito-Regular.ttf */,
-				D60BA2C723FCDF1500B3E6BF /* Roboto-Regular.ttf */,
-				D60BA2C923FCDF2100B3E6BF /* Roboto-Medium.ttf */,
+				D6A1CC1E24076FEF00477429 /* Muli-Black.ttf */,
+				D6A1CC1D24076FEF00477429 /* Muli-Bold.ttf */,
+				D6A1CC1C24076FEF00477429 /* Muli-ExtraBold.ttf */,
+				D6A1CC2224076FF000477429 /* Muli-ExtraLight.ttf */,
+				D6A1CC2124076FF000477429 /* Muli-Light.ttf */,
+				D6A1CC2024076FF000477429 /* Muli-Medium.ttf */,
+				D6A1CC2324076FF000477429 /* Muli-Regular.ttf */,
+				D6A1CC1F24076FF000477429 /* Muli-SemiBold.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -135,8 +166,6 @@
 			children = (
 				D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */,
 				D68C702323F25400008AFDF0 /* Main.storyboard */,
-				D68C705823F6606B008AFDF0 /* Login.storyboard */,
-				D68C705B23F660CA008AFDF0 /* Register.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -145,8 +174,13 @@
 			isa = PBXGroup;
 			children = (
 				D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */,
-				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
 				D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */,
+				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
+				D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */,
+				D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */,
+				D6A1CC30240B383300477429 /* LSLTrackingMacrosViewController.swift */,
+				D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */,
+				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -154,6 +188,10 @@
 		D68C703723F3B01A008AFDF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */,
+				D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */,
+				D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */,
+				D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -161,6 +199,7 @@
 		D68C703823F3B025008AFDF0 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D6A1CC3C240B601700477429 /* NutritionController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -252,15 +291,18 @@
 			files = (
 				D68C704D23F4F66B008AFDF0 /* schema.json in Resources */,
 				D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */,
-				D60BA2C823FCDF1500B3E6BF /* Roboto-Regular.ttf in Resources */,
-				D68C705A23F6606B008AFDF0 /* Login.storyboard in Resources */,
+				D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */,
+				D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */,
 				D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */,
+				D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */,
+				D6A1CC2724076FF000477429 /* Muli-SemiBold.ttf in Resources */,
 				D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */,
 				D68C705023F4FAE3008AFDF0 /* LSLRegisterViewController.graphql in Resources */,
-				D60BA2C623FCDF0300B3E6BF /* Nunito-Regular.ttf in Resources */,
-				D60BA2CA23FCDF2100B3E6BF /* Roboto-Medium.ttf in Resources */,
 				D68C702523F25400008AFDF0 /* Main.storyboard in Resources */,
-				D68C705C23F660CA008AFDF0 /* Register.storyboard in Resources */,
+				D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */,
+				D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */,
+				D6A1CC2924076FF000477429 /* Muli-Light.ttf in Resources */,
+				D6A1CC2824076FF000477429 /* Muli-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +334,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A1CC3B240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift in Sources */,
+				D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
+				D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
+				D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
+				D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
+				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
+				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
+				D6A1CC37240B592C00477429 /* LSLMacroTableViewCell.swift in Sources */,
+				D6A1CC31240B383300477429 /* LSLTrackingMacrosViewController.swift in Sources */,
+				D6A1CC3D240B601700477429 /* NutritionController.swift in Sources */,
 				D68C705523F65948008AFDF0 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,14 +372,6 @@
 				D68C702923F25402008AFDF0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		D68C705823F6606B008AFDF0 /* Login.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D68C705923F6606B008AFDF0 /* Base */,
-			);
-			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
