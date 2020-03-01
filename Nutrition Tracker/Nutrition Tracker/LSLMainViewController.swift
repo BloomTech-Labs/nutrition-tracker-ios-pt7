@@ -18,6 +18,10 @@ class LSLMainViewController: UIViewController {
         super.viewDidLoad()
         
         signUpButton.layer.borderWidth = 1
-        signUpButton.layer.borderColor = UIColor(red: 0.424, green: 0.388, blue: 1, alpha: 1).cgColor
+        signUpButton.layer.borderColor = UIColor(red: 0.996, green: 0.259, blue: 0.702, alpha: 1).cgColor
+        
+        if LSLLoginViewController.isLoggedIn() {
+            self.performSegue(withIdentifier: "ShowDashboard", sender: nil)
+        }
     }
 }
