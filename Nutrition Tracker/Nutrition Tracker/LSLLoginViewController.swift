@@ -35,42 +35,24 @@ class LSLLoginViewController: UIViewController {
         
         apollo.perform(mutation: LoginMutation(data: LoginUserInput(email: email, password: password))) { [weak self] result in
             switch result {
-            case .success(let graphQLResult):
-                if let token = graphQLResult.data?.login.token {
-                let keychain = KeychainSwift()
-                keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
-                self?.dismiss(animated: true)
-              }
-
-              if let errors = graphQLResult.errors {
-                print("Errors from server: \(errors)")
-              }
-            case .failure(let error):
-              print("Error: \(error)")
-            }
+                case .success(let graphQLResult):
+                    if let token = graphQLResult.data?.login.token {
+                        let keychain = KeychainSwift()
+                        keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
+                        self?.performSegue(withIdentifier: "LoginToRegister", sender: self)
+                    }
+                    if let errors = graphQLResult.errors {
+                        print("Errors from server: \(errors)")
+                    }
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
         }
-    }
-    
-    @IBAction func cancel(_ sender: UIButton) {
-        self.dismiss(animated: true)
     }
     
     @objc func dismissKeyboard() {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
-    }
-    
-    private func enableSubmitButton(_ isEnabled: Bool) {
-        self.submitButton.isEnabled = isEnabled
-        if isEnabled {
-            self.submitButton.setTitle("Lets Go!", for: .normal)
-        } else {
-            self.submitButton.setTitle("Logging In...", for: .normal)
-        }
-    }
-    
-    private func validate(email: String) -> Bool {
-      return email.contains("@")
     }
     
     static public func isLoggedIn() -> Bool {
@@ -87,9 +69,9 @@ extension LSLLoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
-        textField.layer.borderColor = UIColor(red: 0.251, green: 0.663, blue: 1, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor(red: 0.996, green: 0.259, blue: 0.702, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
-        textField.layer.shadowColor = UIColor(red: 0.094, green: 0.565, blue: 1, alpha: 0.5).cgColor
+        textField.layer.shadowColor = UIColor(red: 0.651, green: 0.455, blue: 1, alpha: 0.5).cgColor
         textField.layer.shadowOpacity = 1
         textField.layer.shadowRadius = 4
         textField.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -97,7 +79,7 @@ extension LSLLoginViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.systemGray.cgColor
+        textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
     }
