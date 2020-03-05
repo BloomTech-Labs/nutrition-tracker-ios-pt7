@@ -16,8 +16,7 @@ class LSLGettingPersonalViewController: UIViewController {
     @IBOutlet var genderPickerView: UIPickerView!
     @IBOutlet var goalWeightTextView: CustomTextField!
     
-    var ages = ["Under 18", "18-25", "25-30", "30-35", "35-45", "45+"]
-    var genders = ["Male", "Female", "Prefer not to say"]
+    var nutritionController: LSLNutritionController?
     var name: String?
     var email: String?
     var password: String?
@@ -33,15 +32,12 @@ class LSLGettingPersonalViewController: UIViewController {
 
         self.goalWeightTextView.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        
+        // Testing... Delete these when finished
+        self.goalWeightTextView.text = "190"
     }
     
     // MARK: - IBActions and Methods
-    
-    func alertEmptyTextField(field: String) {
-        let alert = UIAlertController(title: "\(field) is Empty", message: "\(field) is Required. Please fill it out before proceeding.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
     
     @objc func dismissKeyboard() {
         self.goalWeightTextView.resignFirstResponder()
@@ -53,19 +49,25 @@ class LSLGettingPersonalViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToDietaryPreference" {
-            guard let dpVC = segue.destination as? LSLDietaryPreferenceViewController else { return }
-            guard let goalWeight = self.goalWeightTextView.text, !goalWeight.isEmpty else { return alertEmptyTextField(field: "Goal Weight") }
+            guard let dpVC = segue.destination as? LSLDietaryPreferenceViewController,
+                let nc = self.nutritionController else { return }
+            guard let goalWeight = self.goalWeightTextView.text, !goalWeight.isEmpty else { return nc.alertEmptyTextField(controller: self, field: "Goal Weight") }
             
-            var age: String = ""
-            for index in 0..<self.agePickerView!.numberOfComponents {
-                age = self.ages[self.agePickerView.selectedRow(inComponent: index)]
-            }
+//            var age: String = ""
+//            for index in 0..<self.agePickerView!.numberOfComponents {
+//                age = nc.ages[self.agePickerView.selectedRow(inComponent: index)]
+//            }
+//
+//            var gender: String = ""
+//            for index in 0..<self.genderPickerView!.numberOfComponents {
+//                gender = nc.genders[self.genderPickerView.selectedRow(inComponent: index)]
+//            }
             
-            var gender: String = ""
-            for index in 0..<self.genderPickerView!.numberOfComponents {
-                gender = self.genders[self.genderPickerView.selectedRow(inComponent: index)]
-            }
+            // Testing... Delete these when finished
+            let age: String = nc.ages[4]
+            let gender: String = nc.genders[0]
             
+            dpVC.nutritionController = nc
             dpVC.name = self.name
             dpVC.email = self.email
             dpVC.password = self.password
@@ -86,18 +88,18 @@ extension LSLGettingPersonalViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == self.agePickerView {
-            return self.ages.count
+            return self.nutritionController!.ages.count
         }
         
-        return self.genders.count
+        return self.nutritionController!.genders.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == self.agePickerView {
-            return self.ages[row]
+            return self.nutritionController!.ages[row]
         }
         
-        return self.genders[row]
+        return self.nutritionController!.genders[row]
     }
 }
 

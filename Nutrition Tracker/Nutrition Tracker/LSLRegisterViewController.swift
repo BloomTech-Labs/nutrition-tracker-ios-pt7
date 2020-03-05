@@ -18,6 +18,8 @@ class LSLRegisterViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    var nutritionController = LSLNutritionController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,16 +27,35 @@ class LSLRegisterViewController: UIViewController {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
+        // Testing... Delete these when finished
+        self.nameTextField.text = "Michael Stoffer"
+        self.emailTextField.text = "mstoffer@michaelstoffer.com"
+        self.passwordTextField.text = "password"
+        
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
 
     // MARK: - IBActions and Methods
     
-    func alertEmptyTextField(field: String) {
-        let alert = UIAlertController(title: "\(field) is Empty", message: "\(field) is Required. Please fill it out before proceeding.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+//        apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { [weak self] result in
+//            switch result {
+//                case .success(let graphQLResult):
+//                    if let token = graphQLResult.data?.createUser.token {
+//                        let keychain = KeychainSwift()
+//                        keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
+//                        guard let gpVC = segue.destination as? LSLGettingPersonalViewController else { return }
+//                        gpVC.nutritionController = self.nutritionController
+    
+//                        self?.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
+//                    }
+//
+//                    if let errors = graphQLResult.errors {
+//                        print("Errors from server: \(errors)")
+//                    }
+//                case .failure(let error):
+//                    print("Error: \(error)")
+//            }
+//        }
     
     @objc func dismissKeyboard() {
         self.nameTextField.resignFirstResponder()
@@ -48,10 +69,11 @@ class LSLRegisterViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToGettingPersonal" {
             guard let gpVC = segue.destination as? LSLGettingPersonalViewController else { return }
-            guard let name = self.nameTextField.text, !name.isEmpty else { return self.alertEmptyTextField(field: "Name") }
-            guard let email = self.emailTextField.text, !email.isEmpty else { return self.alertEmptyTextField(field: "Email") }
-            guard let password = self.passwordTextField.text, !password.isEmpty else { return self.alertEmptyTextField(field: "Password") }
+            guard let name = self.nameTextField.text, !name.isEmpty else { return self.nutritionController.alertEmptyTextField(controller: self, field: "Name") }
+            guard let email = self.emailTextField.text, !email.isEmpty else { return self.nutritionController.alertEmptyTextField(controller: self, field: "Email") }
+            guard let password = self.passwordTextField.text, !password.isEmpty else { return self.nutritionController.alertEmptyTextField(controller: self, field: "Password") }
             
+            gpVC.nutritionController = self.nutritionController
             gpVC.name = name
             gpVC.email = email
             gpVC.password = password

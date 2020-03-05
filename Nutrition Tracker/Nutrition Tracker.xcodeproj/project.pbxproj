@@ -40,7 +40,9 @@
 		D6A1CC37240B592C00477429 /* LSLMacroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */; };
 		D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */; };
 		D6A1CC3B240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */; };
-		D6A1CC3D240B601700477429 /* NutritionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* NutritionController.swift */; };
+		D6A1CC3D240B601700477429 /* LSLNutritionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* LSLNutritionController.swift */; };
+		D6A1CC41240BF37100477429 /* LSLDietPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC40240BF37100477429 /* LSLDietPreference.swift */; };
+		D6A1CC43240F461900477429 /* LSLMacroPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC42240F461900477429 /* LSLMacroPreference.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +79,9 @@
 		D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroTableViewCell.swift; sourceTree = "<group>"; };
 		D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		D6A1CC3C240B601700477429 /* NutritionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionController.swift; sourceTree = "<group>"; };
+		D6A1CC3C240B601700477429 /* LSLNutritionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLNutritionController.swift; sourceTree = "<group>"; };
+		D6A1CC40240BF37100477429 /* LSLDietPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietPreference.swift; sourceTree = "<group>"; };
+		D6A1CC42240F461900477429 /* LSLMacroPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroPreference.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +203,7 @@
 		D68C703823F3B025008AFDF0 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6A1CC3C240B601700477429 /* NutritionController.swift */,
+				D6A1CC3C240B601700477429 /* LSLNutritionController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -207,6 +211,8 @@
 		D68C703923F3B02E008AFDF0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D6A1CC40240BF37100477429 /* LSLDietPreference.swift */,
+				D6A1CC42240F461900477429 /* LSLMacroPreference.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -336,10 +342,12 @@
 			files = (
 				D6A1CC3B240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */,
+				D6A1CC41240BF37100477429 /* LSLDietPreference.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
+				D6A1CC43240F461900477429 /* LSLMacroPreference.swift in Sources */,
 				D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
 				D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */,
@@ -350,7 +358,7 @@
 				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
 				D6A1CC37240B592C00477429 /* LSLMacroTableViewCell.swift in Sources */,
 				D6A1CC31240B383300477429 /* LSLTrackingMacrosViewController.swift in Sources */,
-				D6A1CC3D240B601700477429 /* NutritionController.swift in Sources */,
+				D6A1CC3D240B601700477429 /* LSLNutritionController.swift in Sources */,
 				D68C705523F65948008AFDF0 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
