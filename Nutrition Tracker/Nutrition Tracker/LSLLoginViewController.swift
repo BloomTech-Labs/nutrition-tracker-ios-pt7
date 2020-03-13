@@ -39,7 +39,7 @@ class LSLLoginViewController: UIViewController {
                     if let token = graphQLResult.data?.login.token {
                         let keychain = KeychainSwift()
                         keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
-                        self?.performSegue(withIdentifier: "LoginToRegister", sender: self)
+                        self?.performSegue(withIdentifier: "LoginToDashboard", sender: self)
                     }
                     if let errors = graphQLResult.errors {
                         print("Errors from server: \(errors)")

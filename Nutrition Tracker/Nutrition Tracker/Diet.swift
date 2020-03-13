@@ -1,5 +1,5 @@
 //
-//  LSLDietPreference.swift
+//  Diet.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 3/1/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LSLDietPreference: Codable {
+struct Diet: Codable {
     var name: String
     var isSelected: Bool
     

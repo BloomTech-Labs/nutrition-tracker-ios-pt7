@@ -11,6 +11,17 @@
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
 		D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */; };
+		D631B2712415BB0900AE30C9 /* LSLStandardBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */; };
+		D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */; };
+		D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2742415BE7A00AE30C9 /* BMIType.swift */; };
+		D631B2792417205300AE30C9 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2782417205300AE30C9 /* Notifications.swift */; };
+		D631B27B24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D631B27A24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql */; };
+		D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27C241878B100AE30C9 /* ActivityLevel.swift */; };
+		D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */; };
+		D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2802418795300AE30C9 /* LSLActiveTableViewCell.swift */; };
+		D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */; };
+		D631B287241891DD00AE30C9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B286241891DD00AE30C9 /* Profile.swift */; };
+		D631B2892418929800AE30C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2882418929800AE30C9 /* User.swift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
 		D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */; };
@@ -34,21 +45,28 @@
 		D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2324076FF000477429 /* Muli-Regular.ttf */; };
 		D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */; };
 		D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */; };
-		D6A1CC31240B383300477429 /* LSLTrackingMacrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC30240B383300477429 /* LSLTrackingMacrosViewController.swift */; };
 		D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */; };
 		D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */; };
-		D6A1CC37240B592C00477429 /* LSLMacroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */; };
 		D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */; };
-		D6A1CC3B240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */; };
 		D6A1CC3D240B601700477429 /* LSLNutritionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* LSLNutritionController.swift */; };
-		D6A1CC41240BF37100477429 /* LSLDietPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC40240BF37100477429 /* LSLDietPreference.swift */; };
-		D6A1CC43240F461900477429 /* LSLMacroPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC42240F461900477429 /* LSLMacroPreference.swift */; };
+		D6A1CC41240BF37100477429 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC40240BF37100477429 /* Diet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardViewController.swift; sourceTree = "<group>"; };
+		D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLStandardBMIViewController.swift; sourceTree = "<group>"; };
+		D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMetricBMIViewController.swift; sourceTree = "<group>"; };
+		D631B2742415BE7A00AE30C9 /* BMIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIType.swift; sourceTree = "<group>"; };
+		D631B2782417205300AE30C9 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		D631B27A24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLCalculateBMIViewController.graphql; sourceTree = "<group>"; };
+		D631B27C241878B100AE30C9 /* ActivityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevel.swift; sourceTree = "<group>"; };
+		D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLActivityLevelViewController.swift; sourceTree = "<group>"; };
+		D631B2802418795300AE30C9 /* LSLActiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLActiveTableViewCell.swift; sourceTree = "<group>"; };
+		D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLActiveTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		D631B286241891DD00AE30C9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D631B2882418929800AE30C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,15 +91,11 @@
 		D6A1CC2324076FF000477429 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
 		D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLGettingPersonalViewController.swift; sourceTree = "<group>"; };
 		D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietaryPreferenceViewController.swift; sourceTree = "<group>"; };
-		D6A1CC30240B383300477429 /* LSLTrackingMacrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLTrackingMacrosViewController.swift; sourceTree = "<group>"; };
 		D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCalculateBMIViewController.swift; sourceTree = "<group>"; };
 		D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCell.swift; sourceTree = "<group>"; };
-		D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroTableViewCell.swift; sourceTree = "<group>"; };
 		D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		D6A1CC3C240B601700477429 /* LSLNutritionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLNutritionController.swift; sourceTree = "<group>"; };
-		D6A1CC40240BF37100477429 /* LSLDietPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietPreference.swift; sourceTree = "<group>"; };
-		D6A1CC42240F461900477429 /* LSLMacroPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMacroPreference.swift; sourceTree = "<group>"; };
+		D6A1CC40240BF37100477429 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,14 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		D631B2772417204000AE30C9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D631B2782417205300AE30C9 /* Notifications.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		D68C701123F25400008AFDF0 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +168,7 @@
 				D68C703723F3B01A008AFDF0 /* Views */,
 				D68C703623F3B012008AFDF0 /* View Controllers */,
 				D68C703523F3B006008AFDF0 /* Storyboards */,
+				D631B2772417204000AE30C9 /* Utilities */,
 				D68C703423F3AF07008AFDF0 /* Resources */,
 				D60BA2C423FCDEDA00B3E6BF /* Fonts */,
 				D60BA2CE23FCF4C100B3E6BF /* Helpers */,
@@ -180,10 +203,12 @@
 				D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */,
 				D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */,
 				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
-				D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */,
-				D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */,
-				D6A1CC30240B383300477429 /* LSLTrackingMacrosViewController.swift */,
 				D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */,
+				D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */,
+				D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */,
+				D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */,
+				D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */,
+				D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */,
 				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
 			);
 			name = "View Controllers";
@@ -192,10 +217,10 @@
 		D68C703723F3B01A008AFDF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D631B2802418795300AE30C9 /* LSLActiveTableViewCell.swift */,
+				D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */,
 				D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */,
 				D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */,
-				D6A1CC36240B592C00477429 /* LSLMacroTableViewCell.swift */,
-				D6A1CC3A240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -211,8 +236,11 @@
 		D68C703923F3B02E008AFDF0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D6A1CC40240BF37100477429 /* LSLDietPreference.swift */,
-				D6A1CC42240F461900477429 /* LSLMacroPreference.swift */,
+				D631B2882418929800AE30C9 /* User.swift */,
+				D631B286241891DD00AE30C9 /* Profile.swift */,
+				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
+				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
+				D6A1CC40240BF37100477429 /* Diet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -223,6 +251,7 @@
 				D68C705423F65948008AFDF0 /* API.swift */,
 				D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */,
 				D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */,
+				D631B27A24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql */,
 			);
 			name = GraphQL;
 			sourceTree = "<group>";
@@ -304,6 +333,7 @@
 				D6A1CC2724076FF000477429 /* Muli-SemiBold.ttf in Resources */,
 				D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */,
 				D68C705023F4FAE3008AFDF0 /* LSLRegisterViewController.graphql in Resources */,
+				D631B27B24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql in Resources */,
 				D68C702523F25400008AFDF0 /* Main.storyboard in Resources */,
 				D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */,
 				D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */,
@@ -340,24 +370,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6A1CC3B240B5F4300477429 /* LSLMacroTableViewCellDelegate.swift in Sources */,
+				D631B2792417205300AE30C9 /* Notifications.swift in Sources */,
+				D631B287241891DD00AE30C9 /* Profile.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */,
-				D6A1CC41240BF37100477429 /* LSLDietPreference.swift in Sources */,
+				D6A1CC41240BF37100477429 /* Diet.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
+				D631B2892418929800AE30C9 /* User.swift in Sources */,
+				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
+				D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */,
+				D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */,
+				D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
-				D6A1CC43240F461900477429 /* LSLMacroPreference.swift in Sources */,
 				D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
+				D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */,
 				D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
+				D631B2712415BB0900AE30C9 /* LSLStandardBMIViewController.swift in Sources */,
 				D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
 				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
-				D6A1CC37240B592C00477429 /* LSLMacroTableViewCell.swift in Sources */,
-				D6A1CC31240B383300477429 /* LSLTrackingMacrosViewController.swift in Sources */,
+				D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */,
 				D6A1CC3D240B601700477429 /* LSLNutritionController.swift in Sources */,
 				D68C705523F65948008AFDF0 /* API.swift in Sources */,
 			);

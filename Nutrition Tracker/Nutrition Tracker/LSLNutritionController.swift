@@ -10,28 +10,46 @@ import UIKit
 
 class LSLNutritionController {
     
-    // MARK: Properties
-    var ages: [String] = ["Under 18", "18-25", "25-30", "30-35", "35-45", "45+"]
-    var genders: [String] = ["Male", "Female", "Prefer not to say"]
-    var macros: [LSLMacroPreference] = [
-        LSLMacroPreference(name: "Carbs"),
-        LSLMacroPreference(name: "Fat"),
-        LSLMacroPreference(name: "Protein"),
-        LSLMacroPreference(name: "None")
-    ]
-    public var selectedMacros: [LSLMacroPreference] = []
-    var diets: [LSLDietPreference] = [
-        LSLDietPreference(name: "Keto"),
-        LSLDietPreference(name: "Paleo"),
-        LSLDietPreference(name: "Vegan"),
-        LSLDietPreference(name: "Atkins"),
-        LSLDietPreference(name: "Ultra-Low-Fat"),
-        LSLDietPreference(name: "US. Gov. Nutrition Guidelines"),
-        LSLDietPreference(name: "None")
-    ]
-    public var selectedDiets: [LSLDietPreference] = []
+    // MARK: - Properties
     
-    // MARK: Methods
+    static var age: Int?
+    static var weight: Int?
+    static var height: Int?
+    static var gender: Bool?
+    static var goalWeight: Int?
+    static var activityLevel: Int?
+    static var diet: String?
+
+    static var bmi: String? {
+        didSet {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .textFieldsWereUpdated, object: nil)
+            }
+        }
+    }
+    
+    // MARK: - Default Data
+    
+    var ages: [String] = ["Prefer not to say", "Under 18", "18-25", "25-30", "30-35", "35-45", "45+"]
+    var genders: [String] = ["Prefer not to say", "Male", "Female"]
+    var activityLevels: [ActivityLevel] = [
+        ActivityLevel(level: 2, name: "Not Very Active", description: "Spend most of the day sitting (little to no exercise)"),
+        ActivityLevel(level: 3, name: "Lightly Active", description: "Spend a good part of the day on your feet (light exercise 1-3 days/week)"),
+        ActivityLevel(level: 4, name: "Active", description: "Spend a good part of the day doing some physical activity (moderate exercise  3-5 days/week)"),
+        ActivityLevel(level: 5, name: "Very Active", description: "Spends most of the day doing heavy phyysical activity (very strenous excersice or physical job daily)"),
+        ActivityLevel(level: 1, name: "None / Custom", description: "Nothing here")
+    ]
+    var diets: [Diet] = [
+        Diet(name: "Keto"),
+        Diet(name: "Paleo"),
+        Diet(name: "Vegan"),
+        Diet(name: "Atkins"),
+        Diet(name: "Ultra-Low-Fat"),
+        Diet(name: "US. Gov. Nutrition Guidelines"),
+        Diet(name: "None")
+    ]
+    
+    // MARK: - Methods
     
     public func alertEmptyTextField(controller: UIViewController, field: String) {
         let alert = UIAlertController(title: "\(field) is Empty", message: "\(field) is Required. Please fill it out before proceeding.", preferredStyle: .alert)
@@ -45,23 +63,19 @@ class LSLNutritionController {
         controller.present(alert, animated: true, completion: nil)
     }
     
-    func toggledSelected(at indexPath: IndexPath) {
+    func toggledSelectedDiet(at indexPath: IndexPath) {
         self.diets[indexPath.row].isSelected.toggle()
-        
+
         if self.diets[indexPath.row].isSelected {
-            self.selectedDiets.append(self.diets[indexPath.row])
-        } else {
-            self.selectedDiets.remove(at: indexPath.row)
+            LSLNutritionController.diet = self.diets[indexPath.row].name
         }
     }
     
-    func toggleChecked(at indexPath: IndexPath) {
-        self.macros[indexPath.row].isSelected.toggle()
-        
-        if self.macros[indexPath.row].isSelected {
-            self.selectedMacros.append(self.macros[indexPath.row])
-        } else {
-            self.selectedMacros.remove(at: indexPath.row)
+    func toggledSelectedActivityLevel(at indexPath: IndexPath) {
+        self.activityLevels[indexPath.row].isSelected.toggle()
+
+        if self.activityLevels[indexPath.row].isSelected {
+            LSLNutritionController.activityLevel = self.activityLevels[indexPath.row].level
         }
     }
     

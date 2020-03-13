@@ -14,9 +14,10 @@ class LSLRegisterViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var nameTextField: CustomTextField!
+    @IBOutlet var emailTextField: CustomTextField!
+    @IBOutlet var passwordTextField: CustomTextField!
+    @IBOutlet var confirmPasswordTextField: CustomTextField!
     
     var nutritionController = LSLNutritionController()
     
@@ -26,27 +27,34 @@ class LSLRegisterViewController: UIViewController {
         self.nameTextField.delegate = self
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+        self.confirmPasswordTextField.delegate = self
         
         // Testing... Delete these when finished
         self.nameTextField.text = "Michael Stoffer"
         self.emailTextField.text = "mstoffer@michaelstoffer.com"
         self.passwordTextField.text = "password"
+        self.confirmPasswordTextField.text = "password"
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
 
     // MARK: - IBActions and Methods
     
+    @IBAction func register(_ sender: CustomButton) {
+        guard let name = self.nameTextField.text, !name.isEmpty,
+            let email = self.emailTextField.text, !email.isEmpty,
+            let password = self.passwordTextField.text, !password.isEmpty,
+            let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty,
+            password == confirmedPassword else { return }
+        
+        self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
 //        apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { [weak self] result in
 //            switch result {
 //                case .success(let graphQLResult):
 //                    if let token = graphQLResult.data?.createUser.token {
 //                        let keychain = KeychainSwift()
 //                        keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
-//                        guard let gpVC = segue.destination as? LSLGettingPersonalViewController else { return }
-//                        gpVC.nutritionController = self.nutritionController
-    
-//                        self?.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
+//                        self?.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
 //                    }
 //
 //                    if let errors = graphQLResult.errors {
@@ -56,34 +64,41 @@ class LSLRegisterViewController: UIViewController {
 //                    print("Error: \(error)")
 //            }
 //        }
+    }
     
     @objc func dismissKeyboard() {
         self.nameTextField.resignFirstResponder()
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
+        self.confirmPasswordTextField.resignFirstResponder()
     }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToGettingPersonal" {
-            guard let gpVC = segue.destination as? LSLGettingPersonalViewController else { return }
-            guard let name = self.nameTextField.text, !name.isEmpty else { return self.nutritionController.alertEmptyTextField(controller: self, field: "Name") }
-            guard let email = self.emailTextField.text, !email.isEmpty else { return self.nutritionController.alertEmptyTextField(controller: self, field: "Email") }
-            guard let password = self.passwordTextField.text, !password.isEmpty else { return self.nutritionController.alertEmptyTextField(controller: self, field: "Password") }
-            
-            gpVC.nutritionController = self.nutritionController
-            gpVC.name = name
-            gpVC.email = email
-            gpVC.password = password
+        if segue.identifier == "ToCalculateBMI" {
+            guard let vc = segue.destination as? LSLCalculateBMIViewController else { return }
+
+            vc.nutritionController = self.nutritionController
         }
     }
 }
 
 extension LSLRegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == nameTextField {
+            textField.resignFirstResponder()
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.resignFirstResponder()
+            confirmPasswordTextField.becomeFirstResponder()
+        } else if textField == confirmPasswordTextField {
+            textField.resignFirstResponder()
+        }
         return true
     }
     

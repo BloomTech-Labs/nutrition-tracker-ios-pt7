@@ -15,7 +15,7 @@ class LSLDietTableViewCell: UITableViewCell {
     @IBOutlet var dietRadioButton: UIButton!
     @IBOutlet var dietLabel: UILabel!
     
-    var diet: LSLDietPreference? {
+    var diet: Diet? {
         didSet {
             self.updateViews()
         }

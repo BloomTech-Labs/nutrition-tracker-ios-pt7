@@ -15,12 +15,10 @@ class LSLDietaryPreferenceViewController: UIViewController {
     @IBOutlet var dietTableView: UITableView!
     
     var nutritionController: LSLNutritionController?
-    var name: String?
-    var email: String?
-    var password: String?
     var age: String?
     var gender: String?
     var goalWeight: String?
+    var activityLevel: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,24 +27,8 @@ class LSLDietaryPreferenceViewController: UIViewController {
         self.dietTableView.dataSource = self
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToTrackingMacros" {
-            guard let tmVC = segue.destination as? LSLTrackingMacrosViewController else { return }
-            
-            tmVC.nutritionController = self.nutritionController
-            tmVC.name = self.name
-            tmVC.email = self.email
-            tmVC.password = self.password
-            tmVC.age = self.age
-            tmVC.gender = self.gender
-            tmVC.goalWeight = self.goalWeight
-            tmVC.diet = self.nutritionController?.selectedDiets.map({ (diet) -> String in
-                return diet.name
-            })
-        }
+    @IBAction func completeProfile(_ sender: CustomButton) {
+        // 
     }
 }
 
@@ -77,8 +59,7 @@ extension LSLDietaryPreferenceViewController: LSLDietTableViewCellDelegate {
             if i != indexPath.row {
                 self.nutritionController?.diets[i].isSelected = false
             } else {
-                self.nutritionController?.selectedDiets = []
-                self.nutritionController?.toggledSelected(at: indexPath)
+                self.nutritionController?.toggledSelectedDiet(at: indexPath)
             }
         }
         self.dietTableView.reloadData()
