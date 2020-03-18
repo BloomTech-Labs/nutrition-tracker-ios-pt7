@@ -29,12 +29,6 @@ class LSLRegisterViewController: UIViewController {
         self.passwordTextField.delegate = self
         self.confirmPasswordTextField.delegate = self
         
-        // Testing... Delete these when finished
-        self.nameTextField.text = "Michael Stoffer"
-        self.emailTextField.text = "mstoffer@michaelstoffer.com"
-        self.passwordTextField.text = "password"
-        self.confirmPasswordTextField.text = "password"
-        
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
 
@@ -48,22 +42,22 @@ class LSLRegisterViewController: UIViewController {
             password == confirmedPassword else { return }
         
         self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
-//        apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { [weak self] result in
-//            switch result {
-//                case .success(let graphQLResult):
-//                    if let token = graphQLResult.data?.createUser.token {
-//                        let keychain = KeychainSwift()
-//                        keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
-//                        self?.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
-//                    }
-//
-//                    if let errors = graphQLResult.errors {
-//                        print("Errors from server: \(errors)")
-//                    }
-//                case .failure(let error):
-//                    print("Error: \(error)")
-//            }
-//        }
+        Network.shared.apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { [weak self] result in
+            switch result {
+                case .success(let graphQLResult):
+                    if let token = graphQLResult.data?.createUser.token {
+                        let keychain = KeychainSwift()
+                        keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
+                        self?.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
+                    }
+
+                    if let errors = graphQLResult.errors {
+                        print("Errors from server: \(errors)")
+                    }
+                case .failure(let error):
+                    print("Error: \(error)")
+            }
+        }
     }
     
     @objc func dismissKeyboard() {

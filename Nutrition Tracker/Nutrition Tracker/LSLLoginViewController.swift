@@ -33,7 +33,7 @@ class LSLLoginViewController: UIViewController {
         guard let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty else { return }
         
-        apollo.perform(mutation: LoginMutation(data: LoginUserInput(email: email, password: password))) { [weak self] result in
+        Network.shared.apollo.perform(mutation: LoginMutation(data: LoginUserInput(email: email, password: password))) { [weak self] result in
             switch result {
                 case .success(let graphQLResult):
                     if let token = graphQLResult.data?.login.token {

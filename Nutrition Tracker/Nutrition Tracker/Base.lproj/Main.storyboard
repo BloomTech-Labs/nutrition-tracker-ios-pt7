@@ -282,7 +282,7 @@
                         <outlet property="emailTextField" destination="Dd1-5A-BtE" id="Afs-rZ-HAC"/>
                         <outlet property="passwordTextField" destination="9FE-60-Y3d" id="IlK-XT-p31"/>
                         <outlet property="submitButton" destination="b43-dI-OzL" id="Wu6-Wc-le5"/>
-                        <segue destination="Mlh-OG-Eda" kind="showDetail" identifier="LoginToDashboard" id="hva-qZ-piz"/>
+                        <segue destination="Mlh-OG-Eda" kind="show" identifier="LoginToDashboard" id="hva-qZ-piz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xf-44-lyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -814,7 +814,7 @@
                     <navigationItem key="navigationItem" title="Dietary Preference" id="zkf-02-ixH"/>
                     <connections>
                         <outlet property="dietTableView" destination="eeK-I8-VBu" id="mX0-4e-AWF"/>
-                        <segue destination="Mlh-OG-Eda" kind="showDetail" identifier="ProfileToDashboard" id="I5u-2N-reR"/>
+                        <segue destination="Mlh-OG-Eda" kind="show" identifier="ProfileToDashboard" id="I5u-2N-reR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8S-Sx-X2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -960,7 +960,7 @@
             <objects>
                 <viewController storyboardIdentifier="Dashboard" modalPresentationStyle="fullScreen" id="Mlh-OG-Eda" customClass="LSLDashboardViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Adm-Ft-oQU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="7Xh-GV-NFP"/>
@@ -969,6 +969,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Daily Tracking" id="BH8-dS-Jsx"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRx-8g-h6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1203,14 +1204,14 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Weight " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqu-tf-Zhd">
-                                <rect key="frame" x="202" y="-2" width="71" height="14"/>
+                                <rect key="frame" x="200.33333333333334" y="-3.333333333333333" width="74.666666666666657" height="15.333333333333332"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Height " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-6L-5Sp">
-                                <rect key="frame" x="103" y="-2" width="69.333333333333314" height="14"/>
+                                <rect key="frame" x="102" y="-3.333333333333333" width="71" height="15.333333333333332"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -1284,14 +1285,14 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Height " textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWV-BS-cK6">
-                                <rect key="frame" x="39.666666666666664" y="-2" width="69.333333333333343" height="14"/>
+                                <rect key="frame" x="38.666666666666657" y="-3.333333333333333" width="71" height="15.333333333333332"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Weight " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-If-KlM">
-                                <rect key="frame" x="266.33333333333331" y="-2" width="71" height="14"/>
+                                <rect key="frame" x="264.66666666666669" y="-3.333333333333333" width="74.666666666666686" height="15.333333333333332"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <nil key="textColor"/>

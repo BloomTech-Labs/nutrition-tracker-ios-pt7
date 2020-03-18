@@ -36,11 +36,6 @@ class LSLGettingPersonalViewController: UIViewController {
     }
     
     @IBAction func toActivityLevel(_ sender: CustomButton) {
-        // Testing... Delete these when finished
-        LSLNutritionController.gender = true
-        LSLNutritionController.age = 39
-        LSLNutritionController.goalWeight = 190
-
         self.performSegue(withIdentifier: "ToActivityLevel", sender: self)
     }
     
@@ -50,21 +45,23 @@ class LSLGettingPersonalViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToActivityLevel" {
             guard let apVC = segue.destination as? LSLActivityLevelViewController else { return }
-//            guard let age = self.ageTextView.text, !age.isEmpty else { return nc.alertEmptyTextField(controller: self, field: "Age") }
-//            guard let goalWeight = self.goalWeightTextView.text, !goalWeight.isEmpty else { return nc.alertEmptyTextField(controller: self, field: "Goal Weight") }
+            guard let age = self.ageTextView.text, !age.isEmpty else { return self.nutritionController!.alertEmptyTextField(controller: self, field: "Age") }
+            guard let goalWeight = self.goalWeightTextView.text, !goalWeight.isEmpty else { return self.nutritionController!.alertEmptyTextField(controller: self, field: "Goal Weight") }
 
-//            var gender: String = ""
-//            for index in 0..<self.genderPickerView!.numberOfComponents {
-//                gender = nc.genders[self.genderPickerView.selectedRow(inComponent: index)]
-//            }
-//            if gender == "Male" {
-//                LSLNutritionController.gender = true
-//            } else if gender == "Female" {
-//                LSLNutritionController.gender = false
-//            }
+            var gender: String = ""
+            for index in 0..<self.genderPickerView!.numberOfComponents {
+                gender = self.nutritionController!.genders[self.genderPickerView.selectedRow(inComponent: index)]
+            }
+            if gender == "Male" {
+                LSLNutritionController.gender = true
+            } else if gender == "Female" {
+                LSLNutritionController.gender = false
+            } else {
+                LSLNutritionController.gender = nil
+            }
 
-//            LSLNutritionController.age = age
-//            LSLNutritionController.goalWeight = goalWeight
+            LSLNutritionController.age = Int(age)
+            LSLNutritionController.goalWeight = Int(goalWeight)
             
             apVC.nutritionController = self.nutritionController
         }

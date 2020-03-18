@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Apollo
-
-let apollo = ApolloClient(url: URL(string: "https://labspt7-nutrition-tracker-be.herokuapp.com/")!)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
