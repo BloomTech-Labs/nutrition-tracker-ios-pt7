@@ -27,23 +27,14 @@ class LSLDietaryPreferenceViewController: UIViewController {
         guard let age = LSLNutritionController.age else { return } // Required
         guard let weight = LSLNutritionController.weight else { return } // Required
         guard let height = LSLNutritionController.height else { return } // Required
-        guard let gender = LSLNutritionController.gender else { return }
-        guard let goalWeight = LSLNutritionController.goalWeight else { return }
-        guard let activityLevel = LSLNutritionController.activityLevel else { return }
-        guard let diet = LSLNutritionController.diet else { return }
-                
-        Network.shared.apollo.perform(mutation: CreateProfileMutation(data: CreateProfileInput(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet))) { [weak self] result in
-            switch result {
-                case .success(let graphQLResult):
-                    if graphQLResult.data?.createProfile.id != nil {
-                        self?.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
-                    }
-                    
-                    if let errors = graphQLResult.errors {
-                        print("Errors from server: \(errors)")
-                    }
-                case .failure(let error):
-                    print("Error: \(error)")
+        guard let gender = LSLNutritionController.gender else { return } // Optional
+        guard let goalWeight = LSLNutritionController.goalWeight else { return } // Optional
+        guard let activityLevel = LSLNutritionController.activityLevel else { return } // Optional
+        guard let diet = LSLNutritionController.diet else { return } // Optional
+        
+        Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (_) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
             }
         }
     }

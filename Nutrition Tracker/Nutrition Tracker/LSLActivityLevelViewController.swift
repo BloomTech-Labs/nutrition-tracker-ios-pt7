@@ -43,13 +43,13 @@ extension LSLActivityLevelViewController: UITableViewDelegate {
 
 extension LSLActivityLevelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.nutritionController!.diets.count
+        return self.nutritionController!.activityLevels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveCell", for: indexPath) as? LSLActiveTableViewCell else { return UITableViewCell() }
-                
-        let activityLevel = self.nutritionController!.activityLevels[indexPath.row]
+               
+        let activityLevel = self.nutritionController?.activityLevels[indexPath.row]
         cell.activityLevel = activityLevel
         cell.delegate = self
         

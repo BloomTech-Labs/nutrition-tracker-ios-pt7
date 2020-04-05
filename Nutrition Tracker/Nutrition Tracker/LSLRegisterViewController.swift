@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Apollo
-import KeychainSwift
 
 class LSLRegisterViewController: UIViewController {
     
@@ -41,22 +39,10 @@ class LSLRegisterViewController: UIViewController {
             let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty,
             password == confirmedPassword else { return }
         
-        self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
-        Network.shared.apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { [weak self] result in
-            switch result {
-                case .success(let graphQLResult):
-                    if let token = graphQLResult.data?.createUser.token {
-                        let keychain = KeychainSwift()
-                        keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
-                        self?.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
-                    }
-
-                    if let errors = graphQLResult.errors {
-                        print("Errors from server: \(errors)")
-                    }
-                case .failure(let error):
-                    print("Error: \(error)")
-            }
+        Network.shared.createUser(name: name, email: email, password: password) { (_) in
+//            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
+//            }
         }
     }
     

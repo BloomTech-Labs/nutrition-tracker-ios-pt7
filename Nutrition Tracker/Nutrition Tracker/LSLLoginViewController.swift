@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Apollo
-import KeychainSwift
 
 class LSLLoginViewController: UIViewController {
     
@@ -16,9 +14,7 @@ class LSLLoginViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var submitButton: CustomButton!
-    
-    static let loginKeychainKey = "login"
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,31 +29,16 @@ class LSLLoginViewController: UIViewController {
         guard let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty else { return }
         
-        Network.shared.apollo.perform(mutation: LoginMutation(data: LoginUserInput(email: email, password: password))) { [weak self] result in
-            switch result {
-                case .success(let graphQLResult):
-                    if let token = graphQLResult.data?.login.token {
-                        let keychain = KeychainSwift()
-                        keychain.set(token, forKey: LSLLoginViewController.loginKeychainKey)
-                        self?.performSegue(withIdentifier: "LoginToDashboard", sender: self)
-                    }
-                    if let errors = graphQLResult.errors {
-                        print("Errors from server: \(errors)")
-                    }
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
+        Network.shared.loginUser(email: email, password: password) { (_) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
+            }
         }
     }
     
     @objc func dismissKeyboard() {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
-    }
-    
-    static public func isLoggedIn() -> Bool {
-      let keychain = KeychainSwift()
-      return keychain.get(LSLLoginViewController.loginKeychainKey) != nil
     }
 }
 

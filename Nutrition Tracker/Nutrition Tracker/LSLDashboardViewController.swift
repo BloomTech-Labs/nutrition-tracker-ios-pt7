@@ -15,23 +15,33 @@ class LSLDashboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if LSLLoginViewController.isLoggedIn() {
-            // Hide Back Button
-//            self.navigationItem.hidesBackButton = true
-            
-            // Change Button to Logout
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
-        }
     }
     
-    @objc func logoutTapped() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        if Network.isLoggedIn() {
+//            // Hide Back Button
+////            self.navigationItem.hidesBackButton = true
+//
+//            // Change Button to Logout
+//            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+//        }
+    }
+    
+//    @objc func logoutTapped() {
+//        let keychain = KeychainSwift()
+//        keychain.clear()
+//        self.navigationController?.popToRootViewController(animated: true)
+//    }
+    
+    @IBAction func logout(_ sender: Any) {
         let keychain = KeychainSwift()
         keychain.clear()
-        self.navigationController?.popToRootViewController(animated: true)
+        guard let mainVC = UIViewController() as? LSLMainViewController else { return }
+        self.navigationController?.popToViewController(mainVC, animated: true)
     }
     
-
     /*
     // MARK: - Navigation
 
