@@ -17,8 +17,6 @@ class LSLRegisterViewController: UIViewController {
     @IBOutlet var passwordTextField: CustomTextField!
     @IBOutlet var confirmPasswordTextField: CustomTextField!
     
-    var nutritionController = LSLNutritionController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,9 +38,7 @@ class LSLRegisterViewController: UIViewController {
             password == confirmedPassword else { return }
         
         Network.shared.createUser(name: name, email: email, password: password) { (_) in
-//            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
-//            }
+            self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
         }
     }
     
@@ -51,17 +47,6 @@ class LSLRegisterViewController: UIViewController {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         self.confirmPasswordTextField.resignFirstResponder()
-    }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToCalculateBMI" {
-            guard let vc = segue.destination as? LSLCalculateBMIViewController else { return }
-
-            vc.nutritionController = self.nutritionController
-        }
     }
 }
 

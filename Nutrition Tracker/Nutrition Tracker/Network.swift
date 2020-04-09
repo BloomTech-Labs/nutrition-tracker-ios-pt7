@@ -117,4 +117,50 @@ class Network {
             }
         }
     }
+    
+    func getMyName(completion: @escaping (Result<String, NetworkError>) -> Void) {
+        apollo.fetch(query: MeQuery()) { result in
+            switch result {
+            case .success(let graphQLResult):
+                guard let name = graphQLResult.data?.me.name else {
+                    completion(.failure(.badData))
+                    return
+                }
+                
+                guard graphQLResult.errors == nil else {
+                    print("Errors from server: \(graphQLResult.errors!)")
+                    completion(.failure(.otherError))
+                    return
+                }
+                
+                completion(.success(name))
+            case .failure(let error):
+              // Network or response format errors
+              print(error)
+            }
+        }
+    }
+    
+    func checkForProfile(completion: @escaping (Bool) -> Void) {
+        apollo.fetch(query: MeQuery()) { result in
+            switch result {
+            case .success(let graphQLResult):
+                guard graphQLResult.data?.me.profile != nil else {
+                    completion(false)
+                    return
+                }
+                
+                guard graphQLResult.errors == nil else {
+                    print("Errors from server: \(graphQLResult.errors!)")
+                    completion(false)
+                    return
+                }
+                
+                completion(true)
+            case .failure(let error):
+              // Network or response format errors
+              print(error)
+            }
+        }
+    }
 }

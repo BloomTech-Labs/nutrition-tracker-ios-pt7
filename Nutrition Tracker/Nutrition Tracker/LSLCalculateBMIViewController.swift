@@ -17,7 +17,7 @@ class LSLCalculateBMIViewController: UIViewController {
     @IBOutlet var metricUIView: UIView!
     @IBOutlet var currentBMILabel: UILabel!
     
-    var nutritionController: LSLNutritionController?
+    var nutritionController = LSLNutritionController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class LSLCalculateBMIViewController: UIViewController {
     
     @IBAction func advanceToGettingPersonal(_ sender: CustomButton) {
         guard let _ = LSLNutritionController.height,
-            let _ = LSLNutritionController.weight else { return (self.nutritionController?.alertEmptyTextField(controller: self, field: "Height and/or Weight"))! }
+            let _ = LSLNutritionController.weight else { return (self.nutritionController.alertEmptyTextField(controller: self, field: "Height and/or Weight")) }
         
         self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
     }

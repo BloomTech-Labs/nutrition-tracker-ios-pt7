@@ -12,35 +12,42 @@ import KeychainSwift
 class LSLDashboardViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
-
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var streakCountLabel: UILabel!
+    @IBOutlet var currentWeightLabel: UILabel!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var dailyVibeView: UIView!
+    @IBOutlet var searchResultsView: UIView!
+    
+    var currentUser: User?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        self.title = "Dashboard"
         
-//        if Network.isLoggedIn() {
-//            // Hide Back Button
-////            self.navigationItem.hidesBackButton = true
-//
-//            // Change Button to Logout
-//            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
-//        }
+        if Network.isLoggedIn() {
+            Network.shared.checkForProfile { (bool) in
+                if !bool {
+                    self.performSegue(withIdentifier: "MissingProfile", sender: self)
+                }
+            }
+            
+            Network.shared.getMyName { (result) in
+                if let name = try? result.get() {
+                    self.nameLabel.text = name
+                }
+            }
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
-    
-//    @objc func logoutTapped() {
-//        let keychain = KeychainSwift()
-//        keychain.clear()
-//        self.navigationController?.popToRootViewController(animated: true)
-//    }
-    
-    @IBAction func logout(_ sender: Any) {
+        
+    @objc func logoutTapped() {
         let keychain = KeychainSwift()
         keychain.clear()
-        guard let mainVC = UIViewController() as? LSLMainViewController else { return }
-        self.navigationController?.popToViewController(mainVC, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
+    
     
     /*
     // MARK: - Navigation

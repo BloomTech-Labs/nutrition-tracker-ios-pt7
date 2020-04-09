@@ -22,6 +22,10 @@
 		D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */; };
 		D631B287241891DD00AE30C9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B286241891DD00AE30C9 /* Profile.swift */; };
 		D631B2892418929800AE30C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2882418929800AE30C9 /* User.swift */; };
+		D6853E9F243D77A7003EDF91 /* LSLDashboardController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D6853E9E243D77A7003EDF91 /* LSLDashboardController.graphql */; };
+		D6853EA1243D81CB003EDF91 /* FavoriteFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */; };
+		D6853EA3243D8247003EDF91 /* DailyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6853EA2243D8247003EDF91 /* DailyRecord.swift */; };
+		D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6853EA4243D82C0003EDF91 /* WeightLog.swift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
 		D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */; };
@@ -68,6 +72,10 @@
 		D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLActiveTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		D631B286241891DD00AE30C9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D631B2882418929800AE30C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D6853E9E243D77A7003EDF91 /* LSLDashboardController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLDashboardController.graphql; sourceTree = "<group>"; };
+		D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFood.swift; sourceTree = "<group>"; };
+		D6853EA2243D8247003EDF91 /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
+		D6853EA4243D82C0003EDF91 /* WeightLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLog.swift; sourceTree = "<group>"; };
 		D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +252,9 @@
 				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
 				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
 				D6A1CC40240BF37100477429 /* Diet.swift */,
+				D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */,
+				D6853EA2243D8247003EDF91 /* DailyRecord.swift */,
+				D6853EA4243D82C0003EDF91 /* WeightLog.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -255,6 +266,7 @@
 				D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */,
 				D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */,
 				D631B27A24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql */,
+				D6853E9E243D77A7003EDF91 /* LSLDashboardController.graphql */,
 			);
 			name = GraphQL;
 			sourceTree = "<group>";
@@ -329,6 +341,7 @@
 			files = (
 				D68C704D23F4F66B008AFDF0 /* schema.json in Resources */,
 				D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */,
+				D6853E9F243D77A7003EDF91 /* LSLDashboardController.graphql in Resources */,
 				D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */,
 				D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */,
 				D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */,
@@ -378,10 +391,13 @@
 				D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */,
 				D6A1CC41240BF37100477429 /* Diet.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
+				D6853EA3243D8247003EDF91 /* DailyRecord.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
 				D631B2892418929800AE30C9 /* User.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
+				D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */,
+				D6853EA1243D81CB003EDF91 /* FavoriteFood.swift in Sources */,
 				D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */,
 				D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */,

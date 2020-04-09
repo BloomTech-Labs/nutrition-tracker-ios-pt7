@@ -24,14 +24,14 @@ class LSLActivityLevelViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     @IBAction func ToDietaryPreference(_ sender: Any) {
-        self.performSegue(withIdentifier: "ToDietaryPreference", sender: self)
+        self.performSegue(withIdentifier: "ToDietPreference", sender: self)
     }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToDietaryPreference" {
+        if segue.identifier == "ToDietPreference" {
             guard let dpVC = segue.destination as? LSLDietaryPreferenceViewController else { return }
             dpVC.nutritionController = self.nutritionController
         }
