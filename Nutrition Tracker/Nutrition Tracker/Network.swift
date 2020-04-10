@@ -163,4 +163,27 @@ class Network {
             }
         }
     }
+    
+    func getMyWeight(completion: @escaping (Result<Int, NetworkError>) -> Void) {
+        apollo.fetch(query: MeQuery()) { result in
+            switch result {
+            case .success(let graphQLResult):
+                guard let weight = graphQLResult.data?.me.profile?.weight else {
+                    completion(.failure(.badData))
+                    return
+                }
+                
+                guard graphQLResult.errors == nil else {
+                    print("Errors from server: \(graphQLResult.errors!)")
+                    completion(.failure(.otherError))
+                    return
+                }
+                
+                completion(.success(weight))
+            case .failure(let error):
+              // Network or response format errors
+              print(error)
+            }
+        }
+    }
 }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C89A9EA24400CD300348B5A /* LSLDailyVibeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9E924400CD300348B5A /* LSLDailyVibeViewController.swift */; };
+		4C89A9EC24400DCA00348B5A /* LSLFoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9EB24400DCA00348B5A /* LSLFoodSearchViewController.swift */; };
+		4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */; };
+		4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F02440105500348B5A /* Dashboard.storyboard */; };
+		4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F3244010E500348B5A /* Profile.storyboard */; };
+		4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F52440134500348B5A /* SignIn.storyboard */; };
+		4C89A9F92440137200348B5A /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F82440137200348B5A /* Signup.storyboard */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
@@ -58,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C89A9E924400CD300348B5A /* LSLDailyVibeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDailyVibeViewController.swift; sourceTree = "<group>"; };
+		4C89A9EB24400DCA00348B5A /* LSLFoodSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodSearchViewController.swift; sourceTree = "<group>"; };
+		4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodDetailViewController.swift; sourceTree = "<group>"; };
+		4C89A9F12440105500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/Dashboard.storyboard"; sourceTree = "<group>"; };
+		4C89A9F3244010E500348B5A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		4C89A9F62440134500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/SignIn.storyboard"; sourceTree = "<group>"; };
+		4C89A9F82440137200348B5A /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +90,7 @@
 		D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFood.swift; sourceTree = "<group>"; };
 		D6853EA2243D8247003EDF91 /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
 		D6853EA4243D82C0003EDF91 /* WeightLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLog.swift; sourceTree = "<group>"; };
-		D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68C701A23F25400008AFDF0 /* Nutrivurv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrivurv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLRegisterViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +135,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C89A9E824400BEC00348B5A /* Dashes */ = {
+			isa = PBXGroup;
+			children = (
+				4C89A9E924400CD300348B5A /* LSLDailyVibeViewController.swift */,
+				4C89A9EB24400DCA00348B5A /* LSLFoodSearchViewController.swift */,
+				4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */,
+			);
+			name = Dashes;
+			sourceTree = "<group>";
+		};
+		4C89A9EF24400F9000348B5A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */,
+				D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */,
+				D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */,
+				D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */,
+				D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */,
+				D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +202,7 @@
 		D68C701B23F25400008AFDF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */,
+				D68C701A23F25400008AFDF0 /* Nutrivurv.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +241,10 @@
 			children = (
 				D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */,
 				D68C702323F25400008AFDF0 /* Main.storyboard */,
+				4C89A9F52440134500348B5A /* SignIn.storyboard */,
+				4C89A9F82440137200348B5A /* Signup.storyboard */,
+				4C89A9F3244010E500348B5A /* Profile.storyboard */,
+				4C89A9F02440105500348B5A /* Dashboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -214,13 +255,9 @@
 				D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */,
 				D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */,
 				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
-				D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */,
-				D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */,
-				D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */,
-				D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */,
-				D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */,
-				D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */,
+				4C89A9EF24400F9000348B5A /* Profile */,
 				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
+				4C89A9E824400BEC00348B5A /* Dashes */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -293,7 +330,7 @@
 				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
 			);
 			productName = "Nutrition Tracker";
-			productReference = D68C701A23F25400008AFDF0 /* Nutrition Tracker.app */;
+			productReference = D68C701A23F25400008AFDF0 /* Nutrivurv.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -341,9 +378,12 @@
 			files = (
 				D68C704D23F4F66B008AFDF0 /* schema.json in Resources */,
 				D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */,
+				4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */,
 				D6853E9F243D77A7003EDF91 /* LSLDashboardController.graphql in Resources */,
 				D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */,
 				D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */,
+				4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */,
+				4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */,
 				D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */,
 				D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */,
 				D6A1CC2724076FF000477429 /* Muli-SemiBold.ttf in Resources */,
@@ -354,6 +394,7 @@
 				D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */,
 				D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */,
 				D6A1CC2924076FF000477429 /* Muli-Light.ttf in Resources */,
+				4C89A9F92440137200348B5A /* Signup.storyboard in Resources */,
 				D6A1CC2824076FF000477429 /* Muli-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +439,7 @@
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */,
 				D6853EA1243D81CB003EDF91 /* FavoriteFood.swift in Sources */,
+				4C89A9EC24400DCA00348B5A /* LSLFoodSearchViewController.swift in Sources */,
 				D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */,
 				D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */,
@@ -411,8 +453,10 @@
 				D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
+				4C89A9EA24400CD300348B5A /* LSLDailyVibeViewController.swift in Sources */,
 				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* Network.swift in Sources */,
+				4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */,
 				D6A1CC3D240B601700477429 /* LSLNutritionController.swift in Sources */,
 				D68C705523F65948008AFDF0 /* API.swift in Sources */,
@@ -422,6 +466,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		4C89A9F02440105500348B5A /* Dashboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C89A9F12440105500348B5A /* Base */,
+			);
+			name = Dashboard.storyboard;
+			sourceTree = "<group>";
+		};
+		4C89A9F52440134500348B5A /* SignIn.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C89A9F62440134500348B5A /* Base */,
+			);
+			name = SignIn.storyboard;
+			sourceTree = "<group>";
+		};
 		D68C702323F25400008AFDF0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -567,7 +627,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Nutrition-Tracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nutrivurv;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -585,7 +645,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Nutrition-Tracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nutrivurv;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

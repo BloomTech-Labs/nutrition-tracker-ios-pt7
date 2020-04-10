@@ -17,6 +17,9 @@ class LSLLoginViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide Back Button
+        self.navigationItem.hidesBackButton = true
 
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self

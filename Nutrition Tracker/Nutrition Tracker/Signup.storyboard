@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3WQ-uR-EyV">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
+        <array key="Muli-Light.ttf">
+            <string>Muli-Light</string>
+        </array>
+        <array key="Muli-Regular.ttf">
+            <string>Muli-Regular</string>
+        </array>
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Sign Up-->
+        <scene sceneID="9xJ-Tb-4Ew">
+            <objects>
+                <viewController storyboardIdentifier="Register" modalPresentationStyle="fullScreen" id="3WQ-uR-EyV" customClass="LSLRegisterViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HAm-tD-1G5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You’re one step closer to your Goals!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59l-D0-fXe">
+                                <rect key="frame" x="50" y="74" width="314" height="60.5"/>
+                                <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="0mC-go-Goe">
+                                <rect key="frame" x="15" y="164.5" width="384" height="299"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First and lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-Jl-T8B" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="veH-c1-n2h"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZVv-Ea-52M" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="81" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="EGd-KR-BbH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRV-yp-U8z" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="162" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="dOP-fE-POu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Nh-iE-HQ5" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="243" width="384" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="6z5-zU-ks9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-fo-NOD">
+                                <rect key="frame" x="24" y="155.5" width="79.5" height="15.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFl-O9-24X">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-eA-1FC">
+                                        <rect key="frame" x="64" y="0.0" width="6.5" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR2-gB-xOQ">
+                                        <rect key="frame" x="70.5" y="0.0" width="9" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5g-q7-cBg">
+                                <rect key="frame" x="24" y="237" width="54.5" height="15.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkJ-sa-jJa">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLZ-n0-HTj">
+                                        <rect key="frame" x="39" y="0.0" width="6.5" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwe-6M-jcn">
+                                        <rect key="frame" x="45.5" y="0.0" width="9" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaB-eF-oDo">
+                                <rect key="frame" x="24" y="400" width="121" height="15.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLo-YA-RWc">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-oQ-5lq">
+                                        <rect key="frame" x="105.5" y="0.0" width="6.5" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XK9-or-3vr">
+                                        <rect key="frame" x="112" y="0.0" width="9" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtD-m4-ecB" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="16" y="493.5" width="382" height="44"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.25882352939999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9vP-6e-ZgX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="14"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="register:" destination="3WQ-uR-EyV" eventType="touchUpInside" id="Sgw-ld-0U2"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vG1-As-iuo">
+                                <rect key="frame" x="129" y="545.5" width="156" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already a member?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQx-uD-KHO">
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="28"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwu-xf-l5Z">
+                                        <rect key="frame" x="116" y="0.0" width="40" height="28"/>
+                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="12"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" red="0.42352941179999998" green="0.38823529410000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="M33-XK-sL7" kind="show" identifier="RegisterToLogin" id="NMm-TT-vdP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOd-HX-OTj">
+                                <rect key="frame" x="24" y="318.5" width="74" height="15.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TrT-V8-vcC">
+                                        <rect key="frame" x="0.0" y="0.0" width="58.5" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry6-EW-3B1">
+                                        <rect key="frame" x="58.5" y="0.0" width="6.5" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-1n-f3y">
+                                        <rect key="frame" x="65" y="0.0" width="9" height="15.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl" translatesAutoresizingMaskIntoConstraints="NO" id="YTq-vA-djA">
+                                <rect key="frame" x="64" y="722" width="286" height="124"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gtD-m4-ecB" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="16" id="1Zv-Ji-L6t"/>
+                            <constraint firstItem="F4n-7b-SFu" firstAttribute="trailing" secondItem="59l-D0-fXe" secondAttribute="trailing" constant="50" id="7FD-eb-SJR"/>
+                            <constraint firstItem="gtD-m4-ecB" firstAttribute="top" secondItem="0mC-go-Goe" secondAttribute="bottom" constant="30" id="G1n-oA-NR9"/>
+                            <constraint firstItem="F4n-7b-SFu" firstAttribute="trailing" secondItem="0mC-go-Goe" secondAttribute="trailing" constant="15" id="GSr-YF-qyC"/>
+                            <constraint firstItem="YTq-vA-djA" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="64" id="HmJ-lK-xuZ"/>
+                            <constraint firstItem="0mC-go-Goe" firstAttribute="top" secondItem="59l-D0-fXe" secondAttribute="bottom" constant="30" id="Uei-pN-hQR"/>
+                            <constraint firstItem="0mC-go-Goe" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="15" id="WKW-ye-jPz"/>
+                            <constraint firstItem="59l-D0-fXe" firstAttribute="top" secondItem="F4n-7b-SFu" secondAttribute="top" constant="30" id="aVI-YR-fJU"/>
+                            <constraint firstItem="mDr-fo-NOD" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="24" id="bM3-Fe-a6d"/>
+                            <constraint firstItem="F4n-7b-SFu" firstAttribute="bottom" secondItem="YTq-vA-djA" secondAttribute="bottom" constant="16" id="cN0-SN-xtt"/>
+                            <constraint firstItem="YOd-HX-OTj" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="24" id="clD-Y7-wYu"/>
+                            <constraint firstItem="vG1-As-iuo" firstAttribute="centerX" secondItem="HAm-tD-1G5" secondAttribute="centerX" id="ei8-a9-H0J"/>
+                            <constraint firstItem="59l-D0-fXe" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="50" id="gD7-RU-0QA"/>
+                            <constraint firstItem="F4n-7b-SFu" firstAttribute="trailing" secondItem="YTq-vA-djA" secondAttribute="trailing" constant="64" id="j4I-HV-h7l"/>
+                            <constraint firstItem="vG1-As-iuo" firstAttribute="top" secondItem="gtD-m4-ecB" secondAttribute="bottom" constant="8" id="kvA-Fe-W2L"/>
+                            <constraint firstItem="zaB-eF-oDo" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="24" id="lGA-dL-72u"/>
+                            <constraint firstItem="p5g-q7-cBg" firstAttribute="top" secondItem="mDr-fo-NOD" secondAttribute="bottom" constant="66" id="lTc-gZ-e3L"/>
+                            <constraint firstItem="YOd-HX-OTj" firstAttribute="top" secondItem="p5g-q7-cBg" secondAttribute="bottom" constant="66" id="uYx-jb-yf9"/>
+                            <constraint firstItem="F4n-7b-SFu" firstAttribute="trailing" secondItem="gtD-m4-ecB" secondAttribute="trailing" constant="16" id="vIZ-gU-2Ye"/>
+                            <constraint firstItem="gtD-m4-ecB" firstAttribute="top" secondItem="zaB-eF-oDo" secondAttribute="bottom" constant="78" id="wAL-9u-q7d"/>
+                            <constraint firstItem="zaB-eF-oDo" firstAttribute="top" secondItem="YOd-HX-OTj" secondAttribute="bottom" constant="66" id="xlD-qO-IbT"/>
+                            <constraint firstItem="p5g-q7-cBg" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="24" id="yZU-Sx-Dq4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F4n-7b-SFu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign Up" id="rNq-OJ-MNz"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="0Nh-iE-HQ5" id="o2X-j4-HeQ"/>
+                        <outlet property="emailTextField" destination="ZVv-Ea-52M" id="kk7-kE-rfg"/>
+                        <outlet property="nameTextField" destination="ce5-Jl-T8B" id="D27-OJ-JhR"/>
+                        <outlet property="passwordTextField" destination="XRV-yp-U8z" id="7Oj-Co-6up"/>
+                        <segue destination="Uol-KK-m2c" kind="show" identifier="ToCalculateBMI" id="JkF-jo-OoI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LIZ-Hn-M3Q" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="-444"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="ONx-E2-rCr">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Profile" storyboardName="Profile" referencedIdentifier="Profile" id="Uol-KK-m2c" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lk2-UH-83P"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9qK-Jd-5ee" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2061" y="-461"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="FQM-2r-ytU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Login" storyboardName="SignIn" referencedIdentifier="Login" id="M33-XK-sL7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TvB-mb-Z5a"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Kh-j8-xBx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2056" y="-428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="girl" width="303" height="124"/>
+    </resources>
+</document>

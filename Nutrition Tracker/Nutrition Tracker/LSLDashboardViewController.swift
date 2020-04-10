@@ -20,28 +20,51 @@ class LSLDashboardViewController: UIViewController {
     @IBOutlet var searchResultsView: UIView!
     
     var currentUser: User?
+    var network = Network.shared
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Dashboard"
-        
+        self.updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateViews()
+    }
+    
+    private func updateViews() {
         if Network.isLoggedIn() {
-            Network.shared.checkForProfile { (bool) in
-                if !bool {
-                    self.performSegue(withIdentifier: "MissingProfile", sender: self)
+            // Hide Back Button
+            self.navigationItem.hidesBackButton = true
+            
+            // Change Button to Logout
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+            
+            // Update NameLabel
+            network.getMyName { (result) in
+                if let name = try? result.get() {
+                    self.nameLabel.text = name
                 }
             }
             
-            Network.shared.getMyName { (result) in
-                if let name = try? result.get() {
-                    self.nameLabel.text = name
+            // Update WeightLabel
+            network.getMyWeight { (result) in
+                if let weight = try? result.get() {
+                    self.currentWeightLabel.text = String(weight)
+                }
+            }
+            
+            // Check to see if has profile
+            network.checkForProfile { (bool) in
+                if !bool {
+                    self.performSegue(withIdentifier: "MissingProfile", sender: self)
                 }
             }
         } else {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
-        
+    
     @objc func logoutTapped() {
         let keychain = KeychainSwift()
         keychain.clear()

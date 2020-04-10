@@ -20,6 +20,9 @@ class LSLRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide Back Button
+        self.navigationItem.hidesBackButton = true
+        
         self.nameTextField.delegate = self
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
