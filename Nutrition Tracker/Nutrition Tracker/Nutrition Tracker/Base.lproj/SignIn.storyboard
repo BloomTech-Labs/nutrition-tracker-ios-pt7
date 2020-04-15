@@ -24,7 +24,7 @@
         <!--Sign In-->
         <scene sceneID="1wR-T9-cuf">
             <objects>
-                <viewController storyboardIdentifier="Login" modalPresentationStyle="fullScreen" id="qH3-6b-jvm" customClass="LSLLoginViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" modalPresentationStyle="fullScreen" id="qH3-6b-jvm" customClass="LSLLoginViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wb8-j7-6T8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,15 +38,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pdm-hf-GBs">
                                 <rect key="frame" x="16" y="163.5" width="382" height="132"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@gmail.com" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-5A-BtE" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@gmail.com" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-5A-BtE" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="ibT-SL-GId"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="9FE-60-Y3d" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="9FE-60-Y3d" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="76" width="382" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="EHE-sI-CGO"/>
@@ -83,7 +83,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b43-dI-OzL" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b43-dI-OzL" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="355.5" width="382" height="32"/>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.25882352941176467" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -178,7 +178,7 @@
                         <outlet property="emailTextField" destination="Dd1-5A-BtE" id="Afs-rZ-HAC"/>
                         <outlet property="passwordTextField" destination="9FE-60-Y3d" id="IlK-XT-p31"/>
                         <outlet property="submitButton" destination="b43-dI-OzL" id="Wu6-Wc-le5"/>
-                        <segue destination="ILo-DN-Jd9" kind="show" identifier="LoginToDashboard" id="hva-qZ-piz"/>
+                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="LoginToDashboard" modalPresentationStyle="fullScreen" id="hva-qZ-piz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xf-44-lyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -18,7 +18,7 @@
         <!--Nutrition Tracker-->
         <scene sceneID="URv-Qa-Okb">
             <objects>
-                <viewController storyboardIdentifier="Main" modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZdC-8b-FfQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-lf-FI8">
                                 <rect key="frame" x="16" y="518.66666666666663" width="343" height="120"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-lu-tFp" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-lu-tFp" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.25882352939999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -52,7 +52,7 @@
                                             <segue destination="M33-XK-sL7" kind="show" identifier="ShowLogin" id="bbi-d3-ZKs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86x-lr-i1v" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86x-lr-i1v" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="76" width="343" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="N0d-gq-S85"/>
@@ -95,7 +95,7 @@
                     <connections>
                         <outlet property="signInButton" destination="oZ9-lu-tFp" id="aFu-9O-gMM"/>
                         <outlet property="signUpButton" destination="86x-lr-i1v" id="bxs-iw-DNT"/>
-                        <segue destination="ILo-DN-Jd9" kind="show" identifier="ShowDashboard" id="kWR-IQ-0ni"/>
+                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="ShowDashboard" modalPresentationStyle="fullScreen" id="kWR-IQ-0ni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HQ-uR-2t1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

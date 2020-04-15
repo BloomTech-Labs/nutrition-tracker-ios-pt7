@@ -21,7 +21,7 @@
         <!--Getting Personal-->
         <scene sceneID="5Kh-dF-o2j">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yBG-gW-5N0" customClass="LSLGettingPersonalViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="yBG-gW-5N0" customClass="LSLGettingPersonalViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A03-dq-lML">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gID-ro-UPK" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gID-ro-UPK" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="385.5" width="382" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="meK-VI-4Dc"/>
@@ -83,7 +83,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g7-Uc-qv2" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g7-Uc-qv2" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="465.5" width="382" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.25882352939999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -102,7 +102,7 @@
                                 <color key="progressTintColor" red="0.55294117649999996" green="0.29803921570000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="trackTintColor" red="0.99607843139999996" green="0.25882352939999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="19, 22, 35, 81" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHI-pp-D7x" customClass="CustomTextField" customModule="Nutrition_Tracker" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="19, 22, 35, 81" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHI-pp-D7x" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="298.5" width="382" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="put-Jh-n9Q"/>
@@ -182,7 +182,7 @@
         <!--Dietary Preference-->
         <scene sceneID="Cd7-Nc-wWb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="4PP-Br-4e3" customClass="LSLDietaryPreferenceViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="4PP-Br-4e3" customClass="LSLDietaryPreferenceViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Yk-aG-xJr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +193,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-Mg-wV5" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f1-Mg-wV5" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="534" width="382" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.25882352939999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -214,7 +214,7 @@
                                     <constraint firstAttribute="height" constant="350" id="PGw-c7-eEA"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DietaryCell" id="22k-Ak-VM7" customClass="LSLDietTableViewCell" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DietaryCell" id="22k-Ak-VM7" customClass="LSLDietTableViewCell" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="47.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="22k-Ak-VM7" id="swK-I4-2ne">
@@ -305,7 +305,7 @@
                     <navigationItem key="navigationItem" title="Dietary Preference" id="zkf-02-ixH"/>
                     <connections>
                         <outlet property="dietTableView" destination="eeK-I8-VBu" id="mX0-4e-AWF"/>
-                        <segue destination="ILo-DN-Jd9" kind="show" identifier="ProfileToDashboard" id="I5u-2N-reR"/>
+                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="ProfileToDashboard" modalPresentationStyle="fullScreen" id="I5u-2N-reR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8S-Sx-X2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -315,7 +315,7 @@
         <!--Activity Level-->
         <scene sceneID="QGd-PD-W3S">
             <objects>
-                <viewController id="gC1-Ch-0S4" customClass="LSLActivityLevelViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gC1-Ch-0S4" customClass="LSLActivityLevelViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="clm-uW-RoJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -327,7 +327,7 @@
                                     <constraint firstAttribute="height" constant="350" id="boh-0I-8be"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActiveCell" rowHeight="73" id="ji5-mr-IPR" customClass="LSLActiveTableViewCell" customModule="Nutrition_Tracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActiveCell" rowHeight="73" id="ji5-mr-IPR" customClass="LSLActiveTableViewCell" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ji5-mr-IPR" id="grk-QG-Kfh">
@@ -388,7 +388,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMa-R4-ERX" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMa-R4-ERX" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="524" width="382" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.25882352939999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -449,7 +449,7 @@
         <!--Calculate BMI-->
         <scene sceneID="p1r-Qd-amC">
             <objects>
-                <viewController storyboardIdentifier="Profile" modalPresentationStyle="fullScreen" id="uSu-Zd-iJo" customClass="LSLCalculateBMIViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" modalPresentationStyle="fullScreen" id="uSu-Zd-iJo" customClass="LSLCalculateBMIViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c64-zW-Sq4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -581,7 +581,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meK-tG-twa" customClass="CustomButton" customModule="Nutrition_Tracker" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meK-tG-twa" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="621.5" width="382" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.25882352939999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -644,7 +644,7 @@
         <!--MetricBMI View Controller-->
         <scene sceneID="O1C-gm-nyT">
             <objects>
-                <viewController id="cYO-rS-GQ5" customClass="LSLMetricBMIViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cYO-rS-GQ5" customClass="LSLMetricBMIViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FIJ-5Y-hBp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -712,7 +712,7 @@
         <!--StandardBMI View Controller-->
         <scene sceneID="NJg-8q-vtm">
             <objects>
-                <viewController id="HaN-bY-6xi" customClass="LSLStandardBMIViewController" customModule="Nutrition_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HaN-bY-6xi" customClass="LSLStandardBMIViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHV-7W-MrM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

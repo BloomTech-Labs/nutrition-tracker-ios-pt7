@@ -32,6 +32,7 @@ class LSLCalculateBMIViewController: UIViewController {
     @IBAction func advanceToGettingPersonal(_ sender: CustomButton) {
         guard let _ = LSLNutritionController.height,
             let _ = LSLNutritionController.weight else { return (self.nutritionController.alertEmptyTextField(controller: self, field: "Height and/or Weight")) }
+        self.updateViews()
         
         self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
     }

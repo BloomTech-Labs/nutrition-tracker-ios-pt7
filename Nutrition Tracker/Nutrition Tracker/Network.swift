@@ -54,7 +54,7 @@ class Network {
                         completion(.failure(.otherError))
                         return
                     }
-                
+
                     let keychain = KeychainSwift()
                     keychain.set(token, forKey: Network.loginKeychainKey)
                     completion(.success(true))
@@ -146,6 +146,7 @@ class Network {
             switch result {
             case .success(let graphQLResult):
                 guard graphQLResult.data?.me.profile != nil else {
+                    print("Profile isn't returning: \(String(describing: graphQLResult.data?.me))")
                     completion(false)
                     return
                 }

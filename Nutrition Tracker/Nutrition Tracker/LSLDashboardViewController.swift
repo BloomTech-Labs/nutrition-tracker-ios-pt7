@@ -17,8 +17,7 @@ class LSLDashboardViewController: UIViewController {
     @IBOutlet var currentWeightLabel: UILabel!
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var dailyVibeView: UIView!
-    @IBOutlet var searchResultsView: UIView!
-    
+        
     var currentUser: User?
     var network = Network.shared
         

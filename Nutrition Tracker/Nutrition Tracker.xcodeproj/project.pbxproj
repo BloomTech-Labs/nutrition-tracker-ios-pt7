@@ -14,6 +14,7 @@
 		4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F3244010E500348B5A /* Profile.storyboard */; };
 		4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F52440134500348B5A /* SignIn.storyboard */; };
 		4C89A9F92440137200348B5A /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F82440137200348B5A /* Signup.storyboard */; };
+		4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
@@ -72,6 +73,7 @@
 		4C89A9F3244010E500348B5A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4C89A9F62440134500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/SignIn.storyboard"; sourceTree = "<group>"; };
 		4C89A9F82440137200348B5A /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLChallengesViewController.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				4C89A9EF24400F9000348B5A /* Profile */,
 				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
 				4C89A9E824400BEC00348B5A /* Dashes */,
+				4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				D6853EA3243D8247003EDF91 /* DailyRecord.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
+				4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */,
 				D631B2892418929800AE30C9 /* User.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */,
@@ -626,7 +630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Nutrition-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelstoffer.Nutrivurv;
 				PRODUCT_NAME = Nutrivurv;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -644,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelstoffer.Nutrition-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelstoffer.Nutrivurv;
 				PRODUCT_NAME = Nutrivurv;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
