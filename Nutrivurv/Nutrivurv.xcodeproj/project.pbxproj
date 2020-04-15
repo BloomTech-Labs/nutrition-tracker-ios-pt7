@@ -196,7 +196,7 @@
 		D68C701123F25400008AFDF0 = {
 			isa = PBXGroup;
 			children = (
-				D68C701C23F25400008AFDF0 /* Nutrition Tracker */,
+				D68C701C23F25400008AFDF0 /* Nutrivurv */,
 				D68C701B23F25400008AFDF0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D68C701C23F25400008AFDF0 /* Nutrition Tracker */ = {
+		D68C701C23F25400008AFDF0 /* Nutrivurv */ = {
 			isa = PBXGroup;
 			children = (
 				D68C703923F3B02E008AFDF0 /* Models */,
@@ -223,7 +223,7 @@
 				D60BA2C423FCDEDA00B3E6BF /* Fonts */,
 				D60BA2CE23FCF4C100B3E6BF /* Helpers */,
 			);
-			path = "Nutrition Tracker";
+			path = Nutrivurv;
 			sourceTree = "<group>";
 		};
 		D68C703423F3AF07008AFDF0 /* Resources */ = {
@@ -314,9 +314,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D68C701923F25400008AFDF0 /* Nutrition Tracker */ = {
+		D68C701923F25400008AFDF0 /* Nutrivurv */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D68C702E23F25402008AFDF0 /* Build configuration list for PBXNativeTarget "Nutrition Tracker" */;
+			buildConfigurationList = D68C702E23F25402008AFDF0 /* Build configuration list for PBXNativeTarget "Nutrivurv" */;
 			buildPhases = (
 				D68C704B23F4F626008AFDF0 /* Generate Apollo GraphQL API */,
 				D68C701623F25400008AFDF0 /* Sources */,
@@ -327,7 +327,7 @@
 			);
 			dependencies = (
 			);
-			name = "Nutrition Tracker";
+			name = Nutrivurv;
 			packageProductDependencies = (
 				D68C705223F50793008AFDF0 /* Apollo */,
 				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
@@ -352,7 +352,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D68C701523F25400008AFDF0 /* Build configuration list for PBXProject "Nutrition Tracker" */;
+			buildConfigurationList = D68C701523F25400008AFDF0 /* Build configuration list for PBXProject "Nutrivurv" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -369,7 +369,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D68C701923F25400008AFDF0 /* Nutrition Tracker */,
+				D68C701923F25400008AFDF0 /* Nutrivurv */,
 			);
 		};
 /* End PBXProject section */
@@ -623,15 +623,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
-				INFOPLIST_FILE = "Nutrition Tracker/Info.plist";
+				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelstoffer.Nutrivurv;
 				PRODUCT_NAME = Nutrivurv;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -641,15 +643,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
-				INFOPLIST_FILE = "Nutrition Tracker/Info.plist";
+				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelstoffer.Nutrivurv;
 				PRODUCT_NAME = Nutrivurv;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -658,7 +662,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D68C701523F25400008AFDF0 /* Build configuration list for PBXProject "Nutrition Tracker" */ = {
+		D68C701523F25400008AFDF0 /* Build configuration list for PBXProject "Nutrivurv" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D68C702C23F25402008AFDF0 /* Debug */,
@@ -667,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D68C702E23F25402008AFDF0 /* Build configuration list for PBXNativeTarget "Nutrition Tracker" */ = {
+		D68C702E23F25402008AFDF0 /* Build configuration list for PBXNativeTarget "Nutrivurv" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D68C702F23F25402008AFDF0 /* Debug */,
