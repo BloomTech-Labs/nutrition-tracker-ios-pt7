@@ -34,6 +34,7 @@ class LSLLoginViewController: UIViewController {
         
         Network.shared.loginUser(email: email, password: password) { (_) in
             DispatchQueue.main.async {
+                print("Logging In. Going to Dashboard.")
                 self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
             }
         }

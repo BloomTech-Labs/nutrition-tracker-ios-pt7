@@ -145,8 +145,8 @@ class Network {
         apollo.fetch(query: MeQuery()) { result in
             switch result {
             case .success(let graphQLResult):
-                guard graphQLResult.data?.me.profile != nil else {
-                    print("Profile isn't returning: \(String(describing: graphQLResult.data?.me))")
+                guard let _ = graphQLResult.data?.me.profile?.id else {
+                    print("Profile isn't returning: \(String(describing: graphQLResult.data?.me.profile?.id))")
                     completion(false)
                     return
                 }

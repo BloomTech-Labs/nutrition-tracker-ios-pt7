@@ -28,7 +28,6 @@ class LSLDashboardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.updateViews()
     }
     
     private func updateViews() {
@@ -42,6 +41,7 @@ class LSLDashboardViewController: UIViewController {
             // Update NameLabel
             network.getMyName { (result) in
                 if let name = try? result.get() {
+                    print("Name: \(name)")
                     self.nameLabel.text = name
                 }
             }
@@ -49,17 +49,20 @@ class LSLDashboardViewController: UIViewController {
             // Update WeightLabel
             network.getMyWeight { (result) in
                 if let weight = try? result.get() {
+                    print("Weight: \(weight)")
                     self.currentWeightLabel.text = String(weight)
                 }
             }
             
             // Check to see if has profile
-            network.checkForProfile { (bool) in
-                if !bool {
-                    self.performSegue(withIdentifier: "MissingProfile", sender: self)
-                }
-            }
+//            network.checkForProfile { (bool) in
+//                if !bool {
+//                    print("Missing profile")
+//                    self.performSegue(withIdentifier: "MissingProfile", sender: self)
+//                }
+//            }
         } else {
+            print("Not Logged In")
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
@@ -67,6 +70,7 @@ class LSLDashboardViewController: UIViewController {
     @objc func logoutTapped() {
         let keychain = KeychainSwift()
         keychain.clear()
+        print("Logging Out")
         self.navigationController?.popToRootViewController(animated: true)
     }
     

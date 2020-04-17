@@ -26,6 +26,7 @@ class LSLMainViewController: UIViewController {
         
         if Network.isLoggedIn() {
             DispatchQueue.main.async {
+                print("Already Logged In. Going to Dashboard")
                 self.performSegue(withIdentifier: "ShowDashboard", sender: nil)
             }
         }
