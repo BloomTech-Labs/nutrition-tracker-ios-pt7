@@ -19,16 +19,8 @@ class LSLMainViewController: UIViewController {
         signUpButton.layer.borderWidth = 1
         signUpButton.layer.borderColor = UIColor(red: 0.996, green: 0.259, blue: 0.702, alpha: 1).cgColor
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         if Network.isLoggedIn() {
-            DispatchQueue.main.async {
-                print("Already Logged In. Going to Dashboard")
-                self.performSegue(withIdentifier: "ShowDashboard", sender: nil)
-            }
+            self.performSegue(withIdentifier: "ShowDashboard", sender: nil)
         }
     }
 }

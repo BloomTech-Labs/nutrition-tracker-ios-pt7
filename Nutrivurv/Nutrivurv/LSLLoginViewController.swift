@@ -32,9 +32,8 @@ class LSLLoginViewController: UIViewController {
         guard let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty else { return }
         
-        Network.shared.loginUser(email: email, password: password) { (_) in
-            DispatchQueue.main.async {
-                print("Logging In. Going to Dashboard.")
+        if !Network.isLoggedIn() {
+            Network.shared.loginUser(email: email, password: password) { (_) in
                 self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
             }
         }
