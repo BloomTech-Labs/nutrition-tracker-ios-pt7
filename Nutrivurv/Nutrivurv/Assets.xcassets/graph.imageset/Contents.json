@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "avatar_male.pdf"
+      "filename" : "undraw_growth_analytics_8btt.pdf"
     }
   ],
   "info" : {
@@ -10,7 +10,6 @@
     "author" : "xcode"
   },
   "properties" : {
-    "template-rendering-intent" : "original",
     "preserves-vector-representation" : true
   }
 }

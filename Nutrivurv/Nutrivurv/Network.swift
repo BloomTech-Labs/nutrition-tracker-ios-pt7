@@ -21,27 +21,57 @@ enum NetworkError: Error {
 
 class Network {
     static let shared = Network()
+    static let loginKeychainKey = "login"
+    var apollo: ApolloClient = createApolloClient()
     
     private init() { }
     
-    static let loginKeychainKey = "login"
-
-    private var apollo: ApolloClient = {
+    static func createApolloClient() -> ApolloClient {
         let keychain = KeychainSwift()
         let token = keychain.get(Network.loginKeychainKey) ?? ""
         let url = URL(string: "https://labspt7-nutrition-tracker-be.herokuapp.com/")!
-
         let configuration = URLSessionConfiguration.default
-
-        configuration.httpAdditionalHeaders = ["authorization": "Bearer \(token)"]
+        
+        if token != "" {
+            print("Apollo Token?: \(token)")
+            configuration.httpAdditionalHeaders = ["authorization": "Bearer \(token)"]
+        }
 
         return ApolloClient(
             networkTransport: HTTPNetworkTransport(url: url, session: URLSession(configuration: configuration))
         )
-    }()
+    }
+    
+    func loginUser(email: String, password: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        apollo.perform(mutation: LoginMutation(data: LoginUserInput(email: email, password: password))) { result in
+            switch result {
+                case .success(let graphQLResult):
+                    guard let token = graphQLResult.data?.login.token else {
+                        print("Bad Data: \(graphQLResult)")
+                        completion(.failure(.badAuth))
+                        return
+                    }
+                    
+                    guard graphQLResult.errors == nil else {
+                        print("Errors from server: \(graphQLResult.errors!)")
+                        completion(.failure(.otherError))
+                        return
+                    }
+                    
+                    let keychain = KeychainSwift()
+                    keychain.set(token, forKey: Network.loginKeychainKey)
+                    self.apollo = Network.createApolloClient()
+
+                    completion(.success(true))
+                case .failure(let error):
+                    print("Error: \(error)")
+                    completion(.failure(.noAuth))
+            }
+        }
+    }
     
     func createUser(name: String, email: String, password: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { result in
+        self.apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { result in
             switch result {
                 case .success(let graphQLResult):
                     guard let token = graphQLResult.data?.createUser.token else {
@@ -57,42 +87,14 @@ class Network {
 
                     let keychain = KeychainSwift()
                     keychain.set(token, forKey: Network.loginKeychainKey)
-                    completion(.success(true))
-                case .failure(let error):
-                    print("Error: \(error)")
-                    completion(.failure(.noAuth))
-            }
-        }
-    }
+                    self.apollo = Network.createApolloClient()
 
-    func loginUser(email: String, password: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        apollo.perform(mutation: LoginMutation(data: LoginUserInput(email: email, password: password))) { result in
-            switch result {
-                case .success(let graphQLResult):
-                    guard let token = graphQLResult.data?.login.token else {
-                        completion(.failure(.badAuth))
-                        return
-                    }
-                    
-                    guard graphQLResult.errors == nil else {
-                        print("Errors from server: \(graphQLResult.errors!)")
-                        completion(.failure(.otherError))
-                        return
-                    }
-                    
-                    let keychain = KeychainSwift()
-                    keychain.set(token, forKey: Network.loginKeychainKey)
                     completion(.success(true))
                 case .failure(let error):
                     print("Error: \(error)")
                     completion(.failure(.noAuth))
             }
         }
-    }
-    
-    static func isLoggedIn() -> Bool {
-      let keychain = KeychainSwift()
-        return keychain.get(Network.loginKeychainKey) != nil
     }
     
     func createProfile(age: Int, weight: Int, height: Int, gender: Bool?, goalWeight: Int?, activityLevel: Int?, diet: String?, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
@@ -118,73 +120,9 @@ class Network {
         }
     }
     
-    func getMyName(completion: @escaping (Result<String, NetworkError>) -> Void) {
-        apollo.fetch(query: MeQuery()) { result in
-            switch result {
-            case .success(let graphQLResult):
-                guard let name = graphQLResult.data?.me.name else {
-                    completion(.failure(.badData))
-                    return
-                }
-                
-                guard graphQLResult.errors == nil else {
-                    print("Errors from server: \(graphQLResult.errors!)")
-                    completion(.failure(.otherError))
-                    return
-                }
-                
-                completion(.success(name))
-            case .failure(let error):
-              // Network or response format errors
-              print(error)
-            }
-        }
-    }
-    
-    func checkForProfile(completion: @escaping (Bool) -> Void) {
-        apollo.fetch(query: MeQuery()) { result in
-            switch result {
-            case .success(let graphQLResult):
-                guard let _ = graphQLResult.data?.me.profile?.id else {
-                    print("Profile isn't returning: \(String(describing: graphQLResult.data?.me.profile?.id))")
-                    completion(false)
-                    return
-                }
-                
-                guard graphQLResult.errors == nil else {
-                    print("Errors from server: \(graphQLResult.errors!)")
-                    completion(false)
-                    return
-                }
-                
-                completion(true)
-            case .failure(let error):
-              // Network or response format errors
-              print(error)
-            }
-        }
-    }
-    
-    func getMyWeight(completion: @escaping (Result<Int, NetworkError>) -> Void) {
-        apollo.fetch(query: MeQuery()) { result in
-            switch result {
-            case .success(let graphQLResult):
-                guard let weight = graphQLResult.data?.me.profile?.weight else {
-                    completion(.failure(.badData))
-                    return
-                }
-                
-                guard graphQLResult.errors == nil else {
-                    print("Errors from server: \(graphQLResult.errors!)")
-                    completion(.failure(.otherError))
-                    return
-                }
-                
-                completion(.success(weight))
-            case .failure(let error):
-              // Network or response format errors
-              print(error)
-            }
-        }
+    static func isLoggedIn() -> Bool {
+      let keychain = KeychainSwift()
+        print("Are we logged in? \(keychain.get(Network.loginKeychainKey) != nil)")
+        return keychain.get(Network.loginKeychainKey) != nil
     }
 }

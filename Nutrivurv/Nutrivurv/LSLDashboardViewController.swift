@@ -12,58 +12,59 @@ import KeychainSwift
 class LSLDashboardViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
-    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var streakCountLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
-    @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var dailyVibeView: UIView!
         
-    var currentUser: User?
-    var network = Network.shared
+    var isLoggedIn: Bool = false
+    var dashboardController = LSLDashboardController()
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateViews()
+        
+        // Hide Back Button
+        self.navigationItem.hidesBackButton = true
+        // Change Button to Logout
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+
+        if Network.isLoggedIn() {
+            self.isLoggedIn = true
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+       }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if self.isLoggedIn {
+            self.updateViews()
+        }
     }
     
     private func updateViews() {
-        if Network.isLoggedIn() {
-            // Hide Back Button
-            self.navigationItem.hidesBackButton = true
-            
-            // Change Button to Logout
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
-            
-            // Update NameLabel
-            network.getMyName { (result) in
-                if let name = try? result.get() {
-                    print("Name: \(name)")
-                    self.nameLabel.text = name
+        // Check to see if has profile
+        dashboardController.checkForProfile { (bool) in
+            if !bool {
+                print("Missing profile")
+                self.performSegue(withIdentifier: "MissingProfile", sender: self)
+            } else {
+                // Update NameLabel
+                self.dashboardController.getMyName { (result) in
+                    if let name = try? result.get() {
+                        self.title = name
+                    } else {
+                        print("Couldn't get name: \(result)")
+                    }
+                }
+
+                // Update WeightLabel
+                self.dashboardController.getMyWeight { (result) in
+                    if let weight = try? result.get() {
+                        self.currentWeightLabel.text = String(weight)
+                    } else {
+                        print("Couldn't get weight: \(result)")
+                    }
                 }
             }
-            
-            // Update WeightLabel
-            network.getMyWeight { (result) in
-                if let weight = try? result.get() {
-                    print("Weight: \(weight)")
-                    self.currentWeightLabel.text = String(weight)
-                }
-            }
-            
-            // Check to see if has profile
-//            network.checkForProfile { (bool) in
-//                if !bool {
-//                    print("Missing profile")
-//                    self.performSegue(withIdentifier: "MissingProfile", sender: self)
-//                }
-//            }
-        } else {
-            print("Not Logged In")
-            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     

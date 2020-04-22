@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C89A9EA24400CD300348B5A /* LSLDailyVibeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9E924400CD300348B5A /* LSLDailyVibeViewController.swift */; };
-		4C89A9EC24400DCA00348B5A /* LSLFoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9EB24400DCA00348B5A /* LSLFoodSearchViewController.swift */; };
+		4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */; };
 		4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */; };
 		4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F02440105500348B5A /* Dashboard.storyboard */; };
 		4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F3244010E500348B5A /* Profile.storyboard */; };
 		4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F52440134500348B5A /* SignIn.storyboard */; };
 		4C89A9F92440137200348B5A /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F82440137200348B5A /* Signup.storyboard */; };
 		4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */; };
+		4CA1B70224495FFA000369A1 /* LSLDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
@@ -66,14 +66,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C89A9E924400CD300348B5A /* LSLDailyVibeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDailyVibeViewController.swift; sourceTree = "<group>"; };
-		4C89A9EB24400DCA00348B5A /* LSLFoodSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodSearchViewController.swift; sourceTree = "<group>"; };
+		4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchFoodTableViewController.swift; sourceTree = "<group>"; };
 		4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodDetailViewController.swift; sourceTree = "<group>"; };
 		4C89A9F12440105500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/Dashboard.storyboard"; sourceTree = "<group>"; };
 		4C89A9F3244010E500348B5A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4C89A9F62440134500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/SignIn.storyboard"; sourceTree = "<group>"; };
 		4C89A9F82440137200348B5A /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLChallengesViewController.swift; sourceTree = "<group>"; };
+		4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardController.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardViewController.swift; sourceTree = "<group>"; };
@@ -137,16 +137,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C89A9E824400BEC00348B5A /* Dashes */ = {
-			isa = PBXGroup;
-			children = (
-				4C89A9E924400CD300348B5A /* LSLDailyVibeViewController.swift */,
-				4C89A9EB24400DCA00348B5A /* LSLFoodSearchViewController.swift */,
-				4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */,
-			);
-			name = Dashes;
-			sourceTree = "<group>";
-		};
 		4C89A9EF24400F9000348B5A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,7 +249,8 @@
 				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
 				4C89A9EF24400F9000348B5A /* Profile */,
 				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
-				4C89A9E824400BEC00348B5A /* Dashes */,
+				4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */,
+				4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */,
 				4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */,
 			);
 			name = "View Controllers";
@@ -280,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A1CC3C240B601700477429 /* LSLNutritionController.swift */,
+				4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -439,14 +431,15 @@
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
 				4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */,
+				4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */,
 				D631B2892418929800AE30C9 /* User.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */,
 				D6853EA1243D81CB003EDF91 /* FavoriteFood.swift in Sources */,
-				4C89A9EC24400DCA00348B5A /* LSLFoodSearchViewController.swift in Sources */,
 				D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */,
 				D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */,
+				4CA1B70224495FFA000369A1 /* LSLDashboardController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
 				D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
@@ -457,7 +450,6 @@
 				D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
-				4C89A9EA24400CD300348B5A /* LSLDailyVibeViewController.swift in Sources */,
 				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* Network.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */,
@@ -625,7 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
 				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -646,7 +638,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
 				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
