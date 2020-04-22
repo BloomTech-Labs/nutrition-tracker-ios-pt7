@@ -29,7 +29,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Y4L-Ea-eOs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Challenges" image="Trophy" selectedImage="Trophy (Selected)" id="2gT-mN-7Xx"/>
+                    <tabBarItem key="tabBarItem" title="Challenges" image="Trophy" selectedImage="Trophy-Selected" id="2gT-mN-7Xx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2D-Kw-HCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -429,7 +429,7 @@
         <scene sceneID="Hzh-E0-s3S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ocA-CQ-44Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="GJU-hc-xQk"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="Search" selectedImage="Search-Selected" id="GJU-hc-xQk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XFZ-qG-J0e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -448,14 +448,14 @@
     <resources>
         <image name="Divider" width="355" height="2"/>
         <image name="Donut" width="96" height="96"/>
+        <image name="Search" width="27" height="27"/>
+        <image name="Search-Selected" width="27" height="26"/>
         <image name="Trophy" width="24" height="24"/>
-        <image name="Trophy (Selected)" width="24" height="24"/>
+        <image name="Trophy-Selected" width="23" height="23"/>
         <image name="bar-chart" width="19" height="20"/>
         <image name="fire" width="20" height="20"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
-        <image name="magnifyingglass.circle" catalog="system" width="64" height="60"/>
-        <image name="magnifyingglass.circle.fill" catalog="system" width="64" height="60"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
