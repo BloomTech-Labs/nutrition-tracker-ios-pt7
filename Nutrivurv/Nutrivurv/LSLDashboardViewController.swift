@@ -21,8 +21,6 @@ class LSLDashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide Back Button
-        self.navigationItem.hidesBackButton = true
         // Change Button to Logout
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
 
@@ -66,4 +64,16 @@ class LSLDashboardViewController: UIViewController {
         keychain.clear()
         self.performSegue(withIdentifier: "Logout", sender: self)
     }
+    
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
