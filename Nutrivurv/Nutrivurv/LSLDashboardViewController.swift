@@ -27,30 +27,20 @@ class LSLDashboardViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
 
         if Network.isLoggedIn() {
-            self.isLoggedIn = true
+            self.updateViews()
         } else {
             self.performSegue(withIdentifier: "Logout", sender: self)
        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if self.isLoggedIn {
-            self.updateViews()
-        }
-    }
-    
     private func updateViews() {
         // Check to see if has profile
         dashboardController.checkForProfile { (bool) in
-            if !bool {
-                print("Missing profile")
-                self.performSegue(withIdentifier: "MissingProfile", sender: self)
-            } else {
+            if bool {
                 // Update NameLabel
                 self.dashboardController.getMyName { (result) in
                     if let name = try? result.get() {
-                        self.title = name
+                        self.navigationItem.title = name
                     } else {
                         print("Couldn't get name: \(result)")
                     }
@@ -64,6 +54,9 @@ class LSLDashboardViewController: UIViewController {
                         print("Couldn't get weight: \(result)")
                     }
                 }
+            } else {
+                print("Missing profile")
+                self.performSegue(withIdentifier: "MissingProfile", sender: self)
             }
         }
     }
@@ -71,19 +64,6 @@ class LSLDashboardViewController: UIViewController {
     @objc func logoutTapped() {
         let keychain = KeychainSwift()
         keychain.clear()
-        print("Logging Out")
         self.performSegue(withIdentifier: "Logout", sender: self)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

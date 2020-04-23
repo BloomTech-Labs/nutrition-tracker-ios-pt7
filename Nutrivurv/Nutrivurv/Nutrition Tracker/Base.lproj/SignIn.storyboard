@@ -209,4 +209,5 @@
     <resources>
         <image name="girl" width="306" height="225"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

@@ -35,12 +35,9 @@ class LSLDashboardController {
     }
     
     func getMyName(completion: @escaping (Result<String, NetworkError>) -> Void) {
-        print("Getting name in Network call...")
         Network.shared.apollo.fetch(query: MeQuery()) { result in
-            print("Result: \(result)")
             switch result {
             case .success(let graphQLResult):
-                print("GraphQL Result: \(graphQLResult)")
                 guard let name = graphQLResult.data?.me.name else {
                     completion(.failure(.badData))
                     return
@@ -61,7 +58,6 @@ class LSLDashboardController {
     }
     
     func getMyWeight(completion: @escaping (Result<Int, NetworkError>) -> Void) {
-        print("Getting name in Network call...")
         Network.shared.apollo.fetch(query: MeQuery()) { result in
             switch result {
             case .success(let graphQLResult):

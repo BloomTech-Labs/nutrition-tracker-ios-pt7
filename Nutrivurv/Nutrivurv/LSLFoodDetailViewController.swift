@@ -10,18 +10,29 @@ import UIKit
 
 class LSLFoodDetailViewController: UIViewController {
     
-    @IBOutlet weak var qtyLabel: UITextField!
+    @IBOutlet weak var qtyTextField: UITextField!
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
     
+    var servingSizes: [String] = ["Serving", "Whole", "Jumbo", "Gram", "Ounce", "Pound", "Kilogram", "Cup", "Liter"]
+    var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Snack"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.qtyTextField.delegate = self
 
         self.servingSizePickerView.delegate = self
         self.servingSizePickerView.dataSource = self
         
         self.mealTypePickerView.delegate = self
         self.mealTypePickerView.dataSource = self
+                
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+    }
+    
+    @objc func dismissKeyboard() {
+        self.qtyTextField.resignFirstResponder()
     }
 
 
@@ -46,11 +57,21 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
+        switch pickerView {
+        case servingSizePickerView:
+            return self.servingSizes.count
+        default:
+            return self.mealTypes.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return ""//self.nutritionController!.genders[row]
+        switch pickerView {
+        case servingSizePickerView:
+            return self.servingSizes[row]
+        default:
+            return self.mealTypes[row]
+        }
     }
 }
 
@@ -62,9 +83,9 @@ extension LSLFoodDetailViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
-        textField.layer.borderColor = UIColor(red: 0.996, green: 0.259, blue: 0.702, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
-        textField.layer.shadowColor = UIColor(red: 0.651, green: 0.455, blue: 1, alpha: 0.5).cgColor
+        textField.layer.shadowColor = UIColor(red: 0, green: 0.455, blue: 0.722, alpha: 0.5).cgColor
         textField.layer.shadowOpacity = 1
         textField.layer.shadowRadius = 4
         textField.layer.shadowOffset = CGSize(width: 0, height: 0)

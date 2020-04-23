@@ -216,9 +216,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNW-2j-u7j"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="UtJ-Bb-uF5">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.fill" catalog="system" id="SAw-D6-8Yq"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dashboard" id="UtJ-Bb-uF5"/>
                     <connections>
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
@@ -390,7 +388,7 @@
                     <navigationItem key="navigationItem" title="Food Detail" id="8qP-lX-g5g"/>
                     <connections>
                         <outlet property="mealTypePickerView" destination="VsQ-e8-aIF" id="hoW-mf-GNS"/>
-                        <outlet property="qtyLabel" destination="SkT-Nt-tta" id="zbM-T0-0kf"/>
+                        <outlet property="qtyTextField" destination="SkT-Nt-tta" id="lKU-LP-E1u"/>
                         <outlet property="servingSizePickerView" destination="Mcc-0C-fNr" id="OHe-1d-hX4"/>
                     </connections>
                 </viewController>
@@ -456,8 +454,8 @@
         <image name="fire" width="20" height="20"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="plus" width="24" height="24"/>
         <image name="plus-selected" width="24" height="24"/>
     </resources>
+    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

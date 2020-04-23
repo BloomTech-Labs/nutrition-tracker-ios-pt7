@@ -122,7 +122,6 @@ class Network {
     
     static func isLoggedIn() -> Bool {
       let keychain = KeychainSwift()
-        print("Are we logged in? \(keychain.get(Network.loginKeychainKey) != nil)")
         return keychain.get(Network.loginKeychainKey) != nil
     }
 }
