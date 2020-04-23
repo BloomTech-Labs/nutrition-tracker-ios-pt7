@@ -22,6 +22,9 @@ class LSLCalculateBMIViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide Back Button
+        self.navigationItem.hidesBackButton = true
+        
         self.styleSegmentControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .textFieldsWereUpdated, object: nil)

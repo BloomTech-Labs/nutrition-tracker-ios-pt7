@@ -29,7 +29,7 @@ class LSLDashboardViewController: UIViewController {
         if Network.isLoggedIn() {
             self.isLoggedIn = true
         } else {
-            self.navigationController?.popToRootViewController(animated: true)
+            self.performSegue(withIdentifier: "Logout", sender: self)
        }
     }
     
@@ -72,7 +72,7 @@ class LSLDashboardViewController: UIViewController {
         let keychain = KeychainSwift()
         keychain.clear()
         print("Logging Out")
-        self.navigationController?.popToRootViewController(animated: true)
+        self.performSegue(withIdentifier: "Logout", sender: self)
     }
     
     

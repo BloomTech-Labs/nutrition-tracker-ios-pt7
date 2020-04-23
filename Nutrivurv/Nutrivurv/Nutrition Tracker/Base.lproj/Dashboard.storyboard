@@ -223,9 +223,11 @@
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
                         <segue destination="6Qg-MS-wl4" kind="presentation" identifier="MissingProfile" modalPresentationStyle="fullScreen" id="r1z-2w-3mM"/>
+                        <segue destination="7Nz-Uw-rj4" kind="unwind" identifier="Logout" unwindAction="unwind:" id="MrW-rM-Ff1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qbd-hB-D2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="7Nz-Uw-rj4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="11140.579710144928" y="-869.19642857142856"/>
         </scene>
@@ -425,11 +427,11 @@
             </objects>
             <point key="canvasLocation" x="10347.826086956522" y="-869.19642857142856"/>
         </scene>
-        <!--Search-->
+        <!--Add Food-->
         <scene sceneID="Hzh-E0-s3S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ocA-CQ-44Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="Search" selectedImage="Search-Selected" id="GJU-hc-xQk"/>
+                    <tabBarItem key="tabBarItem" title="Add Food" image="plus" selectedImage="plus-selected" id="GJU-hc-xQk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XFZ-qG-J0e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -448,8 +450,6 @@
     <resources>
         <image name="Divider" width="355" height="2"/>
         <image name="Donut" width="96" height="96"/>
-        <image name="Search" width="27" height="27"/>
-        <image name="Search-Selected" width="27" height="26"/>
         <image name="Trophy" width="24" height="24"/>
         <image name="Trophy-Selected" width="23" height="23"/>
         <image name="bar-chart" width="19" height="20"/>
@@ -457,5 +457,7 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="plus" width="24" height="24"/>
+        <image name="plus-selected" width="24" height="24"/>
     </resources>
 </document>
