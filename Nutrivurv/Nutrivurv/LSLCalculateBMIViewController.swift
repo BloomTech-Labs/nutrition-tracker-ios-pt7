@@ -17,7 +17,7 @@ class LSLCalculateBMIViewController: UIViewController {
     @IBOutlet var metricUIView: UIView!
     @IBOutlet var currentBMILabel: UILabel!
     
-    var nutritionController = LSLNutritionController()
+    var nutritionController = LSLUserController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ class LSLCalculateBMIViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     @IBAction func advanceToGettingPersonal(_ sender: CustomButton) {
-        guard let _ = LSLNutritionController.height,
-            let _ = LSLNutritionController.weight else { return (self.nutritionController.alertEmptyTextField(controller: self, field: "Height and/or Weight")) }
+        guard let _ = LSLUserController.height,
+            let _ = LSLUserController.weight else { return (self.nutritionController.alertEmptyTextField(controller: self, field: "Height and/or Weight")) }
         self.updateViews()
         
         self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
@@ -71,7 +71,7 @@ class LSLCalculateBMIViewController: UIViewController {
     }
     
     @objc func updateViews() {
-        guard let bmi = LSLNutritionController.bmi, isViewLoaded else { return NSLog("View isn't loaded.") }
+        guard let bmi = LSLUserController.bmi, isViewLoaded else { return NSLog("View isn't loaded.") }
         self.currentBMILabel.text = bmi
     }
 

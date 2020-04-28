@@ -12,20 +12,23 @@ class LSLSearchFoodTableViewController: UITableViewController {
     
     @IBOutlet weak var foodSearchBar: UISearchBar!
     
+    let searchController = LSLSearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.foodSearchBar.delegate = self
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return searchController.foods.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = self.searchController.foods[indexPath.row].food.label
 
         return cell
     }
@@ -34,7 +37,24 @@ class LSLSearchFoodTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "FoodDetail" {
+            guard let indexPath = self.tableView.indexPathForSelectedRow,
+                let fdVC = segue.destination as? LSLFoodDetailViewController else { return }
+            
+            let foodItem = self.searchController.foods[indexPath.row]
+            fdVC.searchController = self.searchController
+            fdVC.foodItem = foodItem
+        }
+    }
+}
+
+extension LSLSearchFoodTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchTerm = self.foodSearchBar.text else { return }
+        self.searchController.searchForFoodItem(searchTerm: searchTerm) {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LSLNutritionController.swift
+//  LSLUserController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/29/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLNutritionController {
+class LSLUserController {
     
     // MARK: - Properties
     
@@ -67,7 +67,7 @@ class LSLNutritionController {
         self.diets[indexPath.row].isSelected.toggle()
 
         if self.diets[indexPath.row].isSelected {
-            LSLNutritionController.diet = self.diets[indexPath.row].name
+            LSLUserController.diet = self.diets[indexPath.row].name
         }
     }
     
@@ -75,7 +75,7 @@ class LSLNutritionController {
         self.activityLevels[indexPath.row].isSelected.toggle()
 
         if self.activityLevels[indexPath.row].isSelected {
-            LSLNutritionController.activityLevel = self.activityLevels[indexPath.row].level
+            LSLUserController.activityLevel = self.activityLevels[indexPath.row].level
         }
     }
     

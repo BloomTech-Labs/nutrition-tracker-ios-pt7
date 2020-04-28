@@ -14,7 +14,7 @@ class LSLDietaryPreferenceViewController: UIViewController {
     
     @IBOutlet var dietTableView: UITableView!
     
-    var nutritionController: LSLNutritionController?
+    var nutritionController: LSLUserController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,13 @@ class LSLDietaryPreferenceViewController: UIViewController {
     }
     
     @IBAction func completeProfile(_ sender: CustomButton) {
-        guard let age = LSLNutritionController.age else { return } // Required
-        guard let weight = LSLNutritionController.weight else { return } // Required
-        guard let height = LSLNutritionController.height else { return } // Required
-        guard let gender = LSLNutritionController.gender else { return } // Optional
-        guard let goalWeight = LSLNutritionController.goalWeight else { return } // Optional
-        guard let activityLevel = LSLNutritionController.activityLevel else { return } // Optional
-        guard let diet = LSLNutritionController.diet else { return } // Optional
+        guard let age = LSLUserController.age else { return } // Required
+        guard let weight = LSLUserController.weight else { return } // Required
+        guard let height = LSLUserController.height else { return } // Required
+        guard let gender = LSLUserController.gender else { return } // Optional
+        guard let goalWeight = LSLUserController.goalWeight else { return } // Optional
+        guard let activityLevel = LSLUserController.activityLevel else { return } // Optional
+        guard let diet = LSLUserController.diet else { return } // Optional
         
         Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (_) in
             DispatchQueue.main.async {

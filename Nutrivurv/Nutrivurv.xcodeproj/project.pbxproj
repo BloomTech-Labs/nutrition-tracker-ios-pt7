@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */; };
+		4C82D27924529C1B005E83F2 /* Nutrients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C82D27824529C1B005E83F2 /* Nutrients.swift */; };
 		4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */; };
 		4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F02440105500348B5A /* Dashboard.storyboard */; };
 		4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F3244010E500348B5A /* Profile.storyboard */; };
 		4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F52440134500348B5A /* SignIn.storyboard */; };
 		4C89A9F92440137200348B5A /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F82440137200348B5A /* Signup.storyboard */; };
 		4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */; };
+		4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30B82452804A00CE14CA /* HTTPMethod.swift */; };
+		4C9F30BD24528B8700CE14CA /* LSLSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */; };
+		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		4CA1B70224495FFA000369A1 /* LSLDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */; };
 		4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
@@ -62,18 +66,22 @@
 		D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */; };
 		D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */; };
 		D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */; };
-		D6A1CC3D240B601700477429 /* LSLNutritionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* LSLNutritionController.swift */; };
+		D6A1CC3D240B601700477429 /* LSLUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* LSLUserController.swift */; };
 		D6A1CC41240BF37100477429 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC40240BF37100477429 /* Diet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchFoodTableViewController.swift; sourceTree = "<group>"; };
+		4C82D27824529C1B005E83F2 /* Nutrients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrients.swift; sourceTree = "<group>"; };
 		4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodDetailViewController.swift; sourceTree = "<group>"; };
 		4C89A9F12440105500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/Dashboard.storyboard"; sourceTree = "<group>"; };
 		4C89A9F3244010E500348B5A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4C89A9F62440134500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/SignIn.storyboard"; sourceTree = "<group>"; };
 		4C89A9F82440137200348B5A /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLChallengesViewController.swift; sourceTree = "<group>"; };
+		4C9F30B82452804A00CE14CA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchController.swift; sourceTree = "<group>"; };
+		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardController.swift; sourceTree = "<group>"; };
 		4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -122,7 +130,7 @@
 		D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCalculateBMIViewController.swift; sourceTree = "<group>"; };
 		D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCell.swift; sourceTree = "<group>"; };
 		D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		D6A1CC3C240B601700477429 /* LSLNutritionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLNutritionController.swift; sourceTree = "<group>"; };
+		D6A1CC3C240B601700477429 /* LSLUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLUserController.swift; sourceTree = "<group>"; };
 		D6A1CC40240BF37100477429 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +147,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C82D27724529BE4005E83F2 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				D631B2882418929800AE30C9 /* User.swift */,
+				D631B286241891DD00AE30C9 /* Profile.swift */,
+				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
+				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
+				D6A1CC40240BF37100477429 /* Diet.swift */,
+				D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */,
+				D6853EA2243D8247003EDF91 /* DailyRecord.swift */,
+				D6853EA4243D82C0003EDF91 /* WeightLog.swift */,
+			);
+			name = UserData;
+			sourceTree = "<group>";
+		};
 		4C89A9EF24400F9000348B5A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +193,7 @@
 		D60BA2CE23FCF4C100B3E6BF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4C9F30B82452804A00CE14CA /* HTTPMethod.swift */,
 				D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */,
 				D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */,
 			);
@@ -273,8 +297,9 @@
 		D68C703823F3B025008AFDF0 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6A1CC3C240B601700477429 /* LSLNutritionController.swift */,
+				D6A1CC3C240B601700477429 /* LSLUserController.swift */,
 				4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */,
+				4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -282,14 +307,9 @@
 		D68C703923F3B02E008AFDF0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D631B2882418929800AE30C9 /* User.swift */,
-				D631B286241891DD00AE30C9 /* Profile.swift */,
-				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
-				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
-				D6A1CC40240BF37100477429 /* Diet.swift */,
-				D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */,
-				D6853EA2243D8247003EDF91 /* DailyRecord.swift */,
-				D6853EA4243D82C0003EDF91 /* WeightLog.swift */,
+				4C82D27724529BE4005E83F2 /* UserData */,
+				4C9F30BE24528F1200CE14CA /* Food.swift */,
+				4C82D27824529C1B005E83F2 /* Nutrients.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -428,12 +448,14 @@
 				D631B2792417205300AE30C9 /* Notifications.swift in Sources */,
 				D631B287241891DD00AE30C9 /* Profile.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */,
+				4C9F30BD24528B8700CE14CA /* LSLSearchController.swift in Sources */,
 				4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */,
 				D6A1CC41240BF37100477429 /* Diet.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D6853EA3243D8247003EDF91 /* DailyRecord.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
+				4C82D27924529C1B005E83F2 /* Nutrients.swift in Sources */,
 				4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */,
 				4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */,
 				D631B2892418929800AE30C9 /* User.swift in Sources */,
@@ -447,6 +469,8 @@
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
 				D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
+				4C9F30BF24528F1200CE14CA /* Food.swift in Sources */,
+				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,
 				D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */,
 				D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
@@ -458,7 +482,7 @@
 				D69E8C6524207A2000B536A6 /* Network.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */,
-				D6A1CC3D240B601700477429 /* LSLNutritionController.swift in Sources */,
+				D6A1CC3D240B601700477429 /* LSLUserController.swift in Sources */,
 				D68C705523F65948008AFDF0 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

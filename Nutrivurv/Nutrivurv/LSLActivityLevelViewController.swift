@@ -12,7 +12,7 @@ class LSLActivityLevelViewController: UIViewController {
     
     @IBOutlet var activeTableView: UITableView!
     
-    var nutritionController: LSLNutritionController?
+    var nutritionController: LSLUserController?
 
     override func viewDidLoad() {
         super.viewDidLoad()

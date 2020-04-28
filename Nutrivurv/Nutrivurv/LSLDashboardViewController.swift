@@ -27,6 +27,8 @@ class LSLDashboardViewController: UIViewController {
         if Network.isLoggedIn() {
             self.updateViews()
         } else {
+            let keychain = KeychainSwift()
+            keychain.clear()
             self.performSegue(withIdentifier: "Logout", sender: self)
        }
     }

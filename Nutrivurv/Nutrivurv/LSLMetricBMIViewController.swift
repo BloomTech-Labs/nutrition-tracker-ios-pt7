@@ -39,9 +39,9 @@ class LSLMetricBMIViewController: UIViewController {
         }
         
         let newHeight = ((Double(height) ?? 0) / 2.54)
-        LSLNutritionController.height = Int(newHeight)
+        LSLUserController.height = Int(newHeight)
         let totalWeight = ((Double(weight) ?? 0) * 2.20462262185)
-        LSLNutritionController.weight = Int(totalWeight)
+        LSLUserController.weight = Int(totalWeight)
 
         let bmi = (totalWeight * 704.7) / (newHeight * newHeight)
         let roundedBMI = String(format: "%.2f", bmi)
@@ -59,7 +59,7 @@ extension LSLMetricBMIViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         if !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            LSLNutritionController.bmi = self.calculateBMI()
+            LSLUserController.bmi = self.calculateBMI()
         }
         return true
     }
@@ -73,7 +73,7 @@ extension LSLMetricBMIViewController: UITextFieldDelegate {
         textField.layer.shadowRadius = 4
         textField.layer.shadowOffset = CGSize(width: 0, height: 0)
         if !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            LSLNutritionController.bmi = self.calculateBMI()
+            LSLUserController.bmi = self.calculateBMI()
         }
     }
     
@@ -83,7 +83,7 @@ extension LSLMetricBMIViewController: UITextFieldDelegate {
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
         if !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            LSLNutritionController.bmi = self.calculateBMI()
+            LSLUserController.bmi = self.calculateBMI()
         }
     }
 }

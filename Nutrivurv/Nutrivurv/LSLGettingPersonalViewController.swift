@@ -16,7 +16,7 @@ class LSLGettingPersonalViewController: UIViewController {
     @IBOutlet var ageTextView: CustomTextField!
     @IBOutlet var goalWeightTextView: CustomTextField!
     
-    var nutritionController: LSLNutritionController?
+    var nutritionController: LSLUserController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,15 +53,15 @@ class LSLGettingPersonalViewController: UIViewController {
                 gender = self.nutritionController!.genders[self.genderPickerView.selectedRow(inComponent: index)]
             }
             if gender == "Male" {
-                LSLNutritionController.gender = true
+                LSLUserController.gender = true
             } else if gender == "Female" {
-                LSLNutritionController.gender = false
+                LSLUserController.gender = false
             } else {
-                LSLNutritionController.gender = nil
+                LSLUserController.gender = nil
             }
 
-            LSLNutritionController.age = Int(age)
-            LSLNutritionController.goalWeight = Int(goalWeight)
+            LSLUserController.age = Int(age)
+            LSLUserController.goalWeight = Int(goalWeight)
             
             apVC.nutritionController = self.nutritionController
         }

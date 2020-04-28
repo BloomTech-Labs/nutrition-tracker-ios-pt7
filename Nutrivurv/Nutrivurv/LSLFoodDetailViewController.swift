@@ -14,6 +14,13 @@ class LSLFoodDetailViewController: UIViewController {
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
     
+    var searchController: LSLSearchController?
+    var foodItem: FoodItem? {
+        didSet {
+            self.updateViews()
+        }
+    }
+    
     var servingSizes: [String] = ["Serving", "Whole", "Jumbo", "Gram", "Ounce", "Pound", "Kilogram", "Cup", "Liter"]
     var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Snack"]
     
@@ -27,6 +34,8 @@ class LSLFoodDetailViewController: UIViewController {
         
         self.mealTypePickerView.delegate = self
         self.mealTypePickerView.dataSource = self
+        
+        self.updateViews()
                 
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
@@ -34,8 +43,27 @@ class LSLFoodDetailViewController: UIViewController {
     @objc func dismissKeyboard() {
         self.qtyTextField.resignFirstResponder()
     }
+    
+    private func updateViews() {
+        guard let foodItem = self.foodItem, isViewLoaded else { return }
+        self.navigationItem.title = foodItem.food.label
+        self.qtyTextField.text = "1"
+        self.servingSizePickerView.selectRow(servingSizes.firstIndex(of: foodItem.measures[0].label)!, inComponent: 0, animated: true)
+        
+        // Perform a search for the nutrients of the food item...
+        self.searchController?.searchForNutrients(qty: 1, measure: foodItem.measures[0].uri, foodId: foodItem.food.foodId, completion: {
+            guard let nutrients = self.searchController?.nutrients else { return }
+            DispatchQueue.main.async {
+                print("Nutrients: \(nutrients)")
+            }
+        })
+        
+        // Get the first value that matches the first measure
+    }
 
-
+    @IBAction func logFood(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
