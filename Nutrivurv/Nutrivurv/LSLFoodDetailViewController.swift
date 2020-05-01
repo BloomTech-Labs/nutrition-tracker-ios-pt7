@@ -13,6 +13,8 @@ class LSLFoodDetailViewController: UIViewController {
     @IBOutlet weak var qtyTextField: UITextField!
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
+    @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var fatLabel: UILabel!
     
     var searchController: LSLSearchController?
     var foodItem: FoodItem? {

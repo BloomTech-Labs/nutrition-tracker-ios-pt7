@@ -11,6 +11,9 @@
         <array key="Muli-Bold.ttf">
             <string>Muli-Bold</string>
         </array>
+        <array key="Muli-Medium.ttf">
+            <string>Muli-Medium</string>
+        </array>
         <array key="Muli-Regular.ttf">
             <string>Muli-Regular</string>
         </array>
@@ -388,23 +391,74 @@
                                     <action selector="logFood:" destination="U4e-Le-VaR" eventType="touchUpInside" id="oK1-WD-NNE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
+                                <rect key="frame" x="16" y="226.5" width="382" height="28"/>
+                                <fontDescription key="fontDescription" name="Muli-Medium" family="Muli" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
+                                <rect key="frame" x="16" y="270.5" width="382" height="23"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
+                                        <rect key="frame" x="0.0" y="0.0" width="353.5" height="23"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="53" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-OS-l5Q">
+                                        <rect key="frame" x="361.5" y="0.0" width="20.5" height="23"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
+                                <rect key="frame" x="16" y="301.5" width="382" height="23"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rew-a8-kk4">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="23"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLT-f7-aOx">
+                                        <rect key="frame" x="371" y="0.0" width="11" height="23"/>
+                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="bottom" secondItem="c8X-GH-pEz" secondAttribute="bottom" constant="16" id="4XJ-vR-KUS"/>
+                            <constraint firstItem="n1A-tt-XQf" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="AGZ-Zz-qFV"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="Nfc-Z1-2hy" secondAttribute="trailing" constant="16" id="DiQ-yp-4p0"/>
+                            <constraint firstItem="1fw-4w-otg" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="Epb-oA-dnM"/>
                             <constraint firstItem="c8X-GH-pEz" firstAttribute="top" secondItem="Nfc-Z1-2hy" secondAttribute="bottom" constant="8" id="FTh-bI-mbP"/>
                             <constraint firstItem="c8X-GH-pEz" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="MPR-fG-hNA"/>
+                            <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="XRT-Sz-jNH" secondAttribute="trailing" constant="16" id="R0w-oO-vQ8"/>
+                            <constraint firstItem="XRT-Sz-jNH" firstAttribute="top" secondItem="n1A-tt-XQf" secondAttribute="bottom" constant="16" id="bza-oM-1AE"/>
                             <constraint firstItem="905-xc-sQL" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="8" id="dew-Bo-HiB"/>
+                            <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="1fw-4w-otg" secondAttribute="trailing" constant="16" id="gLw-an-Bft"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="905-xc-sQL" secondAttribute="trailing" constant="16" id="gZH-q2-y21"/>
                             <constraint firstItem="905-xc-sQL" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="irZ-rp-Rdh"/>
+                            <constraint firstItem="n1A-tt-XQf" firstAttribute="top" secondItem="905-xc-sQL" secondAttribute="bottom" constant="32" id="kP5-Q9-j1D"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="c8X-GH-pEz" secondAttribute="trailing" constant="16" id="mJT-4Q-PsW"/>
+                            <constraint firstItem="XRT-Sz-jNH" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="mVs-ba-iGR"/>
+                            <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="n1A-tt-XQf" secondAttribute="trailing" constant="16" id="ngo-vG-oTv"/>
+                            <constraint firstItem="1fw-4w-otg" firstAttribute="top" secondItem="XRT-Sz-jNH" secondAttribute="bottom" constant="8" id="tZ8-G5-kkG"/>
                             <constraint firstItem="Nfc-Z1-2hy" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="uoG-AN-e1T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OXE-5N-6jG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Food Detail" id="8qP-lX-g5g"/>
                     <connections>
+                        <outlet property="calorieLabel" destination="RKW-OS-l5Q" id="PhO-zH-h2H"/>
+                        <outlet property="fatLabel" destination="OLT-f7-aOx" id="7FN-J6-Lnx"/>
                         <outlet property="mealTypePickerView" destination="VsQ-e8-aIF" id="hoW-mf-GNS"/>
                         <outlet property="qtyTextField" destination="SkT-Nt-tta" id="lKU-LP-E1u"/>
                         <outlet property="servingSizePickerView" destination="Mcc-0C-fNr" id="OHe-1d-hX4"/>

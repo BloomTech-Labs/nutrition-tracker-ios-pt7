@@ -53,10 +53,9 @@ class LSLSearchController {
     }
     
     func searchForNutrients(qty: Int, measure: String, foodId: String, completion: @escaping () -> Void) {
-        let json: [String: Any] = ["ingredients": ["quantity": qty,
-                                   "measureURI": measure,
-                                   "foodId": foodId]]
-        print("JSON Object: \(json)")
+        let json: [String: Any] = ["ingredients": [["quantity": qty, "measureURI": measure, "foodId": foodId]]]
+        print("json object: \(json)")
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         var urlComponents = URLComponents(url: nutritionURL, resolvingAgainstBaseURL: true)
         let appIdQueryItem = URLQueryItem(name: "app_id", value: appId)
@@ -67,14 +66,8 @@ class LSLSearchController {
         guard let requestURL = urlComponents?.url else { NSLog("requestURL is nil"); completion(); return }
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-        } catch let error {
-            print("Error adding httpBody: \(error.localizedDescription)")
-        }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        request.addValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
 
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
