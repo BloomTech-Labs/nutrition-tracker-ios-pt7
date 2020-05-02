@@ -54,7 +54,6 @@ class LSLSearchController {
     
     func searchForNutrients(qty: Int, measure: String, foodId: String, completion: @escaping () -> Void) {
         let json: [String: Any] = ["ingredients": [["quantity": qty, "measureURI": measure, "foodId": foodId]]]
-        print("json object: \(json)")
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         var urlComponents = URLComponents(url: nutritionURL, resolvingAgainstBaseURL: true)

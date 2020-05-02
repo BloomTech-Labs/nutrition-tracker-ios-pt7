@@ -51,6 +51,11 @@ class LSLSearchFoodTableViewController: UITableViewController {
 extension LSLSearchFoodTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = self.foodSearchBar.text else { return }
+        
+        // Dismiss Keyboard
+        self.foodSearchBar.endEditing(true)
+        
+        // Perform search for food item
         self.searchController.searchForFoodItem(searchTerm: searchTerm) {
             DispatchQueue.main.async {
                 self.tableView.reloadData()

@@ -14,7 +14,25 @@ class LSLFoodDetailViewController: UIViewController {
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
     @IBOutlet weak var calorieLabel: UILabel!
-    @IBOutlet weak var fatLabel: UILabel!
+    @IBOutlet weak var totalFatMeasureLabel: UILabel!
+    @IBOutlet weak var totalFatPercentageLabel: UILabel!
+    @IBOutlet weak var sodiumMeasureLabel: UILabel!
+    @IBOutlet weak var sodiumPercentageLabel: UILabel!
+    @IBOutlet weak var totalCarbsMeasureLabel: UILabel!
+    @IBOutlet weak var totalCarbsPercentageLabel: UILabel!
+    @IBOutlet weak var cholesterolMeasureLabel: UILabel!
+    @IBOutlet weak var cholesterolPercentageLabel: UILabel!
+    @IBOutlet weak var sugarMeasureLabel: UILabel!
+    @IBOutlet weak var proteinMeasureLabel: UILabel!
+    @IBOutlet weak var proteinPercentageLabel: UILabel!
+    @IBOutlet weak var vitaminDMeasureLabel: UILabel!
+    @IBOutlet weak var vitaminDPercentageLabel: UILabel!
+    @IBOutlet weak var calciumMeasureLabel: UILabel!
+    @IBOutlet weak var calciumPercentageLabel: UILabel!
+    @IBOutlet weak var ironMeasureLabel: UILabel!
+    @IBOutlet weak var ironPercentageLabel: UILabel!
+    @IBOutlet weak var potassiumMeasureLabel: UILabel!
+    @IBOutlet weak var potassiumPercentageLabel: UILabel!
     
     var searchController: LSLSearchController?
     var foodItem: FoodItem? {
@@ -46,21 +64,54 @@ class LSLFoodDetailViewController: UIViewController {
         self.qtyTextField.resignFirstResponder()
     }
     
+    private func formatNumberTo0Spaces(number: Double) -> String {
+        let numFormatter = NumberFormatter()
+        numFormatter.minimumFractionDigits = 0
+        numFormatter.maximumFractionDigits = 0
+        return numFormatter.string(for: number)!
+    }
+    
+    private func formatNumberTo2Spaces(number: Double) -> String {
+        let numFormatter = NumberFormatter()
+        numFormatter.minimumFractionDigits = 2
+        numFormatter.maximumFractionDigits = 2
+        return numFormatter.string(for: number)!
+    }
+    
     private func updateViews() {
         guard let foodItem = self.foodItem, isViewLoaded else { return }
         self.navigationItem.title = foodItem.food.label
         self.qtyTextField.text = "1"
-        self.servingSizePickerView.selectRow(servingSizes.firstIndex(of: foodItem.measures[0].label)!, inComponent: 0, animated: true)
+        self.servingSizePickerView.selectRow((servingSizes.firstIndex(of: foodItem.measures[0].label)) ?? 0, inComponent: 0, animated: true)
         
         // Perform a search for the nutrients of the food item...
         self.searchController?.searchForNutrients(qty: 1, measure: foodItem.measures[0].uri, foodId: foodItem.food.foodId, completion: {
             guard let nutrients = self.searchController?.nutrients else { return }
             DispatchQueue.main.async {
                 print("Nutrients: \(nutrients)")
+                self.calorieLabel.text = "\(nutrients.calories)"
+                
+                self.totalFatMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.FAT.quantity))\(nutrients.totalNutrients.FAT.unit)"
+                self.totalFatPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.FAT.quantity))\(nutrients.totalDaily.FAT.unit)"
+                self.sodiumMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.NA.quantity))\(nutrients.totalNutrients.NA.unit)"
+                self.sodiumPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.NA.quantity))\(nutrients.totalDaily.NA.unit)"
+                self.totalCarbsMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.CHOCDF.quantity))\(nutrients.totalNutrients.CHOCDF.unit)"
+                self.totalCarbsPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.CHOCDF.quantity))\(nutrients.totalDaily.CHOCDF.unit)"
+                self.cholesterolMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.CHOLE.quantity))\(nutrients.totalNutrients.CHOLE.unit)"
+                self.cholesterolPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.CHOLE.quantity))\(nutrients.totalDaily.CHOLE.unit)"
+                self.sugarMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.SUGAR.quantity))\(nutrients.totalNutrients.SUGAR.unit)"
+                self.proteinMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.PROCNT.quantity))\(nutrients.totalNutrients.PROCNT.unit)"
+                self.proteinPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.PROCNT.quantity))\(nutrients.totalDaily.PROCNT.unit)"
+                self.vitaminDMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.VITD.quantity))\(nutrients.totalNutrients.VITD.unit)"
+                self.vitaminDPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.VITD.quantity))\(nutrients.totalDaily.VITD.unit)"
+                self.calciumMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.CA.quantity))\(nutrients.totalNutrients.CA.unit)"
+                self.calciumPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.CA.quantity))\(nutrients.totalDaily.CA.unit)"
+                self.ironMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.FE.quantity))\(nutrients.totalNutrients.FE.unit)"
+                self.ironPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.FE.quantity))\(nutrients.totalDaily.FE.unit)"
+                self.potassiumMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.K.quantity))\(nutrients.totalNutrients.K.unit)"
+                self.potassiumPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.K.quantity))\(nutrients.totalDaily.K.unit)"
             }
         })
-        
-        // Get the first value that matches the first measure
     }
 
     @IBAction func logFood(_ sender: Any) {

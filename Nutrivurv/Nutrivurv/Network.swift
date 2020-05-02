@@ -33,7 +33,6 @@ class Network {
         let configuration = URLSessionConfiguration.default
         
         if token != "" {
-            print("Apollo Token?: \(token)")
             configuration.httpAdditionalHeaders = ["authorization": "Bearer \(token)"]
         }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0543DD245DB19400CD99EE /* LSLCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */; };
+		4C0543DF245DB22400CD99EE /* LSLCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */; };
 		4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */; };
 		4C82D27924529C1B005E83F2 /* Nutrients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C82D27824529C1B005E83F2 /* Nutrients.swift */; };
 		4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */; };
@@ -71,6 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCardCollectionViewController.swift; sourceTree = "<group>"; };
+		4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchFoodTableViewController.swift; sourceTree = "<group>"; };
 		4C82D27824529C1B005E83F2 /* Nutrients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrients.swift; sourceTree = "<group>"; };
 		4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodDetailViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0543DB245DB0EA00CD99EE /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
+				4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */,
+				4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
 		4C82D27724529BE4005E83F2 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,7 +289,7 @@
 				D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */,
 				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
 				4C89A9EF24400F9000348B5A /* Profile */,
-				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
+				4C0543DB245DB0EA00CD99EE /* Dashboard */,
 				4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */,
 				4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */,
 				4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */,
@@ -471,12 +485,14 @@
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
 				4C9F30BF24528F1200CE14CA /* Food.swift in Sources */,
 				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,
+				4C0543DF245DB22400CD99EE /* LSLCardCollectionViewCell.swift in Sources */,
 				D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */,
 				D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
 				D631B2712415BB0900AE30C9 /* LSLStandardBMIViewController.swift in Sources */,
 				D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
+				4C0543DD245DB19400CD99EE /* LSLCardCollectionViewController.swift in Sources */,
 				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
 				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* Network.swift in Sources */,
@@ -643,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Nutrivurv/Nutrivurv.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
@@ -664,6 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Nutrivurv/Nutrivurv.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;

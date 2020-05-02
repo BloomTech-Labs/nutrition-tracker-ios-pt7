@@ -459,15 +459,15 @@
                                 <color key="progressTintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="trackTintColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="options" translatesAutoresizingMaskIntoConstraints="NO" id="8JG-WT-iZd">
-                                <rect key="frame" x="139" y="108" width="136" height="102"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="graph" translatesAutoresizingMaskIntoConstraints="NO" id="8JG-WT-iZd">
+                                <rect key="frame" x="79" y="108" width="256" height="192"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8JG-WT-iZd" secondAttribute="height" multiplier="4:3" id="BEC-K1-8iX"/>
-                                    <constraint firstAttribute="width" constant="136" id="adU-TS-DzY"/>
+                                    <constraint firstAttribute="width" constant="256" id="adU-TS-DzY"/>
                                 </constraints>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Cg-ws-VDc">
-                                <rect key="frame" x="32" y="230" width="350" height="32"/>
+                                <rect key="frame" x="32" y="320" width="350" height="32"/>
                                 <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <segments>
                                     <segment title="Standard"/>
@@ -480,23 +480,23 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-7E-IDk">
-                                <rect key="frame" x="30" y="281" width="224.5" height="23.5"/>
+                                <rect key="frame" x="30" y="371" width="235" height="25.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Height &amp; Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXg-US-Dgv">
-                                        <rect key="frame" x="0.0" y="0.0" width="196.5" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhM-p9-lUK">
-                                        <rect key="frame" x="204.5" y="0.0" width="20" height="23.5"/>
+                                        <rect key="frame" x="215" y="0.0" width="20" height="25.5"/>
                                         <color key="tintColor" red="0.42352941179999998" green="0.38823529410000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" image="info.circle" catalog="system"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a64-LR-str">
-                                <rect key="frame" x="0.0" y="324.5" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="416.5" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="LAp-hM-AIU"/>
                                 </constraints>
@@ -505,7 +505,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBd-nk-VOO">
-                                <rect key="frame" x="0.0" y="324.5" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="416.5" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aqD-tl-KqS"/>
                                 </constraints>
@@ -514,19 +514,19 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q7c-lO-gSx">
-                                <rect key="frame" x="10" y="394.5" width="394" height="25.5"/>
+                                <rect key="frame" x="10" y="486.5" width="394" height="27.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pTg-0C-1De">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="25.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Your BMI:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyD-X0-Pda">
-                                                <rect key="frame" x="0.0" y="0.0" width="87.5" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Bl-eTX">
-                                                <rect key="frame" x="95.5" y="0.0" width="298.5" height="23.5"/>
+                                                <rect key="frame" x="94.5" y="0.0" width="299.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -534,7 +534,7 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="pcU-zG-6iS">
-                                        <rect key="frame" x="0.0" y="23.5" width="394" height="2"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="394" height="2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="Yef-G5-r4E"/>
                                         </constraints>
@@ -542,37 +542,37 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-89-eqE">
-                                <rect key="frame" x="30" y="440" width="354" height="161.5"/>
+                                <rect key="frame" x="30" y="534" width="354" height="171.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMI Categories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvj-Eo-ZPe">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uyN-lw-3Aq">
-                                        <rect key="frame" x="0.0" y="43.5" width="354" height="118"/>
+                                        <rect key="frame" x="0.0" y="45.5" width="354" height="126"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Underweight = &lt; 18.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coF-W6-n8C">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal weight = 18.5 – 24.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYJ-XG-Eng">
-                                                <rect key="frame" x="0.0" y="31.5" width="354" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="33.5" width="354" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overweight = 25 – 29.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TI-U5-FkK">
-                                                <rect key="frame" x="0.0" y="63" width="354" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="67" width="354" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obesity = BMI of 30 or greater " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyq-YB-1Aw">
-                                                <rect key="frame" x="0.0" y="94.5" width="354" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="100.5" width="354" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -582,7 +582,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meK-tG-twa" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="621.5" width="382" height="44"/>
+                                <rect key="frame" x="16" y="725.5" width="382" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FDo-CK-v3d"/>
@@ -826,8 +826,8 @@
         <image name="Divider" width="355" height="2"/>
         <image name="circle" catalog="system" width="64" height="60"/>
         <image name="girl" width="306" height="225"/>
+        <image name="graph" width="256" height="184"/>
         <image name="info.circle" catalog="system" width="64" height="60"/>
-        <image name="options" width="347" height="291"/>
     </resources>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

@@ -21,32 +21,27 @@ struct Nutrients: Decodable, Equatable {
 }
 
 struct TotalNutrientType: Decodable, Equatable {
-//    let ENERC_KCAL: Nutrient
     let FAT: Nutrient
-    let FASAT: Nutrient
-    let FATRN: Nutrient
-    let FAMS: Nutrient
-    let FAPU: Nutrient
+    let NA: Nutrient
     let CHOCDF: Nutrient
-    let FIBTG: Nutrient
+    let CHOLE: Nutrient
     let SUGAR: Nutrient
     let PROCNT: Nutrient
-    let CHOLE: Nutrient
-    let NA: Nutrient
+    let VITD: Nutrient
     let CA: Nutrient
-    let MG: Nutrient
-    let K: Nutrient
     let FE: Nutrient
+    let K: Nutrient
 }
 
 struct DailyNutrientType: Decodable, Equatable {
-//    let ENERC_KCAL: Nutrient
     let FAT: Nutrient
-    let FASAT: Nutrient
-    let CHOCDF: Nutrient
-    let PROCNT: Nutrient
-    let CHOLE: Nutrient
     let NA: Nutrient
+    let CHOCDF: Nutrient
+    let CHOLE: Nutrient
+    let PROCNT: Nutrient
+    let VITD: Nutrient
+    let CA: Nutrient
+    let FE: Nutrient
     let K: Nutrient
 }
 
