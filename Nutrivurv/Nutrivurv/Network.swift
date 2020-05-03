@@ -123,4 +123,28 @@ class Network {
       let keychain = KeychainSwift()
         return keychain.get(Network.loginKeychainKey) != nil
     }
+    
+    func createFoodLog(calories: Int, fat: Int, carbs: Int, fiber: Int, protein: Int, foodString: String, quantity: Int, mealType: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        let currentDateTime = Date()
+        apollo.perform(mutation: CreateDailyRecordMutation(data: CreateDailyRecordInput(date: "\(currentDateTime)", calories: calories, fat: fat, carbs: carbs, fiber: fiber, protein: protein, foodString: foodString, quantity: quantity, mealType: mealType))) { result in
+            switch result {
+                case .success(let graphQLResult):
+                    guard graphQLResult.data?.createDailyRecord.createdAt != nil else {
+                        completion(.failure(.badData))
+                        return
+                    }
+
+                    guard graphQLResult.errors == nil else {
+                        print("Errors from server: \(graphQLResult.errors!)")
+                        completion(.failure(.otherError))
+                        return
+                    }
+
+                    completion(.success(true))
+                case .failure(let error):
+                    print("Error: \(error)")
+                    completion(.failure(.noAuth))
+            }
+        }
+    }
 }

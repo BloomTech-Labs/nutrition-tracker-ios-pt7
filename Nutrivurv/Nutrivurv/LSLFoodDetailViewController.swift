@@ -34,6 +34,8 @@ class LSLFoodDetailViewController: UIViewController {
     @IBOutlet weak var potassiumMeasureLabel: UILabel!
     @IBOutlet weak var potassiumPercentageLabel: UILabel!
     
+    var dailyRecord: DailyLog?
+    
     var searchController: LSLSearchController?
     var foodItem: FoodItem? {
         didSet {
@@ -110,11 +112,22 @@ class LSLFoodDetailViewController: UIViewController {
                 self.ironPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.FE.quantity))\(nutrients.totalDaily.FE.unit)"
                 self.potassiumMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.K.quantity))\(nutrients.totalNutrients.K.unit)"
                 self.potassiumPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.K.quantity))\(nutrients.totalDaily.K.unit)"
+                
+                guard let qty = self.qtyTextField.text, !qty.isEmpty else { return }
+                
+                let currentDateTime = Date()
+                self.dailyRecord = DailyLog(date: "\(currentDateTime)", calories: nutrients.calories, fat: Int(nutrients.totalDaily.FAT.quantity), carbs: Int(nutrients.totalDaily.CHOCDF.quantity), fiber: Int(nutrients.totalDaily.FIBTG.quantity), protein: Int(nutrients.totalDaily.PROCNT.quantity), food_string: foodItem.food.label, quantity: Int(qty)!, meal_type: self.mealTypes[self.mealTypePickerView.selectedRow(inComponent: 0)])
             }
         })
     }
 
     @IBAction func logFood(_ sender: Any) {
+        guard let record = self.dailyRecord else { return }
+        
+        Network.shared.createFoodLog(calories: record.calories, fat: record.fat, carbs: record.carbs, fiber: record.fiber, protein: record.protein, foodString: record.food_string, quantity: record.quantity, mealType: record.meal_type) { (_) in
+            print("\(record.food_string) is logged.")
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     /*

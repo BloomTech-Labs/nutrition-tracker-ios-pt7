@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C0543DD245DB19400CD99EE /* LSLCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */; };
 		4C0543DF245DB22400CD99EE /* LSLCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */; };
+		4C0543E4245F283A00CD99EE /* LSLFoodDetailViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4C0543E3245F283A00CD99EE /* LSLFoodDetailViewController.graphql */; };
+		4C0543E6245F776F00CD99EE /* DailyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543E5245F776F00CD99EE /* DailyLog.swift */; };
 		4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */; };
 		4C82D27924529C1B005E83F2 /* Nutrients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C82D27824529C1B005E83F2 /* Nutrients.swift */; };
 		4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */; };
@@ -75,6 +77,8 @@
 /* Begin PBXFileReference section */
 		4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCardCollectionViewController.swift; sourceTree = "<group>"; };
 		4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C0543E3245F283A00CD99EE /* LSLFoodDetailViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLFoodDetailViewController.graphql; sourceTree = "<group>"; };
+		4C0543E5245F776F00CD99EE /* DailyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLog.swift; sourceTree = "<group>"; };
 		4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchFoodTableViewController.swift; sourceTree = "<group>"; };
 		4C82D27824529C1B005E83F2 /* Nutrients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrients.swift; sourceTree = "<group>"; };
 		4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodDetailViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 				4C82D27724529BE4005E83F2 /* UserData */,
 				4C9F30BE24528F1200CE14CA /* Food.swift */,
 				4C82D27824529C1B005E83F2 /* Nutrients.swift */,
+				4C0543E5245F776F00CD99EE /* DailyLog.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */,
 				D631B27A24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql */,
 				D6853E9E243D77A7003EDF91 /* LSLDashboardController.graphql */,
+				4C0543E3245F283A00CD99EE /* LSLFoodDetailViewController.graphql */,
 			);
 			name = GraphQL;
 			sourceTree = "<group>";
@@ -413,6 +419,7 @@
 				4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */,
 				D6853E9F243D77A7003EDF91 /* LSLDashboardController.graphql in Resources */,
 				D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */,
+				4C0543E4245F283A00CD99EE /* LSLFoodDetailViewController.graphql in Resources */,
 				D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */,
 				4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */,
 				4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */,
@@ -475,6 +482,7 @@
 				D631B2892418929800AE30C9 /* User.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */,
+				4C0543E6245F776F00CD99EE /* DailyLog.swift in Sources */,
 				D6853EA1243D81CB003EDF91 /* FavoriteFood.swift in Sources */,
 				D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */,
@@ -659,7 +667,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Nutrivurv/Nutrivurv.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
@@ -681,7 +688,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Nutrivurv/Nutrivurv.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;

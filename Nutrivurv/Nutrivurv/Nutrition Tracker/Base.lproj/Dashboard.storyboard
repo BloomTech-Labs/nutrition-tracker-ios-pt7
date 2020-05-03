@@ -479,21 +479,20 @@
                                         <rect key="frame" x="0.0" y="124" width="382" height="23"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne4-qG-2Qy">
-                                                <rect key="frame" x="0.0" y="0.0" width="298" height="23"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="283.5" height="23"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="11g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6Z-2J-wRn">
-                                                <rect key="frame" x="306" y="0.0" width="32.5" height="23"/>
+                                                <rect key="frame" x="291.5" y="0.0" width="32.5" height="23"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XT7-eo-MA0">
-                                                <rect key="frame" x="346.5" y="0.0" width="35.5" height="23"/>
+                                                <rect key="frame" x="332" y="0.0" width="50" height="23"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="35.5" id="UcZ-sK-I4c"/>
                                                     <constraint firstAttribute="height" constant="23" id="tt7-yf-a3c"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
@@ -643,7 +642,7 @@
                                     <constraint firstAttribute="height" constant="44" id="vDC-j5-aJd"/>
                                 </constraints>
                                 <color key="tintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Log Food"/>
+                                <state key="normal" title="Add Food"/>
                                 <connections>
                                     <action selector="logFood:" destination="U4e-Le-VaR" eventType="touchUpInside" id="oK1-WD-NNE"/>
                                 </connections>

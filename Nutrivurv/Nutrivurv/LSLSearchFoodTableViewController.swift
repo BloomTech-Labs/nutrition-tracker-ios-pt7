@@ -17,11 +17,11 @@ class LSLSearchFoodTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.foodSearchBar.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
     
-    @objc func dismissKeyboard() {
-        self.foodSearchBar.endEditing(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.foodSearchBar.searchTextField.text = ""
     }
 
     // MARK: - Table view data source

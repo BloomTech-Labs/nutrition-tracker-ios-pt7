@@ -11,6 +11,8 @@ import UIKit
 private let reuseIdentifier = "CardCell"
 
 class LSLCardCollectionViewController: UICollectionViewController {
+    
+    var screens = [["screen": "Food Journal", "info": "2 items logged"], ["screen": "Progress", "info": "Update your weight"], ["screen": "Challenges", "info": "Win and earn badges"], ["screen": "Community", "info": "Share your story"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +37,15 @@ class LSLCardCollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.screens.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

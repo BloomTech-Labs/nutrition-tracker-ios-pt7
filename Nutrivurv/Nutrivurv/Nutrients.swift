@@ -43,6 +43,7 @@ struct DailyNutrientType: Decodable, Equatable {
     let CA: Nutrient
     let FE: Nutrient
     let K: Nutrient
+    let FIBTG: Nutrient
 }
 
 struct Nutrient: Decodable, Equatable {

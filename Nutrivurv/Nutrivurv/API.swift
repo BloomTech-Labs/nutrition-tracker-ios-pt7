@@ -119,6 +119,95 @@ public struct CreateProfileInput: GraphQLMapConvertible {
   }
 }
 
+public struct CreateDailyRecordInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(date: String, calories: Int, fat: Int, carbs: Int, fiber: Int, protein: Int, foodString: String, quantity: Int, mealType: String) {
+    graphQLMap = ["date": date, "calories": calories, "fat": fat, "carbs": carbs, "fiber": fiber, "protein": protein, "food_string": foodString, "quantity": quantity, "meal_type": mealType]
+  }
+
+  public var date: String {
+    get {
+      return graphQLMap["date"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "date")
+    }
+  }
+
+  public var calories: Int {
+    get {
+      return graphQLMap["calories"] as! Int
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "calories")
+    }
+  }
+
+  public var fat: Int {
+    get {
+      return graphQLMap["fat"] as! Int
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "fat")
+    }
+  }
+
+  public var carbs: Int {
+    get {
+      return graphQLMap["carbs"] as! Int
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "carbs")
+    }
+  }
+
+  public var fiber: Int {
+    get {
+      return graphQLMap["fiber"] as! Int
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "fiber")
+    }
+  }
+
+  public var protein: Int {
+    get {
+      return graphQLMap["protein"] as! Int
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "protein")
+    }
+  }
+
+  public var foodString: String {
+    get {
+      return graphQLMap["food_string"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "food_string")
+    }
+  }
+
+  public var quantity: Int {
+    get {
+      return graphQLMap["quantity"] as! Int
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "quantity")
+    }
+  }
+
+  public var mealType: String {
+    get {
+      return graphQLMap["meal_type"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "meal_type")
+    }
+  }
+}
+
 public struct LoginUserInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -978,6 +1067,216 @@ public final class MeQuery: GraphQLQuery {
           set {
             resultMap.updateValue(newValue, forKey: "current_weight")
           }
+        }
+      }
+    }
+  }
+}
+
+public final class CreateDailyRecordMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition =
+    """
+    mutation CreateDailyRecord($data: CreateDailyRecordInput!) {
+      createDailyRecord(data: $data) {
+        __typename
+        id
+        date
+        calories
+        fat
+        carbs
+        fiber
+        protein
+        food_string
+        quantity
+        meal_type
+        updatedAt
+        createdAt
+      }
+    }
+    """
+
+  public let operationName = "CreateDailyRecord"
+
+  public var data: CreateDailyRecordInput
+
+  public init(data: CreateDailyRecordInput) {
+    self.data = data
+  }
+
+  public var variables: GraphQLMap? {
+    return ["data": data]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("createDailyRecord", arguments: ["data": GraphQLVariable("data")], type: .nonNull(.object(CreateDailyRecord.selections))),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(createDailyRecord: CreateDailyRecord) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "createDailyRecord": createDailyRecord.resultMap])
+    }
+
+    public var createDailyRecord: CreateDailyRecord {
+      get {
+        return CreateDailyRecord(unsafeResultMap: resultMap["createDailyRecord"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "createDailyRecord")
+      }
+    }
+
+    public struct CreateDailyRecord: GraphQLSelectionSet {
+      public static let possibleTypes = ["DailyRecord"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("date", type: .nonNull(.scalar(String.self))),
+        GraphQLField("calories", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("fat", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("carbs", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("fiber", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("protein", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("food_string", type: .nonNull(.scalar(String.self))),
+        GraphQLField("quantity", type: .nonNull(.scalar(Int.self))),
+        GraphQLField("meal_type", type: .nonNull(.scalar(String.self))),
+        GraphQLField("updatedAt", type: .nonNull(.scalar(String.self))),
+        GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID, date: String, calories: Int, fat: Int, carbs: Int, fiber: Int, protein: Int, foodString: String, quantity: Int, mealType: String, updatedAt: String, createdAt: String) {
+        self.init(unsafeResultMap: ["__typename": "DailyRecord", "id": id, "date": date, "calories": calories, "fat": fat, "carbs": carbs, "fiber": fiber, "protein": protein, "food_string": foodString, "quantity": quantity, "meal_type": mealType, "updatedAt": updatedAt, "createdAt": createdAt])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var date: String {
+        get {
+          return resultMap["date"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "date")
+        }
+      }
+
+      public var calories: Int {
+        get {
+          return resultMap["calories"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "calories")
+        }
+      }
+
+      public var fat: Int {
+        get {
+          return resultMap["fat"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "fat")
+        }
+      }
+
+      public var carbs: Int {
+        get {
+          return resultMap["carbs"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "carbs")
+        }
+      }
+
+      public var fiber: Int {
+        get {
+          return resultMap["fiber"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "fiber")
+        }
+      }
+
+      public var protein: Int {
+        get {
+          return resultMap["protein"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "protein")
+        }
+      }
+
+      public var foodString: String {
+        get {
+          return resultMap["food_string"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "food_string")
+        }
+      }
+
+      public var quantity: Int {
+        get {
+          return resultMap["quantity"]! as! Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "quantity")
+        }
+      }
+
+      public var mealType: String {
+        get {
+          return resultMap["meal_type"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "meal_type")
+        }
+      }
+
+      public var updatedAt: String {
+        get {
+          return resultMap["updatedAt"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "updatedAt")
+        }
+      }
+
+      public var createdAt: String {
+        get {
+          return resultMap["createdAt"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "createdAt")
         }
       }
     }
