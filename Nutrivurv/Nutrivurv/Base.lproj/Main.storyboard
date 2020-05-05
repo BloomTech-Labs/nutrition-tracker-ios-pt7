@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rgx-hU-kMd">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-Regular.ttf">
+            <string>Muli-Regular</string>
+        </array>
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--NUTRIVURV-->
+        <scene sceneID="URv-Qa-Okb">
+            <objects>
+                <viewController storyboardIdentifier="Main" modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZdC-8b-FfQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking your calories just got easier." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-A0-06q">
+                                <rect key="frame" x="16" y="20" width="343" height="70"/>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="options" translatesAutoresizingMaskIntoConstraints="NO" id="jRg-Tc-crl">
+                                <rect key="frame" x="16" y="114" width="343" height="291"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="291" id="vzy-B4-RPG"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-lf-FI8">
+                                <rect key="frame" x="16" y="515.33333333333337" width="343" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-lu-tFp" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                        <color key="backgroundColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="CQr-yC-pS2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="14"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="M33-XK-sL7" kind="show" identifier="ShowLogin" id="bbi-d3-ZKs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86x-lr-i1v" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="76" width="343" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="N0d-gq-S85"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="14"/>
+                                        <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <segue destination="1Lo-so-MsD" kind="show" id="aPG-QO-76I"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with friends, earn badges and crush your goals." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-dr-800">
+                                <rect key="frame" x="75" y="433" width="225" height="37.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="27Q-xP-kgM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="rMW-A0-06q" secondAttribute="trailing" constant="16" id="1kg-0l-1nH"/>
+                            <constraint firstItem="KOb-lf-FI8" firstAttribute="top" secondItem="O7b-dr-800" secondAttribute="bottom" constant="45" id="1u7-pC-57f"/>
+                            <constraint firstItem="O7b-dr-800" firstAttribute="centerX" secondItem="ZdC-8b-FfQ" secondAttribute="centerX" id="4dr-ys-Jzd"/>
+                            <constraint firstItem="KOb-lf-FI8" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="CBp-hO-vgh"/>
+                            <constraint firstItem="jRg-Tc-crl" firstAttribute="top" secondItem="rMW-A0-06q" secondAttribute="bottom" constant="24" id="Enb-8p-Q0S"/>
+                            <constraint firstItem="O7b-dr-800" firstAttribute="top" secondItem="jRg-Tc-crl" secondAttribute="bottom" constant="28" id="KWw-4O-neP"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="jRg-Tc-crl" secondAttribute="trailing" constant="16" id="OPP-Bb-NBW"/>
+                            <constraint firstItem="rMW-A0-06q" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="i1o-MJ-24J"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="KOb-lf-FI8" secondAttribute="trailing" constant="16" id="iV8-ua-yyu"/>
+                            <constraint firstItem="rMW-A0-06q" firstAttribute="top" secondItem="2Ta-2h-Azf" secondAttribute="top" constant="20" id="lxu-Vj-X3E"/>
+                            <constraint firstItem="jRg-Tc-crl" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="s3x-Ld-ymw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Ta-2h-Azf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NUTRIVURV" id="Sqk-Aw-9fj"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="signInButton" destination="oZ9-lu-tFp" id="aFu-9O-gMM"/>
+                        <outlet property="signUpButton" destination="86x-lr-i1v" id="bxs-iw-DNT"/>
+                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="ShowDashboard" modalPresentationStyle="fullScreen" id="kWR-IQ-0ni"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HQ-uR-2t1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="-776"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VbX-R5-PiA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rgx-hU-kMd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sJ5-Ef-TqC">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pph-zf-Upw" kind="relationship" relationship="rootViewController" id="6XQ-cb-kYp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDl-fY-gyO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-161" y="-777"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="B1y-9o-gmN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="Dashboard" id="ILo-DN-Jd9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ntX-yz-6IM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-40-IoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1229" y="-797"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="FQM-2r-ytU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Login" storyboardName="SignIn" referencedIdentifier="Login" id="M33-XK-sL7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TvB-mb-Z5a"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Kh-j8-xBx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1202" y="-759"/>
+        </scene>
+        <!--Register-->
+        <scene sceneID="K2d-wK-1od">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Register" storyboardName="Signup" referencedIdentifier="Register" id="1Lo-so-MsD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fjh-au-CVQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSR-Ft-guT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="-383"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="options" width="347" height="291"/>
+    </resources>
+    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+</document>

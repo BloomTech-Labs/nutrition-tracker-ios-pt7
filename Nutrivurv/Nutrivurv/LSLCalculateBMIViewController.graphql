@@ -1,0 +1,19 @@
+mutation CreateProfile($data: CreateProfileInput!) {
+  createProfile(data: $data) {
+    id
+    age
+    weight
+    height
+    gender
+    goal_weight
+    activity_level
+    diet
+    fat
+    carbs
+    protein
+    fiber
+    calories
+    updatedAt
+    createdAt
+  }
+}
