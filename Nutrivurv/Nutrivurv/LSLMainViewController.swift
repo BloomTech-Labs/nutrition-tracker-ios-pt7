@@ -21,8 +21,8 @@ class LSLMainViewController: UIViewController {
         signUpButton.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
         
         // Delete Tokens
-//        let keychain = KeychainSwift()
-//        keychain.clear()
+        let keychain = KeychainSwift()
+        keychain.clear()
         
         if Network.isLoggedIn() {
             self.performSegue(withIdentifier: "ShowDashboard", sender: nil)
