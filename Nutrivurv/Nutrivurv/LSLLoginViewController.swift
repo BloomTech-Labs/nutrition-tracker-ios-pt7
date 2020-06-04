@@ -32,9 +32,18 @@ class LSLLoginViewController: UIViewController {
         guard let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty else { return }
         
-        Network.shared.loginUser(email: email, password: password) { (_) in
+        Network.shared.loginUser(email: email, password: password) { (result) in
             self.clearTextFields()
+            
+            if result == .success(true) {
             self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
+            } else {
+                print("Error logging in")
+                let alertController = UIAlertController(title: "Login Error", message: "Incorrect email or password.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     
