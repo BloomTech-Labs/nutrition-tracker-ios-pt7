@@ -17,6 +17,7 @@ class LSLGettingPersonalViewController: UIViewController {
     @IBOutlet var goalWeightTextView: CustomTextField!
     
     var nutritionController: LSLUserController?
+    var createProfileDelegate: CreateProfileCompletionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,7 @@ class LSLGettingPersonalViewController: UIViewController {
             LSLUserController.goalWeight = Int(goalWeight)
             
             apVC.nutritionController = self.nutritionController
+            apVC.createProfileDelegate = self.createProfileDelegate
         }
     }
 }

@@ -15,6 +15,7 @@ class LSLDietaryPreferenceViewController: UIViewController {
     @IBOutlet var dietTableView: UITableView!
     
     var nutritionController: LSLUserController?
+    var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,16 @@ class LSLDietaryPreferenceViewController: UIViewController {
         guard let activityLevel = LSLUserController.activityLevel else { return } // Optional
         guard let diet = LSLUserController.diet else { return } // Optional
         
-        Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (_) in
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
+        Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (result) in
+            if result == .success(true) {
+                DispatchQueue.main.async {
+                    print("User Profile Creation Successful")
+                                self.navigationController?.popToRootViewController(animated: true)
+                                self.createProfileDelegate?.profileWasCreated()
+//                                self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
+                            }
+            } else {
+                print("Error - user profile creation was unsuccessful")
             }
         }
     }

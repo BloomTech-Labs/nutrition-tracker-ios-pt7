@@ -13,6 +13,7 @@ class LSLActivityLevelViewController: UIViewController {
     @IBOutlet var activeTableView: UITableView!
     
     var nutritionController: LSLUserController?
+    var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class LSLActivityLevelViewController: UIViewController {
         if segue.identifier == "ToDietPreference" {
             guard let dpVC = segue.destination as? LSLDietaryPreferenceViewController else { return }
             dpVC.nutritionController = self.nutritionController
+            dpVC.createProfileDelegate = self.createProfileDelegate
         }
     }
 }

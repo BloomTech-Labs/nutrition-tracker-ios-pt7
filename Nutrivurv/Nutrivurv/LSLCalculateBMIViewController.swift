@@ -18,6 +18,7 @@ class LSLCalculateBMIViewController: UIViewController {
     @IBOutlet var currentBMILabel: UILabel!
     
     var nutritionController = LSLUserController()
+    var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +83,7 @@ class LSLCalculateBMIViewController: UIViewController {
         if segue.identifier == "ToGettingPersonal" {
             guard let gpVC = segue.destination as? LSLGettingPersonalViewController else { return }
             gpVC.nutritionController = self.nutritionController
+            gpVC.createProfileDelegate = self.createProfileDelegate
         }
     }
 }
-
