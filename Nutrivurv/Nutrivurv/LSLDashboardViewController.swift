@@ -36,28 +36,42 @@ class LSLDashboardViewController: UIViewController {
     
     private func updateViews() {
         // Check to see if has profile
-        dashboardController.checkForProfile { (bool) in
-            if bool {
-                // Update NameLabel
-                self.dashboardController.getMyName { (result) in
-                    if let name = try? result.get() {
-                        self.navigationItem.title = name
-                    } else {
-                        print("Couldn't get name: \(result)")
-                    }
-                }
-
-                // Update WeightLabel
-                self.dashboardController.getMyWeight { (result) in
-                    if let weight = try? result.get() {
-                        self.currentWeightLabel.text = String(weight)
-                    } else {
-                        print("Couldn't get weight: \(result)")
-                    }
+        dashboardController.checkForProfile { (hasProfile) in
+            if hasProfile {
+                DispatchQueue.main.async {
+                    self.loadProfile()
                 }
             } else {
                 print("Missing profile")
-                self.performSegue(withIdentifier: "MissingProfile", sender: self)
+//                self.performSegue(withIdentifier: "MissingProfile", sender: self)
+                
+                let destination = UIStoryboard(name: "Profile", bundle: nil)
+                guard let profileCreationVC = destination.instantiateInitialViewController() as? LSLCalculateBMIViewController else {
+                    print("Unable to instantiate profile creation view controller")
+                    return
+                }
+                profileCreationVC.createProfileDelegate = self
+                self.navigationController?.pushViewController(profileCreationVC, animated: true)
+            }
+        }
+    }
+    
+    private func loadProfile() {
+        // Update NameLabel
+        self.dashboardController.getMyName { (result) in
+            if let name = try? result.get() {
+                self.navigationItem.title = name
+            } else {
+                print("Couldn't get name: \(result)")
+            }
+        }
+        
+        // Update WeightLabel
+        self.dashboardController.getMyWeight { (result) in
+            if let weight = try? result.get() {
+                self.currentWeightLabel.text = String(weight)
+            } else {
+                print("Couldn't get weight: \(result)")
             }
         }
     }
