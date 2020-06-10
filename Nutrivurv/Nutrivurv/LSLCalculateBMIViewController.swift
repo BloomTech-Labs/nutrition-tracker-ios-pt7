@@ -34,11 +34,10 @@ class LSLCalculateBMIViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     @IBAction func advanceToGettingPersonal(_ sender: CustomButton) {
-        guard let _ = LSLUserController.height,
-            let _ = LSLUserController.weight else { return (self.nutritionController.alertEmptyTextField(controller: self, field: "Height and/or Weight")) }
-        self.updateViews()
-        
-        self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: .calculateBMI, object: nil)
+            self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
+        }
     }
     
     private func styleSegmentControl() {
