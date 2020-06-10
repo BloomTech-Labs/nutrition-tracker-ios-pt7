@@ -21,7 +21,8 @@ class LSLMetricBMIViewController: UIViewController {
         self.heightMetricTextField.delegate = self
         self.weightMetricTextField.delegate = self
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
+        NotificationCenter.default.addObserver(self, selector: #selector(calculateBMI), name: .calculateBMI, object: nil)
     }
     
     // MARK: - IBActions and Methods
@@ -31,11 +32,10 @@ class LSLMetricBMIViewController: UIViewController {
         self.weightMetricTextField.resignFirstResponder()
     }
     
-    private func calculateBMI() -> String {
+    @discardableResult @objc public func calculateBMI() -> String? {
         guard let height = self.heightMetricTextField.text, !height.isEmpty,
             let weight = self.weightMetricTextField.text, !weight.isEmpty else {
-            NSLog("The user forgot to enter information needed to calculate BMI")
-            return ""
+            return nil
         }
         
         let newHeight = ((Double(height) ?? 0) / 2.54)
@@ -45,6 +45,8 @@ class LSLMetricBMIViewController: UIViewController {
 
         let bmi = (totalWeight * 704.7) / (newHeight * newHeight)
         let roundedBMI = String(format: "%.2f", bmi)
+        
+        LSLUserController.bmi = roundedBMI
 
         return roundedBMI
     }
@@ -53,13 +55,12 @@ class LSLMetricBMIViewController: UIViewController {
 extension LSLMetricBMIViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == heightMetricTextField {
-            textField.resignFirstResponder()
             weightMetricTextField.becomeFirstResponder()
         } else if textField == weightMetricTextField {
             textField.resignFirstResponder()
         }
         if !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            LSLUserController.bmi = self.calculateBMI()
+            self.calculateBMI()
         }
         return true
     }
@@ -72,9 +73,6 @@ extension LSLMetricBMIViewController: UITextFieldDelegate {
         textField.layer.shadowOpacity = 1
         textField.layer.shadowRadius = 4
         textField.layer.shadowOffset = CGSize(width: 0, height: 0)
-        if !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            LSLUserController.bmi = self.calculateBMI()
-        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -82,8 +80,8 @@ extension LSLMetricBMIViewController: UITextFieldDelegate {
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
-        if !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            LSLUserController.bmi = self.calculateBMI()
+        if LSLUserController.bmi == nil && !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
+            self.calculateBMI()
         }
     }
 }
