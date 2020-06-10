@@ -9,5 +9,6 @@
 import Foundation
 
 extension Notification.Name {
-    static let textFieldsWereUpdated = Notification.Name(rawValue: "textFieldsWereUpdated")
+    static let bmiUpdated = Notification.Name(rawValue: "bmiUpdated")
+    static let calculateBMI = Notification.Name(rawValue: "calculateBMI")
 }

@@ -23,7 +23,7 @@ class LSLUserController {
     static var bmi: String? {
         didSet {
             DispatchQueue.main.async {
-                NotificationCenter.default.post(name: .textFieldsWereUpdated, object: nil)
+                NotificationCenter.default.post(name: .bmiUpdated, object: nil)
             }
         }
     }

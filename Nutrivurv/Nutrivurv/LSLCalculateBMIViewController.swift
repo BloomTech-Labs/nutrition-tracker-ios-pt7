@@ -28,7 +28,7 @@ class LSLCalculateBMIViewController: UIViewController {
         
         self.styleSegmentControl()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .textFieldsWereUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .bmiUpdated, object: nil)
     }
     
     // MARK: - IBActions and Methods
