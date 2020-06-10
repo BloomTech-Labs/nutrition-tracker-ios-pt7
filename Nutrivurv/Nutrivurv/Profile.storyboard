@@ -803,25 +803,8 @@
             </objects>
             <point key="canvasLocation" x="7219" y="-777"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="oGK-fF-ap8">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p2D-lJ-1Ab" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iAJ-0m-5yT">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uSu-Zd-iJo" kind="relationship" relationship="rootViewController" id="wkC-Id-w8v"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u9M-OP-wJL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2633" y="-777"/>
-        </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="Divider" width="355" height="2"/>
         <image name="circle" catalog="system" width="64" height="60"/>
