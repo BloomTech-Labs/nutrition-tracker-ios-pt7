@@ -37,8 +37,12 @@ class LSLDietaryPreferenceViewController: UIViewController {
             if result == .success(true) {
                 DispatchQueue.main.async {
                     print("User Profile Creation Successful")
-                    self.navigationController?.popToRootViewController(animated: true)
-                    self.createProfileDelegate?.profileWasCreated()
+                    if self.createProfileDelegate == nil {
+                        self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
+                    } else {
+                        self.navigationController?.popToRootViewController(animated: true)
+                        self.createProfileDelegate?.profileWasCreated()
+                    }
                 }
             } else {
                 print("Error - user profile creation was unsuccessful")
