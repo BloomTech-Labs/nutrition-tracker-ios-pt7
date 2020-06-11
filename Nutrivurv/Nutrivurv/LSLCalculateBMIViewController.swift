@@ -22,10 +22,9 @@ class LSLCalculateBMIViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Hide Back Button
+        self.tabBarController?.tabBar.isHidden = true
+
         self.navigationItem.hidesBackButton = true
-        
         self.styleSegmentControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .bmiUpdated, object: nil)
@@ -76,8 +75,7 @@ class LSLCalculateBMIViewController: UIViewController {
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToGettingPersonal" {
             guard let gpVC = segue.destination as? LSLGettingPersonalViewController else { return }
