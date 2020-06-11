@@ -46,8 +46,13 @@ class LSLStandardBMIViewController: UIViewController {
         LSLUserController.height = Int(height)
         let totalWeight = Double(weight) ?? 0
         LSLUserController.weight = Int(totalWeight)
+        
         let bmi = (totalWeight * 704.7) / (height * height)
         let roundedBMI = String(format: "%.2f", bmi)
+        
+        if LSLUserController.bmi == roundedBMI {
+            return nil
+        }
         
         LSLUserController.bmi = roundedBMI
         
