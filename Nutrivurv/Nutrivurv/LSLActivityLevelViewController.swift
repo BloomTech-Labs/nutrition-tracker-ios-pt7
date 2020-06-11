@@ -17,8 +17,9 @@ class LSLActivityLevelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.activeTableView.delegate = self
+        self.activeTableView.allowsSelection = false
+        self.activeTableView.isScrollEnabled = false
+    
         self.activeTableView.dataSource = self
     }
     
@@ -29,8 +30,7 @@ class LSLActivityLevelViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToDietPreference" {
             guard let dpVC = segue.destination as? LSLDietaryPreferenceViewController else { return }
@@ -38,9 +38,6 @@ class LSLActivityLevelViewController: UIViewController {
             dpVC.createProfileDelegate = self.createProfileDelegate
         }
     }
-}
-
-extension LSLActivityLevelViewController: UITableViewDelegate {
 }
 
 extension LSLActivityLevelViewController: UITableViewDataSource {
