@@ -24,27 +24,41 @@ class LSLLoginViewController: UIViewController {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
     }
     
     // MARK: - IBActions and Methods
-    @IBAction func login(_ sender: UIButton) {
+    @IBAction func login(_ sender: Any) {
         guard let email = self.emailTextField.text, !email.isEmpty,
-            let password = self.passwordTextField.text, !password.isEmpty else { return }
+            let password = self.passwordTextField.text, !password.isEmpty else {
+                completeFieldsAlert()
+                return
+        }
         
         Network.shared.loginUser(email: email, password: password) { (result) in
-            self.clearTextFields()
             
             if result == .success(true) {
             self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
             } else {
-                print("Error logging in")
-                let alertController = UIAlertController(title: "Login Error", message: "Incorrect email or password.", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.incorrectCredentialsAlert()
+                }
             }
         }
+    }
+    
+    private func completeFieldsAlert() {
+        let alertController = UIAlertController(title: "Complete All Fields", message: "Please enter your email and password in order to log in.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func incorrectCredentialsAlert() {
+        let alertController = UIAlertController(title: "Login Error", message: "Incorrect email or password.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
@@ -63,7 +77,15 @@ class LSLLoginViewController: UIViewController {
 
 extension LSLLoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            textField.resignFirstResponder()
+            self.login(self)
+        default:
+            textField.resignFirstResponder()
+        }
         return true
     }
     
