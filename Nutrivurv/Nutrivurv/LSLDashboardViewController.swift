@@ -14,27 +14,31 @@ class LSLDashboardViewController: UIViewController {
     // MARK: - IBOutlets and Properties
     @IBOutlet var streakCountLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
-        
-    var isLoggedIn: Bool = false
+    
+//    var isLoggedIn: Bool = false
     var dashboardController = LSLDashboardController()
     var userController = LSLUserController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Change Button to Logout
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
-
+        
         if Network.isLoggedIn() {
-            self.updateViews()
+            self.checkForProfile()
         } else {
             let keychain = KeychainSwift()
             keychain.clear()
             self.performSegue(withIdentifier: "Logout", sender: self)
-       }
+        }
     }
     
-    private func updateViews() {
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func checkForProfile() {
         // Check to see if has profile
         dashboardController.checkForProfile { (hasProfile) in
             if hasProfile {
@@ -42,9 +46,6 @@ class LSLDashboardViewController: UIViewController {
                     self.loadProfile()
                 }
             } else {
-                print("Missing profile")
-//                self.performSegue(withIdentifier: "MissingProfile", sender: self)
-                
                 let destination = UIStoryboard(name: "Profile", bundle: nil)
                 guard let profileCreationVC = destination.instantiateInitialViewController() as? LSLCalculateBMIViewController else {
                     print("Unable to instantiate profile creation view controller")
@@ -81,10 +82,7 @@ class LSLDashboardViewController: UIViewController {
         keychain.clear()
         self.performSegue(withIdentifier: "Logout", sender: self)
     }
-    
-    
-    /*
-    // MARK: - Navigation
+}
 
 extension LSLDashboardViewController: CreateProfileCompletionDelegate {
     func profileWasCreated() {
