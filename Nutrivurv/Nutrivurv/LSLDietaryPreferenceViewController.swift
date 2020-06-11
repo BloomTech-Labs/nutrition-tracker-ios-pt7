@@ -19,8 +19,8 @@ class LSLDietaryPreferenceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.dietTableView.delegate = self
+        self.dietTableView.allowsSelection = false
+        self.dietTableView.isScrollEnabled = false
         self.dietTableView.dataSource = self
     }
     
@@ -37,18 +37,14 @@ class LSLDietaryPreferenceViewController: UIViewController {
             if result == .success(true) {
                 DispatchQueue.main.async {
                     print("User Profile Creation Successful")
-                                self.navigationController?.popToRootViewController(animated: true)
-                                self.createProfileDelegate?.profileWasCreated()
-//                                self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
-                            }
+                    self.navigationController?.popToRootViewController(animated: true)
+                    self.createProfileDelegate?.profileWasCreated()
+                }
             } else {
                 print("Error - user profile creation was unsuccessful")
             }
         }
     }
-}
-
-extension LSLDietaryPreferenceViewController: UITableViewDelegate {
 }
 
 extension LSLDietaryPreferenceViewController: UITableViewDataSource {
