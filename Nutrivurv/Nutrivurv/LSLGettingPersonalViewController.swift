@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLGettingPersonalViewController: UIViewController {
+class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     // MARK: - IBOutlets and Properties
 
@@ -36,13 +36,12 @@ class LSLGettingPersonalViewController: UIViewController {
         self.goalWeightTextView.resignFirstResponder()
     }
     
-    @IBAction func toActivityLevel(_ sender: CustomButton) {
+    @IBAction func toActivityLevel(_ sender: Any) {
         self.performSegue(withIdentifier: "ToActivityLevel", sender: self)
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToActivityLevel" {
             guard let apVC = segue.destination as? LSLActivityLevelViewController else { return }
@@ -70,9 +69,6 @@ class LSLGettingPersonalViewController: UIViewController {
     }
 }
 
-extension LSLGettingPersonalViewController: UIPickerViewDelegate {
-}
-
 extension LSLGettingPersonalViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -89,7 +85,15 @@ extension LSLGettingPersonalViewController: UIPickerViewDataSource {
 
 extension LSLGettingPersonalViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case ageTextView:
+            goalWeightTextView.becomeFirstResponder()
+        case goalWeightTextView:
+            textField.resignFirstResponder()
+            self.toActivityLevel(self)
+        default:
+            textField.resignFirstResponder()
+        }
         return true
     }
     
