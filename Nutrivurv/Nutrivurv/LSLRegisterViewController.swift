@@ -48,6 +48,9 @@ class LSLRegisterViewController: UIViewController {
             return
         }
         
+        registerButton.isEnabled = false
+        registerButton.layer.opacity = 0.45
+        
         Network.shared.createUser(name: name, email: email, password: password) { (result) in
             
             switch result {
@@ -58,6 +61,9 @@ class LSLRegisterViewController: UIViewController {
             default:
                 self.generalRegistrationError()
             }
+            
+            self.registerButton.isEnabled = true
+            self.registerButton.layer.opacity = 1.0
         }
     }
     

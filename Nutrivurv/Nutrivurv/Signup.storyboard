@@ -164,7 +164,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="register:" destination="3WQ-uR-EyV" eventType="touchUpInside" id="Sgw-ld-0U2"/>
+                                    <action selector="registerButtonTapped:" destination="3WQ-uR-EyV" eventType="touchUpInside" id="k4Z-cU-4yK"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vG1-As-iuo">
@@ -252,6 +252,7 @@
                         <outlet property="emailTextField" destination="ZVv-Ea-52M" id="kk7-kE-rfg"/>
                         <outlet property="nameTextField" destination="ce5-Jl-T8B" id="D27-OJ-JhR"/>
                         <outlet property="passwordTextField" destination="XRV-yp-U8z" id="7Oj-Co-6up"/>
+                        <outlet property="registerButton" destination="gtD-m4-ecB" id="Ldv-Sw-PFX"/>
                         <segue destination="Uol-KK-m2c" kind="show" identifier="ToCalculateBMI" id="JkF-jo-OoI"/>
                         <segue destination="lZU-g2-e1G" kind="show" identifier="ToDashboard" id="ZbP-V6-XER"/>
                     </connections>

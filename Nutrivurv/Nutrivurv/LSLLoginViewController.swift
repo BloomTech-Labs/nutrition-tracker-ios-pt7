@@ -36,6 +36,9 @@ class LSLLoginViewController: UIViewController {
                 return
         }
         
+        submitButton.isEnabled = false
+        submitButton.layer.opacity = 0.45
+        
         Network.shared.loginUser(email: email, password: password) { (result) in
             
             switch result {
@@ -46,6 +49,9 @@ class LSLLoginViewController: UIViewController {
             default:
                 self.generalLoginError()
             }
+            
+            self.submitButton.isEnabled = true
+            self.submitButton.layer.opacity = 1.0
         }
     }
     
