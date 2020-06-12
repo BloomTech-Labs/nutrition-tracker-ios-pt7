@@ -33,17 +33,18 @@ class LSLCalculateBMIViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     @IBAction func advanceToGettingPersonal(_ sender: CustomButton) {
-        guard LSLUserController.bmi != nil else {
-            calculateBMIAlert()
-            return
-        }
-        
         DispatchQueue.main.async {
             if self.segmentControl.selectedSegmentIndex == 0 {
                 NotificationCenter.default.post(name: .calculateBMIStandard, object: nil)
             } else {
                 NotificationCenter.default.post(name: .calculateBMIMetric, object: nil)
             }
+            
+            guard LSLUserController.bmi != nil else {
+                self.calculateBMIAlert()
+                return
+            }
+            
             self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
         }
     }

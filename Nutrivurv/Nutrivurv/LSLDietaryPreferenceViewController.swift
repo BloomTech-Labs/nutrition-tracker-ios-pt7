@@ -13,6 +13,7 @@ class LSLDietaryPreferenceViewController: UIViewController {
     // MARK: - IBOutlets and Properties
     
     @IBOutlet var dietTableView: UITableView!
+    @IBOutlet weak var completeProfileButton: CustomButton!
     
     var nutritionController: LSLUserController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
@@ -33,12 +34,16 @@ class LSLDietaryPreferenceViewController: UIViewController {
         guard let age = LSLUserController.age,
             let weight = LSLUserController.weight,
             let height = LSLUserController.height,
-            let gender = LSLUserController.gender,
             let goalWeight = LSLUserController.goalWeight,
             let activityLevel = LSLUserController.activityLevel else {
                 missingInformationAlert()
                 return
         }
+        
+        let gender = LSLUserController.gender
+        
+        completeProfileButton.isEnabled = false
+        completeProfileButton.layer.opacity = 0.45
         
         Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (result) in
             if result == .success(true) {
@@ -60,6 +65,9 @@ class LSLDietaryPreferenceViewController: UIViewController {
             } else {
                 self.tryAgainAlert()
             }
+            
+            self.completeProfileButton.isEnabled = true
+            self.completeProfileButton.layer.opacity = 1.0
         }
     }
     
