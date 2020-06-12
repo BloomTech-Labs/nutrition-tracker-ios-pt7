@@ -103,7 +103,7 @@ extension LSLDietaryPreferenceViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Custom Delegate Methods for Updated User Selections
+// MARK: - Custom Delegate Methods for Updated Dietary Preference Selection
 
 extension LSLDietaryPreferenceViewController: LSLDietTableViewCellDelegate {
     func tappedRadioButton(on cell: LSLDietTableViewCell) {
