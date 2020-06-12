@@ -35,7 +35,7 @@ class LSLUserController {
     var activityLevels: [ActivityLevel] = [
         ActivityLevel(level: 2, name: "Not Very Active", description: "Spends most of the day sitting (little to no exercise)"),
         ActivityLevel(level: 3, name: "Lightly Active", description: "Spends a good part of the day on your feet (light exercise 1-3 days/week)"),
-        ActivityLevel(level: 4, name: "Active", description: "Spend a good part of the day doing some physical activity (moderate exercise  3-5 days/week)"),
+        ActivityLevel(level: 4, name: "Active", description: "Spend a good part of the day doing some physical activity (moderate exercise  3-5 days/week)", isSelected: LSLUserController.activityLevel == 4 ? true : false),
         ActivityLevel(level: 5, name: "Very Active", description: "Spends most of the day doing heavy phyysical activity (very strenous excersice or physical job daily)"),
         ActivityLevel(level: 1, name: "Sedentary", description: "Not active at all during the day or requires assistance to perform daily tasks")
     ]
