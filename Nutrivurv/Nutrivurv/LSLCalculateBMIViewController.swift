@@ -33,6 +33,11 @@ class LSLCalculateBMIViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     @IBAction func advanceToGettingPersonal(_ sender: CustomButton) {
+        guard LSLUserController.bmi != nil else {
+            calculateBMIAlert()
+            return
+        }
+        
         DispatchQueue.main.async {
             if self.segmentControl.selectedSegmentIndex == 0 {
                 NotificationCenter.default.post(name: .calculateBMIStandard, object: nil)
@@ -72,6 +77,18 @@ class LSLCalculateBMIViewController: UIViewController {
                 self.metricUIView.isHidden = true
         }
     }
+    
+    // MARK: - AlertControllers
+    
+    private func calculateBMIAlert() {
+        let alertController = UIAlertController(title: "Missing Information", message: "Please input your height and weight (estimate if you're unsure) in order to calculate your BMI.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Update Views
     
     @objc func updateViews() {
         guard let bmi = LSLUserController.bmi, isViewLoaded else { return NSLog("View isn't loaded.") }
