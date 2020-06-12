@@ -46,7 +46,7 @@ class LSLDashboardViewController: UIViewController {
                     self.loadProfile()
                 }
             } else {
-                let destination = UIStoryboard(name: "Profile", bundle: nil)
+                let destination = UIStoryboard(name: "Profile", bundle: .main)
                 guard let profileCreationVC = destination.instantiateInitialViewController() as? LSLCalculateBMIViewController else {
                     print("Unable to instantiate profile creation view controller")
                     return
