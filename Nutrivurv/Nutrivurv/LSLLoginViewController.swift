@@ -11,16 +11,16 @@ import UIKit
 class LSLLoginViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
+    
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var submitButton: CustomButton!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide Back Button
         self.navigationItem.hidesBackButton = true
-
+        
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
@@ -28,6 +28,7 @@ class LSLLoginViewController: UIViewController {
     }
     
     // MARK: - IBActions and Methods
+    
     @IBAction func login(_ sender: Any) {
         guard let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty else {
@@ -49,37 +50,29 @@ class LSLLoginViewController: UIViewController {
     }
     
     private func completeFieldsAlert() {
-        let alertController = UIAlertController(title: "Complete All Fields", message: "Please enter your email and password in order to log in.", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
+        createAndDisplayAlertController(title: "Complete All Fields", message: "Please enter your email and password in order to log in.")
     }
     
     private func incorrectCredentialsAlert() {
-        let alertController = UIAlertController(title: "Login Error", message: "Incorrect email or password.", preferredStyle: .alert)
+        createAndDisplayAlertController(title: "Login Error", message: "Incorrect email or password. Please try again.")
+    }
+    
+    private func generalLoginError() {
+        createAndDisplayAlertController(title: "Login failed", message: "We were unable to log you in. Please try again.")
+    }
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
-    private func generalLoginError() {
-        let alertController = UIAlertController.init(title: "Login failed", message: "We were unable to log you in. Please try again.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    @IBAction func unwind( _ seg: UIStoryboardSegue) {
-    }
+    // MARK: - Custom Keyboard Dismissal
     
     @objc func dismissKeyboard() {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
-    }
-    
-    private func clearTextFields() {
-        self.emailTextField.text = ""
-        self.passwordTextField.text = ""
     }
 }
 
