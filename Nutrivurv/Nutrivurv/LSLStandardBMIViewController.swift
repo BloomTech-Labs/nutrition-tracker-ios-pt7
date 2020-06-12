@@ -11,20 +11,20 @@ import UIKit
 class LSLStandardBMIViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
-
+    
     @IBOutlet public var heightStandardFeetTextField: UITextField!
     @IBOutlet public var heightStandardInchesTextField: UITextField!
     @IBOutlet public var weightStandardTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.heightStandardFeetTextField.delegate = self
         self.heightStandardInchesTextField.delegate = self
         self.weightStandardTextField.delegate = self
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
-        NotificationCenter.default.addObserver(self, selector: #selector(calculateBMI), name: .calculateBMI, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(calculateBMI), name: .calculateBMIStandard, object: nil)
     }
     
     // MARK: - IBActions and Methods
@@ -39,7 +39,7 @@ class LSLStandardBMIViewController: UIViewController {
         guard let feet = self.heightStandardFeetTextField.text, !feet.isEmpty,
             let inches = self.heightStandardInchesTextField.text, !inches.isEmpty,
             let weight = self.weightStandardTextField.text, !weight.isEmpty else {
-            return nil
+                return nil
         }
         
         let height = ((Double(feet) ?? 0) * 12) + (Double(inches) ?? 0)
@@ -52,9 +52,9 @@ class LSLStandardBMIViewController: UIViewController {
         
         if LSLUserController.bmi == roundedBMI {
             return nil
+        } else {
+            LSLUserController.bmi = roundedBMI
         }
-        
-        LSLUserController.bmi = roundedBMI
         
         return roundedBMI
     }

@@ -10,5 +10,6 @@ import Foundation
 
 extension Notification.Name {
     static let bmiUpdated = Notification.Name(rawValue: "bmiUpdated")
-    static let calculateBMI = Notification.Name(rawValue: "calculateBMI")
+    static let calculateBMIMetric = Notification.Name(rawValue: "calculateBMIMetric")
+    static let calculateBMIStandard = Notification.Name(rawValue: "calculateBMIStandard")
 }

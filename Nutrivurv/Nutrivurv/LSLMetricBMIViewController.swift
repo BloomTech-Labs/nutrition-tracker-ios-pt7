@@ -17,12 +17,12 @@ class LSLMetricBMIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.heightMetricTextField.delegate = self
         self.weightMetricTextField.delegate = self
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
-        NotificationCenter.default.addObserver(self, selector: #selector(calculateBMI), name: .calculateBMI, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(calculateBMI), name: .calculateBMIMetric, object: nil)
     }
     
     // MARK: - IBActions and Methods
@@ -35,23 +35,23 @@ class LSLMetricBMIViewController: UIViewController {
     @discardableResult @objc public func calculateBMI() -> String? {
         guard let height = self.heightMetricTextField.text, !height.isEmpty,
             let weight = self.weightMetricTextField.text, !weight.isEmpty else {
-            return nil
+                return nil
         }
         
         let newHeight = ((Double(height) ?? 0) / 2.54)
         LSLUserController.height = Int(newHeight)
         let totalWeight = ((Double(weight) ?? 0) * 2.20462262185)
         LSLUserController.weight = Int(totalWeight)
-
+        
         let bmi = (totalWeight * 704.7) / (newHeight * newHeight)
         let roundedBMI = String(format: "%.2f", bmi)
         
         if LSLUserController.bmi == roundedBMI {
             return nil
+        } else {
+            LSLUserController.bmi = roundedBMI
         }
         
-        LSLUserController.bmi = roundedBMI
-
         return roundedBMI
     }
 }
