@@ -45,14 +45,14 @@ class LSLRegisterViewController: UIViewController {
         }
         
         Network.shared.createUser(name: name, email: email, password: password) { (result) in
-            if result == .failure(.badAuth) {
-                self.accountAlreadyExistsAlert()
-                return
-            } else if result == .failure(.noAuth) || result == .failure(.otherError) {
-                self.generalRegistrationError()
-                return
-            } else {
+            
+            switch result {
+            case .success(true):
                 self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
+            case .failure(.badAuth):
+                self.accountAlreadyExistsAlert()
+            default:
+                self.generalRegistrationError()
             }
         }
     }
