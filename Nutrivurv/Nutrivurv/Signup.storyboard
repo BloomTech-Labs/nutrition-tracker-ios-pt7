@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3WQ-uR-EyV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3WQ-uR-EyV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -253,11 +253,22 @@
                         <outlet property="nameTextField" destination="ce5-Jl-T8B" id="D27-OJ-JhR"/>
                         <outlet property="passwordTextField" destination="XRV-yp-U8z" id="7Oj-Co-6up"/>
                         <segue destination="Uol-KK-m2c" kind="show" identifier="ToCalculateBMI" id="JkF-jo-OoI"/>
+                        <segue destination="lZU-g2-e1G" kind="show" identifier="ToDashboard" id="ZbP-V6-XER"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIZ-Hn-M3Q" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516" y="-444"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="xt2-P8-odw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="lZU-g2-e1G" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rbh-KL-1bv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H48-sv-lim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2061" y="-544"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ONx-E2-rCr">
@@ -280,8 +291,8 @@
             <point key="canvasLocation" x="2056" y="-428"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="girl" width="306" height="225"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>
