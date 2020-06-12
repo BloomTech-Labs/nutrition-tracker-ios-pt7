@@ -47,13 +47,17 @@ class Network {
                 case .success(let graphQLResult):
                     guard let token = graphQLResult.data?.login.token else {
                         print("Bad Data: \(graphQLResult)")
-                        completion(.failure(.badAuth))
+                        DispatchQueue.main.async {
+                            completion(.failure(.badAuth))
+                        }
                         return
                     }
                     
                     guard graphQLResult.errors == nil else {
                         print("Errors from server: \(graphQLResult.errors!)")
-                        completion(.failure(.otherError))
+                        DispatchQueue.main.async {
+                            completion(.failure(.otherError))
+                        }
                         return
                     }
                     
@@ -61,10 +65,14 @@ class Network {
                     keychain.set(token, forKey: Network.loginKeychainKey)
                     self.apollo = Network.createApolloClient()
 
-                    completion(.success(true))
+                    DispatchQueue.main.async {
+                        completion(.success(true))
+                    }
                 case .failure(let error):
                     print("Error: \(error)")
-                    completion(.failure(.noAuth))
+                    DispatchQueue.main.async {
+                        completion(.failure(.noAuth))
+                    }
             }
         }
     }
@@ -72,26 +80,36 @@ class Network {
     func createUser(name: String, email: String, password: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         self.apollo.perform(mutation: CreateUserMutation(data: CreateUserInput(name: name, email: email, password: password))) { result in
             switch result {
-                case .success(let graphQLResult):
-                    guard let token = graphQLResult.data?.createUser.token else {
+            case .success(let graphQLResult):
+                guard let token = graphQLResult.data?.createUser.token else {
+                    // If an account already exists with the same credentials, this completion will run
+                    DispatchQueue.main.async {
                         completion(.failure(.badAuth))
-                        return
                     }
-                    
-                    guard graphQLResult.errors == nil else {
-                        print("Errors from server: \(graphQLResult.errors!)")
+                    return
+                }
+                
+                guard graphQLResult.errors == nil else {
+                    print("Errors from server: \(graphQLResult.errors!)")
+                    DispatchQueue.main.async {
                         completion(.failure(.otherError))
-                        return
                     }
-
-                    let keychain = KeychainSwift()
-                    keychain.set(token, forKey: Network.loginKeychainKey)
-                    self.apollo = Network.createApolloClient()
-
+                    return
+                }
+                
+                let keychain = KeychainSwift()
+                keychain.set(token, forKey: Network.loginKeychainKey)
+                self.apollo = Network.createApolloClient()
+                
+                DispatchQueue.main.async {
                     completion(.success(true))
-                case .failure(let error):
-                    print("Error: \(error)")
+                }
+                
+            case .failure(let error):
+                print("Error: \(error)")
+                DispatchQueue.main.async {
                     completion(.failure(.noAuth))
+                }
             }
         }
     }
@@ -99,22 +117,31 @@ class Network {
     func createProfile(age: Int, weight: Int, height: Int, gender: Bool?, goalWeight: Int?, activityLevel: Int?, diet: String?, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         apollo.perform(mutation: CreateProfileMutation(data: CreateProfileInput(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet))) { result in
             switch result {
-                case .success(let graphQLResult):
-                    guard graphQLResult.data?.createProfile.id != nil else {
+            case .success(let graphQLResult):
+                guard graphQLResult.data?.createProfile.id != nil else {
+                    DispatchQueue.main.async {
                         completion(.failure(.badData))
-                        return
                     }
-                    
-                    guard graphQLResult.errors == nil else {
-                        print("Errors from server: \(graphQLResult.errors!)")
-                        completion(.failure(.otherError))
-                        return
-                    }
+                    return
+                }
                 
+                guard graphQLResult.errors == nil else {
+                    print("Errors from server: \(graphQLResult.errors!)")
+                    DispatchQueue.main.async {
+                        completion(.failure(.otherError))
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async {
                     completion(.success(true))
-                case .failure(let error):
-                    print("Error: \(error)")
+                }
+                
+            case .failure(let error):
+                print("Error: \(error)")
+                DispatchQueue.main.async {
                     completion(.failure(.noAuth))
+                }
             }
         }
     }
@@ -130,20 +157,28 @@ class Network {
             switch result {
                 case .success(let graphQLResult):
                     guard graphQLResult.data?.createDailyRecord.createdAt != nil else {
-                        completion(.failure(.badData))
+                        DispatchQueue.main.async {
+                            completion(.failure(.badData))
+                        }
                         return
                     }
 
                     guard graphQLResult.errors == nil else {
                         print("Errors from server: \(graphQLResult.errors!)")
-                        completion(.failure(.otherError))
+                        DispatchQueue.main.async {
+                            completion(.failure(.otherError))
+                        }
                         return
                     }
 
-                    completion(.success(true))
+                    DispatchQueue.main.async {
+                        completion(.success(true))
+                    }
                 case .failure(let error):
                     print("Error: \(error)")
-                    completion(.failure(.noAuth))
+                    DispatchQueue.main.async {
+                        completion(.failure(.noAuth))
+                    }
             }
         }
     }
