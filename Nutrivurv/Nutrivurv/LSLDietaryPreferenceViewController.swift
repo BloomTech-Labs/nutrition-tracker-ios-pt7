@@ -25,6 +25,10 @@ class LSLDietaryPreferenceViewController: UIViewController {
     }
     
     @IBAction func completeProfile(_ sender: CustomButton) {
+        guard LSLUserController.diet != nil else {
+            makeSelectionAlert()
+            return
+        }
         guard let age = LSLUserController.age else { return } // Required
         guard let weight = LSLUserController.weight else { return } // Required
         guard let height = LSLUserController.height else { return } // Required
@@ -38,7 +42,13 @@ class LSLDietaryPreferenceViewController: UIViewController {
                 DispatchQueue.main.async {
                     print("User Profile Creation Successful")
                     if self.createProfileDelegate == nil {
-                        self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
+                        let destination = UIStoryboard(name: "Dashboard", bundle: .main)
+                        guard let dashboardVC = destination.instantiateInitialViewController() as? LSLDashboardViewController else {
+                            print("Unable to instantiate dashoboard view controller")
+                            self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
+                            return
+                        }
+                        self.present(dashboardVC, animated: true, completion: nil)
                     } else {
                         self.navigationController?.popToRootViewController(animated: true)
                         self.createProfileDelegate?.profileWasCreated()
@@ -48,6 +58,15 @@ class LSLDietaryPreferenceViewController: UIViewController {
                 print("Error - user profile creation was unsuccessful")
             }
         }
+    }
+    
+    // MARK: - AlertControllers
+    
+    private func makeSelectionAlert() {
+        let alertController = UIAlertController(title: "Make a selection", message: "If you folow a specific diet, please select that option, otherwise select \"none\".", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
