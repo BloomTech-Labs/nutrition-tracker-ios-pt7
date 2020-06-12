@@ -29,7 +29,7 @@ class LSLLoginViewController: UIViewController {
     
     // MARK: - IBActions and Methods
     
-    @IBAction func login(_ sender: Any) {
+    @IBAction func loginButtonTapped(_ sender: Any) {
         guard let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty else {
                 completeFieldsAlert()
@@ -87,7 +87,7 @@ extension LSLLoginViewController: UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
             textField.resignFirstResponder()
-            self.login(self)
+            self.loginButtonTapped(self)
         default:
             textField.resignFirstResponder()
         }
