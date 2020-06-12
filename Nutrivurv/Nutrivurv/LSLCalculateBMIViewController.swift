@@ -17,7 +17,7 @@ class LSLCalculateBMIViewController: UIViewController {
     @IBOutlet var metricUIView: UIView!
     @IBOutlet var currentBMILabel: UILabel!
     
-    var nutritionController = LSLUserController()
+    var nutritionController: LSLUserController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {

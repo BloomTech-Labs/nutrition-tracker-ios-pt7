@@ -253,8 +253,7 @@
                         <outlet property="nameTextField" destination="ce5-Jl-T8B" id="D27-OJ-JhR"/>
                         <outlet property="passwordTextField" destination="XRV-yp-U8z" id="7Oj-Co-6up"/>
                         <outlet property="registerButton" destination="gtD-m4-ecB" id="Ldv-Sw-PFX"/>
-                        <segue destination="Uol-KK-m2c" kind="show" identifier="ToCalculateBMI" id="JkF-jo-OoI"/>
-                        <segue destination="lZU-g2-e1G" kind="show" identifier="ToDashboard" id="ZbP-V6-XER"/>
+                        <segue destination="lZU-g2-e1G" kind="presentation" identifier="ToDashboard" modalPresentationStyle="fullScreen" id="ING-4Z-Apw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIZ-Hn-M3Q" sceneMemberID="firstResponder"/>
@@ -264,22 +263,12 @@
         <!--Dashboard-->
         <scene sceneID="xt2-P8-odw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" id="lZU-g2-e1G" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="Dashboard" id="lZU-g2-e1G" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rbh-KL-1bv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H48-sv-lim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2061" y="-544"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="ONx-E2-rCr">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Profile" storyboardName="Profile" referencedIdentifier="Profile" id="Uol-KK-m2c" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="lk2-UH-83P"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9qK-Jd-5ee" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2061" y="-461"/>
         </scene>
         <!--Login-->
         <scene sceneID="FQM-2r-ytU">

@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="9429" y="208"/>
         </scene>
-        <!--Dashboard-->
+        <!--UserDashboard-->
         <scene sceneID="p96-mL-WQo">
             <objects>
-                <viewController title="Dashboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vsF-rt-EXg" customClass="LSLDashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="UserDashboard" storyboardIdentifier="UserDashboard" title="UserDashboard" id="vsF-rt-EXg" customClass="LSLDashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DhR-nl-cyM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,12 +202,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNW-2j-u7j"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="UtJ-Bb-uF5"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="UtJ-Bb-uF5">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VSk-dh-8s0">
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="vsF-rt-EXg" id="4bd-qj-xEx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
-                        <segue destination="6Qg-MS-wl4" kind="presentation" identifier="MissingProfile" modalPresentationStyle="fullScreen" id="r1z-2w-3mM"/>
+                        <segue destination="6Qg-MS-wl4" kind="show" identifier="MissingProfile" id="r1z-2w-3mM"/>
                         <segue destination="7Nz-Uw-rj4" kind="unwind" identifier="Logout" unwindAction="unwind:" id="MrW-rM-Ff1"/>
+                        <segue destination="dJb-ZH-wa0" kind="show" identifier="Logout" id="Jmd-UR-Ep9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qbd-hB-D2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -218,7 +225,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="aq5-6o-iga">
             <objects>
-                <tabBarController storyboardIdentifier="Dashboard" id="Qan-C2-fkh" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="Dashboard" storyboardIdentifier="Dashboard" id="Qan-C2-fkh" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uV9-wI-UMh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -707,6 +714,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o1w-qv-9UJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11957.971014492754" y="-190.17857142857142"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="grQ-MA-3ap">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="dJb-ZH-wa0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f9b-ie-oEy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJd-aK-Tqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11741" y="-1123"/>
         </scene>
         <!--Profile-->
         <scene sceneID="FsO-i6-9GQ">

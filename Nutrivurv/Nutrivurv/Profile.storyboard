@@ -306,7 +306,7 @@
                     <connections>
                         <outlet property="completeProfileButton" destination="6f1-Mg-wV5" id="NgY-gA-SGM"/>
                         <outlet property="dietTableView" destination="eeK-I8-VBu" id="mX0-4e-AWF"/>
-                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="ProfileToDashboard" modalPresentationStyle="fullScreen" id="I5u-2N-reR"/>
+                        <segue destination="baU-Hd-2cM" kind="presentation" identifier="ProfileToDashboard" modalPresentationStyle="fullScreen" id="wCG-L8-yL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8S-Sx-X2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -795,14 +795,14 @@
             <point key="canvasLocation" x="4183" y="-684"/>
         </scene>
         <!--Dashboard-->
-        <scene sceneID="B1y-9o-gmN">
+        <scene sceneID="O0D-XX-cqb">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="Dashboard" id="ILo-DN-Jd9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ntX-yz-6IM"/>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="baU-Hd-2cM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2js-cR-f4b"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-40-IoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6VV-Ke-AWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7219" y="-777"/>
+            <point key="canvasLocation" x="7218" y="-885"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

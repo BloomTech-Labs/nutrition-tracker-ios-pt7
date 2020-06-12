@@ -55,7 +55,7 @@ class LSLRegisterViewController: UIViewController {
             
             switch result {
             case .success(true):
-                self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
+                self.performSegue(withIdentifier: "ToDashboard", sender: self)
             case .failure(.badAuth):
                 self.accountAlreadyExistsAlert()
             default:

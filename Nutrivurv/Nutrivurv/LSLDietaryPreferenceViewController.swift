@@ -48,19 +48,8 @@ class LSLDietaryPreferenceViewController: UIViewController {
         Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (result) in
             if result == .success(true) {
                 DispatchQueue.main.async {
-                    print("User Profile Creation Successful")
-                    if self.createProfileDelegate == nil {
-                        let destination = UIStoryboard(name: "Dashboard", bundle: .main)
-                        guard let dashboardVC = destination.instantiateInitialViewController() as? LSLDashboardViewController else {
-                            print("Unable to instantiate dashoboard view controller")
-                            self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
-                            return
-                        }
-                        self.present(dashboardVC, animated: true, completion: nil)
-                    } else {
-                        self.navigationController?.popToRootViewController(animated: true)
-                        self.createProfileDelegate?.profileWasCreated()
-                    }
+                    self.createProfileDelegate?.profileWasCreated()
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             } else {
                 self.tryAgainAlert()

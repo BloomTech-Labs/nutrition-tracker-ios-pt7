@@ -12,25 +12,24 @@ import KeychainSwift
 class LSLDashboardViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
+    
     @IBOutlet var streakCountLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
     
-//    var isLoggedIn: Bool = false
     var dashboardController = LSLDashboardController()
     var userController = LSLUserController()
     
+    // MARK: - View Lifecycle Methods and Update Views
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Change Button to Logout
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
         if Network.isLoggedIn() {
             self.checkForProfile()
+            self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
         } else {
-            let keychain = KeychainSwift()
-            keychain.clear()
-            self.performSegue(withIdentifier: "Logout", sender: self)
+            self.logoutButtonTapped(self)
         }
     }
     
@@ -38,8 +37,21 @@ class LSLDashboardViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        let keychain = KeychainSwift()
+        keychain.clear()
+        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = main.instantiateViewController(withIdentifier: "NutrivurvAppMain") as! LSLMainViewController
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .flipHorizontal
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Profile Laod and Update
+    
     private func checkForProfile() {
-        // Check to see if has profile
         dashboardController.checkForProfile { (hasProfile) in
             if hasProfile {
                 DispatchQueue.main.async {
@@ -52,13 +64,13 @@ class LSLDashboardViewController: UIViewController {
                     return
                 }
                 profileCreationVC.createProfileDelegate = self
+                profileCreationVC.nutritionController = self.userController
                 self.navigationController?.pushViewController(profileCreationVC, animated: true)
             }
         }
     }
     
     private func loadProfile() {
-        // Update NameLabel
         self.dashboardController.getMyName { (result) in
             if let name = try? result.get() {
                 self.navigationItem.title = name
@@ -67,7 +79,6 @@ class LSLDashboardViewController: UIViewController {
             }
         }
         
-        // Update WeightLabel
         self.dashboardController.getMyWeight { (result) in
             if let weight = try? result.get() {
                 self.currentWeightLabel.text = String(weight)
@@ -80,13 +91,9 @@ class LSLDashboardViewController: UIViewController {
             }
         }
     }
-    
-    @objc func logoutTapped() {
-        let keychain = KeychainSwift()
-        keychain.clear()
-        self.performSegue(withIdentifier: "Logout", sender: self)
-    }
 }
+
+// MARK: - Profile Completion Protocol Declaration & Delegate Conformance
 
 extension LSLDashboardViewController: CreateProfileCompletionDelegate {
     func profileWasCreated() {

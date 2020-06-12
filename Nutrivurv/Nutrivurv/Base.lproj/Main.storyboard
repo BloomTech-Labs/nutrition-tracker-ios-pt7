@@ -18,7 +18,7 @@
         <!--NUTRIVURV-->
         <scene sceneID="URv-Qa-Okb">
             <objects>
-                <viewController storyboardIdentifier="Main" modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NutrivurvAppMain" storyboardIdentifier="NutrivurvAppMain" modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZdC-8b-FfQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
