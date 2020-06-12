@@ -72,7 +72,11 @@ class LSLDashboardViewController: UIViewController {
             if let weight = try? result.get() {
                 self.currentWeightLabel.text = String(weight)
             } else {
-                print("Couldn't get weight: \(result)")
+                if let weight = LSLUserController.weight {
+                    self.currentWeightLabel.text = String(weight)
+                } else {
+                    print("Unable to load weight for user")
+                }
             }
         }
     }
