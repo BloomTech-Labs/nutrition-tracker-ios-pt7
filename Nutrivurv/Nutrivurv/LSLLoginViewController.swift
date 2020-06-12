@@ -37,12 +37,13 @@ class LSLLoginViewController: UIViewController {
         
         Network.shared.loginUser(email: email, password: password) { (result) in
             
-            if result == .success(true) {
-            self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
-            } else {
-                DispatchQueue.main.async {
-                    self.incorrectCredentialsAlert()
-                }
+            switch result {
+            case .success(true):
+                self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
+            case .failure(.badAuth):
+                self.incorrectCredentialsAlert()
+            default:
+                self.generalLoginError()
             }
         }
     }
@@ -58,6 +59,13 @@ class LSLLoginViewController: UIViewController {
         let alertController = UIAlertController(title: "Login Error", message: "Incorrect email or password.", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func generalLoginError() {
+        let alertController = UIAlertController.init(title: "Login failed", message: "We were unable to log you in. Please try again.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
     }
     
