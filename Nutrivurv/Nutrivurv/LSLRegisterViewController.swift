@@ -16,10 +16,12 @@ class LSLRegisterViewController: UIViewController {
     @IBOutlet var emailTextField: CustomTextField!
     @IBOutlet var passwordTextField: CustomTextField!
     @IBOutlet var confirmPasswordTextField: CustomTextField!
+    @IBOutlet weak var registerButton: CustomButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        registerButton.isSelected = false
         self.navigationItem.hidesBackButton = true
         
         self.nameTextField.delegate = self
@@ -32,11 +34,14 @@ class LSLRegisterViewController: UIViewController {
 
     // MARK: - IBActions and Methods
     
-    @IBAction func register(_ sender: CustomButton) {
+    @IBAction func registerButtonTapped(_ sender: Any) {
         guard let name = self.nameTextField.text, !name.isEmpty,
             let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty,
-            let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty else { return }
+            let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty else {
+                completeFieldsAlert()
+                return
+        }
         
         guard password == confirmedPassword else {
             passwordsDontMatchAlert()
@@ -57,6 +62,10 @@ class LSLRegisterViewController: UIViewController {
     }
     
     // MARK: - AlertControllers
+    
+    private func completeFieldsAlert() {
+        createAndDisplayAlertController(title: "Complete All Fields", message: "Please ensure you have completed all required fields.")
+    }
     
     private func generalRegistrationError() {
         createAndDisplayAlertController(title: "Registration failed", message: "We were unable to create an account for you. Please try again.")
@@ -85,29 +94,24 @@ class LSLRegisterViewController: UIViewController {
         self.passwordTextField.resignFirstResponder()
         self.confirmPasswordTextField.resignFirstResponder()
     }
-    
-    private func clearTextFields() {
-        self.nameTextField.text = ""
-        self.emailTextField.text = ""
-        self.passwordTextField.text = ""
-        self.confirmPasswordTextField.text = ""
-    }
 }
 
 // MARK: - UITextField Delegate Methods
 
 extension LSLRegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField {
-            textField.resignFirstResponder()
+        
+        switch textField {
+        case nameTextField:
             emailTextField.becomeFirstResponder()
-        } else if textField == emailTextField {
-            textField.resignFirstResponder()
+        case emailTextField:
             passwordTextField.becomeFirstResponder()
-        } else if textField == passwordTextField {
-            textField.resignFirstResponder()
+        case passwordTextField:
             confirmPasswordTextField.becomeFirstResponder()
-        } else if textField == confirmPasswordTextField {
+        case confirmPasswordTextField:
+            textField.resignFirstResponder()
+            registerButtonTapped(self)
+        default:
             textField.resignFirstResponder()
         }
         return true
