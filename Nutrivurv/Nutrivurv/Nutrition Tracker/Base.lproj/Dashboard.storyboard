@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qan-C2-fkh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qan-C2-fkh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,31 +35,31 @@
             </objects>
             <point key="canvasLocation" x="9429" y="208"/>
         </scene>
-        <!--Dashboard-->
+        <!--UserDashboard-->
         <scene sceneID="p96-mL-WQo">
             <objects>
-                <viewController title="Dashboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vsF-rt-EXg" customClass="LSLDashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="UserDashboard" storyboardIdentifier="UserDashboard" title="UserDashboard" id="vsF-rt-EXg" customClass="LSLDashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DhR-nl-cyM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ow2-gT-BlG">
-                                <rect key="frame" x="57.5" y="136" width="299" height="124.5"/>
+                                <rect key="frame" x="59" y="136" width="296" height="124.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc">
-                                        <rect key="frame" x="0.0" y="58.5" width="81" height="66"/>
+                                        <rect key="frame" x="0.0" y="46.5" width="78" height="78"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="81" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="195" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-UG-8Di">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="38"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-UG-8Di">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="50"/>
                                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="30"/>
                                                         <color key="textColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="lbs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-tc-n0m">
-                                                        <rect key="frame" x="62" y="20" width="19" height="18"/>
+                                                        <rect key="frame" x="59" y="32" width="19" height="18"/>
                                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dv1-tt-SWs">
-                                                <rect key="frame" x="0.0" y="46" width="81" height="20"/>
+                                                <rect key="frame" x="0.0" y="58" width="78" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar-chart" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-zE-Kzx">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -78,7 +78,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsg-oQ-N69">
-                                                        <rect key="frame" x="22" y="0.0" width="59" height="20"/>
+                                                        <rect key="frame" x="22" y="0.0" width="56" height="20"/>
                                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -88,7 +88,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb">
-                                        <rect key="frame" x="106" y="0.0" width="96" height="124.5"/>
+                                        <rect key="frame" x="103" y="0.0" width="96" height="124.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Donut" translatesAutoresizingMaskIntoConstraints="NO" id="see-z0-g6D">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
@@ -107,7 +107,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ">
-                                        <rect key="frame" x="227" y="58.5" width="72" height="66"/>
+                                        <rect key="frame" x="224" y="58.5" width="72" height="66"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy">
                                                 <rect key="frame" x="0.0" y="0.0" width="72" height="38"/>
@@ -202,12 +202,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNW-2j-u7j"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="UtJ-Bb-uF5"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="UtJ-Bb-uF5">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VSk-dh-8s0">
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="vsF-rt-EXg" id="4bd-qj-xEx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
-                        <segue destination="6Qg-MS-wl4" kind="presentation" identifier="MissingProfile" modalPresentationStyle="fullScreen" id="r1z-2w-3mM"/>
+                        <segue destination="6Qg-MS-wl4" kind="show" identifier="MissingProfile" id="r1z-2w-3mM"/>
                         <segue destination="7Nz-Uw-rj4" kind="unwind" identifier="Logout" unwindAction="unwind:" id="MrW-rM-Ff1"/>
+                        <segue destination="dJb-ZH-wa0" kind="show" identifier="Logout" id="Jmd-UR-Ep9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qbd-hB-D2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -218,7 +225,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="aq5-6o-iga">
             <objects>
-                <tabBarController storyboardIdentifier="Dashboard" id="Qan-C2-fkh" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="Dashboard" storyboardIdentifier="Dashboard" id="Qan-C2-fkh" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uV9-wI-UMh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -708,6 +715,16 @@
             </objects>
             <point key="canvasLocation" x="11957.971014492754" y="-190.17857142857142"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="grQ-MA-3ap">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="dJb-ZH-wa0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="f9b-ie-oEy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJd-aK-Tqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11741" y="-1123"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="FsO-i6-9GQ">
             <objects>
@@ -819,6 +836,7 @@
             <point key="canvasLocation" x="10347.826086956522" y="-190.17857142857142"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="Divider" width="355" height="2"/>
         <image name="Donut" width="96" height="96"/>
@@ -826,10 +844,9 @@
         <image name="Trophy-Selected" width="23" height="23"/>
         <image name="bar-chart" width="19" height="20"/>
         <image name="fire" width="20" height="20"/>
-        <image name="house" catalog="system" width="64" height="54"/>
-        <image name="house.fill" catalog="system" width="64" height="52"/>
+        <image name="house" catalog="system" width="128" height="110"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="plus" width="24" height="24"/>
         <image name="plus-selected" width="24" height="24"/>
     </resources>
-    <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

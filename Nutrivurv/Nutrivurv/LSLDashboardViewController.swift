@@ -12,70 +12,95 @@ import KeychainSwift
 class LSLDashboardViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
+    
     @IBOutlet var streakCountLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
-        
-    var isLoggedIn: Bool = false
+    
     var dashboardController = LSLDashboardController()
-        
+    var userController = LSLUserController()
+    
+    // MARK: - View Lifecycle Methods and Update Views
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
-        // Change Button to Logout
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
-
         if Network.isLoggedIn() {
-            self.updateViews()
+            self.checkForProfile()
+            self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
         } else {
-            let keychain = KeychainSwift()
-            keychain.clear()
-            self.performSegue(withIdentifier: "Logout", sender: self)
-       }
+            self.logoutButtonTapped(self)
+        }
     }
     
-    private func updateViews() {
-        // Check to see if has profile
-        dashboardController.checkForProfile { (bool) in
-            if bool {
-                // Update NameLabel
-                self.dashboardController.getMyName { (result) in
-                    if let name = try? result.get() {
-                        self.navigationItem.title = name
-                    } else {
-                        print("Couldn't get name: \(result)")
-                    }
-                }
-
-                // Update WeightLabel
-                self.dashboardController.getMyWeight { (result) in
-                    if let weight = try? result.get() {
-                        self.currentWeightLabel.text = String(weight)
-                    } else {
-                        print("Couldn't get weight: \(result)")
-                    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        let keychain = KeychainSwift()
+        keychain.clear()
+        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = main.instantiateViewController(withIdentifier: "NutrivurvAppMain") as! LSLMainViewController
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .flipHorizontal
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Profile Laod and Update
+    
+    private func checkForProfile() {
+        dashboardController.checkForProfile { (hasProfile) in
+            if hasProfile {
+                DispatchQueue.main.async {
+                    self.loadProfile()
                 }
             } else {
-                print("Missing profile")
-                self.performSegue(withIdentifier: "MissingProfile", sender: self)
+                let destination = UIStoryboard(name: "Profile", bundle: .main)
+                guard let profileCreationVC = destination.instantiateInitialViewController() as? LSLCalculateBMIViewController else {
+                    print("Unable to instantiate profile creation view controller")
+                    return
+                }
+                profileCreationVC.createProfileDelegate = self
+                profileCreationVC.nutritionController = self.userController
+                self.navigationController?.pushViewController(profileCreationVC, animated: true)
             }
         }
     }
     
-    @objc func logoutTapped() {
-        let keychain = KeychainSwift()
-        keychain.clear()
-        self.performSegue(withIdentifier: "Logout", sender: self)
+    private func loadProfile() {
+        self.dashboardController.getMyName { (result) in
+            if let name = try? result.get() {
+                self.navigationItem.title = name
+            } else {
+                print("Couldn't get name: \(result)")
+            }
+        }
+        
+        self.dashboardController.getMyWeight { (result) in
+            if let weight = try? result.get() {
+                self.currentWeightLabel.text = String(weight)
+            } else {
+                if let weight = LSLUserController.weight {
+                    self.currentWeightLabel.text = String(weight)
+                } else {
+                    print("Unable to load weight for user")
+                }
+            }
+        }
     }
-    
-    
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// MARK: - Profile Completion Protocol Declaration & Delegate Conformance
+
+extension LSLDashboardViewController: CreateProfileCompletionDelegate {
+    func profileWasCreated() {
+        self.loadProfile()
     }
-    */
+}
 
+protocol CreateProfileCompletionDelegate {
+    func profileWasCreated()
 }

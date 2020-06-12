@@ -13,35 +13,76 @@ class LSLDietaryPreferenceViewController: UIViewController {
     // MARK: - IBOutlets and Properties
     
     @IBOutlet var dietTableView: UITableView!
+    @IBOutlet weak var completeProfileButton: CustomButton!
     
     var nutritionController: LSLUserController?
+    var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.dietTableView.delegate = self
+        self.dietTableView.allowsSelection = false
+        self.dietTableView.isScrollEnabled = false
         self.dietTableView.dataSource = self
     }
     
     @IBAction func completeProfile(_ sender: CustomButton) {
-        guard let age = LSLUserController.age else { return } // Required
-        guard let weight = LSLUserController.weight else { return } // Required
-        guard let height = LSLUserController.height else { return } // Required
-        guard let gender = LSLUserController.gender else { return } // Optional
-        guard let goalWeight = LSLUserController.goalWeight else { return } // Optional
-        guard let activityLevel = LSLUserController.activityLevel else { return } // Optional
-        guard let diet = LSLUserController.diet else { return } // Optional
-        
-        Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (_) in
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "ProfileToDashboard", sender: self)
-            }
+        guard let diet = LSLUserController.diet else {
+            makeSelectionAlert()
+            return
         }
+        
+        guard let age = LSLUserController.age,
+            let weight = LSLUserController.weight,
+            let height = LSLUserController.height,
+            let goalWeight = LSLUserController.goalWeight,
+            let activityLevel = LSLUserController.activityLevel else {
+                missingInformationAlert()
+                return
+        }
+        
+        let gender = LSLUserController.gender
+        
+        completeProfileButton.isEnabled = false
+        completeProfileButton.layer.opacity = 0.45
+        
+        Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (result) in
+            if result == .success(true) {
+                DispatchQueue.main.async {
+                    self.createProfileDelegate?.profileWasCreated()
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            } else {
+                self.tryAgainAlert()
+            }
+            
+            self.completeProfileButton.isEnabled = true
+            self.completeProfileButton.layer.opacity = 1.0
+        }
+    }
+    
+    // MARK: - AlertControllers
+    
+    private func makeSelectionAlert() {
+        createAndDisplayAlertController(title: "Make a selection", message: "If you folow a specific diet, please select that option, otherwise select \"none\".")
+    }
+    
+    private func tryAgainAlert() {
+        createAndDisplayAlertController(title: "Please Try Again", message: "Hmm.. we weren't able to create your profile. Please try again.")
+    }
+    
+    private func missingInformationAlert() {
+        createAndDisplayAlertController(title: "Missing Information", message: "It looks like we're missing some information needed to create your profile. Please go back and ensure everything is completed.")
+    }
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
-extension LSLDietaryPreferenceViewController: UITableViewDelegate {
-}
+// MARK: - TableView Data Source Methods
 
 extension LSLDietaryPreferenceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,6 +99,8 @@ extension LSLDietaryPreferenceViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - Custom Delegate Methods for Updated Dietary Preference Selection
 
 extension LSLDietaryPreferenceViewController: LSLDietTableViewCellDelegate {
     func tappedRadioButton(on cell: LSLDietTableViewCell) {

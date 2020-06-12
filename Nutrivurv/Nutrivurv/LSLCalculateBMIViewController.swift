@@ -17,28 +17,39 @@ class LSLCalculateBMIViewController: UIViewController {
     @IBOutlet var metricUIView: UIView!
     @IBOutlet var currentBMILabel: UILabel!
     
-    var nutritionController = LSLUserController()
+    var nutritionController: LSLUserController?
+    var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Hide Back Button
+        self.tabBarController?.tabBar.isHidden = true
+
         self.navigationItem.hidesBackButton = true
-        
         self.styleSegmentControl()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .textFieldsWereUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .bmiUpdated, object: nil)
     }
     
     // MARK: - IBActions and Methods
     
     @IBAction func advanceToGettingPersonal(_ sender: CustomButton) {
-        guard let _ = LSLUserController.height,
-            let _ = LSLUserController.weight else { return (self.nutritionController.alertEmptyTextField(controller: self, field: "Height and/or Weight")) }
-        self.updateViews()
-        
-        self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
+        DispatchQueue.main.async {
+            if self.segmentControl.selectedSegmentIndex == 0 {
+                NotificationCenter.default.post(name: .calculateBMIStandard, object: nil)
+            } else {
+                NotificationCenter.default.post(name: .calculateBMIMetric, object: nil)
+            }
+            
+            guard LSLUserController.bmi != nil else {
+                self.calculateBMIAlert()
+                return
+            }
+            
+            self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
+        }
     }
+    
+    // MARK: - Segmented Control Methods
     
     private func styleSegmentControl() {
         guard let customFont = UIFont(name: "Muli-Regular", size: 13) else {
@@ -70,19 +81,30 @@ class LSLCalculateBMIViewController: UIViewController {
         }
     }
     
+    // MARK: - AlertControllers
+    
+    private func calculateBMIAlert() {
+        let alertController = UIAlertController(title: "Missing Information", message: "Please input your height and weight (estimate if you're unsure) in order to calculate your BMI.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Update Views
+    
     @objc func updateViews() {
         guard let bmi = LSLUserController.bmi, isViewLoaded else { return NSLog("View isn't loaded.") }
         self.currentBMILabel.text = bmi
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToGettingPersonal" {
             guard let gpVC = segue.destination as? LSLGettingPersonalViewController else { return }
             gpVC.nutritionController = self.nutritionController
+            gpVC.createProfileDelegate = self.createProfileDelegate
         }
     }
 }
-

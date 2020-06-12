@@ -11,59 +11,92 @@ import UIKit
 class LSLLoginViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
+    
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var submitButton: CustomButton!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide Back Button
         self.navigationItem.hidesBackButton = true
-
+        
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
     }
     
     // MARK: - IBActions and Methods
-    @IBAction func login(_ sender: UIButton) {
+    
+    @IBAction func loginButtonTapped(_ sender: Any) {
         guard let email = self.emailTextField.text, !email.isEmpty,
-            let password = self.passwordTextField.text, !password.isEmpty else { return }
+            let password = self.passwordTextField.text, !password.isEmpty else {
+                completeFieldsAlert()
+                return
+        }
+        
+        submitButton.isEnabled = false
+        submitButton.layer.opacity = 0.45
         
         Network.shared.loginUser(email: email, password: password) { (result) in
-            self.clearTextFields()
             
-            if result == .success(true) {
-            self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
-            } else {
-                print("Error logging in")
-                let alertController = UIAlertController(title: "Login Error", message: "Incorrect email or password.", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true, completion: nil)
+            switch result {
+            case .success(true):
+                self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
+            case .failure(.badAuth):
+                self.incorrectCredentialsAlert()
+            default:
+                self.generalLoginError()
             }
+            
+            self.submitButton.isEnabled = true
+            self.submitButton.layer.opacity = 1.0
         }
     }
     
-    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    // MARK: - Alert Controllers
+    
+    private func completeFieldsAlert() {
+        createAndDisplayAlertController(title: "Complete All Fields", message: "Please enter your email and password in order to log in.")
     }
+    
+    private func incorrectCredentialsAlert() {
+        createAndDisplayAlertController(title: "Login Error", message: "Incorrect email or password. Please try again.")
+    }
+    
+    private func generalLoginError() {
+        createAndDisplayAlertController(title: "Login failed", message: "We were unable to log you in. Please try again.")
+    }
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Custom Keyboard Dismissal
     
     @objc func dismissKeyboard() {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
     }
-    
-    private func clearTextFields() {
-        self.emailTextField.text = ""
-        self.passwordTextField.text = ""
-    }
 }
+
+// MARK: - UITextField Delegate Methods
 
 extension LSLLoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            textField.resignFirstResponder()
+            self.loginButtonTapped(self)
+        default:
+            textField.resignFirstResponder()
+        }
         return true
     }
     

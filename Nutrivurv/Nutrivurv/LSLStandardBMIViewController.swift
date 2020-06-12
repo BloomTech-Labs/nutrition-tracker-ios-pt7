@@ -11,19 +11,20 @@ import UIKit
 class LSLStandardBMIViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
-
+    
     @IBOutlet public var heightStandardFeetTextField: UITextField!
     @IBOutlet public var heightStandardInchesTextField: UITextField!
     @IBOutlet public var weightStandardTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.heightStandardFeetTextField.delegate = self
         self.heightStandardInchesTextField.delegate = self
         self.weightStandardTextField.delegate = self
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
+        NotificationCenter.default.addObserver(self, selector: #selector(calculateBMI), name: .calculateBMIStandard, object: nil)
     }
     
     // MARK: - IBActions and Methods
@@ -34,38 +35,44 @@ class LSLStandardBMIViewController: UIViewController {
         self.weightStandardTextField.resignFirstResponder()
     }
     
-    private func calculateBMI() -> String {
+    @discardableResult @objc public func calculateBMI() -> String? {
         guard let feet = self.heightStandardFeetTextField.text, !feet.isEmpty,
             let inches = self.heightStandardInchesTextField.text, !inches.isEmpty,
             let weight = self.weightStandardTextField.text, !weight.isEmpty else {
-            NSLog("The user forgot to enter information needed to calculate BMI")
-            return ""
+                return nil
         }
         
         let height = ((Double(feet) ?? 0) * 12) + (Double(inches) ?? 0)
         LSLUserController.height = Int(height)
         let totalWeight = Double(weight) ?? 0
         LSLUserController.weight = Int(totalWeight)
+        
         let bmi = (totalWeight * 704.7) / (height * height)
         let roundedBMI = String(format: "%.2f", bmi)
-
+        
+        if LSLUserController.bmi == roundedBMI {
+            return nil
+        } else {
+            LSLUserController.bmi = roundedBMI
+        }
+        
         return roundedBMI
     }
 }
 
+// MARK: - UITextField Delegate Methods
+
 extension LSLStandardBMIViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == heightStandardFeetTextField {
-            textField.resignFirstResponder()
             heightStandardInchesTextField.becomeFirstResponder()
         } else if textField == heightStandardInchesTextField {
-            textField.resignFirstResponder()
             weightStandardTextField.becomeFirstResponder()
         } else if textField == weightStandardTextField {
             textField.resignFirstResponder()
         }
         if !self.heightStandardFeetTextField.text!.isEmpty && !self.heightStandardInchesTextField.text!.isEmpty && !self.weightStandardTextField.text!.isEmpty {
-            LSLUserController.bmi = self.calculateBMI()
+            self.calculateBMI()
         }
         return true
     }
@@ -78,9 +85,6 @@ extension LSLStandardBMIViewController: UITextFieldDelegate {
         textField.layer.shadowOpacity = 1
         textField.layer.shadowRadius = 4
         textField.layer.shadowOffset = CGSize(width: 0, height: 0)
-        if !self.heightStandardFeetTextField.text!.isEmpty && !self.heightStandardInchesTextField.text!.isEmpty && !self.weightStandardTextField.text!.isEmpty {
-            LSLUserController.bmi = self.calculateBMI()
-        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -88,8 +92,8 @@ extension LSLStandardBMIViewController: UITextFieldDelegate {
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
-        if !self.heightStandardFeetTextField.text!.isEmpty && !self.heightStandardInchesTextField.text!.isEmpty && !self.weightStandardTextField.text!.isEmpty {
-            LSLUserController.bmi = self.calculateBMI()
+        if LSLUserController.bmi == nil && !self.heightStandardFeetTextField.text!.isEmpty && !self.heightStandardInchesTextField.text!.isEmpty && !self.weightStandardTextField.text!.isEmpty {
+            self.calculateBMI()
         }
     }
 }

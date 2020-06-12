@@ -16,11 +16,12 @@ class LSLRegisterViewController: UIViewController {
     @IBOutlet var emailTextField: CustomTextField!
     @IBOutlet var passwordTextField: CustomTextField!
     @IBOutlet var confirmPasswordTextField: CustomTextField!
+    @IBOutlet weak var registerButton: CustomButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Hide Back Button
+        registerButton.isSelected = false
         self.navigationItem.hidesBackButton = true
         
         self.nameTextField.delegate = self
@@ -33,18 +34,65 @@ class LSLRegisterViewController: UIViewController {
 
     // MARK: - IBActions and Methods
     
-    @IBAction func register(_ sender: CustomButton) {
+    @IBAction func registerButtonTapped(_ sender: Any) {
         guard let name = self.nameTextField.text, !name.isEmpty,
             let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty,
-            let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty,
-            password == confirmedPassword else { return }
+            let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty else {
+                completeFieldsAlert()
+                return
+        }
         
-        Network.shared.createUser(name: name, email: email, password: password) { (_) in
-            self.clearTextFields()
-            self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
+        guard password == confirmedPassword else {
+            passwordsDontMatchAlert()
+            return
+        }
+        
+        registerButton.isEnabled = false
+        registerButton.layer.opacity = 0.45
+        
+        Network.shared.createUser(name: name, email: email, password: password) { (result) in
+            
+            switch result {
+            case .success(true):
+                self.performSegue(withIdentifier: "ToDashboard", sender: self)
+            case .failure(.badAuth):
+                self.accountAlreadyExistsAlert()
+            default:
+                self.generalRegistrationError()
+            }
+            
+            self.registerButton.isEnabled = true
+            self.registerButton.layer.opacity = 1.0
         }
     }
+    
+    // MARK: - AlertControllers
+    
+    private func completeFieldsAlert() {
+        createAndDisplayAlertController(title: "Complete All Fields", message: "Please ensure you have completed all required fields.")
+    }
+    
+    private func generalRegistrationError() {
+        createAndDisplayAlertController(title: "Registration failed", message: "We were unable to create an account for you. Please try again.")
+    }
+    
+    private func passwordsDontMatchAlert() {
+        createAndDisplayAlertController(title: "Passwords don't match", message: "Please re-enter and confirm your password.")
+    }
+    
+    private func accountAlreadyExistsAlert() {
+        createAndDisplayAlertController(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please log in to your dashboard.")
+    }
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Custom Keyboard Dismissal
     
     @objc func dismissKeyboard() {
         self.nameTextField.resignFirstResponder()
@@ -52,27 +100,24 @@ class LSLRegisterViewController: UIViewController {
         self.passwordTextField.resignFirstResponder()
         self.confirmPasswordTextField.resignFirstResponder()
     }
-    
-    private func clearTextFields() {
-        self.nameTextField.text = ""
-        self.emailTextField.text = ""
-        self.passwordTextField.text = ""
-        self.confirmPasswordTextField.text = ""
-    }
 }
+
+// MARK: - UITextField Delegate Methods
 
 extension LSLRegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField {
-            textField.resignFirstResponder()
+        
+        switch textField {
+        case nameTextField:
             emailTextField.becomeFirstResponder()
-        } else if textField == emailTextField {
-            textField.resignFirstResponder()
+        case emailTextField:
             passwordTextField.becomeFirstResponder()
-        } else if textField == passwordTextField {
-            textField.resignFirstResponder()
+        case passwordTextField:
             confirmPasswordTextField.becomeFirstResponder()
-        } else if textField == confirmPasswordTextField {
+        case confirmPasswordTextField:
+            textField.resignFirstResponder()
+            registerButtonTapped(self)
+        default:
             textField.resignFirstResponder()
         }
         return true
