@@ -65,6 +65,10 @@ extension LSLActivityLevelViewController: UITableViewDataSource {
         cell.activityLevel = activityLevel
         cell.delegate = self
         
+        if LSLUserController.activityLevel == indexPath.row {
+            cell.activeRadioButton.isSelected = true
+        }
+        
         return cell
     }
 }
