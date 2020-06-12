@@ -26,6 +26,10 @@ class LSLActivityLevelViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     @IBAction func ToDietaryPreference(_ sender: Any) {
+        guard LSLUserController.activityLevel != nil else {
+            makeSelectionAlert()
+            return
+        }
         self.performSegue(withIdentifier: "ToDietPreference", sender: self)
     }
     
@@ -37,6 +41,15 @@ class LSLActivityLevelViewController: UIViewController {
             dpVC.nutritionController = self.nutritionController
             dpVC.createProfileDelegate = self.createProfileDelegate
         }
+    }
+    
+    // MARK: - AlertControllers
+    
+    private func makeSelectionAlert() {
+        let alertController = UIAlertController(title: "Make a selection", message: "Please select an activity level in order to continue.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
