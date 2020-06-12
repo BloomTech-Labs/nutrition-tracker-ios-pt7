@@ -56,6 +56,8 @@ class LSLRegisterViewController: UIViewController {
         }
     }
     
+    // MARK: - AlertControllers
+    
     private func generalRegistrationError() {
         createAndDisplayAlertController(title: "Registration failed", message: "We were unable to create an account for you. Please try again.")
     }
@@ -75,6 +77,8 @@ class LSLRegisterViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // MARK: - Custom Keyboard Dismissal
+    
     @objc func dismissKeyboard() {
         self.nameTextField.resignFirstResponder()
         self.emailTextField.resignFirstResponder()
@@ -89,6 +93,8 @@ class LSLRegisterViewController: UIViewController {
         self.confirmPasswordTextField.text = ""
     }
 }
+
+// MARK: - UITextField Delegate Methods
 
 extension LSLRegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -56,6 +56,8 @@ class LSLMetricBMIViewController: UIViewController {
     }
 }
 
+// MARK: - UITextField Delegate Methods
+
 extension LSLMetricBMIViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == heightMetricTextField {

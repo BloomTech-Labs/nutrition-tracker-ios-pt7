@@ -69,6 +69,8 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     }
 }
 
+// MARK: - UIPickerView Data Source Methods
+
 extension LSLGettingPersonalViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -82,6 +84,8 @@ extension LSLGettingPersonalViewController: UIPickerViewDataSource {
         return self.nutritionController!.genders[row]
     }
 }
+
+// MARK: - UITextField Delegate Methods
 
 extension LSLGettingPersonalViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

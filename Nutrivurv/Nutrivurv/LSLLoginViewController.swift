@@ -49,6 +49,8 @@ class LSLLoginViewController: UIViewController {
         }
     }
     
+    // MARK: - Alert Controllers
+    
     private func completeFieldsAlert() {
         createAndDisplayAlertController(title: "Complete All Fields", message: "Please enter your email and password in order to log in.")
     }
@@ -75,6 +77,8 @@ class LSLLoginViewController: UIViewController {
         self.passwordTextField.resignFirstResponder()
     }
 }
+
+// MARK: - UITextField Delegate Methods
 
 extension LSLLoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

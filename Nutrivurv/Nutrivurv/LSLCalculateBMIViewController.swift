@@ -48,6 +48,8 @@ class LSLCalculateBMIViewController: UIViewController {
         }
     }
     
+    // MARK: - Segmented Control Methods
+    
     private func styleSegmentControl() {
         guard let customFont = UIFont(name: "Muli-Regular", size: 13) else {
             fatalError("""

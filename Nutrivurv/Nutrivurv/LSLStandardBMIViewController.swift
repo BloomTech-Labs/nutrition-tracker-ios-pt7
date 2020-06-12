@@ -60,6 +60,8 @@ class LSLStandardBMIViewController: UIViewController {
     }
 }
 
+// MARK: - UITextField Delegate Methods
+
 extension LSLStandardBMIViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == heightStandardFeetTextField {

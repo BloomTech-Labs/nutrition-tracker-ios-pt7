@@ -10,6 +10,8 @@ import UIKit
 
 class LSLActivityLevelViewController: UIViewController {
     
+    // MARK: - IBOutlets and Properties
+    
     @IBOutlet var activeTableView: UITableView!
     
     var nutritionController: LSLUserController?
@@ -53,6 +55,8 @@ class LSLActivityLevelViewController: UIViewController {
     }
 }
 
+// MARK: - TableView Data Source Methods
+
 extension LSLActivityLevelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.nutritionController!.activityLevels.count
@@ -72,6 +76,8 @@ extension LSLActivityLevelViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: - Custom Delegate Methods for Updated Activity Level Selection
 
 extension LSLActivityLevelViewController: LSLActiveTableViewCellDelegate {
     func tappedRadioButton(on cell: LSLActiveTableViewCell) {
