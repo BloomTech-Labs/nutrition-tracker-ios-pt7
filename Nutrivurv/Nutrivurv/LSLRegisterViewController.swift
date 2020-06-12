@@ -37,13 +37,45 @@ class LSLRegisterViewController: UIViewController {
         guard let name = self.nameTextField.text, !name.isEmpty,
             let email = self.emailTextField.text, !email.isEmpty,
             let password = self.passwordTextField.text, !password.isEmpty,
-            let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty,
-            password == confirmedPassword else { return }
+            let confirmedPassword = self.confirmPasswordTextField.text, !confirmedPassword.isEmpty else { return }
         
-        Network.shared.createUser(name: name, email: email, password: password) { (_) in
-            self.clearTextFields()
-            self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
+        guard password == confirmedPassword else {
+            passwordsDontMatchAlert()
+            return
         }
+        
+        Network.shared.createUser(name: name, email: email, password: password) { (result) in
+            if result == .failure(.badAuth) {
+                self.accountAlreadyExistsAlert()
+                return
+            } else if result == .failure(.noAuth) || result == .failure(.otherError) {
+                self.generalRegistrationError()
+                return
+            } else {
+                self.performSegue(withIdentifier: "ToCalculateBMI", sender: self)
+            }
+        }
+    }
+    
+    private func generalRegistrationError() {
+        let alertController = UIAlertController.init(title: "Registration failed", message: "We were unable to create an account for you. Please try again.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func passwordsDontMatchAlert() {
+        let alertController = UIAlertController.init(title: "Passwords don't match", message: "Please re-enter and confirm your password.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func accountAlreadyExistsAlert() {
+        let alertController = UIAlertController.init(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please log in to your dashboard.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func dismissKeyboard() {
