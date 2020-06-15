@@ -10,9 +10,14 @@ import UIKit
 
 class LSLSearchFoodTableViewController: UITableViewController {
     
+    // MARK: - IBOutlets and Properties
+    
     @IBOutlet weak var foodSearchBar: UISearchBar!
     
     let searchController = LSLSearchController()
+    
+    
+    // MARK: - View Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +31,7 @@ class LSLSearchFoodTableViewController: UITableViewController {
     }
 
 
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchController.foods.count
@@ -73,6 +78,9 @@ class LSLSearchFoodTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+
+// MARK: - Protocol Conformance & Delegate Methods
 
 extension LSLSearchFoodTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
