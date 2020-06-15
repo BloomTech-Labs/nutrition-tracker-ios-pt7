@@ -294,7 +294,13 @@
                             <outlet property="delegate" destination="XGk-MJ-f0l" id="0jc-lc-gj3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search Food" id="OBS-bK-QCB"/>
+                    <navigationItem key="navigationItem" title="Search Food" id="OBS-bK-QCB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="lQL-JE-T3y">
+                            <connections>
+                                <segue destination="4id-Vt-Jzy" kind="presentation" id="FFU-qE-PMB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="foodSearchBar" destination="Yrv-RE-Odx" id="lJ1-no-Npw"/>
                     </connections>
@@ -302,6 +308,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6RS-hL-lfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11140.579710144928" y="-190.17857142857142"/>
+        </scene>
+        <!--Barcode Search View Controller-->
+        <scene sceneID="aia-aV-qL7">
+            <objects>
+                <viewController id="4id-Vt-Jzy" customClass="LSLBarcodeSearchViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="M5B-qD-aKc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nEi-mr-BhV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Inq-xy-14D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11141" y="542"/>
         </scene>
         <!--Food Detail-->
         <scene sceneID="WhU-tq-Pfb">
