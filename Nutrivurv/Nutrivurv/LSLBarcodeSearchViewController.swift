@@ -7,8 +7,6 @@
 //
 import AVFoundation
 import UIKit
-import Vision
-import CoreImage
 
 class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
@@ -21,6 +19,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     var shutterButton: UIButton!
     var notAuthorizedAlertContainerView: UIView!
+    var barcodeScannerFrameView: UIView!
     
     var delegate: BarcodeSearchDelegate?
     var searchController: LSLSearchController?
@@ -32,7 +31,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         setUpActivityView()
         checkPermissions()
         setUpCameraLiveView()
-        addShutterButton()
+        addBarcodeScannerFrameView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,7 +48,21 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
             return
         }
         notAuthorizedAlertContainerView.removeFromSuperview()
+        
+        if permissionGranted {
+            if (captureSession?.isRunning == false) {
+                captureSession.startRunning()
+            }
+        }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+
+           if (captureSession?.isRunning == true) {
+               captureSession.stopRunning()
+           }
+       }
     
     // MARK: - Views & UI Setup
     
@@ -57,39 +70,23 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         activityIndicator.hidesWhenStopped = true
         activityIndicator.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
         activityIndicator.layer.cornerRadius = 4
+        view.bringSubviewToFront(activityIndicator)
     }
     
     private func startLoadingView() {
-        self.shutterButton.layer.opacity = 0.2
-        self.shutterButton.isEnabled = false
         self.activityIndicator.startAnimating()
     }
     
     private func stopLoadingView() {
-        self.shutterButton.layer.opacity = 1.0
-        self.shutterButton.isEnabled = true
         self.activityIndicator.stopAnimating()
     }
     
-    private func addBarcodeRecognizerBoxView() {
-        
-    }
-    
-    private func addShutterButton() {
-        let width: CGFloat = 75
-        let height = width
-        self.shutterButton = UIButton(frame: CGRect(x: (view.frame.width - width) / 2,
-                                                    y: view.frame.height - height - 100,
-                                                    width: width,
-                                                    height: height
-            )
-        )
-        
-        self.shutterButton.layer.cornerRadius = width / 2
-        self.shutterButton.backgroundColor = UIColor.init(displayP3Red: 1, green: 1, blue: 1, alpha: 0.8)
-        self.shutterButton.showsTouchWhenHighlighted = true
-        self.shutterButton.addTarget(self, action: #selector(captureOutputImage), for: .touchUpInside)
-        view.addSubview(shutterButton)
+    private func addBarcodeScannerFrameView() {
+        barcodeScannerFrameView = UIView()
+        barcodeScannerFrameView.layer.borderColor = UIColor.green.cgColor
+        barcodeScannerFrameView.layer.borderWidth = 2
+        view.addSubview(barcodeScannerFrameView)
+        view.bringSubviewToFront(barcodeScannerFrameView)
     }
     
     private func displayNotAuthorizedAlert() {
@@ -178,76 +175,51 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
             return
         }
         
+        let videoInput: AVCaptureDeviceInput
+        
         // Establish input stream
         do {
-            let captureDeviceInput = try AVCaptureDeviceInput(device: backCamera)
-            self.captureSession.addInput(captureDeviceInput)
+            videoInput = try AVCaptureDeviceInput(device: backCamera)
         } catch {
             createAndDisplayAlertController(title: "Camera error", message: "This camera cannot be used to scan food items")
             return
         }
         
-        // Initialize the capture ouput and add to capture session
-        self.captureOutput = AVCapturePhotoOutput()
-        captureOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])],
-                                                     completionHandler: nil)
-        
-        guard let captureOutput = captureOutput else {
-            createAndDisplayAlertController(title: "Camera error", message: "There was an error generating an image from your camera's output")
+        if (captureSession.canAddInput(videoInput)) {
+            captureSession.addInput(videoInput)
+        } else {
+            createAndDisplayAlertController(title: "Camera error", message: "Video could not be retrieved from the device's camera.")
             return
         }
-        self.captureSession.addOutput(captureOutput)
+        
+        let metadataOutput = AVCaptureMetadataOutput()
+        
+        // This metdata allows the output device to interpret barcodes automatically
+        if (captureSession.canAddOutput(metadataOutput)) {
+            // Using this output device eliminates the need for a camera shutter button/processing image
+            captureSession.addOutput(metadataOutput)
+            
+            // Specificies the type of data to interpret from outputdevice (i.e. types of barcodes)
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
+        } else {
+            createAndDisplayAlertController(title: "Camera output error", message: "An output could not be established for the camera.")
+            return
+        }
         
         // Add a preview layer for session
         self.cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         cameraPreviewLayer?.videoGravity = .resizeAspectFill
         cameraPreviewLayer?.connection?.videoOrientation = .portrait
-        cameraPreviewLayer?.frame = view.frame
+        cameraPreviewLayer?.frame = view.layer.bounds
         
         guard let previewLayer = cameraPreviewLayer else {
             createAndDisplayAlertController(title: "Camera error", message: "A preview couldn't be genrated for your device's camera")
             return
         }
-        self.view.layer.insertSublayer(previewLayer, at: 0)
+        self.view.layer.addSublayer(previewLayer)
         
         self.captureSession.startRunning()
-    }
-    
-    
-    // MARK: - AVCapture Output and Image Processsing
-    
-    @objc func captureOutputImage() {
-        guard permissionGranted != false else {
-            return
-        }
-        
-        DispatchQueue.main.async {
-            self.startLoadingView()
-        }
-        let settings = AVCapturePhotoSettings()
-        self.captureOutput?.capturePhoto(with: settings, delegate: self)
-    }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if let imageData = photo.fileDataRepresentation(), let image = UIImage(data: imageData) {
-            // Vision framework expects a CI Image, so we need to first convert UIImage to CIImage
-            guard let ciImage = CIImage(image: image) else {
-                createAndDisplayAlertController(title: "Scanner error", message: "We were unable to process this barcode, please try again.")
-                return
-            }
-            
-            // Perform the request using the CIImage on background thread to ensure app performance
-            DispatchQueue.global(qos: .userInitiated).async {
-                let handler = VNImageRequestHandler(ciImage: ciImage,
-                                                    orientation: .up)
-                
-                do {
-                    try handler.perform([self.detectBarcodeRequest])
-                } catch {
-                    self.createAndDisplayAlertController(title: "Error decoding barcode", message: "We weren't able to gather information from the barcode. Please try again.")
-                }
-            }
-        }
     }
     
     
@@ -270,30 +242,13 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         self.present(alertController, animated: true, completion: nil)
     }
     
-    
-    // MARK: - Vision Framework Methods
-    
-    lazy var detectBarcodeRequest: VNDetectBarcodesRequest = {
-        return VNDetectBarcodesRequest { (request, error) in
-           if let error = error {
-                self.createAndDisplayAlertController(title: "Barcode error", message: "We weren't able to detect a barcode, please gtry again.")
-                return
-            }
-            self.processClassification(for: request)
+    private func createAndDisplayAlertControllerAndStartCaptureSession(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+            self.captureSession.startRunning()
         }
-    }()
-    
-    func processClassification(for request: VNRequest) {
-        // Switch back to main thread once Vision receives request in order to extract the payload
-        DispatchQueue.main.async {
-            if let bestResult = request.results?.first as? VNBarcodeObservation,
-                let payload = bestResult.payloadStringValue {
-                self.searchForFoodByUPC(payload)
-            } else {
-                self.stopLoadingView()
-                self.createAndDisplayAlertController(title: "Couldn't get barcode", message: "We were unable to extract barcode information from the data")
-            }
-        }
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
@@ -304,12 +259,36 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
             DispatchQueue.main.async {
                 self.stopLoadingView()
                 if self.searchController?.foods.count == 0 {
-                    self.createAndDisplayAlertController(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+                    self.barcodeScannerFrameView.removeFromSuperview()
+                    self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
                 } else {
                     self.delegate?.gotResultForFoodFromUPC()
                     self.dismiss(animated: true)
                 }
             }
+        }
+    }
+}
+
+// This delegate method handles the functionality for when metadata objects (barcodes) are detected
+extension LSLBarcodeSearchViewController: AVCaptureMetadataOutputObjectsDelegate {
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        captureSession.stopRunning()
+        startLoadingView()
+        if let metadataObject = metadataObjects.first {
+            let barcodeObject = self.cameraPreviewLayer?.transformedMetadataObject(for: metadataObject)
+            barcodeScannerFrameView.frame = barcodeObject!.bounds
+            
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {
+                return
+            }
+            
+            guard let stringValue = readableObject.stringValue else {
+                return
+            }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            print(stringValue)
+            searchForFoodByUPC(stringValue)
         }
     }
 }
