@@ -316,10 +316,23 @@
                     <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="f2O-rc-GuA">
+                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="f2O-rc-GuA" firstAttribute="centerY" secondItem="9Dl-jI-6BU" secondAttribute="centerY" id="aIo-TC-kmx"/>
+                            <constraint firstItem="f2O-rc-GuA" firstAttribute="centerX" secondItem="9Dl-jI-6BU" secondAttribute="centerX" id="vZY-Sw-JMQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M5B-qD-aKc"/>
                     </view>
                     <navigationItem key="navigationItem" id="nEi-mr-BhV"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="f2O-rc-GuA" id="f5k-36-n5t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Inq-xy-14D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

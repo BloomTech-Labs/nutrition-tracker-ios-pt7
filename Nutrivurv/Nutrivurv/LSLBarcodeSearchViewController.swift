@@ -12,6 +12,8 @@ import CoreImage
 
 class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var backCamera: AVCaptureDevice?
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     var captureOutput: AVCapturePhotoOutput?
@@ -23,7 +25,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.activityIndicator.hidesWhenStopped = true
         checkPermissions()
         setUpCameraLiveView()
         addShutterButton()
@@ -31,7 +33,6 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         // Ensure we have access to the camera each time the user accesses the view in order to prevent app from crashing
         checkPermissions()
     }
@@ -121,6 +122,11 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     // MARK: - AVCapture Output and Image Processsing
     
     @objc func captureOutputImage() {
+        DispatchQueue.main.async {
+            self.view.layer.opacity = 0.5
+            self.shutterButton.layer.opacity = 0.2
+            self.activityIndicator.startAnimating()
+        }
         let settings = AVCapturePhotoSettings()
         self.captureOutput?.capturePhoto(with: settings, delegate: self)
     }
@@ -233,11 +239,15 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     func processClassification(for request: VNRequest) {
         // Switch back to main thread once Vision receives request in order to extract the payload
         DispatchQueue.main.async {
+            self.view.layer.opacity = 1.0
+            self.shutterButton.layer.opacity = 1.0
+            self.activityIndicator.stopAnimating()
+            
             if let bestResult = request.results?.first as? VNBarcodeObservation,
                 let payload = bestResult.payloadStringValue {
                 // This is where we will get the barcodes information, to then be able to search the edama API
                 // for now we will just present it as an alert
-//                self.createAndDisplayAlertController(title: "Barcode Result", message: payload)
+                //                self.createAndDisplayAlertController(title: "Barcode Result", message: payload)
                 print(payload)
                 self.dismiss(animated: true) {
                     self.delegate?.searchForFoodItemWithUPC(payload)
@@ -247,5 +257,5 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
             }
         }
     }
-
+    
 }
