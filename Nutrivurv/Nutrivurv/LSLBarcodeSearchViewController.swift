@@ -18,6 +18,8 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     var captureSession: AVCaptureSession!
     
     var shutterButton: UIButton!
+    
+    var delegate: BarcodeSearchDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,7 +192,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         let width: CGFloat = 75
         let height = width
         self.shutterButton = UIButton(frame: CGRect(x: (view.frame.width - width) / 2,
-                                               y: view.frame.height - height - 32,
+                                               y: view.frame.height - height - 100,
                                                width: width,
                                                height: height
             )

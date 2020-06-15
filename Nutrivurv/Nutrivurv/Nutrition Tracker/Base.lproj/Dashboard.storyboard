@@ -297,7 +297,7 @@
                     <navigationItem key="navigationItem" title="Search Food" id="OBS-bK-QCB">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="lQL-JE-T3y">
                             <connections>
-                                <segue destination="4id-Vt-Jzy" kind="presentation" id="FFU-qE-PMB"/>
+                                <segue destination="4id-Vt-Jzy" kind="presentation" identifier="ShowBarcodeScanner" id="FFU-qE-PMB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

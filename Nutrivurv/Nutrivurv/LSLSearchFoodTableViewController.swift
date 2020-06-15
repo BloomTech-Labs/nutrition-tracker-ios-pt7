@@ -19,9 +19,15 @@ class LSLSearchFoodTableViewController: UITableViewController {
         self.foodSearchBar.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.foodSearchBar.searchTextField.text = ""
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -49,7 +55,24 @@ class LSLSearchFoodTableViewController: UITableViewController {
             let foodItem = self.searchController.foods[indexPath.row]
             fdVC.searchController = self.searchController
             fdVC.foodItem = foodItem
+        } else if segue.identifier == "ShowBarcodeScanner" {
+            guard let barcodeScanVC = segue.destination as? LSLBarcodeSearchViewController else {
+                print("Couldn't load barcode scanner")
+                return
+            }
+            self.searchController.foods = []
+            barcodeScanVC.delegate = self
         }
+    }
+    
+    
+    // MARK: - Alert Controllers
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
