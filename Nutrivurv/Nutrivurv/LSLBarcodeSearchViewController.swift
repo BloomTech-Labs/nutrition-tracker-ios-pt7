@@ -25,7 +25,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activityIndicator.hidesWhenStopped = true
+        setUpActivityView()
         checkPermissions()
         setUpCameraLiveView()
         addShutterButton()
@@ -35,6 +35,14 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         super.viewDidAppear(animated)
         // Ensure we have access to the camera each time the user accesses the view in order to prevent app from crashing
         checkPermissions()
+    }
+    
+    // MARK: - Set Up Views
+    
+    private func setUpActivityView() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
+        activityIndicator.layer.cornerRadius = 4
     }
     
     
@@ -114,7 +122,6 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         }
         self.view.layer.insertSublayer(previewLayer, at: 0)
         
-        // Start the capture session
         self.captureSession.startRunning()
     }
     
@@ -123,7 +130,6 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     @objc func captureOutputImage() {
         DispatchQueue.main.async {
-            self.view.layer.opacity = 0.5
             self.shutterButton.layer.opacity = 0.2
             self.activityIndicator.startAnimating()
         }
@@ -139,7 +145,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
                 return
             }
             
-            // perform the request using the CIImage on background thread to ensure app performance
+            // Perform the request using the CIImage on background thread to ensure app performance
             DispatchQueue.global(qos: .userInitiated).async {
                 let handler = VNImageRequestHandler(ciImage: ciImage,
                                                     orientation: .up)
@@ -147,8 +153,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
                 do {
                     try handler.perform([self.detectBarcodeRequest])
                 } catch {
-                    // TODO: Once development of this feature is complete, change this error to be more user friendly for end user
-                    self.createAndDisplayAlertController(title: "Error decoding barcode", message: "\(error.localizedDescription)")
+                    self.createAndDisplayAlertController(title: "Error decoding barcode", message: "We weren't able to gather information from the barcode. Please try again.")
                 }
             }
         }
@@ -209,7 +214,6 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         self.shutterButton.addTarget(self, action: #selector(captureOutputImage), for: .touchUpInside)
         view.addSubview(shutterButton)
     }
-
     
     
     // MARK: - Alert Controllers
@@ -227,11 +231,9 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     lazy var detectBarcodeRequest: VNDetectBarcodesRequest = {
         return VNDetectBarcodesRequest { (request, error) in
            if let error = error {
-                // TODO: Once development of this feature is complete, change this error to be more user friendly for end user
-                self.createAndDisplayAlertController(title: "Barcode error", message: "\(error.localizedDescription)")
+                self.createAndDisplayAlertController(title: "Barcode error", message: "We weren't able to detect a barcode, please gtry again.")
                 return
             }
-            
             self.processClassification(for: request)
         }
     }()
@@ -239,16 +241,11 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     func processClassification(for request: VNRequest) {
         // Switch back to main thread once Vision receives request in order to extract the payload
         DispatchQueue.main.async {
-            self.view.layer.opacity = 1.0
             self.shutterButton.layer.opacity = 1.0
             self.activityIndicator.stopAnimating()
             
             if let bestResult = request.results?.first as? VNBarcodeObservation,
                 let payload = bestResult.payloadStringValue {
-                // This is where we will get the barcodes information, to then be able to search the edama API
-                // for now we will just present it as an alert
-                //                self.createAndDisplayAlertController(title: "Barcode Result", message: payload)
-                print(payload)
                 self.dismiss(animated: true) {
                     self.delegate?.searchForFoodItemWithUPC(payload)
                 }
@@ -257,5 +254,4 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
             }
         }
     }
-    
 }
