@@ -24,6 +24,8 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     var delegate: BarcodeSearchDelegate?
     var searchController: LSLSearchController?
+    
+    var permissionGranted: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,21 +132,32 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         switch status {
         case .denied, .restricted:
             displayNotAuthorizedAlert()
+            self.permissionGranted = false
         case .notDetermined:
             // Prompt user for access to camera
+            self.permissionGranted = false
             AVCaptureDevice.requestAccess(for: mediaType) { (granted) in
-                guard granted != true else { return }
+                guard granted != true else {
+                    self.permissionGranted = true
+                    return
+                }
                 
                 DispatchQueue.main.async {
                     self.displayNotAuthorizedAlert()
                 }
             }
+        case .authorized:
+            self.permissionGranted = true
         default:
             break
         }
     }
     
     private func setUpCameraLiveView() {
+        guard permissionGranted != false else {
+            return
+        }
+        
         self.captureSession = AVCaptureSession()
         self.captureSession.sessionPreset = .hd1920x1080
         
@@ -204,6 +217,10 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     // MARK: - AVCapture Output and Image Processsing
     
     @objc func captureOutputImage() {
+        guard permissionGranted != false else {
+            return
+        }
+        
         DispatchQueue.main.async {
             self.startLoadingView()
         }
