@@ -237,7 +237,11 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
                 let payload = bestResult.payloadStringValue {
                 // This is where we will get the barcodes information, to then be able to search the edama API
                 // for now we will just present it as an alert
-                self.createAndDisplayAlertController(title: "Barcode Result", message: payload)
+//                self.createAndDisplayAlertController(title: "Barcode Result", message: payload)
+                print(payload)
+                self.dismiss(animated: true) {
+                    self.delegate?.searchForFoodItemWithUPC(payload)
+                }
             } else {
                 self.createAndDisplayAlertController(title: "Couldn't get barcode", message: "We were unable to extract barcode information from the data")
             }

@@ -18,7 +18,7 @@ class LSLSearchController {
     let baseURL = URL(string: "https://api.edamam.com/api/food-database/parser")!
     let nutritionURL = URL(string: "https://api.edamam.com/api/food-database/nutrients")!
     
-    func searchForFoodItem(searchTerm: String, completion: @escaping () -> Void) {
+    func searchForFoodItemWithKeyword(searchTerm: String, completion: @escaping () -> Void) {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         let appIdQueryItem = URLQueryItem(name: "app_id", value: appId)
         let appKeyQueryItem = URLQueryItem(name: "app_key", value: appKey)
@@ -51,6 +51,42 @@ class LSLSearchController {
             completion()
         }.resume()
     }
+    
+    func searchForFoodItemWithUPC(searchTerm: String, completion: @escaping () -> Void) {
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let appIdQueryItem = URLQueryItem(name: "app_id", value: appId)
+        let appKeyQueryItem = URLQueryItem(name: "app_key", value: appKey)
+        let searchTermQueryItem = URLQueryItem(name: "upc", value: searchTerm)
+
+        urlComponents?.queryItems = [appIdQueryItem, appKeyQueryItem, searchTermQueryItem]
+
+        guard let requestURL = urlComponents?.url else { NSLog("requestURL is nil"); completion(); return }
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.get.rawValue
+
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error fetching data: \(error)")
+                completion()
+                return
+            }
+
+            guard let data = data else { NSLog("No data returned from data task"); completion(); return }
+            
+            let jsonDecoder = JSONDecoder()
+            do {
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                let foodSearch = try jsonDecoder.decode(FoodSearch.self, from: data)
+                self.foods = foodSearch.hints
+            } catch {
+                NSLog("Unable to decode data into object of type FoodSearch: \(error)")
+            }
+
+            completion()
+        }.resume()
+    }
+    
+    
     
     func searchForNutrients(qty: Int, measure: String, foodId: String, completion: @escaping () -> Void) {
         let json: [String: Any] = ["ingredients": [["quantity": qty, "measureURI": measure, "foodId": foodId]]]

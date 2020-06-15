@@ -84,10 +84,28 @@ extension LSLSearchFoodTableViewController: UISearchBarDelegate {
         self.foodSearchBar.endEditing(true)
         
         // Perform search for food item
-        self.searchController.searchForFoodItem(searchTerm: searchTerm) {
+        self.searchController.searchForFoodItemWithKeyword(searchTerm: searchTerm) {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
+}
+
+extension LSLSearchFoodTableViewController: BarcodeSearchDelegate {
+    func searchForFoodItemWithUPC(_ upc: String) {
+        self.searchController.searchForFoodItemWithUPC(searchTerm: upc) {
+            DispatchQueue.main.async {
+                if self.searchController.foods.count == 0 {
+                    self.createAndDisplayAlertController(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+                }
+                self.tableView.reloadData()
+            }
+        }
+    }
+}
+
+
+protocol BarcodeSearchDelegate {
+    func searchForFoodItemWithUPC(_ upc: String)
 }
