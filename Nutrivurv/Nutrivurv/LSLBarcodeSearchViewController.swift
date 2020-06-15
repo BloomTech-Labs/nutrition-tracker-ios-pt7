@@ -8,6 +8,7 @@
 import AVFoundation
 import UIKit
 import Vision
+import CoreImage
 
 class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
@@ -115,6 +116,37 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     }
     
     
+    // MARK: - AVCapture Output and Image Processsing
+    
+    @objc func captureOutputImage() {
+        let settings = AVCapturePhotoSettings()
+        self.captureOutput?.capturePhoto(with: settings, delegate: self)
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let imageData = photo.fileDataRepresentation(), let image = UIImage(data: imageData) {
+            // Vision framework expects a CI Image, so we need to first convert UIImage to CIImage
+            guard let ciImage = CIImage(image: image) else {
+                createAndDisplayAlertController(title: "Scanner error", message: "We were unable to process this barcode, please try again.")
+                return
+            }
+            
+            // perform the request using the CIImage on background thread to ensure app performance
+            DispatchQueue.global(qos: .userInitiated).async {
+                let handler = VNImageRequestHandler(ciImage: ciImage,
+                                                    orientation: .up)
+                
+                do {
+                    try handler.perform([self.detectBarcodeRequest])
+                } catch {
+                    // TODO: Once development of this feature is complete, change this error to be more user friendly for end user
+                    self.createAndDisplayAlertController(title: "Error decoding barcode", message: "\(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    
     // MARK: - Helper Functions
     
     @objc private func openSettings() {
@@ -186,9 +218,9 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     lazy var detectBarcodeRequest: VNDetectBarcodesRequest = {
         return VNDetectBarcodesRequest { (request, error) in
-            guard error == nil else {
-                print("Error scanning barcode")
-                // Alert user of error
+           if let error = error {
+                // TODO: Once development of this feature is complete, change this error to be more user friendly for end user
+                self.createAndDisplayAlertController(title: "Barcode error", message: "\(error.localizedDescription)")
                 return
             }
             
