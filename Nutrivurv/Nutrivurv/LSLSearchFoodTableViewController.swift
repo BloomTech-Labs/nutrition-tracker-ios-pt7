@@ -40,9 +40,9 @@ class LSLSearchFoodTableViewController: UITableViewController {
         return cell
     }
 
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodDetail" {
             guard let indexPath = self.tableView.indexPathForSelectedRow,
@@ -57,7 +57,8 @@ class LSLSearchFoodTableViewController: UITableViewController {
                 return
             }
             self.searchController.foods = []
-            barcodeScanVC.delegate = self
+            barcodeScanVC.barcodeSearchDelegate = self
+            barcodeScanVC.manualSearchDelegate = self
             barcodeScanVC.searchController = self.searchController
         }
     }
@@ -101,7 +102,19 @@ extension LSLSearchFoodTableViewController: UITextFieldDelegate {
     }
 }
 
+extension LSLSearchFoodTableViewController: ManualSearchRequiredDelegate {
+    func unableToUseBarcodeScanningFeature() {
+        self.createAndDisplayAlertController(title: "Manual Search Required", message: "This device cannot be used to scan barcodes. Please search for food items manually. We apologize for the inconvience.")
+    }
+}
+
+
+// MARK: - Protocol Definitions
 
 protocol BarcodeSearchDelegate {
     func gotResultForFoodFromUPC()
+}
+
+protocol ManualSearchRequiredDelegate {
+    func unableToUseBarcodeScanningFeature()
 }

@@ -24,7 +24,8 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     var notAuthorizedAlertContainerView: UIView!
     var barcodeScannerFrameView: UIView!
     
-    var delegate: BarcodeSearchDelegate?
+    var barcodeSearchDelegate: BarcodeSearchDelegate?
+    var manualSearchDelegate: ManualSearchRequiredDelegate?
     var searchController: LSLSearchController?
     
     var permissionGranted: Bool = false
@@ -43,8 +44,16 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        #if targetEnvironment(simulator)
+        
+          self.dismiss(animated: true) {
+              self.manualSearchDelegate?.unableToUseBarcodeScanningFeature()
+          }
+        
+        #else
         // Ensure we have access to the camera each time the user accesses the view in order to prevent app from crashing
         checkPermissions()
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -150,8 +159,13 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
                 }
             }
         case .authorized:
-            self.permissionGranted = true
+              self.permissionGranted = true
+            
+        // Although all cases are covered for current API, we need a default if additional cases are added in the future.
         default:
+            self.dismiss(animated: true) {
+                self.manualSearchDelegate?.unableToUseBarcodeScanningFeature()
+            }
             break
         }
     }
