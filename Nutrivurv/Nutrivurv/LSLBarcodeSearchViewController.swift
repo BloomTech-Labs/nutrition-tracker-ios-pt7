@@ -15,9 +15,22 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     var captureOutput: AVCapturePhotoOutput?
     var captureSession: AVCaptureSession!
+    
+    var shutterButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkPermissions()
+        setUpCameraLiveView()
+        addShutterButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Ensure we have access to the camera each time the user accesses the view in order to prevent app from crashing
+        checkPermissions()
     }
     
     
@@ -111,34 +124,55 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         }
     }
     
-    // MARK: - Alerts and Alert Controllers
+    
+    // MARK: - User Interface Functionality
     
     private func displayNotAuthorizedAlert() {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width * 0.8, height: 20))
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.text = "Please grant access to the camera for scanning barcodes."
-        label.sizeToFit()
+           let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width * 0.8, height: 20))
+           label.textAlignment = .center
+           label.numberOfLines = 0
+           label.lineBreakMode = .byWordWrapping
+           label.text = "Please grant access to the camera for scanning barcodes."
+           label.sizeToFit()
 
-        let button = UIButton(frame: CGRect(x: 0, y: label.frame.height + 8, width: view.frame.width * 0.8, height: 35))
-        button.layer.cornerRadius = 10
-        button.setTitle("Grant Access", for: .normal)
-        button.backgroundColor = UIColor(displayP3Red: 4.0/255.0, green: 92.0/255.0, blue: 198.0/255.0, alpha: 1)
-        button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+           let button = UIButton(frame: CGRect(x: 0, y: label.frame.height + 8, width: view.frame.width * 0.8, height: 35))
+           button.layer.cornerRadius = 10
+           button.setTitle("Grant Access", for: .normal)
+           button.backgroundColor = UIColor(displayP3Red: 4.0/255.0, green: 92.0/255.0, blue: 198.0/255.0, alpha: 1)
+           button.setTitleColor(.white, for: .normal)
+           button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
 
-        let containerView = UIView(frame: CGRect(
-            x: view.frame.width * 0.1,
-            y: (view.frame.height - label.frame.height + 8 + button.frame.height) / 2,
-            width: view.frame.width * 0.8,
-            height: label.frame.height + 8 + button.frame.height
+           let containerView = UIView(frame: CGRect(
+               x: view.frame.width * 0.1,
+               y: (view.frame.height - label.frame.height + 8 + button.frame.height) / 2,
+               width: view.frame.width * 0.8,
+               height: label.frame.height + 8 + button.frame.height
+               )
+           )
+           containerView.addSubview(label)
+           containerView.addSubview(button)
+           view.addSubview(containerView)
+       }
+    
+    private func addShutterButton() {
+        let width: CGFloat = 75
+        let height = width
+        self.shutterButton = UIButton(frame: CGRect(x: (view.frame.width - width) / 2,
+                                               y: view.frame.height - height - 32,
+                                               width: width,
+                                               height: height
             )
         )
-        containerView.addSubview(label)
-        containerView.addSubview(button)
-        view.addSubview(containerView)
+        self.shutterButton.layer.cornerRadius = width / 2
+        self.shutterButton.backgroundColor = UIColor.init(displayP3Red: 1, green: 1, blue: 1, alpha: 0.8)
+        self.shutterButton.showsTouchWhenHighlighted = true
+        self.shutterButton.addTarget(self, action: #selector(captureOutputImage), for: .touchUpInside)
+        view.addSubview(shutterButton)
     }
+
+    
+    
+    // MARK: - Alert Controllers
     
     private func createAndDisplayAlertController(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
