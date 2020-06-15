@@ -19,16 +19,12 @@ class LSLSearchFoodTableViewController: UITableViewController {
         self.foodSearchBar.delegate = self
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.foodSearchBar.searchTextField.text = ""
         self.tableView.reloadData()
     }
+
 
     // MARK: - Table view data source
 
@@ -39,7 +35,7 @@ class LSLSearchFoodTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
 
-        cell.textLabel?.text = self.searchController.foods[indexPath.row].food.label
+        cell.textLabel?.text = self.searchController.foods[indexPath.row].food.label.capitalized
 
         return cell
     }
@@ -62,6 +58,7 @@ class LSLSearchFoodTableViewController: UITableViewController {
             }
             self.searchController.foods = []
             barcodeScanVC.delegate = self
+            barcodeScanVC.searchController = self.searchController
         }
     }
     
@@ -80,7 +77,6 @@ extension LSLSearchFoodTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = self.foodSearchBar.text else { return }
         
-        // Dismiss Keyboard
         self.foodSearchBar.endEditing(true)
         
         // Perform search for food item
@@ -93,19 +89,19 @@ extension LSLSearchFoodTableViewController: UISearchBarDelegate {
 }
 
 extension LSLSearchFoodTableViewController: BarcodeSearchDelegate {
-    func searchForFoodItemWithUPC(_ upc: String) {
-        self.searchController.searchForFoodItemWithUPC(searchTerm: upc) {
-            DispatchQueue.main.async {
-                if self.searchController.foods.count == 0 {
-                    self.createAndDisplayAlertController(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
-                }
-                self.tableView.reloadData()
-            }
-        }
+    func gotResultForFoodFromUPC() {
+        self.tableView.reloadData()
+    }
+}
+
+extension LSLSearchFoodTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
 
 protocol BarcodeSearchDelegate {
-    func searchForFoodItemWithUPC(_ upc: String)
+    func gotResultForFoodFromUPC()
 }

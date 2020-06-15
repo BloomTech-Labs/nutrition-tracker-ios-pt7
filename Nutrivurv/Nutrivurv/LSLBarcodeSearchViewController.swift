@@ -22,6 +22,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     var shutterButton: UIButton!
     
     var delegate: BarcodeSearchDelegate?
+    var searchController: LSLSearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,18 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         activityIndicator.hidesWhenStopped = true
         activityIndicator.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
         activityIndicator.layer.cornerRadius = 4
+    }
+    
+    private func startLoadingView() {
+        self.shutterButton.layer.opacity = 0.2
+        self.shutterButton.isEnabled = false
+        self.activityIndicator.startAnimating()
+    }
+    
+    private func stopLoadingView() {
+        self.shutterButton.layer.opacity = 1.0
+        self.shutterButton.isEnabled = true
+        self.activityIndicator.stopAnimating()
     }
     
     
@@ -130,8 +143,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     @objc func captureOutputImage() {
         DispatchQueue.main.async {
-            self.shutterButton.layer.opacity = 0.2
-            self.activityIndicator.startAnimating()
+            self.startLoadingView()
         }
         let settings = AVCapturePhotoSettings()
         self.captureOutput?.capturePhoto(with: settings, delegate: self)
@@ -241,16 +253,29 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     func processClassification(for request: VNRequest) {
         // Switch back to main thread once Vision receives request in order to extract the payload
         DispatchQueue.main.async {
-            self.shutterButton.layer.opacity = 1.0
-            self.activityIndicator.stopAnimating()
-            
             if let bestResult = request.results?.first as? VNBarcodeObservation,
                 let payload = bestResult.payloadStringValue {
-                self.dismiss(animated: true) {
-                    self.delegate?.searchForFoodItemWithUPC(payload)
-                }
+                self.searchForFoodByUPC(payload)
             } else {
+                self.stopLoadingView()
                 self.createAndDisplayAlertController(title: "Couldn't get barcode", message: "We were unable to extract barcode information from the data")
+            }
+        }
+    }
+    
+    
+    // MARK: - Search by UPC
+    
+    func searchForFoodByUPC(_ upc: String) {
+        self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) {
+            DispatchQueue.main.async {
+                self.stopLoadingView()
+                if self.searchController?.foods.count == 0 {
+                    self.createAndDisplayAlertController(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+                } else {
+                    self.delegate?.gotResultForFoodFromUPC()
+                    self.dismiss(animated: true)
+                }
             }
         }
     }
