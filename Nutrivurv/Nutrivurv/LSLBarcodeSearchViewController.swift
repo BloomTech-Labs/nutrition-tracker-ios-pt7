@@ -44,6 +44,63 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         }
     }
     
+    private func setUpCameraLiveView() {
+        self.captureSession = AVCaptureSession()
+        self.captureSession.sessionPreset = .hd1920x1080
+        
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera],
+                                                                      mediaType: .video,
+                                                                      position: .back)
+        
+        let devices = deviceDiscoverySession.devices
+        for device in devices {
+            if device.position == .back {
+                self.backCamera = device
+            }
+        }
+        
+        // Ensure the camera is a back camera on this particular iPhone
+        guard let backCamera = backCamera else {
+            createAndDisplayAlertController(title: "Camera error", message: "We couldn't find a camera to use on your device")
+            return
+        }
+        
+        // Establish input stream
+        do {
+            let captureDeviceInput = try AVCaptureDeviceInput(device: backCamera)
+            self.captureSession.addInput(captureDeviceInput)
+        } catch {
+            createAndDisplayAlertController(title: "Camera error", message: "This camera cannot be used to scan food items")
+            return
+        }
+        
+        // Initialize the capture ouput and add to capture session
+        self.captureOutput = AVCapturePhotoOutput()
+        captureOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])],
+                                                     completionHandler: nil)
+        
+        guard let captureOutput = captureOutput else {
+            createAndDisplayAlertController(title: "Camera error", message: "There was an error generating an image from your camera's output")
+            return
+        }
+        self.captureSession.addOutput(captureOutput)
+        
+        // Add a preview layer for session
+        self.cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        cameraPreviewLayer?.videoGravity = .resizeAspectFill
+        cameraPreviewLayer?.connection?.videoOrientation = .portrait
+        cameraPreviewLayer?.frame = view.frame
+        
+        guard let previewLayer = cameraPreviewLayer else {
+            createAndDisplayAlertController(title: "Camera error", message: "A preview couldn't be genrated for your device's camera")
+            return
+        }
+        self.view.layer.insertSublayer(previewLayer, at: 0)
+        
+        // Start the capture session
+        self.captureSession.startRunning()
+    }
+    
     
     // MARK: - Helper Functions
     
