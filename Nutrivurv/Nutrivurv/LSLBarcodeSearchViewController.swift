@@ -20,6 +20,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     var captureSession: AVCaptureSession!
     
     var shutterButton: UIButton!
+    var notAuthorizedAlertContainerView: UIView!
     
     var delegate: BarcodeSearchDelegate?
     var searchController: LSLSearchController?
@@ -38,7 +39,17 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         checkPermissions()
     }
     
-    // MARK: - Set Up Views
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // To prevent the view from adding duplicates, remove from the view here.
+        // If permission is not yet granted, the alert will be displayed when checkPermissions() runs in viewDidAppear
+        guard notAuthorizedAlertContainerView != nil else {
+            return
+        }
+        notAuthorizedAlertContainerView.removeFromSuperview()
+    }
+    
+    // MARK: - Views & UI Setup
     
     private func setUpActivityView() {
         activityIndicator.hidesWhenStopped = true
@@ -56,6 +67,57 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         self.shutterButton.layer.opacity = 1.0
         self.shutterButton.isEnabled = true
         self.activityIndicator.stopAnimating()
+    }
+    
+    private func addBarcodeRecognizerBoxView() {
+        
+    }
+    
+    private func addShutterButton() {
+        let width: CGFloat = 75
+        let height = width
+        self.shutterButton = UIButton(frame: CGRect(x: (view.frame.width - width) / 2,
+                                                    y: view.frame.height - height - 100,
+                                                    width: width,
+                                                    height: height
+            )
+        )
+        
+        self.shutterButton.layer.cornerRadius = width / 2
+        self.shutterButton.backgroundColor = UIColor.init(displayP3Red: 1, green: 1, blue: 1, alpha: 0.8)
+        self.shutterButton.showsTouchWhenHighlighted = true
+        self.shutterButton.addTarget(self, action: #selector(captureOutputImage), for: .touchUpInside)
+        view.addSubview(shutterButton)
+    }
+    
+    private func displayNotAuthorizedAlert() {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width * 0.8, height: 20))
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.text = "Please grant access to the camera in order to scan barcodes."
+        label.sizeToFit()
+
+        let button = UIButton(frame: CGRect(x: 0, y: label.frame.height + 8, width: view.frame.width * 0.8, height: 35))
+        button.layer.cornerRadius = 10
+        button.setTitle("Grant Access", for: .normal)
+        button.backgroundColor = UIColor(displayP3Red: 0.0/255.0, green: 66.0/255.0, blue: 108.0/255.0, alpha: 1)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+
+        notAuthorizedAlertContainerView = UIView(frame: CGRect(
+            x: view.frame.width * 0.1,
+            y: (view.frame.height - label.frame.height + 8 + button.frame.height) / 2,
+            width: view.frame.width * 0.8,
+            height: label.frame.height + 8 + button.frame.height
+            )
+        )
+        
+        notAuthorizedAlertContainerView.addSubview(label)
+        notAuthorizedAlertContainerView.addSubview(button)
+        view.addSubview(notAuthorizedAlertContainerView)
     }
     
     
@@ -179,52 +241,6 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
         UIApplication.shared.open(settingsURL) { (_) in
             self.checkPermissions()
         }
-    }
-    
-    
-    // MARK: - User Interface Functionality
-    
-    private func displayNotAuthorizedAlert() {
-           let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width * 0.8, height: 20))
-           label.textAlignment = .center
-           label.numberOfLines = 0
-           label.lineBreakMode = .byWordWrapping
-           label.text = "Please grant access to the camera for scanning barcodes."
-           label.sizeToFit()
-
-           let button = UIButton(frame: CGRect(x: 0, y: label.frame.height + 8, width: view.frame.width * 0.8, height: 35))
-           button.layer.cornerRadius = 10
-           button.setTitle("Grant Access", for: .normal)
-           button.backgroundColor = UIColor(displayP3Red: 4.0/255.0, green: 92.0/255.0, blue: 198.0/255.0, alpha: 1)
-           button.setTitleColor(.white, for: .normal)
-           button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
-
-           let containerView = UIView(frame: CGRect(
-               x: view.frame.width * 0.1,
-               y: (view.frame.height - label.frame.height + 8 + button.frame.height) / 2,
-               width: view.frame.width * 0.8,
-               height: label.frame.height + 8 + button.frame.height
-               )
-           )
-           containerView.addSubview(label)
-           containerView.addSubview(button)
-           view.addSubview(containerView)
-       }
-    
-    private func addShutterButton() {
-        let width: CGFloat = 75
-        let height = width
-        self.shutterButton = UIButton(frame: CGRect(x: (view.frame.width - width) / 2,
-                                               y: view.frame.height - height - 100,
-                                               width: width,
-                                               height: height
-            )
-        )
-        self.shutterButton.layer.cornerRadius = width / 2
-        self.shutterButton.backgroundColor = UIColor.init(displayP3Red: 1, green: 1, blue: 1, alpha: 0.8)
-        self.shutterButton.showsTouchWhenHighlighted = true
-        self.shutterButton.addTarget(self, action: #selector(captureOutputImage), for: .touchUpInside)
-        view.addSubview(shutterButton)
     }
     
     

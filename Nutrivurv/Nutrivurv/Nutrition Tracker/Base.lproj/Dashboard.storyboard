@@ -312,7 +312,7 @@
         <!--Barcode Search View Controller-->
         <scene sceneID="aia-aV-qL7">
             <objects>
-                <viewController id="4id-Vt-Jzy" customClass="LSLBarcodeSearchViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="4id-Vt-Jzy" customClass="LSLBarcodeSearchViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,7 +322,7 @@
                                 <color key="color" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.89932623526004896" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="f2O-rc-GuA" firstAttribute="centerY" secondItem="9Dl-jI-6BU" secondAttribute="centerY" id="aIo-TC-kmx"/>
                             <constraint firstItem="f2O-rc-GuA" firstAttribute="centerX" secondItem="9Dl-jI-6BU" secondAttribute="centerX" id="vZY-Sw-JMQ"/>
@@ -330,6 +330,8 @@
                         <viewLayoutGuide key="safeArea" id="M5B-qD-aKc"/>
                     </view>
                     <navigationItem key="navigationItem" id="nEi-mr-BhV"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="f2O-rc-GuA" id="f5k-36-n5t"/>
                     </connections>
