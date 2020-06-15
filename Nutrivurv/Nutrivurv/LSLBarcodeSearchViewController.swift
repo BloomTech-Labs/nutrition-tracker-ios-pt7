@@ -229,7 +229,17 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     }()
     
     func processClassification(for request: VNRequest) {
-        // Extract payload
+        // Switch back to main thread once Vision receives request in order to extract the payload
+        DispatchQueue.main.async {
+            if let bestResult = request.results?.first as? VNBarcodeObservation,
+                let payload = bestResult.payloadStringValue {
+                // This is where we will get the barcodes information, to then be able to search the edama API
+                // for now we will just present it as an alert
+                self.createAndDisplayAlertController(title: "Barcode Result", message: payload)
+            } else {
+                self.createAndDisplayAlertController(title: "Couldn't get barcode", message: "We were unable to extract barcode information from the data")
+            }
+        }
     }
 
 }
