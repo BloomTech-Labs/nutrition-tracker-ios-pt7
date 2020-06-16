@@ -88,7 +88,7 @@ class LSLSearchController {
     
     
     
-    func searchForNutrients(qty: Int, measure: String, foodId: String, completion: @escaping (Nutrients?) -> Void) {
+    func searchForNutrients(qty: Double, measure: String, foodId: String, completion: @escaping (Nutrients?) -> Void) {
         let json: [String: Any] = ["ingredients": [["quantity": qty, "measureURI": measure, "foodId": foodId]]]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         

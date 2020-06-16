@@ -10,6 +10,8 @@ import UIKit
 
 class LSLFoodDetailViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var qtyTextField: UITextField!
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
@@ -33,8 +35,12 @@ class LSLFoodDetailViewController: UIViewController {
     @IBOutlet weak var potassiumMeasureLabel: UILabel!
     @IBOutlet weak var potassiumPercentageLabel: UILabel!
     
+    
+    // MARK: - Properties & Model Controllers
+    
     var dailyRecord: DailyLog?
     var searchController: LSLSearchController?
+    
     var isTyping: Bool = false
     
     var foodItem: FoodItem? {
@@ -60,7 +66,7 @@ class LSLFoodDetailViewController: UIViewController {
         }
     }
     
-    var quantityInputValue: Int = 1 {
+    var quantityInputValue: Double = 1.0 {
         didSet {
             self.getFoodDetails()
         }
@@ -69,11 +75,14 @@ class LSLFoodDetailViewController: UIViewController {
     var servingSizes: [String] = []
     var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"]
     
+    
+    // MARK: - View Life Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.qtyTextField.delegate = self
-        self.qtyTextField.text = "1"
+        self.qtyTextField.text = "1.0"
 
         self.servingSizePickerView.delegate = self
         self.servingSizePickerView.dataSource = self
@@ -84,28 +93,114 @@ class LSLFoodDetailViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
     
-    @objc func dismissKeyboard() {
-        self.qtyTextField.resignFirstResponder()
-    }
     
-    private func formatNumberTo0Spaces(number: Double) -> String {
-        let numFormatter = NumberFormatter()
-        numFormatter.minimumFractionDigits = 0
-        numFormatter.maximumFractionDigits = 0
-        return numFormatter.string(for: number)!
-    }
-    
-    private func formatNumberTo2Spaces(number: Double) -> String {
-        let numFormatter = NumberFormatter()
-        numFormatter.minimumFractionDigits = 2
-        numFormatter.maximumFractionDigits = 2
-        return numFormatter.string(for: number)!
-    }
+    // MARK: - View Setup
     
     private func updateViews() {
         guard isViewLoaded else { return }
         guard let nutrients = nutrients else { return }
+        
+        let calories = nutrients.calories
+        
+        let totalNutrients = nutrients.totalNutrients
+        let dailyPercentNutrients = nutrients.totalDaily
+        
+        let fat = totalNutrients.FAT?.quantity ?? 0
+        let fatUnit = totalNutrients.FAT?.unit ?? ""
+        let fatPct = dailyPercentNutrients.FAT?.quantity ?? 0
+        
+        let sodium = totalNutrients.NA?.quantity ?? 0
+        let sodiumUnit = totalNutrients.NA?.unit ?? ""
+        let sodiumPct = dailyPercentNutrients.NA?.quantity ?? 0
+        
+        let carbs = totalNutrients.CHOCDF?.quantity ?? 0
+        let carbsUnit = totalNutrients.CHOCDF?.unit ?? ""
+        let carbsPct = dailyPercentNutrients.CHOCDF?.quantity ?? 0
+        
+        let chole = totalNutrients.CHOLE?.quantity ?? 0
+        let choleUnit = totalNutrients.CHOLE?.unit ?? ""
+        let cholePct = dailyPercentNutrients.CHOLE?.quantity ?? 0
+        
+        let sugar = totalNutrients.SUGAR?.quantity ?? 0
+        let sugarUnit = totalNutrients.SUGAR?.unit ?? ""
+        
+        let protein = totalNutrients.PROCNT?.quantity ?? 0
+        let proteinUnit = totalNutrients.PROCNT?.unit ?? ""
+        
+        let vitD = totalNutrients.VITD?.quantity ?? 0
+        let vitDUnit = totalNutrients.VITD?.unit ?? ""
+        let vitDPct = dailyPercentNutrients.VITD?.quantity ?? 0
+        
+        let calcium = totalNutrients.CA?.quantity ?? 0
+        let calciumUnit = totalNutrients.CA?.unit ?? ""
+        let calciumPct = dailyPercentNutrients.CA?.quantity ?? 0
+        
+        let iron = totalNutrients.FE?.quantity ?? 0
+        let ironUnit = totalNutrients.FE?.unit ?? ""
+        let ironPct = dailyPercentNutrients.FE?.quantity ?? 0
+        
+        let potassium = totalNutrients.K?.quantity ?? 0
+        let potassiumUnit = totalNutrients.K?.unit ?? ""
+        let potassiumPct = dailyPercentNutrients.K?.quantity ?? 0
+        
+        calorieLabel.text = "\(calories)"
+        
+        totalFatMeasureLabel.text = unitStringFor(nutrient: fat, unit: fatUnit)
+        totalFatPercentageLabel.text = pctStringFor(nutrient: fatPct)
+        
+        sodiumMeasureLabel.text = unitStringFor(nutrient: sodium, unit: sodiumUnit)
+        sodiumPercentageLabel.text = pctStringFor(nutrient: sodiumPct)
+        
+        totalCarbsMeasureLabel.text = unitStringFor(nutrient: carbs, unit: carbsUnit)
+        totalCarbsPercentageLabel.text = pctStringFor(nutrient: carbsPct)
+        
+        cholesterolMeasureLabel.text = unitStringFor(nutrient: chole, unit: choleUnit)
+        cholesterolPercentageLabel.text = pctStringFor(nutrient: cholePct)
+        
+        sugarMeasureLabel.text = unitStringFor(nutrient: sugar, unit: sugarUnit)
+        
+        proteinMeasureLabel.text = unitStringFor(nutrient: protein, unit: proteinUnit)
+        
+        vitaminDMeasureLabel.text = unitStringFor(nutrient: vitD, unit: vitDUnit)
+        vitaminDPercentageLabel.text = pctStringFor(nutrient: vitDPct)
+        
+        calciumMeasureLabel.text = unitStringFor(nutrient: calcium, unit: calciumUnit)
+        calciumPercentageLabel.text = pctStringFor(nutrient: calciumPct)
+        
+        ironMeasureLabel.text = unitStringFor(nutrient: iron, unit: ironUnit)
+        ironPercentageLabel.text = pctStringFor(nutrient: ironPct)
+        
+        potassiumMeasureLabel.text = unitStringFor(nutrient: potassium, unit: potassiumUnit)
+        potassiumPercentageLabel.text = pctStringFor(nutrient: potassiumPct)
     }
+    
+    
+    // MARK: - Helper Functions
+    
+    private func unitStringFor(nutrient: Double, unit: String) -> String {
+        if nutrient == 0 {
+            return "-"
+        } else {
+            let roundedStr = String(format: "%.1f", nutrient)
+            return "\(roundedStr) \(unit)"
+        }
+    }
+    
+    private func pctStringFor(nutrient: Double) -> String {
+        if nutrient == 0 {
+            return "0%"
+        } else {
+            let rounded = Int(nutrient)
+            return "\(rounded)%"
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        self.qtyTextField.resignFirstResponder()
+    }
+    
+    
+    // MARK: - Get Food Details
     
     private func getFoodDetails() {
         guard let foodItem = self.foodItem else { return }
@@ -113,13 +208,14 @@ class LSLFoodDetailViewController: UIViewController {
         self.searchController?.searchForNutrients(qty: quantityInputValue,
                                                   measure: foodItem.measures[selectedServingSize].uri,
                                                   foodId: foodItem.food.foodId) { (nutrients) in
-                                                    
             guard let nutrients = nutrients else { return }
             print(nutrients)
             self.nutrients = nutrients
         }
     }
     
+    
+    // MARK: - IBActions & Food Logging
     
     @IBAction func logFood(_ sender: Any) {
         guard let record = self.dailyRecord else { return }
@@ -129,7 +225,20 @@ class LSLFoodDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    @IBAction func qtyTextFieldEditingChanged(_ sender: UITextField) {
+        if let text = sender.text, let double = Double(text) {
+            if self.quantityInputValue == double {
+                return
+            } else {
+                 self.quantityInputValue = double
+            }
+        }
+    }
 }
+
+
+// MARK: - Picker View Delegate & Data Source
 
 extension LSLFoodDetailViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -168,15 +277,16 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
     }
 }
 
+
+// MARK: - Text Field Delegate Methods
+
 extension LSLFoodDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.isTyping = false
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.isTyping = true
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
@@ -187,17 +297,9 @@ extension LSLFoodDetailViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.isTyping = false
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
-    }
-    
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        if !isTyping, textField == qtyTextField {
-            guard let text = qtyTextField.text, let value = Int(text) else { return }
-            self.quantityInputValue = value
-        }
     }
 }
