@@ -24,7 +24,6 @@ class LSLFoodDetailViewController: UIViewController {
     @IBOutlet weak var cholesterolPercentageLabel: UILabel!
     @IBOutlet weak var sugarMeasureLabel: UILabel!
     @IBOutlet weak var proteinMeasureLabel: UILabel!
-    @IBOutlet weak var proteinPercentageLabel: UILabel!
     @IBOutlet weak var vitaminDMeasureLabel: UILabel!
     @IBOutlet weak var vitaminDPercentageLabel: UILabel!
     @IBOutlet weak var calciumMeasureLabel: UILabel!
@@ -35,16 +34,26 @@ class LSLFoodDetailViewController: UIViewController {
     @IBOutlet weak var potassiumPercentageLabel: UILabel!
     
     var dailyRecord: DailyLog?
-    
     var searchController: LSLSearchController?
+    
     var foodItem: FoodItem? {
+        didSet {
+            self.getFoodDetails()
+            for measure in foodItem!.measures {
+                let typeOfMeasure = measure.label
+                self.servingSizes.append(typeOfMeasure)
+            }
+        }
+    }
+    
+    var nutrients: Nutrients? {
         didSet {
             self.updateViews()
         }
     }
     
-    var servingSizes: [String] = ["Serving", "Whole", "Jumbo", "Gram", "Ounce", "Pound", "Kilogram", "Cup", "Liter"]
-    var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Snack"]
+    var servingSizes: [String] = []
+    var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +66,6 @@ class LSLFoodDetailViewController: UIViewController {
         self.mealTypePickerView.delegate = self
         self.mealTypePickerView.dataSource = self
         
-        self.updateViews()
-                
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
     
@@ -129,17 +136,6 @@ class LSLFoodDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension LSLFoodDetailViewController: UIPickerViewDelegate {
@@ -154,8 +150,10 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
         switch pickerView {
         case servingSizePickerView:
             return self.servingSizes.count
-        default:
+        case mealTypePickerView:
             return self.mealTypes.count
+        default:
+            return 0
         }
     }
     
@@ -163,8 +161,10 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
         switch pickerView {
         case servingSizePickerView:
             return self.servingSizes[row]
-        default:
+        case mealTypePickerView:
             return self.mealTypes[row]
+        default:
+            return nil
         }
     }
 }
