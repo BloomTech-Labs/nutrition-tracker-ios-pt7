@@ -134,7 +134,7 @@ class LSLFoodDetailViewController: UIViewController {
 extension LSLFoodDetailViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == servingSizePickerView {
-            let sizeIndex = pickerView.selectedRow(inComponent: row)
+            let sizeIndex = pickerView.selectedRow(inComponent: 0)
             self.selectedServingSize = sizeIndex
         }
     }
@@ -170,6 +170,7 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
 
 extension LSLFoodDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.isTyping = false
         textField.resignFirstResponder()
         return true
     }
