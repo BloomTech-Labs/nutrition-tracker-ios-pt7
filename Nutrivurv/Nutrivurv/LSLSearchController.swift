@@ -88,7 +88,7 @@ class LSLSearchController {
     
     
     
-    func searchForNutrients(qty: Int, measure: String, foodId: String, completion: @escaping () -> Void) {
+    func searchForNutrients(qty: Int, measure: String, foodId: String, completion: @escaping (Nutrients?) -> Void) {
         let json: [String: Any] = ["ingredients": [["quantity": qty, "measureURI": measure, "foodId": foodId]]]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
@@ -98,7 +98,7 @@ class LSLSearchController {
 
         urlComponents?.queryItems = [appIdQueryItem, appKeyQueryItem]
 
-        guard let requestURL = urlComponents?.url else { NSLog("requestURL is nil"); completion(); return }
+        guard let requestURL = urlComponents?.url else { NSLog("requestURL is nil"); completion(nil); return }
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.httpBody = jsonData
@@ -106,24 +106,39 @@ class LSLSearchController {
 
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
-                NSLog("Error fetching data: \(error)")
-                completion()
+                NSLog("Error fetching nutrient data: \(error)")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
                 return
             }
 
-            guard let data = data else { NSLog("No data returned from data task"); completion(); return }
-
-            let jsonDecoder = JSONDecoder()
-            do {
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                let nutrients = try jsonDecoder.decode(Nutrients.self, from: data)
-                self.nutrients = nutrients
-            } catch {
-                NSLog("Unable to decode data into object of type Nutrients: \(error)")
+            guard let data = data else {
+                NSLog("No nutrient data returned from data task")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
             }
 
-            completion()
+            let jsonDecoder = JSONDecoder()
+            var nutrients: Nutrients?
+            
+            do {
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                nutrients = try jsonDecoder.decode(Nutrients.self, from: data)
+//                self.nutrients = nutrients
+            } catch {
+                NSLog("Unable to decode data into object of type Nutrients: \(error)")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(nutrients)
+            }
         }.resume()
     }
-    
 }
