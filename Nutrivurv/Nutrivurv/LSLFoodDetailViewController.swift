@@ -35,6 +35,7 @@ class LSLFoodDetailViewController: UIViewController {
     
     var dailyRecord: DailyLog?
     var searchController: LSLSearchController?
+    var isTyping: Bool = false
     
     var foodItem: FoodItem? {
         didSet {
@@ -48,7 +49,20 @@ class LSLFoodDetailViewController: UIViewController {
     
     var nutrients: Nutrients? {
         didSet {
+            // Since we declared the completion on the main queue in search controller, no need to do it here
             self.updateViews()
+        }
+    }
+    
+    var selectedServingSize: Int = 0 {
+        didSet {
+            self.getFoodDetails()
+        }
+    }
+    
+    var quantityInputValue: Int = 1 {
+        didSet {
+            self.getFoodDetails()
         }
     }
     
@@ -59,6 +73,7 @@ class LSLFoodDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.qtyTextField.delegate = self
+        self.qtyTextField.text = "1"
 
         self.servingSizePickerView.delegate = self
         self.servingSizePickerView.dataSource = self
@@ -88,46 +103,24 @@ class LSLFoodDetailViewController: UIViewController {
     }
     
     private func updateViews() {
-        guard let foodItem = self.foodItem, isViewLoaded else { return }
-        self.navigationItem.title = foodItem.food.label
-        self.qtyTextField.text = "1"
-        self.servingSizePickerView.selectRow((servingSizes.firstIndex(of: foodItem.measures[0].label)) ?? 0, inComponent: 0, animated: true)
-        
-        // Perform a search for the nutrients of the food item...
-        self.searchController?.searchForNutrients(qty: 1, measure: foodItem.measures[0].uri, foodId: foodItem.food.foodId, completion: {
-            guard let nutrients = self.searchController?.nutrients else { return }
-            DispatchQueue.main.async {
-                print("Nutrients: \(nutrients)")
-                self.calorieLabel.text = "\(nutrients.calories)"
-                
-                self.totalFatMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.FAT.quantity))\(nutrients.totalNutrients.FAT.unit)"
-                self.totalFatPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.FAT.quantity))\(nutrients.totalDaily.FAT.unit)"
-                self.sodiumMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.NA.quantity))\(nutrients.totalNutrients.NA.unit)"
-                self.sodiumPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.NA.quantity))\(nutrients.totalDaily.NA.unit)"
-                self.totalCarbsMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.CHOCDF.quantity))\(nutrients.totalNutrients.CHOCDF.unit)"
-                self.totalCarbsPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.CHOCDF.quantity))\(nutrients.totalDaily.CHOCDF.unit)"
-                self.cholesterolMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.CHOLE.quantity))\(nutrients.totalNutrients.CHOLE.unit)"
-                self.cholesterolPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.CHOLE.quantity))\(nutrients.totalDaily.CHOLE.unit)"
-                self.sugarMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.SUGAR.quantity))\(nutrients.totalNutrients.SUGAR.unit)"
-                self.proteinMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.PROCNT.quantity))\(nutrients.totalNutrients.PROCNT.unit)"
-                self.proteinPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.PROCNT.quantity))\(nutrients.totalDaily.PROCNT.unit)"
-                self.vitaminDMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.VITD.quantity))\(nutrients.totalNutrients.VITD.unit)"
-                self.vitaminDPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.VITD.quantity))\(nutrients.totalDaily.VITD.unit)"
-                self.calciumMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.CA.quantity))\(nutrients.totalNutrients.CA.unit)"
-                self.calciumPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.CA.quantity))\(nutrients.totalDaily.CA.unit)"
-                self.ironMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.FE.quantity))\(nutrients.totalNutrients.FE.unit)"
-                self.ironPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.FE.quantity))\(nutrients.totalDaily.FE.unit)"
-                self.potassiumMeasureLabel.text = "\(self.formatNumberTo2Spaces(number: nutrients.totalNutrients.K.quantity))\(nutrients.totalNutrients.K.unit)"
-                self.potassiumPercentageLabel.text = "\(self.formatNumberTo0Spaces(number: nutrients.totalDaily.K.quantity))\(nutrients.totalDaily.K.unit)"
-                
-                guard let qty = self.qtyTextField.text, !qty.isEmpty else { return }
-                
-                let currentDateTime = Date()
-                self.dailyRecord = DailyLog(date: "\(currentDateTime)", calories: nutrients.calories, fat: Int(nutrients.totalDaily.FAT.quantity), carbs: Int(nutrients.totalDaily.CHOCDF.quantity), fiber: Int(nutrients.totalDaily.FIBTG.quantity), protein: Int(nutrients.totalDaily.PROCNT.quantity), food_string: foodItem.food.label, quantity: Int(qty)!, meal_type: self.mealTypes[self.mealTypePickerView.selectedRow(inComponent: 0)])
-            }
-        })
+        guard isViewLoaded else { return }
+        guard let nutrients = nutrients else { return }
     }
-
+    
+    private func getFoodDetails() {
+        guard let foodItem = self.foodItem else { return }
+        
+        self.searchController?.searchForNutrients(qty: quantityInputValue,
+                                                  measure: foodItem.measures[selectedServingSize].uri,
+                                                  foodId: foodItem.food.foodId) { (nutrients) in
+                                                    
+            guard let nutrients = nutrients else { return }
+            print(nutrients)
+            self.nutrients = nutrients
+        }
+    }
+    
+    
     @IBAction func logFood(_ sender: Any) {
         guard let record = self.dailyRecord else { return }
         
@@ -139,6 +132,12 @@ class LSLFoodDetailViewController: UIViewController {
 }
 
 extension LSLFoodDetailViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == servingSizePickerView {
+            let sizeIndex = pickerView.selectedRow(inComponent: row)
+            self.selectedServingSize = sizeIndex
+        }
+    }
 }
 
 extension LSLFoodDetailViewController: UIPickerViewDataSource {
@@ -176,6 +175,7 @@ extension LSLFoodDetailViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.isTyping = true
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
@@ -186,9 +186,17 @@ extension LSLFoodDetailViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        self.isTyping = false
         textField.layer.borderWidth = 1.0
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if !isTyping, textField == qtyTextField {
+            guard let text = qtyTextField.text, let value = Int(text) else { return }
+            self.quantityInputValue = value
+        }
     }
 }
