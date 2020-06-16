@@ -283,6 +283,7 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
 extension LSLFoodDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.qtyTextFieldEditingChanged(textField)
         return true
     }
     
