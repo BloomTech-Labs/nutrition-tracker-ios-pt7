@@ -15,6 +15,7 @@ class LSLSearchFoodTableViewController: UITableViewController {
     @IBOutlet weak var foodSearchBar: UISearchBar!
     
     let searchController = LSLSearchController()
+    var searchDelayTimer = Timer()
     
     
     // MARK: - View Life Cycle Methods
@@ -77,6 +78,20 @@ class LSLSearchFoodTableViewController: UITableViewController {
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: - Helper Search Function
+
+    @objc func delayedSearch() {
+        print("Fire search!")
+        guard let searchText = searchDelayTimer.userInfo as? String, !searchText.isEmpty else { return }
+        
+        self.searchDelayTimer.invalidate()
+        self.searchController.searchForFoodItemWithKeyword(searchTerm: searchText) {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 
@@ -87,13 +102,23 @@ extension LSLSearchFoodTableViewController: UISearchBarDelegate {
         guard let searchTerm = self.foodSearchBar.text else { return }
         
         self.foodSearchBar.endEditing(true)
+        self.searchDelayTimer.invalidate()
         
-        // Perform search for food item
         self.searchController.searchForFoodItemWithKeyword(searchTerm: searchTerm) {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchDelayTimer.invalidate()
+        searchBar.searchTextField.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchDelayTimer.invalidate()
+        searchDelayTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(self.delayedSearch), userInfo: searchText, repeats: false)
     }
 }
 
