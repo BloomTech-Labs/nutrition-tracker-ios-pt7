@@ -35,12 +35,18 @@ class LSLMetricBMIViewController: UIViewController {
     @discardableResult @objc public func calculateBMI() -> String? {
         guard let height = self.heightMetricTextField.text, !height.isEmpty,
             let weight = self.weightMetricTextField.text, !weight.isEmpty else {
+                NotificationCenter.default.post(name: .bmiInputsNotNumbers, object: nil)
                 return nil
         }
         
-        let newHeight = ((Double(height) ?? 0) / 2.54)
+        guard let heightDouble = Double(height), heightDouble != 0, let weightDouble = Double(weight), weightDouble != 0 else {
+            NotificationCenter.default.post(name: .bmiInputsNotNumbers, object: nil)
+            return nil
+        }
+        
+        let newHeight = ((heightDouble) / 2.54)
         LSLUserController.height = Int(newHeight)
-        let totalWeight = ((Double(weight) ?? 0) * 2.20462262185)
+        let totalWeight = ((weightDouble) * 2.20462262185)
         LSLUserController.weight = Int(totalWeight)
         
         let bmi = (totalWeight * 704.7) / (newHeight * newHeight)

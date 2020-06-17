@@ -28,6 +28,7 @@ class LSLCalculateBMIViewController: UIViewController {
         self.styleSegmentControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .bmiUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(bmiTextInputsNotNumbers), name: .bmiInputsNotNumbers, object: nil)
     }
     
     // MARK: - IBActions and Methods
@@ -41,7 +42,7 @@ class LSLCalculateBMIViewController: UIViewController {
             }
             
             guard LSLUserController.bmi != nil else {
-                self.calculateBMIAlert()
+                self.createAndDisplayAlertController(title: "Missing Information", message: "Please input your height and weight (estimate if you're unsure) in order to calculate your BMI.")
                 return
             }
             
@@ -81,13 +82,17 @@ class LSLCalculateBMIViewController: UIViewController {
         }
     }
     
-    // MARK: - AlertControllers
+    // MARK: - Alert Controllers & Related Functions
     
-    private func calculateBMIAlert() {
-        let alertController = UIAlertController(title: "Missing Information", message: "Please input your height and weight (estimate if you're unsure) in order to calculate your BMI.", preferredStyle: .alert)
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func bmiTextInputsNotNumbers() {
+        createAndDisplayAlertController(title: "Please enter numbers", message: "You'll need to enter numbers (not text) for your height & weight in order to create your profile.")
     }
     
     
