@@ -30,7 +30,6 @@ class LSLUserController {
     
     // MARK: - Default Data
     
-    var genders: [String] = ["Male", "Female"]
     var activityLevels: [ActivityLevel] = [
         ActivityLevel(level: 2, name: "Not Very Active", description: "Spends most of the day sitting (little to no exercise)"),
         ActivityLevel(level: 3, name: "Lightly Active", description: "Spends a good part of the day on your feet (light exercise 1-3 days/week)"),

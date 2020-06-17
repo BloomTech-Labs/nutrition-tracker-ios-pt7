@@ -254,7 +254,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" text="" placeholder="Search Food Item" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
+                                <searchBar contentMode="redraw" text="" placeholder="Search Food Item" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                     <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 </searchBar>

@@ -10,6 +10,7 @@ import UIKit
 
 class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
+    
     // MARK: - IBOutlets and Properties
 
     @IBOutlet var genderPickerView: UIPickerView!
@@ -19,6 +20,8 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     var nutritionController: LSLUserController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
     
+    var biologicalSex = ["Male", "Female"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,21 +30,62 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
 
         self.ageTextView.delegate = self
         self.goalWeightTextView.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // If user has already completed information and is returning to a previous screen, this will set the info in view
+        if let ageInt = LSLUserController.age {
+            ageTextView.text = String(ageInt)
+        }
+        
+        if let goalWeightInt = LSLUserController.goalWeight {
+            goalWeightTextView.text = String(goalWeightInt)
+        }
+        
+        if let gender = LSLUserController.gender {
+            switch gender {
+            case true:
+                genderPickerView.selectRow(0, inComponent: 0, animated: true)
+            case false:
+                genderPickerView.selectRow(1, inComponent: 0, animated: true)
+            }
+        }
+    }
+    
     
     // MARK: - IBActions and Methods
     
     @objc func dismissKeyboard() {
-        self.goalWeightTextView.resignFirstResponder()
+        self.resignFirstResponder()
     }
     
     @IBAction func toActivityLevel(_ sender: Any) {
-        guard let age = ageTextView.text, !age.isEmpty, Int(age) != 0, let goal = goalWeightTextView.text, goal.isEmpty, Int(goal) != 0 else {
-            createAndDisplayAlertController(title: "Please enter numbers", message: "Your age and goal weight must be entered in as numbers (not text) in order to complete your profile.")
+        guard checkForAge() != nil, checkForGoalWeight() != nil else {
             return
         }
         self.performSegue(withIdentifier: "ToActivityLevel", sender: self)
+    }
+    
+    
+    // MARK: - Helper Functions
+    
+    @discardableResult private func checkForAge() -> Int? {
+        guard let age = self.ageTextView.text, !age.isEmpty, let ageInt = Int(age), ageInt > 0 else {
+            createAndDisplayAlertController(title: "Enter your age", message: "Please complete the age input field by entering a valid number.")
+            return nil
+        }
+        return ageInt
+    }
+    
+    @discardableResult private func checkForGoalWeight() -> Int? {
+        guard let goalWeight = self.goalWeightTextView.text, !goalWeight.isEmpty, let goalWeightInt = Int(goalWeight), goalWeightInt > 0 else {
+            createAndDisplayAlertController(title: "Enter goal weight", message: "Please complete the goal weight input field by entering a valid number.")
+            return nil
+        }
+        return goalWeightInt
     }
     
     // MARK: - Alert Controllers
@@ -58,30 +102,35 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToActivityLevel" {
-            guard let apVC = segue.destination as? LSLActivityLevelViewController else { return }
-            guard let age = self.ageTextView.text, !age.isEmpty else { return self.nutritionController!.alertEmptyTextField(controller: self, field: "Age") }
-            guard let goalWeight = self.goalWeightTextView.text, !goalWeight.isEmpty else { return self.nutritionController!.alertEmptyTextField(controller: self, field: "Goal Weight") }
-
-            var gender: String = ""
-            for index in 0..<self.genderPickerView!.numberOfComponents {
-                gender = self.nutritionController!.genders[self.genderPickerView.selectedRow(inComponent: index)]
-            }
-            if gender == "Male" {
-                LSLUserController.gender = true
-            } else if gender == "Female" {
-                LSLUserController.gender = false
-            } else {
-                LSLUserController.gender = nil
-            }
-
-            LSLUserController.age = Int(age)
-            LSLUserController.goalWeight = Int(goalWeight)
+            guard let nutritionController = nutritionController,
+                let apVC = segue.destination as? LSLActivityLevelViewController else { return }
             
-            apVC.nutritionController = self.nutritionController
+            guard let ageInt = checkForAge() else {
+                return
+            }
+            
+            guard let goalWeightInt = checkForGoalWeight() else {
+                return
+            }
+
+            let genderSelection = self.genderPickerView.selectedRow(inComponent: 0)
+    
+            switch genderSelection {
+            case 0:
+                LSLUserController.gender = true
+            default:
+                LSLUserController.gender = false
+            }
+            
+            LSLUserController.age = ageInt
+            LSLUserController.goalWeight = goalWeightInt
+            
+            apVC.nutritionController = nutritionController
             apVC.createProfileDelegate = self.createProfileDelegate
         }
     }
 }
+
 
 // MARK: - UIPickerView Data Source Methods
 
@@ -91,13 +140,14 @@ extension LSLGettingPersonalViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.nutritionController!.genders.count
+        return biologicalSex.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.nutritionController!.genders[row]
+        return biologicalSex[row]
     }
 }
+
 
 // MARK: - UITextField Delegate Methods
 
