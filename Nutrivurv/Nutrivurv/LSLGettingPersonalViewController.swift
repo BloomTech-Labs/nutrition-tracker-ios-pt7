@@ -37,8 +37,22 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     }
     
     @IBAction func toActivityLevel(_ sender: Any) {
+        guard let age = ageTextView.text, !age.isEmpty, Int(age) != 0, let goal = goalWeightTextView.text, goal.isEmpty, Int(goal) != 0 else {
+            createAndDisplayAlertController(title: "Please enter numbers", message: "Your age and goal weight must be entered in as numbers (not text) in order to complete your profile.")
+            return
+        }
         self.performSegue(withIdentifier: "ToActivityLevel", sender: self)
     }
+    
+    // MARK: - Alert Controllers
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Navigation
     
