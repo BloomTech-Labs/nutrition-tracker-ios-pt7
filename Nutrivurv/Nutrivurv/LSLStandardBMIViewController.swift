@@ -40,7 +40,6 @@ class LSLStandardBMIViewController: UIViewController {
         guard let feet = self.heightStandardFeetTextField.text, !feet.isEmpty,
             let inches = self.heightStandardInchesTextField.text, !inches.isEmpty,
             let weight = self.weightStandardTextField.text, !weight.isEmpty else {
-                NotificationCenter.default.post(name: .bmiInputsNotNumbers, object: nil)
                 return nil
         }
         
@@ -99,8 +98,5 @@ extension LSLStandardBMIViewController: UITextFieldDelegate {
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
-        if LSLUserController.bmi == nil && !self.heightStandardFeetTextField.text!.isEmpty && !self.heightStandardInchesTextField.text!.isEmpty && !self.weightStandardTextField.text!.isEmpty {
-            self.calculateBMI()
-        }
     }
 }

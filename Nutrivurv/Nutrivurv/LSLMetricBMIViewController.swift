@@ -35,7 +35,6 @@ class LSLMetricBMIViewController: UIViewController {
     @discardableResult @objc public func calculateBMI() -> String? {
         guard let height = self.heightMetricTextField.text, !height.isEmpty,
             let weight = self.weightMetricTextField.text, !weight.isEmpty else {
-                NotificationCenter.default.post(name: .bmiInputsNotNumbers, object: nil)
                 return nil
         }
         
@@ -92,8 +91,5 @@ extension LSLMetricBMIViewController: UITextFieldDelegate {
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
-        if LSLUserController.bmi == nil && !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            self.calculateBMI()
-        }
     }
 }
