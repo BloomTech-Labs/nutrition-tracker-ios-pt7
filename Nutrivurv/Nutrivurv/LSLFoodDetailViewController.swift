@@ -199,6 +199,15 @@ class LSLFoodDetailViewController: UIViewController {
         self.qtyTextField.resignFirstResponder()
     }
     
+    // MARK: - Alert Controllers
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Get Food Details
     
@@ -227,12 +236,15 @@ class LSLFoodDetailViewController: UIViewController {
     }
     
     @IBAction func qtyTextFieldEditingChanged(_ sender: UITextField) {
-        if let text = sender.text, let double = Double(text) {
-            if self.quantityInputValue == double {
-                return
-            } else {
-                 self.quantityInputValue = double
-            }
+        guard let text = sender.text, let double = Double(text) else {
+            createAndDisplayAlertController(title: "Please enter a valid number", message: "You must enter the quantity as a number (not text) in order to get food details.")
+            return
+        }
+        
+        if self.quantityInputValue == double {
+            return
+        } else {
+            self.quantityInputValue = double
         }
     }
 }
