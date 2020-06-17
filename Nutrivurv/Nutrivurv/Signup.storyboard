@@ -38,7 +38,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="0mC-go-Goe">
                                 <rect key="frame" x="15" y="164.5" width="384" height="299"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First and lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-Jl-T8B" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-Jl-T8B" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="veH-c1-n2h"/>
@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="height" constant="56" id="EGd-KR-BbH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRV-yp-U8z" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="162" width="384" height="56"/>
@@ -60,7 +60,7 @@
                                             <constraint firstAttribute="height" constant="56" id="dOP-fE-POu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Nh-iE-HQ5" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="243" width="384" height="56"/>
@@ -68,7 +68,7 @@
                                             <constraint firstAttribute="height" constant="56" id="6z5-zU-ks9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>

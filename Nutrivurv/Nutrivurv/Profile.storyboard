@@ -660,7 +660,7 @@
                                             <constraint firstAttribute="height" constant="44" id="u51-N8-Kwb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kilo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-10-ogg">
                                         <rect key="frame" x="100" y="0.0" width="92" height="44"/>
@@ -668,7 +668,7 @@
                                             <constraint firstAttribute="height" constant="44" id="23E-yz-sNz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -730,7 +730,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="aJ3-Wp-NY1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="inches" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v8N-Re-02c">
                                                 <rect key="frame" x="115.5" y="0.0" width="107.5" height="44"/>
@@ -738,7 +738,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="o7f-NU-gQX"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -749,7 +749,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="hrW-zE-z4G"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
