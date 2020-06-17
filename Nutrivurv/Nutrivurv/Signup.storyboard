@@ -260,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="1516" y="-444"/>
         </scene>
-        <!--Dashboard-->
+        <!--DashboardTabBar-->
         <scene sceneID="xt2-P8-odw">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="Dashboard" id="lZU-g2-e1G" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="DashboardTabBar" id="lZU-g2-e1G" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rbh-KL-1bv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H48-sv-lim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

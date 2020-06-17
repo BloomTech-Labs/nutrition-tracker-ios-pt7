@@ -18,7 +18,7 @@
         <!--NUTRIVURV-->
         <scene sceneID="URv-Qa-Okb">
             <objects>
-                <viewController restorationIdentifier="NutrivurvAppMain" storyboardIdentifier="NutrivurvAppMain" modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZdC-8b-FfQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +107,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VbX-R5-PiA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rgx-hU-kMd" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="MainAppWelcome" storyboardIdentifier="MainAppWelcome" automaticallyAdjustsScrollViewInsets="NO" id="Rgx-hU-kMd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sJ5-Ef-TqC">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="-161" y="-777"/>
         </scene>
-        <!--Dashboard-->
+        <!--DashboardTabBar-->
         <scene sceneID="B1y-9o-gmN">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="Dashboard" id="ILo-DN-Jd9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="DashboardTabBar" id="ILo-DN-Jd9" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ntX-yz-6IM"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-40-IoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

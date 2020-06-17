@@ -43,7 +43,7 @@ class LSLDashboardViewController: UIViewController {
         let keychain = KeychainSwift()
         keychain.clear()
         let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = main.instantiateViewController(withIdentifier: "NutrivurvAppMain") as! LSLMainViewController
+        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
         viewController.modalPresentationStyle = .fullScreen
         viewController.modalTransitionStyle = .flipHorizontal
         self.present(viewController, animated: true, completion: nil)

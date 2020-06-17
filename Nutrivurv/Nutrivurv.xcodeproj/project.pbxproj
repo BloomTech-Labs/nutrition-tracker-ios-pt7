@@ -24,6 +24,7 @@
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		4CA1B70224495FFA000369A1 /* LSLDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */; };
 		4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */; };
+		513B5802249703E600D127C6 /* LSLBarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
@@ -92,6 +93,7 @@
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardController.swift; sourceTree = "<group>"; };
 		4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
+		513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLBarcodeSearchViewController.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */,
 				4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */,
 				4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */,
+				513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				4C9F30BD24528B8700CE14CA /* LSLSearchController.swift in Sources */,
 				4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */,
 				D6A1CC41240BF37100477429 /* Diet.swift in Sources */,
+				513B5802249703E600D127C6 /* LSLBarcodeSearchViewController.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D6853EA3243D8247003EDF91 /* DailyRecord.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
@@ -670,7 +674,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B22A9UYX67;
 				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,7 +695,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B22A9UYX67;
 				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
