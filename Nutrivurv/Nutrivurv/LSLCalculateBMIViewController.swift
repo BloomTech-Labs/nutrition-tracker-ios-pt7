@@ -50,6 +50,11 @@ class LSLCalculateBMIViewController: UIViewController {
         }
     }
     
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        self.createAndDisplayAlertController(title: "Nutrivurv's Mission", message: "Our mission is to help you acheive your health & fitness goals, and teach you how to live a healthier lifestyle. To accomplish this, your height and weight are used to calculate key metrics that will help you better understand your body and track your progress over time!")
+    }
+    
+    
     // MARK: - Segmented Control Methods
     
     private func styleSegmentControl() {
