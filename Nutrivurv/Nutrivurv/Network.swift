@@ -29,7 +29,7 @@ class Network {
     static func createApolloClient() -> ApolloClient {
         let keychain = KeychainSwift()
         let token = keychain.get(Network.loginKeychainKey) ?? ""
-        let url = URL(string: "https://labspt7-nutrition-tracker-be.herokuapp.com/")!
+        let url = URL(string: "https://protected-forest-13208.herokuapp.com/")!
         let configuration = URLSessionConfiguration.default
         
         if token != "" {
