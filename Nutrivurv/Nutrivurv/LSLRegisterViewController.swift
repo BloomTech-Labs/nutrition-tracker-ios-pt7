@@ -17,6 +17,7 @@ class LSLRegisterViewController: UIViewController {
     @IBOutlet var passwordTextField: CustomTextField!
     @IBOutlet var confirmPasswordTextField: CustomTextField!
     @IBOutlet weak var registerButton: CustomButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -47,7 +48,7 @@ class LSLRegisterViewController: UIViewController {
             passwordsDontMatchAlert()
             return
         }
-        
+        activityIndicator.startAnimating()
         registerButton.isEnabled = false
         registerButton.layer.opacity = 0.45
         
@@ -64,6 +65,7 @@ class LSLRegisterViewController: UIViewController {
             
             self.registerButton.isEnabled = true
             self.registerButton.layer.opacity = 1.0
+            self.activityIndicator.stopAnimating()
         }
     }
     

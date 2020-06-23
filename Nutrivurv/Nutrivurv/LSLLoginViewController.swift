@@ -15,6 +15,7 @@ class LSLLoginViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var submitButton: CustomButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class LSLLoginViewController: UIViewController {
                 completeFieldsAlert()
                 return
         }
-        
+        activityIndicator.startAnimating()
         submitButton.isEnabled = false
         submitButton.layer.opacity = 0.45
         
@@ -52,6 +53,7 @@ class LSLLoginViewController: UIViewController {
             
             self.submitButton.isEnabled = true
             self.submitButton.layer.opacity = 1.0
+            self.activityIndicator.stopAnimating()
         }
     }
     

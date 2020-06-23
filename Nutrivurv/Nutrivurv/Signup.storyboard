@@ -218,11 +218,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl" translatesAutoresizingMaskIntoConstraints="NO" id="YTq-vA-djA">
                                 <rect key="frame" x="64" y="621" width="286" height="225"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OOX-so-xZq">
+                                <rect key="frame" x="188.5" y="459.5" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gtD-m4-ecB" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="16" id="1Zv-Ji-L6t"/>
+                            <constraint firstItem="OOX-so-xZq" firstAttribute="centerY" secondItem="HAm-tD-1G5" secondAttribute="centerY" constant="30" id="2Jy-X5-xGl"/>
                             <constraint firstItem="F4n-7b-SFu" firstAttribute="trailing" secondItem="59l-D0-fXe" secondAttribute="trailing" constant="50" id="7FD-eb-SJR"/>
+                            <constraint firstItem="OOX-so-xZq" firstAttribute="centerX" secondItem="HAm-tD-1G5" secondAttribute="centerX" id="9dO-Nr-VPX"/>
                             <constraint firstItem="gtD-m4-ecB" firstAttribute="top" secondItem="0mC-go-Goe" secondAttribute="bottom" constant="30" id="G1n-oA-NR9"/>
                             <constraint firstItem="F4n-7b-SFu" firstAttribute="trailing" secondItem="0mC-go-Goe" secondAttribute="trailing" constant="15" id="GSr-YF-qyC"/>
                             <constraint firstItem="YTq-vA-djA" firstAttribute="leading" secondItem="F4n-7b-SFu" secondAttribute="leading" constant="64" id="HmJ-lK-xuZ"/>
@@ -248,6 +254,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="rNq-OJ-MNz"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="OOX-so-xZq" id="J2g-CP-cmU"/>
                         <outlet property="confirmPasswordTextField" destination="0Nh-iE-HQ5" id="o2X-j4-HeQ"/>
                         <outlet property="emailTextField" destination="ZVv-Ea-52M" id="kk7-kE-rfg"/>
                         <outlet property="nameTextField" destination="ce5-Jl-T8B" id="D27-OJ-JhR"/>
