@@ -17,6 +17,7 @@ class LSLRegisterViewController: UIViewController {
     @IBOutlet var passwordTextField: CustomTextField!
     @IBOutlet var confirmPasswordTextField: CustomTextField!
     @IBOutlet weak var registerButton: CustomButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -43,11 +44,16 @@ class LSLRegisterViewController: UIViewController {
                 return
         }
         
+        guard email.isValidEmail() else {
+            invalidEmailAlert()
+            return
+        }
+        
         guard password == confirmedPassword else {
             passwordsDontMatchAlert()
             return
         }
-        
+        activityIndicator.startAnimating()
         registerButton.isEnabled = false
         registerButton.layer.opacity = 0.45
         
@@ -64,6 +70,7 @@ class LSLRegisterViewController: UIViewController {
             
             self.registerButton.isEnabled = true
             self.registerButton.layer.opacity = 1.0
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -83,6 +90,10 @@ class LSLRegisterViewController: UIViewController {
     
     private func accountAlreadyExistsAlert() {
         createAndDisplayAlertController(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please log in to your dashboard.")
+    }
+    
+    private func invalidEmailAlert() {
+        createAndDisplayAlertController(title: "Invalid Email", message: "Please double check that you have accurately input your email.")
     }
     
     private func createAndDisplayAlertController(title: String, message: String) {

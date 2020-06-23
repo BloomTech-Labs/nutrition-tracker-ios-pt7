@@ -38,9 +38,14 @@ class LSLMetricBMIViewController: UIViewController {
                 return nil
         }
         
-        let newHeight = ((Double(height) ?? 0) / 2.54)
+        guard let heightDouble = Double(height), heightDouble != 0, let weightDouble = Double(weight), weightDouble != 0 else {
+            NotificationCenter.default.post(name: .bmiInputsNotNumbers, object: nil)
+            return nil
+        }
+        
+        let newHeight = ((heightDouble) / 2.54)
         LSLUserController.height = Int(newHeight)
-        let totalWeight = ((Double(weight) ?? 0) * 2.20462262185)
+        let totalWeight = ((weightDouble) * 2.20462262185)
         LSLUserController.weight = Int(totalWeight)
         
         let bmi = (totalWeight * 704.7) / (newHeight * newHeight)
@@ -86,8 +91,5 @@ extension LSLMetricBMIViewController: UITextFieldDelegate {
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
-        if LSLUserController.bmi == nil && !self.heightMetricTextField.text!.isEmpty && !self.weightMetricTextField.text!.isEmpty {
-            self.calculateBMI()
-        }
     }
 }

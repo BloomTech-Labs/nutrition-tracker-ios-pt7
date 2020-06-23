@@ -26,18 +26,33 @@ class LSLSearchController {
 
         urlComponents?.queryItems = [appIdQueryItem, appKeyQueryItem, searchTermQueryItem]
 
-        guard let requestURL = urlComponents?.url else { NSLog("requestURL is nil"); completion(); return }
+        guard let requestURL = urlComponents?.url else {
+            NSLog("requestURL is nil")
+            DispatchQueue.main.async {
+                completion()
+            }
+            return
+        }
+        
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.get.rawValue
 
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error fetching data: \(error)")
-                completion()
+                DispatchQueue.main.async {
+                    completion()
+                }
                 return
             }
 
-            guard let data = data else { NSLog("No data returned from data task"); completion(); return }
+            guard let data = data else {
+                NSLog("No data returned from data task")
+                DispatchQueue.main.async {
+                    completion()
+                }
+                return
+            }
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -48,7 +63,9 @@ class LSLSearchController {
                 NSLog("Unable to decode data into object of type FoodSearch: \(error)")
             }
 
-            completion()
+            DispatchQueue.main.async {
+                completion()
+            }
         }.resume()
     }
     
@@ -60,18 +77,32 @@ class LSLSearchController {
 
         urlComponents?.queryItems = [appIdQueryItem, appKeyQueryItem, searchTermQueryItem]
 
-        guard let requestURL = urlComponents?.url else { NSLog("requestURL is nil"); completion(); return }
+        guard let requestURL = urlComponents?.url else {
+            NSLog("requestURL is nil")
+            DispatchQueue.main.async {
+                completion()
+            }
+            return
+        }
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.get.rawValue
 
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error fetching data: \(error)")
-                completion()
+                DispatchQueue.main.async {
+                    completion()
+                }
                 return
             }
 
-            guard let data = data else { NSLog("No data returned from data task"); completion(); return }
+            guard let data = data else {
+                NSLog("No data returned from data task")
+                DispatchQueue.main.async {
+                    completion()
+                }
+                return
+            }
             
             let jsonDecoder = JSONDecoder()
             do {
@@ -82,7 +113,9 @@ class LSLSearchController {
                 NSLog("Unable to decode data into object of type FoodSearch: \(error)")
             }
 
-            completion()
+            DispatchQueue.main.async {
+                completion()
+            }
         }.resume()
     }
     
@@ -127,7 +160,6 @@ class LSLSearchController {
             do {
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 nutrients = try jsonDecoder.decode(Nutrients.self, from: data)
-//                self.nutrients = nutrients
             } catch {
                 NSLog("Unable to decode data into object of type Nutrients: \(error)")
                 DispatchQueue.main.async {

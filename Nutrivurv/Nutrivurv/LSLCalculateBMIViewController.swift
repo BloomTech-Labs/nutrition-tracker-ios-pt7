@@ -24,10 +24,11 @@ class LSLCalculateBMIViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
 
-        self.navigationItem.hidesBackButton = true
+//        self.navigationItem.hidesBackButton = true
         self.styleSegmentControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .bmiUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(bmiTextInputsNotNumbers), name: .bmiInputsNotNumbers, object: nil)
     }
     
     // MARK: - IBActions and Methods
@@ -41,13 +42,18 @@ class LSLCalculateBMIViewController: UIViewController {
             }
             
             guard LSLUserController.bmi != nil else {
-                self.calculateBMIAlert()
+                self.createAndDisplayAlertController(title: "Missing Information", message: "Please input your height and weight (estimate if you're unsure) in order to calculate your BMI.")
                 return
             }
             
             self.performSegue(withIdentifier: "ToGettingPersonal", sender: self)
         }
     }
+    
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        self.createAndDisplayAlertController(title: "Nutrivurv's Mission", message: "Our mission is to help you acheive your health & fitness goals, and teach you how to live a healthier lifestyle. To accomplish this, your height and weight are used to calculate key metrics that will help you better understand your body and track your progress over time!")
+    }
+    
     
     // MARK: - Segmented Control Methods
     
@@ -81,13 +87,17 @@ class LSLCalculateBMIViewController: UIViewController {
         }
     }
     
-    // MARK: - AlertControllers
+    // MARK: - Alert Controllers & Related Functions
     
-    private func calculateBMIAlert() {
-        let alertController = UIAlertController(title: "Missing Information", message: "Please input your height and weight (estimate if you're unsure) in order to calculate your BMI.", preferredStyle: .alert)
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func bmiTextInputsNotNumbers() {
+        createAndDisplayAlertController(title: "Please enter numbers", message: "You'll need to enter numbers (not text) for your height & weight in order to create your profile.")
     }
     
     

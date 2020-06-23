@@ -44,7 +44,7 @@
                                             <constraint firstAttribute="height" constant="56" id="ibT-SL-GId"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes" smartQuotesType="yes" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes" smartQuotesType="yes" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8 - 12 characters" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="9FE-60-Y3d" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="76" width="382" height="56"/>
@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="height" constant="56" id="EHE-sI-CGO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -149,6 +149,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl" translatesAutoresizingMaskIntoConstraints="NO" id="LCE-aC-pN8">
                                 <rect key="frame" x="64" y="533" width="286" height="225"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SVC-H1-MWZ">
+                                <rect key="frame" x="188.5" y="352.5" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -164,9 +168,11 @@
                             <constraint firstItem="eVf-aZ-RGJ" firstAttribute="leading" secondItem="cV7-Rf-jaD" secondAttribute="leading" constant="65" id="VHf-EM-Yri"/>
                             <constraint firstItem="b43-dI-OzL" firstAttribute="top" secondItem="pdm-hf-GBs" secondAttribute="bottom" constant="60" id="XXD-b4-Kcg"/>
                             <constraint firstItem="LCE-aC-pN8" firstAttribute="leading" secondItem="cV7-Rf-jaD" secondAttribute="leading" constant="64" id="aGc-by-wCD"/>
+                            <constraint firstItem="SVC-H1-MWZ" firstAttribute="centerX" secondItem="wb8-j7-6T8" secondAttribute="centerX" id="dSy-bW-BaO"/>
                             <constraint firstItem="cV7-Rf-jaD" firstAttribute="bottom" secondItem="LCE-aC-pN8" secondAttribute="bottom" constant="16" id="e0d-Hk-ZMQ"/>
                             <constraint firstItem="cV7-Rf-jaD" firstAttribute="trailing" secondItem="b43-dI-OzL" secondAttribute="trailing" constant="16" id="h9l-ri-1df"/>
                             <constraint firstItem="RoR-Mj-q1F" firstAttribute="leading" secondItem="cV7-Rf-jaD" secondAttribute="leading" constant="24" id="hrL-zI-sk2"/>
+                            <constraint firstItem="SVC-H1-MWZ" firstAttribute="centerY" secondItem="wb8-j7-6T8" secondAttribute="centerY" constant="-33" id="iNr-6h-7XT"/>
                             <constraint firstItem="RoR-Mj-q1F" firstAttribute="top" secondItem="iNU-xt-vS4" secondAttribute="bottom" constant="60.5" id="kTI-Z2-if9"/>
                             <constraint firstItem="xMa-ed-TOE" firstAttribute="top" secondItem="b43-dI-OzL" secondAttribute="bottom" constant="8" id="sTh-yC-NIl"/>
                             <constraint firstItem="b43-dI-OzL" firstAttribute="leading" secondItem="cV7-Rf-jaD" secondAttribute="leading" constant="16" id="yI0-ec-RLK"/>
@@ -176,6 +182,7 @@
                     <navigationItem key="navigationItem" title="Sign In" id="3dY-SE-0Id"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="SVC-H1-MWZ" id="tfY-Rl-1YF"/>
                         <outlet property="emailTextField" destination="Dd1-5A-BtE" id="Afs-rZ-HAC"/>
                         <outlet property="passwordTextField" destination="9FE-60-Y3d" id="IlK-XT-p31"/>
                         <outlet property="submitButton" destination="b43-dI-OzL" id="Wu6-Wc-le5"/>

@@ -25,6 +25,7 @@ class LSLStandardBMIViewController: UIViewController {
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
         NotificationCenter.default.addObserver(self, selector: #selector(calculateBMI), name: .calculateBMIStandard, object: nil)
+        
     }
     
     // MARK: - IBActions and Methods
@@ -42,9 +43,14 @@ class LSLStandardBMIViewController: UIViewController {
                 return nil
         }
         
-        let height = ((Double(feet) ?? 0) * 12) + (Double(inches) ?? 0)
+        guard let feetDouble = Double(feet), feetDouble != 0, let inchesDouble = Double(inches), let weightDouble = Double(weight), weightDouble != 0 else {
+            NotificationCenter.default.post(name: .bmiInputsNotNumbers, object: nil)
+            return nil
+        }
+        
+        let height = ((feetDouble) * 12) + (inchesDouble)
         LSLUserController.height = Int(height)
-        let totalWeight = Double(weight) ?? 0
+        let totalWeight = weightDouble
         LSLUserController.weight = Int(totalWeight)
         
         let bmi = (totalWeight * 704.7) / (height * height)
@@ -92,8 +98,5 @@ extension LSLStandardBMIViewController: UITextFieldDelegate {
         textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
-        if LSLUserController.bmi == nil && !self.heightStandardFeetTextField.text!.isEmpty && !self.heightStandardInchesTextField.text!.isEmpty && !self.weightStandardTextField.text!.isEmpty {
-            self.calculateBMI()
-        }
     }
 }

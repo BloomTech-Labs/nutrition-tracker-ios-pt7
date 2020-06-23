@@ -30,8 +30,6 @@ class LSLUserController {
     
     // MARK: - Default Data
     
-    var ages: [String] = ["Prefer not to say", "Under 18", "18-25", "25-30", "30-35", "35-45", "45+"]
-    var genders: [String] = ["Prefer not to say", "Male", "Female"]
     var activityLevels: [ActivityLevel] = [
         ActivityLevel(level: 2, name: "Not Very Active", description: "Spends most of the day sitting (little to no exercise)"),
         ActivityLevel(level: 3, name: "Lightly Active", description: "Spends a good part of the day on your feet (light exercise 1-3 days/week)"),
@@ -53,12 +51,6 @@ class LSLUserController {
     
     public func alertEmptyTextField(controller: UIViewController, field: String) {
         let alert = UIAlertController(title: "\(field) is Empty", message: "\(field) is Required. Please fill it out before proceeding.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        controller.present(alert, animated: true, completion: nil)
-    }
-    
-    public func alertUnselectedDiet(controller: UIViewController) {
-        let alert = UIAlertController(title: "A Diet has not been selected.", message: "Please select a diet before proceeding.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         controller.present(alert, animated: true, completion: nil)
     }

@@ -63,7 +63,7 @@ class LSLDietaryPreferenceViewController: UIViewController {
     // MARK: - AlertControllers
     
     private func makeSelectionAlert() {
-        createAndDisplayAlertController(title: "Make a selection", message: "If you folow a specific diet, please select that option, otherwise select \"none\".")
+        createAndDisplayAlertController(title: "Make a selection", message: "If you follow a specific diet, please select that option, otherwise select \"none\".")
     }
     
     private func tryAgainAlert() {
