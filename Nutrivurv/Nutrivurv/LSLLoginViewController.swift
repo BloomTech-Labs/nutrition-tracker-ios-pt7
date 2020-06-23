@@ -36,6 +36,12 @@ class LSLLoginViewController: UIViewController {
                 completeFieldsAlert()
                 return
         }
+        
+        guard email.isValidEmail() else {
+            invalidEmailAlert()
+            return
+        }
+        
         activityIndicator.startAnimating()
         submitButton.isEnabled = false
         submitButton.layer.opacity = 0.45
@@ -68,7 +74,11 @@ class LSLLoginViewController: UIViewController {
     }
     
     private func generalLoginError() {
-        createAndDisplayAlertController(title: "Login failed", message: "We were unable to log you in. Please try again.")
+        createAndDisplayAlertController(title: "Login Failed", message: "We were unable to log you in. Please try again.")
+    }
+    
+    private func invalidEmailAlert() {
+        createAndDisplayAlertController(title: "Invalid Email", message: "Please double check that you have accurately input your email.")
     }
     
     private func createAndDisplayAlertController(title: String, message: String) {
@@ -119,3 +129,5 @@ extension LSLLoginViewController: UITextFieldDelegate {
         textField.layer.shadowOpacity = 0
     }
 }
+
+

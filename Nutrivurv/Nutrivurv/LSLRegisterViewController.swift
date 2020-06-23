@@ -44,6 +44,11 @@ class LSLRegisterViewController: UIViewController {
                 return
         }
         
+        guard email.isValidEmail() else {
+            invalidEmailAlert()
+            return
+        }
+        
         guard password == confirmedPassword else {
             passwordsDontMatchAlert()
             return
@@ -85,6 +90,10 @@ class LSLRegisterViewController: UIViewController {
     
     private func accountAlreadyExistsAlert() {
         createAndDisplayAlertController(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please log in to your dashboard.")
+    }
+    
+    private func invalidEmailAlert() {
+        createAndDisplayAlertController(title: "Invalid Email", message: "Please double check that you have accurately input your email.")
     }
     
     private func createAndDisplayAlertController(title: String, message: String) {
