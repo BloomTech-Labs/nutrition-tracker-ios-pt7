@@ -1,13 +1,23 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "bar-chart.pdf"
+      "filename" : "bar-chart.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "bar-chart-darkMode.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "preserves-vector-representation" : true
