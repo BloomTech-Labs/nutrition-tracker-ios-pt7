@@ -15,6 +15,9 @@ class DashboardViewController: UIViewController {
     
     @IBOutlet var streakCountLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
+    @IBOutlet weak var dailyVibeQuoteLabel: UILabel!
+    @IBOutlet weak var dailyVibeAuthorLabel: UILabel!
+    
     
     var userController = ProfileCreationController()
     
@@ -27,6 +30,15 @@ class DashboardViewController: UIViewController {
         if UserAuthController.isLoggedIn() {
             self.title = "Welcome!"
             self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
+            QuoteController.shared.getRandomQuote { (result) in
+                switch result {
+                case .success(let quote):
+                    self.dailyVibeQuoteLabel.text = "\"\(quote.content)\""
+                    self.dailyVibeAuthorLabel.text = quote.author
+                default:
+                    break
+                }
+            }
         } else {
             self.logoutButtonTapped(self)
         }
