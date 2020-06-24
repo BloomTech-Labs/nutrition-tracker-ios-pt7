@@ -901,7 +901,7 @@
             <color red="0.086274509803921567" green="0.086274509803921567" blue="0.086274509803921567" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="nutrivurv-blue">
-            <color red="0.0" green="0.25882352941176473" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.32156862745098042" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
