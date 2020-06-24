@@ -17,18 +17,20 @@ class FoodSearchTableViewController: UITableViewController {
     let searchController = FoodSearchController()
     private var searchDelayTimer = Timer()
     
+    private var foodSearchKeyword = ""
+    
     
     // MARK: - View Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.foodSearchBar.delegate = self
+        foodSearchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.foodSearchBar.searchTextField.text = ""
-        self.tableView.reloadData()
+        foodSearchBar.searchTextField.text = foodSearchKeyword
+        tableView.reloadData()
     }
 
 
@@ -79,16 +81,31 @@ class FoodSearchTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    private func noFoodsFoundAlert() {
+        createAndDisplayAlertController(title: "No Foods Found", message: "We weren't able to find any foods matching your search. You may need to specify additional information, such as a brand name. Otherwise you can try scanning the food items barcode to find an exact match.")
+    }
+    
     // MARK: - Helper Search Function
 
     @objc func delayedSearch() {
         guard let searchText = searchDelayTimer.userInfo as? String, !searchText.isEmpty else { return }
-        self.searchDelayTimer.invalidate()
+        searchDelayTimer.invalidate()
         
-        self.searchController.searchForFoodItemWithKeyword(searchTerm: searchText) {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        if foodSearchKeyword == searchText {
+            return
+        } else {
+            foodSearchKeyword = searchText
+        }
+        
+        searchController.searchForFoodItemWithKeyword(searchTerm: searchText) { (error) in
+            if let error = error as? NetworkError {
+                if error == .noDecode {
+                    self.noFoodsFoundAlert()
+                }
+                return
             }
+            
+            self.tableView.reloadData()
         }
     }
 }
@@ -100,35 +117,61 @@ extension FoodSearchTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = self.foodSearchBar.text else { return }
         
-        self.foodSearchBar.endEditing(true)
-        self.searchDelayTimer.invalidate()
+        foodSearchBar.endEditing(true)
+        foodSearchBar.showsCancelButton = false
+        searchDelayTimer.invalidate()
         
-        self.searchController.searchForFoodItemWithKeyword(searchTerm: searchTerm) {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        if foodSearchKeyword == searchTerm {
+            return
+        } else {
+            foodSearchKeyword = searchTerm
+        }
+        
+        searchController.searchForFoodItemWithKeyword(searchTerm: searchTerm) { (error) in
+            if let error = error as? NetworkError {
+                if error == .noDecode {
+                    self.noFoodsFoundAlert()
+                }
+                return
             }
+            
+            self.tableView.reloadData()
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchDelayTimer.invalidate()
+        foodSearchBar.showsCancelButton = false
+        foodSearchKeyword = ""
+        searchBar.searchTextField.text = ""
         searchBar.searchTextField.resignFirstResponder()
     }
     
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchDelayTimer.invalidate()
-        searchDelayTimer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.delayedSearch), userInfo: searchText, repeats: false)
+        if searchText == "" {
+            foodSearchKeyword = ""
+            return
+        }
+        
+        searchDelayTimer.invalidate()
+        searchDelayTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(self.delayedSearch), userInfo: searchText, repeats: false)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        foodSearchBar.showsCancelButton = true
     }
 }
 
 extension FoodSearchTableViewController: BarcodeSearchDelegate {
     func gotResultForFoodFromUPC() {
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 }
 
 extension FoodSearchTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchDelayTimer.invalidate()
         textField.resignFirstResponder()
         return true
     }
@@ -136,7 +179,7 @@ extension FoodSearchTableViewController: UITextFieldDelegate {
 
 extension FoodSearchTableViewController: ManualSearchRequiredDelegate {
     func unableToUseBarcodeScanningFeature() {
-        self.createAndDisplayAlertController(title: "Manual Search Required", message: "This device cannot be used to scan barcodes. Please search for food items manually. We apologize for the inconvience.")
+        createAndDisplayAlertController(title: "Manual Search Required", message: "This device cannot be used to scan barcodes. Please search for food items manually. We apologize for the inconvience.")
     }
 }
 

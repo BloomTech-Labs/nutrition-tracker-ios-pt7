@@ -165,9 +165,9 @@
 		51A186F624A3302A00196C83 /* Edamam Foods */ = {
 			isa = PBXGroup;
 			children = (
-				51A186FC24A3319800196C83 /* View Controllers */,
 				51257AEE24A3285E00C744B7 /* Models */,
 				51A186F724A3305500196C83 /* Model Controllers */,
+				51A186FC24A3319800196C83 /* View Controllers */,
 			);
 			name = "Edamam Foods";
 			sourceTree = "<group>";
@@ -202,8 +202,8 @@
 		51A186FA24A3311600196C83 /* Login & Registration */ = {
 			isa = PBXGroup;
 			children = (
-				51A186FB24A3315100196C83 /* View Controllers */,
 				D68C703823F3B025008AFDF0 /* Model Controllers */,
+				51A186FB24A3315100196C83 /* View Controllers */,
 			);
 			name = "Login & Registration";
 			sourceTree = "<group>";

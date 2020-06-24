@@ -18,7 +18,7 @@ class FoodSearchController {
     let baseURL = URL(string: "https://api.edamam.com/api/food-database/parser")!
     let nutritionURL = URL(string: "https://api.edamam.com/api/food-database/nutrients")!
     
-    func searchForFoodItemWithKeyword(searchTerm: String, completion: @escaping () -> Void) {
+    func searchForFoodItemWithKeyword(searchTerm: String, completion: @escaping (Error?) -> Void) {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         let appIdQueryItem = URLQueryItem(name: "app_id", value: appId)
         let appKeyQueryItem = URLQueryItem(name: "app_key", value: appKey)
@@ -29,7 +29,7 @@ class FoodSearchController {
         guard let requestURL = urlComponents?.url else {
             NSLog("requestURL is nil")
             DispatchQueue.main.async {
-                completion()
+                completion(NetworkError.otherError)
             }
             return
         }
@@ -41,7 +41,7 @@ class FoodSearchController {
             if let error = error {
                 NSLog("Error fetching data: \(error)")
                 DispatchQueue.main.async {
-                    completion()
+                    completion(error)
                 }
                 return
             }
@@ -49,7 +49,7 @@ class FoodSearchController {
             guard let data = data else {
                 NSLog("No data returned from data task")
                 DispatchQueue.main.async {
-                    completion()
+                    completion(NetworkError.badData)
                 }
                 return
             }
@@ -61,15 +61,19 @@ class FoodSearchController {
                 self.foods = foodSearch.hints
             } catch {
                 NSLog("Unable to decode data into object of type FoodSearch: \(error)")
+                DispatchQueue.main.async {
+                    completion(NetworkError.noDecode)
+                }
+                return
             }
 
             DispatchQueue.main.async {
-                completion()
+                completion(nil)
             }
         }.resume()
     }
     
-    func searchForFoodItemWithUPC(searchTerm: String, completion: @escaping () -> Void) {
+    func searchForFoodItemWithUPC(searchTerm: String, completion: @escaping (Error?) -> Void) {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         let appIdQueryItem = URLQueryItem(name: "app_id", value: appId)
         let appKeyQueryItem = URLQueryItem(name: "app_key", value: appKey)
@@ -80,7 +84,7 @@ class FoodSearchController {
         guard let requestURL = urlComponents?.url else {
             NSLog("requestURL is nil")
             DispatchQueue.main.async {
-                completion()
+                completion(NetworkError.otherError)
             }
             return
         }
@@ -91,7 +95,7 @@ class FoodSearchController {
             if let error = error {
                 NSLog("Error fetching data: \(error)")
                 DispatchQueue.main.async {
-                    completion()
+                    completion(NetworkError.otherError)
                 }
                 return
             }
@@ -99,7 +103,7 @@ class FoodSearchController {
             guard let data = data else {
                 NSLog("No data returned from data task")
                 DispatchQueue.main.async {
-                    completion()
+                    completion(NetworkError.badData)
                 }
                 return
             }
@@ -111,10 +115,14 @@ class FoodSearchController {
                 self.foods = foodSearch.hints
             } catch {
                 NSLog("Unable to decode data into object of type FoodSearch: \(error)")
+                DispatchQueue.main.async {
+                    completion(NetworkError.noDecode)
+                }
+                return
             }
 
             DispatchQueue.main.async {
-                completion()
+                completion(nil)
             }
         }.resume()
     }

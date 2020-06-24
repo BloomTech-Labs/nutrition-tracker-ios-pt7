@@ -280,7 +280,12 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     
     // Uses the search controller object to initiate a search
     func searchForFoodByUPC(_ upc: String) {
-        self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) {
+        self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) { (error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
             DispatchQueue.main.async {
                 
                 // Update UI by removing scanner frame view and stop activity indicator
