@@ -1,6 +1,6 @@
 //
 //  MetricBMIViewController.swift
-//  Nutrition Tracker
+//  Nutrivurv
 //
 //  Created by Michael Stoffer on 3/8/20.
 //  Copyright © 2020 Lambda School. All rights reserved.

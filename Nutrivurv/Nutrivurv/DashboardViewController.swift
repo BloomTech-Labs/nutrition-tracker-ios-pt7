@@ -1,8 +1,8 @@
 //
 //  DashboardViewController.swift
-//  Nutrition Tracker
+//  Nutrivurv
 //
-//  Created by Michael Stoffer on 2/23/20.
+//  Created by Dillon P on 6/19/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 

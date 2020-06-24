@@ -1,8 +1,8 @@
 //
 //  ProfileCreationController.swift
-//  Nutrition Tracker
+//  Nutrivurv
 //
-//  Updated by Dillon P on 6/23/20.
+//  Created by Dillon P on 6/23/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 

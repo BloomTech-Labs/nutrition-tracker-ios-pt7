@@ -1,6 +1,6 @@
 //
 //  RegisterViewController.swift
-//  Nutrition Tracker
+//  Nutrivurv
 //
 //  Created by Michael Stoffer on 2/10/20.
 //  Copyright © 2020 Michael Stoffer. All rights reserved.
