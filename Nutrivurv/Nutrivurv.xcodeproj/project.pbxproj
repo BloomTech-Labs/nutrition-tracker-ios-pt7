@@ -162,14 +162,14 @@
 			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
-		51A186F624A3302A00196C83 /* Edamam Foods */ = {
+		51A186F624A3302A00196C83 /* Edamam Food Search */ = {
 			isa = PBXGroup;
 			children = (
 				51257AEE24A3285E00C744B7 /* Models */,
 				51A186F724A3305500196C83 /* Model Controllers */,
 				51A186FC24A3319800196C83 /* View Controllers */,
 			);
-			name = "Edamam Foods";
+			name = "Edamam Food Search";
 			sourceTree = "<group>";
 		};
 		51A186F724A3305500196C83 /* Model Controllers */ = {
@@ -298,7 +298,7 @@
 				51A186FA24A3311600196C83 /* Login & Registration */,
 				4C89A9EF24400F9000348B5A /* Profile Creation */,
 				51A186FD24A331DC00196C83 /* Dashboard & In-App */,
-				51A186F624A3302A00196C83 /* Edamam Foods */,
+				51A186F624A3302A00196C83 /* Edamam Food Search */,
 				D68C703523F3B006008AFDF0 /* Storyboards */,
 				D631B2772417204000AE30C9 /* Utilities */,
 				D68C703423F3AF07008AFDF0 /* Resources */,
