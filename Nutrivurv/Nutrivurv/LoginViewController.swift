@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
         submitButton.isEnabled = false
         submitButton.layer.opacity = 0.45
         
-        AuthController.shared.loginUser(user: user) { (result) in
+        UserAuthController.shared.loginUser(user: user) { (result) in
             
             // TODO: Update this switch statement with status codes from REST api once these are added
             switch result {

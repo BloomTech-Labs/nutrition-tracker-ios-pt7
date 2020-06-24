@@ -38,7 +38,6 @@ class FoodDetailViewController: UIViewController {
     
     // MARK: - Properties & Model Controllers
     
-    var dailyRecord: DailyLog?
     var searchController: FoodSearchController?
     
     private var searchDelayTimer = Timer()
@@ -229,7 +228,6 @@ class FoodDetailViewController: UIViewController {
                                                   measure: foodItem.measures[selectedServingSize].uri,
                                                   foodId: foodItem.food.foodId) { (nutrients) in
             guard let nutrients = nutrients else { return }
-            print(nutrients)
             self.nutrients = nutrients
         }
     }

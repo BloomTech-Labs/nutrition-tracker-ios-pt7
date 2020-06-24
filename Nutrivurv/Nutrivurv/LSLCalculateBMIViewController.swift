@@ -17,7 +17,7 @@ class LSLCalculateBMIViewController: UIViewController {
     @IBOutlet var metricUIView: UIView!
     @IBOutlet var currentBMILabel: UILabel!
     
-    var nutritionController: UserController?
+    var nutritionController: ProfileCreationController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class LSLCalculateBMIViewController: UIViewController {
                 NotificationCenter.default.post(name: .calculateBMIMetric, object: nil)
             }
             
-            guard UserController.bmi != nil else {
+            guard ProfileCreationController.bmi != nil else {
                 self.createAndDisplayAlertController(title: "Missing Information", message: "Please input your height and weight (estimate if you're unsure) in order to calculate your BMI.")
                 return
             }
@@ -104,7 +104,7 @@ class LSLCalculateBMIViewController: UIViewController {
     // MARK: - Update Views
     
     @objc func updateViews() {
-        guard let bmi = UserController.bmi, isViewLoaded else { return NSLog("View isn't loaded.") }
+        guard let bmi = ProfileCreationController.bmi, isViewLoaded else { return NSLog("View isn't loaded.") }
         self.currentBMILabel.text = bmi
     }
 

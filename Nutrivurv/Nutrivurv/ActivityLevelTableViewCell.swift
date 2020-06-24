@@ -40,3 +40,7 @@ class ActivityLevelTableViewCell: UITableViewCell {
         delegate?.tappedRadioButton(on: self)
     }
  }
+
+protocol ActivityLevelCellDelegate: class {
+    func tappedRadioButton(on cell: ActivityLevelTableViewCell)
+}

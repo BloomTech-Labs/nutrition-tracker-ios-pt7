@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             var rootVC: UIViewController?
             
-            if AuthController.isLoggedIn() {
+            if UserAuthController.isLoggedIn() {
                 guard let vc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "DashboardTabBar") as? UITabBarController else {
                     print("Unable to instantiate dashboard")
                     return

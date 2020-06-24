@@ -15,7 +15,6 @@ struct Profile: Codable {
     var gender: Bool?
     var goalWeight: Int?
     var activityLevel: Int?
-    var diet: String?
     var fat: Int?
     var carbs: Int?
     var protein: Int?

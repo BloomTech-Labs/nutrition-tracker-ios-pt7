@@ -60,7 +60,7 @@ class RegisterViewController: UIViewController {
         registerButton.isEnabled = false
         registerButton.layer.opacity = 0.45
         
-        AuthController.shared.registerUser(user: newUser) { (result) in
+        UserAuthController.shared.registerUser(user: newUser) { (result) in
             
             // TODO: update this switch statement once status response codes are implemented on backend
             

@@ -44,17 +44,17 @@ class MetricBMIViewController: UIViewController {
         }
         
         let newHeight = ((heightDouble) / 2.54)
-        UserController.height = Int(newHeight)
+        ProfileCreationController.height = Int(newHeight)
         let totalWeight = ((weightDouble) * 2.20462262185)
-        UserController.weight = Int(totalWeight)
+        ProfileCreationController.weight = Int(totalWeight)
         
         let bmi = (totalWeight * 704.7) / (newHeight * newHeight)
         let roundedBMI = String(format: "%.2f", bmi)
         
-        if UserController.bmi == roundedBMI {
+        if ProfileCreationController.bmi == roundedBMI {
             return nil
         } else {
-            UserController.bmi = roundedBMI
+            ProfileCreationController.bmi = roundedBMI
         }
         
         return roundedBMI

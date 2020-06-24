@@ -1,5 +1,5 @@
 //
-//  Nutrients.swift
+//  NutrientDetails.swift
 //  Nutrivurv
 //
 //  Created by Michael Stoffer on 4/24/20.

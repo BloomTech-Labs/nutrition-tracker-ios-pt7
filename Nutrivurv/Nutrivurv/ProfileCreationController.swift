@@ -1,5 +1,5 @@
 //
-//  UserController.swift
+//  ProfileCreationController.swift
 //  Nutrition Tracker
 //
 //  Updated by Dillon P on 6/23/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserController {
+class ProfileCreationController {
     
     // MARK: - Properties
     
@@ -18,7 +18,6 @@ class UserController {
     static var gender: Bool?
     static var goalWeight: Int?
     static var activityLevel: Int?
-    static var diet: String?
 
     static var bmi: String? {
         didSet {
@@ -37,15 +36,6 @@ class UserController {
         ActivityLevel(level: 5, name: "Very Active", description: "Spends most of the day doing heavy phyysical activity (very strenous excersice or physical job daily)"),
         ActivityLevel(level: 1, name: "Sedentary", description: "Not active at all during the day or requires assistance to perform daily tasks")
     ]
-    var diets: [Diet] = [
-        Diet(name: "Keto"),
-        Diet(name: "Paleo"),
-        Diet(name: "Vegan"),
-        Diet(name: "Atkins"),
-        Diet(name: "Ultra-Low-Fat"),
-        Diet(name: "US. Gov. Nutrition Guidelines"),
-        Diet(name: "None")
-    ]
     
     // MARK: - Methods
     
@@ -55,19 +45,11 @@ class UserController {
         controller.present(alert, animated: true, completion: nil)
     }
     
-    func toggledSelectedDiet(at indexPath: IndexPath) {
-        self.diets[indexPath.row].isSelected.toggle()
-
-        if self.diets[indexPath.row].isSelected {
-            UserController.diet = self.diets[indexPath.row].name
-        }
-    }
-    
     func toggledSelectedActivityLevel(at indexPath: IndexPath) {
         self.activityLevels[indexPath.row].isSelected.toggle()
 
         if self.activityLevels[indexPath.row].isSelected {
-            UserController.activityLevel = self.activityLevels[indexPath.row].level
+            ProfileCreationController.activityLevel = self.activityLevels[indexPath.row].level
         }
     }
     

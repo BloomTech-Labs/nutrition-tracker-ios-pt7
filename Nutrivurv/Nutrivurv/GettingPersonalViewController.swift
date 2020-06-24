@@ -17,7 +17,7 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet var ageTextView: CustomTextField!
     @IBOutlet var goalWeightTextView: CustomTextField!
     
-    var nutritionController: UserController?
+    var nutritionController: ProfileCreationController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
     
     var biologicalSex = ["Male", "Female"]
@@ -37,15 +37,15 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
         super.viewWillAppear(animated)
         
         // If user has already completed information and is returning to a previous screen, this will set the info in view
-        if let ageInt = UserController.age {
+        if let ageInt = ProfileCreationController.age {
             ageTextView.text = String(ageInt)
         }
         
-        if let goalWeightInt = UserController.goalWeight {
+        if let goalWeightInt = ProfileCreationController.goalWeight {
             goalWeightTextView.text = String(goalWeightInt)
         }
         
-        if let gender = UserController.gender {
+        if let gender = ProfileCreationController.gender {
             switch gender {
             case true:
                 genderPickerView.selectRow(0, inComponent: 0, animated: true)
@@ -117,13 +117,13 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
             switch genderSelection {
             case 0:
-                UserController.gender = true
+                ProfileCreationController.gender = true
             default:
-                UserController.gender = false
+                ProfileCreationController.gender = false
             }
             
-            UserController.age = ageInt
-            UserController.goalWeight = goalWeightInt
+            ProfileCreationController.age = ageInt
+            ProfileCreationController.goalWeight = goalWeightInt
             
             apVC.nutritionController = nutritionController
             apVC.createProfileDelegate = self.createProfileDelegate

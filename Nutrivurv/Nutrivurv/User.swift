@@ -19,3 +19,10 @@ struct User: Codable {
         self.password = password
     }
 }
+
+struct UserAuthResponse: Codable {
+    let message: String?
+    let token: String?
+    let error: String?
+}
+

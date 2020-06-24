@@ -19,22 +19,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Challenges-->
-        <scene sceneID="PF8-DQ-oTK">
-            <objects>
-                <viewController id="zAC-2O-a6M" customClass="UserChallengesViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vz7-gd-Jso">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Y4L-Ea-eOs"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Challenges" image="Trophy" selectedImage="Trophy-Selected" id="2gT-mN-7Xx"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N2D-Kw-HCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9429" y="208"/>
-        </scene>
         <!--UserDashboard-->
         <scene sceneID="p96-mL-WQo">
             <objects>
@@ -235,7 +219,6 @@
                     <connections>
                         <segue destination="rYl-n3-f5W" kind="relationship" relationship="viewControllers" id="AhP-zl-8zC"/>
                         <segue destination="ocA-CQ-44Y" kind="relationship" relationship="viewControllers" id="qsQ-iz-htA"/>
-                        <segue destination="zAC-2O-a6M" kind="relationship" relationship="viewControllers" id="Sx0-J5-GIW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fB-EK-EOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -865,8 +848,6 @@
     <resources>
         <image name="Divider" width="355" height="2"/>
         <image name="Donut" width="96" height="96"/>
-        <image name="Trophy" width="24" height="24"/>
-        <image name="Trophy-Selected" width="23" height="23"/>
         <image name="bar-chart" width="19" height="20"/>
         <image name="fire" width="20" height="20"/>
         <image name="house" catalog="system" width="128" height="110"/>

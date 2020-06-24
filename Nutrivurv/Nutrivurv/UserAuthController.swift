@@ -1,5 +1,5 @@
 //
-//  AuthController.swift
+//  UserAuthController.swift
 //  Nutrivurv
 //
 //  Created by Dillon P on 6/23/20.
@@ -9,8 +9,8 @@
 import Foundation
 import KeychainSwift
 
-class AuthController {
-    static let shared = AuthController()
+class UserAuthController {
+    static let shared = UserAuthController()
     
     static let authKeychainToken = "authorizationToken"
     static let keychain = KeychainSwift()
@@ -64,9 +64,9 @@ class AuthController {
             let decoder = JSONDecoder()
             
             do {
-                let authData = try decoder.decode(AuthResponse.self, from: data)
+                let authData = try decoder.decode(UserAuthResponse.self, from: data)
                 if let token = authData.token {
-                    AuthController.keychain.set(token, forKey: AuthController.authKeychainToken)
+                    UserAuthController.keychain.set(token, forKey: UserAuthController.authKeychainToken)
                 } else {
                     print("error saving user token in keychain")
                 }
@@ -132,9 +132,9 @@ class AuthController {
             let decoder = JSONDecoder()
             
             do {
-                let authResponse = try decoder.decode(AuthResponse.self, from: data)
+                let authResponse = try decoder.decode(UserAuthResponse.self, from: data)
                 if let token = authResponse.token {
-                    AuthController.keychain.set(token, forKey: AuthController.authKeychainToken)
+                    UserAuthController.keychain.set(token, forKey: UserAuthController.authKeychainToken)
                 } else {
                     print("Error saving token in keychain")
                 }

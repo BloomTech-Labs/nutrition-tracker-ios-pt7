@@ -14,7 +14,7 @@ class ActivityLevelViewController: UIViewController {
     
     @IBOutlet var activeTableView: UITableView!
     
-    var nutritionController: UserController?
+    var nutritionController: ProfileCreationController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
@@ -27,22 +27,13 @@ class ActivityLevelViewController: UIViewController {
     
     // MARK: - IBActions and Methods
     
-    @IBAction func ToDietaryPreference(_ sender: Any) {
-        guard UserController.activityLevel != nil else {
-            makeSelectionAlert()
-            return
-        }
-        self.performSegue(withIdentifier: "ToDietPreference", sender: self)
-    }
+    // TODO: Refactor code to complete profile at this point
+    
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToDietPreference" {
-            guard let dpVC = segue.destination as? DietaryPreferenceViewController else { return }
-            dpVC.nutritionController = self.nutritionController
-            dpVC.createProfileDelegate = self.createProfileDelegate
-        }
+        // TODO: Return to main user dashboard
     }
     
     // MARK: - AlertControllers
@@ -69,7 +60,7 @@ extension ActivityLevelViewController: UITableViewDataSource {
         cell.activityLevel = activityLevel
         cell.delegate = self
         
-        if UserController.activityLevel == indexPath.row {
+        if ProfileCreationController.activityLevel == indexPath.row {
             cell.activeRadioButton.isSelected = true
         }
         

@@ -16,7 +16,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet var streakCountLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
     
-    var userController = UserController()
+    var userController = ProfileCreationController()
     
     // MARK: - View Lifecycle Methods and Update Views
     
@@ -24,7 +24,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
-        if AuthController.isLoggedIn() {
+        if UserAuthController.isLoggedIn() {
             self.title = "Welcome!"
             self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
         } else {
