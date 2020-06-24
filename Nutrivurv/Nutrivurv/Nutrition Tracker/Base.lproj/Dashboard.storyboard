@@ -182,16 +182,16 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-s2-3S6">
-                                <rect key="frame" x="16" y="464" width="382" height="2"/>
+                                <rect key="frame" x="16" y="464" width="382" height="1"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="16" y="482" width="382" height="20"/>
+                                <rect key="frame" x="16" y="481" width="382" height="20"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="0.0" y="510" width="414" height="303"/>
+                                <rect key="frame" x="0.0" y="509" width="414" height="304"/>
                                 <connections>
                                     <segue destination="oNc-VA-CAf" kind="embed" id="c8e-jL-RxT"/>
                                 </connections>
@@ -274,6 +274,7 @@
                             <subviews>
                                 <searchBar contentMode="redraw" text="" placeholder="Search Food Item" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <color key="tintColor" name="nutrivurv-blue"/>
                                     <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                     <scopeButtonTitles>
                                         <string>Title</string>
@@ -318,6 +319,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Food" id="OBS-bK-QCB">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="lQL-JE-T3y">
+                            <color key="tintColor" name="nutrivurv-blue"/>
                             <connections>
                                 <segue destination="4id-Vt-Jzy" kind="presentation" identifier="ShowBarcodeScanner" id="FFU-qE-PMB"/>
                             </connections>
@@ -341,8 +343,8 @@
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="f2O-rc-GuA">
                                 <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
-                                <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="color" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="nutrivurv-blue"/>
+                                <color key="color" name="nutrivurv-blue"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.89932623526004896" alpha="1" colorSpace="calibratedWhite"/>
@@ -380,7 +382,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0l-uS-47P">
                                                 <rect key="frame" x="0.0" y="0.0" width="54" height="19"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                                <color key="textColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SkT-Nt-tta">
@@ -402,7 +404,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serving Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mY-hV-kBg">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                                <color key="textColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcc-0C-fNr">
@@ -679,7 +681,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What meal is this?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKk-EA-YTn">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="19"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="textColor" name="nutrivurv-blue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VsQ-e8-aIF">
@@ -692,7 +694,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-GH-pEz">
                                 <rect key="frame" x="16" y="753" width="382" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="nutrivurv-blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vDC-j5-aJd"/>
                                 </constraints>
@@ -787,7 +789,7 @@
             <objects>
                 <collectionViewController id="oNc-VA-CAf" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d2l-t7-mwT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="301"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZ4-TG-hpI">
@@ -876,6 +878,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XFZ-qG-J0e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="nutrivurv-blue"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -889,7 +892,7 @@
     </scenes>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
-        <image name="Divider" width="355" height="2"/>
+        <image name="Divider" width="1201" height="1"/>
         <image name="Donut" width="96" height="96"/>
         <image name="bar-chart" width="53" height="50"/>
         <image name="fire" width="40" height="52"/>

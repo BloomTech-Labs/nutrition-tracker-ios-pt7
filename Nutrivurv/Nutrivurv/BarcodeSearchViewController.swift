@@ -99,7 +99,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     
     private func addBarcodeScannerFrameView() {
         barcodeScannerFrameView = UIView()
-        barcodeScannerFrameView.layer.borderColor = UIColor(displayP3Red: 0.0, green: 66.0/255.0, blue: 108.0/255.0, alpha: 1.0).cgColor
+        barcodeScannerFrameView.layer.borderColor = UIColor(named: "nutrivurv-blue")?.cgColor
         barcodeScannerFrameView.layer.borderWidth = 2
         view.addSubview(barcodeScannerFrameView)
         view.bringSubviewToFront(barcodeScannerFrameView)
@@ -118,7 +118,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         let button = UIButton(frame: CGRect(x: 0, y: label.frame.height + 8, width: view.frame.width * 0.8, height: 35))
         button.layer.cornerRadius = 10
         button.setTitle("Grant Access", for: .normal)
-        button.backgroundColor = UIColor(displayP3Red: 0.0, green: 66.0/255.0, blue: 108.0/255.0, alpha: 1)
+        button.backgroundColor = UIColor(named: "nutrivurv-blue")
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
         
@@ -133,6 +133,12 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         notAuthorizedAlertContainerView.addSubview(label)
         notAuthorizedAlertContainerView.addSubview(button)
         view.addSubview(notAuthorizedAlertContainerView)
+    }
+    
+    private func removeSubviews() {
+        // Update UI by removing scanner frame view and stop activity indicator
+        self.barcodeScannerFrameView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        self.stopLoadingView()
     }
     
     
@@ -281,18 +287,15 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     // Uses the search controller object to initiate a search
     func searchForFoodByUPC(_ upc: String) {
         self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) { (error) in
-            if let error = error {
-                print(error)
+            self.removeSubviews()
+            
+            if error != nil {
+                self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
                 return
             }
             
             DispatchQueue.main.async {
-                
-                // Update UI by removing scanner frame view and stop activity indicator
-                self.barcodeScannerFrameView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-                self.stopLoadingView()
                 if self.searchController?.foods.count == 0 {
-                    
                     // Specialized alert controller that calls captureSession.startRunning() in the completion block
                     self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
                 } else {
