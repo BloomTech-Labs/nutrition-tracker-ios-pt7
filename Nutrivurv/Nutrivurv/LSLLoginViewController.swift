@@ -42,12 +42,15 @@ class LSLLoginViewController: UIViewController {
             return
         }
         
+        let user = userREST(email: email, password: password)
+        
         activityIndicator.startAnimating()
         submitButton.isEnabled = false
         submitButton.layer.opacity = 0.45
         
-        Network.shared.loginUser(email: email, password: password) { (result) in
+        AuthController.shared.loginUser(user: user) { (result) in
             
+            // TODO: Update this switch statement with status codes from REST api once these are added
             switch result {
             case .success(true):
                 self.performSegue(withIdentifier: "LoginToDashboard", sender: self)

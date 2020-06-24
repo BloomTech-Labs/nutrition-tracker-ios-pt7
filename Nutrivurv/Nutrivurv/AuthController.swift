@@ -1,5 +1,5 @@
 //
-//  LSLAuthController.swift
+//  AuthController.swift
 //  Nutrivurv
 //
 //  Created by Dillon on 6/23/20.
@@ -34,13 +34,23 @@ class AuthController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error logging in user: \(error)")
                 DispatchQueue.main.async {
                     completion(.failure(.otherError))
                 }
                 return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 500 {
+                    print("Password incorrect for user")
+                    DispatchQueue.main.async {
+                        completion(.failure(.badAuth))
+                    }
+                    return
+                }
             }
             
             guard let data = data else {
@@ -92,11 +102,21 @@ class AuthController {
             return
         }
 
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error registering user: \(error)")
                 DispatchQueue.main.async {
                     completion(.failure(.otherError))
+                    return
+                }
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 500 {
+                    print("Entered credentials match an active account")
+                    DispatchQueue.main.async {
+                        completion(.failure(.badAuth))
+                    }
                     return
                 }
             }
