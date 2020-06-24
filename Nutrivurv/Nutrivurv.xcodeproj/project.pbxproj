@@ -22,7 +22,6 @@
 		4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30B82452804A00CE14CA /* HTTPMethod.swift */; };
 		4C9F30BD24528B8700CE14CA /* LSLSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */; };
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
-		4CA1B70224495FFA000369A1 /* LSLDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */; };
 		4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */; };
 		51257AE824A2E51200C744B7 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* AuthController.swift */; };
 		51257AEB24A2EE6600C744B7 /* userREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* userREST.swift */; };
@@ -61,7 +60,7 @@
 		D68C705523F65948008AFDF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705423F65948008AFDF0 /* API.swift */; };
 		D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */; };
 		D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */; };
-		D69E8C6524207A2000B536A6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E8C6424207A2000B536A6 /* Network.swift */; };
+		D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E8C6424207A2000B536A6 /* NetworkError.swift */; };
 		D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1C24076FEF00477429 /* Muli-ExtraBold.ttf */; };
 		D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1D24076FEF00477429 /* Muli-Bold.ttf */; };
 		D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1E24076FEF00477429 /* Muli-Black.ttf */; };
@@ -95,7 +94,6 @@
 		4C9F30B82452804A00CE14CA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchController.swift; sourceTree = "<group>"; };
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
-		4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardController.swift; sourceTree = "<group>"; };
 		4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* userREST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userREST.swift; sourceTree = "<group>"; };
@@ -134,7 +132,7 @@
 		D68C705423F65948008AFDF0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLLoginViewController.graphql; sourceTree = "<group>"; };
 		D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMainViewController.swift; sourceTree = "<group>"; };
-		D69E8C6424207A2000B536A6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		D69E8C6424207A2000B536A6 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		D6A1CC1C24076FEF00477429 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		D6A1CC1D24076FEF00477429 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		D6A1CC1E24076FEF00477429 /* Muli-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Black.ttf"; sourceTree = "<group>"; };
@@ -241,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				D631B2782417205300AE30C9 /* Notifications.swift */,
-				D69E8C6424207A2000B536A6 /* Network.swift */,
+				D69E8C6424207A2000B536A6 /* NetworkError.swift */,
 				4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */,
 				51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */,
 			);
@@ -337,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				D6A1CC3C240B601700477429 /* LSLUserController.swift */,
-				4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */,
 				4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */,
 				51257AE724A2E51200C744B7 /* AuthController.swift */,
 			);
@@ -512,7 +509,6 @@
 				D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */,
 				D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */,
-				4CA1B70224495FFA000369A1 /* LSLDashboardController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
 				D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
@@ -531,7 +527,7 @@
 				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
 				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
 				51257AEB24A2EE6600C744B7 /* userREST.swift in Sources */,
-				D69E8C6524207A2000B536A6 /* Network.swift in Sources */,
+				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */,
 				D6A1CC3D240B601700477429 /* LSLUserController.swift in Sources */,

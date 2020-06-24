@@ -26,38 +26,7 @@ class LSLDietaryPreferenceViewController: UIViewController {
     }
     
     @IBAction func completeProfile(_ sender: CustomButton) {
-        guard let diet = LSLUserController.diet else {
-            makeSelectionAlert()
-            return
-        }
-        
-        guard let age = LSLUserController.age,
-            let weight = LSLUserController.weight,
-            let height = LSLUserController.height,
-            let goalWeight = LSLUserController.goalWeight,
-            let activityLevel = LSLUserController.activityLevel else {
-                missingInformationAlert()
-                return
-        }
-        
-        let gender = LSLUserController.gender
-        
-        completeProfileButton.isEnabled = false
-        completeProfileButton.layer.opacity = 0.45
-        
-        Network.shared.createProfile(age: age, weight: weight, height: height, gender: gender, goalWeight: goalWeight, activityLevel: activityLevel, diet: diet) { (result) in
-            if result == .success(true) {
-                DispatchQueue.main.async {
-                    self.createProfileDelegate?.profileWasCreated()
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
-            } else {
-                self.tryAgainAlert()
-            }
-            
-            self.completeProfileButton.isEnabled = true
-            self.completeProfileButton.layer.opacity = 1.0
-        }
+        // TODO: Implement profile completion functionality once backend has fully implemented all functionality
     }
     
     // MARK: - AlertControllers
