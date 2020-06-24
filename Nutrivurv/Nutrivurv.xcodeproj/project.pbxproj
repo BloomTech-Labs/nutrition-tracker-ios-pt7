@@ -25,6 +25,7 @@
 		4CA1B70224495FFA000369A1 /* LSLDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */; };
 		4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */; };
 		51257AE824A2E51200C744B7 /* LSLAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* LSLAuthController.swift */; };
+		51257AEB24A2EE6600C744B7 /* userREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* userREST.swift */; };
 		513B5802249703E600D127C6 /* LSLBarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
@@ -96,6 +97,7 @@
 		4CA1B70124495FFA000369A1 /* LSLDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardController.swift; sourceTree = "<group>"; };
 		4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* LSLAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLAuthController.swift; sourceTree = "<group>"; };
+		51257AEA24A2EE6600C744B7 /* userREST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userREST.swift; sourceTree = "<group>"; };
 		513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLBarcodeSearchViewController.swift; sourceTree = "<group>"; };
 		51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperFunctions.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -197,6 +199,14 @@
 				D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		51257AE924A2EE4B00C744B7 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				51257AEA24A2EE6600C744B7 /* userREST.swift */,
+			);
+			name = REST;
 			sourceTree = "<group>";
 		};
 		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
@@ -334,6 +344,7 @@
 		D68C703923F3B02E008AFDF0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				51257AE924A2EE4B00C744B7 /* REST */,
 				4C82D27724529BE4005E83F2 /* UserData */,
 				4C9F30BE24528F1200CE14CA /* Food.swift */,
 				4C82D27824529C1B005E83F2 /* Nutrients.swift */,
@@ -515,6 +526,7 @@
 				4C0543DD245DB19400CD99EE /* LSLCardCollectionViewController.swift in Sources */,
 				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
 				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
+				51257AEB24A2EE6600C744B7 /* userREST.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* Network.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */,
