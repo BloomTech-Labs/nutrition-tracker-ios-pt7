@@ -44,8 +44,8 @@ class AuthController {
             }
             
             if let response = response as? HTTPURLResponse {
-                if response.statusCode == 500 {
-                    print("Password incorrect for user")
+                if response.statusCode == 400 {
+                    // Incorrect password
                     DispatchQueue.main.async {
                         completion(.failure(.badAuth))
                     }
@@ -112,8 +112,8 @@ class AuthController {
             }
             
             if let response = response as? HTTPURLResponse {
-                if response.statusCode == 500 {
-                    print("Entered credentials match an active account")
+                if response.statusCode == 400 {
+                    // User already has an account for this email address
                     DispatchQueue.main.async {
                         completion(.failure(.badAuth))
                     }
