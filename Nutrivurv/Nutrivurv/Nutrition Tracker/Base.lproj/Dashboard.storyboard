@@ -369,7 +369,7 @@
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
                                                 <connections>
-                                                    <action selector="qtyTextFieldEditingChanged:" destination="U4e-Le-VaR" eventType="editingChanged" id="QJh-99-VAK"/>
+                                                    <action selector="qtyTextFieldValueChanged:" destination="U4e-Le-VaR" eventType="editingChanged" id="w7X-wh-scF"/>
                                                 </connections>
                                             </textField>
                                         </subviews>

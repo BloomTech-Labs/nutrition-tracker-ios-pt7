@@ -41,7 +41,8 @@ class LSLFoodDetailViewController: UIViewController {
     var dailyRecord: DailyLog?
     var searchController: LSLSearchController?
     
-    var isTyping: Bool = false
+    private var searchDelayTimer = Timer()
+    private var qtyTypeTimer = Timer()
     
     var foodItem: FoodItem? {
         didSet {
@@ -199,6 +200,12 @@ class LSLFoodDetailViewController: UIViewController {
         self.qtyTextField.resignFirstResponder()
     }
     
+    private func updateQtyValue(qty: Double) {
+        if self.quantityInputValue != qty {
+            self.quantityInputValue = qty
+        }
+    }
+    
     // MARK: - Alert Controllers
     
     private func createAndDisplayAlertController(title: String, message: String) {
@@ -208,6 +215,10 @@ class LSLFoodDetailViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @objc func qtyTypeInvalid() {
+        qtyTypeTimer.invalidate()
+        createAndDisplayAlertController(title: "Please enter a valid number", message: "You must enter the quantity as a number (not text) in order to get food details.")
+    }
     
     // MARK: - Get Food Details
     
@@ -223,29 +234,35 @@ class LSLFoodDetailViewController: UIViewController {
         }
     }
     
+    @objc func delayedSearch() {
+        guard let searchText = searchDelayTimer.userInfo as? String, !searchText.isEmpty else {
+            return
+        }
+        
+        self.searchDelayTimer.invalidate()
+        
+        guard let qty = Double(searchText) else {
+            // Provides a secondary timer to allow user extra time to change input to a valid number, prevents multiple repeated alerts
+            self.qtyTypeTimer = Timer.scheduledTimer(timeInterval: 1.2, target: self, selector: #selector(self.qtyTypeInvalid), userInfo: nil, repeats: false)
+            return
+        }
+        updateQtyValue(qty: qty)
+    }
+    
     
     // MARK: - IBActions & Food Logging
     
     @IBAction func logFood(_ sender: Any) {
-        guard let record = self.dailyRecord else { return }
-        
-        Network.shared.createFoodLog(calories: record.calories, fat: record.fat, carbs: record.carbs, fiber: record.fiber, protein: record.protein, foodString: record.food_string, quantity: record.quantity, mealType: record.meal_type) { (_) in
-            print("\(record.food_string) is logged.")
-            self.navigationController?.popViewController(animated: true)
-        }
+        // TODO: Implement food logging functionality
     }
     
-    @IBAction func qtyTextFieldEditingChanged(_ sender: UITextField) {
-        guard let text = sender.text, let double = Double(text) else {
-            createAndDisplayAlertController(title: "Please enter a valid number", message: "You must enter the quantity as a number (not text) in order to get food details.")
+    @IBAction func qtyTextFieldValueChanged(_ sender: UITextField) {
+        self.qtyTypeTimer.invalidate()
+        self.searchDelayTimer.invalidate()
+        guard let text = sender.text, !text.isEmpty else {
             return
         }
-        
-        if self.quantityInputValue == double {
-            return
-        } else {
-            self.quantityInputValue = double
-        }
+        searchDelayTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.delayedSearch), userInfo: text, repeats: false)
     }
 }
 
@@ -295,7 +312,12 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
 extension LSLFoodDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        self.qtyTextFieldEditingChanged(textField)
+        if let text = textField.text, let qty = Double(text) {
+            updateQtyValue(qty: qty)
+            textField.text = String(qty)
+        } else {
+            textField.text = String(quantityInputValue)
+        }
         return true
     }
     
