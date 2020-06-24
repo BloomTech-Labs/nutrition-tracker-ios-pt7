@@ -44,7 +44,7 @@ class UserAuthController {
             }
             
             if let response = response as? HTTPURLResponse {
-                if response.statusCode == 400 {
+                if response.statusCode == 401 {
                     // Incorrect password
                     DispatchQueue.main.async {
                         completion(.failure(.badAuth))
@@ -112,7 +112,7 @@ class UserAuthController {
             }
             
             if let response = response as? HTTPURLResponse {
-                if response.statusCode == 400 {
+                if response.statusCode == 409 {
                     // User already has an account for this email address
                     DispatchQueue.main.async {
                         completion(.failure(.badAuth))
