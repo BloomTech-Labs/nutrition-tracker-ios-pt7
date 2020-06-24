@@ -18,7 +18,61 @@ class AuthController {
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/auth")!
     
     func loginUser(user: userREST, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        let loginURL = baseURL.appendingPathComponent("login")
+        var request = URLRequest(url: loginURL)
         
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.post.rawValue
+        
+        let encoder = JSONEncoder()
+        
+        do {
+            request.httpBody = try encoder.encode(user)
+        } catch {
+            print("Error encoding user for login")
+            completion(.failure(.noEncode))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print("Error logging in user: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(.otherError))
+                }
+                return
+            }
+            
+            guard let data = data else {
+                print("No user data returned from login")
+                DispatchQueue.main.async {
+                    completion(.failure(.badData))
+                }
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let authData = try decoder.decode(AuthResponse.self, from: data)
+                if let token = authData.token {
+                    AuthController.keychain.set(token, forKey: AuthController.authKeychainToken)
+                } else {
+                    print("error saving user token in keychain")
+                }
+            } catch {
+                print("Error decoding login response data from server: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(.noDecode))
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(true))
+            }
+            
+        }.resume()
     }
     
     func registerUser(user: userREST, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
@@ -65,14 +119,16 @@ class AuthController {
                     print("Error saving token in keychain")
                 }
             } catch {
-                print("Error decoding registration response data")
+                print("Error decoding registration response data from server: \(error)")
                 DispatchQueue.main.async {
                     completion(.failure(.noDecode))
                 }
                 return
             }
             
-            completion(.success(true))
+            DispatchQueue.main.async {
+                completion(.success(true))
+            }
             
         }.resume()
     }
