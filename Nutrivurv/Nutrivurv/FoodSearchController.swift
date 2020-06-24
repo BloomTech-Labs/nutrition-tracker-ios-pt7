@@ -1,14 +1,14 @@
 //
-//  LSLSearchController.swift
+//  FoodSearchController.swift
 //  Nutrivurv
 //
-//  Created by Michael Stoffer on 4/23/20.
+//  Updated by Dillon P on 6/23/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
 import Foundation
 
-class LSLSearchController {
+class FoodSearchController {
     
     var foods: [FoodItem] = []
     var nutrients: Nutrients?

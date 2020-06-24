@@ -1,14 +1,14 @@
 //
-//  LSLUserController.swift
+//  UserController.swift
 //  Nutrition Tracker
 //
-//  Created by Michael Stoffer on 2/29/20.
+//  Updated by Dillon P on 6/23/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
 import UIKit
 
-class LSLUserController {
+class UserController {
     
     // MARK: - Properties
     
@@ -59,7 +59,7 @@ class LSLUserController {
         self.diets[indexPath.row].isSelected.toggle()
 
         if self.diets[indexPath.row].isSelected {
-            LSLUserController.diet = self.diets[indexPath.row].name
+            UserController.diet = self.diets[indexPath.row].name
         }
     }
     
@@ -67,7 +67,7 @@ class LSLUserController {
         self.activityLevels[indexPath.row].isSelected.toggle()
 
         if self.activityLevels[indexPath.row].isSelected {
-            LSLUserController.activityLevel = self.activityLevels[indexPath.row].level
+            UserController.activityLevel = self.activityLevels[indexPath.row].level
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  LSLStandardBMIViewController.swift
+//  StandardBMIViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 3/8/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLStandardBMIViewController: UIViewController {
+class StandardBMIViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
@@ -49,17 +49,17 @@ class LSLStandardBMIViewController: UIViewController {
         }
         
         let height = ((feetDouble) * 12) + (inchesDouble)
-        LSLUserController.height = Int(height)
+        UserController.height = Int(height)
         let totalWeight = weightDouble
-        LSLUserController.weight = Int(totalWeight)
+        UserController.weight = Int(totalWeight)
         
         let bmi = (totalWeight * 704.7) / (height * height)
         let roundedBMI = String(format: "%.2f", bmi)
         
-        if LSLUserController.bmi == roundedBMI {
+        if UserController.bmi == roundedBMI {
             return nil
         } else {
-            LSLUserController.bmi = roundedBMI
+            UserController.bmi = roundedBMI
         }
         
         return roundedBMI
@@ -68,7 +68,7 @@ class LSLStandardBMIViewController: UIViewController {
 
 // MARK: - UITextField Delegate Methods
 
-extension LSLStandardBMIViewController: UITextFieldDelegate {
+extension StandardBMIViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == heightStandardFeetTextField {
             heightStandardInchesTextField.becomeFirstResponder()

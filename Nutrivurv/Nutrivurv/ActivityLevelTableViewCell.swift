@@ -1,5 +1,5 @@
 //
-//  LSLActiveTableViewCell.swift
+//  ActivityLevelTableViewCell.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 3/10/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLActiveTableViewCell: UITableViewCell {
+class ActivityLevelTableViewCell: UITableViewCell {
     
     @IBOutlet var activeRadioButton: UIButton!
     @IBOutlet var activeTitle: UILabel!
@@ -20,7 +20,7 @@ class LSLActiveTableViewCell: UITableViewCell {
         }
     }
     
-    weak var delegate: LSLActiveTableViewCellDelegate?
+    weak var delegate: ActivityLevelCellDelegate?
 
     private func updateViews() {
         guard let activityLevel = self.activityLevel else { return }

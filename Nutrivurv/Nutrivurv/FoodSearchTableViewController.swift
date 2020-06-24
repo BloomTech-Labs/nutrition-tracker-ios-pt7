@@ -1,5 +1,5 @@
 //
-//  LSLSearchFoodTableViewController.swift
+//  FoodSearchTableViewController.swift
 //  Nutrivurv
 //
 //  Created by Michael Stoffer on 4/20/20.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LSLSearchFoodTableViewController: UITableViewController {
+class FoodSearchTableViewController: UITableViewController {
     
     // MARK: - IBOutlets and Properties
     
     @IBOutlet weak var foodSearchBar: UISearchBar!
     
-    let searchController = LSLSearchController()
+    let searchController = FoodSearchController()
     private var searchDelayTimer = Timer()
     
     
@@ -52,13 +52,13 @@ class LSLSearchFoodTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodDetail" {
             guard let indexPath = self.tableView.indexPathForSelectedRow,
-                let fdVC = segue.destination as? LSLFoodDetailViewController else { return }
+                let fdVC = segue.destination as? FoodDetailViewController else { return }
             
             let foodItem = self.searchController.foods[indexPath.row]
             fdVC.searchController = self.searchController
             fdVC.foodItem = foodItem
         } else if segue.identifier == "ShowBarcodeScanner" {
-            guard let barcodeScanVC = segue.destination as? LSLBarcodeSearchViewController else {
+            guard let barcodeScanVC = segue.destination as? BarcodeSearchViewController else {
                 print("Couldn't load barcode scanner")
                 return
             }
@@ -96,7 +96,7 @@ class LSLSearchFoodTableViewController: UITableViewController {
 
 // MARK: - Protocol Conformance & Delegate Methods
 
-extension LSLSearchFoodTableViewController: UISearchBarDelegate {
+extension FoodSearchTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = self.foodSearchBar.text else { return }
         
@@ -121,20 +121,20 @@ extension LSLSearchFoodTableViewController: UISearchBarDelegate {
     }
 }
 
-extension LSLSearchFoodTableViewController: BarcodeSearchDelegate {
+extension FoodSearchTableViewController: BarcodeSearchDelegate {
     func gotResultForFoodFromUPC() {
         self.tableView.reloadData()
     }
 }
 
-extension LSLSearchFoodTableViewController: UITextFieldDelegate {
+extension FoodSearchTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
 
-extension LSLSearchFoodTableViewController: ManualSearchRequiredDelegate {
+extension FoodSearchTableViewController: ManualSearchRequiredDelegate {
     func unableToUseBarcodeScanningFeature() {
         self.createAndDisplayAlertController(title: "Manual Search Required", message: "This device cannot be used to scan barcodes. Please search for food items manually. We apologize for the inconvience.")
     }

@@ -1,5 +1,5 @@
 //
-//  LSLMetricBMIViewController.swift
+//  MetricBMIViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 3/8/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLMetricBMIViewController: UIViewController {
+class MetricBMIViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
@@ -44,17 +44,17 @@ class LSLMetricBMIViewController: UIViewController {
         }
         
         let newHeight = ((heightDouble) / 2.54)
-        LSLUserController.height = Int(newHeight)
+        UserController.height = Int(newHeight)
         let totalWeight = ((weightDouble) * 2.20462262185)
-        LSLUserController.weight = Int(totalWeight)
+        UserController.weight = Int(totalWeight)
         
         let bmi = (totalWeight * 704.7) / (newHeight * newHeight)
         let roundedBMI = String(format: "%.2f", bmi)
         
-        if LSLUserController.bmi == roundedBMI {
+        if UserController.bmi == roundedBMI {
             return nil
         } else {
-            LSLUserController.bmi = roundedBMI
+            UserController.bmi = roundedBMI
         }
         
         return roundedBMI
@@ -63,7 +63,7 @@ class LSLMetricBMIViewController: UIViewController {
 
 // MARK: - UITextField Delegate Methods
 
-extension LSLMetricBMIViewController: UITextFieldDelegate {
+extension MetricBMIViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == heightMetricTextField {
             weightMetricTextField.becomeFirstResponder()

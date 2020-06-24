@@ -7,59 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C0543DD245DB19400CD99EE /* LSLCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */; };
-		4C0543DF245DB22400CD99EE /* LSLCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */; };
+		4C0543DD245DB19400CD99EE /* DashboardCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DC245DB19400CD99EE /* DashboardCardCollectionViewController.swift */; };
+		4C0543DF245DB22400CD99EE /* DashboardCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543DE245DB22400CD99EE /* DashboardCardCollectionViewCell.swift */; };
 		4C0543E4245F283A00CD99EE /* LSLFoodDetailViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 4C0543E3245F283A00CD99EE /* LSLFoodDetailViewController.graphql */; };
 		4C0543E6245F776F00CD99EE /* DailyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0543E5245F776F00CD99EE /* DailyLog.swift */; };
-		4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */; };
+		4C39A980244E9DDA00AAA74E /* FoodSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39A97F244E9DDA00AAA74E /* FoodSearchTableViewController.swift */; };
 		4C82D27924529C1B005E83F2 /* Nutrients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C82D27824529C1B005E83F2 /* Nutrients.swift */; };
-		4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */; };
+		4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C89A9ED24400F1100348B5A /* FoodDetailViewController.swift */; };
 		4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F02440105500348B5A /* Dashboard.storyboard */; };
 		4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F3244010E500348B5A /* Profile.storyboard */; };
 		4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F52440134500348B5A /* SignIn.storyboard */; };
 		4C89A9F92440137200348B5A /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C89A9F82440137200348B5A /* Signup.storyboard */; };
-		4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */; };
+		4C98D3F9244557E90052CDA8 /* UserChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C98D3F8244557E90052CDA8 /* UserChallengesViewController.swift */; };
 		4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30B82452804A00CE14CA /* HTTPMethod.swift */; };
-		4C9F30BD24528B8700CE14CA /* LSLSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */; };
+		4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */; };
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */; };
 		51257AE824A2E51200C744B7 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* AuthController.swift */; };
-		51257AEB24A2EE6600C744B7 /* userREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* userREST.swift */; };
+		51257AEB24A2EE6600C744B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* User.swift */; };
 		51257AED24A2F4AF00C744B7 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEC24A2F4AF00C744B7 /* AuthResponse.swift */; };
-		513B5802249703E600D127C6 /* LSLBarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */; };
+		513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
-		D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */; };
-		D631B2712415BB0900AE30C9 /* LSLStandardBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */; };
-		D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */; };
+		D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2DC2402F51A00B3E6BF /* DashboardViewController.swift */; };
+		D631B2712415BB0900AE30C9 /* StandardBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2702415BB0900AE30C9 /* StandardBMIViewController.swift */; };
+		D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2722415BB1500AE30C9 /* MetricBMIViewController.swift */; };
 		D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2742415BE7A00AE30C9 /* BMIType.swift */; };
 		D631B2792417205300AE30C9 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2782417205300AE30C9 /* Notifications.swift */; };
 		D631B27B24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D631B27A24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql */; };
 		D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27C241878B100AE30C9 /* ActivityLevel.swift */; };
-		D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */; };
-		D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2802418795300AE30C9 /* LSLActiveTableViewCell.swift */; };
-		D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */; };
+		D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27E2418790100AE30C9 /* ActivityLevelViewController.swift */; };
+		D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2802418795300AE30C9 /* ActivityLevelTableViewCell.swift */; };
+		D631B2832418797300AE30C9 /* ActivityLevelCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2822418797300AE30C9 /* ActivityLevelCellDelegate.swift */; };
 		D631B287241891DD00AE30C9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B286241891DD00AE30C9 /* Profile.swift */; };
-		D631B2892418929800AE30C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2882418929800AE30C9 /* User.swift */; };
 		D6853E9F243D77A7003EDF91 /* LSLDashboardController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D6853E9E243D77A7003EDF91 /* LSLDashboardController.graphql */; };
 		D6853EA1243D81CB003EDF91 /* FavoriteFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */; };
 		D6853EA3243D8247003EDF91 /* DailyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6853EA2243D8247003EDF91 /* DailyRecord.swift */; };
 		D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6853EA4243D82C0003EDF91 /* WeightLog.swift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
-		D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */; };
+		D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* RegisterViewController.swift */; };
 		D68C702523F25400008AFDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C702323F25400008AFDF0 /* Main.storyboard */; };
 		D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68C702623F25402008AFDF0 /* Assets.xcassets */; };
 		D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */; };
-		D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */; };
+		D68C703B23F3B14D008AFDF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C703A23F3B14D008AFDF0 /* LoginViewController.swift */; };
 		D68C704D23F4F66B008AFDF0 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = D68C704C23F4F66B008AFDF0 /* schema.json */; };
 		D68C705023F4FAE3008AFDF0 /* LSLRegisterViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */; };
 		D68C705323F50793008AFDF0 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = D68C705223F50793008AFDF0 /* Apollo */; };
 		D68C705523F65948008AFDF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705423F65948008AFDF0 /* API.swift */; };
 		D68C705723F65D1E008AFDF0 /* LSLLoginViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */; };
-		D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */; };
+		D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C705F23FABE25008AFDF0 /* MainAppWelcomeViewController.swift */; };
 		D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69E8C6424207A2000B536A6 /* NetworkError.swift */; };
 		D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1C24076FEF00477429 /* Muli-ExtraBold.ttf */; };
 		D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC1D24076FEF00477429 /* Muli-Bold.ttf */; };
@@ -69,51 +68,50 @@
 		D6A1CC2924076FF000477429 /* Muli-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2124076FF000477429 /* Muli-Light.ttf */; };
 		D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2224076FF000477429 /* Muli-ExtraLight.ttf */; };
 		D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2324076FF000477429 /* Muli-Regular.ttf */; };
-		D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */; };
-		D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */; };
+		D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2C24077D8700477429 /* GettingPersonalViewController.swift */; };
+		D6A1CC2F240B382200477429 /* DietaryPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2E240B382200477429 /* DietaryPreferenceViewController.swift */; };
 		D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */; };
-		D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */; };
-		D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */; };
-		D6A1CC3D240B601700477429 /* LSLUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* LSLUserController.swift */; };
+		D6A1CC35240B590F00477429 /* DietaryPreferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC34240B590F00477429 /* DietaryPreferenceTableViewCell.swift */; };
+		D6A1CC39240B5EFC00477429 /* DietaryPreferenceCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC38240B5EFC00477429 /* DietaryPreferenceCellDelegate.swift */; };
+		D6A1CC3D240B601700477429 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* UserController.swift */; };
 		D6A1CC41240BF37100477429 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC40240BF37100477429 /* Diet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCardCollectionViewController.swift; sourceTree = "<group>"; };
-		4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C0543DC245DB19400CD99EE /* DashboardCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCardCollectionViewController.swift; sourceTree = "<group>"; };
+		4C0543DE245DB22400CD99EE /* DashboardCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C0543E3245F283A00CD99EE /* LSLFoodDetailViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLFoodDetailViewController.graphql; sourceTree = "<group>"; };
 		4C0543E5245F776F00CD99EE /* DailyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLog.swift; sourceTree = "<group>"; };
-		4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchFoodTableViewController.swift; sourceTree = "<group>"; };
+		4C39A97F244E9DDA00AAA74E /* FoodSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchTableViewController.swift; sourceTree = "<group>"; };
 		4C82D27824529C1B005E83F2 /* Nutrients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrients.swift; sourceTree = "<group>"; };
-		4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLFoodDetailViewController.swift; sourceTree = "<group>"; };
+		4C89A9ED24400F1100348B5A /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		4C89A9F12440105500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/Dashboard.storyboard"; sourceTree = "<group>"; };
 		4C89A9F3244010E500348B5A /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4C89A9F62440134500348B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nutrition Tracker/Base.lproj/SignIn.storyboard"; sourceTree = "<group>"; };
 		4C89A9F82440137200348B5A /* Signup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
-		4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLChallengesViewController.swift; sourceTree = "<group>"; };
+		4C98D3F8244557E90052CDA8 /* UserChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChallengesViewController.swift; sourceTree = "<group>"; };
 		4C9F30B82452804A00CE14CA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLSearchController.swift; sourceTree = "<group>"; };
+		4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchController.swift; sourceTree = "<group>"; };
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		4CC9BE04245140AC00C787BC /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
-		51257AEA24A2EE6600C744B7 /* userREST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userREST.swift; sourceTree = "<group>"; };
+		51257AEA24A2EE6600C744B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		51257AEC24A2F4AF00C744B7 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
-		513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLBarcodeSearchViewController.swift; sourceTree = "<group>"; };
+		513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeSearchViewController.swift; sourceTree = "<group>"; };
 		51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperFunctions.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDashboardViewController.swift; sourceTree = "<group>"; };
-		D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLStandardBMIViewController.swift; sourceTree = "<group>"; };
-		D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMetricBMIViewController.swift; sourceTree = "<group>"; };
+		D60BA2DC2402F51A00B3E6BF /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		D631B2702415BB0900AE30C9 /* StandardBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardBMIViewController.swift; sourceTree = "<group>"; };
+		D631B2722415BB1500AE30C9 /* MetricBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricBMIViewController.swift; sourceTree = "<group>"; };
 		D631B2742415BE7A00AE30C9 /* BMIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIType.swift; sourceTree = "<group>"; };
 		D631B2782417205300AE30C9 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		D631B27A24173AB700AE30C9 /* LSLCalculateBMIViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLCalculateBMIViewController.graphql; sourceTree = "<group>"; };
 		D631B27C241878B100AE30C9 /* ActivityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevel.swift; sourceTree = "<group>"; };
-		D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLActivityLevelViewController.swift; sourceTree = "<group>"; };
-		D631B2802418795300AE30C9 /* LSLActiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLActiveTableViewCell.swift; sourceTree = "<group>"; };
-		D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLActiveTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		D631B27E2418790100AE30C9 /* ActivityLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelViewController.swift; sourceTree = "<group>"; };
+		D631B2802418795300AE30C9 /* ActivityLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelTableViewCell.swift; sourceTree = "<group>"; };
+		D631B2822418797300AE30C9 /* ActivityLevelCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelCellDelegate.swift; sourceTree = "<group>"; };
 		D631B286241891DD00AE30C9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		D631B2882418929800AE30C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D6853E9E243D77A7003EDF91 /* LSLDashboardController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLDashboardController.graphql; sourceTree = "<group>"; };
 		D6853EA0243D81CB003EDF91 /* FavoriteFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFood.swift; sourceTree = "<group>"; };
 		D6853EA2243D8247003EDF91 /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
@@ -121,17 +119,17 @@
 		D68C701A23F25400008AFDF0 /* Nutrivurv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrivurv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLRegisterViewController.swift; sourceTree = "<group>"; };
+		D68C702123F25400008AFDF0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D68C702423F25400008AFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D68C702623F25402008AFDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D68C702923F25402008AFDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D68C702B23F25402008AFDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLLoginViewController.swift; sourceTree = "<group>"; };
+		D68C703A23F3B14D008AFDF0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D68C704C23F4F66B008AFDF0 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		D68C704F23F4FAE3008AFDF0 /* LSLRegisterViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLRegisterViewController.graphql; sourceTree = "<group>"; };
 		D68C705423F65948008AFDF0 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D68C705623F65D1E008AFDF0 /* LSLLoginViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LSLLoginViewController.graphql; sourceTree = "<group>"; };
-		D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLMainViewController.swift; sourceTree = "<group>"; };
+		D68C705F23FABE25008AFDF0 /* MainAppWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppWelcomeViewController.swift; sourceTree = "<group>"; };
 		D69E8C6424207A2000B536A6 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		D6A1CC1C24076FEF00477429 /* Muli-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraBold.ttf"; sourceTree = "<group>"; };
 		D6A1CC1D24076FEF00477429 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
@@ -141,12 +139,12 @@
 		D6A1CC2124076FF000477429 /* Muli-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Light.ttf"; sourceTree = "<group>"; };
 		D6A1CC2224076FF000477429 /* Muli-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLight.ttf"; sourceTree = "<group>"; };
 		D6A1CC2324076FF000477429 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
-		D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLGettingPersonalViewController.swift; sourceTree = "<group>"; };
-		D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietaryPreferenceViewController.swift; sourceTree = "<group>"; };
+		D6A1CC2C24077D8700477429 /* GettingPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingPersonalViewController.swift; sourceTree = "<group>"; };
+		D6A1CC2E240B382200477429 /* DietaryPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPreferenceViewController.swift; sourceTree = "<group>"; };
 		D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCalculateBMIViewController.swift; sourceTree = "<group>"; };
-		D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCell.swift; sourceTree = "<group>"; };
-		D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLDietTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		D6A1CC3C240B601700477429 /* LSLUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLUserController.swift; sourceTree = "<group>"; };
+		D6A1CC34240B590F00477429 /* DietaryPreferenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPreferenceTableViewCell.swift; sourceTree = "<group>"; };
+		D6A1CC38240B5EFC00477429 /* DietaryPreferenceCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPreferenceCellDelegate.swift; sourceTree = "<group>"; };
+		D6A1CC3C240B601700477429 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		D6A1CC40240BF37100477429 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,9 +164,9 @@
 		4C0543DB245DB0EA00CD99EE /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				D60BA2DC2402F51A00B3E6BF /* LSLDashboardViewController.swift */,
-				4C0543DE245DB22400CD99EE /* LSLCardCollectionViewCell.swift */,
-				4C0543DC245DB19400CD99EE /* LSLCardCollectionViewController.swift */,
+				D60BA2DC2402F51A00B3E6BF /* DashboardViewController.swift */,
+				4C0543DE245DB22400CD99EE /* DashboardCardCollectionViewCell.swift */,
+				4C0543DC245DB19400CD99EE /* DashboardCardCollectionViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -176,7 +174,6 @@
 		4C82D27724529BE4005E83F2 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
-				D631B2882418929800AE30C9 /* User.swift */,
 				D631B286241891DD00AE30C9 /* Profile.swift */,
 				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
 				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
@@ -192,11 +189,11 @@
 			isa = PBXGroup;
 			children = (
 				D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */,
-				D631B2702415BB0900AE30C9 /* LSLStandardBMIViewController.swift */,
-				D631B2722415BB1500AE30C9 /* LSLMetricBMIViewController.swift */,
-				D6A1CC2C24077D8700477429 /* LSLGettingPersonalViewController.swift */,
-				D631B27E2418790100AE30C9 /* LSLActivityLevelViewController.swift */,
-				D6A1CC2E240B382200477429 /* LSLDietaryPreferenceViewController.swift */,
+				D631B2702415BB0900AE30C9 /* StandardBMIViewController.swift */,
+				D631B2722415BB1500AE30C9 /* MetricBMIViewController.swift */,
+				D6A1CC2C24077D8700477429 /* GettingPersonalViewController.swift */,
+				D631B27E2418790100AE30C9 /* ActivityLevelViewController.swift */,
+				D6A1CC2E240B382200477429 /* DietaryPreferenceViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -204,10 +201,20 @@
 		51257AE924A2EE4B00C744B7 /* REST */ = {
 			isa = PBXGroup;
 			children = (
-				51257AEA24A2EE6600C744B7 /* userREST.swift */,
+				51257AEA24A2EE6600C744B7 /* User.swift */,
 				51257AEC24A2F4AF00C744B7 /* AuthResponse.swift */,
 			);
 			name = REST;
+			sourceTree = "<group>";
+		};
+		51257AEE24A3285E00C744B7 /* Edamam Foods */ = {
+			isa = PBXGroup;
+			children = (
+				4C9F30BE24528F1200CE14CA /* Food.swift */,
+				4C82D27824529C1B005E83F2 /* Nutrients.swift */,
+				4C0543E5245F776F00CD99EE /* DailyLog.swift */,
+			);
+			name = "Edamam Foods";
 			sourceTree = "<group>";
 		};
 		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
@@ -307,15 +314,15 @@
 		D68C703623F3B012008AFDF0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D68C705F23FABE25008AFDF0 /* LSLMainViewController.swift */,
-				D68C703A23F3B14D008AFDF0 /* LSLLoginViewController.swift */,
-				D68C702123F25400008AFDF0 /* LSLRegisterViewController.swift */,
+				D68C705F23FABE25008AFDF0 /* MainAppWelcomeViewController.swift */,
+				D68C703A23F3B14D008AFDF0 /* LoginViewController.swift */,
+				D68C702123F25400008AFDF0 /* RegisterViewController.swift */,
 				4C89A9EF24400F9000348B5A /* Profile */,
 				4C0543DB245DB0EA00CD99EE /* Dashboard */,
-				4C39A97F244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift */,
-				4C89A9ED24400F1100348B5A /* LSLFoodDetailViewController.swift */,
-				4C98D3F8244557E90052CDA8 /* LSLChallengesViewController.swift */,
-				513B5801249703E600D127C6 /* LSLBarcodeSearchViewController.swift */,
+				4C39A97F244E9DDA00AAA74E /* FoodSearchTableViewController.swift */,
+				4C89A9ED24400F1100348B5A /* FoodDetailViewController.swift */,
+				4C98D3F8244557E90052CDA8 /* UserChallengesViewController.swift */,
+				513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -323,10 +330,10 @@
 		D68C703723F3B01A008AFDF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D631B2802418795300AE30C9 /* LSLActiveTableViewCell.swift */,
-				D631B2822418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift */,
-				D6A1CC34240B590F00477429 /* LSLDietTableViewCell.swift */,
-				D6A1CC38240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift */,
+				D631B2802418795300AE30C9 /* ActivityLevelTableViewCell.swift */,
+				D631B2822418797300AE30C9 /* ActivityLevelCellDelegate.swift */,
+				D6A1CC34240B590F00477429 /* DietaryPreferenceTableViewCell.swift */,
+				D6A1CC38240B5EFC00477429 /* DietaryPreferenceCellDelegate.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -334,8 +341,8 @@
 		D68C703823F3B025008AFDF0 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6A1CC3C240B601700477429 /* LSLUserController.swift */,
-				4C9F30BC24528B8700CE14CA /* LSLSearchController.swift */,
+				D6A1CC3C240B601700477429 /* UserController.swift */,
+				4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */,
 				51257AE724A2E51200C744B7 /* AuthController.swift */,
 			);
 			name = "Model Controllers";
@@ -344,11 +351,9 @@
 		D68C703923F3B02E008AFDF0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				51257AEE24A3285E00C744B7 /* Edamam Foods */,
 				51257AE924A2EE4B00C744B7 /* REST */,
 				4C82D27724529BE4005E83F2 /* UserData */,
-				4C9F30BE24528F1200CE14CA /* Food.swift */,
-				4C82D27824529C1B005E83F2 /* Nutrients.swift */,
-				4C0543E5245F776F00CD99EE /* DailyLog.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -397,7 +402,7 @@
 		D68C701223F25400008AFDF0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = LSL;
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Lambda School";
@@ -488,49 +493,48 @@
 			files = (
 				D631B2792417205300AE30C9 /* Notifications.swift in Sources */,
 				D631B287241891DD00AE30C9 /* Profile.swift in Sources */,
-				D60BA2DD2402F51A00B3E6BF /* LSLDashboardViewController.swift in Sources */,
-				4C9F30BD24528B8700CE14CA /* LSLSearchController.swift in Sources */,
+				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
+				4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */,
 				4CC9BE05245140AC00C787BC /* AppearanceHelper.swift in Sources */,
 				D6A1CC41240BF37100477429 /* Diet.swift in Sources */,
-				513B5802249703E600D127C6 /* LSLBarcodeSearchViewController.swift in Sources */,
+				513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D6853EA3243D8247003EDF91 /* DailyRecord.swift in Sources */,
-				D68C706023FABE25008AFDF0 /* LSLMainViewController.swift in Sources */,
-				D68C702223F25400008AFDF0 /* LSLRegisterViewController.swift in Sources */,
+				D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */,
+				D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */,
 				4C82D27924529C1B005E83F2 /* Nutrients.swift in Sources */,
-				4C98D3F9244557E90052CDA8 /* LSLChallengesViewController.swift in Sources */,
+				4C98D3F9244557E90052CDA8 /* UserChallengesViewController.swift in Sources */,
 				51257AE824A2E51200C744B7 /* AuthController.swift in Sources */,
-				4C39A980244E9DDA00AAA74E /* LSLSearchFoodTableViewController.swift in Sources */,
-				D631B2892418929800AE30C9 /* User.swift in Sources */,
+				4C39A980244E9DDA00AAA74E /* FoodSearchTableViewController.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D6853EA5243D82C0003EDF91 /* WeightLog.swift in Sources */,
 				4C0543E6245F776F00CD99EE /* DailyLog.swift in Sources */,
 				D6853EA1243D81CB003EDF91 /* FavoriteFood.swift in Sources */,
-				D631B2832418797300AE30C9 /* LSLActiveTableViewCellDelegate.swift in Sources */,
-				D631B2732415BB1500AE30C9 /* LSLMetricBMIViewController.swift in Sources */,
-				D631B27F2418790100AE30C9 /* LSLActivityLevelViewController.swift in Sources */,
+				D631B2832418797300AE30C9 /* ActivityLevelCellDelegate.swift in Sources */,
+				D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */,
+				D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
-				D6A1CC2F240B382200477429 /* LSLDietaryPreferenceViewController.swift in Sources */,
-				D68C703B23F3B14D008AFDF0 /* LSLLoginViewController.swift in Sources */,
+				D6A1CC2F240B382200477429 /* DietaryPreferenceViewController.swift in Sources */,
+				D68C703B23F3B14D008AFDF0 /* LoginViewController.swift in Sources */,
 				4C9F30BF24528F1200CE14CA /* Food.swift in Sources */,
 				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,
-				4C0543DF245DB22400CD99EE /* LSLCardCollectionViewCell.swift in Sources */,
+				4C0543DF245DB22400CD99EE /* DashboardCardCollectionViewCell.swift in Sources */,
 				51257AED24A2F4AF00C744B7 /* AuthResponse.swift in Sources */,
 				D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */,
 				D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
-				D631B2712415BB0900AE30C9 /* LSLStandardBMIViewController.swift in Sources */,
-				D6A1CC2D24077D8700477429 /* LSLGettingPersonalViewController.swift in Sources */,
+				D631B2712415BB0900AE30C9 /* StandardBMIViewController.swift in Sources */,
+				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,
 				51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
-				4C0543DD245DB19400CD99EE /* LSLCardCollectionViewController.swift in Sources */,
-				D6A1CC35240B590F00477429 /* LSLDietTableViewCell.swift in Sources */,
-				D6A1CC39240B5EFC00477429 /* LSLDietTableViewCellDelegate.swift in Sources */,
-				51257AEB24A2EE6600C744B7 /* userREST.swift in Sources */,
+				4C0543DD245DB19400CD99EE /* DashboardCardCollectionViewController.swift in Sources */,
+				D6A1CC35240B590F00477429 /* DietaryPreferenceTableViewCell.swift in Sources */,
+				D6A1CC39240B5EFC00477429 /* DietaryPreferenceCellDelegate.swift in Sources */,
+				51257AEB24A2EE6600C744B7 /* User.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
-				4C89A9EE24400F1100348B5A /* LSLFoodDetailViewController.swift in Sources */,
-				D631B2812418795300AE30C9 /* LSLActiveTableViewCell.swift in Sources */,
-				D6A1CC3D240B601700477429 /* LSLUserController.swift in Sources */,
+				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,
+				D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */,
+				D6A1CC3D240B601700477429 /* UserController.swift in Sources */,
 				D68C705523F65948008AFDF0 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

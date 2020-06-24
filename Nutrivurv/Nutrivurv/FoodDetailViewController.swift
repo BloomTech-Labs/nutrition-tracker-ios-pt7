@@ -1,5 +1,5 @@
 //
-//  LSLFoodDetailViewController.swift
+//  FoodDetailViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 4/9/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLFoodDetailViewController: UIViewController {
+class FoodDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
@@ -39,7 +39,7 @@ class LSLFoodDetailViewController: UIViewController {
     // MARK: - Properties & Model Controllers
     
     var dailyRecord: DailyLog?
-    var searchController: LSLSearchController?
+    var searchController: FoodSearchController?
     
     private var searchDelayTimer = Timer()
     private var qtyTypeTimer = Timer()
@@ -269,7 +269,7 @@ class LSLFoodDetailViewController: UIViewController {
 
 // MARK: - Picker View Delegate & Data Source
 
-extension LSLFoodDetailViewController: UIPickerViewDelegate {
+extension FoodDetailViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == servingSizePickerView {
             let sizeIndex = pickerView.selectedRow(inComponent: 0)
@@ -278,7 +278,7 @@ extension LSLFoodDetailViewController: UIPickerViewDelegate {
     }
 }
 
-extension LSLFoodDetailViewController: UIPickerViewDataSource {
+extension FoodDetailViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -309,7 +309,7 @@ extension LSLFoodDetailViewController: UIPickerViewDataSource {
 
 // MARK: - Text Field Delegate Methods
 
-extension LSLFoodDetailViewController: UITextFieldDelegate {
+extension FoodDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let text = textField.text, let qty = Double(text) {

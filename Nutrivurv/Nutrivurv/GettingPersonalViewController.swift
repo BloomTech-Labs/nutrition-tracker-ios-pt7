@@ -1,5 +1,5 @@
 //
-//  LSLGettingPersonalViewController.swift
+//  GettingPersonalViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/26/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
+class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     
     // MARK: - IBOutlets and Properties
@@ -17,7 +17,7 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet var ageTextView: CustomTextField!
     @IBOutlet var goalWeightTextView: CustomTextField!
     
-    var nutritionController: LSLUserController?
+    var nutritionController: UserController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
     
     var biologicalSex = ["Male", "Female"]
@@ -37,15 +37,15 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
         super.viewWillAppear(animated)
         
         // If user has already completed information and is returning to a previous screen, this will set the info in view
-        if let ageInt = LSLUserController.age {
+        if let ageInt = UserController.age {
             ageTextView.text = String(ageInt)
         }
         
-        if let goalWeightInt = LSLUserController.goalWeight {
+        if let goalWeightInt = UserController.goalWeight {
             goalWeightTextView.text = String(goalWeightInt)
         }
         
-        if let gender = LSLUserController.gender {
+        if let gender = UserController.gender {
             switch gender {
             case true:
                 genderPickerView.selectRow(0, inComponent: 0, animated: true)
@@ -103,7 +103,7 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToActivityLevel" {
             guard let nutritionController = nutritionController,
-                let apVC = segue.destination as? LSLActivityLevelViewController else { return }
+                let apVC = segue.destination as? ActivityLevelViewController else { return }
             
             guard let ageInt = checkForAge() else {
                 return
@@ -117,13 +117,13 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
             switch genderSelection {
             case 0:
-                LSLUserController.gender = true
+                UserController.gender = true
             default:
-                LSLUserController.gender = false
+                UserController.gender = false
             }
             
-            LSLUserController.age = ageInt
-            LSLUserController.goalWeight = goalWeightInt
+            UserController.age = ageInt
+            UserController.goalWeight = goalWeightInt
             
             apVC.nutritionController = nutritionController
             apVC.createProfileDelegate = self.createProfileDelegate
@@ -134,7 +134,7 @@ class LSLGettingPersonalViewController: UIViewController, UIPickerViewDelegate {
 
 // MARK: - UIPickerView Data Source Methods
 
-extension LSLGettingPersonalViewController: UIPickerViewDataSource {
+extension GettingPersonalViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -151,7 +151,7 @@ extension LSLGettingPersonalViewController: UIPickerViewDataSource {
 
 // MARK: - UITextField Delegate Methods
 
-extension LSLGettingPersonalViewController: UITextFieldDelegate {
+extension GettingPersonalViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case ageTextView:

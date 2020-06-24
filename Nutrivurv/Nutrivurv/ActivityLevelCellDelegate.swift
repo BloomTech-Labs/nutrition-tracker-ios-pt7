@@ -1,5 +1,5 @@
 //
-//  LSLActiveTableViewCellDelegate.swift
+//  ActivityLevelCellDelegate.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 3/10/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol LSLActiveTableViewCellDelegate: class {
-    func tappedRadioButton(on cell: LSLActiveTableViewCell)
+protocol ActivityLevelCellDelegate: class {
+    func tappedRadioButton(on cell: ActivityLevelTableViewCell)
 }

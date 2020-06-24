@@ -1,5 +1,5 @@
 //
-//  LSLDietaryPreferenceViewController.swift
+//  DietaryPreferenceViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/29/20.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class LSLDietaryPreferenceViewController: UIViewController {
+class DietaryPreferenceViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
     @IBOutlet var dietTableView: UITableView!
     @IBOutlet weak var completeProfileButton: CustomButton!
     
-    var nutritionController: LSLUserController?
+    var nutritionController: UserController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
@@ -53,13 +53,13 @@ class LSLDietaryPreferenceViewController: UIViewController {
 
 // MARK: - TableView Data Source Methods
 
-extension LSLDietaryPreferenceViewController: UITableViewDataSource {
+extension DietaryPreferenceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.nutritionController!.diets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DietaryCell", for: indexPath) as? LSLDietTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DietaryCell", for: indexPath) as? DietaryPreferenceTableViewCell else { return UITableViewCell() }
                 
         let diet = self.nutritionController!.diets[indexPath.row]
         cell.diet = diet
@@ -71,8 +71,8 @@ extension LSLDietaryPreferenceViewController: UITableViewDataSource {
 
 // MARK: - Custom Delegate Methods for Updated Dietary Preference Selection
 
-extension LSLDietaryPreferenceViewController: LSLDietTableViewCellDelegate {
-    func tappedRadioButton(on cell: LSLDietTableViewCell) {
+extension DietaryPreferenceViewController: DietaryPreferenceCellDelegate {
+    func tappedRadioButton(on cell: DietaryPreferenceTableViewCell) {
         guard let indexPath = self.dietTableView.indexPath(for: cell) else { return }
         
         for i in 0 ..< self.nutritionController!.diets.count {
@@ -85,7 +85,7 @@ extension LSLDietaryPreferenceViewController: LSLDietTableViewCellDelegate {
         self.dietTableView.reloadData()
     }
     
-    func tappedInfoButton(on cell: LSLDietTableViewCell) {
+    func tappedInfoButton(on cell: DietaryPreferenceTableViewCell) {
         guard let indexPath = self.dietTableView.indexPath(for: cell) else { return }
         
         self.nutritionController?.showInfo(at: indexPath)

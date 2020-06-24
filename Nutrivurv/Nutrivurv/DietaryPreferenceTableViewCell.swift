@@ -1,5 +1,5 @@
 //
-//  LSLDietTableViewCell.swift
+//  DietaryPreferenceTableViewCell.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/29/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLDietTableViewCell: UITableViewCell {
+class DietaryPreferenceTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets and Properties
     
@@ -21,7 +21,7 @@ class LSLDietTableViewCell: UITableViewCell {
         }
     }
     
-    weak var delegate: LSLDietTableViewCellDelegate?
+    weak var delegate: DietaryPreferenceCellDelegate?
     
     private func updateViews() {
         guard let diet = self.diet else { return }

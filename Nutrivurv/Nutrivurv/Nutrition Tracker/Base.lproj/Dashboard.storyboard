@@ -22,7 +22,7 @@
         <!--Challenges-->
         <scene sceneID="PF8-DQ-oTK">
             <objects>
-                <viewController id="zAC-2O-a6M" customClass="LSLChallengesViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zAC-2O-a6M" customClass="UserChallengesViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vz7-gd-Jso">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
         <!--UserDashboard-->
         <scene sceneID="p96-mL-WQo">
             <objects>
-                <viewController restorationIdentifier="UserDashboard" storyboardIdentifier="UserDashboard" title="UserDashboard" id="vsF-rt-EXg" customClass="LSLDashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="UserDashboard" storyboardIdentifier="UserDashboard" title="UserDashboard" id="vsF-rt-EXg" customClass="DashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DhR-nl-cyM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,7 +245,7 @@
         <!--Search Food-->
         <scene sceneID="FgN-cI-bhq">
             <objects>
-                <tableViewController id="XGk-MJ-f0l" customClass="LSLSearchFoodTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1si-0W-cfy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -312,7 +312,7 @@
         <!--Barcode Search View Controller-->
         <scene sceneID="aia-aV-qL7">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="4id-Vt-Jzy" customClass="LSLBarcodeSearchViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="4id-Vt-Jzy" customClass="BarcodeSearchViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -344,7 +344,7 @@
         <!--Food Detail-->
         <scene sceneID="WhU-tq-Pfb">
             <objects>
-                <viewController id="U4e-Le-VaR" customClass="LSLFoodDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="U4e-Le-VaR" customClass="FoodDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hio-Jw-9GW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -760,10 +760,10 @@
             </objects>
             <point key="canvasLocation" x="11709" y="-869"/>
         </scene>
-        <!--Card Collection View Controller-->
+        <!--Dashboard Card Collection View Controller-->
         <scene sceneID="ZbV-g1-9WH">
             <objects>
-                <collectionViewController id="oNc-VA-CAf" customClass="LSLCardCollectionViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="oNc-VA-CAf" customClass="DashboardCardCollectionViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d2l-t7-mwT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="323"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -775,7 +775,7 @@
                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="16"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="sUa-yz-cpc" customClass="LSLCardCollectionViewCell" customModule="Nutrivurv" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="sUa-yz-cpc" customClass="DashboardCardCollectionViewCell" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="0.0" width="167" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dLY-7l-tPO">

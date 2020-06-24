@@ -1,5 +1,5 @@
 //
-//  LSLRegisterViewController.swift
+//  RegisterViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/10/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLRegisterViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
@@ -54,7 +54,7 @@ class LSLRegisterViewController: UIViewController {
             return
         }
         
-        let newUser = userREST(name: name, email: email, password: password)
+        let newUser = User(name: name, email: email, password: password)
         
         activityIndicator.startAnimating()
         registerButton.isEnabled = false
@@ -120,7 +120,7 @@ class LSLRegisterViewController: UIViewController {
 
 // MARK: - UITextField Delegate Methods
 
-extension LSLRegisterViewController: UITextFieldDelegate {
+extension RegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         switch textField {

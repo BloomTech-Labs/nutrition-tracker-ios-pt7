@@ -1,5 +1,5 @@
 //
-//  LSLCardCollectionViewCell.swift
+//  DashboardCardCollectionViewCell.swift
 //  Nutrivurv
 //
 //  Created by Michael Stoffer on 5/2/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLCardCollectionViewCell: UICollectionViewCell {
+class DashboardCardCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var screenLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!

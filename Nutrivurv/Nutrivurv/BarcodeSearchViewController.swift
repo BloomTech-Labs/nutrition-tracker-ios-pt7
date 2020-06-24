@@ -1,5 +1,5 @@
 //
-//  LSLBarcodeSearchViewController.swift
+//  BarcodeSearchViewController.swift
 //  Nutrivurv
 //
 //  Created by Dillon on 6/14/20.
@@ -9,7 +9,7 @@
 import AVFoundation
 import UIKit
 
-class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     // MARK: - IBOutlets and Properties
     
@@ -26,7 +26,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
     
     var barcodeSearchDelegate: BarcodeSearchDelegate?
     var manualSearchDelegate: ManualSearchRequiredDelegate?
-    var searchController: LSLSearchController?
+    var searchController: FoodSearchController?
     
     var permissionGranted: Bool = false
     
@@ -303,7 +303,7 @@ class LSLBarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDel
 // MARK: - AVCapture Metadata Output Object Delegate
 
 // Will inititiate a search by UPC automatically when barcode object is detected
-extension LSLBarcodeSearchViewController: AVCaptureMetadataOutputObjectsDelegate {
+extension BarcodeSearchViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         // Stop capture session to prevent multiple network calls prior to completion

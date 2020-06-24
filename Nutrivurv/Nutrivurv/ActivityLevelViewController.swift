@@ -1,5 +1,5 @@
 //
-//  LSLActivityLevelViewController.swift
+//  ActivityLevelViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 3/10/20.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LSLActivityLevelViewController: UIViewController {
+class ActivityLevelViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
     @IBOutlet var activeTableView: UITableView!
     
-    var nutritionController: LSLUserController?
+    var nutritionController: UserController?
     var createProfileDelegate: CreateProfileCompletionDelegate?
 
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class LSLActivityLevelViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     @IBAction func ToDietaryPreference(_ sender: Any) {
-        guard LSLUserController.activityLevel != nil else {
+        guard UserController.activityLevel != nil else {
             makeSelectionAlert()
             return
         }
@@ -39,7 +39,7 @@ class LSLActivityLevelViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToDietPreference" {
-            guard let dpVC = segue.destination as? LSLDietaryPreferenceViewController else { return }
+            guard let dpVC = segue.destination as? DietaryPreferenceViewController else { return }
             dpVC.nutritionController = self.nutritionController
             dpVC.createProfileDelegate = self.createProfileDelegate
         }
@@ -57,19 +57,19 @@ class LSLActivityLevelViewController: UIViewController {
 
 // MARK: - TableView Data Source Methods
 
-extension LSLActivityLevelViewController: UITableViewDataSource {
+extension ActivityLevelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.nutritionController!.activityLevels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveCell", for: indexPath) as? LSLActiveTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveCell", for: indexPath) as? ActivityLevelTableViewCell else { return UITableViewCell() }
                
         let activityLevel = self.nutritionController?.activityLevels[indexPath.row]
         cell.activityLevel = activityLevel
         cell.delegate = self
         
-        if LSLUserController.activityLevel == indexPath.row {
+        if UserController.activityLevel == indexPath.row {
             cell.activeRadioButton.isSelected = true
         }
         
@@ -79,8 +79,8 @@ extension LSLActivityLevelViewController: UITableViewDataSource {
 
 // MARK: - Custom Delegate Methods for Updated Activity Level Selection
 
-extension LSLActivityLevelViewController: LSLActiveTableViewCellDelegate {
-    func tappedRadioButton(on cell: LSLActiveTableViewCell) {
+extension ActivityLevelViewController: ActivityLevelCellDelegate {
+    func tappedRadioButton(on cell: ActivityLevelTableViewCell) {
         guard let indexPath = self.activeTableView.indexPath(for: cell) else { return }
 
         for i in 0 ..< self.nutritionController!.activityLevels.count {

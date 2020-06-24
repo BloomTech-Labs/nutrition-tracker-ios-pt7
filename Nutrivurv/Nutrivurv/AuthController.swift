@@ -2,7 +2,7 @@
 //  AuthController.swift
 //  Nutrivurv
 //
-//  Created by Dillon on 6/23/20.
+//  Created by Dillon P on 6/23/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ class AuthController {
     
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/auth")!
     
-    func loginUser(user: userREST, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func loginUser(user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let loginURL = baseURL.appendingPathComponent("login")
         var request = URLRequest(url: loginURL)
         
@@ -85,7 +85,7 @@ class AuthController {
         }.resume()
     }
     
-    func registerUser(user: userREST, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func registerUser(user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let registerURL = baseURL.appendingPathComponent("register")
         var request = URLRequest(url: registerURL)
         

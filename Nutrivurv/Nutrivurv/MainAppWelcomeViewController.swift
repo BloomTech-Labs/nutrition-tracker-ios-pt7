@@ -1,5 +1,5 @@
 //
-//  LSLMainViewController.swift
+//  MainAppWelcomeViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/17/20.
@@ -9,7 +9,7 @@
 import UIKit
 import KeychainSwift
 
-class LSLMainViewController: UIViewController {
+class MainAppWelcomeViewController: UIViewController {
 
     @IBOutlet var signInButton: CustomButton!
     @IBOutlet var signUpButton: CustomButton!

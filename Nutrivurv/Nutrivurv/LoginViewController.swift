@@ -1,5 +1,5 @@
 //
-//  LSLLoginViewController.swift
+//  LoginViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/11/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLLoginViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
@@ -42,7 +42,7 @@ class LSLLoginViewController: UIViewController {
             return
         }
         
-        let user = userREST(email: email, password: password)
+        let user = User(email: email, password: password)
         
         activityIndicator.startAnimating()
         submitButton.isEnabled = false
@@ -101,7 +101,7 @@ class LSLLoginViewController: UIViewController {
 
 // MARK: - UITextField Delegate Methods
 
-extension LSLLoginViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case emailTextField:

@@ -1,5 +1,5 @@
 //
-//  LSLCardCollectionViewController.swift
+//  DashboardCardCollectionViewController.swift
 //  Nutrivurv
 //
 //  Created by Michael Stoffer on 5/2/20.
@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "CardCell"
 
-class LSLCardCollectionViewController: UICollectionViewController {
+class DashboardCardCollectionViewController: UICollectionViewController {
     
     var screens = [["screen": "Food Journal", "info": "2 items logged"], ["screen": "Progress", "info": "Update your weight"], ["screen": "Challenges", "info": "Win and earn badges"], ["screen": "Community", "info": "Share your story"]]
 

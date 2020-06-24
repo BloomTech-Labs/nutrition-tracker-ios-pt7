@@ -18,7 +18,7 @@
         <!--NUTRIVURV-->
         <scene sceneID="URv-Qa-Okb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="LSLMainViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="pph-zf-Upw" customClass="MainAppWelcomeViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZdC-8b-FfQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,10 +67,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with friends, earn badges and crush your goals." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-dr-800">
-                                <rect key="frame" x="75" y="433" width="225" height="37.333333333333314"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="225" id="27Q-xP-kgM"/>
-                                </constraints>
+                                <rect key="frame" x="60" y="433" width="255" height="37.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,12 +77,13 @@
                         <constraints>
                             <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="rMW-A0-06q" secondAttribute="trailing" constant="16" id="1kg-0l-1nH"/>
                             <constraint firstItem="KOb-lf-FI8" firstAttribute="top" secondItem="O7b-dr-800" secondAttribute="bottom" constant="45" id="1u7-pC-57f"/>
-                            <constraint firstItem="O7b-dr-800" firstAttribute="centerX" secondItem="ZdC-8b-FfQ" secondAttribute="centerX" id="4dr-ys-Jzd"/>
                             <constraint firstItem="KOb-lf-FI8" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="CBp-hO-vgh"/>
                             <constraint firstItem="jRg-Tc-crl" firstAttribute="top" secondItem="rMW-A0-06q" secondAttribute="bottom" constant="24" id="Enb-8p-Q0S"/>
                             <constraint firstItem="O7b-dr-800" firstAttribute="top" secondItem="jRg-Tc-crl" secondAttribute="bottom" constant="28" id="KWw-4O-neP"/>
+                            <constraint firstItem="2Ta-2h-Azf" firstAttribute="leading" secondItem="O7b-dr-800" secondAttribute="leading" constant="-60" id="MVI-GN-ov2"/>
                             <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="jRg-Tc-crl" secondAttribute="trailing" constant="16" id="OPP-Bb-NBW"/>
                             <constraint firstItem="rMW-A0-06q" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="i1o-MJ-24J"/>
+                            <constraint firstItem="O7b-dr-800" firstAttribute="trailing" secondItem="2Ta-2h-Azf" secondAttribute="trailing" constant="-60" id="iJF-To-buc"/>
                             <constraint firstItem="2Ta-2h-Azf" firstAttribute="trailing" secondItem="KOb-lf-FI8" secondAttribute="trailing" constant="16" id="iV8-ua-yyu"/>
                             <constraint firstItem="rMW-A0-06q" firstAttribute="top" secondItem="2Ta-2h-Azf" secondAttribute="top" constant="20" id="lxu-Vj-X3E"/>
                             <constraint firstItem="jRg-Tc-crl" firstAttribute="leading" secondItem="2Ta-2h-Azf" secondAttribute="leading" constant="16" id="s3x-Ld-ymw"/>

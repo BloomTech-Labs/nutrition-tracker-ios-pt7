@@ -1,5 +1,5 @@
 //
-//  LSLDashboardViewController.swift
+//  DashboardViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/23/20.
@@ -9,15 +9,14 @@
 import UIKit
 import KeychainSwift
 
-class LSLDashboardViewController: UIViewController {
+class DashboardViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
     @IBOutlet var streakCountLabel: UILabel!
     @IBOutlet var currentWeightLabel: UILabel!
     
-    var dashboardController = LSLDashboardController()
-    var userController = LSLUserController()
+    var userController = UserController()
     
     // MARK: - View Lifecycle Methods and Update Views
     
@@ -52,7 +51,7 @@ class LSLDashboardViewController: UIViewController {
 
 // MARK: - Profile Completion Protocol Declaration & Delegate Conformance
 
-extension LSLDashboardViewController: CreateProfileCompletionDelegate {
+extension DashboardViewController: CreateProfileCompletionDelegate {
     func profileWasCreated() {
 //        self.loadProfile()
     }

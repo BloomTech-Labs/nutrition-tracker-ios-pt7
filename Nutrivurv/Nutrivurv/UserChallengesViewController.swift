@@ -1,5 +1,5 @@
 //
-//  LSLChallengesViewController.swift
+//  UserChallengesViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 4/13/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLChallengesViewController: UIViewController {
+class UserChallengesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
