@@ -54,7 +54,7 @@
 		D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2224076FF000477429 /* Muli-ExtraLight.ttf */; };
 		D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6A1CC2324076FF000477429 /* Muli-Regular.ttf */; };
 		D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC2C24077D8700477429 /* GettingPersonalViewController.swift */; };
-		D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */; };
+		D6A1CC33240B38E800477429 /* CalculateBMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC32240B38E800477429 /* CalculateBMIViewController.swift */; };
 		D6A1CC3D240B601700477429 /* ProfileCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1CC3C240B601700477429 /* ProfileCreationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +107,7 @@
 		D6A1CC2224076FF000477429 /* Muli-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-ExtraLight.ttf"; sourceTree = "<group>"; };
 		D6A1CC2324076FF000477429 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
 		D6A1CC2C24077D8700477429 /* GettingPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingPersonalViewController.swift; sourceTree = "<group>"; };
-		D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSLCalculateBMIViewController.swift; sourceTree = "<group>"; };
+		D6A1CC32240B38E800477429 /* CalculateBMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateBMIViewController.swift; sourceTree = "<group>"; };
 		D6A1CC3C240B601700477429 /* ProfileCreationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,7 +145,7 @@
 		51A186F424A32FD100196C83 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6A1CC32240B38E800477429 /* LSLCalculateBMIViewController.swift */,
+				D6A1CC32240B38E800477429 /* CalculateBMIViewController.swift */,
 				D631B2702415BB0900AE30C9 /* StandardBMIViewController.swift */,
 				D631B2722415BB1500AE30C9 /* MetricBMIViewController.swift */,
 				D6A1CC2C24077D8700477429 /* GettingPersonalViewController.swift */,
@@ -458,7 +458,7 @@
 				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,
 				4C0543DF245DB22400CD99EE /* DashboardCardCollectionViewCell.swift in Sources */,
 				D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */,
-				D6A1CC33240B38E800477429 /* LSLCalculateBMIViewController.swift in Sources */,
+				D6A1CC33240B38E800477429 /* CalculateBMIViewController.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
 				D631B2712415BB0900AE30C9 /* StandardBMIViewController.swift in Sources */,
 				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,

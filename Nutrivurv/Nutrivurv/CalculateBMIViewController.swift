@@ -1,5 +1,5 @@
 //
-//  LSLCalculateBMIViewController.swift
+//  CalculateBMIViewController.swift
 //  Nutrition Tracker
 //
 //  Created by Michael Stoffer on 2/29/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LSLCalculateBMIViewController: UIViewController {
+class CalculateBMIViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
