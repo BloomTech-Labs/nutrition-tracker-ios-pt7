@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct userREST {
+struct userREST: Codable {
     let name: String?
     let email: String
     let password: String
