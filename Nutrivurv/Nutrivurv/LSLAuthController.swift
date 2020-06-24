@@ -13,7 +13,7 @@ class AuthController {
     static let shared = AuthController()
     
     static let authKeychainToken = "authorizationToken"
-    let keychain = KeychainSwift()
+    static let keychain = KeychainSwift()
     
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/auth")!
     
@@ -60,7 +60,7 @@ class AuthController {
             do {
                 let authResponse = try decoder.decode(AuthResponse.self, from: data)
                 if let token = authResponse.token {
-                    self.keychain.set(token, forKey: AuthController.authKeychainToken)
+                    AuthController.keychain.set(token, forKey: AuthController.authKeychainToken)
                 } else {
                     print("Error saving token in keychain")
                 }
@@ -75,6 +75,10 @@ class AuthController {
             completion(.success(true))
             
         }.resume()
+    }
+    
+    static func isLoggedIn() -> Bool {
+        return keychain.get(authKeychainToken) != nil
     }
     
 }

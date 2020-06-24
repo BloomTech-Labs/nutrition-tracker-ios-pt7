@@ -25,8 +25,8 @@ class LSLDashboardViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
-        if Network.isLoggedIn() {
-            self.checkForProfile()
+        if AuthController.isLoggedIn() {
+            self.title = "Welcome!"
             self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
         } else {
             self.logoutButtonTapped(self)
@@ -51,53 +51,53 @@ class LSLDashboardViewController: UIViewController {
     
     // MARK: - Profile Laod and Update
     
-    private func checkForProfile() {
-        dashboardController.checkForProfile { (hasProfile) in
-            if hasProfile {
-                DispatchQueue.main.async {
-                    self.loadProfile()
-                }
-            } else {
-                let destination = UIStoryboard(name: "Profile", bundle: .main)
-                guard let profileCreationVC = destination.instantiateInitialViewController() as? LSLCalculateBMIViewController else {
-                    print("Unable to instantiate profile creation view controller")
-                    return
-                }
-                profileCreationVC.createProfileDelegate = self
-                profileCreationVC.nutritionController = self.userController
-                self.navigationController?.pushViewController(profileCreationVC, animated: true)
-            }
-        }
-    }
+//    private func checkForProfile() {
+//        dashboardController.checkForProfile { (hasProfile) in
+//            if hasProfile {
+//                DispatchQueue.main.async {
+//                    self.loadProfile()
+//                }
+//            } else {
+//                let destination = UIStoryboard(name: "Profile", bundle: .main)
+//                guard let profileCreationVC = destination.instantiateInitialViewController() as? LSLCalculateBMIViewController else {
+//                    print("Unable to instantiate profile creation view controller")
+//                    return
+//                }
+//                profileCreationVC.createProfileDelegate = self
+//                profileCreationVC.nutritionController = self.userController
+//                self.navigationController?.pushViewController(profileCreationVC, animated: true)
+//            }
+//        }
+//    }
     
-    private func loadProfile() {
-        self.dashboardController.getMyName { (result) in
-            if let name = try? result.get() {
-                self.navigationItem.title = name
-            } else {
-                print("Couldn't get name: \(result)")
-            }
-        }
-        
-        self.dashboardController.getMyWeight { (result) in
-            if let weight = try? result.get() {
-                self.currentWeightLabel.text = String(weight)
-            } else {
-                if let weight = LSLUserController.weight {
-                    self.currentWeightLabel.text = String(weight)
-                } else {
-                    print("Unable to load weight for user")
-                }
-            }
-        }
-    }
+//    private func loadProfile() {
+//        self.dashboardController.getMyName { (result) in
+//            if let name = try? result.get() {
+//                self.navigationItem.title = name
+//            } else {
+//                print("Couldn't get name: \(result)")
+//            }
+//        }
+//
+//        self.dashboardController.getMyWeight { (result) in
+//            if let weight = try? result.get() {
+//                self.currentWeightLabel.text = String(weight)
+//            } else {
+//                if let weight = LSLUserController.weight {
+//                    self.currentWeightLabel.text = String(weight)
+//                } else {
+//                    print("Unable to load weight for user")
+//                }
+//            }
+//        }
+//    }
 }
 
 // MARK: - Profile Completion Protocol Declaration & Delegate Conformance
 
 extension LSLDashboardViewController: CreateProfileCompletionDelegate {
     func profileWasCreated() {
-        self.loadProfile()
+//        self.loadProfile()
     }
 }
 

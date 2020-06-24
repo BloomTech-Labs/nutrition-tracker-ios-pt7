@@ -53,11 +53,16 @@ class LSLRegisterViewController: UIViewController {
             passwordsDontMatchAlert()
             return
         }
+        
+        let newUser = userREST(name: name, email: email, password: password)
+        
         activityIndicator.startAnimating()
         registerButton.isEnabled = false
         registerButton.layer.opacity = 0.45
         
-        Network.shared.createUser(name: name, email: email, password: password) { (result) in
+        AuthController.shared.registerUser(user: newUser) { (result) in
+            
+            // TODO: update this switch statement once status response codes are implemented on backend
             
             switch result {
             case .success(true):
