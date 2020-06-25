@@ -357,6 +357,7 @@ extension UILabel {
     func styleForPickerView(title: String, font: UIFont) {
         self.text = title
         self.font = font
+        self.textColor = UIColor(named: "nutrivurv-blue")
         self.textAlignment = .center
     }
 }

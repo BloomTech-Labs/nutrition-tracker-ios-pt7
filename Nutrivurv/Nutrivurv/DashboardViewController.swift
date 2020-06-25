@@ -25,6 +25,9 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let dashboardNavBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-ExtraBold", size: 18)!]
+        self.navigationController?.navigationBar.titleTextAttributes = dashboardNavBarAttrs
+        
         self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
         if UserAuthController.isLoggedIn() {
