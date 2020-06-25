@@ -25,10 +25,12 @@ class FoodSearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         foodSearchBar.delegate = self
+        foodSearchBar.searchTextField.font = UIFont(name: "Muli-Medium", size: 14)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
         foodSearchBar.searchTextField.text = foodSearchKeyword
         tableView.reloadData()
     }

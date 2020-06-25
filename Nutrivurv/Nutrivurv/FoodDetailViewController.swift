@@ -35,6 +35,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var potassiumMeasureLabel: UILabel!
     @IBOutlet weak var potassiumPercentageLabel: UILabel!
     
+    @IBOutlet weak var addFoodButton: UIButton!
     
     // MARK: - Properties & Model Controllers
     
@@ -91,6 +92,14 @@ class FoodDetailViewController: UIViewController {
         self.mealTypePickerView.dataSource = self
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        
+        self.qtyTextField.font = UIFont(name: "Muli-Semibold", size: 16)
+        self.addFoodButton.layer.cornerRadius = 6.0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     
@@ -274,6 +283,23 @@ extension FoodDetailViewController: UIPickerViewDelegate {
             self.selectedServingSize = sizeIndex
         }
     }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let font = UIFont(name: "Muli-SemiBold", size: 18)!
+        
+        switch pickerView {
+        case servingSizePickerView:
+            let title = self.servingSizes[row]
+            let label = UILabel()
+            label.styleForPickerView(title: title, font: font)
+            return label
+        default:
+            let title = self.mealTypes[row]
+            let label = UILabel()
+            label.styleForPickerView(title: title, font: font)
+            return label
+        }
+    }
 }
 
 extension FoodDetailViewController: UIPickerViewDataSource {
@@ -289,17 +315,6 @@ extension FoodDetailViewController: UIPickerViewDataSource {
             return self.mealTypes.count
         default:
             return 0
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView {
-        case servingSizePickerView:
-            return self.servingSizes[row]
-        case mealTypePickerView:
-            return self.mealTypes[row]
-        default:
-            return nil
         }
     }
 }
@@ -332,5 +347,16 @@ extension FoodDetailViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0.0
         textField.layer.shadowOpacity = 0
+    }
+}
+
+
+// MARK: - UILabel Extension For Styling UIPickerView
+
+extension UILabel {
+    func styleForPickerView(title: String, font: UIFont) {
+        self.text = title
+        self.font = font
+        self.textAlignment = .center
     }
 }
