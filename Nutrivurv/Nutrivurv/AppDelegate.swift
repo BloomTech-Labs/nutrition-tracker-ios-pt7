@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = navBarAttrs
         UIBarButtonItem.appearance().setTitleTextAttributes(navBarBtnAttrs, for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttrs, for: .normal)
-        UILabel.appearance(whenContainedInInstancesOf: [UITextField.self, UISearchBar.self]).font = UIFont(name: "Muli-Semibold", size: 14)!
-        
+        UILabel.appearance(whenContainedInInstancesOf: [UITextField.self, UISearchBar.self]).font = UIFont(name: "Muli-Semibold", size: 16)!
         
         return true
     }

@@ -28,7 +28,6 @@ class DashboardViewController: UIViewController {
         self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
         if UserAuthController.isLoggedIn() {
-            self.title = "Welcome!"
             self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
             QuoteController.shared.getRandomQuote { (result) in
                 switch result {
@@ -45,6 +44,7 @@ class DashboardViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
     
