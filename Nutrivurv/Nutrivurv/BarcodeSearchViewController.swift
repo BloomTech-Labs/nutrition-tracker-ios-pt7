@@ -257,6 +257,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         cameraPreviewLayer?.videoGravity = .resizeAspectFill
         cameraPreviewLayer?.connection?.videoOrientation = .portrait
         cameraPreviewLayer?.frame = view.layer.bounds
+        cameraPreviewLayer?.backgroundColor = UIColor(named: "bg-color")?.cgColor
         
         guard let previewLayer = cameraPreviewLayer else {
             createAndDisplayAlertController(title: "Camera error", message: "A preview couldn't be genrated for your device's camera")
