@@ -160,6 +160,18 @@ extension FoodSearchTableViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         foodSearchBar.showsCancelButton = true
+        searchBar.searchTextField.layer.borderWidth = 2.0
+        searchBar.searchTextField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
+        searchBar.searchTextField.layer.cornerRadius = 10
+        searchBar.searchTextField.layer.shadowColor = UIColor(red: 0, green: 0.455, blue: 0.722, alpha: 0.5).cgColor
+        searchBar.searchTextField.layer.shadowOpacity = 1
+        searchBar.searchTextField.layer.shadowRadius = 4
+        searchBar.searchTextField.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.searchTextField.layer.borderWidth = 0
+        searchBar.searchTextField.layer.shadowOpacity = 0
     }
 }
 

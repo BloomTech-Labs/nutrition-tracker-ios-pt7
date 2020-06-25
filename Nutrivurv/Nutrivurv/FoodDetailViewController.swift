@@ -330,9 +330,7 @@ extension FoodDetailViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
-        textField.layer.cornerRadius = 4
+        textField.layer.borderWidth = 0.0
         textField.layer.shadowOpacity = 0
     }
 }
