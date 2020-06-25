@@ -12,6 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let navBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-Bold", size: 16)!]
+        let navBarBtnAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-Bold", size: 14)!]
+        let tabBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-SemiBold", size: 10)!]
+        
+        UINavigationBar.appearance().titleTextAttributes = navBarAttrs
+        UIBarButtonItem.appearance().setTitleTextAttributes(navBarBtnAttrs, for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(tabBarAttrs, for: .normal)
+        UILabel.appearance(whenContainedInInstancesOf: [UITextField.self, UISearchBar.self]).font = UIFont(name: "Muli-Semibold", size: 14)!
+        
+        
         return true
     }
 
