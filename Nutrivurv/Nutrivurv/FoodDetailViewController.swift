@@ -216,7 +216,7 @@ class FoodDetailViewController: UIViewController {
     
     @objc func qtyTypeInvalid() {
         qtyTypeTimer.invalidate()
-        createAndDisplayAlertController(title: "Please enter a valid number", message: "You must enter the quantity as a number (not text) in order to get food details.")
+        createAndDisplayAlertController(title: "Please enter a valid number", message: "You must enter the quantity as a number in order to get food details.")
     }
     
     // MARK: - Get Food Details
