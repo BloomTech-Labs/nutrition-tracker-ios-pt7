@@ -84,7 +84,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     private func setupLoadingBlurEffect() {
         view.backgroundColor = .clear
         
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
         loadingBlurView = UIVisualEffectView(effect: blurEffect)
         loadingBlurView.frame = self.view.bounds
         loadingBlurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
