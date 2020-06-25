@@ -50,6 +50,13 @@ class UserAuthController {
                         completion(.failure(.badAuth))
                     }
                     return
+                    
+                } else if response.statusCode == 500 {
+                    // Internal server error
+                    DispatchQueue.main.async {
+                        completion(.failure(.serverError))
+                    }
+                    return
                 }
             }
             
@@ -116,6 +123,13 @@ class UserAuthController {
                     // User already has an account for this email address
                     DispatchQueue.main.async {
                         completion(.failure(.badAuth))
+                    }
+                    return
+                    
+                } else if response.statusCode == 500 {
+                    // Internal server error
+                    DispatchQueue.main.async {
+                        completion(.failure(.serverError))
                     }
                     return
                 }

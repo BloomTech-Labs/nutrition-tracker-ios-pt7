@@ -56,6 +56,8 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
             case .failure(.badAuth):
                 self.incorrectCredentialsAlert()
+            case .failure(.serverError):
+                self.serverErrorAlert()
             default:
                 self.generalLoginError()
             }
@@ -73,7 +75,7 @@ class LoginViewController: UIViewController {
     }
     
     private func incorrectCredentialsAlert() {
-        createAndDisplayAlertController(title: "Login Error", message: "Incorrect email or password. Please try again.")
+        createAndDisplayAlertController(title: "Invalid Credentials", message: "Your email or password is incorrect. Please try again.")
     }
     
     private func generalLoginError() {
@@ -82,6 +84,10 @@ class LoginViewController: UIViewController {
     
     private func invalidEmailAlert() {
         createAndDisplayAlertController(title: "Invalid Email", message: "Please double check that you have accurately input your email.")
+    }
+    
+    private func serverErrorAlert() {
+        createAndDisplayAlertController(title: "Unable to Login", message: "We ran into an issue logging you in. It looks like the problem is on our end, please try again in a few minutes.")
     }
     
     private func createAndDisplayAlertController(title: String, message: String) {

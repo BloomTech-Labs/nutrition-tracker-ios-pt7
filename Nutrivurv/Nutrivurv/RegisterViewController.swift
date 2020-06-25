@@ -69,6 +69,8 @@ class RegisterViewController: UIViewController {
                 self.performSegue(withIdentifier: "ToDashboard", sender: self)
             case .failure(.badAuth):
                 self.accountAlreadyExistsAlert()
+            case .failure(.serverError):
+                self.serverErrorAlert()
             default:
                 self.generalRegistrationError()
             }
@@ -94,11 +96,15 @@ class RegisterViewController: UIViewController {
     }
     
     private func accountAlreadyExistsAlert() {
-        createAndDisplayAlertController(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please log in to your dashboard.")
+        createAndDisplayAlertController(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please login to your dashboard.")
     }
     
     private func invalidEmailAlert() {
         createAndDisplayAlertController(title: "Invalid Email", message: "Please double check that you have accurately input your email.")
+    }
+    
+    private func serverErrorAlert() {
+        createAndDisplayAlertController(title: "Unable to Register", message: "We ran into an issue creating an account for you. It looks like the problem is on our end, please try again in a few minutes.")
     }
     
     private func createAndDisplayAlertController(title: String, message: String) {

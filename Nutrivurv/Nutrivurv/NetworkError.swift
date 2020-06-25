@@ -15,4 +15,5 @@ enum NetworkError: Error {
     case badData
     case noEncode
     case noDecode
+    case serverError
 }
