@@ -340,26 +340,12 @@
                     <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="f2O-rc-GuA">
-                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
-                                <color key="tintColor" name="nutrivurv-blue"/>
-                                <color key="color" name="nutrivurv-blue"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <color key="backgroundColor" white="0.89932623526004896" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="f2O-rc-GuA" firstAttribute="centerY" secondItem="9Dl-jI-6BU" secondAttribute="centerY" id="aIo-TC-kmx"/>
-                            <constraint firstItem="f2O-rc-GuA" firstAttribute="centerX" secondItem="9Dl-jI-6BU" secondAttribute="centerX" id="vZY-Sw-JMQ"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M5B-qD-aKc"/>
                     </view>
                     <navigationItem key="navigationItem" id="nEi-mr-BhV"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="activityIndicator" destination="f2O-rc-GuA" id="f5k-36-n5t"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Inq-xy-14D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -789,7 +775,7 @@
             <objects>
                 <collectionViewController id="oNc-VA-CAf" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d2l-t7-mwT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="301"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="304"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZ4-TG-hpI">

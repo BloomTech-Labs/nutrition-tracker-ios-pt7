@@ -11,9 +11,7 @@ import UIKit
 
 class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
-    // MARK: - IBOutlets and Properties
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    // MARK: - Properties
     
     var backCamera: AVCaptureDevice?
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -23,6 +21,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     var shutterButton: UIButton!
     var notAuthorizedAlertContainerView: UIView!
     var barcodeScannerFrameView: UIView!
+    var loadingBlurView: UIView!
+    var activityIndicator: UIActivityIndicatorView!
     
     var barcodeSearchDelegate: BarcodeSearchDelegate?
     var manualSearchDelegate: ManualSearchRequiredDelegate?
@@ -36,10 +36,9 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpActivityView()
         checkPermissions()
         setUpCameraLiveView()
-        addBarcodeScannerFrameView()
+        setupLoadingBlurEffect()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,27 +81,50 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     
     // MARK: - Views & UI Setup
     
+    private func setupLoadingBlurEffect() {
+        view.backgroundColor = .clear
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        loadingBlurView = UIVisualEffectView(effect: blurEffect)
+        loadingBlurView.frame = self.view.bounds
+        loadingBlurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        loadingBlurView.isHidden = true
+        self.view.addSubview(loadingBlurView)
+        
+        setUpActivityView()
+        addBarcodeScannerFrameView()
+    }
+    
     private func setUpActivityView() {
+        activityIndicator = UIActivityIndicatorView()
+        activityIndicator.color = UIColor(named: "nutrivurv-blue")
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
-        activityIndicator.layer.cornerRadius = 4
-    }
-    
-    private func startLoadingView() {
-        self.activityIndicator.startAnimating()
-        view.bringSubviewToFront(activityIndicator)
-    }
-    
-    private func stopLoadingView() {
-        self.activityIndicator.stopAnimating()
+        activityIndicator.center = loadingBlurView.center
+        self.view.addSubview(activityIndicator)
+        self.view.bringSubviewToFront(activityIndicator)
     }
     
     private func addBarcodeScannerFrameView() {
         barcodeScannerFrameView = UIView()
         barcodeScannerFrameView.layer.borderColor = UIColor(named: "nutrivurv-blue")?.cgColor
         barcodeScannerFrameView.layer.borderWidth = 2
-        view.addSubview(barcodeScannerFrameView)
-        view.bringSubviewToFront(barcodeScannerFrameView)
+        self.view.addSubview(barcodeScannerFrameView)
+        self.view.bringSubviewToFront(barcodeScannerFrameView)
+    }
+    
+    private func showLoadingSubviews() {
+        self.loadingBlurView.isHidden = false
+        self.activityIndicator.startAnimating()
+    }
+    
+    private func hideLoadingIndicators() {
+        // Update UI by removing blur view, stop activity indicator, hide scanner frame view
+        self.barcodeScannerFrameView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        self.activityIndicator.stopAnimating()
+    }
+    
+    private func hideLoadingBlurView() {
+        self.loadingBlurView.isHidden = true
     }
     
     private func displayNotAuthorizedAlert() {
@@ -133,12 +155,6 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         notAuthorizedAlertContainerView.addSubview(label)
         notAuthorizedAlertContainerView.addSubview(button)
         view.addSubview(notAuthorizedAlertContainerView)
-    }
-    
-    private func removeSubviews() {
-        // Update UI by removing scanner frame view and stop activity indicator
-        self.barcodeScannerFrameView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        self.stopLoadingView()
     }
     
     
@@ -275,6 +291,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     private func createAndDisplayAlertControllerAndStartCaptureSession(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+            self.loadingBlurView.isHidden = true
             self.captureSession.startRunning()
         }
         alertController.addAction(alertAction)
@@ -287,7 +304,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     // Uses the search controller object to initiate a search
     func searchForFoodByUPC(_ upc: String) {
         self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) { (error) in
-            self.removeSubviews()
+            self.hideLoadingIndicators()
             
             if error != nil {
                 self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
@@ -317,8 +334,8 @@ extension BarcodeSearchViewController: AVCaptureMetadataOutputObjectsDelegate {
         // Stop capture session to prevent multiple network calls prior to completion
         captureSession.stopRunning()
         
-        // Displays activity indicator to user while a search is in progress
-        startLoadingView()
+        // Displays blur view & activity indicator while a search is in progress
+        showLoadingSubviews()
         
         if let metadataObject = metadataObjects.first {
             
