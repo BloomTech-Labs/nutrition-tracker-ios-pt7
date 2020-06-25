@@ -267,12 +267,13 @@
         <!--Search Food-->
         <scene sceneID="FgN-cI-bhq">
             <objects>
-                <tableViewController id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1si-0W-cfy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
+                        <viewLayoutGuide key="safeArea" id="aPz-hw-DpP"/>
                         <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" name="bg-color"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="U18-G3-P3n">
