@@ -220,7 +220,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNW-2j-u7j"/>
                     </view>
-                    <navigationItem key="navigationItem" title="NUTRIVURV" id="UtJ-Bb-uF5">
+                    <navigationItem key="navigationItem" id="UtJ-Bb-uF5">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="VSk-dh-8s0">
                             <color key="tintColor" name="nutrivurv-blue"/>
                             <connections>

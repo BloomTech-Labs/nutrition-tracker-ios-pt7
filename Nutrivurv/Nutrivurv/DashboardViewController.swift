@@ -25,6 +25,10 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let contentView = setUpNavBarImageView()
+        self.navigationItem.titleView = contentView
+        
         let dashboardNavBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-ExtraBold", size: 18)!]
         self.navigationController?.navigationBar.titleTextAttributes = dashboardNavBarAttrs
         
@@ -49,6 +53,26 @@ class DashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    // MARK: - Setup Subviews
+    
+    private func setUpNavBarImageView() -> UIView {
+        let logoImage = UIImage(named: "dashboard-nav-logo")
+        let logoImageView = UIImageView(image: logoImage)
+        var frame = logoImageView.frame
+        frame.size.width = 85
+        frame.size.height = 46
+        logoImageView.frame = frame
+        logoImageView.contentMode = .scaleAspectFit
+
+        let contentView = UIView()
+        contentView.addSubview(logoImageView)
+        
+        logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        
+        return contentView
     }
     
     // MARK: - IBActions
