@@ -864,7 +864,7 @@
         <scene sceneID="O7p-ql-xAJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rYl-n3-f5W" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="oV9-2g-prE">
+                    <tabBarItem key="tabBarItem" title="" image="tabbar-house" selectedImage="tabbar-house" id="oV9-2g-prE">
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -886,7 +886,7 @@
         <scene sceneID="Hzh-E0-s3S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ocA-CQ-44Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Search" selectedImage="Search-Selected" id="GJU-hc-xQk">
+                    <tabBarItem key="tabBarItem" title="" image="tabbar-plate" selectedImage="tabbar-plate" id="GJU-hc-xQk">
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -910,12 +910,10 @@
     <resources>
         <image name="Divider" width="1201" height="1"/>
         <image name="Donut" width="96" height="96"/>
-        <image name="Search" width="27" height="27"/>
-        <image name="Search-Selected" width="27" height="26"/>
         <image name="bar-chart" width="53" height="50"/>
         <image name="fire" width="40" height="52"/>
-        <image name="house" catalog="system" width="128" height="110"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="tabbar-house" width="128" height="128"/>
+        <image name="tabbar-plate" width="34.5" height="26.5"/>
         <namedColor name="bg-color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
