@@ -11,6 +11,7 @@ import Foundation
 struct Food: Decodable, Equatable {
     let foodId: String
     let label: String
+    let image: String?
     let category: String
 }
 
@@ -21,7 +22,6 @@ struct Measure: Decodable, Equatable {
 
 struct FoodItem: Decodable, Equatable {
     let food: Food
-    let image: String?
     let measures: [Measure]
 }
 

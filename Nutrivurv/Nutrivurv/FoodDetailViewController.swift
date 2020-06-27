@@ -54,7 +54,7 @@ class FoodDetailViewController: UIViewController {
     
     var foodItem: FoodItem? {
         didSet {
-            if let imageURL = foodItem?.image {
+            if let imageURL = foodItem?.food.image {
                 self.getFoodImage(urlString: imageURL)
             }
             self.getFoodDetails()
@@ -92,6 +92,7 @@ class FoodDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.foodImageView.layer.cornerRadius = 8.0
         
         guard let foodItem = foodItem else {
             print("Couldn't load item")

@@ -186,7 +186,37 @@ class FoodSearchController {
     
     func getFoodImage(urlString: String, completion: @escaping (Data?) -> Void) {
         guard let url = URL(string: urlString) else {
+            print("Error getting image url from string")
+            DispatchQueue.main.async {
+                completion(nil)
+            }
             return
         }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print("Error getting image data: \(error)")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
+            
+            guard let data = data else {
+                print("Error getting image data")
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+                return
+            }
+
+            DispatchQueue.main.async {
+                completion(data)
+            }
+            
+        }.resume()
     }
 }
