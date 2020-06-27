@@ -17,7 +17,7 @@ class FoodDetailViewController: UIViewController {
     
     @IBOutlet weak var healthLabelsStackView: UIStackView!
     @IBOutlet weak var healthCautionsStackView: UIStackView!
-    @IBOutlet weak var healthLabelsScrollView: UIScrollView!
+    @IBOutlet weak var containsWarningLabel: UILabel!
     
     
     @IBOutlet weak var foodImageView: UIImageView!
@@ -116,10 +116,8 @@ class FoodDetailViewController: UIViewController {
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
         
-        self.qtyTextField.font = UIFont(name: "Muli-Bold", size: 16)
+        self.qtyTextField.font = UIFont(name: "Muli-Bold", size: 14)
         self.addFoodButton.layer.cornerRadius = 6.0
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,7 +126,7 @@ class FoodDetailViewController: UIViewController {
     }
     
     
-    // MARK: - View Setup
+    // MARK: - Custom Views & View Setup
     
     private func updateViews() {
         guard isViewLoaded else { return }
@@ -212,11 +210,12 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func addHealthAndWarningLabels() {
+        // Ensures that label duplicates are not added each time the user changes quantity
         guard let nutrients = nutrients, healthLabelsStackView.subviews.count == 0, healthCautionsStackView.subviews.count == 0 else {
             return
         }
-        // Setup for health labels badges
         
+        // Setup for health labels badges
         for item in nutrients.healthLabels {
             let label = getGreenLabelFor(item)
             healthLabelsStackView.addArrangedSubview(label)
@@ -227,40 +226,47 @@ class FoodDetailViewController: UIViewController {
             let label = getRedLabelFor(item)
             healthCautionsStackView.addArrangedSubview(label)
         }
+        
+        if !healthCautionsStackView.subviews.isEmpty {
+            containsWarningLabel.isHidden = false
+        }
     }
     
     private func getGreenLabelFor(_ string: String) -> NutritionLabel {
-        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 320, height: 26))
         let title = string.replacingOccurrences(of: "_", with: " ")
-        label.text = title.capitalized + "   "
+        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        label.center = CGPoint(x: 160, y: 285)
+        label.text = title.capitalized
         label.textAlignment = .center
         label.backgroundColor = UIColor(named: "nutrivurv-green")
         label.layer.cornerRadius = 6
         label.sizeToFit()
         label.layer.masksToBounds = true
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Muli-SemiBold", size: 10)
+        label.font = UIFont(name: "Muli-SemiBold", size: 12)
         label.textColor = .white
         
         return label
     }
     
     private func getRedLabelFor(_ string: String) -> NutritionLabel {
-        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 280, height: 26))
         let title = string.replacingOccurrences(of: "_", with: " ")
+        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        label.center = CGPoint(x: 160, y: 285)
         label.text = title.capitalized
         label.textAlignment = .center
-        label.text = string.capitalized
-        label.backgroundColor = UIColor(named: "nutrivurv-red")
-        label.layer.cornerRadius = 8
+        label.backgroundColor = UIColor(named: "nutrivurv-yellow")
+        label.layer.cornerRadius = 6
         label.sizeToFit()
         label.layer.masksToBounds = true
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Muli-SemiBold", size: 10)
+        label.font = UIFont(name: "Muli-SemiBold", size: 12)
         label.textColor = .white
         
         return label
     }
+    
+    
     
     
     // MARK: - Helper Functions
