@@ -27,6 +27,7 @@
 		5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */; };
 		513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */; };
 		5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */; };
+		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
@@ -83,6 +84,7 @@
 		5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeSearchViewController.swift; sourceTree = "<group>"; };
 		5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTableViewController.swift; sourceTree = "<group>"; };
+		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
 		51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperFunctions.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -165,6 +167,14 @@
 				5139531C24A3D10E00CDF5F1 /* QuoteController.swift */,
 			);
 			name = "Daily Vibe Quote API";
+			sourceTree = "<group>";
+		};
+		5151E6D124A7FB3E0071A609 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5151E6D224A7FB550071A609 /* FoodLogController.swift */,
+			);
+			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		51A186F424A32FD100196C83 /* View Controllers */ = {
@@ -257,6 +267,7 @@
 		51A186FD24A331DC00196C83 /* Dashboard & In-App */ = {
 			isa = PBXGroup;
 			children = (
+				5151E6D124A7FB3E0071A609 /* Model Controllers */,
 				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
 				51A186FE24A331F400196C83 /* View Controllers */,
 			);
@@ -498,6 +509,7 @@
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				51257AEB24A2EE6600C744B7 /* User.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
+				5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */,
 				5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */,
