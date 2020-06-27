@@ -13,4 +13,5 @@ extension Notification.Name {
     static let calculateBMIMetric = Notification.Name(rawValue: "calculateBMIMetric")
     static let calculateBMIStandard = Notification.Name(rawValue: "calculateBMIStandard")
     static let bmiInputsNotNumbers = Notification.Name(rawValue: "bmiInputsNotNumbers")
+    static let newFoodItemLogged = Notification.Name(rawValue: "newFoodItemLogged")
 }

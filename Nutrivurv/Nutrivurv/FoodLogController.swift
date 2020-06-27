@@ -9,5 +9,22 @@
 import Foundation
 
 class FoodLogController {
+    static let shared = FoodLogController()
     
+    // Futrue release will incorporate table view sectioned by meal type, but for now just using a single section
+//    var foodLogDictionary: [String: [FoodItem]] = [:] {
+//        didSet {
+//            NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
+//            // TODO: log food to backend
+//        }
+//    }
+    
+    var foodLog: [FoodItem] = [] {
+        didSet {
+            NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
+            // TODO: log food to backend
+        }
+    }
+    
+    // Once the REST backend is updated to allow logging food, will need to handle this here as well
 }
