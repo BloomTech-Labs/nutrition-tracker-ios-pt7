@@ -31,14 +31,14 @@
             <objects>
                 <viewController restorationIdentifier="UserDashboard" storyboardIdentifier="UserDashboard" title="UserDashboard" id="vsF-rt-EXg" customClass="DashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DhR-nl-cyM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ow2-gT-BlG" userLabel="User Info Stack View">
-                                <rect key="frame" x="45" y="48" width="324.5" height="123"/>
+                                <rect key="frame" x="44.5" y="48" width="325.5" height="124.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
-                                        <rect key="frame" x="0.0" y="49" width="76.5" height="74"/>
+                                        <rect key="frame" x="0.0" y="50.5" width="76.5" height="74"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q" userLabel="Measurement Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="76.5" height="50"/>
@@ -50,7 +50,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="lbs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-tc-n0m">
-                                                        <rect key="frame" x="58" y="10" width="18.5" height="40"/>
+                                                        <rect key="frame" x="58" y="11" width="18.5" height="39"/>
                                                         <fontDescription key="fontDescription" name="Muli-LightItalic" family="Muli" pointSize="14"/>
                                                         <color key="textColor" name="light-label"/>
                                                         <nil key="highlightedColor"/>
@@ -86,7 +86,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
-                                        <rect key="frame" x="108.5" y="0.0" width="96" height="123"/>
+                                        <rect key="frame" x="108.5" y="0.0" width="96" height="124.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Donut" translatesAutoresizingMaskIntoConstraints="NO" id="see-z0-g6D">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
@@ -97,7 +97,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Intake" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-Ww-SR6">
-                                                <rect key="frame" x="0.0" y="104" width="96" height="19"/>
+                                                <rect key="frame" x="0.0" y="104" width="96" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
@@ -108,10 +108,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
-                                        <rect key="frame" x="236.5" y="49" width="88" height="74"/>
+                                        <rect key="frame" x="236.5" y="50.5" width="89" height="74"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy" userLabel="Number Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="89" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -120,7 +120,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMC-HY-f12">
-                                                        <rect key="frame" x="58" y="10" width="30" height="40"/>
+                                                        <rect key="frame" x="58" y="11" width="31" height="39"/>
                                                         <fontDescription key="fontDescription" name="Muli-LightItalic" family="Muli" pointSize="14"/>
                                                         <color key="textColor" name="light-label"/>
                                                         <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-ou-bPs" userLabel="Description Stack View">
-                                                <rect key="frame" x="0.0" y="56" width="88" height="18"/>
+                                                <rect key="frame" x="0.0" y="56" width="89" height="18"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="tIx-Zv-zVe">
                                                         <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
@@ -141,7 +141,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streak" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgw-Mg-koP">
-                                                        <rect key="frame" x="22" y="0.0" width="66" height="18"/>
+                                                        <rect key="frame" x="22" y="0.0" width="67" height="18"/>
                                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="14"/>
                                                         <color key="textColor" name="nutrivurv-blue"/>
                                                         <nil key="highlightedColor"/>
@@ -157,16 +157,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="16" y="246" width="382" height="97.5"/>
+                                <rect key="frame" x="16" y="247.5" width="382" height="99.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="20"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-WI-smU">
-                                        <rect key="frame" x="0.0" y="39.5" width="382" height="58"/>
+                                        <rect key="frame" x="0.0" y="41.5" width="382" height="58"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-hN-fSe">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
@@ -185,16 +185,16 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-s2-3S6">
-                                <rect key="frame" x="16" y="376" width="382" height="1"/>
+                                <rect key="frame" x="16" y="377.5" width="382" height="1"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="16" y="393" width="382" height="20"/>
+                                <rect key="frame" x="16" y="394.5" width="382" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="0.0" y="421" width="414" height="304"/>
+                                <rect key="frame" x="0.0" y="424" width="414" height="301"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -379,16 +379,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
-                                <rect key="frame" x="8" y="108" width="268" height="38.5"/>
+                                <rect key="frame" x="8" y="108" width="268" height="42"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
-                                        <rect key="frame" x="0.0" y="0.0" width="268" height="24.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="268" height="26.5"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="21"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRe-zE-eML">
-                                        <rect key="frame" x="0.0" y="24.5" width="268" height="14"/>
+                                        <rect key="frame" x="0.0" y="26.5" width="268" height="15.5"/>
                                         <fontDescription key="fontDescription" name="Muli-Italic_SemiBold-Italic" family="Muli" pointSize="12"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
@@ -396,20 +396,20 @@
                                 </subviews>
                             </stackView>
                             <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ">
-                                <rect key="frame" x="8" y="166.5" width="268" height="30"/>
+                                <rect key="frame" x="8" y="170" width="268" height="26"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="900" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="900" height="26"/>
                                         <color key="tintColor" name="nutrivurv-green"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="uxl-c6-Gxj"/>
+                                            <constraint firstAttribute="height" constant="26" id="uxl-c6-Gxj"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="56o-eu-WiW" firstAttribute="bottom" secondItem="zGG-mJ-6ny" secondAttribute="bottom" id="6C4-AK-sLJ"/>
                                     <constraint firstItem="56o-eu-WiW" firstAttribute="trailing" secondItem="zGG-mJ-6ny" secondAttribute="trailing" id="C1V-xc-Kvy"/>
-                                    <constraint firstAttribute="height" constant="30" id="j6M-jj-kxj"/>
+                                    <constraint firstAttribute="height" constant="26" id="j6M-jj-kxj"/>
                                     <constraint firstItem="56o-eu-WiW" firstAttribute="leading" secondItem="zGG-mJ-6ny" secondAttribute="leading" id="rFj-Cp-hrI"/>
                                     <constraint firstItem="56o-eu-WiW" firstAttribute="top" secondItem="zGG-mJ-6ny" secondAttribute="top" id="tCf-Nw-UbP"/>
                                 </constraints>
@@ -417,10 +417,10 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="usu-RS-26B"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
-                                <rect key="frame" x="8" y="208.5" width="268" height="30"/>
+                                <rect key="frame" x="8" y="208" width="268" height="26"/>
                                 <color key="tintColor" name="nutrivurv-red"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ZP3-KR-pCA"/>
+                                    <constraint firstAttribute="height" constant="26" id="ZP3-KR-pCA"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-basket" translatesAutoresizingMaskIntoConstraints="NO" id="f73-A3-Bna">
@@ -431,7 +431,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="905-xc-sQL">
-                                <rect key="frame" x="16" y="264.5" width="370" height="94"/>
+                                <rect key="frame" x="16" y="256" width="370" height="94"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-7t-Yqc">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="94"/>
@@ -505,28 +505,28 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
-                                <rect key="frame" x="16" y="382.5" width="382" height="21"/>
+                                <rect key="frame" x="16" y="374" width="382" height="23"/>
                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruV-gM-Tbw">
-                                <rect key="frame" x="16" y="411.5" width="382" height="14"/>
+                                <rect key="frame" x="16" y="405" width="382" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
-                                <rect key="frame" x="16" y="431.5" width="382" height="19"/>
+                                <rect key="frame" x="16" y="426.5" width="382" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
-                                        <rect key="frame" x="0.0" y="0.0" width="367.5" height="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="20.5"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-OS-l5Q">
-                                        <rect key="frame" x="375.5" y="0.0" width="6.5" height="19"/>
+                                        <rect key="frame" x="375" y="0.0" width="7" height="20.5"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -534,31 +534,31 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Daily Value *" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYu-gN-Juf">
-                                <rect key="frame" x="16" y="462.5" width="382" height="16.5"/>
+                                <rect key="frame" x="16" y="459" width="382" height="18"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV">
-                                <rect key="frame" x="16" y="487" width="382" height="262"/>
+                                <rect key="frame" x="16" y="485" width="382" height="277"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rew-a8-kk4">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUq-Aa-CEO">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLT-f7-aOx">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -566,22 +566,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="70B-oM-YpM">
-                                        <rect key="frame" x="0.0" y="27" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sodium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgb-y7-idZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofa-EQ-HXG">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doT-vD-xdX">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -589,22 +589,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-Jz-7XS">
-                                        <rect key="frame" x="0.0" y="54" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="57" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Carbohydrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-aK-I7A">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyi-Tm-VkD">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RN-2M-m5e">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -612,22 +612,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9D5-Hr-JKu">
-                                        <rect key="frame" x="0.0" y="81" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="85.5" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cholesterol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws6-SC-Ahd">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4V-ov-qpf">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXB-00-Pln">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -635,16 +635,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CTG-YY-A80">
-                                        <rect key="frame" x="0.0" y="108" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="114" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne4-qG-2Qy">
-                                                <rect key="frame" x="0.0" y="0.0" width="367.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="367" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6Z-2J-wRn">
-                                                <rect key="frame" x="375.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="375" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -652,16 +652,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z7n-YO-afv">
-                                        <rect key="frame" x="0.0" y="135" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="142.5" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXR-MS-qCN">
-                                                <rect key="frame" x="0.0" y="0.0" width="367.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="367" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeL-Na-8Se">
-                                                <rect key="frame" x="375.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="375" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -669,22 +669,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-D8-TmG">
-                                        <rect key="frame" x="0.0" y="162" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="171" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vitamin D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muJ-04-7LT">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dng-gm-clk">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSu-PJ-Cem">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -692,22 +692,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gaW-Lv-M4B">
-                                        <rect key="frame" x="0.0" y="189" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="199.5" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calcium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbE-Lp-mwb">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-3R-sKa">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ay-Gt-SgG">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -715,22 +715,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eMl-Zj-YJB">
-                                        <rect key="frame" x="0.0" y="216" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="228" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iron" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-zF-vuC">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAR-GE-90k">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fv-To-PnC">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -738,22 +738,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uJS-kU-Tos">
-                                        <rect key="frame" x="0.0" y="243" width="382" height="19"/>
+                                        <rect key="frame" x="0.0" y="256.5" width="382" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Potassium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-yF-bYL">
-                                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXd-l3-sdU">
-                                                <rect key="frame" x="340.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="342" y="0.0" width="7" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1Z-Rd-RKT">
-                                                <rect key="frame" x="355" y="0.0" width="27" height="19"/>
+                                                <rect key="frame" x="357" y="0.0" width="25" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -809,7 +809,7 @@
                             <constraint firstItem="f73-A3-Bna" firstAttribute="leading" secondItem="bPc-n4-yNw" secondAttribute="trailing" constant="22" id="opZ-yz-k0f"/>
                             <constraint firstItem="SI4-sp-zOg" firstAttribute="leading" secondItem="5Sv-Gc-KlZ" secondAttribute="leading" id="pXa-0K-0o8"/>
                             <constraint firstItem="905-xc-sQL" firstAttribute="leading" secondItem="n1A-tt-XQf" secondAttribute="leading" id="r74-04-e82"/>
-                            <constraint firstItem="905-xc-sQL" firstAttribute="top" secondItem="SI4-sp-zOg" secondAttribute="bottom" constant="26" id="urx-w2-X9w"/>
+                            <constraint firstItem="905-xc-sQL" firstAttribute="top" secondItem="SI4-sp-zOg" secondAttribute="bottom" constant="22" id="urx-w2-X9w"/>
                             <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="trailing" secondItem="bPc-n4-yNw" secondAttribute="trailing" id="vTD-gV-A7h"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="KYu-gN-Juf" secondAttribute="trailing" constant="16" id="wBf-g8-jeT"/>
                         </constraints>

@@ -230,7 +230,7 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func getGreenLabelFor(_ string: String) -> NutritionLabel {
-        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 320, height: 30))
+        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 320, height: 26))
         let title = string.replacingOccurrences(of: "_", with: " ")
         label.text = title.capitalized + "   "
         label.textAlignment = .center
@@ -246,7 +246,9 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func getRedLabelFor(_ string: String) -> NutritionLabel {
-        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 280, height: 28))
+        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 280, height: 26))
+        let title = string.replacingOccurrences(of: "_", with: " ")
+        label.text = title.capitalized
         label.textAlignment = .center
         label.text = string.capitalized
         label.backgroundColor = UIColor(named: "nutrivurv-red")
