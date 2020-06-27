@@ -378,96 +378,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="82p-n7-vAq">
-                                <rect key="frame" x="16" y="108" width="388" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
+                                <rect key="frame" x="8" y="108" width="268" height="38.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="He4-Pd-bCs">
-                                        <rect key="frame" x="0.0" y="0.0" width="182" height="120"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
-                                                <rect key="frame" x="0.0" y="0.0" width="182" height="54"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="35"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="22"/>
-                                                        <color key="textColor" name="light-label"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRe-zE-eML">
-                                                        <rect key="frame" x="0.0" y="35" width="182" height="19"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Italic_SemiBold-Italic" family="Muli" pointSize="12"/>
-                                                        <color key="textColor" name="light-label"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SFf-se-Zbc">
-                                                <rect key="frame" x="0.0" y="60" width="182" height="60"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
-                                                        <subviews>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfv-HO-z2Z">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="14"/>
-                                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                                                <color key="textColor" name="light-label"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmt-LX-zdx">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="14"/>
-                                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                                                <color key="textColor" name="light-label"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="tintColor" name="nutrivurv-green"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="SC4-kZ-2ai"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
-                                                        <rect key="frame" x="0.0" y="30" width="182" height="30"/>
-                                                        <subviews>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lp-5K-sZg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="14"/>
-                                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                                                <color key="textColor" name="light-label"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-tI-IkF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="14"/>
-                                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                                                <color key="textColor" name="light-label"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="tintColor" name="nutrivurv-red"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="6vL-j3-7MU"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-basket" translatesAutoresizingMaskIntoConstraints="NO" id="f73-A3-Bna">
-                                        <rect key="frame" x="268" y="0.0" width="120" height="120"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
+                                        <rect key="frame" x="0.0" y="0.0" width="268" height="24.5"/>
+                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="21"/>
+                                        <color key="textColor" name="light-label"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRe-zE-eML">
+                                        <rect key="frame" x="0.0" y="24.5" width="268" height="14"/>
+                                        <fontDescription key="fontDescription" name="Muli-Italic_SemiBold-Italic" family="Muli" pointSize="12"/>
+                                        <color key="textColor" name="light-label"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ">
+                                <rect key="frame" x="8" y="166.5" width="268" height="30"/>
+                                <subviews>
+                                    <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="900" height="30"/>
+                                        <color key="tintColor" name="nutrivurv-green"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="2yH-vl-ncA"/>
-                                            <constraint firstAttribute="width" secondItem="f73-A3-Bna" secondAttribute="height" multiplier="1:1" id="56h-2D-tQd"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="JaD-8y-PU4"/>
+                                            <constraint firstAttribute="height" constant="30" id="uxl-c6-Gxj"/>
                                         </constraints>
-                                    </imageView>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="f73-A3-Bna" firstAttribute="top" secondItem="He4-Pd-bCs" secondAttribute="top" id="J6v-Q2-7uq"/>
-                                    <constraint firstItem="He4-Pd-bCs" firstAttribute="bottom" secondItem="f73-A3-Bna" secondAttribute="bottom" id="Ty2-v8-UC5"/>
-                                    <constraint firstItem="He4-Pd-bCs" firstAttribute="top" secondItem="f73-A3-Bna" secondAttribute="top" id="lII-g9-rAN"/>
-                                    <constraint firstItem="f73-A3-Bna" firstAttribute="bottom" secondItem="He4-Pd-bCs" secondAttribute="bottom" id="wQd-4g-8mo"/>
+                                    <constraint firstItem="56o-eu-WiW" firstAttribute="bottom" secondItem="zGG-mJ-6ny" secondAttribute="bottom" id="6C4-AK-sLJ"/>
+                                    <constraint firstItem="56o-eu-WiW" firstAttribute="trailing" secondItem="zGG-mJ-6ny" secondAttribute="trailing" id="C1V-xc-Kvy"/>
+                                    <constraint firstAttribute="height" constant="30" id="j6M-jj-kxj"/>
+                                    <constraint firstItem="56o-eu-WiW" firstAttribute="leading" secondItem="zGG-mJ-6ny" secondAttribute="leading" id="rFj-Cp-hrI"/>
+                                    <constraint firstItem="56o-eu-WiW" firstAttribute="top" secondItem="zGG-mJ-6ny" secondAttribute="top" id="tCf-Nw-UbP"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="zGG-mJ-6ny"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="usu-RS-26B"/>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
+                                <rect key="frame" x="8" y="208.5" width="268" height="30"/>
+                                <color key="tintColor" name="nutrivurv-red"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZP3-KR-pCA"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-basket" translatesAutoresizingMaskIntoConstraints="NO" id="f73-A3-Bna">
+                                <rect key="frame" x="298" y="108" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2yH-vl-ncA"/>
+                                    <constraint firstAttribute="width" secondItem="f73-A3-Bna" secondAttribute="height" multiplier="1:1" id="56h-2D-tQd"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="905-xc-sQL">
-                                <rect key="frame" x="16" y="264" width="370" height="94"/>
+                                <rect key="frame" x="16" y="264.5" width="370" height="94"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-7t-Yqc">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="94"/>
@@ -541,19 +505,19 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
-                                <rect key="frame" x="16" y="376" width="382" height="21"/>
+                                <rect key="frame" x="16" y="382.5" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruV-gM-Tbw">
-                                <rect key="frame" x="16" y="405" width="382" height="14"/>
+                                <rect key="frame" x="16" y="411.5" width="382" height="14"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
-                                <rect key="frame" x="16" y="425" width="382" height="19"/>
+                                <rect key="frame" x="16" y="431.5" width="382" height="19"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
                                         <rect key="frame" x="0.0" y="0.0" width="367.5" height="19"/>
@@ -570,13 +534,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Daily Value *" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYu-gN-Juf">
-                                <rect key="frame" x="16" y="456" width="382" height="16.5"/>
+                                <rect key="frame" x="16" y="462.5" width="382" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV">
-                                <rect key="frame" x="16" y="480.5" width="382" height="262"/>
+                                <rect key="frame" x="16" y="487" width="382" height="262"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="19"/>
@@ -816,29 +780,37 @@
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
                         <constraints>
+                            <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="leading" secondItem="bPc-n4-yNw" secondAttribute="leading" id="0mv-Vw-6SH"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="bottom" secondItem="c8X-GH-pEz" secondAttribute="bottom" constant="12" id="4XJ-vR-KUS"/>
                             <constraint firstItem="n1A-tt-XQf" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="AGZ-Zz-qFV"/>
-                            <constraint firstItem="82p-n7-vAq" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="20" id="AKF-Hj-grl"/>
-                            <constraint firstItem="82p-n7-vAq" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="De4-Bs-Hc6"/>
+                            <constraint firstItem="f73-A3-Bna" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="20" id="Bmc-UM-32D"/>
+                            <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="top" secondItem="bPc-n4-yNw" secondAttribute="bottom" constant="20" id="GpX-yp-k0U"/>
                             <constraint firstItem="KYu-gN-Juf" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="HKE-43-tma"/>
+                            <constraint firstItem="SI4-sp-zOg" firstAttribute="top" secondItem="5Sv-Gc-KlZ" secondAttribute="bottom" constant="12" id="KWJ-2x-zqO"/>
                             <constraint firstItem="c8X-GH-pEz" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="MPR-fG-hNA"/>
-                            <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="82p-n7-vAq" secondAttribute="trailing" constant="10" id="PQf-Ur-6H6"/>
+                            <constraint firstItem="bPc-n4-yNw" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="8" id="NTM-j8-4yI"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="XRT-Sz-jNH" secondAttribute="trailing" constant="16" id="R0w-oO-vQ8"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="Icx-af-gHV" secondAttribute="trailing" constant="16" id="RKa-IX-1XR"/>
                             <constraint firstItem="ruV-gM-Tbw" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="SKY-F7-Vh0"/>
-                            <constraint firstItem="905-xc-sQL" firstAttribute="top" secondItem="82p-n7-vAq" secondAttribute="bottom" constant="36" id="U1r-3S-aNV"/>
+                            <constraint firstItem="SI4-sp-zOg" firstAttribute="trailing" secondItem="5Sv-Gc-KlZ" secondAttribute="trailing" id="Wp1-BE-f8b"/>
                             <constraint firstItem="ruV-gM-Tbw" firstAttribute="top" secondItem="n1A-tt-XQf" secondAttribute="bottom" constant="8" id="XWn-NS-H6m"/>
                             <constraint firstItem="Icx-af-gHV" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="bSs-BI-hdh"/>
+                            <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="f73-A3-Bna" secondAttribute="trailing" constant="16" id="cvc-sY-6sV"/>
                             <constraint firstItem="XRT-Sz-jNH" firstAttribute="top" secondItem="ruV-gM-Tbw" secondAttribute="bottom" constant="6" id="fZ0-GR-RuI"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="ruV-gM-Tbw" secondAttribute="trailing" constant="16" id="fZq-7t-yuA"/>
+                            <constraint firstItem="bPc-n4-yNw" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="20" id="gFA-mO-uvo"/>
                             <constraint firstItem="Icx-af-gHV" firstAttribute="top" secondItem="KYu-gN-Juf" secondAttribute="bottom" constant="8" id="gwI-2d-6i4"/>
                             <constraint firstItem="905-xc-sQL" firstAttribute="trailing" secondItem="n1A-tt-XQf" secondAttribute="trailing" constant="-12" id="h9K-iL-1ar"/>
-                            <constraint firstItem="n1A-tt-XQf" firstAttribute="top" secondItem="905-xc-sQL" secondAttribute="bottom" constant="18" id="kP5-Q9-j1D"/>
+                            <constraint firstItem="n1A-tt-XQf" firstAttribute="top" secondItem="905-xc-sQL" secondAttribute="bottom" constant="24" id="kP5-Q9-j1D"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="c8X-GH-pEz" secondAttribute="trailing" constant="16" id="mJT-4Q-PsW"/>
                             <constraint firstItem="XRT-Sz-jNH" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="mVs-ba-iGR"/>
                             <constraint firstItem="KYu-gN-Juf" firstAttribute="top" secondItem="XRT-Sz-jNH" secondAttribute="bottom" constant="12" id="ne9-f0-ENM"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="n1A-tt-XQf" secondAttribute="trailing" constant="16" id="ngo-vG-oTv"/>
+                            <constraint firstItem="f73-A3-Bna" firstAttribute="leading" secondItem="bPc-n4-yNw" secondAttribute="trailing" constant="22" id="opZ-yz-k0f"/>
+                            <constraint firstItem="SI4-sp-zOg" firstAttribute="leading" secondItem="5Sv-Gc-KlZ" secondAttribute="leading" id="pXa-0K-0o8"/>
                             <constraint firstItem="905-xc-sQL" firstAttribute="leading" secondItem="n1A-tt-XQf" secondAttribute="leading" id="r74-04-e82"/>
+                            <constraint firstItem="905-xc-sQL" firstAttribute="top" secondItem="SI4-sp-zOg" secondAttribute="bottom" constant="26" id="urx-w2-X9w"/>
+                            <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="trailing" secondItem="bPc-n4-yNw" secondAttribute="trailing" id="vTD-gV-A7h"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="KYu-gN-Juf" secondAttribute="trailing" constant="16" id="wBf-g8-jeT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OXE-5N-6jG"/>

@@ -11,7 +11,7 @@ import UIKit
 
 class NutritionLabel: UILabel {
     override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 1, left: 2, bottom: 1, right: 2)
+        let insets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 3)
         super.drawText(in: rect.inset(by: insets))
     }
 }
