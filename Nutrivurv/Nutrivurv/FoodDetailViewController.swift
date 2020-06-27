@@ -206,10 +206,10 @@ class FoodDetailViewController: UIViewController {
         potassiumMeasureLabel.text = unitStringFor(nutrient: potassium, unit: potassiumUnit)
         potassiumPercentageLabel.text = pctStringFor(nutrient: potassiumPct)
         
-        addHealthAndWarningLabels()
+        addHealthAndWarningLabelsIfNeeded()
     }
     
-    private func addHealthAndWarningLabels() {
+    private func addHealthAndWarningLabelsIfNeeded() {
         // Ensures that label duplicates are not added each time the user changes quantity
         guard let nutrients = nutrients, healthLabelsStackView.subviews.count == 0, healthCautionsStackView.subviews.count == 0 else {
             return
@@ -223,7 +223,7 @@ class FoodDetailViewController: UIViewController {
         
         // Setup for food item's warning badges
         for item in nutrients.cautions {
-            let label = getRedLabelFor(item)
+            let label = getYellowLabelFor(item)
             healthCautionsStackView.addArrangedSubview(label)
         }
         
@@ -233,12 +233,26 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func getGreenLabelFor(_ string: String) -> NutritionLabel {
+        let color = UIColor(named: "nutrivurv-green")!
+        let label = setupHealthAndWarningLabels(string, color: color)
+        
+        return label
+    }
+    
+    private func getYellowLabelFor(_ string: String) -> NutritionLabel {
+        let color = UIColor(named: "nutrivurv-yellow")!
+        let label = setupHealthAndWarningLabels(string, color: color)
+        
+        return label
+    }
+    
+    private func setupHealthAndWarningLabels(_ string: String, color: UIColor) -> NutritionLabel {
         let title = string.replacingOccurrences(of: "_", with: " ")
         let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         label.center = CGPoint(x: 160, y: 285)
         label.text = title.capitalized
         label.textAlignment = .center
-        label.backgroundColor = UIColor(named: "nutrivurv-green")
+        label.backgroundColor = color
         label.layer.cornerRadius = 6
         label.sizeToFit()
         label.layer.masksToBounds = true
@@ -248,25 +262,6 @@ class FoodDetailViewController: UIViewController {
         
         return label
     }
-    
-    private func getRedLabelFor(_ string: String) -> NutritionLabel {
-        let title = string.replacingOccurrences(of: "_", with: " ")
-        let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label.center = CGPoint(x: 160, y: 285)
-        label.text = title.capitalized
-        label.textAlignment = .center
-        label.backgroundColor = UIColor(named: "nutrivurv-yellow")
-        label.layer.cornerRadius = 6
-        label.sizeToFit()
-        label.layer.masksToBounds = true
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Muli-SemiBold", size: 12)
-        label.textColor = .white
-        
-        return label
-    }
-    
-    
     
     
     // MARK: - Helper Functions
