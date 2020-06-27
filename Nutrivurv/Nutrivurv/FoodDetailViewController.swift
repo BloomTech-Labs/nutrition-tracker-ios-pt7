@@ -18,6 +18,8 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var healthLabelsStackView: UIStackView!
     @IBOutlet weak var healthCautionsStackView: UIStackView!
     
+    @IBOutlet weak var foodImageView: UIImageView!
+    
     @IBOutlet weak var qtyTextField: UITextField!
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
@@ -52,6 +54,9 @@ class FoodDetailViewController: UIViewController {
     
     var foodItem: FoodItem? {
         didSet {
+            if let imageURL = foodItem?.image {
+                self.getFoodImage(urlString: imageURL)
+            }
             self.getFoodDetails()
             for measure in foodItem!.measures {
                 let typeOfMeasure = measure.label
@@ -270,6 +275,19 @@ class FoodDetailViewController: UIViewController {
             return
         }
         updateQtyValue(qty: qty)
+    }
+
+    private func getFoodImage(urlString: String) {
+        self.searchController?.getFoodImage(urlString: urlString) { (data) in
+            guard let data = data else {
+                print("Error getting food item image")
+                return
+            }
+            
+            if let image = UIImage(data: data) {
+                self.foodImageView.image = image
+            }
+        }
     }
     
     

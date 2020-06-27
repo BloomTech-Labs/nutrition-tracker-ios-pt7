@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FoodSearchController {
     
@@ -180,5 +181,12 @@ class FoodSearchController {
                 completion(nutrients)
             }
         }.resume()
+    }
+    
+    
+    func getFoodImage(urlString: String, completion: @escaping (Data?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
     }
 }
