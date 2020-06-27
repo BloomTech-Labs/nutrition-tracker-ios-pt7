@@ -11,6 +11,7 @@ import Foundation
 struct Food: Decodable, Equatable {
     let foodId: String
     let label: String
+    let category: String
 }
 
 struct Measure: Decodable, Equatable {

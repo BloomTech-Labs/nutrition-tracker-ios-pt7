@@ -12,6 +12,12 @@ class FoodDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var foodCategoryLabel: UILabel!
+    
+    @IBOutlet weak var healthLabelsStackView: UIStackView!
+    @IBOutlet weak var healthCautionsStackView: UIStackView!
+    
     @IBOutlet weak var qtyTextField: UITextField!
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
@@ -82,6 +88,15 @@ class FoodDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let foodItem = foodItem else {
+            print("Couldn't load item")
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        
+        self.foodNameLabel.text = foodItem.food.label.capitalized
+        self.foodCategoryLabel.text = foodItem.food.category.capitalized
+        
         self.qtyTextField.delegate = self
         self.qtyTextField.text = "1.0"
 
@@ -107,6 +122,7 @@ class FoodDetailViewController: UIViewController {
     
     private func updateViews() {
         guard isViewLoaded else { return }
+        
         guard let nutrients = nutrients else { return }
         
         let calories = nutrients.calories
@@ -285,7 +301,7 @@ extension FoodDetailViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let font = UIFont(name: "Muli-SemiBold", size: 18)!
+        let font = UIFont(name: "Muli-SemiBold", size: 16)!
         
         switch pickerView {
         case servingSizePickerView:
