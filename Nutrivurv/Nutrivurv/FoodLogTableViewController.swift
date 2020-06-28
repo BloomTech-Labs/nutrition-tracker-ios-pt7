@@ -13,6 +13,8 @@ class FoodLogTableViewController: UITableViewController {
     let foodLogController = FoodLogController.shared
     let foodSearchController = FoodSearchController()
     
+    var noFoodLoggedLabel: UILabel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadFoodLogTableView), name: .newFoodItemLogged, object: nil)
@@ -20,16 +22,35 @@ class FoodLogTableViewController: UITableViewController {
     
     @objc func reloadFoodLogTableView() {
         self.tableView.reloadData()
+        if foodLogController.foodLog.isEmpty {
+            noFoodLoggedMessage(message: "You haven't logged any foods today,\n let's get started!")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if foodLogController.foodLog.isEmpty {
-            tableView.isHidden = true
+            noFoodLoggedMessage(message: "You haven't logged any foods yet,\n tap the plate icon below to get started!")
         } else {
-            tableView.isHidden = false
+            tableView.backgroundView = .none
+            tableView.separatorStyle = .singleLine
             reloadFoodLogTableView()
         }
+    }
+    
+    
+    private func noFoodLoggedMessage(message:String) {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        let messageLabel = UILabel(frame: rect)
+        messageLabel.text = message
+        messageLabel.textColor = UIColor(named: "nutrivurv-blue")
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "Muli-LightItalic", size: 16)
+        messageLabel.sizeToFit()
+        
+        tableView.backgroundView = messageLabel
+        tableView.separatorStyle = .none
     }
     
     // MARK: - Table view data source

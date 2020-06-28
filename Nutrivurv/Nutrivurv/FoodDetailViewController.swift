@@ -126,13 +126,20 @@ class FoodDetailViewController: UIViewController {
             self.mealTypePickerView.selectRow(mealTypeIndex, inComponent: 0, animated: true)
         }
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
+        
         
         self.qtyTextField.font = UIFont(name: "Muli-Bold", size: 14)
         self.addFoodButton.layer.cornerRadius = 6.0
         
         if fromLog {
             addFoodButton.isHidden = true
+            qtyTextField.isEnabled = false
+            servingSizePickerView.isUserInteractionEnabled = false
+            mealTypePickerView.isUserInteractionEnabled = false
+            
+//            self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentEditAlert)))
+        } else {
+            self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         }
     }
     
@@ -310,6 +317,7 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
+    
     // MARK: - Alert Controllers
     
     private func createAndDisplayAlertController(title: String, message: String) {
@@ -326,6 +334,10 @@ class FoodDetailViewController: UIViewController {
         }
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func presentEditAlert() {
+        createAndDisplayAlertController(title: "Need to make changes?", message: "Tap the edit button in the upper right corner to edit this food entry.")
     }
     
     @objc func qtyTypeInvalid() {
