@@ -23,7 +23,11 @@ struct Measure: Decodable, Equatable {
 struct FoodItem: Decodable, Equatable {
     let food: Food
     let measures: [Measure]
-    let mealType: String?
+    
+    // User generated properties when logging a food entry
+    var quantity: Double?
+    var servingSize: Int?
+    var mealType: Int?
 }
 
 struct FoodSearch: Decodable, Equatable {

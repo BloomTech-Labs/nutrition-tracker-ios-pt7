@@ -9,7 +9,10 @@
 import UIKit
 
 class FoodLogTableViewController: UITableViewController {
-
+    
+    let foodLogController = FoodLogController.shared
+    let foodSearchController = FoodSearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadFoodLogTableView), name: .newFoodItemLogged, object: nil)
@@ -18,41 +21,83 @@ class FoodLogTableViewController: UITableViewController {
     @objc func reloadFoodLogTableView() {
         self.tableView.reloadData()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if foodLogController.foodLog.isEmpty {
+            tableView.isHidden = true
+        } else {
+            tableView.isHidden = false
+            reloadFoodLogTableView()
+        }
+    }
+    
     // MARK: - Table view data source
-
+    
     // Will be used in future to separate meal types into different sections of tableview
-/*    override func numberOfSections(in tableView: UITableView) -> Int {
-          let mealCount = FoodLogController.shared.foodLogDictionary.keys.count
-          return mealCount
-      }
-*/
+    /*    override func numberOfSections(in tableView: UITableView) -> Int {
+     let mealCount = FoodLogController.shared.foodLogDictionary.keys.count
+     return mealCount
+     }
+     */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FoodLogController.shared.foodLog.count
+        return foodLogController.foodLog.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodLogCell", for: indexPath)
         
-        let foodItem = FoodLogController.shared.foodLog[indexPath.row]
+        let foodItem = foodLogController.foodLog[indexPath.row]
         
-        cell.textLabel?.text = foodItem.food.label
-        cell.detailTextLabel?.text = foodItem.mealType
+        cell.textLabel?.text = foodItem.food.label.capitalized
 
+        if let mealIndex = foodItem.mealType {
+            let mealType = getMealTypeNameFor(mealIndex)
+            cell.detailTextLabel?.text = mealType
+        }
+        
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let foodItem = FoodLogController.shared.foodLog[indexPath.row]
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
+            detailVC.searchController = foodSearchController
+            detailVC.foodItem = foodItem
+            detailVC.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
-    */
-
+    
+    
+    private func getMealTypeNameFor(_ int: Int) -> String? {
+        switch int {
+        case 0:
+            return "Breakfast"
+        case 1:
+            return "Lunch"
+        case 2:
+            return "Dinner"
+        case 3:
+            return "Dessert"
+        case 4:
+            return "Snack"
+        default:
+            return nil
+        }
+    }
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

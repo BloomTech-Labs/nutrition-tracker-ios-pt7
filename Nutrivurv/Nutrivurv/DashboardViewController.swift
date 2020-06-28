@@ -18,8 +18,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var dailyVibeQuoteLabel: UILabel!
     @IBOutlet weak var dailyVibeAuthorLabel: UILabel!
     
-    
-    var userController = ProfileCreationController()
+    let userController = ProfileCreationController()
     
     // MARK: - View Lifecycle Methods and Update Views
     

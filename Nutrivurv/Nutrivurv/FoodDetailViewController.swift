@@ -106,13 +106,23 @@ class FoodDetailViewController: UIViewController {
         self.foodCategoryLabel.text = foodItem.food.category.capitalized
         
         self.qtyTextField.delegate = self
-        self.qtyTextField.text = "1.0"
+        if let quantity = foodItem.quantity {
+            self.qtyTextField.text = "\(quantity)"
+        } else {
+            self.qtyTextField.text = "1.0"
+        }
 
         self.servingSizePickerView.delegate = self
         self.servingSizePickerView.dataSource = self
+        if let servingSizeIndex = foodItem.servingSize {
+            self.servingSizePickerView.selectRow(servingSizeIndex, inComponent: 0, animated: true)
+        }
         
         self.mealTypePickerView.delegate = self
         self.mealTypePickerView.dataSource = self
+        if let mealTypeIndex = foodItem.mealType {
+            self.servingSizePickerView.selectRow(mealTypeIndex, inComponent: 0, animated: true)
+        }
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
         
@@ -353,7 +363,24 @@ class FoodDetailViewController: UIViewController {
     // MARK: - IBActions & Food Logging
     
     @IBAction func logFood(_ sender: Any) {
-        // TODO: Implement food logging functionality
+        guard var foodItem = foodItem else {
+            return
+        }
+        
+        let userSelectedQuantity = quantityInputValue
+        let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
+        let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
+        
+        guard userSelectedQuantity > 0.0 else {
+            createAndDisplayAlertController(title: "Select a Quantity", message: "Please input a quantity greater than 0 for your meal.")
+            return
+        }
+        
+        foodItem.quantity = userSelectedQuantity
+        foodItem.servingSize = selectedServingSizeIndex
+        foodItem.mealType = selectedMealTypeIndex
+        
+        FoodLogController.shared.foodLog.append(foodItem)
     }
     
     @IBAction func qtyTextFieldValueChanged(_ sender: UITextField) {
