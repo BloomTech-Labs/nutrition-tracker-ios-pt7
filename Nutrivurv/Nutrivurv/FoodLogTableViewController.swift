@@ -66,13 +66,17 @@ class FoodLogTableViewController: UITableViewController {
         if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
             detailVC.searchController = foodSearchController
             detailVC.foodItem = foodItem
+            detailVC.fromLog = true
+            if let meal = getMealTypeNameFor(foodItem.mealType) {
+                detailVC.title = "Today's \(meal)"
+            }
             detailVC.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
     
     
-    private func getMealTypeNameFor(_ int: Int) -> String? {
+    private func getMealTypeNameFor(_ int: Int?) -> String? {
         switch int {
         case 0:
             return "Breakfast"

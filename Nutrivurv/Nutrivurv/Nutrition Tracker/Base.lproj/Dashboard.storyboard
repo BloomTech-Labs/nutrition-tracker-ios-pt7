@@ -19,6 +19,9 @@
         <array key="Muli-LightItalic.ttf">
             <string>Muli-LightItalic</string>
         </array>
+        <array key="Muli-MediumItalic.ttf">
+            <string>Muli-MediumItalic</string>
+        </array>
         <array key="Muli-Regular.ttf">
             <string>Muli-Regular</string>
         </array>
@@ -189,13 +192,13 @@
                                 <rect key="frame" x="16" y="376" width="382" height="1"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="16" y="393" width="382" height="20"/>
-                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
+                                <rect key="frame" x="16" y="393" width="382" height="21"/>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="0.0" y="421" width="414" height="304"/>
+                                <rect key="frame" x="0.0" y="426" width="414" height="299"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -216,7 +219,7 @@
                             <constraint firstItem="ow2-gT-BlG" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="48" id="Ub2-F2-3st"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="bottom" secondItem="vL2-nj-e72" secondAttribute="bottom" id="Ub9-zB-TMy"/>
                             <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" id="XRM-VX-Sgy"/>
-                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="mnl-L0-Jdx" secondAttribute="bottom" constant="8" id="aMa-XR-14Y"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="mnl-L0-Jdx" secondAttribute="bottom" constant="12" id="aMa-XR-14Y"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="16" id="g6h-9F-sFr"/>
                             <constraint firstItem="ow2-gT-BlG" firstAttribute="centerX" secondItem="LNW-2j-u7j" secondAttribute="centerX" id="hSl-id-fnq"/>
                             <constraint firstItem="mnl-L0-Jdx" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="hwj-av-4TK"/>
@@ -903,11 +906,14 @@
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bM9-0c-rT8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="301"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="295.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="bg-color"/>
+                        <color key="tintColor" name="nutrivurv-blue"/>
+                        <color key="sectionIndexColor" name="light-label"/>
+                        <color key="sectionIndexBackgroundColor" name="bg-color"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="foodLogCell" textLabel="azd-hQ-dKT" detailTextLabel="hAv-tJ-Ac5" style="IBUITableViewCellStyleSubtitle" id="aJf-I4-b9X">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="foodLogCell" textLabel="azd-hQ-dKT" detailTextLabel="hAv-tJ-Ac5" style="IBUITableViewCellStyleSubtitle" id="aJf-I4-b9X">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJf-I4-b9X" id="EaL-eD-DY9">
@@ -915,21 +921,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="azd-hQ-dKT">
-                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="20" y="7" width="30" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="16"/>
+                                            <color key="textColor" name="light-label"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hAv-tJ-Ac5">
-                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="20" y="29" width="48" height="16.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Muli-MediumItalic" family="Muli" pointSize="14"/>
+                                            <color key="textColor" name="nutrivurv-blue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" name="bg-color"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="bg-color"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1015,6 +1024,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="KTM-jy-1pm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="nutrivurv-blue"/>
                         <color key="barTintColor" name="bg-color"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

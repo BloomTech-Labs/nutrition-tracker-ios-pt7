@@ -86,6 +86,8 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
+    var fromLog: Bool = false
+    
     var servingSizes: [String] = []
     var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"]
     
@@ -128,6 +130,10 @@ class FoodDetailViewController: UIViewController {
         
         self.qtyTextField.font = UIFont(name: "Muli-Bold", size: 14)
         self.addFoodButton.layer.cornerRadius = 6.0
+        
+        if fromLog {
+            addFoodButton.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
