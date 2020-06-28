@@ -121,7 +121,7 @@ class FoodDetailViewController: UIViewController {
         self.mealTypePickerView.delegate = self
         self.mealTypePickerView.dataSource = self
         if let mealTypeIndex = foodItem.mealType {
-            self.servingSizePickerView.selectRow(mealTypeIndex, inComponent: 0, animated: true)
+            self.mealTypePickerView.selectRow(mealTypeIndex, inComponent: 0, animated: true)
         }
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
@@ -313,6 +313,15 @@ class FoodDetailViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    private func createAndDisplayAlertAndPopToRoot(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @objc func qtyTypeInvalid() {
         qtyTypeTimer.invalidate()
         createAndDisplayAlertController(title: "Please enter a valid number", message: "You must enter the quantity as a number in order to get food details.")
@@ -381,6 +390,8 @@ class FoodDetailViewController: UIViewController {
         foodItem.mealType = selectedMealTypeIndex
         
         FoodLogController.shared.foodLog.append(foodItem)
+        
+        createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
     }
     
     @IBAction func qtyTextFieldValueChanged(_ sender: UITextField) {
