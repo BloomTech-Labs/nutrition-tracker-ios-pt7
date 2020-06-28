@@ -30,7 +30,7 @@ class FoodLogTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if foodLogController.foodLog.isEmpty {
-            noFoodLoggedMessage(message: "You haven't logged any foods yet,\n tap the plate icon below to get started!")
+            noFoodLoggedMessage(message: "You haven't logged any foods yet,\n tap the utensils icon below to get started!")
         } else {
             tableView.backgroundView = .none
             tableView.separatorStyle = .singleLine

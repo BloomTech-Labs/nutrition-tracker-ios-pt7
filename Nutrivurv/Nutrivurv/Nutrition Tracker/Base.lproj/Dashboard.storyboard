@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
-                                <rect key="frame" x="46" y="104.5" width="81" height="62"/>
+                                <rect key="frame" x="46" y="106.5" width="81" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q" userLabel="Measurement Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="81" height="38"/>
@@ -62,17 +62,17 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dv1-tt-SWs" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="44" width="81" height="18"/>
+                                        <rect key="frame" x="0.0" y="44" width="81" height="16"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar-chart" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-zE-Kzx">
-                                                <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-zE-Kzx">
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qjs-zE-Kzx" secondAttribute="height" multiplier="1:1" id="Woh-Jl-voq"/>
-                                                    <constraint firstAttribute="width" constant="18" id="fZi-2I-qTy"/>
+                                                    <constraint firstAttribute="width" constant="16" id="fZi-2I-qTy"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsg-oQ-N69">
-                                                <rect key="frame" x="22" y="0.0" width="59" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsg-oQ-N69">
+                                                <rect key="frame" x="20" y="0.0" width="61" height="16"/>
                                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
@@ -109,19 +109,19 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
-                                <rect key="frame" x="287" y="104.5" width="66" height="62"/>
+                                <rect key="frame" x="287" y="105.5" width="75.5" height="61"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy" userLabel="Number Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="66" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75.5" height="38"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
-                                                <rect key="frame" x="0.0" y="0.0" width="26.5" height="38"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="38"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="30"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMC-HY-f12">
-                                                <rect key="frame" x="34.5" y="11" width="31.5" height="27"/>
+                                                <rect key="frame" x="44" y="11" width="31.5" height="27"/>
                                                 <fontDescription key="fontDescription" name="Muli-MediumItalic" family="Muli" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
@@ -132,17 +132,17 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-ou-bPs" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="44" width="66" height="18"/>
+                                        <rect key="frame" x="0.0" y="44" width="75.5" height="17"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="tIx-Zv-zVe">
-                                                <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="tIx-Zv-zVe" secondAttribute="height" multiplier="1:1" id="evm-jb-rba"/>
-                                                    <constraint firstAttribute="width" constant="18" id="gFE-iX-OkX"/>
+                                                    <constraint firstAttribute="width" constant="17" id="gFE-iX-OkX"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streak" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgw-Mg-koP">
-                                                <rect key="frame" x="22" y="0.0" width="44" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgw-Mg-koP">
+                                                <rect key="frame" x="21" y="0.0" width="54.5" height="17"/>
                                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
@@ -186,7 +186,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-s2-3S6">
                                 <rect key="frame" x="16" y="338" width="382" height="1"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Food Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Food Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
                                 <rect key="frame" x="16" y="359" width="382" height="23"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
@@ -286,7 +286,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" text="" placeholder="Search Food Item" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
+                                <searchBar contentMode="redraw" text="" placeholder="Search For Foods" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                     <color key="backgroundColor" name="bg-color"/>
                                     <color key="tintColor" name="nutrivurv-blue"/>
@@ -339,7 +339,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Food" id="OBS-bK-QCB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="lQL-JE-T3y">
+                        <barButtonItem key="rightBarButtonItem" image="camera-icon" id="lQL-JE-T3y">
                             <color key="tintColor" name="nutrivurv-blue"/>
                             <connections>
                                 <segue destination="4id-Vt-Jzy" kind="presentation" identifier="ShowBarcodeScanner" id="FFU-qE-PMB"/>
@@ -1064,11 +1064,12 @@
     <resources>
         <image name="Divider" width="1201" height="1"/>
         <image name="Donut" width="96" height="96"/>
-        <image name="bar-chart" width="53" height="50"/>
+        <image name="camera-icon" width="21" height="18"/>
         <image name="fire" width="40" height="52"/>
         <image name="food-basket" width="512" height="512"/>
-        <image name="tabbar-house" width="32.5" height="30"/>
-        <image name="tabbar-plate" width="34.5" height="26.5"/>
+        <image name="tabbar-house" width="28" height="28"/>
+        <image name="tabbar-plate" width="15" height="18"/>
+        <image name="weight" width="50" height="50"/>
         <namedColor name="bg-color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
