@@ -408,6 +408,7 @@ class FoodDetailViewController: UIViewController {
         foodItem.quantity = userSelectedQuantity
         foodItem.servingSize = selectedServingSizeIndex
         foodItem.mealType = selectedMealTypeIndex
+        foodItem.date = Date()
         
         FoodLogController.shared.foodLog.append(foodItem)
         
