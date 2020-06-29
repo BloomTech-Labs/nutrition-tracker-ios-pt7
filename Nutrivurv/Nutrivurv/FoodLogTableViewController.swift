@@ -55,16 +55,46 @@ class FoodLogTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    // Will be used in future to separate meal types into different sections of tableview
-    /*    override func numberOfSections(in tableView: UITableView) -> Int {
-     let mealCount = FoodLogController.shared.foodLogDictionary.keys.count
-     return mealCount
-     }
-     */
+/*  Will be used in future to separate meal types into different sections of tableview
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return FoodLogController.shared.mealTypes.count
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodLogController.foodLog.count
+        switch section {
+        case 0:
+            let count = FoodLogController.shared.foodLog.filter { $0.mealType == 0 }.count
+            return count
+        case 1:
+            return FoodLogController.shared.foodLog.filter { $0.mealType == 1 }.count
+        case 2:
+            return FoodLogController.shared.foodLog.filter { $0.mealType == 2 }.count
+        case 3:
+            return FoodLogController.shared.foodLog.filter { $0.mealType == 3 }.count
+        default:
+            return FoodLogController.shared.foodLog.filter { $0.mealType == 4 }.count
+        }
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Breakfast"
+        case 1:
+            return "Lunch"
+        case 2:
+            return "Dinner"
+        case 3:
+            return "Dessert"
+        default:
+            return "Snack"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        // Return 0 to disable the section title.
+    }
+    */
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodLogCell", for: indexPath)

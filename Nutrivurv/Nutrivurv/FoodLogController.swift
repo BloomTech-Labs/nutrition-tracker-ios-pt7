@@ -11,6 +11,8 @@ import Foundation
 class FoodLogController {
     static let shared = FoodLogController()
     
+    var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"]
+    
     // Futrue release will incorporate table view sectioned by meal type, but for now just using a single section
 //    var foodLogDictionary: [String: [FoodItem]] = [:] {
 //        didSet {

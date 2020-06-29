@@ -91,7 +91,7 @@ class FoodDetailViewController: UIViewController {
     var fromLog: Bool = false
     
     var servingSizes: [String] = []
-    var mealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"]
+    var mealTypes: [String] = FoodLogController.shared.mealTypes
     
     
     // MARK: - View Life Cycle Methods
