@@ -96,6 +96,10 @@ class FoodLogTableViewController: UITableViewController {
     }
     */
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return FoodLogController.shared.foodLog.count
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodLogCell", for: indexPath)
         
