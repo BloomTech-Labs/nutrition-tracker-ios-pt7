@@ -272,10 +272,14 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func setupHealthAndWarningLabels(_ string: String, color: UIColor) -> NutritionLabel {
-        let title = string.replacingOccurrences(of: "_", with: " ")
+        let title = string.replacingOccurrences(of: "_", with: " ").capitalized
         let label = NutritionLabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
         label.center = CGPoint(x: 160, y: 285)
-        label.text = title.capitalized
+        if title == "Fodmap" {
+            label.text = "FODMAP"
+        } else {
+            label.text = title
+        }
         label.textAlignment = .center
         label.backgroundColor = color
         label.layer.cornerRadius = 6
