@@ -28,6 +28,16 @@ struct FoodItem: Decodable, Equatable {
     var quantity: Double?
     var servingSize: Int?
     var mealType: Int?
+    var date: Date?
+    
+    init(food: Food, measures: [Measure], quantity: Double?, servingSize: Int?, mealType: Int?, date: Date? = Date()) {
+        self.food = food
+        self.measures = measures
+        self.quantity = quantity
+        self.servingSize = servingSize
+        self.mealType = mealType
+        self.date = date
+    }
 }
 
 struct FoodSearch: Decodable, Equatable {
