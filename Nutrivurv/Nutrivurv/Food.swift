@@ -11,6 +11,8 @@ import Foundation
 struct Food: Decodable, Equatable {
     let foodId: String
     let label: String
+    let image: String?
+    let category: String
 }
 
 struct Measure: Decodable, Equatable {
@@ -21,6 +23,21 @@ struct Measure: Decodable, Equatable {
 struct FoodItem: Decodable, Equatable {
     let food: Food
     let measures: [Measure]
+    
+    // User generated properties when logging a food entry
+    var quantity: Double?
+    var servingSize: Int?
+    var mealType: Int?
+    var date: Date?
+    
+    init(food: Food, measures: [Measure], quantity: Double?, servingSize: Int?, mealType: Int?, date: Date? = Date()) {
+        self.food = food
+        self.measures = measures
+        self.quantity = quantity
+        self.servingSize = servingSize
+        self.mealType = mealType
+        self.date = date
+    }
 }
 
 struct FoodSearch: Decodable, Equatable {

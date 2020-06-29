@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Nutrition Tracker
+//  Nutrivurv
 //
 //  Created by Michael Stoffer on 2/10/20.
 //  Copyright © 2020 Michael Stoffer. All rights reserved.
@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             var rootVC: UIViewController?
             
-            if Network.isLoggedIn() {
+            if UserAuthController.isLoggedIn() {
                 guard let vc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "DashboardTabBar") as? UITabBarController else {
                     print("Unable to instantiate dashboard")
                     return

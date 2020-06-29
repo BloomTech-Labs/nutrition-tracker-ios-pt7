@@ -2,7 +2,7 @@
 //  StringHelperFunctions.swift
 //  Nutrivurv
 //
-//  Created by Dillon on 6/22/20.
+//  Created by Dillon P on 6/22/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 

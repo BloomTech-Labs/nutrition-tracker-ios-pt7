@@ -1,18 +1,28 @@
 //
 //  User.swift
-//  Nutrition Tracker
+//  Nutrivurv
 //
-//  Created by Michael Stoffer on 3/10/20.
+//  Created by Dillon P on 6/23/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
 import Foundation
 
 struct User: Codable {
-    var name: String
-    var email: String
-    var profile: Profile
-    var favorites: [FavoriteFood]
-    var dailyRecords: [DailyRecord]
-    var weightLogs: [WeightLog]
+    let name: String?
+    let email: String
+    let password: String
+    
+    init(name: String? = nil, email: String, password: String) {
+        self.name = name
+        self.email = email
+        self.password = password
+    }
 }
+
+struct UserAuthResponse: Codable {
+    let message: String?
+    let token: String?
+    let error: String?
+}
+

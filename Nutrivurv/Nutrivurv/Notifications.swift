@@ -1,6 +1,6 @@
 //
 //  Notifications.swift
-//  Nutrition Tracker
+//  Nutrivurv
 //
 //  Created by Michael Stoffer on 3/9/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
@@ -13,4 +13,5 @@ extension Notification.Name {
     static let calculateBMIMetric = Notification.Name(rawValue: "calculateBMIMetric")
     static let calculateBMIStandard = Notification.Name(rawValue: "calculateBMIStandard")
     static let bmiInputsNotNumbers = Notification.Name(rawValue: "bmiInputsNotNumbers")
+    static let newFoodItemLogged = Notification.Name(rawValue: "newFoodItemLogged")
 }
