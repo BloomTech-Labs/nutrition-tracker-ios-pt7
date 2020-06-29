@@ -79,6 +79,7 @@ class DashboardViewController: UIViewController {
     @IBAction func logoutButtonTapped(_ sender: Any) {
         let keychain = KeychainSwift()
         keychain.clear()
+        FoodLogController.shared.foodLog.removeAll()
         let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
         viewController.modalPresentationStyle = .fullScreen

@@ -15,10 +15,12 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodCategoryLabel: UILabel!
     
+    @IBOutlet weak var healthLabelsScrollView: FadedScrollView!
     @IBOutlet weak var healthLabelsStackView: UIStackView!
+    
+    @IBOutlet weak var healthCautionsScrollView: FadedScrollView!
     @IBOutlet weak var healthCautionsStackView: UIStackView!
     @IBOutlet weak var containsWarningLabel: UILabel!
-    
     
     @IBOutlet weak var foodImageView: UIImageView!
     

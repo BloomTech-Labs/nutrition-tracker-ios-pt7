@@ -20,6 +20,7 @@
 		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
 		51257AEB24A2EE6600C744B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* User.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
+		51363F9E24A975F5001432F7 /* FadedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollView.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
 		5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531E24A3D3F700CDF5F1 /* Quote.swift */; };
 		5139532224A3E14E00CDF5F1 /* Muli-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */; };
@@ -77,6 +78,7 @@
 		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
+		51363F9D24A975F5001432F7 /* FadedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollView.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
 		5139531E24A3D3F700CDF5F1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				5130B83224A7043F00946B41 /* NutritionLabel.swift */,
+				51363F9D24A975F5001432F7 /* FadedScrollView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */,
 				5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */,
+				51363F9E24A975F5001432F7 /* FadedScrollView.swift in Sources */,
 				D6A1CC3D240B601700477429 /* ProfileCreationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
