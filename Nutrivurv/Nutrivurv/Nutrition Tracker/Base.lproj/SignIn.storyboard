@@ -31,13 +31,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lets start crushing those goals!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="eVf-aZ-RGJ">
-                                <rect key="frame" x="44" y="52" width="326" height="133"/>
+                                <rect key="frame" x="44" y="52" width="326" height="135"/>
                                 <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pdm-hf-GBs">
-                                <rect key="frame" x="16" y="225" width="382" height="132"/>
+                                <rect key="frame" x="16" y="227" width="382" height="132"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email@gmail.com" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dd1-5A-BtE" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
@@ -60,24 +60,24 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNU-xt-vS4">
-                                <rect key="frame" x="24" y="217.5" width="49.5" height="15.5"/>
+                                <rect key="frame" x="24" y="220" width="48" height="14"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibb-vH-Vvv">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IX-Uz-GvN">
-                                        <rect key="frame" x="34" y="0.0" width="6.5" height="15.5"/>
+                                        <rect key="frame" x="33" y="0.0" width="7" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBv-ur-dZN">
-                                        <rect key="frame" x="40.5" y="0.0" width="9" height="15.5"/>
+                                        <rect key="frame" x="40" y="0.0" width="8" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,24 +87,24 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoR-Mj-q1F">
-                                <rect key="frame" x="24" y="293.5" width="74" height="15.5"/>
+                                <rect key="frame" x="24" y="296" width="71.5" height="14"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7p-hz-Zfl">
-                                        <rect key="frame" x="0.0" y="0.0" width="58.5" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="56.5" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-kL-46l">
-                                        <rect key="frame" x="58.5" y="0.0" width="6.5" height="15.5"/>
+                                        <rect key="frame" x="56.5" y="0.0" width="7" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0b-1V-E3d">
-                                        <rect key="frame" x="65" y="0.0" width="9" height="15.5"/>
+                                        <rect key="frame" x="63.5" y="0.0" width="8" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +114,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b43-dI-OzL" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="44" y="405" width="326" height="32"/>
+                                <rect key="frame" x="44" y="407" width="326" height="32"/>
                                 <color key="backgroundColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="vx5-NO-OM7"/>
@@ -129,16 +129,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xMa-ed-TOE">
-                                <rect key="frame" x="137.5" y="445" width="139" height="28"/>
+                                <rect key="frame" x="139" y="447" width="136" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not a member?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-Ex-uxc">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="84" height="26"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsx-us-XbV">
-                                        <rect key="frame" x="93" y="0.0" width="46" height="28"/>
+                                        <rect key="frame" x="92" y="0.0" width="44" height="26"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="12"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -153,7 +153,7 @@
                                 <rect key="frame" x="16" y="533" width="382" height="225"/>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SVC-H1-MWZ">
-                                <rect key="frame" x="188.5" y="414" width="37" height="14"/>
+                                <rect key="frame" x="188.5" y="416" width="37" height="14"/>
                                 <color key="color" name="nutrivurv-blue"/>
                             </activityIndicatorView>
                         </subviews>
