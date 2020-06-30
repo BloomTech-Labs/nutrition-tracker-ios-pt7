@@ -25,16 +25,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking your calories just got easier." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-A0-06q">
-                                <rect key="frame" x="28" y="26" width="319" height="70.333333333333329"/>
+                                <rect key="frame" x="28" y="26" width="319" height="65.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="options" translatesAutoresizingMaskIntoConstraints="NO" id="jRg-Tc-crl">
-                                <rect key="frame" x="28" y="120.33333333333337" width="319" height="291"/>
+                                <rect key="frame" x="28" y="115.33333333333337" width="319" height="291"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with friends, earn badges and crush your goals." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-dr-800">
-                                <rect key="frame" x="48" y="439" width="279" height="40"/>
+                                <rect key="frame" x="48" y="434" width="279" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="O7b-dr-800" secondAttribute="height" multiplier="279:40" id="tIy-SV-hgO"/>
                                 </constraints>
@@ -43,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-lf-FI8">
-                                <rect key="frame" x="28" y="515" width="319" height="112"/>
+                                <rect key="frame" x="28" y="510" width="319" height="112"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-lu-tFp" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="44"/>
