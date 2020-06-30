@@ -66,7 +66,6 @@ class FoodSearchTableViewController: UITableViewController {
                 print("Couldn't load barcode scanner")
                 return
             }
-            self.searchController.foods = []
             barcodeScanVC.barcodeSearchDelegate = self
             barcodeScanVC.manualSearchDelegate = self
             barcodeScanVC.searchController = self.searchController
