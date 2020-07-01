@@ -398,7 +398,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ" customClass="FadedScrollView" customModule="Nutrivurv" customModuleProvider="target">
+                            <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="8" y="175" width="268" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
@@ -543,11 +543,11 @@
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV">
+                            <scrollView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV" customClass="FadedVerticalScrollView" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="16" y="481" width="398" height="297"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
-                                        <rect key="frame" x="0.0" y="4" width="386" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="9.9999999999999982" width="386" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rew-a8-kk4">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -575,7 +575,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="70B-oM-YpM">
-                                        <rect key="frame" x="0.0" y="33.333333333333371" width="386" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="39.333333333333371" width="386" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sodium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgb-y7-idZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -603,7 +603,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-Jz-7XS">
-                                        <rect key="frame" x="0.0" y="62.666666666666636" width="386" height="20.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="68.666666666666629" width="386" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Carbohydrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-aK-I7A">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -631,7 +631,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9D5-Hr-JKu">
-                                        <rect key="frame" x="0.0" y="92" width="386" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="98" width="386" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cholesterol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws6-SC-Ahd">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -659,7 +659,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CTG-YY-A80">
-                                        <rect key="frame" x="0.0" y="121.33333333333336" width="386" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="127.33333333333336" width="386" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne4-qG-2Qy">
                                                 <rect key="frame" x="0.0" y="0.0" width="371" height="20.333333333333332"/>
@@ -676,7 +676,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z7n-YO-afv">
-                                        <rect key="frame" x="0.0" y="150.66666666666663" width="386" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="156.66666666666663" width="386" height="20.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXR-MS-qCN">
                                                 <rect key="frame" x="0.0" y="0.0" width="371" height="20.333333333333332"/>
@@ -693,7 +693,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-D8-TmG">
-                                        <rect key="frame" x="0.0" y="180" width="386" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="186" width="386" height="20.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vitamin D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muJ-04-7LT">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -721,7 +721,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gaW-Lv-M4B">
-                                        <rect key="frame" x="0.0" y="209.33333333333337" width="386" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="215.33333333333337" width="386" height="20.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calcium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbE-Lp-mwb">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -749,7 +749,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eMl-Zj-YJB">
-                                        <rect key="frame" x="0.0" y="238.66666666666663" width="386" height="20.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="244.66666666666663" width="386" height="20.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iron" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-zF-vuC">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -777,7 +777,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uJS-kU-Tos">
-                                        <rect key="frame" x="0.0" y="268" width="386" height="20.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="274" width="386" height="20.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Potassium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-yF-bYL">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.33333333333331" height="20.333333333333332"/>
@@ -811,6 +811,7 @@
                                     <constraint firstItem="gaW-Lv-M4B" firstAttribute="top" secondItem="9pm-D8-TmG" secondAttribute="bottom" constant="9" id="49Z-M0-2El"/>
                                     <constraint firstAttribute="trailing" secondItem="bmN-Ol-Dc8" secondAttribute="trailing" id="57N-q2-pfH"/>
                                     <constraint firstAttribute="trailing" secondItem="O4N-Sr-mcP" secondAttribute="trailing" id="7g4-2N-Ja1"/>
+                                    <constraint firstAttribute="bottom" secondItem="uJS-kU-Tos" secondAttribute="bottom" constant="24" id="BJb-Hk-0Aw"/>
                                     <constraint firstItem="CTG-YY-A80" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="Bca-d6-dun"/>
                                     <constraint firstItem="eMl-Zj-YJB" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="CPt-dQ-UiX"/>
                                     <constraint firstItem="9pm-D8-TmG" firstAttribute="top" secondItem="z7n-YO-afv" secondAttribute="bottom" constant="9" id="EWg-gl-l3S"/>
@@ -840,11 +841,10 @@
                                     <constraint firstAttribute="trailing" secondItem="CTG-YY-A80" secondAttribute="trailing" id="oxT-vE-hN8"/>
                                     <constraint firstAttribute="trailing" secondItem="70B-oM-YpM" secondAttribute="trailing" id="pKz-uY-MBF"/>
                                     <constraint firstAttribute="trailing" secondItem="Nbp-As-pAF" secondAttribute="trailing" id="ppZ-ol-ZSy"/>
-                                    <constraint firstAttribute="bottom" secondItem="uJS-kU-Tos" secondAttribute="bottom" id="rCh-Jn-ZP6"/>
                                     <constraint firstItem="eMl-Zj-YJB" firstAttribute="top" secondItem="gaW-Lv-M4B" secondAttribute="bottom" constant="9" id="vvR-Qf-wMh"/>
                                     <constraint firstItem="9D5-Hr-JKu" firstAttribute="top" secondItem="4Rm-Jz-7XS" secondAttribute="bottom" constant="9" id="w4w-yI-aqS"/>
                                     <constraint firstAttribute="trailing" secondItem="4Rm-Jz-7XS" secondAttribute="trailing" id="wfu-mG-x7t"/>
-                                    <constraint firstItem="1fw-4w-otg" firstAttribute="top" secondItem="Icx-af-gHV" secondAttribute="top" constant="4" id="xED-QY-RLw"/>
+                                    <constraint firstItem="1fw-4w-otg" firstAttribute="top" secondItem="Icx-af-gHV" secondAttribute="top" constant="10" id="xED-QY-RLw"/>
                                     <constraint firstItem="9pm-D8-TmG" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="yB8-S4-2MY"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="PkE-ys-rqL"/>
@@ -864,7 +864,7 @@
                                     <action selector="logFood:" destination="U4e-Le-VaR" eventType="touchUpInside" id="oK1-WD-NNE"/>
                                 </connections>
                             </button>
-                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV8-21-SSQ" customClass="FadedScrollView" customModule="Nutrivurv" customModuleProvider="target">
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV8-21-SSQ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="72" y="208" width="204" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
@@ -949,6 +949,7 @@
                         <outlet property="ironMeasureLabel" destination="XAR-GE-90k" id="6W7-p5-Orr"/>
                         <outlet property="ironPercentageLabel" destination="8fv-To-PnC" id="lEr-yN-N5C"/>
                         <outlet property="mealTypePickerView" destination="VsQ-e8-aIF" id="hoW-mf-GNS"/>
+                        <outlet property="nutritionalContentScrollView" destination="Icx-af-gHV" id="eat-h8-05D"/>
                         <outlet property="potassiumMeasureLabel" destination="DXd-l3-sdU" id="htT-I5-M8B"/>
                         <outlet property="potassiumPercentageLabel" destination="a1Z-Rd-RKT" id="PH5-Av-PkQ"/>
                         <outlet property="proteinMeasureLabel" destination="XeL-Na-8Se" id="Sm0-vb-Fk5"/>
