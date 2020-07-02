@@ -90,10 +90,13 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
-    var fromLog: Bool = false
-    
     var servingSizes: [String] = []
     var mealTypes: [String] = FoodLogController.shared.mealTypes
+    
+    // These variables help setup views and food logging functionality to enable editing an entry vs. logging a new one
+    var fromLog: Bool = false
+    var selectedFoodEntryIndex: Int?
+    var delegate: EditFoodEntryDelegate?
     
     
     // MARK: - View Life Cycle Methods
@@ -114,6 +117,7 @@ class FoodDetailViewController: UIViewController {
         self.qtyTextField.delegate = self
         if let quantity = foodItem.quantity {
             self.qtyTextField.text = "\(quantity)"
+            quantityInputValue = quantity
         } else {
             self.qtyTextField.text = "1.0"
         }
@@ -136,12 +140,10 @@ class FoodDetailViewController: UIViewController {
         self.addFoodButton.layer.cornerRadius = 6.0
         
         if fromLog {
-            addFoodButton.isHidden = true
+            addFoodButton.setTitle("Edit Entry", for: .normal)
             qtyTextField.isEnabled = false
             servingSizePickerView.isUserInteractionEnabled = false
             mealTypePickerView.isUserInteractionEnabled = false
-            
-//            self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentEditAlert)))
         } else {
             self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         }
@@ -345,7 +347,7 @@ class FoodDetailViewController: UIViewController {
     }
     
     @objc func presentEditAlert() {
-        createAndDisplayAlertController(title: "Need to make changes?", message: "Tap the edit button in the upper right corner to edit this food entry.")
+        createAndDisplayAlertController(title: "Need to make changes?", message: "Tap the edit button below to update and save this food entry.")
     }
     
     @objc func qtyTypeInvalid() {
@@ -398,6 +400,16 @@ class FoodDetailViewController: UIViewController {
     // MARK: - IBActions & Food Logging
     
     @IBAction func logFood(_ sender: Any) {
+        if addFoodButton.titleLabel?.text == "Edit Entry" {
+            qtyTextField.isEnabled = true
+            servingSizePickerView.isUserInteractionEnabled = true
+            mealTypePickerView.isUserInteractionEnabled = true
+            addFoodButton.setTitle("Save Entry", for: .normal)
+            addFoodButton.backgroundColor = UIColor(named: "nutrivurv-green")
+            self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+            return
+        }
+        
         guard var foodItem = foodItem else {
             return
         }
@@ -416,9 +428,17 @@ class FoodDetailViewController: UIViewController {
         foodItem.mealType = selectedMealTypeIndex
         foodItem.date = Date()
         
-        FoodLogController.shared.foodLog.append(foodItem)
-        
-        createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
+        if addFoodButton.titleLabel?.text == "Save Entry" {
+            guard let index = selectedFoodEntryIndex else {
+                print("Error getting index for food entry")
+                return
+            }
+            createAndDisplayAlertAndPopToRoot(title: "Entry Updated!", message: "You just updated this food entry! See all of your logged meals for the day from your main dashboard.")
+            delegate?.updateEntryFor(foodItem: foodItem, at: index)
+        } else {
+            FoodLogController.shared.foodLog.append(foodItem)
+            createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
+        }
     }
     
     @IBAction func qtyTextFieldValueChanged(_ sender: UITextField) {
