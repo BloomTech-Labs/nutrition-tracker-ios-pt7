@@ -66,6 +66,7 @@ class FoodSearchTableViewController: UITableViewController {
                 print("Couldn't load barcode scanner")
                 return
             }
+            self.foodSearchBar.searchTextField.resignFirstResponder()
             barcodeScanVC.barcodeSearchDelegate = self
             barcodeScanVC.manualSearchDelegate = self
             barcodeScanVC.searchController = self.searchController
@@ -178,6 +179,7 @@ extension FoodSearchTableViewController: UISearchBarDelegate {
 
 extension FoodSearchTableViewController: BarcodeSearchDelegate {
     func gotResultForFoodFromUPC() {
+        self.foodSearchBar.text = searchController.foods.first?.food.label.capitalized
         tableView.reloadData()
     }
 }
