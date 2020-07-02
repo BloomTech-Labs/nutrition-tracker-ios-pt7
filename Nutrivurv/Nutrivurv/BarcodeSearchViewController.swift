@@ -37,8 +37,6 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         super.viewDidLoad()
         
         checkPermissions()
-        setUpCameraLiveView()
-        setupLoadingBlurEffect()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,7 +80,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     // MARK: - Views & UI Setup
     
     private func setupLoadingBlurEffect() {
-        view.backgroundColor = .clear
+        view.backgroundColor = UIColor(named: "bg-color")
         
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
         loadingBlurView = UIVisualEffectView(effect: blurEffect)
@@ -174,6 +172,12 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
             AVCaptureDevice.requestAccess(for: mediaType) { (granted) in
                 guard granted != true else {
                     self.permissionGranted = true
+                    
+                    if self.cameraPreviewLayer == nil {
+                        DispatchQueue.main.async {
+                            self.setUpCameraLiveView()
+                        }
+                    }
                     return
                 }
                 DispatchQueue.main.async {
@@ -182,6 +186,9 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
             }
         case .authorized:
               self.permissionGranted = true
+              if self.cameraPreviewLayer == nil {
+                self.setUpCameraLiveView()
+            }
             
         // Although all cases are covered for current API, we need a default if additional cases are added in the future.
         default:
@@ -265,6 +272,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         }
         self.view.layer.addSublayer(previewLayer)
         
+        self.setupLoadingBlurEffect()
+        
         // If we get here, it's safe to start the capture session
         self.captureSession.startRunning()
     }
@@ -341,8 +350,9 @@ extension BarcodeSearchViewController: AVCaptureMetadataOutputObjectsDelegate {
         if let metadataObject = metadataObjects.first {
             
             // Interpret size of barcode on screen and set the scanner view box view to match that size
-            let barcodeObject = self.cameraPreviewLayer?.transformedMetadataObject(for: metadataObject)
-            barcodeScannerFrameView.frame = barcodeObject!.bounds
+            if let barcodeObject = self.cameraPreviewLayer?.transformedMetadataObject(for: metadataObject) {
+                barcodeScannerFrameView.frame = barcodeObject.bounds
+            }
             
             // Convert metadata to a readable object and get string value to initiate a UPC search
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {

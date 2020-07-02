@@ -38,7 +38,6 @@ class FoodLogTableViewController: UITableViewController {
         }
     }
     
-    
     private func noFoodLoggedMessage(message:String) {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         let messageLabel = UILabel(frame: rect)
@@ -122,9 +121,13 @@ class FoodLogTableViewController: UITableViewController {
             detailVC.searchController = foodSearchController
             detailVC.foodItem = foodItem
             detailVC.fromLog = true
+            detailVC.selectedFoodEntryIndex = indexPath.row
+            detailVC.delegate = self
+            
             if let meal = getMealTypeNameFor(foodItem.mealType) {
                 detailVC.title = "Today's \(meal)"
             }
+            
             detailVC.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(detailVC, animated: true)
         }
@@ -154,4 +157,15 @@ class FoodLogTableViewController: UITableViewController {
             foodLogController.foodLog.remove(at: indexPath.row)
         }
     }
+}
+
+extension FoodLogTableViewController: EditFoodEntryDelegate {
+    func updateEntryFor(foodItem: FoodItem, at index: Int) {
+        foodLogController.foodLog[index] = foodItem
+    }
+}
+
+
+protocol EditFoodEntryDelegate {
+    func updateEntryFor(foodItem: FoodItem, at index: Int)
 }
