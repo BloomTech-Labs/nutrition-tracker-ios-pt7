@@ -384,7 +384,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
                                 <rect key="frame" x="12" y="110" width="264" height="45"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
                                         <rect key="frame" x="0.0" y="0.0" width="264" height="26.666666666666668"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="21"/>
                                         <color key="textColor" name="light-label"/>
@@ -509,19 +509,19 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
-                                <rect key="frame" x="16" y="371" width="382" height="22.666666666666686"/>
+                                <rect key="frame" x="16" y="363" width="382" height="22.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruV-gM-Tbw">
-                                <rect key="frame" x="16" y="401.66666666666669" width="382" height="15.333333333333314"/>
+                                <rect key="frame" x="16" y="393.66666666666669" width="382" height="15.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
-                                <rect key="frame" x="16" y="423" width="382" height="20.333333333333314"/>
+                                <rect key="frame" x="16" y="415" width="382" height="20.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
                                         <rect key="frame" x="0.0" y="0.0" width="367" height="20.333333333333332"/>
@@ -538,13 +538,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Daily Value *" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYu-gN-Juf">
-                                <rect key="frame" x="16" y="455.33333333333331" width="386" height="17.666666666666686"/>
+                                <rect key="frame" x="16" y="447.33333333333331" width="386" height="17.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV" customClass="FadedVerticalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="481" width="398" height="297"/>
+                                <rect key="frame" x="16" y="473" width="398" height="319"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
                                         <rect key="frame" x="0.0" y="9.9999999999999982" width="386" height="20.333333333333329"/>
@@ -811,7 +811,7 @@
                                     <constraint firstItem="gaW-Lv-M4B" firstAttribute="top" secondItem="9pm-D8-TmG" secondAttribute="bottom" constant="9" id="49Z-M0-2El"/>
                                     <constraint firstAttribute="trailing" secondItem="bmN-Ol-Dc8" secondAttribute="trailing" id="57N-q2-pfH"/>
                                     <constraint firstAttribute="trailing" secondItem="O4N-Sr-mcP" secondAttribute="trailing" id="7g4-2N-Ja1"/>
-                                    <constraint firstAttribute="bottom" secondItem="uJS-kU-Tos" secondAttribute="bottom" constant="24" id="BJb-Hk-0Aw"/>
+                                    <constraint firstAttribute="bottom" secondItem="uJS-kU-Tos" secondAttribute="bottom" constant="42" id="BJb-Hk-0Aw"/>
                                     <constraint firstItem="CTG-YY-A80" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="Bca-d6-dun"/>
                                     <constraint firstItem="eMl-Zj-YJB" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="CPt-dQ-UiX"/>
                                     <constraint firstItem="9pm-D8-TmG" firstAttribute="top" secondItem="z7n-YO-afv" secondAttribute="bottom" constant="9" id="EWg-gl-l3S"/>
@@ -892,7 +892,7 @@
                         <constraints>
                             <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="leading" secondItem="bPc-n4-yNw" secondAttribute="leading" constant="-8" id="0mv-Vw-6SH"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="bottom" secondItem="c8X-GH-pEz" secondAttribute="bottom" constant="12" id="4XJ-vR-KUS"/>
-                            <constraint firstItem="c8X-GH-pEz" firstAttribute="top" secondItem="Icx-af-gHV" secondAttribute="bottom" constant="28" id="9vU-ew-g9g"/>
+                            <constraint firstItem="c8X-GH-pEz" firstAttribute="top" secondItem="Icx-af-gHV" secondAttribute="bottom" constant="14" id="9vU-ew-g9g"/>
                             <constraint firstItem="n1A-tt-XQf" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="AGZ-Zz-qFV"/>
                             <constraint firstItem="f73-A3-Bna" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="32" id="Bmc-UM-32D"/>
                             <constraint firstItem="DV8-21-SSQ" firstAttribute="leading" secondItem="zES-L2-3nD" secondAttribute="trailing" constant="6" id="F6e-ml-1LO"/>
@@ -916,7 +916,7 @@
                             <constraint firstItem="bPc-n4-yNw" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="22" id="gFA-mO-uvo"/>
                             <constraint firstItem="Icx-af-gHV" firstAttribute="top" secondItem="KYu-gN-Juf" secondAttribute="bottom" constant="8" id="gwI-2d-6i4"/>
                             <constraint firstItem="DV8-21-SSQ" firstAttribute="trailing" secondItem="5Sv-Gc-KlZ" secondAttribute="trailing" id="hyf-yp-E6B"/>
-                            <constraint firstItem="n1A-tt-XQf" firstAttribute="top" secondItem="905-xc-sQL" secondAttribute="bottom" constant="28" id="kP5-Q9-j1D"/>
+                            <constraint firstItem="n1A-tt-XQf" firstAttribute="top" secondItem="905-xc-sQL" secondAttribute="bottom" constant="20" id="kP5-Q9-j1D"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="c8X-GH-pEz" secondAttribute="trailing" constant="88" id="mJT-4Q-PsW"/>
                             <constraint firstItem="XRT-Sz-jNH" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="mVs-ba-iGR"/>
                             <constraint firstItem="KYu-gN-Juf" firstAttribute="top" secondItem="XRT-Sz-jNH" secondAttribute="bottom" constant="12" id="ne9-f0-ENM"/>
