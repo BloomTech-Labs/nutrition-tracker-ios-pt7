@@ -78,13 +78,13 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
-    var selectedServingSize: Int = 0 {
+    var selectedServingSize: Int? {
         didSet {
             self.getFoodDetails()
         }
     }
     
-    var quantityInputValue: Double = 1.0 {
+    var quantityInputValue: Double? {
         didSet {
             self.getFoodDetails()
         }
@@ -114,18 +114,19 @@ class FoodDetailViewController: UIViewController {
         self.foodNameLabel.text = foodItem.food.label.capitalized
         self.foodCategoryLabel.text = foodItem.food.category.capitalized
         
+        self.servingSizePickerView.delegate = self
+        self.servingSizePickerView.dataSource = self
+        if let servingSizeIndex = foodItem.servingSize {
+            self.servingSizePickerView.selectRow(servingSizeIndex, inComponent: 0, animated: true)
+            self.selectedServingSize = servingSizeIndex
+        }
+        
         self.qtyTextField.delegate = self
         if let quantity = foodItem.quantity {
             self.qtyTextField.text = "\(quantity)"
             quantityInputValue = quantity
         } else {
             self.qtyTextField.text = "1.0"
-        }
-
-        self.servingSizePickerView.delegate = self
-        self.servingSizePickerView.dataSource = self
-        if let servingSizeIndex = foodItem.servingSize {
-            self.servingSizePickerView.selectRow(servingSizeIndex, inComponent: 0, animated: true)
         }
         
         self.mealTypePickerView.delegate = self
@@ -146,6 +147,8 @@ class FoodDetailViewController: UIViewController {
             mealTypePickerView.isUserInteractionEnabled = false
         } else {
             self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+            selectedServingSize = 0
+            quantityInputValue = 1.0
         }
     }
     
@@ -360,8 +363,13 @@ class FoodDetailViewController: UIViewController {
     private func getFoodDetails() {
         guard let foodItem = self.foodItem else { return }
         
-        self.searchController?.searchForNutrients(qty: quantityInputValue,
-                                                  measure: foodItem.measures[selectedServingSize].uri,
+        guard let servingSize = selectedServingSize, let quantity = quantityInputValue else {
+            return
+        }
+        
+        
+        self.searchController?.searchForNutrients(qty: quantity,
+                                                  measure: foodItem.measures[servingSize].uri,
                                                   foodId: foodItem.food.foodId) { (nutrients) in
             guard let nutrients = nutrients else { return }
             self.nutrients = nutrients
@@ -414,7 +422,7 @@ class FoodDetailViewController: UIViewController {
             return
         }
         
-        let userSelectedQuantity = quantityInputValue
+        guard let userSelectedQuantity = quantityInputValue else { return }
         let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
         let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
         
@@ -507,7 +515,9 @@ extension FoodDetailViewController: UITextFieldDelegate {
             updateQtyValue(qty: qty)
             textField.text = String(qty)
         } else {
-            textField.text = String(quantityInputValue)
+            if let quantity = quantityInputValue {
+                textField.text = String(quantity)
+            }
         }
         return true
     }
