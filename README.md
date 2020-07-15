@@ -1,6 +1,6 @@
 # Nutrition Tracker
 
-You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
+You can find the deployed project at [Lambda School Labs PT11 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
 
 ## Contributors Labs PT 7
 
@@ -13,35 +13,31 @@ You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker
 ## Labs PT 11
 | [Dillon Petretti](https://github.com/dillonp23) |
 | :-----------------------------------------------------------------------------------------------------------: |
-| [<img src="https://en.gravatar.com/userimage/179915898/d9ea45c101c6dc4fd135449bfbc73b0d.jpeg" width = "200" />](https://github.com/michaelstoffer) |
-| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/michaelstoffer) |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/michaelstoffer/) |
+| [<img src="https://media-exp1.licdn.com/dms/image/C5603AQFtuUwHJIaoAw/profile-displayphoto-shrink_400_400/0?e=1600300800&v=beta&t=zXVmYQI4omM401Y2uDx-hcWnjWm7Iq9VPdHFrsn-v3c" width = "200" />](https://github.com/dillonp23) |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dillonp23) |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/ios-dillon/) |
 
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/LFAlertController.svg)
-[![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ## Project Overview
 
-You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
+You can find the deployed project at [Lambda School Labs PT11 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
 
-[Trello Board](https://trello.com/b/Xix9XSlj/labspt7-nutrition-tracker)
+[Trello Board](https://trello.com/b/9EYWw5vc/labs-pt11-nutrivurv)
 
-[Product Canvas](https://www.notion.so/Nutrition-Tracker-c05986bd547e429f97d2e3a75e97b32d)
+[Product Canvas](https://www.notion.so/c4360fe71b3b42a4a0f8bfe4cada23c5?v=67fa7c6f21494ac5b0d82d8975349830)
 
 [UX Design files](https://www.figma.com/file/yqpTM7IYO90dVNPBsxaQrG/NutriJournal-Ashes-and-Tricia?node-id=122%3A2)
 
 ### Features
 
--    Feature 1
--    Feature 2
--    Feature 3
--    Feature 4
--    Feature 5
+-    Reach your health & fitness goals with easy diet tracking
+-    Search from a wide array of foods and log them to your daily food journal
+-    Quickly find foods with our barcode scanning functionality by using your iPhone's camera
+-    Stay on top of your goals with insights of your diet and weight over time
+-    Quickly determine if a food contains additives or allergens to make choosing your meals easier
 
 ## Requirements
 
