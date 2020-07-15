@@ -2,9 +2,16 @@
 
 You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
 
-## Contributors
+## Contributors Labs PT 7
 
 | [Michael Stoffer](https://github.com/michaelstoffer) |
+| :-----------------------------------------------------------------------------------------------------------: |
+| [<img src="https://en.gravatar.com/userimage/179915898/d9ea45c101c6dc4fd135449bfbc73b0d.jpeg" width = "200" />](https://github.com/michaelstoffer) |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/michaelstoffer) |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/michaelstoffer/) |
+
+## Labs PT 11
+| [Dillon Petretti](https://github.com/dillonp23) |
 | :-----------------------------------------------------------------------------------------------------------: |
 | [<img src="https://en.gravatar.com/userimage/179915898/d9ea45c101c6dc4fd135449bfbc73b0d.jpeg" width = "200" />](https://github.com/michaelstoffer) |
 | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/michaelstoffer) |
@@ -17,8 +24,6 @@ You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/EZSwiftExtensions.svg)](https://img.shields.io/cocoapods/v/LFAlertController.svg)
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
 
 ## Project Overview
 
