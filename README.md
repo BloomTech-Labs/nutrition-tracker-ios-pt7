@@ -10,8 +10,6 @@ You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker
 | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/michaelstoffer) |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/michaelstoffer/) |
 
-🚫 Optional examples of using badges with links for your tech stack, make sure to change these to fit your project
-
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
