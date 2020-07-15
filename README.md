@@ -1,6 +1,6 @@
 # Nutrition Tracker
 
-You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
+You can find the deployed project at [Lambda School Labs PT11 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
 
 ## Contributors Labs PT 7
 
@@ -23,7 +23,7 @@ You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker
 
 ## Project Overview
 
-You can find the deployed project at [Lambda School Labs PT7 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
+You can find the deployed project at [Lambda School Labs PT11 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
 
 [Trello Board](https://trello.com/b/9EYWw5vc/labs-pt11-nutrivurv)
 
