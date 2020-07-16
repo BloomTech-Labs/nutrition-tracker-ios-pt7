@@ -1,6 +1,6 @@
-# Nutrition Tracker
+# Nutrition Tracker - iOS
 
-You can find the deployed project at [Lambda School Labs PT11 - Nutrition Tracker iOS](https://github.com/Lambda-School-Labs/nutrition-tracker-ios-pt7).
+[![Maintainability](https://api.codeclimate.com/v1/badges/0e5b8dd23796c3a6b8d4/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/nutrition-tracker-ios-pt7/maintainability)
 
 ## Contributors Labs PT 7
 
