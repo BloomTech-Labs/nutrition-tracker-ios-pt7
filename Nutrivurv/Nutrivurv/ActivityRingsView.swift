@@ -18,10 +18,13 @@ struct ActivityRingsView: View {
         ZStack {
             Circle()
                 .trim(from: showCaloriesStroke ? 0.1 : 0.99, to: 1)
-                .stroke(Color.blue, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                .stroke(
+                    LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "nutrivurv-blue")!).opacity(0.6), Color(UIColor(named: "nutrivurv-blue")!)]), startPoint: .topTrailing, endPoint: .bottomLeading),
+                    style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: 100, height: 100)
+                .shadow(color: Color(UIColor(named: "nutrivurv-blue")!).opacity(0.25), radius: 3, x: 0, y: 3)
                 .animation(.easeOut)
                 .onTapGesture {
                     self.showCaloriesStroke.toggle()
