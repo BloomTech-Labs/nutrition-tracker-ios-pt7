@@ -14,21 +14,29 @@ struct ActivityRingsView: View {
     @State private var showProteinsStroke = false
     @State private var showFatsStroke = false
     
+    var uiColor = UIColor(named: "nutrivurv-blue")!
+    var width: CGFloat = 100
+    var height: CGFloat = 100
+    var percent: CGFloat = 88
+    
+    
     var body: some View {
-        ZStack {
+        let multiplier = width / 100
+        
+        return ZStack {
             Circle()
-                .stroke(Color.black.opacity(0.07), style: StrokeStyle(lineWidth: 9))
-                .frame(width: 100, height: 100)
+                .stroke(Color.black.opacity(0.07), style: StrokeStyle(lineWidth: 9 * multiplier))
+                .frame(width: width, height: height)
             
             Circle()
                 .trim(from: showCaloriesStroke ? 0.1 : 0.99, to: 1)
                 .stroke(
-                    LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "nutrivurv-blue")!).opacity(0.6), Color(UIColor(named: "nutrivurv-blue")!)]), startPoint: .topTrailing, endPoint: .bottomLeading),
-                    style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                    LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.6), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
+                    style: StrokeStyle(lineWidth: 10 * multiplier, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
-                .frame(width: 100, height: 100)
-                .shadow(color: Color(UIColor(named: "nutrivurv-blue")!).opacity(0.25), radius: 3, x: 0, y: 3)
+                .frame(width: width, height: height)
+                .shadow(color: Color(uiColor).opacity(0.25), radius: 3 * multiplier, x: 0, y: 3 * multiplier)
                 .animation(.easeOut)
                 .onTapGesture {
                     self.showCaloriesStroke.toggle()
