@@ -17,6 +17,10 @@ struct ActivityRingsView: View {
     var body: some View {
         ZStack {
             Circle()
+                .stroke(Color.black.opacity(0.07), style: StrokeStyle(lineWidth: 9))
+                .frame(width: 100, height: 100)
+            
+            Circle()
                 .trim(from: showCaloriesStroke ? 0.1 : 0.99, to: 1)
                 .stroke(
                     LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "nutrivurv-blue")!).opacity(0.6), Color(UIColor(named: "nutrivurv-blue")!)]), startPoint: .topTrailing, endPoint: .bottomLeading),
