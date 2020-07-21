@@ -22,14 +22,18 @@ struct ActivityRingsView: View {
     
     var body: some View {
         let multiplier = width / 100
+        let progress = 1 - percent / 100
         
         return ZStack {
             Circle()
                 .stroke(Color.black.opacity(0.07), style: StrokeStyle(lineWidth: 9 * multiplier))
-                .frame(width: width, height: height)
+                .frame(width: width - 1 * multiplier, height: height - 1 * multiplier)
+                .onTapGesture {
+                    self.showCaloriesStroke.toggle()
+                }
             
             Circle()
-                .trim(from: showCaloriesStroke ? 0.1 : 0.99, to: 1)
+                .trim(from: showCaloriesStroke ? progress : 0.99, to: 1)
                 .stroke(
                     LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.6), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
                     style: StrokeStyle(lineWidth: 10 * multiplier, lineCap: .round, lineJoin: .round))
