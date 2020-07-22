@@ -265,14 +265,14 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func getGreenLabelFor(_ string: String) -> NutritionLabel {
-        let color = UIColor(named: "nutrivurv-green")!
+        let color = UIColor(named: "nutrivurv-green-2")!
         let label = setupHealthAndWarningLabels(string, color: color)
         
         return label
     }
     
     private func getYellowLabelFor(_ string: String) -> NutritionLabel {
-        let color = UIColor(named: "nutrivurv-yellow")!
+        let color = UIColor(named: "nutrivurv-orange")!
         let label = setupHealthAndWarningLabels(string, color: color)
         
         return label
