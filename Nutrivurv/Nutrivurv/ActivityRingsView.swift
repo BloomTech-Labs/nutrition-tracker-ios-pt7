@@ -46,8 +46,7 @@ struct RingView: View {
     var height: CGFloat
     var percent: CGFloat
     
-    var ringLoadAnimation = Animation.easeInOut(duration: 0.5).delay(1)
-    var ringAnimation = Animation.easeInOut(duration: 0.5)
+    var ringAnimation = Animation.easeInOut(duration: 0.8).delay(0.25)
     
     var body: some View {
         let multiplier = width / 100
@@ -67,7 +66,7 @@ struct RingView: View {
                 .frame(width: width - 1 * multiplier, height: height - 1 * multiplier)
                 .onTapGesture {
                     self.show.toggle()
-                }
+            }
             
             Circle()
                 .trim(from: show ? progress : 0.999, to: 1)
@@ -79,19 +78,19 @@ struct RingView: View {
                 .frame(width: width, height: height)
 //                .shadow(color: complete ? Color(uiColor).opacity(0.6) : Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: -3 * multiplier)
                 .shadow(color: Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
-                .animation(ringAnimation)
-                .onTapGesture {
-                    self.show.toggle()
-            }
-            .animateRing(using: ringLoadAnimation) {
+                .animateRing(using: ringAnimation) {
                     self.show = true
-                }
+            }
+            .animation(ringAnimation)
+            .onTapGesture {
+                self.show.toggle()
+            }
         }
     }
 }
 
 extension View {
-    func animateRing(using animation: Animation = Animation.easeInOut(duration: 0.5).delay(1), _ action: @escaping () -> Void) -> some View {
+    func animateRing(using animation: Animation, _ action: @escaping () -> Void) -> some View {
         return onAppear {
             withAnimation(animation) {
                 action()
