@@ -16,9 +16,9 @@ struct ActivityRingsView: View {
     
     
     var blueColor = UIColor(named: "nutrivurv-blue")!
-    var greenColor = UIColor(named: "nutrivurv-green")!
-    var yellowColor = UIColor(named: "nutrivurv-yellow")!
-    var redColor = UIColor(named: "nutrivurv-red")!
+    var greenColor = UIColor(named: "nutrivurv-green-2")!
+    var yellowColor = UIColor(named: "nutrivurv-orange")!
+    var redColor = UIColor(named: "nutrivurv-red-2")!
     
     
     var body: some View {
