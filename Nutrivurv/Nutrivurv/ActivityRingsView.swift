@@ -23,10 +23,10 @@ struct ActivityRingsView: View {
     
     var body: some View {
         ZStack {
-            RingView(show: $showCaloriesStroke, uiColor: blueColor, width: 120, height: 120, percent: 85).animation(.easeInOut)
-            RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 95.6, height: 95.6, percent: 36).animation(.easeInOut)
-            RingView(show: $showCaloriesStroke, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54).animation(.easeInOut)
-            RingView(show: $showCaloriesStroke, uiColor: redColor, width: 59.53, height: 59.53, percent: 74).animation(.easeInOut)
+            RingView(show: $showCaloriesStroke, uiColor: blueColor, width: 120, height: 120, percent: 85)
+            RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 95.6, height: 95.6, percent: 100)
+            RingView(show: $showCaloriesStroke, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54)
+            RingView(show: $showCaloriesStroke, uiColor: redColor, width: 59.53, height: 59.53, percent: 74)
         }
     }
 }
@@ -46,12 +46,23 @@ struct RingView: View {
     var height: CGFloat
     var percent: CGFloat
     
+    var ringLoadAnimation = Animation.easeInOut(duration: 0.5).delay(1)
+    var ringAnimation = Animation.easeInOut(duration: 0.5)
+    
     var body: some View {
         let multiplier = width / 100
         let progress = 1 - percent / 100
         
+//        var complete: Bool = false
+//
+//        if percent >= 100 {
+//            complete = true
+//            progress = 1 - (percent - 100) / 100
+//        }
+        
         return ZStack {
             Circle()
+//                .stroke(complete ? Color(uiColor).opacity(show ? 0.8 : 0.25) : Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.09)
                 .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.09)
                 .frame(width: width - 1 * multiplier, height: height - 1 * multiplier)
                 .onTapGesture {
@@ -66,9 +77,24 @@ struct RingView: View {
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: width, height: height)
-                .shadow(color: Color(uiColor).opacity(0.25), radius: 3 * multiplier, x: 0, y: 3 * multiplier)
+//                .shadow(color: complete ? Color(uiColor).opacity(0.6) : Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: -3 * multiplier)
+                .shadow(color: Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
+                .animation(ringAnimation)
                 .onTapGesture {
                     self.show.toggle()
+            }
+            .animateRing(using: ringLoadAnimation) {
+                    self.show = true
+                }
+        }
+    }
+}
+
+extension View {
+    func animateRing(using animation: Animation = Animation.easeInOut(duration: 0.5).delay(1), _ action: @escaping () -> Void) -> some View {
+        return onAppear {
+            withAnimation(animation) {
+                action()
             }
         }
     }
