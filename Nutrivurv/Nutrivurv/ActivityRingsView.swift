@@ -59,7 +59,7 @@ struct RingView: View {
                 }
             
             Circle()
-                .trim(from: show ? progress : 0.99, to: 1)
+                .trim(from: show ? progress : 0.999, to: 1)
                 .stroke(
                     LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.5), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
                     style: StrokeStyle(lineWidth: 10 * multiplier, lineCap: .round, lineJoin: .round))
