@@ -24,7 +24,7 @@ struct ActivityRingsView: View {
     var body: some View {
         ZStack {
             RingView(show: $showCaloriesStroke, uiColor: blueColor, width: 120, height: 120, percent: 85).animation(.easeInOut)
-            RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 96, height: 96, percent: 36).animation(.easeInOut)
+            RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 95.6, height: 95.6, percent: 36).animation(.easeInOut)
             RingView(show: $showCaloriesStroke, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54).animation(.easeInOut)
             RingView(show: $showCaloriesStroke, uiColor: redColor, width: 59.53, height: 59.53, percent: 74).animation(.easeInOut)
         }
