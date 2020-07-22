@@ -23,10 +23,10 @@ struct ActivityRingsView: View {
     
     var body: some View {
         ZStack {
-            RingView(show: $showCaloriesStroke, uiColor: blueColor, width: 150, height: 150, percent: 88).animation(.easeInOut)
-            RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 120, height: 120, percent: 24).animation(.easeInOut)
-            RingView(show: $showCaloriesStroke, uiColor: yellowColor, width: 95, height: 95, percent: 56).animation(.easeInOut)
-            RingView(show: $showCaloriesStroke, uiColor: redColor, width: 75, height: 75, percent: 38).animation(.easeInOut)
+            RingView(show: $showCaloriesStroke, uiColor: blueColor, width: 150, height: 150, percent: 85).animation(.easeInOut)
+            RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 120, height: 120, percent: 36).animation(.easeInOut)
+            RingView(show: $showCaloriesStroke, uiColor: yellowColor, width: 95, height: 95, percent: 54).animation(.easeInOut)
+            RingView(show: $showCaloriesStroke, uiColor: redColor, width: 75, height: 75, percent: 74).animation(.easeInOut)
         }
     }
 }
@@ -52,7 +52,7 @@ struct RingView: View {
         
         return ZStack {
             Circle()
-                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.08)
+                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.09)
                 .frame(width: width - 1 * multiplier, height: height - 1 * multiplier)
                 .onTapGesture {
                     self.show.toggle()
@@ -61,7 +61,7 @@ struct RingView: View {
             Circle()
                 .trim(from: show ? progress : 0.99, to: 1)
                 .stroke(
-                    LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.6), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
+                    LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.5), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
                     style: StrokeStyle(lineWidth: 10 * multiplier, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
