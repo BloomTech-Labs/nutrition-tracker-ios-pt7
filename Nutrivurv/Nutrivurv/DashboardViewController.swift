@@ -8,6 +8,7 @@
 
 import UIKit
 import KeychainSwift
+import SwiftUI
 
 class DashboardViewController: UIViewController {
     
@@ -73,6 +74,14 @@ class DashboardViewController: UIViewController {
         
         return contentView
     }
+    
+    @IBSegueAction func addActivtyRingView(_ coder: NSCoder) -> UIViewController? {
+        let hostingController = UIHostingController(coder: coder, rootView: ActivityRingsView())
+        hostingController?.view.backgroundColor = UIColor.clear
+        
+        return hostingController
+    }
+    
     
     // MARK: - IBActions
     

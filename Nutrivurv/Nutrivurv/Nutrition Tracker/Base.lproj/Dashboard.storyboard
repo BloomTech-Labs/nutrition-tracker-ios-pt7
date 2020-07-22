@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
-                                <rect key="frame" x="53.333333333333336" y="110.00000000000001" width="73.666666666666657" height="54.666666666666671"/>
+                                <rect key="frame" x="41.333333333333336" y="126.00000000000001" width="73.666666666666657" height="54.666666666666671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q" userLabel="Measurement Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="32.666666666666664"/>
@@ -86,30 +86,33 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
-                                <rect key="frame" x="159" y="42.000000000000007" width="96" height="122.66666666666669"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
+                                <rect key="frame" x="147" y="26" width="120" height="154.66666666666666"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Donut" translatesAutoresizingMaskIntoConstraints="NO" id="see-z0-g6D">
-                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-fK-BvN">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="96" id="9ob-X3-fQj"/>
-                                            <constraint firstAttribute="width" secondItem="see-z0-g6D" secondAttribute="height" multiplier="1:1" id="Lx4-3m-jYI"/>
-                                            <constraint firstAttribute="width" constant="96" id="cGK-Gs-xqW"/>
+                                            <constraint firstAttribute="width" secondItem="UBn-fK-BvN" secondAttribute="height" multiplier="1:1" id="26G-OZ-KIv"/>
+                                            <constraint firstAttribute="height" constant="120" id="BPj-iz-rts"/>
+                                            <constraint firstAttribute="width" constant="120" id="YpR-xy-DrA"/>
                                         </constraints>
-                                    </imageView>
+                                        <connections>
+                                            <segue destination="HUf-V8-zA8" kind="embed" destinationCreationSelector="addActivtyRingView:" id="yCu-JE-R2y"/>
+                                        </connections>
+                                    </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Intake" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-Ww-SR6">
-                                        <rect key="frame" x="0.0" y="104" width="96" height="18.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="136" width="120" height="18.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="see-z0-g6D" firstAttribute="centerX" secondItem="ejI-Ww-SR6" secondAttribute="centerX" id="dM3-ra-m4p"/>
+                                    <constraint firstItem="UBn-fK-BvN" firstAttribute="centerX" secondItem="ejI-Ww-SR6" secondAttribute="centerX" id="MLc-9O-lb9"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
-                                <rect key="frame" x="287" y="109.00000000000001" width="69.333333333333314" height="55.666666666666671"/>
+                                <rect key="frame" x="299" y="125.00000000000001" width="69.333333333333314" height="55.666666666666671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy" userLabel="Number Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="32.666666666666664"/>
@@ -156,7 +159,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="16" y="212.66666666666671" width="382" height="97.333333333333343"/>
+                                <rect key="frame" x="16" y="228.66666666666671" width="382" height="97.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="23.333333333333332"/>
@@ -184,16 +187,16 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-s2-3S6">
-                                <rect key="frame" x="16" y="334" width="382" height="1"/>
+                                <rect key="frame" x="16" y="350" width="382" height="1"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Food Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="16" y="355" width="382" height="21"/>
+                                <rect key="frame" x="16" y="371" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="0.0" y="388" width="414" height="337"/>
+                                <rect key="frame" x="0.0" y="404" width="414" height="321"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -213,7 +216,7 @@
                             <constraint firstItem="SUN-s2-3S6" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="MS0-J7-pkl"/>
                             <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="TsD-7n-8qL"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="bottom" secondItem="vL2-nj-e72" secondAttribute="bottom" id="Ub9-zB-TMy"/>
-                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="42" id="XF0-K1-hBY"/>
+                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="26" id="XF0-K1-hBY"/>
                             <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" id="XRM-VX-Sgy"/>
                             <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="mnl-L0-Jdx" secondAttribute="bottom" constant="12" id="aMa-XR-14Y"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="16" id="g6h-9F-sFr"/>
@@ -970,6 +973,14 @@
             </objects>
             <point key="canvasLocation" x="11957.971014492754" y="-190.17857142857142"/>
         </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="3q0-no-ZbL">
+            <objects>
+                <hostingController id="HUf-V8-zA8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69n-Q3-zjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11788" y="-1513"/>
+        </scene>
         <!--Main-->
         <scene sceneID="grQ-MA-3ap">
             <objects>
@@ -995,7 +1006,7 @@
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bM9-0c-rT8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="331.66666666666669"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="315.66666666666669"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
@@ -1153,7 +1164,6 @@
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="Divider" width="1201" height="1"/>
-        <image name="Donut" width="96" height="96"/>
         <image name="camera-icon" width="21" height="18"/>
         <image name="fire" width="40" height="52"/>
         <image name="food-basket" width="512" height="512"/>
