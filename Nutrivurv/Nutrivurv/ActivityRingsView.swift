@@ -20,57 +20,31 @@ struct ActivityRingsView: View {
     
     var body: some View {
         ZStack {
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: blueColor, width: 120, height: 120, percent: 88)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: blueColor, width: 120, height: 120, percent: 64)
             RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: greenColor, width: 95.6, height: 95.6, percent: 73)
             RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54)
             RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: redColor, width: 59.53, height: 59.53, percent: 68)
             
             HStack {
                 VStack {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 4.0)
-                            .fill(Color(blueColor).opacity(0.9))
-                            .frame(width: 60, height: 15)
-                        
-                        Text("Calories")
-                            .font(Font.custom("Muli-Bold", size: 10.0))
-                            .foregroundColor(Color.white)
-                    }.offset(x: -50)
                     
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: blueColor, label: "Calories", count: "1,734 cal", percent: "88%")
+                        .offset(x: showRings ? -60 : -40).animation(.easeInOut)
                     
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 4.0)
-                            .fill(Color(greenColor).opacity(0.9))
-                            .frame(width: 60, height: 15)
-                        
-                        Text("Carbs")
-                            .font(Font.custom("Muli-Bold", size: 10.0))
-                            .foregroundColor(Color.white)
-                    }.offset(x: -60)
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: greenColor, label: "Carbs", count: "180g", percent: "73%")
+                        .offset(x: showRings ? -70 : -28).animation(.easeInOut)
+                    
                 }.offset(y: -20)
                 
                 
                 VStack {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 4.0)
-                            .fill(Color(yellowColor).opacity(0.9))
-                            .frame(width: 60, height: 15)
-                        
-                        Text("Protein")
-                            .font(Font.custom("Muli-Bold", size: 10.0))
-                            .foregroundColor(Color.white)
-                    }.offset(x: 50)
                     
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: yellowColor, label: "Protein", count: "92g", percent: "54%")
+                        .offset(x: showRings ? 60 : 40).animation(.easeInOut)
                     
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 4.0)
-                            .fill(Color(redColor).opacity(0.9))
-                            .frame(width: 60, height: 15)
-                        
-                        Text("Fat")
-                            .font(Font.custom("Muli-Bold", size: 10.0))
-                            .foregroundColor(Color.white)
-                    }.offset(x: 60)
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: redColor, label: "Fat", count: "47g", percent: "68%")
+                        .offset(x: showRings ? 70 : 28).animation(.easeInOut)
+                    
                 }.offset(y: -20)
             }
         }
@@ -128,7 +102,6 @@ struct RingView: View {
                 .shadow(color: Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
                 .animateRing(using: ringAnimation) {
                     self.showRings = true
-                    self.showMacrosDetail = false
             }
             .animation(ringAnimation)
             .onTapGesture {
@@ -138,6 +111,41 @@ struct RingView: View {
         }
     }
 }
+
+
+struct MacrosDetailView: View {
+    @Binding var showMacrosDetail: Bool
+    @Binding var showRings: Bool
+    
+    var uiColor: UIColor
+    var label: String
+    var count: String
+    var percent: String
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 4.0)
+                .fill(Color(uiColor).opacity(0.9))
+                .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 40 : 15)
+            
+            VStack {
+                Text(label)
+                    .font(Font.custom("Muli-Bold", size: 10))
+                    .foregroundColor(Color.white)
+                
+                if self.showMacrosDetail {
+                    Text("\(count) • \(percent)")
+                        .font(Font.custom("Muli-MediumItalic", size: 12.0))
+                        .foregroundColor(Color.white)
+                }
+            }
+        }.onTapGesture {
+            self.showMacrosDetail.toggle()
+            self.showRings.toggle()
+        }
+    }
+}
+
 
 extension View {
     func animateRing(using animation: Animation, _ action: @escaping () -> Void) -> some View {
