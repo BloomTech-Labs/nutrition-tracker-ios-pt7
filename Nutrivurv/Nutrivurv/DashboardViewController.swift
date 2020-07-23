@@ -14,8 +14,8 @@ class DashboardViewController: UIViewController {
     
     // MARK: - IBOutlets and Properties
     
-    @IBOutlet var streakCountLabel: UILabel!
-    @IBOutlet var currentWeightLabel: UILabel!
+    @IBOutlet weak var streakCountLabel: UILabel!
+    @IBOutlet weak var currentWeightLabel: UILabel!
     @IBOutlet weak var dailyVibeQuoteLabel: UILabel!
     @IBOutlet weak var dailyVibeAuthorLabel: UILabel!
     
