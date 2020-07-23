@@ -9,11 +9,8 @@
 import SwiftUI
 
 struct ActivityRingsView: View {
-    @State var showCaloriesStroke = false
-    @State var showCarbsStroke = false
-    @State var showProteinsStroke = false
-    @State var showFatsStroke = false
-    
+    @State var showRings = false
+    @State var showMacrosDetail = false
     
     var blueColor = UIColor(named: "nutrivurv-blue")!
     var greenColor = UIColor(named: "nutrivurv-green-2")!
@@ -23,10 +20,10 @@ struct ActivityRingsView: View {
     
     var body: some View {
         ZStack {
-            RingView(show: $showCaloriesStroke, uiColor: blueColor, width: 120, height: 120, percent: 85)
-            RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 95.6, height: 95.6, percent: 100)
-            RingView(show: $showCaloriesStroke, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54)
-            RingView(show: $showCaloriesStroke, uiColor: redColor, width: 59.53, height: 59.53, percent: 74)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: blueColor, width: 120, height: 120, percent: 88)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: greenColor, width: 95.6, height: 95.6, percent: 73)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: redColor, width: 59.53, height: 59.53, percent: 68)
             
             HStack {
                 VStack {
@@ -75,7 +72,6 @@ struct ActivityRingsView: View {
                             .foregroundColor(Color.white)
                     }.offset(x: 60)
                 }.offset(y: -20)
-                
             }
         }
     }
@@ -89,7 +85,8 @@ struct ActivityRingsView_Previews: PreviewProvider {
 
 
 struct RingView: View {
-    @Binding var show: Bool
+    @Binding var showRings: Bool
+    @Binding var showMacrosDetail: Bool
     
     var uiColor: UIColor
     var width: CGFloat
@@ -115,11 +112,12 @@ struct RingView: View {
                 .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.09)
                 .frame(width: width - 1 * multiplier, height: height - 1 * multiplier)
                 .onTapGesture {
-                    self.show.toggle()
+                    self.showRings.toggle()
+                    self.showMacrosDetail.toggle()
             }
             
             Circle()
-                .trim(from: show ? progress : 0.999, to: 1)
+                .trim(from: showRings ? progress : 0.999, to: 1)
                 .stroke(
                     LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.5), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
                     style: StrokeStyle(lineWidth: 10 * multiplier, lineCap: .round, lineJoin: .round))
@@ -129,11 +127,13 @@ struct RingView: View {
 //                .shadow(color: complete ? Color(uiColor).opacity(0.6) : Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: -3 * multiplier)
                 .shadow(color: Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
                 .animateRing(using: ringAnimation) {
-                    self.show = true
+                    self.showRings = true
+                    self.showMacrosDetail = false
             }
             .animation(ringAnimation)
             .onTapGesture {
-                self.show.toggle()
+                self.showRings.toggle()
+                self.showMacrosDetail.toggle()
             }
         }
     }
