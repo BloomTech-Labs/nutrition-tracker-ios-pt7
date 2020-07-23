@@ -73,7 +73,11 @@ struct RingView: View {
     
     var body: some View {
         let multiplier = width / 100
-        let progress = 1 - percent / 100
+        var progress = 1 - percent / 100
+        
+        if percent > 100 {
+            progress = 0
+        }
         
 //        var complete: Bool = false
 //
