@@ -129,10 +129,6 @@ struct MacrosDetailView: View {
             RoundedRectangle(cornerRadius: 4.0)
                 .fill(Color(uiColor).opacity(0.9))
                 .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 40 : 15)
-                .onTapGesture {
-                    self.showMacrosDetail.toggle()
-                    self.showRings.toggle()
-                }
             
             VStack {
                 Text(label)
