@@ -12,26 +12,37 @@ struct ActivityRingsView: View {
     @State var showRings = false
     @State var showMacrosDetail = false
     
-    var blueColor = UIColor(named: "nutrivurv-blue")!
-    var greenColor = UIColor(named: "nutrivurv-green-2")!
-    var yellowColor = UIColor(named: "nutrivurv-orange")!
-    var redColor = UIColor(named: "nutrivurv-red-2")!
+    var caloriesColor = UIColor(named: "nutrivurv-blue")!
+    var caloriesCount: CGFloat = 1734
+    var caloriesPercent: CGFloat = 76
+    
+    var carbsColor = UIColor(named: "nutrivurv-green-2")!
+    var carbsCount: CGFloat = 180
+    var carbsPercent: CGFloat = 88
+    
+    var proteinColor = UIColor(named: "nutrivurv-orange")!
+    var proteinCount: CGFloat = 92
+    var proteinPercent: CGFloat = 54
+    
+    var fatColor = UIColor(named: "nutrivurv-red-2")!
+    var fatCount: CGFloat = 47
+    var fatPercent: CGFloat = 68
     
     
     var body: some View {
         ZStack {
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: blueColor, width: 120, height: 120, percent: 64)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: greenColor, width: 95.6, height: 95.6, percent: 73)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: redColor, width: 59.53, height: 59.53, percent: 68)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: caloriesColor, width: 120, height: 120, percent: caloriesPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: carbsColor, width: 95.6, height: 95.6, percent: carbsPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: proteinColor, width: 75.84, height: 75.84, percent: proteinPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: fatColor, width: 59.53, height: 59.53, percent: fatPercent)
             
             HStack {
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: blueColor, label: "Calories", count: "1,734 cal", percent: "88%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(caloriesCount)) cal", percent: "\(Int(caloriesPercent))%")
                         .offset(x: showRings ? -60 : -40).animation(.easeInOut)
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: greenColor, label: "Carbs", count: "180g", percent: "73%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(carbsCount))g", percent: "\(Int(carbsPercent))%")
                         .offset(x: showRings ? -70 : -28).animation(.easeInOut)
                     
                 }.offset(y: -20)
@@ -39,11 +50,11 @@ struct ActivityRingsView: View {
                 
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: yellowColor, label: "Protein", count: "92g", percent: "54%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(proteinCount))g", percent: "\(Int(proteinPercent))%")
                         .offset(x: showRings ? 60 : 40).animation(.easeInOut)
                         
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: redColor, label: "Fat", count: "47g", percent: "68%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(fatCount))g", percent: "\(Int(fatPercent))%")
                         .offset(x: showRings ? 70 : 28).animation(.easeInOut)
                     
                 }.offset(y: -20)
