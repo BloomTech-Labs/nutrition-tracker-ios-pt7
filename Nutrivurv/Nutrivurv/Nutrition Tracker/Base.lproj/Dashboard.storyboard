@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
-                                <rect key="frame" x="39.333333333333336" y="133" width="77.666666666666657" height="57.333333333333343"/>
+                                <rect key="frame" x="47.333333333333336" y="126.99999999999999" width="77.666666666666657" height="57.333333333333329"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q" userLabel="Measurement Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="35.333333333333336"/>
@@ -87,7 +87,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
-                                <rect key="frame" x="77" y="34" width="260" height="156.33333333333334"/>
+                                <rect key="frame" x="77" y="28" width="260" height="156.33333333333334"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-fK-BvN">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="120"/>
@@ -111,7 +111,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
-                                <rect key="frame" x="297" y="132" width="73" height="58.333333333333343"/>
+                                <rect key="frame" x="289" y="125.99999999999999" width="73" height="58.333333333333329"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy" userLabel="Number Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="73" height="35.333333333333336"/>
@@ -134,7 +134,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-ou-bPs" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="41.333333333333314" width="73" height="17"/>
+                                        <rect key="frame" x="0.0" y="41.333333333333343" width="73" height="17"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="tIx-Zv-zVe">
                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -157,27 +157,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="16" y="228.33333333333334" width="382" height="99.333333333333343"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
+                                <rect key="frame" x="36" y="238.33333333333334" width="342" height="84.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="25.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="16"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-WI-smU">
-                                        <rect key="frame" x="0.0" y="41.333333333333371" width="382" height="58"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-WI-smU">
+                                        <rect key="frame" x="0.0" y="28.333333333333371" width="342" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-hN-fSe">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="Muli-LightItalic" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Muli-LightItalic" family="Muli" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e09-AN-MWp">
-                                                <rect key="frame" x="0.0" y="8" width="382" height="50"/>
-                                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="14"/>
+                                                <rect key="frame" x="0.0" y="6" width="342" height="50"/>
+                                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="12"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -185,17 +185,14 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-s2-3S6">
-                                <rect key="frame" x="16" y="351.66666666666669" width="382" height="1"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Food Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="16" y="372.66666666666669" width="382" height="22.666666666666686"/>
+                                <rect key="frame" x="24" y="364.33333333333331" width="366" height="22.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="0.0" y="407.33333333333326" width="414" height="317.66666666666674"/>
+                                <rect key="frame" x="0.0" y="399" width="414" height="326"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -206,25 +203,21 @@
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
                         <constraints>
-                            <constraint firstItem="SUN-s2-3S6" firstAttribute="top" secondItem="y17-Xw-5W1" secondAttribute="bottom" constant="98" id="1xd-3J-uU3"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="Ioa-4t-5oD" secondAttribute="trailing" constant="16" id="2SL-E7-vNE"/>
-                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="top" secondItem="SUN-s2-3S6" secondAttribute="bottom" constant="20" id="640-6m-IHE"/>
+                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="Ioa-4t-5oD" secondAttribute="trailing" constant="36" id="2SL-E7-vNE"/>
                             <constraint firstItem="OxY-on-Jkc" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="7jV-zV-t47"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="vL2-nj-e72" secondAttribute="trailing" id="Dgt-D2-djP"/>
-                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="leading" secondItem="2qp-en-orb" secondAttribute="trailing" constant="-40" id="Kf1-Fx-J6n"/>
-                            <constraint firstItem="SUN-s2-3S6" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="MS0-J7-pkl"/>
-                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="top" secondItem="y17-Xw-5W1" secondAttribute="bottom" constant="119" id="TAv-yR-Ima"/>
-                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="TsD-7n-8qL"/>
+                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="leading" secondItem="2qp-en-orb" secondAttribute="trailing" constant="-48" id="Kf1-Fx-J6n"/>
+                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="180" id="PkY-sY-ZmX"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="36" id="TsD-7n-8qL"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="bottom" secondItem="vL2-nj-e72" secondAttribute="bottom" id="Ub9-zB-TMy"/>
-                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="34" id="XF0-K1-hBY"/>
+                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="28" id="XF0-K1-hBY"/>
                             <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" id="XRM-VX-Sgy"/>
                             <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="mnl-L0-Jdx" secondAttribute="bottom" constant="12" id="aMa-XR-14Y"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="16" id="g6h-9F-sFr"/>
-                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="hwj-av-4TK"/>
+                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="24" id="g6h-9F-sFr"/>
+                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="24" id="hwj-av-4TK"/>
                             <constraint firstItem="2qp-en-orb" firstAttribute="centerX" secondItem="LNW-2j-u7j" secondAttribute="centerX" id="k2E-ss-pNb"/>
-                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="38" id="mYW-Sr-0IK"/>
-                            <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="40" id="ofq-74-XCs"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="SUN-s2-3S6" secondAttribute="trailing" constant="16" id="pf7-vn-VOD"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="54" id="mYW-Sr-0IK"/>
+                            <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="48" id="ofq-74-XCs"/>
                             <constraint firstItem="Tmn-O8-MJJ" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="zCw-fZ-SQz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNW-2j-u7j"/>
@@ -241,6 +234,7 @@
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
                         <outlet property="dailyVibeAuthorLabel" destination="e09-AN-MWp" id="00p-Mq-n6N"/>
                         <outlet property="dailyVibeQuoteLabel" destination="YAb-hN-fSe" id="ZS9-hF-Ns5"/>
+                        <outlet property="dailyVibeStackView" destination="Ioa-4t-5oD" id="Ot9-JN-W47"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
                         <segue destination="6Qg-MS-wl4" kind="show" identifier="MissingProfile" id="r1z-2w-3mM"/>
                         <segue destination="7Nz-Uw-rj4" kind="unwind" identifier="Logout" unwindAction="unwind:" id="MrW-rM-Ff1"/>
@@ -1006,7 +1000,7 @@
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bM9-0c-rT8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="317.66666666666669"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="326"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
@@ -1163,7 +1157,6 @@
     </scenes>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
-        <image name="Divider" width="1201" height="1"/>
         <image name="camera-icon" width="21" height="18"/>
         <image name="fire" width="40" height="52"/>
         <image name="food-basket" width="512" height="512"/>

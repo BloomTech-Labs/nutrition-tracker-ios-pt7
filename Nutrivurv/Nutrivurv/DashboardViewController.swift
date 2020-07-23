@@ -19,12 +19,16 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var dailyVibeQuoteLabel: UILabel!
     @IBOutlet weak var dailyVibeAuthorLabel: UILabel!
     
+    @IBOutlet weak var dailyVibeStackView: UIStackView!
+    
     let userController = ProfileCreationController()
     
     // MARK: - View Lifecycle Methods and Update Views
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dailyVibeStackView.isHidden = true
         
         let contentView = setUpNavBarImageView()
         self.navigationItem.titleView = contentView
@@ -41,6 +45,8 @@ class DashboardViewController: UIViewController {
                 case .success(let quote):
                     self.dailyVibeQuoteLabel.text = "\"\(quote.content)\""
                     self.dailyVibeAuthorLabel.text = quote.author
+                    self.setUpDailyVibeBackgroundView()
+                    self.dailyVibeStackView.isHidden = false
                 default:
                     break
                 }
@@ -82,6 +88,19 @@ class DashboardViewController: UIViewController {
         return hostingController
     }
     
+    private func setUpDailyVibeBackgroundView() {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "daily-vibe")
+        view.layer.cornerRadius = 14.0
+        view.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
+        view.layer.shadowOpacity = 0.75
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 14.0
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        dailyVibeStackView.insertSubview(view, at: 0)
+        view.pin(to: dailyVibeStackView)
+    }
     
     // MARK: - IBActions
     
