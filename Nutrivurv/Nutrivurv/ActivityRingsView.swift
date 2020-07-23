@@ -46,6 +46,7 @@ struct ActivityRingsView: View {
                         .offset(x: showRings ? 70 : 28).animation(.easeInOut)
                     
                 }.offset(y: -20)
+                
             }
         }
     }
@@ -102,6 +103,7 @@ struct RingView: View {
                 .shadow(color: Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
                 .animateRing(using: ringAnimation) {
                     self.showRings = true
+                    self.showMacrosDetail = false
             }
             .animation(ringAnimation)
             .onTapGesture {
@@ -127,6 +129,10 @@ struct MacrosDetailView: View {
             RoundedRectangle(cornerRadius: 4.0)
                 .fill(Color(uiColor).opacity(0.9))
                 .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 40 : 15)
+                .onTapGesture {
+                    self.showMacrosDetail.toggle()
+                    self.showRings.toggle()
+                }
             
             VStack {
                 Text(label)
