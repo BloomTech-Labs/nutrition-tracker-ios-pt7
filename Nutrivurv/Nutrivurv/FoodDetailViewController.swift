@@ -413,7 +413,7 @@ class FoodDetailViewController: UIViewController {
             servingSizePickerView.isUserInteractionEnabled = true
             mealTypePickerView.isUserInteractionEnabled = true
             addFoodButton.setTitle("Save Entry", for: .normal)
-            addFoodButton.backgroundColor = UIColor(named: "nutrivurv-green")
+            addFoodButton.backgroundColor = UIColor(named: "nutrivurv-green-2")
             self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
             return
         }
