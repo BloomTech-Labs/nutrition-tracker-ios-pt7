@@ -27,6 +27,56 @@ struct ActivityRingsView: View {
             RingView(show: $showCaloriesStroke, uiColor: greenColor, width: 95.6, height: 95.6, percent: 100)
             RingView(show: $showCaloriesStroke, uiColor: yellowColor, width: 75.84, height: 75.84, percent: 54)
             RingView(show: $showCaloriesStroke, uiColor: redColor, width: 59.53, height: 59.53, percent: 74)
+            
+            HStack {
+                VStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 4.0)
+                            .fill(Color(blueColor).opacity(0.9))
+                            .frame(width: 60, height: 15)
+                        
+                        Text("Calories")
+                            .font(Font.custom("Muli-Bold", size: 10.0))
+                            .foregroundColor(Color.white)
+                    }.offset(x: -50)
+                    
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 4.0)
+                            .fill(Color(greenColor).opacity(0.9))
+                            .frame(width: 60, height: 15)
+                        
+                        Text("Carbs")
+                            .font(Font.custom("Muli-Bold", size: 10.0))
+                            .foregroundColor(Color.white)
+                    }.offset(x: -60)
+                }.offset(y: -20)
+                
+                
+                VStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 4.0)
+                            .fill(Color(yellowColor).opacity(0.9))
+                            .frame(width: 60, height: 15)
+                        
+                        Text("Protein")
+                            .font(Font.custom("Muli-Bold", size: 10.0))
+                            .foregroundColor(Color.white)
+                    }.offset(x: 50)
+                    
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 4.0)
+                            .fill(Color(redColor).opacity(0.9))
+                            .frame(width: 60, height: 15)
+                        
+                        Text("Fat")
+                            .font(Font.custom("Muli-Bold", size: 10.0))
+                            .foregroundColor(Color.white)
+                    }.offset(x: 60)
+                }.offset(y: -20)
+                
+            }
         }
     }
 }
