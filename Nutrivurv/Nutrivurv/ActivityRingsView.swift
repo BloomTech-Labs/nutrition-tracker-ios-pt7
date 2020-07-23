@@ -41,6 +41,7 @@ struct ActivityRingsView: View {
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: yellowColor, label: "Protein", count: "92g", percent: "54%")
                         .offset(x: showRings ? 60 : 40).animation(.easeInOut)
+                        
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: redColor, label: "Fat", count: "47g", percent: "68%")
                         .offset(x: showRings ? 70 : 28).animation(.easeInOut)
@@ -127,9 +128,9 @@ struct MacrosDetailView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 4.0)
-                .fill(Color(uiColor).opacity(0.9))
+                .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
                 .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 40 : 15)
-                .shadow(color: showMacrosDetail ? Color(uiColor).opacity(0.25) : Color.clear, radius: showMacrosDetail ? 3.5 : 0, x: 0, y: showMacrosDetail ? 4 : 0)
+                .shadow(color: showMacrosDetail ? Color(uiColor).opacity(0.2) : Color.clear, radius: showMacrosDetail ? 3.5 : 0, x: 0, y: showMacrosDetail ? 4 : 0)
             
             VStack {
                 Text(label)
