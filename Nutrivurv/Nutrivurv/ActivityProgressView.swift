@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ActivityRingsView: View {
+struct ActivityProgressView: View {
     @State var showRings = false
     @State var showMacrosDetail = false
     
@@ -58,7 +58,6 @@ struct ActivityRingsView: View {
                         .offset(x: showRings ? 70 : 28)
                     
                 }.offset(y: -20)
-                
             }
         }
     }
@@ -66,7 +65,7 @@ struct ActivityRingsView: View {
 
 struct ActivityRingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityRingsView()
+        ActivityProgressView()
     }
 }
 
@@ -90,16 +89,8 @@ struct RingView: View {
             progress = 0
         }
         
-//        var complete: Bool = false
-//
-//        if percent >= 100 {
-//            complete = true
-//            progress = 1 - (percent - 100) / 100
-//        }
-        
         return ZStack {
             Circle()
-//                .stroke(complete ? Color(uiColor).opacity(show ? 0.8 : 0.25) : Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.09)
                 .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.09)
                 .frame(width: width - 1 * multiplier, height: height - 1 * multiplier)
                 .onTapGesture {
@@ -115,7 +106,6 @@ struct RingView: View {
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: width, height: height)
-//                .shadow(color: complete ? Color(uiColor).opacity(0.6) : Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: -3 * multiplier)
                 .shadow(color: Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
                 .animateRing(using: ringAnimation) {
                     self.showRings = true
@@ -135,13 +125,17 @@ struct MacrosDetailView: View {
     @Binding var showMacrosDetail: Bool
     @Binding var showRings: Bool
     
+    @State var initialOffset: CGFloat = -60.0
+    
     var uiColor: UIColor
     var label: String
     var count: String
     var percent: String
     
+    let bounceAnimation = Animation.interpolatingSpring(mass: 0.28, stiffness: 1, damping: 0.76, initialVelocity: 1.4).speed(5.555)
+    
     var body: some View {
-        ZStack {
+        return ZStack {
             RoundedRectangle(cornerRadius: 4.0)
                 .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
                 .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 40 : 15)
@@ -163,7 +157,15 @@ struct MacrosDetailView: View {
             self.showMacrosDetail.toggle()
             self.showRings.toggle()
         }
-        .animation(Animation.interactiveSpring(response: 0.38, dampingFraction: 0.58, blendDuration: 0.55))
+        .offset(y: initialOffset)
+        .onAppear {
+            if self.initialOffset == -60.0 {
+                return withAnimation(Animation.easeOut(duration: 3.0)) {
+                    self.initialOffset += 60
+                }
+            }
+        }
+        .animation(bounceAnimation)
     }
 }
 
@@ -177,3 +179,4 @@ extension View {
         }
     }
 }
+

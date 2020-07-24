@@ -19,7 +19,7 @@
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
 		51257AEB24A2EE6600C744B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* User.swift */; };
-		512970C324B1324900315C7B /* ActivityRingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* ActivityRingsView.swift */; };
+		512970C324B1324900315C7B /* ActivityProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* ActivityProgressView.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
@@ -79,7 +79,7 @@
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		512970C224B1324900315C7B /* ActivityRingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRingsView.swift; sourceTree = "<group>"; };
+		512970C224B1324900315C7B /* ActivityProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityProgressView.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		512970C124B1323400315C7B /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				512970C224B1324900315C7B /* ActivityRingsView.swift */,
+				512970C224B1324900315C7B /* ActivityProgressView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -513,7 +513,7 @@
 				4C39A980244E9DDA00AAA74E /* FoodSearchTableViewController.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */,
-				512970C324B1324900315C7B /* ActivityRingsView.swift in Sources */,
+				512970C324B1324900315C7B /* ActivityProgressView.swift in Sources */,
 				D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LoginViewController.swift in Sources */,

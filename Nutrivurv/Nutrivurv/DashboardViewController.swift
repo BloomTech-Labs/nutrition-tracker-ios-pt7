@@ -100,7 +100,7 @@ class DashboardViewController: UIViewController {
     }
     
     @IBSegueAction func addActivtyRingView(_ coder: NSCoder) -> UIViewController? {
-        let hostingController = UIHostingController(coder: coder, rootView: ActivityRingsView())
+        let hostingController = UIHostingController(coder: coder, rootView: ActivityProgressView())
         hostingController?.view.backgroundColor = UIColor.clear
         
         return hostingController
@@ -129,11 +129,11 @@ class DashboardViewController: UIViewController {
     
     private func prepareForEntranceAnimations() {
         self.dailyVibeStackView.alpha = 0
-        self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+        self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
     }
     
     private func animateSubviewsForEntry() {
-        UIView.animate(withDuration: 0.5, delay: 0.15, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.65, delay: 0.28, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
             
             // Fades the daily vibe section onto screen
             self.dailyVibeStackView.alpha = 1
