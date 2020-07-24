@@ -134,7 +134,11 @@ class DashboardViewController: UIViewController {
     
     private func animateSubviewsForEntry() {
         UIView.animate(withDuration: 0.5, delay: 0.15, options: .curveEaseInOut, animations: {
+            
+            // Fades the daily vibe section onto screen
             self.dailyVibeStackView.alpha = 1
+            
+            // Scales the daily vibe section up to size
             self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
     }
