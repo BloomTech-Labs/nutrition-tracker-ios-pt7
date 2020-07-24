@@ -19,7 +19,15 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var dailyVibeQuoteLabel: UILabel!
     @IBOutlet weak var dailyVibeAuthorLabel: UILabel!
     
+    // Primary Views
+    @IBOutlet weak var weightStackView: UIStackView!
+    @IBOutlet weak var dailyIntakeLabel: UILabel!
+    @IBOutlet weak var streakStackView: UIStackView!
+    
+    // Subviews
     @IBOutlet weak var dailyVibeStackView: UIStackView!
+    @IBOutlet weak var foodLogLabel: UILabel!
+    @IBOutlet weak var foodLogTableView: UIView!
     
     let userController = ProfileCreationController()
     
@@ -46,6 +54,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         
         self.prepareForEntranceAnimations()
+        self.animatePrimaryViewsForEntry()
         
         let contentView = setUpNavBarImageView()
         self.navigationItem.titleView = contentView
@@ -111,9 +120,10 @@ class DashboardViewController: UIViewController {
         self.dailyVibeBackgroundView.pin(to: dailyVibeStackView)
     }
     
-    // MARK: Update Subviews
     
-    // Need to manually update shadow color when trait collections change, as cgColor is not dynamic like UIColor
+    // MARK: - Update Subviews
+    
+    // Need to manually update daily vibe shadow color when trait collections change, as cgColor is not dynamic like UIColor
     private func updateDailyVibeShaodw() {
         self.dailyVibeBackgroundView.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
     }
@@ -128,18 +138,62 @@ class DashboardViewController: UIViewController {
     // MARK: - Subview Animations
     
     private func prepareForEntranceAnimations() {
+        // Primary Views (Weight, Daily Intake, Streak)
+        self.weightStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.weightStackView.alpha = 0
+        self.weightStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        
+        self.dailyIntakeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.dailyIntakeLabel.alpha = 0
+        self.dailyIntakeLabel.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        
+        self.streakStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.streakStackView.alpha = 0
+        self.streakStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        
+        // Sub Views
         self.dailyVibeStackView.alpha = 0
         self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        
+        self.foodLogLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.foodLogLabel.alpha = 0
+        self.foodLogLabel.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        
+        self.foodLogTableView.translatesAutoresizingMaskIntoConstraints = false
+        self.foodLogTableView.alpha = 0
+        self.foodLogTableView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+    }
+    
+    private func animatePrimaryViewsForEntry() {
+        UIView.animate(withDuration: 0.55, delay: 0.1, usingSpringWithDamping: 0.82, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+            self.weightStackView.alpha = 1
+            self.weightStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            
+            self.dailyIntakeLabel.alpha = 1
+            self.dailyIntakeLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+            
+            self.streakStackView.alpha = 1
+            self.streakStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
     }
     
     private func animateSubviewsForEntry() {
-        UIView.animate(withDuration: 0.65, delay: 0.28, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
-            
-            // Fades the daily vibe section onto screen
+        UIView.animate(withDuration: 0.65, delay: 0.23, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+            // Fades the component onto screen
             self.dailyVibeStackView.alpha = 1
             
-            // Scales the daily vibe section up to size
+            // Scales component up to size
             self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        
+        UIView.animate(withDuration: 0.7, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+            self.foodLogLabel.alpha = 1
+            self.foodLogLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        
+        UIView.animate(withDuration: 0.7, delay: 0.6, usingSpringWithDamping: 0.65, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+            self.foodLogTableView.alpha = 1
+            self.foodLogTableView.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
     }
     
