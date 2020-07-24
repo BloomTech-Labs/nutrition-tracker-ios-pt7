@@ -132,7 +132,7 @@ struct MacrosDetailView: View {
     var count: String
     var percent: String
     
-    let bounceAnimation = Animation.interpolatingSpring(mass: 0.28, stiffness: 1, damping: 0.76, initialVelocity: 1.4).speed(5.555)
+    let bounceAnimation = Animation.interpolatingSpring(mass: 0.215, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(6.0)
     
     var body: some View {
         return ZStack {
