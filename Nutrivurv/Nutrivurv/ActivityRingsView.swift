@@ -40,10 +40,10 @@ struct ActivityRingsView: View {
                 VStack {
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(caloriesCount)) cal", percent: "\(Int(caloriesPercent))%")
-                        .offset(x: showRings ? -60 : -40).animation(.easeInOut)
+                        .offset(x: showRings ? -60 : -40)
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(carbsCount))g", percent: "\(Int(carbsPercent))%")
-                        .offset(x: showRings ? -70 : -28).animation(.easeInOut)
+                        .offset(x: showRings ? -70 : -28)
                     
                 }.offset(y: -20)
                 
@@ -51,11 +51,11 @@ struct ActivityRingsView: View {
                 VStack {
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(proteinCount))g", percent: "\(Int(proteinPercent))%")
-                        .offset(x: showRings ? 60 : 40).animation(.easeInOut)
+                        .offset(x: showRings ? 60 : 40)
                         
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(fatCount))g", percent: "\(Int(fatPercent))%")
-                        .offset(x: showRings ? 70 : 28).animation(.easeInOut)
+                        .offset(x: showRings ? 70 : 28)
                     
                 }.offset(y: -20)
                 
@@ -156,12 +156,14 @@ struct MacrosDetailView: View {
                     Text("\(count) • \(percent)")
                         .font(Font.custom("Muli-MediumItalic", size: 12.0))
                         .foregroundColor(Color.white)
+                        .animation(Animation.easeInOut(duration: 0.3).delay(0.4))
                 }
             }
         }.onTapGesture {
             self.showMacrosDetail.toggle()
             self.showRings.toggle()
         }
+        .animation(Animation.interactiveSpring(response: 0.38, dampingFraction: 0.58, blendDuration: 0.55))
     }
 }
 
