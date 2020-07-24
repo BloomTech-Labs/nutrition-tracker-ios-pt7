@@ -32,8 +32,8 @@ class DashboardViewController: UIViewController {
         view.layer.cornerRadius = 14.0
         view.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
         view.layer.shadowOpacity = 0.8
-        view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 14.0
+        view.layer.shadowOffset = CGSize(width: 1.3, height: 1.3)
+        view.layer.shadowRadius = 9.0
         
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
