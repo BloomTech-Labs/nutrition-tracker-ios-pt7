@@ -45,7 +45,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dailyVibeStackView.isHidden = true
+        self.prepareForEntranceAnimations()
         
         let contentView = setUpNavBarImageView()
         self.navigationItem.titleView = contentView
@@ -63,6 +63,8 @@ class DashboardViewController: UIViewController {
                     self.dailyVibeQuoteLabel.text = "\"\(quote.content)\""
                     self.dailyVibeAuthorLabel.text = quote.author
                     self.setUpDailyVibeBackgroundView()
+                    self.animateSubviewsForEntry()
+                    
                 default:
                     break
                 }
@@ -107,7 +109,6 @@ class DashboardViewController: UIViewController {
     private func setUpDailyVibeBackgroundView() {
         dailyVibeStackView.insertSubview(self.dailyVibeBackgroundView, at: 0)
         self.dailyVibeBackgroundView.pin(to: dailyVibeStackView)
-        self.dailyVibeStackView.isHidden = false
     }
     
     // MARK: Update Subviews
@@ -123,6 +124,20 @@ class DashboardViewController: UIViewController {
         self.updateDailyVibeShaodw()
     }
     
+    
+    // MARK: - Subview Animations
+    
+    private func prepareForEntranceAnimations() {
+        self.dailyVibeStackView.alpha = 0
+        self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+    }
+    
+    private func animateSubviewsForEntry() {
+        UIView.animate(withDuration: 0.5, delay: 0.15, options: .curveEaseInOut, animations: {
+            self.dailyVibeStackView.alpha = 1
+            self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+    }
     
     // MARK: - IBActions
     
