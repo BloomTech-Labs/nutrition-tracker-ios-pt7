@@ -31,19 +31,19 @@ struct ActivityProgressView: View {
     
     var body: some View {
         ZStack {
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: caloriesColor, width: 120, height: 120, percent: caloriesPercent)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: carbsColor, width: 95.6, height: 95.6, percent: carbsPercent)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: proteinColor, width: 75.84, height: 75.84, percent: proteinPercent)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: fatColor, width: 59.53, height: 59.53, percent: fatPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: caloriesColor, width: 134.5, height: 134.5, percent: caloriesPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: carbsColor, width: 103, height: 103, percent: carbsPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: proteinColor, width: 71.5, height: 71.5, percent: proteinPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: fatColor, width: 40, height: 40, percent: fatPercent)
             
             HStack {
                 VStack {
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(caloriesCount)) cal", percent: "\(Int(caloriesPercent))%")
-                        .offset(x: showRings ? -60 : -40)
+                        .offset(x: showRings ? -78 : -58)
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(carbsCount))g", percent: "\(Int(carbsPercent))%")
-                        .offset(x: showRings ? -70 : -28)
+                        .offset(x: showRings ? -88 : -46)
                     
                 }.offset(y: -20)
                 
@@ -51,11 +51,11 @@ struct ActivityProgressView: View {
                 VStack {
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(proteinCount))g", percent: "\(Int(proteinPercent))%")
-                        .offset(x: showRings ? 60 : 40)
+                        .offset(x: showRings ? 78 : 58)
                         
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(fatCount))g", percent: "\(Int(fatPercent))%")
-                        .offset(x: showRings ? 70 : 28)
+                        .offset(x: showRings ? 88 : 46)
                     
                 }.offset(y: -20)
             }
@@ -91,8 +91,8 @@ struct RingView: View {
         
         return ZStack {
             Circle()
-                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 9 * multiplier)).grayscale(0.4).brightness(0.09)
-                .frame(width: width - 1 * multiplier, height: height - 1 * multiplier)
+                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 13.5)).grayscale(0.4).brightness(0.09)
+                .frame(width: width - 0.25, height: height - 0.25)
                 .onTapGesture {
                     self.showRings.toggle()
                     self.showMacrosDetail.toggle()
@@ -102,7 +102,7 @@ struct RingView: View {
                 .trim(from: showRings ? progress : 0.999, to: 1)
                 .stroke(
                     LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.45), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
-                    style: StrokeStyle(lineWidth: 10 * multiplier, lineCap: .round, lineJoin: .round))
+                    style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: width, height: height)
@@ -138,17 +138,17 @@ struct MacrosDetailView: View {
         return ZStack {
             RoundedRectangle(cornerRadius: 4.0)
                 .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
-                .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 42 : 17)
+                .frame(width: showMacrosDetail ? 112 : 64, height: showMacrosDetail ? 46 : 21)
                 .shadow(color: showMacrosDetail ? Color(uiColor).opacity(0.2) : Color.clear, radius: showMacrosDetail ? 3.5 : 0, x: 0, y: showMacrosDetail ? 4 : 0)
             
             VStack {
                 Text(label)
-                    .font(Font.custom("Catamaran-Bold", size: 10.5))
+                    .font(Font.custom("Catamaran-Bold", size: 12))
                     .foregroundColor(Color.white)
                 
                 if self.showMacrosDetail {
                     Text("\(count) • \(percent)")
-                        .font(Font.custom("QuattrocentoSans-Italic", size: 12.0))
+                        .font(Font.custom("QuattrocentoSans-Italic", size: 14.0))
                         .foregroundColor(Color.white)
                         .animation(Animation.easeInOut(duration: 0.3).delay(0.4))
                 }

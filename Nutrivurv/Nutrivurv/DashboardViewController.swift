@@ -124,14 +124,14 @@ class DashboardViewController: UIViewController {
     // MARK: - Update Subviews
     
     // Need to manually update daily vibe shadow color when trait collections change, as cgColor is not dynamic like UIColor
-    private func updateDailyVibeShaodw() {
+    private func updateDailyVibeShadow() {
         self.dailyVibeBackgroundView.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
     }
     
     // Called when trait collections are made, like switching between Light <-> Dark mode to enable changes
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        self.updateDailyVibeShaodw()
+        self.updateDailyVibeShadow()
     }
     
     
