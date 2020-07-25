@@ -137,7 +137,7 @@ class FoodDetailViewController: UIViewController {
         
         
         
-        self.qtyTextField.font = UIFont(name: "Muli-Bold", size: 14)
+        self.qtyTextField.font = UIFont(name: "QuattrocentoSans-Bold", size: 14)
         self.addFoodButton.layer.cornerRadius = 6.0
         
         if fromLog {
@@ -293,7 +293,7 @@ class FoodDetailViewController: UIViewController {
         label.sizeToFit()
         label.layer.masksToBounds = true
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Muli-SemiBold", size: 12)
+        label.font = UIFont(name: "QuattrocentoSans-Bold", size: 12)
         label.textColor = .white
         
         return label
@@ -471,7 +471,7 @@ extension FoodDetailViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let font = UIFont(name: "Muli-Bold", size: 16)!
+        let font = UIFont(name: "QuattrocentoSans-Bold", size: 16)!
         
         switch pickerView {
         case servingSizePickerView:
