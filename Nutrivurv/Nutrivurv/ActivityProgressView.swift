@@ -138,17 +138,17 @@ struct MacrosDetailView: View {
         return ZStack {
             RoundedRectangle(cornerRadius: 4.0)
                 .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
-                .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 40 : 15)
+                .frame(width: showMacrosDetail ? 108 : 60, height: showMacrosDetail ? 42 : 17)
                 .shadow(color: showMacrosDetail ? Color(uiColor).opacity(0.2) : Color.clear, radius: showMacrosDetail ? 3.5 : 0, x: 0, y: showMacrosDetail ? 4 : 0)
             
             VStack {
                 Text(label)
-                    .font(Font.custom("Muli-Bold", size: 10))
+                    .font(Font.custom("Catamaran-Bold", size: 10.5))
                     .foregroundColor(Color.white)
                 
                 if self.showMacrosDetail {
                     Text("\(count) • \(percent)")
-                        .font(Font.custom("Muli-MediumItalic", size: 12.0))
+                        .font(Font.custom("QuattrocentoSans-Italic", size: 12.0))
                         .foregroundColor(Color.white)
                         .animation(Animation.easeInOut(duration: 0.3).delay(0.4))
                 }

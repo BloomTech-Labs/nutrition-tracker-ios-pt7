@@ -45,7 +45,7 @@ class FoodLogTableViewController: UITableViewController {
         messageLabel.textColor = UIColor(named: "nutrivurv-blue")
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Muli-LightItalic", size: 16)
+        messageLabel.font = UIFont(name: "QuattrocentoSans-Italic", size: 16)
         messageLabel.sizeToFit()
         
         tableView.backgroundView = messageLabel
