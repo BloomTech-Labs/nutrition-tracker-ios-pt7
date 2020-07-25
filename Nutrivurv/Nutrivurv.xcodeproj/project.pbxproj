@@ -31,6 +31,19 @@
 		514D57F624CA275B008DCEEF /* UIView Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D57F524CA275B008DCEEF /* UIView Extensions.swift */; };
 		5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */; };
 		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
+		51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */; };
+		51C5742A24CBB9F900B211F8 /* Catamaran-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */; };
+		51C5742B24CBB9F900B211F8 /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */; };
+		51C5742C24CBB9F900B211F8 /* Catamaran-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742324CBB9F900B211F8 /* Catamaran-Bold.ttf */; };
+		51C5742D24CBB9F900B211F8 /* Catamaran-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742424CBB9F900B211F8 /* Catamaran-Black.ttf */; };
+		51C5742E24CBB9F900B211F8 /* Catamaran-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742524CBB9F900B211F8 /* Catamaran-Light.ttf */; };
+		51C5742F24CBB9F900B211F8 /* Catamaran-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742624CBB9F900B211F8 /* Catamaran-Medium.ttf */; };
+		51C5743024CBB9F900B211F8 /* Catamaran-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742724CBB9F900B211F8 /* Catamaran-SemiBold.ttf */; };
+		51C5743124CBB9F900B211F8 /* Catamaran-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742824CBB9F900B211F8 /* Catamaran-Regular.ttf */; };
+		51C5743624CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743224CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf */; };
+		51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */; };
+		51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */; };
+		51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
@@ -91,6 +104,19 @@
 		514D57F524CA275B008DCEEF /* UIView Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView Extensions.swift"; sourceTree = "<group>"; };
 		5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTableViewController.swift; sourceTree = "<group>"; };
 		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
+		51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
+		51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraLight.ttf"; sourceTree = "<group>"; };
+		51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
+		51C5742324CBB9F900B211F8 /* Catamaran-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Bold.ttf"; sourceTree = "<group>"; };
+		51C5742424CBB9F900B211F8 /* Catamaran-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Black.ttf"; sourceTree = "<group>"; };
+		51C5742524CBB9F900B211F8 /* Catamaran-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Light.ttf"; sourceTree = "<group>"; };
+		51C5742624CBB9F900B211F8 /* Catamaran-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Medium.ttf"; sourceTree = "<group>"; };
+		51C5742724CBB9F900B211F8 /* Catamaran-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-SemiBold.ttf"; sourceTree = "<group>"; };
+		51C5742824CBB9F900B211F8 /* Catamaran-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Regular.ttf"; sourceTree = "<group>"; };
+		51C5743224CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Bold.ttf"; sourceTree = "<group>"; };
+		51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Italic.ttf"; sourceTree = "<group>"; };
+		51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Regular.ttf"; sourceTree = "<group>"; };
 		51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperFunctions.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -313,6 +339,19 @@
 				D6A1CC2024076FF000477429 /* Muli-Medium.ttf */,
 				D6A1CC2324076FF000477429 /* Muli-Regular.ttf */,
 				D6A1CC1F24076FF000477429 /* Muli-SemiBold.ttf */,
+				51C5742424CBB9F900B211F8 /* Catamaran-Black.ttf */,
+				51C5742324CBB9F900B211F8 /* Catamaran-Bold.ttf */,
+				51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */,
+				51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */,
+				51C5742524CBB9F900B211F8 /* Catamaran-Light.ttf */,
+				51C5742624CBB9F900B211F8 /* Catamaran-Medium.ttf */,
+				51C5742824CBB9F900B211F8 /* Catamaran-Regular.ttf */,
+				51C5742724CBB9F900B211F8 /* Catamaran-SemiBold.ttf */,
+				51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */,
+				51C5743224CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf */,
+				51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */,
+				51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */,
+				51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -468,21 +507,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C5742C24CBB9F900B211F8 /* Catamaran-Bold.ttf in Resources */,
+				51C5742D24CBB9F900B211F8 /* Catamaran-Black.ttf in Resources */,
 				D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */,
 				4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */,
+				51C5742E24CBB9F900B211F8 /* Catamaran-Light.ttf in Resources */,
+				51C5742B24CBB9F900B211F8 /* Catamaran-Thin.ttf in Resources */,
 				5139532224A3E14E00CDF5F1 /* Muli-LightItalic.ttf in Resources */,
 				D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */,
 				D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */,
+				51C5743624CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf in Resources */,
 				4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */,
 				5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */,
 				4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */,
 				D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */,
+				51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */,
 				D6A1CC2724076FF000477429 /* Muli-SemiBold.ttf in Resources */,
 				5139532324A3E14E00CDF5F1 /* Muli-MediumItalic.ttf in Resources */,
 				D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */,
+				51C5743024CBB9F900B211F8 /* Catamaran-SemiBold.ttf in Resources */,
 				D68C702523F25400008AFDF0 /* Main.storyboard in Resources */,
+				51C5742A24CBB9F900B211F8 /* Catamaran-ExtraLight.ttf in Resources */,
+				51C5742F24CBB9F900B211F8 /* Catamaran-Medium.ttf in Resources */,
 				D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */,
+				51C5743124CBB9F900B211F8 /* Catamaran-Regular.ttf in Resources */,
 				D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */,
+				51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */,
+				51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */,
+				51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */,
 				D6A1CC2924076FF000477429 /* Muli-Light.ttf in Resources */,
 				4C89A9F92440137200348B5A /* Signup.storyboard in Resources */,
 				D6A1CC2824076FF000477429 /* Muli-Medium.ttf in Resources */,

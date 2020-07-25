@@ -32,6 +32,19 @@
 		<string>Muli-Medium.ttf</string>
 		<string>Muli-Regular.ttf</string>
 		<string>Muli-SemiBold.ttf</string>
+		<string>Catamaran-Black.ttf</string>
+		<string>Catamaran-Bold.ttf</string>
+		<string>Catamaran-ExtraBold.ttf</string>
+		<string>Catamaran-ExtraLight.ttf</string>
+		<string>Catamaran-Light.ttf</string>
+		<string>Catamaran-Medium.ttf</string>
+		<string>Catamaran-Regular.ttf</string>
+		<string>Catamaran-SemiBold.ttf</string>
+		<string>Catamaran-Thin.ttf</string>
+		<string>QuattrocentoSans-Bold.ttf</string>
+		<string>QuattrocentoSans-BoldItalic.ttf</string>
+		<string>QuattrocentoSans-Italic.ttf</string>
+		<string>QuattrocentoSans-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
