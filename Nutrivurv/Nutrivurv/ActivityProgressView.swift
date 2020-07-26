@@ -28,7 +28,6 @@ struct ActivityProgressView: View {
     var fatCount: CGFloat = 47
     var fatPercent: CGFloat = 68
     
-    
     var body: some View {
         ZStack {
             RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: caloriesColor, width: 134.5, height: 134.5, percent: caloriesPercent)
@@ -41,23 +40,26 @@ struct ActivityProgressView: View {
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(caloriesCount)) cal", percent: "\(Int(caloriesPercent))%")
                         .offset(x: showRings ? -78 : -50)
-                    
+                        Spacer()
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(carbsCount))g", percent: "\(Int(carbsPercent))%")
                         .offset(x: showRings ? -88 : -38)
                     
-                }.offset(y: -20)
+                }
+                .offset(y: -20)
+                .frame(maxHeight: showMacrosDetail ? 105 : 52)
                 
                 
                 VStack {
                     
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(proteinCount))g", percent: "\(Int(proteinPercent))%")
                         .offset(x: showRings ? 78 : 50)
-                        
-                    
+                    Spacer()
                     MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(fatCount))g", percent: "\(Int(fatPercent))%")
                         .offset(x: showRings ? 88 : 38)
                     
-                }.offset(y: -20)
+                }
+                .offset(y: -20)
+                .frame(maxHeight:  showMacrosDetail ? 105 : 52)
             }
         }
     }
