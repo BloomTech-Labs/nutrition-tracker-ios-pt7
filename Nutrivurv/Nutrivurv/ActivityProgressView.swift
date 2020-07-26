@@ -120,7 +120,7 @@ struct RingView: View {
         }
         .scaleEffect(showRings ? 1.0 : 0.8, anchor: .center)
         .animation(bounceAnimation)
-        .blur(radius: showRings ? 0 : 0.25)
+        .blur(radius: showRings ? 0 : 0.18)
     }
 }
 
