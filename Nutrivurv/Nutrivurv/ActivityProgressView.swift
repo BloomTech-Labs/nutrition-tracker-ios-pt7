@@ -79,7 +79,7 @@ struct RingView: View {
     var height: CGFloat
     var percent: CGFloat
     
-    var ringAnimation = Animation.easeInOut(duration: 0.7).delay(0.27)
+    var ringAnimation = Animation.easeInOut(duration: 0.55).delay(0.15)
     var bounceAnimation = Animation.interpolatingSpring(mass: 0.26, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(7.0)
     
     var body: some View {

@@ -165,7 +165,7 @@ class DashboardViewController: UIViewController {
     }
     
     private func animatePrimaryViewsForEntry() {
-        UIView.animate(withDuration: 0.55, delay: 0.1, usingSpringWithDamping: 0.82, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.45, delay: 0.1, usingSpringWithDamping: 0.82, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
             self.weightStackView.alpha = 1
             self.weightStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
             
@@ -178,7 +178,7 @@ class DashboardViewController: UIViewController {
     }
     
     private func animateSubviewsForEntry() {
-        UIView.animate(withDuration: 0.65, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.45, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
             // Fades the component onto screen
             self.dailyVibeStackView.alpha = 1
             
@@ -186,12 +186,12 @@ class DashboardViewController: UIViewController {
             self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
         
-        UIView.animate(withDuration: 0.7, delay: 0.25, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.45, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
             self.foodLogLabel.alpha = 1
             self.foodLogLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
         
-        UIView.animate(withDuration: 0.7, delay: 0.4, usingSpringWithDamping: 0.65, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.65, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
             self.foodLogTableView.alpha = 1
             self.foodLogTableView.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
