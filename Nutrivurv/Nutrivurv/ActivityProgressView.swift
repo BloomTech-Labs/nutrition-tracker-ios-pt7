@@ -99,6 +99,7 @@ struct RingView: View {
                 .onTapGesture {
                     self.showRings.toggle()
                     self.showMacrosDetail.toggle()
+                    haptic()
             }
             
             Circle()
@@ -118,6 +119,7 @@ struct RingView: View {
             .onTapGesture {
                 self.showRings.toggle()
                 self.showMacrosDetail.toggle()
+                haptic()
             }
         }
         .scaleEffect(showRings ? 1.0 : 0.8, anchor: .center)
@@ -162,6 +164,7 @@ struct MacrosDetailView: View {
         }.onTapGesture {
             self.showMacrosDetail.toggle()
             self.showRings.toggle()
+            haptic()
         }
         .offset(y: initialOffset)
         .onAppear {
@@ -175,6 +178,11 @@ struct MacrosDetailView: View {
     }
 }
 
+// MARK: - Haptic Feedback Functionality
+
+func haptic() {
+    UINotificationFeedbackGenerator().notificationOccurred(.success)
+}
 
 extension View {
     func animateRing(using animation: Animation, _ action: @escaping () -> Void) -> some View {
