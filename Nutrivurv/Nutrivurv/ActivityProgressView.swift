@@ -79,7 +79,8 @@ struct RingView: View {
     var height: CGFloat
     var percent: CGFloat
     
-    var ringAnimation = Animation.easeInOut(duration: 0.8).delay(0.2)
+    var ringAnimation = Animation.easeInOut(duration: 0.7).delay(0.27)
+    var bounceAnimation = Animation.interpolatingSpring(mass: 0.26, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(7.0)
     
     var body: some View {
         let multiplier = width / 100
@@ -106,7 +107,7 @@ struct RingView: View {
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: width, height: height)
-                .shadow(color: Color(uiColor).opacity(0.3), radius: 3 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
+                .shadow(color: Color(uiColor).opacity(0.3), radius: 5 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
                 .animateRing(using: ringAnimation) {
                     self.showRings = true
                     self.showMacrosDetail = false
@@ -117,6 +118,9 @@ struct RingView: View {
                 self.showMacrosDetail.toggle()
             }
         }
+        .scaleEffect(showRings ? 1.0 : 0.8, anchor: .center)
+        .animation(bounceAnimation)
+        .blur(radius: showRings ? 0 : 0.25)
     }
 }
 
