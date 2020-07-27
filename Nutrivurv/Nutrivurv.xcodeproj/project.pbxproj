@@ -17,9 +17,10 @@
 		4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30B82452804A00CE14CA /* HTTPMethod.swift */; };
 		4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */; };
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
+		510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */; };
 		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
 		51257AEB24A2EE6600C744B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* User.swift */; };
-		512970C324B1324900315C7B /* ActivityProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* ActivityProgressView.swift */; };
+		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
@@ -90,9 +91,10 @@
 		4C9F30B82452804A00CE14CA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchController.swift; sourceTree = "<group>"; };
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMacros.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		512970C224B1324900315C7B /* ActivityProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityProgressView.swift; sourceTree = "<group>"; };
+		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,15 @@
 			name = "Profile Creation";
 			sourceTree = "<group>";
 		};
+		510F0D7624CE5E7400A5F312 /* Rings And Macros Views */ = {
+			isa = PBXGroup;
+			children = (
+				512970C224B1324900315C7B /* RingsAndMacrosView.swift */,
+				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
+			);
+			name = "Rings And Macros Views";
+			sourceTree = "<group>";
+		};
 		51257AEE24A3285E00C744B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,14 +193,6 @@
 				4C82D27824529C1B005E83F2 /* NutrientDetails.swift */,
 			);
 			name = Models;
-			sourceTree = "<group>";
-		};
-		512970C124B1323400315C7B /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-				512970C224B1324900315C7B /* ActivityProgressView.swift */,
-			);
-			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 		5130B83124A7042200946B41 /* Custom Views */ = {
@@ -308,7 +311,7 @@
 		51A186FD24A331DC00196C83 /* Dashboard & In-App */ = {
 			isa = PBXGroup;
 			children = (
-				512970C124B1323400315C7B /* Custom Views */,
+				510F0D7624CE5E7400A5F312 /* Rings And Macros Views */,
 				5151E6D124A7FB3E0071A609 /* Model Controllers */,
 				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
 				51A186FE24A331F400196C83 /* View Controllers */,
@@ -565,9 +568,10 @@
 				4C39A980244E9DDA00AAA74E /* FoodSearchTableViewController.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */,
-				512970C324B1324900315C7B /* ActivityProgressView.swift in Sources */,
+				512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */,
 				D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
+				510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LoginViewController.swift in Sources */,
 				4C9F30BF24528F1200CE14CA /* Food.swift in Sources */,
 				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ActivityRingsView.swift
+//  RingsAndMacrosView.swift
 //  Nutrivurv
 //
 //  Created by Dillon on 7/4/20.
@@ -7,41 +7,33 @@
 //
 
 import SwiftUI
+import Combine
 
-struct ActivityProgressView: View {
+struct RingsAndMacrosView: View {
     @State var showRings = false
     @State var showMacrosDetail = false
     
+    @ObservedObject var dailyMacrosModel: DailyMacros
+    
     var caloriesColor = UIColor(named: "nutrivurv-blue")!
-    var caloriesCount: CGFloat = 1734
-    var caloriesPercent: CGFloat = 76
-    
     var carbsColor = UIColor(named: "nutrivurv-green-2")!
-    var carbsCount: CGFloat = 180
-    var carbsPercent: CGFloat = 88
-    
     var proteinColor = UIColor(named: "nutrivurv-orange")!
-    var proteinCount: CGFloat = 92
-    var proteinPercent: CGFloat = 54
-    
     var fatColor = UIColor(named: "nutrivurv-red-2")!
-    var fatCount: CGFloat = 47
-    var fatPercent: CGFloat = 68
     
     var body: some View {
         ZStack {
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: caloriesColor, width: 134.5, height: 134.5, percent: caloriesPercent)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: carbsColor, width: 103, height: 103, percent: carbsPercent)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: proteinColor, width: 71.5, height: 71.5, percent: proteinPercent)
-            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: fatColor, width: 40, height: 40, percent: fatPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: caloriesColor, width: 134.5, height: 134.5, progressPercent: dailyMacrosModel.caloriesPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: carbsColor, width: 103, height: 103, progressPercent: dailyMacrosModel.carbsPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: proteinColor, width: 71.5, height: 71.5, progressPercent: dailyMacrosModel.proteinPercent)
+            RingView(showRings: $showRings, showMacrosDetail: $showMacrosDetail, uiColor: fatColor, width: 40, height: 40, progressPercent: dailyMacrosModel.fatPercent)
             
             HStack {
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(caloriesCount)) cal", percent: "\(Int(caloriesPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(dailyMacrosModel.caloriesCount)) cal", progressPercent: "\(Int(dailyMacrosModel.caloriesPercent))%")
                         .offset(x: showRings ? -78 : -50)
                         Spacer()
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(carbsCount))g", percent: "\(Int(carbsPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(dailyMacrosModel.carbsCount))g", progressPercent: "\(Int(dailyMacrosModel.carbsPercent))%")
                         .offset(x: showRings ? -88 : -38)
                     
                 }
@@ -51,10 +43,10 @@ struct ActivityProgressView: View {
                 
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(proteinCount))g", percent: "\(Int(proteinPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(dailyMacrosModel.proteinCount))g", progressPercent: "\(Int(dailyMacrosModel.proteinPercent))%")
                         .offset(x: showRings ? 78 : 50)
                     Spacer()
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(fatCount))g", percent: "\(Int(fatPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(dailyMacrosModel.fatCount))g", progressPercent: "\(Int(dailyMacrosModel.fatPercent))%")
                         .offset(x: showRings ? 88 : 38)
                     
                 }
@@ -67,7 +59,7 @@ struct ActivityProgressView: View {
 
 struct ActivityRingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityProgressView()
+        RingsAndMacrosView(dailyMacrosModel: DailyMacros())
     }
 }
 
@@ -79,16 +71,23 @@ struct RingView: View {
     var uiColor: UIColor
     var width: CGFloat
     var height: CGFloat
-    var percent: CGFloat
+    var progressPercent: CGFloat
     
     var ringAnimation = Animation.easeInOut(duration: 0.55).delay(0.15)
     var bounceAnimation = Animation.interpolatingSpring(mass: 0.26, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(7.0)
     
     var body: some View {
         let multiplier = width / 100
-        var progress = 1 - percent / 100
+        var progress = 1 - (progressPercent / 100)
         
-        if percent > 100 {
+        // As percentages approach 100 the rings appear to be completed before they actually are - due to the rounded line caps
+        // If over 75 percent, each percentage mark of a ring will be represented as a fraction of percentage less than the actual value
+        if progressPercent > 75 {
+            progress = 1 - (0.75 + ((0.92 * (progressPercent - 75)) / 100))
+        }
+        
+        if progressPercent >= 100 {
+            // 0 Represents the entire circle being filled
             progress = 0
         }
         
@@ -138,12 +137,12 @@ struct MacrosDetailView: View {
     var uiColor: UIColor
     var label: String
     var count: String
-    var percent: String
+    var progressPercent: String
     
     let bounceAnimation = Animation.interpolatingSpring(mass: 0.215, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(6.0)
     
     var body: some View {
-        return ZStack {
+        ZStack {
             RoundedRectangle(cornerRadius: 4.0)
                 .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
                 .frame(width: showMacrosDetail ? 112 : 64, height: showMacrosDetail ? 46 : 21)
@@ -155,12 +154,12 @@ struct MacrosDetailView: View {
                     .foregroundColor(Color.white)
                 
                 if self.showMacrosDetail {
-                    Text("\(count) • \(percent)")
+                    Text("\(count) • \(progressPercent)")
                         .font(Font.custom("QuattrocentoSans-Italic", size: 14.0))
                         .foregroundColor(Color.white)
                         .animation(Animation.easeInOut(duration: 0.3).delay(0.4))
                 }
-            }
+            }.frame(minWidth: 58)
         }.onTapGesture {
             self.showMacrosDetail.toggle()
             self.showRings.toggle()
