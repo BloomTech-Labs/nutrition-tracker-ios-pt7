@@ -22,6 +22,7 @@
 		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
+		512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE924CFD1B700B542B3 /* FoodLog.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
@@ -97,6 +98,7 @@
 		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
 		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
+		512C3FE924CFD1B700B542B3 /* FoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */,
+				512C3FE924CFD1B700B542B3 /* FoodLog.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */,
 				512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */,
+				512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */,
 				514D57F624CA275B008DCEEF /* UIView Extensions.swift in Sources */,
 				5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */,
 				5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */,
