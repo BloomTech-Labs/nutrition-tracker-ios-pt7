@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct Food: Decodable, Equatable {
+struct Food: Codable {
     let foodId: String
     let label: String
     let image: String?
     let category: String
 }
 
-struct Measure: Decodable, Equatable {
+struct Measure: Codable {
     let uri: String
     let label: String
 }
 
-struct FoodItem: Decodable, Equatable {
+struct FoodItem: Codable {
     let food: Food
     let measures: [Measure]
     
@@ -40,6 +40,6 @@ struct FoodItem: Decodable, Equatable {
     }
 }
 
-struct FoodSearch: Decodable, Equatable {
+struct FoodSearch: Decodable {
     let hints: [FoodItem]
 }

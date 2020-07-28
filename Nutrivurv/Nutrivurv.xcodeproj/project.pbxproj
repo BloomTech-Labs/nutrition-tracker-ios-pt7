@@ -21,6 +21,7 @@
 		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
 		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
+		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
@@ -95,6 +96,7 @@
 		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
+		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
@@ -177,13 +179,13 @@
 			name = "Profile Creation";
 			sourceTree = "<group>";
 		};
-		510F0D7624CE5E7400A5F312 /* Rings And Macros Views */ = {
+		510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */ = {
 			isa = PBXGroup;
 			children = (
 				512970C224B1324900315C7B /* RingsAndMacrosView.swift */,
 				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
 			);
-			name = "Rings And Macros Views";
+			name = "SwiftUI Views and Models";
 			sourceTree = "<group>";
 		};
 		51257AEE24A3285E00C744B7 /* Models */ = {
@@ -191,6 +193,14 @@
 			children = (
 				4C9F30BE24528F1200CE14CA /* Food.swift */,
 				4C82D27824529C1B005E83F2 /* NutrientDetails.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		512C3FE824CFCD8100B542B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -311,7 +321,8 @@
 		51A186FD24A331DC00196C83 /* Dashboard & In-App */ = {
 			isa = PBXGroup;
 			children = (
-				510F0D7624CE5E7400A5F312 /* Rings And Macros Views */,
+				512C3FE824CFCD8100B542B3 /* Models */,
+				510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */,
 				5151E6D124A7FB3E0071A609 /* Model Controllers */,
 				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
 				51A186FE24A331F400196C83 /* View Controllers */,
@@ -560,6 +571,7 @@
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */,
+				512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */,
 				514D57F624CA275B008DCEEF /* UIView Extensions.swift in Sources */,
 				5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */,
 				5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */,

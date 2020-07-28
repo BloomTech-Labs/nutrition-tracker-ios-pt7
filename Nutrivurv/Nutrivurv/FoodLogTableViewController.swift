@@ -13,7 +13,9 @@ class FoodLogTableViewController: UITableViewController {
     let foodLogController = FoodLogController.shared
     let foodSearchController = FoodSearchController()
     
+    // A default message label displayed as table view bg view when the users food log is empty for the day
     var noFoodLoggedLabel: UILabel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
