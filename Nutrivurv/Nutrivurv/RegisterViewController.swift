@@ -54,7 +54,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        let newUser = User(name: name, email: email, password: password)
+        let newUser = UserAuth(name: name, email: email, password: password)
         
         activityIndicator.startAnimating()
         registerButton.isEnabled = false

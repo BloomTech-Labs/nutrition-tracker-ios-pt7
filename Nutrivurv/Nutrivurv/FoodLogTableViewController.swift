@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import SwiftUI
+import Combine
 
 class FoodLogTableViewController: UITableViewController {
     
     let foodLogController = FoodLogController.shared
     let foodSearchController = FoodSearchController()
     
+    // A default message label displayed as table view bg view when the users food log is empty for the day
     var noFoodLoggedLabel: UILabel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +49,7 @@ class FoodLogTableViewController: UITableViewController {
         messageLabel.textColor = UIColor(named: "nutrivurv-blue")
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Muli-LightItalic", size: 16)
+        messageLabel.font = UIFont(name: "QuattrocentoSans-Italic", size: 16)
         messageLabel.sizeToFit()
         
         tableView.backgroundView = messageLabel

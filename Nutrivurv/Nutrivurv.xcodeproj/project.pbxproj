@@ -17,8 +17,12 @@
 		4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30B82452804A00CE14CA /* HTTPMethod.swift */; };
 		4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */; };
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
+		510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */; };
 		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
-		51257AEB24A2EE6600C744B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* User.swift */; };
+		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
+		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
+		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
+		512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE924CFD1B700B542B3 /* FoodLog.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
@@ -27,8 +31,22 @@
 		5139532324A3E14E00CDF5F1 /* Muli-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532124A3E14E00CDF5F1 /* Muli-MediumItalic.ttf */; };
 		5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */; };
 		513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */; };
+		514D57F624CA275B008DCEEF /* UIView Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D57F524CA275B008DCEEF /* UIView Extensions.swift */; };
 		5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */; };
 		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
+		51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */; };
+		51C5742A24CBB9F900B211F8 /* Catamaran-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */; };
+		51C5742B24CBB9F900B211F8 /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */; };
+		51C5742C24CBB9F900B211F8 /* Catamaran-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742324CBB9F900B211F8 /* Catamaran-Bold.ttf */; };
+		51C5742D24CBB9F900B211F8 /* Catamaran-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742424CBB9F900B211F8 /* Catamaran-Black.ttf */; };
+		51C5742E24CBB9F900B211F8 /* Catamaran-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742524CBB9F900B211F8 /* Catamaran-Light.ttf */; };
+		51C5742F24CBB9F900B211F8 /* Catamaran-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742624CBB9F900B211F8 /* Catamaran-Medium.ttf */; };
+		51C5743024CBB9F900B211F8 /* Catamaran-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742724CBB9F900B211F8 /* Catamaran-SemiBold.ttf */; };
+		51C5743124CBB9F900B211F8 /* Catamaran-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742824CBB9F900B211F8 /* Catamaran-Regular.ttf */; };
+		51C5743624CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743224CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf */; };
+		51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */; };
+		51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */; };
+		51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
@@ -41,7 +59,7 @@
 		D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27C241878B100AE30C9 /* ActivityLevel.swift */; };
 		D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27E2418790100AE30C9 /* ActivityLevelViewController.swift */; };
 		D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2802418795300AE30C9 /* ActivityLevelTableViewCell.swift */; };
-		D631B287241891DD00AE30C9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B286241891DD00AE30C9 /* Profile.swift */; };
+		D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B286241891DD00AE30C9 /* UserProfile.swift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
 		D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* RegisterViewController.swift */; };
@@ -75,8 +93,12 @@
 		4C9F30B82452804A00CE14CA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchController.swift; sourceTree = "<group>"; };
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMacros.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
-		51257AEA24A2EE6600C744B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
+		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
+		512C3FE924CFD1B700B542B3 /* FoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
@@ -85,8 +107,22 @@
 		5139532124A3E14E00CDF5F1 /* Muli-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeSearchViewController.swift; sourceTree = "<group>"; };
+		514D57F524CA275B008DCEEF /* UIView Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView Extensions.swift"; sourceTree = "<group>"; };
 		5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTableViewController.swift; sourceTree = "<group>"; };
 		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
+		51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
+		51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraLight.ttf"; sourceTree = "<group>"; };
+		51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
+		51C5742324CBB9F900B211F8 /* Catamaran-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Bold.ttf"; sourceTree = "<group>"; };
+		51C5742424CBB9F900B211F8 /* Catamaran-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Black.ttf"; sourceTree = "<group>"; };
+		51C5742524CBB9F900B211F8 /* Catamaran-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Light.ttf"; sourceTree = "<group>"; };
+		51C5742624CBB9F900B211F8 /* Catamaran-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Medium.ttf"; sourceTree = "<group>"; };
+		51C5742724CBB9F900B211F8 /* Catamaran-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-SemiBold.ttf"; sourceTree = "<group>"; };
+		51C5742824CBB9F900B211F8 /* Catamaran-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Regular.ttf"; sourceTree = "<group>"; };
+		51C5743224CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Bold.ttf"; sourceTree = "<group>"; };
+		51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Italic.ttf"; sourceTree = "<group>"; };
+		51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Regular.ttf"; sourceTree = "<group>"; };
 		51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperFunctions.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -98,7 +134,7 @@
 		D631B27C241878B100AE30C9 /* ActivityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevel.swift; sourceTree = "<group>"; };
 		D631B27E2418790100AE30C9 /* ActivityLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelViewController.swift; sourceTree = "<group>"; };
 		D631B2802418795300AE30C9 /* ActivityLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelTableViewCell.swift; sourceTree = "<group>"; };
-		D631B286241891DD00AE30C9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D631B286241891DD00AE30C9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		D68C701A23F25400008AFDF0 /* Nutrivurv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrivurv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,11 +181,29 @@
 			name = "Profile Creation";
 			sourceTree = "<group>";
 		};
+		510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */ = {
+			isa = PBXGroup;
+			children = (
+				512970C224B1324900315C7B /* RingsAndMacrosView.swift */,
+				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
+			);
+			name = "SwiftUI Views and Models";
+			sourceTree = "<group>";
+		};
 		51257AEE24A3285E00C744B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4C9F30BE24528F1200CE14CA /* Food.swift */,
 				4C82D27824529C1B005E83F2 /* NutrientDetails.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		512C3FE824CFCD8100B542B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */,
+				512C3FE924CFD1B700B542B3 /* FoodLog.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -230,8 +284,8 @@
 		51A186F924A3308700196C83 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				51257AEA24A2EE6600C744B7 /* User.swift */,
-				D631B286241891DD00AE30C9 /* Profile.swift */,
+				51257AEA24A2EE6600C744B7 /* UserAuth.swift */,
+				D631B286241891DD00AE30C9 /* UserProfile.swift */,
 				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
 				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
 			);
@@ -270,7 +324,9 @@
 		51A186FD24A331DC00196C83 /* Dashboard & In-App */ = {
 			isa = PBXGroup;
 			children = (
+				512C3FE824CFCD8100B542B3 /* Models */,
 				5151E6D124A7FB3E0071A609 /* Model Controllers */,
+				510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */,
 				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
 				51A186FE24A331F400196C83 /* View Controllers */,
 			);
@@ -300,6 +356,19 @@
 				D6A1CC2024076FF000477429 /* Muli-Medium.ttf */,
 				D6A1CC2324076FF000477429 /* Muli-Regular.ttf */,
 				D6A1CC1F24076FF000477429 /* Muli-SemiBold.ttf */,
+				51C5742424CBB9F900B211F8 /* Catamaran-Black.ttf */,
+				51C5742324CBB9F900B211F8 /* Catamaran-Bold.ttf */,
+				51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */,
+				51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */,
+				51C5742524CBB9F900B211F8 /* Catamaran-Light.ttf */,
+				51C5742624CBB9F900B211F8 /* Catamaran-Medium.ttf */,
+				51C5742824CBB9F900B211F8 /* Catamaran-Regular.ttf */,
+				51C5742724CBB9F900B211F8 /* Catamaran-SemiBold.ttf */,
+				51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */,
+				51C5743224CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf */,
+				51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */,
+				51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */,
+				51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -313,6 +382,7 @@
 				4C9F30B82452804A00CE14CA /* HTTPMethod.swift */,
 				D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */,
 				D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */,
+				514D57F524CA275B008DCEEF /* UIView Extensions.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -454,21 +524,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C5742C24CBB9F900B211F8 /* Catamaran-Bold.ttf in Resources */,
+				51C5742D24CBB9F900B211F8 /* Catamaran-Black.ttf in Resources */,
 				D68C702A23F25402008AFDF0 /* LaunchScreen.storyboard in Resources */,
 				4C89A9F22440105500348B5A /* Dashboard.storyboard in Resources */,
+				51C5742E24CBB9F900B211F8 /* Catamaran-Light.ttf in Resources */,
+				51C5742B24CBB9F900B211F8 /* Catamaran-Thin.ttf in Resources */,
 				5139532224A3E14E00CDF5F1 /* Muli-LightItalic.ttf in Resources */,
 				D6A1CC2B24076FF000477429 /* Muli-Regular.ttf in Resources */,
 				D6A1CC2624076FF000477429 /* Muli-Black.ttf in Resources */,
+				51C5743624CBBA5600B211F8 /* QuattrocentoSans-Bold.ttf in Resources */,
 				4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */,
 				5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */,
 				4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */,
 				D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */,
+				51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */,
 				D6A1CC2724076FF000477429 /* Muli-SemiBold.ttf in Resources */,
 				5139532324A3E14E00CDF5F1 /* Muli-MediumItalic.ttf in Resources */,
 				D68C702723F25402008AFDF0 /* Assets.xcassets in Resources */,
+				51C5743024CBB9F900B211F8 /* Catamaran-SemiBold.ttf in Resources */,
 				D68C702523F25400008AFDF0 /* Main.storyboard in Resources */,
+				51C5742A24CBB9F900B211F8 /* Catamaran-ExtraLight.ttf in Resources */,
+				51C5742F24CBB9F900B211F8 /* Catamaran-Medium.ttf in Resources */,
 				D6A1CC2524076FF000477429 /* Muli-Bold.ttf in Resources */,
+				51C5743124CBB9F900B211F8 /* Catamaran-Regular.ttf in Resources */,
 				D6A1CC2424076FF000477429 /* Muli-ExtraBold.ttf in Resources */,
+				51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */,
+				51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */,
+				51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */,
 				D6A1CC2924076FF000477429 /* Muli-Light.ttf in Resources */,
 				4C89A9F92440137200348B5A /* Signup.storyboard in Resources */,
 				D6A1CC2824076FF000477429 /* Muli-Medium.ttf in Resources */,
@@ -483,7 +566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D631B2792417205300AE30C9 /* Notifications.swift in Sources */,
-				D631B287241891DD00AE30C9 /* Profile.swift in Sources */,
+				D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */,
 				5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
 				4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */,
@@ -491,6 +574,9 @@
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */,
 				D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */,
+				512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */,
+				512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */,
+				514D57F624CA275B008DCEEF /* UIView Extensions.swift in Sources */,
 				5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */,
 				5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */,
 				4C82D27924529C1B005E83F2 /* NutrientDetails.swift in Sources */,
@@ -498,8 +584,10 @@
 				4C39A980244E9DDA00AAA74E /* FoodSearchTableViewController.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */,
+				512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */,
 				D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
+				510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LoginViewController.swift in Sources */,
 				4C9F30BF24528F1200CE14CA /* Food.swift in Sources */,
 				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,
@@ -510,7 +598,7 @@
 				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,
 				51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
-				51257AEB24A2EE6600C744B7 /* User.swift in Sources */,
+				51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
 				5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,

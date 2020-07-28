@@ -33,7 +33,7 @@ class FadedHorizontalScrollView: UIScrollView {
 
 
 class FadedVerticalScrollView: UIScrollView {
-    let topFadePct: Double = 0.08
+    let topFadePct: Double = 0.05
     let bottomFadePct: Double = 0.25
     
     override func layoutSubviews() {

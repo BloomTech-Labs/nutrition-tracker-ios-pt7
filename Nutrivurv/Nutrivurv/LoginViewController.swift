@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        let user = User(email: email, password: password)
+        let user = UserAuth(email: email, password: password)
         
         activityIndicator.startAnimating()
         submitButton.isEnabled = false

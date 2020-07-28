@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qan-C2-fkh">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -9,24 +8,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Catamaran-Bold.ttf">
+            <string>Catamaran-Bold</string>
+        </array>
+        <array key="Catamaran-Medium.ttf">
+            <string>Catamaran-Medium</string>
+        </array>
+        <array key="Catamaran-SemiBold.ttf">
+            <string>Catamaran-SemiBold</string>
+        </array>
         <array key="Muli-Bold.ttf">
             <string>Muli-Bold</string>
-        </array>
-        <array key="Muli-Italic-VariableFont_wght.ttf">
-            <string>Muli-Italic_Bold-Italic</string>
-            <string>Muli-Italic_SemiBold-Italic</string>
-        </array>
-        <array key="Muli-LightItalic.ttf">
-            <string>Muli-LightItalic</string>
-        </array>
-        <array key="Muli-MediumItalic.ttf">
-            <string>Muli-MediumItalic</string>
         </array>
         <array key="Muli-Regular.ttf">
             <string>Muli-Regular</string>
         </array>
-        <array key="Muli-SemiBold.ttf">
-            <string>Muli-SemiBold</string>
+        <array key="QuattrocentoSans-Bold.ttf">
+            <string>QuattrocentoSans-Bold</string>
+        </array>
+        <array key="QuattrocentoSans-BoldItalic.ttf">
+            <string>QuattrocentoSans-BoldItalic</string>
+        </array>
+        <array key="QuattrocentoSans-Italic.ttf">
+            <string>QuattrocentoSans-Italic</string>
+        </array>
+        <array key="QuattrocentoSans-Regular.ttf">
+            <string>QuattrocentoSans</string>
         </array>
     </customFonts>
     <scenes>
@@ -34,25 +41,25 @@
         <scene sceneID="p96-mL-WQo">
             <objects>
                 <viewController restorationIdentifier="UserDashboard" storyboardIdentifier="UserDashboard" title="UserDashboard" id="vsF-rt-EXg" customClass="DashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DhR-nl-cyM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="DhR-nl-cyM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
-                                <rect key="frame" x="53.333333333333336" y="110.00000000000001" width="73.666666666666657" height="54.666666666666671"/>
+                                <rect key="frame" x="143" y="164" width="79" height="55"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q" userLabel="Measurement Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="73.666666666666671" height="32.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="79" height="33"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-UG-8Di">
-                                                <rect key="frame" x="0.0" y="0.0" width="47" height="32.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Muli-LightItalic" family="Muli" pointSize="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-UG-8Di">
+                                                <rect key="frame" x="0.0" y="0.0" width="47" height="33"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="28"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="lbs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-tc-n0m">
-                                                <rect key="frame" x="54.999999999999993" y="8.333333333333341" width="18.666666666666664" height="24.333333333333329"/>
-                                                <fontDescription key="fontDescription" name="Muli-MediumItalic" family="Muli" pointSize="14"/>
+                                                <rect key="frame" x="55" y="4.5" width="24" height="28.5"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="18"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -61,8 +68,8 @@
                                             <constraint firstItem="Ghs-UG-8Di" firstAttribute="firstBaseline" secondItem="Z6X-tc-n0m" secondAttribute="firstBaseline" constant="5" id="91f-eh-Wwe"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dv1-tt-SWs" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="38.666666666666657" width="73.666666666666671" height="16"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dv1-tt-SWs" userLabel="Description Stack View">
+                                        <rect key="frame" x="0.0" y="39" width="79" height="16"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-zE-Kzx">
                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -72,8 +79,8 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsg-oQ-N69">
-                                                <rect key="frame" x="19.999999999999996" y="0.0" width="53.666666666666657" height="16"/>
-                                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="14"/>
+                                                <rect key="frame" x="24" y="0.0" width="55" height="16"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -86,43 +93,42 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
-                                <rect key="frame" x="159" y="42.000000000000007" width="96" height="122.66666666666669"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
+                                <rect key="frame" x="125" y="30" width="350" height="189"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Donut" translatesAutoresizingMaskIntoConstraints="NO" id="see-z0-g6D">
-                                        <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-fK-BvN">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="148"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="96" id="9ob-X3-fQj"/>
-                                            <constraint firstAttribute="width" secondItem="see-z0-g6D" secondAttribute="height" multiplier="1:1" id="Lx4-3m-jYI"/>
-                                            <constraint firstAttribute="width" constant="96" id="cGK-Gs-xqW"/>
+                                            <constraint firstAttribute="height" constant="148" id="BPj-iz-rts"/>
+                                            <constraint firstAttribute="width" constant="350" id="YpR-xy-DrA"/>
                                         </constraints>
-                                    </imageView>
+                                    </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Intake" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-Ww-SR6">
-                                        <rect key="frame" x="0.0" y="104" width="96" height="18.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="170" width="350" height="19"/>
+                                        <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="16"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="see-z0-g6D" firstAttribute="centerX" secondItem="ejI-Ww-SR6" secondAttribute="centerX" id="dM3-ra-m4p"/>
+                                    <constraint firstItem="UBn-fK-BvN" firstAttribute="centerX" secondItem="ejI-Ww-SR6" secondAttribute="centerX" id="MLc-9O-lb9"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
-                                <rect key="frame" x="287" y="109.00000000000001" width="69.333333333333314" height="55.666666666666671"/>
+                                <rect key="frame" x="378" y="163" width="78" height="56"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy" userLabel="Number Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="32.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="33"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
-                                                <rect key="frame" x="0.0" y="0.0" width="31.333333333333332" height="32.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Muli-LightItalic" family="Muli" pointSize="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
+                                                <rect key="frame" x="0.0" y="0.0" width="31.5" height="33"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="28"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMC-HY-f12">
-                                                <rect key="frame" x="39.333333333333314" y="8.333333333333341" width="30" height="24.333333333333329"/>
-                                                <fontDescription key="fontDescription" name="Muli-MediumItalic" family="Muli" pointSize="14"/>
+                                                <rect key="frame" x="39.5" y="4.5" width="38.5" height="28.5"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="18"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -131,8 +137,8 @@
                                             <constraint firstItem="qMC-HY-f12" firstAttribute="firstBaseline" secondItem="xIg-du-r6g" secondAttribute="firstBaseline" constant="-5" id="6ZD-tl-KYs"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-ou-bPs" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="38.666666666666657" width="69.333333333333329" height="17"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-ou-bPs" userLabel="Description Stack View">
+                                        <rect key="frame" x="0.0" y="39" width="78" height="17"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="tIx-Zv-zVe">
                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -142,8 +148,8 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgw-Mg-koP">
-                                                <rect key="frame" x="21.000000000000004" y="0.0" width="48.333333333333343" height="17"/>
-                                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="14"/>
+                                                <rect key="frame" x="20" y="0.0" width="58" height="17"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -155,27 +161,27 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="16" y="212.66666666666671" width="382" height="97.333333333333343"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
+                                <rect key="frame" x="36" y="257" width="528" height="73"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="23.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="528" height="19"/>
+                                        <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-WI-smU">
-                                        <rect key="frame" x="0.0" y="39.333333333333314" width="382" height="58"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-WI-smU">
+                                        <rect key="frame" x="0.0" y="21" width="528" height="52"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-hN-fSe">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="Muli-LightItalic" family="Muli" pointSize="16"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.94999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-hN-fSe">
+                                                <rect key="frame" x="0.0" y="0.0" width="528" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="14.5"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e09-AN-MWp">
-                                                <rect key="frame" x="0.0" y="8" width="382" height="50"/>
-                                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="14"/>
+                                                <rect key="frame" x="0.0" y="2" width="528" height="50"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="12.5"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -183,17 +189,14 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-s2-3S6">
-                                <rect key="frame" x="16" y="334" width="382" height="1"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Food Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="16" y="355" width="382" height="21"/>
-                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="18"/>
+                                <rect key="frame" x="18" y="362" width="564" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="17.5"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="0.0" y="388" width="414" height="337"/>
+                                <rect key="frame" x="3" y="382.5" width="579" height="124.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -204,24 +207,21 @@
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
                         <constraints>
-                            <constraint firstItem="SUN-s2-3S6" firstAttribute="top" secondItem="y17-Xw-5W1" secondAttribute="bottom" constant="98" id="1xd-3J-uU3"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="Ioa-4t-5oD" secondAttribute="trailing" constant="16" id="2SL-E7-vNE"/>
-                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="top" secondItem="SUN-s2-3S6" secondAttribute="bottom" constant="20" id="640-6m-IHE"/>
+                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="Ioa-4t-5oD" secondAttribute="trailing" constant="36" id="2SL-E7-vNE"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" id="3Ko-jN-S92"/>
                             <constraint firstItem="OxY-on-Jkc" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="7jV-zV-t47"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="vL2-nj-e72" secondAttribute="trailing" id="Dgt-D2-djP"/>
-                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="leading" secondItem="2qp-en-orb" secondAttribute="trailing" constant="32" id="Kf1-Fx-J6n"/>
-                            <constraint firstItem="SUN-s2-3S6" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="MS0-J7-pkl"/>
-                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="TsD-7n-8qL"/>
+                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="leading" secondItem="2qp-en-orb" secondAttribute="trailing" constant="-97" id="Kf1-Fx-J6n"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="36" id="TsD-7n-8qL"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="bottom" secondItem="vL2-nj-e72" secondAttribute="bottom" id="Ub9-zB-TMy"/>
-                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="42" id="XF0-K1-hBY"/>
-                            <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" id="XRM-VX-Sgy"/>
-                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="mnl-L0-Jdx" secondAttribute="bottom" constant="12" id="aMa-XR-14Y"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="16" id="g6h-9F-sFr"/>
-                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="16" id="hwj-av-4TK"/>
+                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="30" id="XF0-K1-hBY"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="mnl-L0-Jdx" secondAttribute="bottom" id="aMa-XR-14Y"/>
+                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="18" id="g6h-9F-sFr"/>
+                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="18" id="hwj-av-4TK"/>
                             <constraint firstItem="2qp-en-orb" firstAttribute="centerX" secondItem="LNW-2j-u7j" secondAttribute="centerX" id="k2E-ss-pNb"/>
-                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="48" id="mYW-Sr-0IK"/>
-                            <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="-32" id="ofq-74-XCs"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="SUN-s2-3S6" secondAttribute="trailing" constant="16" id="pf7-vn-VOD"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="38" id="mYW-Sr-0IK"/>
+                            <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="97" id="ofq-74-XCs"/>
+                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="top" secondItem="Ioa-4t-5oD" secondAttribute="bottom" constant="32" id="pbq-BD-tRe"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="3" id="twQ-PQ-nZr"/>
                             <constraint firstItem="Tmn-O8-MJJ" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="zCw-fZ-SQz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNW-2j-u7j"/>
@@ -236,9 +236,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
+                        <outlet property="dailyIntakeLabel" destination="ejI-Ww-SR6" id="Xll-p8-4CW"/>
                         <outlet property="dailyVibeAuthorLabel" destination="e09-AN-MWp" id="00p-Mq-n6N"/>
                         <outlet property="dailyVibeQuoteLabel" destination="YAb-hN-fSe" id="ZS9-hF-Ns5"/>
+                        <outlet property="dailyVibeStackView" destination="Ioa-4t-5oD" id="Ot9-JN-W47"/>
+                        <outlet property="foodLogLabel" destination="mnl-L0-Jdx" id="Bt9-Zc-kn8"/>
+                        <outlet property="foodLogTableView" destination="vL2-nj-e72" id="GjO-mj-dFh"/>
+                        <outlet property="ringsAndMacrosContainerView" destination="UBn-fK-BvN" id="eMw-eo-llq"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
+                        <outlet property="streakStackView" destination="Tmn-O8-MJJ" id="U74-Gf-2bC"/>
+                        <outlet property="weightStackView" destination="OxY-on-Jkc" id="ypB-wD-igz"/>
                         <segue destination="6Qg-MS-wl4" kind="show" identifier="MissingProfile" id="r1z-2w-3mM"/>
                         <segue destination="7Nz-Uw-rj4" kind="unwind" identifier="Logout" unwindAction="unwind:" id="MrW-rM-Ff1"/>
                         <segue destination="dJb-ZH-wa0" kind="show" identifier="Logout" id="Jmd-UR-Ep9"/>
@@ -270,12 +277,12 @@
             </objects>
             <point key="canvasLocation" x="9430" y="-547"/>
         </scene>
-        <!--Search Food-->
+        <!--Food Search-->
         <scene sceneID="FgN-cI-bhq">
             <objects>
                 <tableViewController id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1si-0W-cfy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1si-0W-cfy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
@@ -283,11 +290,11 @@
                         <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" name="bg-color"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="U18-G3-P3n">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" text="" placeholder="Search For Foods" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <searchBar contentMode="redraw" text="" placeholder="Food name or brand" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
                                     <color key="backgroundColor" name="bg-color"/>
                                     <color key="tintColor" name="nutrivurv-blue"/>
                                     <color key="barTintColor" name="bg-color"/>
@@ -308,17 +315,17 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FoodCell" textLabel="2bg-Ab-Vjz" style="IBUITableViewCellStyleDefault" id="vCA-6e-zWx">
-                                <rect key="frame" x="0.0" y="84" width="414" height="55"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FoodCell" textLabel="2bg-Ab-Vjz" rowHeight="68" style="IBUITableViewCellStyleDefault" id="vCA-6e-zWx">
+                                <rect key="frame" x="0.0" y="84" width="600" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vCA-6e-zWx" id="Lqr-MQ-L0w">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="569" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2bg-Ab-Vjz">
-                                            <rect key="frame" x="20" y="0.0" width="355" height="55"/>
+                                            <rect key="frame" x="20" y="0.0" width="541" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                             <color key="textColor" name="light-label"/>
                                             <color key="highlightedColor" name="bg-color"/>
                                         </label>
@@ -338,7 +345,7 @@
                             <outlet property="delegate" destination="XGk-MJ-f0l" id="0jc-lc-gj3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search Food" id="OBS-bK-QCB">
+                    <navigationItem key="navigationItem" title="Food Search" id="OBS-bK-QCB">
                         <barButtonItem key="rightBarButtonItem" image="camera-icon" id="lQL-JE-T3y">
                             <color key="tintColor" name="nutrivurv-blue"/>
                             <connections>
@@ -359,7 +366,7 @@
             <objects>
                 <viewController id="4id-Vt-Jzy" customClass="BarcodeSearchViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
@@ -378,28 +385,28 @@
             <objects>
                 <viewController restorationIdentifier="FoodDetailViewController" storyboardIdentifier="FoodDetailViewController" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" id="U4e-Le-VaR" customClass="FoodDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hio-Jw-9GW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
-                                <rect key="frame" x="12" y="110" width="264" height="42"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
+                                <rect key="frame" x="14" y="62" width="448" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
-                                        <rect key="frame" x="0.0" y="0.0" width="264" height="24.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
+                                        <rect key="frame" x="0.0" y="0.0" width="448" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="20"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRe-zE-eML">
-                                        <rect key="frame" x="0.0" y="26.666666666666654" width="264" height="15.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Muli-Italic_SemiBold-Italic" family="Muli" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="448" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="QuattrocentoSans-BoldItalic" family="Quattrocento Sans" pointSize="14"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="8" y="172" width="268" height="21"/>
+                                <rect key="frame" x="8" y="120" width="268" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="900" height="21"/>
@@ -421,39 +428,38 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="usu-RS-26B"/>
                             </scrollView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zES-L2-3nD">
-                                <rect key="frame" x="8.0000000000000036" y="208.66666666666666" width="51.333333333333343" height="14"/>
-                                <fontDescription key="fontDescription" name="Muli-Italic_Bold-Italic" family="Muli" pointSize="12"/>
+                                <rect key="frame" x="14" y="154" width="55.5" height="15.5"/>
+                                <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="13"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-basket" translatesAutoresizingMaskIntoConstraints="NO" id="f73-A3-Bna">
-                                <rect key="frame" x="298" y="120" width="100" height="100"/>
+                                <rect key="frame" x="484" y="74" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2yH-vl-ncA"/>
                                     <constraint firstAttribute="width" secondItem="f73-A3-Bna" secondAttribute="height" multiplier="1:1" id="56h-2D-tQd"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="905-xc-sQL">
-                                <rect key="frame" x="16" y="246" width="382" height="94"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="905-xc-sQL">
+                                <rect key="frame" x="38" y="214" width="524" height="94"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-7t-Yqc">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="94"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="94"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0l-uS-47P">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="28"/>
-                                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="14"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="248" height="28"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SkT-Nt-tta">
-                                                <rect key="frame" x="0.0" y="38" width="72" height="56"/>
-                                                <color key="backgroundColor" name="bg-color"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SkT-Nt-tta">
+                                                <rect key="frame" x="0.0" y="38" width="248" height="56"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="6KH-R6-l1a"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="6KH-R6-l1a"/>
                                                     <constraint firstAttribute="height" constant="56" id="v7v-0Z-wQw"/>
                                                 </constraints>
                                                 <color key="textColor" name="nutrivurv-blue"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
                                                 <connections>
                                                     <action selector="qtyTextFieldValueChanged:" destination="U4e-Le-VaR" eventType="editingChanged" id="w7X-wh-scF"/>
@@ -461,21 +467,20 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dxv-Vj-uUi">
-                                        <rect key="frame" x="106" y="0.0" width="276" height="94"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dxv-Vj-uUi">
+                                        <rect key="frame" x="260" y="0.0" width="264" height="94"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xpg-1X-Nvu">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="xpg-1X-Nvu">
                                                 <rect key="frame" x="0.0" y="0.0" width="124" height="94"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serving Size:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mY-hV-kBg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="19"/>
-                                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="14"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="25"/>
+                                                        <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
                                                         <color key="textColor" name="nutrivurv-blue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcc-0C-fNr">
                                                         <rect key="frame" x="0.0" y="19" width="124" height="75"/>
-                                                        <color key="backgroundColor" name="bg-color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="75" id="FBU-iq-Nvg"/>
                                                             <constraint firstAttribute="width" constant="124" id="kk3-zb-5VE"/>
@@ -483,12 +488,12 @@
                                                     </pickerView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tIc-mw-6Uq">
-                                                <rect key="frame" x="152" y="0.0" width="124" height="94"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="tIc-mw-6Uq">
+                                                <rect key="frame" x="140" y="0.0" width="124" height="94"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Type:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKk-EA-YTn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="19"/>
-                                                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="14"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="25"/>
+                                                        <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
                                                         <color key="textColor" name="nutrivurv-blue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -508,65 +513,59 @@
                                     <constraint firstAttribute="height" constant="94" id="e3Y-Gy-yOE"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
-                                <rect key="frame" x="16" y="360" width="382" height="21"/>
-                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
-                                <color key="textColor" name="light-label"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Per Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruV-gM-Tbw">
-                                <rect key="frame" x="16" y="389" width="382" height="14"/>
-                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
+                                <rect key="frame" x="16" y="340" width="568" height="21"/>
+                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
-                                <rect key="frame" x="16" y="409" width="382" height="18.666666666666686"/>
+                                <rect key="frame" x="16" y="357" width="568" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
-                                        <rect key="frame" x="0.0" y="0.0" width="367.66666666666669" height="18.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="553" height="20"/>
+                                        <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="17"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-OS-l5Q">
-                                        <rect key="frame" x="375.66666666666669" y="0.0" width="6.3333333333333144" height="18.666666666666668"/>
-                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                        <rect key="frame" x="561" y="0.0" width="7" height="20"/>
+                                        <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Daily Value *" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYu-gN-Juf">
-                                <rect key="frame" x="16" y="439.66666666666669" width="386" height="16.333333333333314"/>
-                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
+                                <rect key="frame" x="16" y="383" width="572" height="16.5"/>
+                                <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="14"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV" customClass="FadedVerticalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="464" width="398" height="328"/>
+                                <rect key="frame" x="16" y="401.5" width="584" height="128.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
-                                        <rect key="frame" x="0.0" y="10.000000000000002" width="386" height="18.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="10" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rew-a8-kk4">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c75-oA-Iag">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUq-Aa-CEO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLT-f7-aOx">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -575,26 +574,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="70B-oM-YpM">
-                                        <rect key="frame" x="0.0" y="37.666666666666686" width="386" height="18.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="35" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sodium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgb-y7-idZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1TU-fX-zRM">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofa-EQ-HXG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doT-vD-xdX">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -603,26 +602,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-Jz-7XS">
-                                        <rect key="frame" x="0.0" y="65.333333333333371" width="386" height="18.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="60" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Carbohydrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-aK-I7A">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d4s-wN-oIJ">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyi-Tm-VkD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RN-2M-m5e">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -631,26 +630,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9D5-Hr-JKu">
-                                        <rect key="frame" x="0.0" y="93" width="386" height="18.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="85" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cholesterol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws6-SC-Ahd">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nbp-As-pAF">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4V-ov-qpf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXB-00-Pln">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -659,60 +658,60 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CTG-YY-A80">
-                                        <rect key="frame" x="0.0" y="120.66666666666664" width="386" height="18.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="110" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne4-qG-2Qy">
-                                                <rect key="frame" x="0.0" y="0.0" width="371.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="557.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6Z-2J-wRn">
-                                                <rect key="frame" x="379.66666666666669" y="0.0" width="6.3333333333333144" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="565.5" y="0.0" width="6.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z7n-YO-afv">
-                                        <rect key="frame" x="0.0" y="148.33333333333337" width="386" height="18.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="135" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXR-MS-qCN">
-                                                <rect key="frame" x="0.0" y="0.0" width="371.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="557.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeL-Na-8Se">
-                                                <rect key="frame" x="379.66666666666669" y="0.0" width="6.3333333333333144" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="565.5" y="0.0" width="6.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-D8-TmG">
-                                        <rect key="frame" x="0.0" y="176" width="386" height="18.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="160" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vitamin D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muJ-04-7LT">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bmN-Ol-Dc8">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dng-gm-clk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSu-PJ-Cem">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -721,26 +720,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gaW-Lv-M4B">
-                                        <rect key="frame" x="0.0" y="203.66666666666663" width="386" height="18.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="185" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calcium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbE-Lp-mwb">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rsS-xv-cta">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-3R-sKa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ay-Gt-SgG">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -749,26 +748,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eMl-Zj-YJB">
-                                        <rect key="frame" x="0.0" y="231.33333333333337" width="386" height="18.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="210" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iron" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-zF-vuC">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ST2-xz-BB9">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAR-GE-90k">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fv-To-PnC">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -777,26 +776,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uJS-kU-Tos">
-                                        <rect key="frame" x="0.0" y="259" width="386" height="18.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="235" width="572" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Potassium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-yF-bYL">
-                                                <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="18.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-Sr-mcP">
-                                                <rect key="frame" x="344.66666666666669" y="0.0" width="41.333333333333314" height="18.666666666666668"/>
+                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXd-l3-sdU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="6.333333333333333" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="- %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1Z-Rd-RKT">
-                                                        <rect key="frame" x="14.333333333333314" y="0.0" width="27" height="18.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
+                                                        <rect key="frame" x="14.5" y="0.0" width="27" height="19"/>
+                                                        <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -808,22 +807,22 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="c75-oA-Iag" secondAttribute="trailing" id="1H0-uL-N7A"/>
                                     <constraint firstAttribute="trailing" secondItem="a6Z-2J-wRn" secondAttribute="trailing" id="3HX-uI-FFi"/>
-                                    <constraint firstItem="gaW-Lv-M4B" firstAttribute="top" secondItem="9pm-D8-TmG" secondAttribute="bottom" constant="9" id="49Z-M0-2El"/>
+                                    <constraint firstItem="gaW-Lv-M4B" firstAttribute="top" secondItem="9pm-D8-TmG" secondAttribute="bottom" constant="6" id="49Z-M0-2El"/>
                                     <constraint firstAttribute="trailing" secondItem="bmN-Ol-Dc8" secondAttribute="trailing" id="57N-q2-pfH"/>
                                     <constraint firstAttribute="trailing" secondItem="O4N-Sr-mcP" secondAttribute="trailing" id="7g4-2N-Ja1"/>
                                     <constraint firstAttribute="bottom" secondItem="uJS-kU-Tos" secondAttribute="bottom" constant="42" id="BJb-Hk-0Aw"/>
                                     <constraint firstItem="CTG-YY-A80" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="Bca-d6-dun"/>
                                     <constraint firstItem="eMl-Zj-YJB" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="CPt-dQ-UiX"/>
-                                    <constraint firstItem="9pm-D8-TmG" firstAttribute="top" secondItem="z7n-YO-afv" secondAttribute="bottom" constant="9" id="EWg-gl-l3S"/>
+                                    <constraint firstItem="9pm-D8-TmG" firstAttribute="top" secondItem="z7n-YO-afv" secondAttribute="bottom" constant="6" id="EWg-gl-l3S"/>
                                     <constraint firstAttribute="trailing" secondItem="9pm-D8-TmG" secondAttribute="trailing" id="GKS-AM-Ovt"/>
-                                    <constraint firstItem="z7n-YO-afv" firstAttribute="top" secondItem="CTG-YY-A80" secondAttribute="bottom" constant="9" id="I24-XF-r51"/>
+                                    <constraint firstItem="z7n-YO-afv" firstAttribute="top" secondItem="CTG-YY-A80" secondAttribute="bottom" constant="6" id="I24-XF-r51"/>
                                     <constraint firstItem="1fw-4w-otg" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="IYv-yQ-wuR"/>
-                                    <constraint firstItem="4Rm-Jz-7XS" firstAttribute="top" secondItem="70B-oM-YpM" secondAttribute="bottom" constant="9" id="JbB-ks-H7C"/>
+                                    <constraint firstItem="4Rm-Jz-7XS" firstAttribute="top" secondItem="70B-oM-YpM" secondAttribute="bottom" constant="6" id="JbB-ks-H7C"/>
                                     <constraint firstAttribute="trailing" secondItem="eMl-Zj-YJB" secondAttribute="trailing" id="KnY-ov-icF"/>
                                     <constraint firstAttribute="trailing" secondItem="uJS-kU-Tos" secondAttribute="trailing" id="Le6-dh-Vui"/>
                                     <constraint firstItem="z7n-YO-afv" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="MNd-GU-GGN"/>
                                     <constraint firstItem="4Rm-Jz-7XS" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="PQ2-5b-PAF"/>
-                                    <constraint firstItem="uJS-kU-Tos" firstAttribute="top" secondItem="eMl-Zj-YJB" secondAttribute="bottom" constant="9" id="T6V-9O-mTQ"/>
+                                    <constraint firstItem="uJS-kU-Tos" firstAttribute="top" secondItem="eMl-Zj-YJB" secondAttribute="bottom" constant="6" id="T6V-9O-mTQ"/>
                                     <constraint firstAttribute="trailing" secondItem="rsS-xv-cta" secondAttribute="trailing" id="UqS-ax-X7H"/>
                                     <constraint firstAttribute="trailing" secondItem="d4s-wN-oIJ" secondAttribute="trailing" id="VS1-Vn-FbG"/>
                                     <constraint firstAttribute="trailing" secondItem="ST2-xz-BB9" secondAttribute="trailing" id="YaY-NL-ISH"/>
@@ -831,18 +830,18 @@
                                     <constraint firstAttribute="trailing" secondItem="z7n-YO-afv" secondAttribute="trailing" id="bWm-ik-hEk"/>
                                     <constraint firstItem="uJS-kU-Tos" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="biC-Gv-PaD"/>
                                     <constraint firstItem="70B-oM-YpM" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="cH5-ct-27B"/>
-                                    <constraint firstItem="70B-oM-YpM" firstAttribute="top" secondItem="1fw-4w-otg" secondAttribute="bottom" constant="9" id="dyP-bq-wSX"/>
+                                    <constraint firstItem="70B-oM-YpM" firstAttribute="top" secondItem="1fw-4w-otg" secondAttribute="bottom" constant="6" id="dyP-bq-wSX"/>
                                     <constraint firstAttribute="trailing" secondItem="1TU-fX-zRM" secondAttribute="trailing" id="exj-5F-SXU"/>
                                     <constraint firstItem="9D5-Hr-JKu" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="gFU-1D-xxF"/>
                                     <constraint firstAttribute="trailing" secondItem="9D5-Hr-JKu" secondAttribute="trailing" id="gZy-qs-bBh"/>
                                     <constraint firstAttribute="trailing" secondItem="XeL-Na-8Se" secondAttribute="trailing" id="hAk-8y-UuU"/>
-                                    <constraint firstItem="CTG-YY-A80" firstAttribute="top" secondItem="9D5-Hr-JKu" secondAttribute="bottom" constant="9" id="kRJ-V3-upV"/>
+                                    <constraint firstItem="CTG-YY-A80" firstAttribute="top" secondItem="9D5-Hr-JKu" secondAttribute="bottom" constant="6" id="kRJ-V3-upV"/>
                                     <constraint firstAttribute="trailing" secondItem="gaW-Lv-M4B" secondAttribute="trailing" id="ogc-iL-hO9"/>
                                     <constraint firstAttribute="trailing" secondItem="CTG-YY-A80" secondAttribute="trailing" id="oxT-vE-hN8"/>
                                     <constraint firstAttribute="trailing" secondItem="70B-oM-YpM" secondAttribute="trailing" id="pKz-uY-MBF"/>
                                     <constraint firstAttribute="trailing" secondItem="Nbp-As-pAF" secondAttribute="trailing" id="ppZ-ol-ZSy"/>
-                                    <constraint firstItem="eMl-Zj-YJB" firstAttribute="top" secondItem="gaW-Lv-M4B" secondAttribute="bottom" constant="9" id="vvR-Qf-wMh"/>
-                                    <constraint firstItem="9D5-Hr-JKu" firstAttribute="top" secondItem="4Rm-Jz-7XS" secondAttribute="bottom" constant="9" id="w4w-yI-aqS"/>
+                                    <constraint firstItem="eMl-Zj-YJB" firstAttribute="top" secondItem="gaW-Lv-M4B" secondAttribute="bottom" constant="6" id="vvR-Qf-wMh"/>
+                                    <constraint firstItem="9D5-Hr-JKu" firstAttribute="top" secondItem="4Rm-Jz-7XS" secondAttribute="bottom" constant="6" id="w4w-yI-aqS"/>
                                     <constraint firstAttribute="trailing" secondItem="4Rm-Jz-7XS" secondAttribute="trailing" id="wfu-mG-x7t"/>
                                     <constraint firstItem="1fw-4w-otg" firstAttribute="top" secondItem="Icx-af-gHV" secondAttribute="top" constant="10" id="xED-QY-RLw"/>
                                     <constraint firstItem="9pm-D8-TmG" firstAttribute="leading" secondItem="Icx-af-gHV" secondAttribute="leading" id="yB8-S4-2MY"/>
@@ -851,12 +850,12 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="t2M-AU-808"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-GH-pEz">
-                                <rect key="frame" x="88" y="806" width="238" height="44"/>
+                                <rect key="frame" x="88" y="544" width="424" height="44"/>
                                 <color key="backgroundColor" name="nutrivurv-blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vDC-j5-aJd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="15"/>
                                 <state key="normal" title="Log Food">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -865,7 +864,7 @@
                                 </connections>
                             </button>
                             <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV8-21-SSQ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="72" y="205" width="204" height="21"/>
+                                <rect key="frame" x="72" y="151" width="204" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
                                         <rect key="frame" x="-14" y="0.0" width="268" height="21"/>
@@ -894,36 +893,33 @@
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="bottom" secondItem="c8X-GH-pEz" secondAttribute="bottom" constant="12" id="4XJ-vR-KUS"/>
                             <constraint firstItem="c8X-GH-pEz" firstAttribute="top" secondItem="Icx-af-gHV" secondAttribute="bottom" constant="14" id="9vU-ew-g9g"/>
                             <constraint firstItem="n1A-tt-XQf" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="AGZ-Zz-qFV"/>
-                            <constraint firstItem="f73-A3-Bna" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="32" id="Bmc-UM-32D"/>
+                            <constraint firstItem="f73-A3-Bna" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="30" id="Bmc-UM-32D"/>
                             <constraint firstItem="DV8-21-SSQ" firstAttribute="leading" secondItem="zES-L2-3nD" secondAttribute="trailing" constant="6" id="F6e-ml-1LO"/>
-                            <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="top" secondItem="bPc-n4-yNw" secondAttribute="bottom" constant="20" id="GpX-yp-k0U"/>
+                            <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="top" secondItem="bPc-n4-yNw" secondAttribute="bottom" constant="14" id="GpX-yp-k0U"/>
                             <constraint firstItem="KYu-gN-Juf" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="HKE-43-tma"/>
                             <constraint firstItem="zES-L2-3nD" firstAttribute="centerY" secondItem="DV8-21-SSQ" secondAttribute="centerY" id="IqJ-eP-ddL"/>
                             <constraint firstItem="c8X-GH-pEz" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="88" id="MPR-fG-hNA"/>
-                            <constraint firstItem="bPc-n4-yNw" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="12" id="NTM-j8-4yI"/>
+                            <constraint firstItem="XRT-Sz-jNH" firstAttribute="top" secondItem="n1A-tt-XQf" secondAttribute="bottom" constant="-4" id="NRr-ZM-MaX"/>
+                            <constraint firstItem="bPc-n4-yNw" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="14" id="NTM-j8-4yI"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="XRT-Sz-jNH" secondAttribute="trailing" constant="16" id="R0w-oO-vQ8"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="Icx-af-gHV" secondAttribute="trailing" id="RKa-IX-1XR"/>
-                            <constraint firstItem="ruV-gM-Tbw" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="SKY-F7-Vh0"/>
                             <constraint firstItem="c75-oA-Iag" firstAttribute="trailing" secondItem="KYu-gN-Juf" secondAttribute="trailing" id="TWP-A2-9k6"/>
-                            <constraint firstItem="905-xc-sQL" firstAttribute="top" secondItem="DV8-21-SSQ" secondAttribute="bottom" constant="20" id="Wgf-um-71T"/>
-                            <constraint firstItem="905-xc-sQL" firstAttribute="trailing" secondItem="f73-A3-Bna" secondAttribute="trailing" id="XAH-MF-K7D"/>
-                            <constraint firstItem="ruV-gM-Tbw" firstAttribute="top" secondItem="n1A-tt-XQf" secondAttribute="bottom" constant="8" id="XWn-NS-H6m"/>
-                            <constraint firstItem="zES-L2-3nD" firstAttribute="leading" secondItem="5Sv-Gc-KlZ" secondAttribute="leading" constant="4" id="ZbJ-8g-qpg"/>
+                            <constraint firstItem="905-xc-sQL" firstAttribute="top" secondItem="DV8-21-SSQ" secondAttribute="bottom" constant="42" id="Wgf-um-71T"/>
+                            <constraint firstItem="905-xc-sQL" firstAttribute="trailing" secondItem="f73-A3-Bna" secondAttribute="trailing" constant="-22" id="XAH-MF-K7D"/>
+                            <constraint firstItem="zES-L2-3nD" firstAttribute="leading" secondItem="5Sv-Gc-KlZ" secondAttribute="leading" constant="8" id="ZbJ-8g-qpg"/>
                             <constraint firstItem="Icx-af-gHV" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="bSs-BI-hdh"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="f73-A3-Bna" secondAttribute="trailing" constant="16" id="cvc-sY-6sV"/>
-                            <constraint firstItem="XRT-Sz-jNH" firstAttribute="top" secondItem="ruV-gM-Tbw" secondAttribute="bottom" constant="6" id="fZ0-GR-RuI"/>
-                            <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="ruV-gM-Tbw" secondAttribute="trailing" constant="16" id="fZq-7t-yuA"/>
-                            <constraint firstItem="bPc-n4-yNw" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="22" id="gFA-mO-uvo"/>
-                            <constraint firstItem="Icx-af-gHV" firstAttribute="top" secondItem="KYu-gN-Juf" secondAttribute="bottom" constant="8" id="gwI-2d-6i4"/>
+                            <constraint firstItem="bPc-n4-yNw" firstAttribute="top" secondItem="OXE-5N-6jG" secondAttribute="top" constant="18" id="gFA-mO-uvo"/>
+                            <constraint firstItem="Icx-af-gHV" firstAttribute="top" secondItem="KYu-gN-Juf" secondAttribute="bottom" constant="2" id="gwI-2d-6i4"/>
                             <constraint firstItem="DV8-21-SSQ" firstAttribute="trailing" secondItem="5Sv-Gc-KlZ" secondAttribute="trailing" id="hyf-yp-E6B"/>
-                            <constraint firstItem="n1A-tt-XQf" firstAttribute="top" secondItem="905-xc-sQL" secondAttribute="bottom" constant="20" id="kP5-Q9-j1D"/>
+                            <constraint firstItem="n1A-tt-XQf" firstAttribute="top" secondItem="905-xc-sQL" secondAttribute="bottom" constant="32" id="kP5-Q9-j1D"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="c8X-GH-pEz" secondAttribute="trailing" constant="88" id="mJT-4Q-PsW"/>
                             <constraint firstItem="XRT-Sz-jNH" firstAttribute="leading" secondItem="OXE-5N-6jG" secondAttribute="leading" constant="16" id="mVs-ba-iGR"/>
-                            <constraint firstItem="KYu-gN-Juf" firstAttribute="top" secondItem="XRT-Sz-jNH" secondAttribute="bottom" constant="12" id="ne9-f0-ENM"/>
+                            <constraint firstItem="KYu-gN-Juf" firstAttribute="top" secondItem="XRT-Sz-jNH" secondAttribute="bottom" constant="6" id="ne9-f0-ENM"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="n1A-tt-XQf" secondAttribute="trailing" constant="16" id="ngo-vG-oTv"/>
-                            <constraint firstItem="DV8-21-SSQ" firstAttribute="top" secondItem="5Sv-Gc-KlZ" secondAttribute="bottom" constant="12" id="oYu-1h-k19"/>
+                            <constraint firstItem="DV8-21-SSQ" firstAttribute="top" secondItem="5Sv-Gc-KlZ" secondAttribute="bottom" constant="10" id="oYu-1h-k19"/>
                             <constraint firstItem="f73-A3-Bna" firstAttribute="leading" secondItem="bPc-n4-yNw" secondAttribute="trailing" constant="22" id="opZ-yz-k0f"/>
-                            <constraint firstItem="905-xc-sQL" firstAttribute="leading" secondItem="n1A-tt-XQf" secondAttribute="leading" id="r74-04-e82"/>
+                            <constraint firstItem="905-xc-sQL" firstAttribute="leading" secondItem="n1A-tt-XQf" secondAttribute="leading" constant="22" id="ueH-un-Z4T"/>
                             <constraint firstItem="5Sv-Gc-KlZ" firstAttribute="trailing" secondItem="bPc-n4-yNw" secondAttribute="trailing" constant="-10" id="vTD-gV-A7h"/>
                             <constraint firstItem="OXE-5N-6jG" firstAttribute="trailing" secondItem="KYu-gN-Juf" secondAttribute="trailing" constant="12" id="wBf-g8-jeT"/>
                         </constraints>
@@ -962,6 +958,7 @@
                         <outlet property="totalCarbsPercentageLabel" destination="9RN-2M-m5e" id="Rss-I3-Knt"/>
                         <outlet property="totalFatMeasureLabel" destination="VUq-Aa-CEO" id="IKA-tC-yS7"/>
                         <outlet property="totalFatPercentageLabel" destination="OLT-f7-aOx" id="vH2-hz-CwZ"/>
+                        <outlet property="userInputStackView" destination="905-xc-sQL" id="fEO-by-aqw"/>
                         <outlet property="vitaminDMeasureLabel" destination="dng-gm-clk" id="wY5-8W-cUX"/>
                         <outlet property="vitaminDPercentageLabel" destination="BSu-PJ-Cem" id="o5F-Xz-ulg"/>
                     </connections>
@@ -969,6 +966,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o1w-qv-9UJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11957.971014492754" y="-190.17857142857142"/>
+        </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="3q0-no-ZbL">
+            <objects>
+                <hostingController id="HUf-V8-zA8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69n-Q3-zjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11788" y="-1513"/>
         </scene>
         <!--Main-->
         <scene sceneID="grQ-MA-3ap">
@@ -994,32 +999,32 @@
         <scene sceneID="MXH-kM-V0v">
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bM9-0c-rT8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="331.66666666666669"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bM9-0c-rT8">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="343"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
                         <color key="sectionIndexColor" name="light-label"/>
                         <color key="sectionIndexBackgroundColor" name="bg-color"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="foodLogCell" textLabel="azd-hQ-dKT" detailTextLabel="hAv-tJ-Ac5" style="IBUITableViewCellStyleSubtitle" id="aJf-I4-b9X">
-                                <rect key="frame" x="0.0" y="28" width="414" height="54.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="foodLogCell" textLabel="azd-hQ-dKT" detailTextLabel="hAv-tJ-Ac5" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="aJf-I4-b9X">
+                                <rect key="frame" x="0.0" y="28" width="393" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJf-I4-b9X" id="EaL-eD-DY9">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="54.666667938232422"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJf-I4-b9X" id="EaL-eD-DY9">
+                                    <rect key="frame" x="0.0" y="0.0" width="362" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="azd-hQ-dKT">
-                                            <rect key="frame" x="20" y="7.3333333333333339" width="30" height="18.666666666666668"/>
+                                            <rect key="frame" x="20" y="16" width="30" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="16"/>
                                             <color key="textColor" name="light-label"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hAv-tJ-Ac5">
-                                            <rect key="frame" x="20" y="28.666666666666671" width="48" height="16.333333333333332"/>
+                                            <rect key="frame" x="20" y="38" width="48" height="16.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Muli-MediumItalic" family="Muli" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="14"/>
                                             <color key="textColor" name="nutrivurv-blue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1027,7 +1032,6 @@
                                     <color key="backgroundColor" name="bg-color"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" name="bg-color"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1045,7 +1049,7 @@
             <objects>
                 <collectionViewController id="oNc-VA-CAf" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d2l-t7-mwT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZ4-TG-hpI">
@@ -1063,13 +1067,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6J-Nd-SLY">
-                                            <rect key="frame" x="8" y="8" width="151" height="23"/>
+                                            <rect key="frame" x="8" y="8" width="151" height="21"/>
                                             <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                             <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0PA-i1-VMB">
-                                            <rect key="frame" x="8" y="47" width="151" height="18"/>
+                                            <rect key="frame" x="8" y="45" width="151" height="16.5"/>
                                             <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -1152,8 +1156,6 @@
     </scenes>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
-        <image name="Divider" width="1201" height="1"/>
-        <image name="Donut" width="96" height="96"/>
         <image name="camera-icon" width="21" height="18"/>
         <image name="fire" width="40" height="52"/>
         <image name="food-basket" width="512" height="512"/>

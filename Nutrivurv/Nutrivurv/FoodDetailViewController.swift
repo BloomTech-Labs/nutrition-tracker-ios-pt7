@@ -24,8 +24,9 @@ class FoodDetailViewController: UIViewController {
     
     @IBOutlet weak var foodImageView: UIImageView!
     
-    @IBOutlet weak var nutritionalContentScrollView: FadedVerticalScrollView!
+    @IBOutlet weak var userInputStackView: UIStackView!
     
+    @IBOutlet weak var nutritionalContentScrollView: FadedVerticalScrollView!
     @IBOutlet weak var qtyTextField: UITextField!
     @IBOutlet weak var servingSizePickerView: UIPickerView!
     @IBOutlet weak var mealTypePickerView: UIPickerView!
@@ -99,6 +100,22 @@ class FoodDetailViewController: UIViewController {
     var delegate: EditFoodEntryDelegate?
     
     
+    // MARK: Custom View Variables
+    
+    lazy var userInputBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "daily-vibe")
+        view.layer.cornerRadius = 14.0
+        view.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
+        view.layer.shadowOpacity = 0.8
+        view.layer.shadowOffset = CGSize(width: 1.3, height: 1.3)
+        view.layer.shadowRadius = 9.0
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    
     // MARK: - View Life Cycle Methods
     
     override func viewDidLoad() {
@@ -110,6 +127,8 @@ class FoodDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
             return
         }
+        
+        self.setUpUserInputBackgroundView()
         
         self.foodNameLabel.text = foodItem.food.label.capitalized
         self.foodCategoryLabel.text = foodItem.food.category.capitalized
@@ -137,7 +156,7 @@ class FoodDetailViewController: UIViewController {
         
         
         
-        self.qtyTextField.font = UIFont(name: "Muli-Bold", size: 14)
+        self.qtyTextField.font = UIFont(name: "QuattrocentoSans-Bold", size: 14)
         self.addFoodButton.layer.cornerRadius = 6.0
         
         if fromLog {
@@ -161,7 +180,6 @@ class FoodDetailViewController: UIViewController {
     // MARK: - Custom Views & View Setup
     
     private func updateViews() {
-        guard isViewLoaded else { return }
         
         guard let nutrients = nutrients else { return }
         
@@ -265,14 +283,14 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func getGreenLabelFor(_ string: String) -> NutritionLabel {
-        let color = UIColor(named: "nutrivurv-green")!
+        let color = UIColor(named: "nutrivurv-green-2")!
         let label = setupHealthAndWarningLabels(string, color: color)
         
         return label
     }
     
     private func getYellowLabelFor(_ string: String) -> NutritionLabel {
-        let color = UIColor(named: "nutrivurv-yellow")!
+        let color = UIColor(named: "nutrivurv-orange")!
         let label = setupHealthAndWarningLabels(string, color: color)
         
         return label
@@ -293,10 +311,29 @@ class FoodDetailViewController: UIViewController {
         label.sizeToFit()
         label.layer.masksToBounds = true
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Muli-SemiBold", size: 12)
+        label.font = UIFont(name: "QuattrocentoSans-Bold", size: 12)
         label.textColor = .white
         
         return label
+    }
+    
+    private func setUpUserInputBackgroundView() {
+        self.userInputStackView.insertSubview(self.userInputBackgroundView, at: 0)
+        self.userInputBackgroundView.pin(to: userInputStackView)
+    }
+    
+    
+    // MARK: - Update Subviews
+    
+    // Need to manually update user input shadow color when trait collections change, as cgColor is not dynamic like UIColor
+    private func updateUserInputViewShadow() {
+        self.userInputBackgroundView.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
+    }
+    
+    // Called when trait collections are made, like switching between Light <-> Dark mode to enable changes
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        self.updateUserInputViewShadow()
     }
     
     
@@ -371,8 +408,8 @@ class FoodDetailViewController: UIViewController {
         self.searchController?.searchForNutrients(qty: quantity,
                                                   measure: foodItem.measures[servingSize].uri,
                                                   foodId: foodItem.food.foodId) { (nutrients) in
-            guard let nutrients = nutrients else { return }
-            self.nutrients = nutrients
+                                                    guard let nutrients = nutrients else { return }
+                                                    self.nutrients = nutrients
         }
     }
     
@@ -390,7 +427,7 @@ class FoodDetailViewController: UIViewController {
         }
         updateQtyValue(qty: qty)
     }
-
+    
     private func getFoodImage(urlString: String) {
         self.searchController?.getFoodImage(urlString: urlString) { (data) in
             guard let data = data else {
@@ -413,7 +450,7 @@ class FoodDetailViewController: UIViewController {
             servingSizePickerView.isUserInteractionEnabled = true
             mealTypePickerView.isUserInteractionEnabled = true
             addFoodButton.setTitle("Save Entry", for: .normal)
-            addFoodButton.backgroundColor = UIColor(named: "nutrivurv-green")
+            addFoodButton.backgroundColor = UIColor(named: "nutrivurv-green-2")
             self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
             return
         }
@@ -471,7 +508,7 @@ extension FoodDetailViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let font = UIFont(name: "Muli-Bold", size: 16)!
+        let font = UIFont(name: "QuattrocentoSans-Bold", size: 16)!
         
         switch pickerView {
         case servingSizePickerView:

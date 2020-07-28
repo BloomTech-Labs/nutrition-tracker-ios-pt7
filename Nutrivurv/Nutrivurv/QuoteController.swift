@@ -16,7 +16,7 @@ class QuoteController {
         
         var urlComponets = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
         urlComponets?.queryItems = [
-            URLQueryItem(name: "maxLength", value: "98"),
+            URLQueryItem(name: "maxLength", value: "102"),
              URLQueryItem(name: "tags", value: "inspirational|life|happiness")
         ]
         
