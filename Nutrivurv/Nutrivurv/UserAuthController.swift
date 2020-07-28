@@ -17,7 +17,7 @@ class UserAuthController {
     
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/auth")!
     
-    func loginUser(user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func loginUser(user: UserAuth, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let loginURL = baseURL.appendingPathComponent("login")
         var request = URLRequest(url: loginURL)
         
@@ -92,7 +92,7 @@ class UserAuthController {
         }.resume()
     }
     
-    func registerUser(user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func registerUser(user: UserAuth, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let registerURL = baseURL.appendingPathComponent("register")
         var request = URLRequest(url: registerURL)
         

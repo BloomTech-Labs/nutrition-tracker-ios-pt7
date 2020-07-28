@@ -19,7 +19,7 @@
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */; };
 		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
-		51257AEB24A2EE6600C744B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* User.swift */; };
+		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
@@ -57,7 +57,7 @@
 		D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27C241878B100AE30C9 /* ActivityLevel.swift */; };
 		D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B27E2418790100AE30C9 /* ActivityLevelViewController.swift */; };
 		D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B2802418795300AE30C9 /* ActivityLevelTableViewCell.swift */; };
-		D631B287241891DD00AE30C9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B286241891DD00AE30C9 /* Profile.swift */; };
+		D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D631B286241891DD00AE30C9 /* UserProfile.swift */; };
 		D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701D23F25400008AFDF0 /* AppDelegate.swift */; };
 		D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C701F23F25400008AFDF0 /* SceneDelegate.swift */; };
 		D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C702123F25400008AFDF0 /* RegisterViewController.swift */; };
@@ -93,7 +93,7 @@
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMacros.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
-		51257AEA24A2EE6600C744B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 		D631B27C241878B100AE30C9 /* ActivityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevel.swift; sourceTree = "<group>"; };
 		D631B27E2418790100AE30C9 /* ActivityLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelViewController.swift; sourceTree = "<group>"; };
 		D631B2802418795300AE30C9 /* ActivityLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevelTableViewCell.swift; sourceTree = "<group>"; };
-		D631B286241891DD00AE30C9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D631B286241891DD00AE30C9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		D68C701A23F25400008AFDF0 /* Nutrivurv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrivurv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C701D23F25400008AFDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C701F23F25400008AFDF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,8 +271,8 @@
 		51A186F924A3308700196C83 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				51257AEA24A2EE6600C744B7 /* User.swift */,
-				D631B286241891DD00AE30C9 /* Profile.swift */,
+				51257AEA24A2EE6600C744B7 /* UserAuth.swift */,
+				D631B286241891DD00AE30C9 /* UserProfile.swift */,
 				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
 				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
 			);
@@ -552,7 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D631B2792417205300AE30C9 /* Notifications.swift in Sources */,
-				D631B287241891DD00AE30C9 /* Profile.swift in Sources */,
+				D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */,
 				5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
 				4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */,
@@ -582,7 +582,7 @@
 				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,
 				51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
-				51257AEB24A2EE6600C744B7 /* User.swift in Sources */,
+				51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
 				5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,
