@@ -83,7 +83,7 @@ class FoodSearchController {
         urlComponents?.queryItems = [appIdQueryItem, appKeyQueryItem, searchTermQueryItem]
 
         guard let requestURL = urlComponents?.url else {
-            NSLog("requestURL is nil")
+            print("Edamam requestURL error")
             DispatchQueue.main.async {
                 completion(NetworkError.otherError)
             }
@@ -130,8 +130,8 @@ class FoodSearchController {
     
     
     
-    func searchForNutrients(qty: Double, measure: String, foodId: String, completion: @escaping (Nutrients?) -> Void) {
-        let json: [String: Any] = ["ingredients": [["quantity": qty, "measureURI": measure, "foodId": foodId]]]
+    func searchForNutrients(qty: Double, measureURI: String, foodId: String, completion: @escaping (Nutrients?) -> Void) {
+        let json: [String: Any] = ["ingredients": [["quantity": qty, "measureURI": measureURI, "foodId": foodId]]]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         var urlComponents = URLComponents(url: nutritionURL, resolvingAgainstBaseURL: true)
@@ -140,7 +140,14 @@ class FoodSearchController {
 
         urlComponents?.queryItems = [appIdQueryItem, appKeyQueryItem]
 
-        guard let requestURL = urlComponents?.url else { NSLog("requestURL is nil"); completion(nil); return }
+        guard let requestURL = urlComponents?.url else {
+            print("Edamam requestURL error")
+            DispatchQueue.main.async {
+                completion(nil)
+            }
+            return
+        }
+        
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.httpBody = jsonData

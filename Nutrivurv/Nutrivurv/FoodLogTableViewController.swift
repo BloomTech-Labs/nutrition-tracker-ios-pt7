@@ -58,47 +58,6 @@ class FoodLogTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-/*  Will be used in future to separate meal types into different sections of tableview
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return FoodLogController.shared.mealTypes.count
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            let count = FoodLogController.shared.foodLog.filter { $0.mealType == 0 }.count
-            return count
-        case 1:
-            return FoodLogController.shared.foodLog.filter { $0.mealType == 1 }.count
-        case 2:
-            return FoodLogController.shared.foodLog.filter { $0.mealType == 2 }.count
-        case 3:
-            return FoodLogController.shared.foodLog.filter { $0.mealType == 3 }.count
-        default:
-            return FoodLogController.shared.foodLog.filter { $0.mealType == 4 }.count
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Breakfast"
-        case 1:
-            return "Lunch"
-        case 2:
-            return "Dinner"
-        case 3:
-            return "Dessert"
-        default:
-            return "Snack"
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        // Return 0 to disable the section title.
-    }
-    */
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FoodLogController.shared.foodLog.count
     }
@@ -108,12 +67,10 @@ class FoodLogTableViewController: UITableViewController {
         
         let foodItem = foodLogController.foodLog[indexPath.row]
         
-        cell.textLabel?.text = foodItem.food.label.capitalized
+        cell.textLabel?.text = foodItem.foodName.capitalized
 
-        if let mealIndex = foodItem.mealType {
-            let mealType = getMealTypeNameFor(mealIndex)
-            cell.detailTextLabel?.text = mealType
-        }
+        let mealType = foodItem.mealType
+        cell.detailTextLabel?.text = mealType
         
         return cell
     }
@@ -123,35 +80,15 @@ class FoodLogTableViewController: UITableViewController {
 
         if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
             detailVC.searchController = foodSearchController
-            detailVC.foodItem = foodItem
+            detailVC.foodLogEntry = foodItem
             detailVC.fromLog = true
             detailVC.selectedFoodEntryIndex = indexPath.row
             detailVC.delegate = self
             
-            if let meal = getMealTypeNameFor(foodItem.mealType) {
-                detailVC.title = "Today's \(meal)"
-            }
+            detailVC.title = "Today's \(foodItem.mealType)"
             
             detailVC.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(detailVC, animated: true)
-        }
-    }
-    
-    
-    private func getMealTypeNameFor(_ int: Int?) -> String? {
-        switch int {
-        case 0:
-            return "Breakfast"
-        case 1:
-            return "Lunch"
-        case 2:
-            return "Dinner"
-        case 3:
-            return "Dessert"
-        case 4:
-            return "Snack"
-        default:
-            return nil
         }
     }
     
@@ -164,12 +101,12 @@ class FoodLogTableViewController: UITableViewController {
 }
 
 extension FoodLogTableViewController: EditFoodEntryDelegate {
-    func updateEntryFor(foodItem: FoodItem, at index: Int) {
-        foodLogController.foodLog[index] = foodItem
+    func update(foodLog entry: FoodLogEntry, at index: Int) {
+        foodLogController.foodLog[index] = entry
     }
 }
 
 
 protocol EditFoodEntryDelegate {
-    func updateEntryFor(foodItem: FoodItem, at index: Int)
+    func update(foodLog entry: FoodLogEntry, at index: Int)
 }
