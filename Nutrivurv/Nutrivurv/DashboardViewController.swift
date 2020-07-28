@@ -9,6 +9,7 @@
 import UIKit
 import KeychainSwift
 import SwiftUI
+import Combine
 
 class DashboardViewController: UIViewController {
     
@@ -31,6 +32,11 @@ class DashboardViewController: UIViewController {
     
     let userController = ProfileCreationController()
     
+    @IBOutlet weak var ringsAndMacrosContainerView: UIView!
+    var ringsAndMacrosHostingController: UIViewController!
+    
+    var dailyMacrosModel = FoodLogController.shared.dailyMacrosModel
+    var dailyMacrosSubscriber = FoodLogController.shared.dailyMacrosSubscriber
     
     // MARK: Custom Views
     
@@ -47,11 +53,12 @@ class DashboardViewController: UIViewController {
         return view
     }()
     
-    
     // MARK: - View Lifecycle Methods and Update Views
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addActivityRingsProgressView()
         
         self.prepareForEntranceAnimations()
         self.animatePrimaryViewsForEntry()
@@ -108,11 +115,17 @@ class DashboardViewController: UIViewController {
         return contentView
     }
     
-    @IBSegueAction func addActivtyRingView(_ coder: NSCoder) -> UIViewController? {
-        let hostingController = UIHostingController(coder: coder, rootView: ActivityProgressView())
-        hostingController?.view.backgroundColor = UIColor.clear
+    private func addActivityRingsProgressView() {
+        let hostingController = UIHostingController(rootView: RingsAndMacrosView(dailyMacrosModel: self.dailyMacrosModel))
+        hostingController.view.backgroundColor = UIColor.clear
         
-        return hostingController
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.ringsAndMacrosHostingController = hostingController
+        self.ringsAndMacrosContainerView.addSubview(hostingController.view)
+        
+        hostingController.view.centerXAnchor.constraint(equalTo: self.ringsAndMacrosContainerView.centerXAnchor).isActive = true
+        hostingController.view.centerYAnchor.constraint(equalTo: self.ringsAndMacrosContainerView.centerYAnchor).isActive = true
     }
     
     private func setUpDailyVibeBackgroundView() {
@@ -200,6 +213,7 @@ class DashboardViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
+        // TODO: Fix bug where logout button font changes when tapping
         let keychain = KeychainSwift()
         keychain.clear()
         FoodLogController.shared.foodLog.removeAll()

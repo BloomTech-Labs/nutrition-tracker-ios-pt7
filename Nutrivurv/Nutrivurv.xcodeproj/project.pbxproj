@@ -325,8 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				512C3FE824CFCD8100B542B3 /* Models */,
-				510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */,
 				5151E6D124A7FB3E0071A609 /* Model Controllers */,
+				510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */,
 				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
 				51A186FE24A331F400196C83 /* View Controllers */,
 			);
