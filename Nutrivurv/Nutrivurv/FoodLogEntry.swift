@@ -9,13 +9,13 @@
 import Foundation
 
 struct FoodLogEntry: Codable {
-    var date: String
+    var date: Date
     var mealType: String
     var foodId: String
     var measurementURI: String
-    var measurement: String
+    var measurementName: String
     var foodName: String
-    var quantity: Int
+    var quantity: Double
     var calories: Int
     var fat: String
     var carbs: String
@@ -26,7 +26,7 @@ struct FoodLogEntry: Codable {
         case mealType = "meal_type"
         case foodId = "edamam_food_id"
         case measurementURI = "measurement_uri"
-        case measurement = "measurement_name"
+        case measurementName = "measurement_name"
         case foodName = "food_name"
         case quantity
         case calories = "calories_kcal"
