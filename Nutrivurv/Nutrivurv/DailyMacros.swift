@@ -13,7 +13,7 @@ class DailyMacros: ObservableObject {
     let objectWillChange = PassthroughSubject<CGFloat, Never>()
     
     // Calories count and percent values updated from UIKit
-    @Published var caloriesCount: CGFloat = 1734 {
+    @Published var caloriesCount: CGFloat = 0 {
            willSet {
                self.objectWillChange.send(newValue)
            }
@@ -25,7 +25,7 @@ class DailyMacros: ObservableObject {
     }
     
     // Carbs count and percent values updated from UIKit
-    @Published var carbsCount: CGFloat = 180 {
+    @Published var carbsCount: CGFloat = 0 {
            willSet {
                self.objectWillChange.send(newValue)
            }
@@ -37,7 +37,7 @@ class DailyMacros: ObservableObject {
        }
     
     // Protein count and percent values updated from UIKit
-    @Published var proteinCount: CGFloat = 113 {
+    @Published var proteinCount: CGFloat = 0 {
            willSet {
                self.objectWillChange.send(newValue)
            }
@@ -49,7 +49,7 @@ class DailyMacros: ObservableObject {
        }
 
     // Fat count and percent values updated from UIKit
-    @Published var fatCount: CGFloat = 89 {
+    @Published var fatCount: CGFloat = 0 {
            willSet {
                self.objectWillChange.send(newValue)
            }
