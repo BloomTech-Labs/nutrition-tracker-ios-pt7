@@ -72,6 +72,8 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
+    var foodLogEntry: FoodLogEntry?
+    
     var nutrients: Nutrients? {
         didSet {
             // Since we declared the completion on the main queue in search controller, no need to do it here
@@ -91,8 +93,13 @@ class FoodDetailViewController: UIViewController {
         }
     }
     
+    var calories: Int?
+    var carbs: String?
+    var protein: String?
+    var fat: String?
+    
     var servingSizes: [String] = []
-    var mealTypes: [String] = FoodLogController.shared.mealTypes
+    var mealTypes: [String] = FoodLogController.shared.defaultMealTypes
     
     // These variables help setup views and food logging functionality to enable editing an entry vs. logging a new one
     var fromLog: Bool = false
@@ -121,41 +128,24 @@ class FoodDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.foodImageView.layer.cornerRadius = 8.0
-        
-        guard let foodItem = foodItem else {
-            print("Couldn't load item")
-            self.navigationController?.popViewController(animated: true)
-            return
-        }
-        
-        self.setUpUserInputBackgroundView()
-        
-        self.foodNameLabel.text = foodItem.food.label.capitalized
-        self.foodCategoryLabel.text = foodItem.food.category.capitalized
-        
-        self.servingSizePickerView.delegate = self
-        self.servingSizePickerView.dataSource = self
-        if let servingSizeIndex = foodItem.servingSize {
-            self.servingSizePickerView.selectRow(servingSizeIndex, inComponent: 0, animated: true)
-            self.selectedServingSize = servingSizeIndex
+
+        if let foodItem = foodItem {
+            // If coming from search to explore/log a new food
+            self.setUpViewForNewEntry(with: foodItem)
+        } else {
+            // If coming from existing food log, with data provided by backend
+            self.getFoodDetails()
         }
         
         self.qtyTextField.delegate = self
-        if let quantity = foodItem.quantity {
-            self.qtyTextField.text = "\(quantity)"
-            quantityInputValue = quantity
-        } else {
-            self.qtyTextField.text = "1.0"
-        }
+        
+        self.servingSizePickerView.delegate = self
+        self.servingSizePickerView.dataSource = self
         
         self.mealTypePickerView.delegate = self
         self.mealTypePickerView.dataSource = self
-        if let mealTypeIndex = foodItem.mealType {
-            self.mealTypePickerView.selectRow(mealTypeIndex, inComponent: 0, animated: true)
-        }
         
-        
-        
+        self.setUpUserInputBackgroundView()
         self.qtyTextField.font = UIFont(name: "QuattrocentoSans-Bold", size: 14)
         self.addFoodButton.layer.cornerRadius = 6.0
         
@@ -179,11 +169,26 @@ class FoodDetailViewController: UIViewController {
     
     // MARK: - Custom Views & View Setup
     
+    private func setUpViewForNewEntry(with foodItem: FoodItem) {
+        self.foodNameLabel.text = foodItem.food.label.capitalized
+        self.foodCategoryLabel.text = foodItem.food.category.capitalized
+        
+        if let servingSizeIndex = selectedServingSize {
+            self.servingSizePickerView.selectRow(servingSizeIndex, inComponent: 0, animated: true)
+            self.selectedServingSize = servingSizeIndex
+        }
+        
+        self.qtyTextField.text = "1.0"
+        
+        self.mealTypePickerView.selectRow(0, inComponent: 0, animated: true)
+    }
+    
     private func updateViews() {
         
         guard let nutrients = nutrients else { return }
         
         let calories = nutrients.calories
+        self.calories = calories
         
         let totalNutrients = nutrients.totalNutrients
         let dailyPercentNutrients = nutrients.totalDaily
@@ -191,6 +196,7 @@ class FoodDetailViewController: UIViewController {
         let fat = totalNutrients.FAT?.quantity ?? 0
         let fatUnit = totalNutrients.FAT?.unit ?? ""
         let fatPct = dailyPercentNutrients.FAT?.quantity ?? 0
+        self.fat = String(format: "%.2f", fat)
         
         let sodium = totalNutrients.NA?.quantity ?? 0
         let sodiumUnit = totalNutrients.NA?.unit ?? ""
@@ -199,6 +205,7 @@ class FoodDetailViewController: UIViewController {
         let carbs = totalNutrients.CHOCDF?.quantity ?? 0
         let carbsUnit = totalNutrients.CHOCDF?.unit ?? ""
         let carbsPct = dailyPercentNutrients.CHOCDF?.quantity ?? 0
+        self.carbs = String(format: "%.2f", carbs)
         
         let chole = totalNutrients.CHOLE?.quantity ?? 0
         let choleUnit = totalNutrients.CHOLE?.unit ?? ""
@@ -209,6 +216,7 @@ class FoodDetailViewController: UIViewController {
         
         let protein = totalNutrients.PROCNT?.quantity ?? 0
         let proteinUnit = totalNutrients.PROCNT?.unit ?? ""
+        self.protein = String(format: "%.2f", protein)
         
         let vitD = totalNutrients.VITD?.quantity ?? 0
         let vitDUnit = totalNutrients.VITD?.unit ?? ""
@@ -398,18 +406,28 @@ class FoodDetailViewController: UIViewController {
     // MARK: - Get Food Details
     
     private func getFoodDetails() {
-        guard let foodItem = self.foodItem else { return }
-        
-        guard let servingSize = selectedServingSize, let quantity = quantityInputValue else {
-            return
-        }
-        
-        
-        self.searchController?.searchForNutrients(qty: quantity,
-                                                  measure: foodItem.measures[servingSize].uri,
-                                                  foodId: foodItem.food.foodId) { (nutrients) in
-                                                    guard let nutrients = nutrients else { return }
-                                                    self.nutrients = nutrients
+        if let foodItem = foodItem {
+            
+            guard let servingSize = selectedServingSize, let quantity = quantityInputValue else {
+                return
+            }
+            
+            let measureURI = foodItem.measures[servingSize].uri
+            let foodId = foodItem.food.foodId
+            
+            self.searchController?.searchForNutrients(qty: quantity, measureURI: measureURI, foodId: foodId) { (nutrients) in
+                guard let nutrients = nutrients else { return }
+                self.nutrients = nutrients
+            }
+            
+        } else if let foodLogEntry = foodLogEntry {
+            let measureURI = foodLogEntry.measurementURI
+            let quantity = foodLogEntry.quantity
+            let edamamFoodId = foodLogEntry.foodId
+            
+            self.searchController?.searchForNutrients(qty: quantity, measureURI: measureURI, foodId: edamamFoodId) { (nutrients) in
+                self.nutrients = nutrients
+            }
         }
     }
     
@@ -455,23 +473,38 @@ class FoodDetailViewController: UIViewController {
             return
         }
         
-        guard var foodItem = foodItem else {
+        guard let foodItem = foodItem else {
             return
         }
         
-        guard let userSelectedQuantity = quantityInputValue else { return }
-        let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
-        let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
+        // Prepare properties for initialzing a food entry
+        let date = Date()
         
-        guard userSelectedQuantity > 0.0 else {
+        let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
+        let mealType = self.mealTypes[selectedMealTypeIndex]
+        
+        let edamamID = foodItem.food.foodId
+        
+        let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
+        let measureURI = foodItem.measures[selectedServingSizeIndex].uri
+        
+        let measurementName = self.servingSizes[selectedServingSizeIndex]
+        
+        let foodName = foodItem.food.label
+        
+        guard let quantity = quantityInputValue else { return }
+        guard quantity > 0.0 else {
             createAndDisplayAlertController(title: "Select a Quantity", message: "Please input a quantity greater than 0 for your meal.")
             return
         }
         
-        foodItem.quantity = userSelectedQuantity
-        foodItem.servingSize = selectedServingSizeIndex
-        foodItem.mealType = selectedMealTypeIndex
-        foodItem.date = Date()
+        guard let calories = self.calories else { return }
+        
+        guard let fatCount = self.fat, let carbsCount = self.carbs, let proteinCount = self.protein else { return }
+        
+        let entry = FoodLogEntry(date: date, mealType: mealType, foodId: edamamID, measurementURI: measureURI, measurementName: measurementName, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount)
+        
+        FoodLogController.shared.createFoodLogEntry(entry: entry)
         
         if addFoodButton.titleLabel?.text == "Save Entry" {
             guard let index = selectedFoodEntryIndex else {
@@ -479,9 +512,31 @@ class FoodDetailViewController: UIViewController {
                 return
             }
             createAndDisplayAlertAndPopToRoot(title: "Entry Updated!", message: "You just updated this food entry! See all of your logged meals for the day from your main dashboard.")
-            delegate?.updateEntryFor(foodItem: foodItem, at: index)
+            delegate?.update(foodLog: entry, at: index)
         } else {
-            FoodLogController.shared.foodLog.append(foodItem)
+            
+            // TODO: Change these macros values - possibly use environment variable with Combine?
+            let caloriesFloat = CGFloat(integerLiteral: calories)
+            FoodLogController.shared.caloriesCount += caloriesFloat
+            FoodLogController.shared.caloriesPct += (caloriesFloat / 2775) * 100
+            
+            guard let carbs = self.carbs, let carbsNumber = NumberFormatter().number(from: carbs) else { return }
+            let carbsFloat = CGFloat(truncating: carbsNumber)
+            FoodLogController.shared.carbsCount += carbsFloat
+            FoodLogController.shared.carbsPct += (carbsFloat / 40) * 100
+            
+            guard let protein = self.protein, let proteinNumber = NumberFormatter().number(from: protein) else { return }
+            let proteinFloat = CGFloat(truncating: proteinNumber)
+            FoodLogController.shared.proteinCount += proteinFloat
+            FoodLogController.shared.proteinPct += (proteinFloat / 170) * 100
+            
+            guard let fat = self.fat, let fatNumber = NumberFormatter().number(from: fat) else { return }
+            let fatFloat = CGFloat(truncating: fatNumber)
+            FoodLogController.shared.fatCount += fatFloat
+            FoodLogController.shared.fatPct += (fatFloat / 215) * 100
+            
+            
+            FoodLogController.shared.foodLog.append(entry)
             createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
         }
     }
