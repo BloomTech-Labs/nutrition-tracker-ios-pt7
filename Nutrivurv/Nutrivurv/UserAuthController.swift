@@ -93,7 +93,7 @@ class UserAuthController {
     }
     
     func registerUser(user: UserAuth, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        let registerURL = baseURL.appendingPathComponent("register")
+        let registerURL = baseURL.appendingPathComponent("ios/register")
         var request = URLRequest(url: registerURL)
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
