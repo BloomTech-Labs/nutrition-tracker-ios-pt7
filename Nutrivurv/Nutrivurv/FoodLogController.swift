@@ -9,12 +9,14 @@
 import Foundation
 import Combine
 import SwiftUI
+import KeychainSwift
 
 class FoodLogController {
     static let shared = FoodLogController()
     
+    private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/log")!
+    
     @ObservedObject var dailyMacrosModel = DailyMacros()
-    var dailyMacrosSubscriber: AnyCancellable?
     
     // Each of these macros below communicate via Combine with SwiftUI to update activity and macros view
     var caloriesCount: CGFloat = 0.0 {
@@ -70,8 +72,64 @@ class FoodLogController {
     
     var foodLog: [FoodLogEntry] = []
     
-    func createFoodLogEntry(entry: FoodLogEntry) {
+    func createFoodLogEntry(entry: FoodLogEntry, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         // POST
+        guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
+            print("No token found for user")
+            DispatchQueue.main.async {
+                completion(.failure(.noAuth))
+            }
+            return
+        }
+        
+        var request = URLRequest(url: baseURL)
+        
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let encoder = JSONEncoder()
+        
+        do {
+            let data = try encoder.encode(entry)
+            request.httpBody = data
+        } catch {
+            print("Error encoding food item for upload to database: \(error)")
+            DispatchQueue.main.async {
+                completion(.failure(NetworkError.noEncode))
+            }
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let error = error {
+                print("Error occured with food entry data task: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(NetworkError.otherError))
+                }
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 401 {
+                    print("Token no longer valid; please re-login")
+                    DispatchQueue.main.async {
+                        completion(.failure(.badAuth))
+                    }
+                    return
+                } else if response.statusCode != 201 {
+                    print("Unable to upload food entry. Server response error: \(response.statusCode)")
+                    DispatchQueue.main.async {
+                        completion(.failure(NetworkError.serverError))
+                    }
+                    return
+                }
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(true))
+            }
+        }.resume()
     }
     
     func editFoodLogEntry() {
@@ -86,14 +144,4 @@ class FoodLogController {
         // DELETE
     }
     
-    
-    private func subscribeToDailyMacros() {
-        self.dailyMacrosSubscriber = dailyMacrosModel.objectWillChange.sink(receiveCompletion: {
-            print("Completion received", $0)
-            //            self.addActivityRingsProgressView()
-        }, receiveValue: {
-            print("Value received!", $0)
-            //            self.addActivityRingsProgressView()
-        })
-    }
 }
