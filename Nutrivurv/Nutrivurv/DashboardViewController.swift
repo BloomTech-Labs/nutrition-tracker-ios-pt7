@@ -58,6 +58,8 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        streakCountLabel.text = "\(UserDefaults.getLoginStreak())"
+        
         addActivityRingsProgressView()
         
         self.prepareForEntranceAnimations()
@@ -94,6 +96,7 @@ class DashboardViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    
     
     // MARK: - Setup Subviews
     

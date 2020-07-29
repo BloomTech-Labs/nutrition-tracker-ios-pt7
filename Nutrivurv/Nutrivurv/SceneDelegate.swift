@@ -38,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
+        UserDefaults.setLoginDate()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -50,6 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        UserDefaults.setLoginDate()
     }
 
 
