@@ -16,6 +16,8 @@ class DashboardViewController: UIViewController {
     // MARK: - IBOutlets and Properties
     
     @IBOutlet weak var streakCountLabel: UILabel!
+    @IBOutlet weak var streakUnitLabel: UILabel!
+    
     @IBOutlet weak var currentWeightLabel: UILabel!
     @IBOutlet weak var dailyVibeQuoteLabel: UILabel!
     @IBOutlet weak var dailyVibeAuthorLabel: UILabel!
@@ -58,7 +60,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        streakCountLabel.text = "\(UserDefaults.getLoginStreak())"
+        self.updateLoginStreakLabel()
         
         addActivityRingsProgressView()
         
@@ -95,7 +97,7 @@ class DashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        streakCountLabel.text = "\(UserDefaults.getLoginStreak())"
+        self.updateLoginStreakLabel()
     }
     
     
@@ -135,6 +137,16 @@ class DashboardViewController: UIViewController {
     private func setUpDailyVibeBackgroundView() {
         dailyVibeStackView.insertSubview(self.dailyVibeBackgroundView, at: 0)
         self.dailyVibeBackgroundView.pin(to: dailyVibeStackView)
+    }
+    
+    private func updateLoginStreakLabel() {
+        let streak = UserDefaults.getLoginStreak()
+        if streak == 1 {
+            streakUnitLabel.text = "day"
+        } else {
+            streakUnitLabel.text = "days"
+        }
+        streakCountLabel.text = "\(streak)"
     }
     
     
