@@ -28,7 +28,7 @@ class FoodSearchController {
         urlComponents?.queryItems = [appIdQueryItem, appKeyQueryItem, searchTermQueryItem]
 
         guard let requestURL = urlComponents?.url else {
-            NSLog("requestURL is nil")
+            print("requestURL is nil")
             DispatchQueue.main.async {
                 completion(NetworkError.otherError)
             }
@@ -38,17 +38,24 @@ class FoodSearchController {
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                NSLog("Error fetching data: \(error)")
+                print("Error fetching data: \(error)")
                 DispatchQueue.main.async {
                     completion(error)
                 }
                 return
             }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 500 {
+                    print("Edamam API is not responding, please try again later")
+                    return
+                }
+            }
 
             guard let data = data else {
-                NSLog("No data returned from data task")
+                print("No data returned from data task")
                 DispatchQueue.main.async {
                     completion(NetworkError.badData)
                 }
@@ -61,7 +68,7 @@ class FoodSearchController {
                 let foodSearch = try jsonDecoder.decode(FoodSearch.self, from: data)
                 self.foods = foodSearch.hints
             } catch {
-                NSLog("Unable to decode data into object of type FoodSearch: \(error)")
+                print("Unable to decode data into object of type FoodSearch: \(error)")
                 DispatchQueue.main.async {
                     completion(NetworkError.noDecode)
                 }
@@ -92,17 +99,24 @@ class FoodSearchController {
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                NSLog("Error fetching data: \(error)")
+                print("Error fetching data: \(error)")
                 DispatchQueue.main.async {
                     completion(NetworkError.otherError)
                 }
                 return
             }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 500 {
+                    print("Edamam API is not responding, please try again later")
+                    return
+                }
+            }
 
             guard let data = data else {
-                NSLog("No data returned from data task")
+                print("No data returned from data task")
                 DispatchQueue.main.async {
                     completion(NetworkError.badData)
                 }
@@ -115,7 +129,7 @@ class FoodSearchController {
                 let foodSearch = try jsonDecoder.decode(FoodSearch.self, from: data)
                 self.foods = foodSearch.hints
             } catch {
-                NSLog("Unable to decode data into object of type FoodSearch: \(error)")
+                print("Unable to decode data into object of type FoodSearch: \(error)")
                 DispatchQueue.main.async {
                     completion(NetworkError.noDecode)
                 }
@@ -153,17 +167,24 @@ class FoodSearchController {
         request.httpBody = jsonData
         request.addValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
 
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                NSLog("Error fetching nutrient data: \(error)")
+                print("Error fetching nutrient data: \(error)")
                 DispatchQueue.main.async {
                     completion(nil)
                 }
                 return
             }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 500 {
+                    print("Edamam API is not responding, please try again later")
+                    return
+                }
+            }
 
             guard let data = data else {
-                NSLog("No nutrient data returned from data task")
+                print("No nutrient data returned from data task")
                 DispatchQueue.main.async {
                     completion(nil)
                 }
@@ -177,7 +198,7 @@ class FoodSearchController {
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 nutrients = try jsonDecoder.decode(Nutrients.self, from: data)
             } catch {
-                NSLog("Unable to decode data into object of type Nutrients: \(error)")
+                print("Unable to decode data into object of type Nutrients: \(error)")
                 DispatchQueue.main.async {
                     completion(nil)
                 }
@@ -203,13 +224,20 @@ class FoodSearchController {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
         
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error getting image data: \(error)")
                 DispatchQueue.main.async {
                     completion(nil)
                 }
                 return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 500 {
+                    print("Edamam API is not responding, please try again later")
+                    return
+                }
             }
             
             guard let data = data else {
