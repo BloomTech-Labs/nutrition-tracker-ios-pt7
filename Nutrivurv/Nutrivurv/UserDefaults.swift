@@ -33,9 +33,18 @@ extension UserDefaults {
         return differenceInDays
     }
     
-    // Explicitly call upon app close/enter background
-    class func setLoginDate() {
+    private class func setLoginDate() {
         UserDefaults.standard.set(Date(), forKey: UserDefaults.Keys.previousLoginDate)
+    }
+    
+    // Explicitly call upon app close/enter background
+    class func updateLoginDateAndStreak() {
+        // If the date changed while user's app is running, this will ensure streak iterates properly
+        if differenceInDays() == 1 {
+            let newStreak = UserDefaults.standard.integer(forKey: UserDefaults.Keys.dailyLoginStreak) + 1
+            UserDefaults.standard.set(newStreak, forKey: UserDefaults.Keys.dailyLoginStreak)
+        }
+        UserDefaults.setLoginDate()
     }
     
     // Explicitly call upon app load
