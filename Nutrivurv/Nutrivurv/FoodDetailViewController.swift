@@ -504,40 +504,57 @@ class FoodDetailViewController: UIViewController {
         
         let entry = FoodLogEntry(date: date, mealType: mealType, foodId: edamamID, measurementURI: measureURI, measurementName: measurementName, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount)
         
-        FoodLogController.shared.createFoodLogEntry(entry: entry)
-        
-        if addFoodButton.titleLabel?.text == "Save Entry" {
-            guard let index = selectedFoodEntryIndex else {
-                print("Error getting index for food entry")
+        FoodLogController.shared.createFoodLogEntry(entry: entry) { response in
+            switch response {
+            case .success(true):
+                print("Successful")
+                // Handle what to do if updating an entry vs creating one
+                
+                if self.addFoodButton.titleLabel?.text == "Save Entry" {
+                    guard let index = self.selectedFoodEntryIndex else {
+                        print("Error getting index for food entry")
+                        return
+                    }
+                    self.createAndDisplayAlertAndPopToRoot(title: "Entry Updated!", message: "You just updated this food entry! See all of your logged meals for the day from your main dashboard.")
+                    self.delegate?.update(foodLog: entry, at: index)
+                } else {
+                    
+                    // TODO: Change these macros values - possibly use environment variable with Combine?
+                    let caloriesFloat = CGFloat(integerLiteral: calories)
+                    FoodLogController.shared.caloriesCount += caloriesFloat
+                    FoodLogController.shared.caloriesPct += (caloriesFloat / 2775) * 100
+                    
+                    guard let carbs = self.carbs, let carbsNumber = NumberFormatter().number(from: carbs) else { return }
+                    let carbsFloat = CGFloat(truncating: carbsNumber)
+                    FoodLogController.shared.carbsCount += carbsFloat
+                    FoodLogController.shared.carbsPct += (carbsFloat / 40) * 100
+                    
+                    guard let protein = self.protein, let proteinNumber = NumberFormatter().number(from: protein) else { return }
+                    let proteinFloat = CGFloat(truncating: proteinNumber)
+                    FoodLogController.shared.proteinCount += proteinFloat
+                    FoodLogController.shared.proteinPct += (proteinFloat / 170) * 100
+                    
+                    guard let fat = self.fat, let fatNumber = NumberFormatter().number(from: fat) else { return }
+                    let fatFloat = CGFloat(truncating: fatNumber)
+                    FoodLogController.shared.fatCount += fatFloat
+                    FoodLogController.shared.fatPct += (fatFloat / 215) * 100
+                    
+                    FoodLogController.shared.foodLog.append(entry)
+                    self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
+                }
+                
+                
+                return
+            case .failure(.badAuth):
+                print("invalid token")
+                
+                // TODO: present alert to prompt user to relogin
+                // On okay completion/login successful, resumbit the entry to food log
+                return
+            default:
+                print("General error occured")
                 return
             }
-            createAndDisplayAlertAndPopToRoot(title: "Entry Updated!", message: "You just updated this food entry! See all of your logged meals for the day from your main dashboard.")
-            delegate?.update(foodLog: entry, at: index)
-        } else {
-            
-            // TODO: Change these macros values - possibly use environment variable with Combine?
-            let caloriesFloat = CGFloat(integerLiteral: calories)
-            FoodLogController.shared.caloriesCount += caloriesFloat
-            FoodLogController.shared.caloriesPct += (caloriesFloat / 2775) * 100
-            
-            guard let carbs = self.carbs, let carbsNumber = NumberFormatter().number(from: carbs) else { return }
-            let carbsFloat = CGFloat(truncating: carbsNumber)
-            FoodLogController.shared.carbsCount += carbsFloat
-            FoodLogController.shared.carbsPct += (carbsFloat / 40) * 100
-            
-            guard let protein = self.protein, let proteinNumber = NumberFormatter().number(from: protein) else { return }
-            let proteinFloat = CGFloat(truncating: proteinNumber)
-            FoodLogController.shared.proteinCount += proteinFloat
-            FoodLogController.shared.proteinPct += (proteinFloat / 170) * 100
-            
-            guard let fat = self.fat, let fatNumber = NumberFormatter().number(from: fat) else { return }
-            let fatFloat = CGFloat(truncating: fatNumber)
-            FoodLogController.shared.fatCount += fatFloat
-            FoodLogController.shared.fatPct += (fatFloat / 215) * 100
-            
-            
-            FoodLogController.shared.foodLog.append(entry)
-            createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
         }
     }
     
