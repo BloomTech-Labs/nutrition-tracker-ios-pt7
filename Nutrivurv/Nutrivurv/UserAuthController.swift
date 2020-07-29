@@ -30,7 +30,9 @@ class UserAuthController {
             request.httpBody = try encoder.encode(user)
         } catch {
             print("Error encoding user for login")
-            completion(.failure(.noEncode))
+            DispatchQueue.main.async {
+                completion(.failure(.noEncode))
+            }
             return
         }
         
@@ -105,7 +107,9 @@ class UserAuthController {
             request.httpBody = try encoder.encode(user)
         } catch {
             print("Error encoding user data for registration")
-            completion(.failure(.noEncode))
+            DispatchQueue.main.async {
+                completion(.failure(.noEncode))
+            }
             return
         }
 
