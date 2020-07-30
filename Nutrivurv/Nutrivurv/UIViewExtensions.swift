@@ -17,4 +17,13 @@ public extension UIView {
             bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 14)
         ])
     }
+    
+    func pinWithNoPadding(to view: UIView) {
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topAnchor.constraint(equalTo: view.topAnchor),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
 }
