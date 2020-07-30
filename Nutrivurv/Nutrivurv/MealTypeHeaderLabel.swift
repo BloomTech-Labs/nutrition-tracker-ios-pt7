@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Used in header section of food log table view controller
 class MealTypeHeaderLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +28,7 @@ class MealTypeHeaderLabel: UILabel {
         let orginalContentSize = super.intrinsicContentSize
         let height = orginalContentSize.height + 8
         layer.cornerRadius = height / 2
+        layer.cornerCurve = .continuous
         layer.masksToBounds = true
         
         return CGSize(width: 75, height: height)

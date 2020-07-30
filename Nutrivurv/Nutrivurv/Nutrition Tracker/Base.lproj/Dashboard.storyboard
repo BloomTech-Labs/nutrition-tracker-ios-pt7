@@ -170,7 +170,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="36" y="231" width="342" height="73"/>
+                                <rect key="frame" x="36" y="235" width="342" height="73"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="19"/>
@@ -198,13 +198,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Food Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="18" y="332" width="378" height="20.5"/>
+                                <rect key="frame" x="18" y="336" width="378" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="17.5"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="3" y="352.5" width="393" height="372.5"/>
+                                <rect key="frame" x="3" y="356.5" width="393" height="368.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -226,7 +226,7 @@
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="18" id="g6h-9F-sFr"/>
                             <constraint firstItem="mnl-L0-Jdx" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="18" id="hwj-av-4TK"/>
                             <constraint firstItem="2qp-en-orb" firstAttribute="centerX" secondItem="LNW-2j-u7j" secondAttribute="centerX" id="k2E-ss-pNb"/>
-                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="30" id="mYW-Sr-0IK"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="34" id="mYW-Sr-0IK"/>
                             <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="97" id="ofq-74-XCs"/>
                             <constraint firstItem="mnl-L0-Jdx" firstAttribute="top" secondItem="Ioa-4t-5oD" secondAttribute="bottom" constant="28" id="pbq-BD-tRe"/>
                             <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="3" id="twQ-PQ-nZr"/>
@@ -1009,7 +1009,7 @@
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bM9-0c-rT8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="372.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="345"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>

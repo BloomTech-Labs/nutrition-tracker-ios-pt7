@@ -341,7 +341,8 @@ class FoodDetailViewController: UIViewController {
         }
         label.textAlignment = .center
         label.backgroundColor = color
-        label.layer.cornerRadius = 6
+        label.layer.cornerRadius = 21 / 2
+        label.layer.cornerCurve = .continuous
         label.sizeToFit()
         label.layer.masksToBounds = true
         label.lineBreakMode = .byWordWrapping

@@ -130,8 +130,7 @@ class DashboardViewController: UIViewController {
         self.ringsAndMacrosHostingController = hostingController
         self.ringsAndMacrosContainerView.addSubview(hostingController.view)
         
-        hostingController.view.centerXAnchor.constraint(equalTo: self.ringsAndMacrosContainerView.centerXAnchor).isActive = true
-        hostingController.view.centerYAnchor.constraint(equalTo: self.ringsAndMacrosContainerView.centerYAnchor).isActive = true
+        hostingController.view.pinWithNoPadding(to: ringsAndMacrosContainerView)
     }
     
     private func setUpDailyVibeBackgroundView() {

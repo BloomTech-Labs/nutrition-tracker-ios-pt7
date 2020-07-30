@@ -143,7 +143,7 @@ struct MacrosDetailView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 4.0)
+            RoundedRectangle(cornerRadius: showMacrosDetail ? 23 : 10.5, style: .continuous)
                 .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
                 .frame(width: showMacrosDetail ? 112 : 64, height: showMacrosDetail ? 46 : 21)
                 .shadow(color: showMacrosDetail ? Color(uiColor).opacity(0.2) : Color.clear, radius: showMacrosDetail ? 3.5 : 0, x: 0, y: showMacrosDetail ? 4 : 0)
