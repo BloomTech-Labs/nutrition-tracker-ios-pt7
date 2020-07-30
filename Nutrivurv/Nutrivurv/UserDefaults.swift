@@ -34,6 +34,9 @@ extension UserDefaults {
     }
     
     private class func setLoginDate() {
+        if differenceInDays() == 0 {
+            return
+        }
         UserDefaults.standard.set(Date(), forKey: UserDefaults.Keys.previousLoginDate)
     }
     
