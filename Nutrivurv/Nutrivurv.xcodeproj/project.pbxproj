@@ -34,6 +34,7 @@
 		51450F9F24D110880065E0F0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51450F9E24D110880065E0F0 /* UserDefaults.swift */; };
 		514D57F624CA275B008DCEEF /* UIView Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D57F524CA275B008DCEEF /* UIView Extensions.swift */; };
 		514EF50424D00B2E0097C309 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EF50324D00B2E0097C309 /* DateFormatter.swift */; };
+		51503BEF24D287DE00643896 /* MealTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51503BEE24D287DE00643896 /* MealTypes.swift */; };
 		5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */; };
 		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
 		51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */; };
@@ -112,6 +113,7 @@
 		51450F9E24D110880065E0F0 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		514D57F524CA275B008DCEEF /* UIView Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView Extensions.swift"; sourceTree = "<group>"; };
 		514EF50324D00B2E0097C309 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		51503BEE24D287DE00643896 /* MealTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypes.swift; sourceTree = "<group>"; };
 		5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTableViewController.swift; sourceTree = "<group>"; };
 		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
 		51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */,
 				512C3FE924CFD1B700B542B3 /* FoodLog.swift */,
+				51503BEE24D287DE00643896 /* MealTypes.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */,
 				512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */,
 				D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */,
+				51503BEF24D287DE00643896 /* MealTypes.swift in Sources */,
 				D68C701E23F25400008AFDF0 /* AppDelegate.swift in Sources */,
 				510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */,
 				D68C703B23F3B14D008AFDF0 /* LoginViewController.swift in Sources */,
