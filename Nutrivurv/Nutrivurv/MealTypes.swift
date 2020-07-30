@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct MealTypes {
+struct MealTypes: Hashable, Codable {
     var breakfast: String
     var lunch: String
     var dinner: String
