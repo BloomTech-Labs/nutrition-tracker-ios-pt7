@@ -8,11 +8,11 @@
 
 import Foundation
 
-
-struct MealTypes: Hashable, Codable {
-    var breakfast: String
-    var lunch: String
-    var dinner: String
-    var snack: String
-    var water: String
+enum MealType: String, CaseIterable, Codable {
+    case breakfast = "breakfast"
+    case lunch = "lunch"
+    case dinner = "dinner"
+    case snack = "snack"
+    case water = "water"
 }
+
