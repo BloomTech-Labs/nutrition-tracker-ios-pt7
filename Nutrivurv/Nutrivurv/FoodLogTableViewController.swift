@@ -109,36 +109,87 @@ class FoodLogTableViewController: UITableViewController {
         return 0
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let foodLog = foodLog else { return nil }
+        
+        let label = MealTypeHeaderLabel()
         
         switch section {
             case 0:
                 if foodLog.breakfast != nil {
-                    return "Breakfast"
+                    label.text = "Breakfast"
                 }
             case 1:
                 if foodLog.lunch != nil {
-                    return "Lunch"
+                    label.text = "Lunch"
                 }
             case 2:
                 if foodLog.dinner != nil {
-                    return "Dinner"
+                    label.text = "Dinner"
                 }
             case 3:
                 if foodLog.snack != nil {
-                    return "Snacks"
+                    label.text = "Snacks"
                 }
             case 4:
                 if foodLog.water != nil {
-                    return "Water"
+                    label.text = "Water"
                 }
             default:
-                return nil
+                label.text = nil
         }
         
-        return nil
+        if label.text == nil {
+            return nil
+        }
+        
+        let containerView = UIView()
+        containerView.addSubview(label)
+        
+        label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12).isActive = true
+        
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.2
+        containerView.layer.shadowRadius = 4.5
+        containerView.layer.shadowOffset = CGSize(width: 1.5, height: 2.5)
+        
+        return containerView
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let foodLog = foodLog else { return 0 }
+        var headerSize: CGFloat = 0
+        
+        switch section {
+            case 0:
+                if foodLog.breakfast != nil {
+                    headerSize = 75
+                }
+            case 1:
+                if foodLog.lunch != nil {
+                    headerSize = 75
+                }
+            case 2:
+                if foodLog.dinner != nil {
+                    headerSize = 75
+                }
+            case 3:
+                if foodLog.snack != nil {
+                    headerSize = 75
+                }
+            case 4:
+                if foodLog.water != nil {
+                    headerSize = 75
+                }
+            default:
+                return 0
+        }
+        
+        return headerSize
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodLogCell", for: indexPath)

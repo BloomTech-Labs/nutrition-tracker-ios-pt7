@@ -18,6 +18,7 @@
 		4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */; };
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */; };
+		511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511285E424D368C30080127B /* MealTypeHeaderLabel.swift */; };
 		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
 		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
@@ -97,6 +98,7 @@
 		4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchController.swift; sourceTree = "<group>"; };
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMacros.swift; sourceTree = "<group>"; };
+		511285E424D368C30080127B /* MealTypeHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeHeaderLabel.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,16 @@
 				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
 			);
 			name = "SwiftUI Views and Models";
+			sourceTree = "<group>";
+		};
+		511285E324D3689B0080127B /* Custom Global Views */ = {
+			isa = PBXGroup;
+			children = (
+				511285E424D368C30080127B /* MealTypeHeaderLabel.swift */,
+				D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */,
+				D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */,
+			);
+			name = "Custom Global Views";
 			sourceTree = "<group>";
 		};
 		51257AEE24A3285E00C744B7 /* Models */ = {
@@ -387,11 +399,9 @@
 				D69E8C6424207A2000B536A6 /* NetworkError.swift */,
 				51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */,
 				4C9F30B82452804A00CE14CA /* HTTPMethod.swift */,
-				D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */,
-				D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */,
-				514D57F524CA275B008DCEEF /* UIView Extensions.swift */,
 				514EF50324D00B2E0097C309 /* DateFormatter.swift */,
 				51450F9E24D110880065E0F0 /* UserDefaults.swift */,
+				514D57F524CA275B008DCEEF /* UIView Extensions.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -422,6 +432,7 @@
 				51A186F624A3302A00196C83 /* Edamam & Nutrition Info */,
 				D68C703523F3B006008AFDF0 /* Storyboards */,
 				D631B2772417204000AE30C9 /* Utilities */,
+				511285E324D3689B0080127B /* Custom Global Views */,
 				D68C703423F3AF07008AFDF0 /* Resources */,
 				D60BA2C423FCDEDA00B3E6BF /* Fonts */,
 			);
@@ -576,6 +587,7 @@
 			files = (
 				D631B2792417205300AE30C9 /* Notifications.swift in Sources */,
 				51450F9F24D110880065E0F0 /* UserDefaults.swift in Sources */,
+				511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */,
 				D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */,
 				5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
