@@ -9,8 +9,9 @@
 import Foundation
 
 struct FoodLog: Codable {
-    var breakfast: [FoodLogEntry]
-    var lunch: [FoodLogEntry]
-    var dinner: [FoodLogEntry]
-    var snack: [FoodLogEntry]
+    var breakfast: [FoodLogEntry]?
+    var lunch: [FoodLogEntry]?
+    var dinner: [FoodLogEntry]?
+    var snack: [FoodLogEntry]?
+    var water: [FoodLogEntry]?
 }

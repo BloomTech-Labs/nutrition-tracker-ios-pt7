@@ -10,7 +10,7 @@ import Foundation
 
 struct FoodLogEntry: Codable {
     var date: String
-    var mealType: String
+    var mealType: MealType.RawValue
     var foodID: String
     var measurementURI: String
     var measurementName: String
