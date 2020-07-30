@@ -72,8 +72,8 @@ class FoodLogController {
     
     var foodLog: [FoodLogEntry] = []
     
+    
     func createFoodLogEntry(entry: FoodLogEntry, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        // POST
         guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
             print("No token found for user")
             DispatchQueue.main.async {

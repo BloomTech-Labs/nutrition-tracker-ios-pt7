@@ -423,9 +423,9 @@ class FoodDetailViewController: UIViewController {
         } else if let foodLogEntry = foodLogEntry {
             let measureURI = foodLogEntry.measurementURI
             let quantity = foodLogEntry.quantity
-            let edamamFoodId = foodLogEntry.foodId
+            let edamamFoodId = foodLogEntry.foodID
             
-            self.searchController?.searchForNutrients(qty: quantity, measureURI: measureURI, foodId: edamamFoodId) { (nutrients) in
+            self.searchController?.searchForNutrients(qty: Double(quantity), measureURI: measureURI, foodId: edamamFoodId) { (nutrients) in
                 self.nutrients = nutrients
             }
         }
@@ -477,8 +477,11 @@ class FoodDetailViewController: UIViewController {
             return
         }
         
-        // Prepare properties for initialzing a food entry
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"
         let date = Date()
+        
+        let dateString = dateFormatter.string(from: date)
         
         let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
         let mealType = self.mealTypes[selectedMealTypeIndex]
@@ -492,8 +495,9 @@ class FoodDetailViewController: UIViewController {
         
         let foodName = foodItem.food.label
         
-        guard let quantity = quantityInputValue else { return }
-        guard quantity > 0.0 else {
+        guard let quantityInput = quantityInputValue else { return }
+        let quantity = Int(quantityInput)
+        guard quantity > 0 else {
             createAndDisplayAlertController(title: "Select a Quantity", message: "Please input a quantity greater than 0 for your meal.")
             return
         }
@@ -502,7 +506,8 @@ class FoodDetailViewController: UIViewController {
         
         guard let fatCount = self.fat, let carbsCount = self.carbs, let proteinCount = self.protein else { return }
         
-        let entry = FoodLogEntry(date: date, mealType: mealType, foodId: edamamID, measurementURI: measureURI, measurementName: measurementName, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount)
+        let entry = FoodLogEntry(date: dateString, mealType: mealType.lowercased(), foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount)
+        
         
         FoodLogController.shared.createFoodLogEntry(entry: entry) { response in
             switch response {

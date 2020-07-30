@@ -69,7 +69,7 @@ class FoodLogTableViewController: UITableViewController {
         
         cell.textLabel?.text = foodItem.foodName.capitalized
 
-        let mealType = foodItem.mealType
+        let mealType = foodItem.mealType.capitalized
         cell.detailTextLabel?.text = mealType
         
         return cell
