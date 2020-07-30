@@ -17,5 +17,6 @@ struct FoodLog: Codable {
 }
 
 struct FoodLogResponse: Codable {
+    var message: String
     var meals: FoodLog
 }
