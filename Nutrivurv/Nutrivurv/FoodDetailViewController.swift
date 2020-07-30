@@ -99,7 +99,7 @@ class FoodDetailViewController: UIViewController {
     var fat: String?
     
     var servingSizes: [String] = []
-    var mealTypes: [String] = FoodLogController.shared.defaultMealTypes
+    var mealTypes = MealType.allCases
     
     // These variables help setup views and food logging functionality to enable editing an entry vs. logging a new one
     var fromLog: Bool = false
@@ -484,7 +484,7 @@ class FoodDetailViewController: UIViewController {
         let dateString = dateFormatter.string(from: date)
         
         let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
-        let mealType = self.mealTypes[selectedMealTypeIndex]
+        let mealType = self.mealTypes[selectedMealTypeIndex].rawValue
         
         let edamamID = foodItem.food.foodId
         
@@ -506,7 +506,7 @@ class FoodDetailViewController: UIViewController {
         
         guard let fatCount = self.fat, let carbsCount = self.carbs, let proteinCount = self.protein else { return }
         
-        let entry = FoodLogEntry(date: dateString, mealType: mealType.lowercased(), foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount)
+        let entry = FoodLogEntry(date: dateString, mealType: mealType, foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount)
         
         
         FoodLogController.shared.createFoodLogEntry(entry: entry) { response in
@@ -544,7 +544,22 @@ class FoodDetailViewController: UIViewController {
                     FoodLogController.shared.fatCount += fatFloat
                     FoodLogController.shared.fatPct += (fatFloat / 215) * 100
                     
-                    FoodLogController.shared.foodLog.append(entry)
+                    
+//                    switch entry.mealType {
+//                    case "breakfast":
+//                        FoodLogController.shared.foodLog.breakfast?.append(entry)
+//                    case "lunch":
+//                        FoodLogController.shared.foodLog.lunch?.append(entry)
+//                    case "dinner":
+//                        FoodLogController.shared.foodLog.dinner?.append(entry)
+//                    case "snack":
+//                        FoodLogController.shared.foodLog.snack?.append(entry)
+//                    case "water":
+//                        FoodLogController.shared.foodLog.water?.append(entry)
+//                    default:
+//                        break
+//                    }
+                    
                     self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
                 }
                 
@@ -594,7 +609,7 @@ extension FoodDetailViewController: UIPickerViewDelegate {
             label.styleForPickerView(title: title, font: font)
             return label
         default:
-            let title = self.mealTypes[row]
+            let title = self.mealTypes[row].rawValue
             let label = UILabel()
             label.styleForPickerView(title: title, font: font)
             return label
