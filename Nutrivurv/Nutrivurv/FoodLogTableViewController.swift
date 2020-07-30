@@ -109,6 +109,37 @@ class FoodLogTableViewController: UITableViewController {
         return 0
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let foodLog = foodLog else { return nil }
+        
+        switch section {
+            case 0:
+                if foodLog.breakfast != nil {
+                    return "Breakfast"
+                }
+            case 1:
+                if foodLog.lunch != nil {
+                    return "Lunch"
+                }
+            case 2:
+                if foodLog.dinner != nil {
+                    return "Dinner"
+                }
+            case 3:
+                if foodLog.snack != nil {
+                    return "Snacks"
+                }
+            case 4:
+                if foodLog.water != nil {
+                    return "Water"
+                }
+            default:
+                return nil
+        }
+        
+        return nil
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodLogCell", for: indexPath)
         
