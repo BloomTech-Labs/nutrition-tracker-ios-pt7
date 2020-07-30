@@ -15,3 +15,7 @@ struct FoodLog: Codable {
     var snack: [FoodLogEntry]?
     var water: [FoodLogEntry]?
 }
+
+struct FoodLogResponse: Codable {
+    var meals: FoodLog
+}

@@ -198,7 +198,8 @@ class FoodLogController {
             var foodLog = FoodLog()
             
             do {
-                foodLog = try decoder.decode(FoodLog.self, from: data)
+                let foodLogResponse = try decoder.decode(FoodLogResponse.self, from: data)
+                foodLog = foodLogResponse.meals
             } catch {
                 print("Error decoding food log from server: \(error)")
                 DispatchQueue.main.async {
