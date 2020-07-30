@@ -70,8 +70,23 @@ class FoodLogController {
     
     let defaultMealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"]
     
-    var foodLog: [FoodLogEntry] = []
+//    var foodLog: FoodLog? {
+//        didSet {
+//            DispatchQueue.main.async {
+//                print("New Item Logged")
+//                NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
+//            }
+//        }
+//    }
     
+    var foodLog = FoodLog()
+    
+    func foodLogIsEmpty() -> Bool {
+        return foodLog.breakfast == nil && foodLog.lunch == nil && foodLog.dinner == nil && foodLog.snack == nil && foodLog.water == nil
+    }
+    
+    
+    // MARK: - FoodLogEntry CRUD and Networking Methods
     
     func createFoodLogEntry(entry: FoodLogEntry, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
@@ -136,9 +151,69 @@ class FoodLogController {
         // PUT
     }
     
-    func getFoodLogEntriesForDate() {
+    func getFoodLogEntriesForDate(date: String, completion: @escaping (Result<FoodLog?, NetworkError>) -> Void) {
         // GET
+        guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
+            print("No token found for user")
+            DispatchQueue.main.async {
+                completion(.failure(.noAuth))
+            }
+            return
+        }
+        
+        let requestURL = baseURL.appendingPathComponent("date/\(date)")
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error with get food log for date data task: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(.otherError))
+                }
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    print("Error communicating with server. Response information: \(response), status code: \(response.statusCode)")
+                    DispatchQueue.main.async {
+                        completion(.failure(.serverError))
+                    }
+                    return
+                }
+            }
+            
+            guard let data = data else {
+                print("Error with data received for food log")
+                DispatchQueue.main.async {
+                    completion(.failure(.badData))
+                }
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            var foodLog = FoodLog()
+            
+            do {
+                foodLog = try decoder.decode(FoodLog.self, from: data)
+            } catch {
+                print("Error decoding food log from server: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(.noDecode))
+                }
+                return
+            }
+            
+            print(foodLog)
+            DispatchQueue.main.async {
+                completion(.success(foodLog))
+            }
+        }.resume()
     }
+    
     
     func deleteFoodLogEntry() {
         // DELETE
