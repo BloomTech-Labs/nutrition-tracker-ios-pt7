@@ -13,13 +13,12 @@ import Combine
 class FoodLogTableViewController: UITableViewController {
     
     let foodLogController = FoodLogController.shared
-    var foodLog: FoodLog?
-//    {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//    }
-//    
+    var foodLog: FoodLog? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     let foodSearchController = FoodSearchController()
     
     // A default message label displayed as table view bg view when the users food log is empty for the day
@@ -33,26 +32,22 @@ class FoodLogTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadFoodLogTableView), name: .newFoodItemLogged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFoodLog), name: .newFoodItemLogged, object: nil)
         self.setDateForLogEntries()
     }
     
     @objc func reloadFoodLogTableView() {
-        self.tableView.reloadData()
-        if foodLogIsEmpty() {
-            noFoodLoggedMessage(message: "You haven't logged any foods today,\n let's get started!")
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         if foodLogIsEmpty() {
             noFoodLoggedMessage(message: "You haven't logged any foods yet,\n tap the utensils icon below to get started!")
         } else {
             tableView.backgroundView = .none
             tableView.separatorStyle = .singleLine
-            reloadFoodLogTableView()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadFoodLogTableView()
     }
     
     private func setDateForLogEntries() {
@@ -158,16 +153,45 @@ class FoodLogTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let foodItem = FoodLogController.shared.foodLog[indexPath.row]
+        guard let foodLog = foodLog, !foodLogIsEmpty() else { return }
+        
+        var foodEntry: FoodLogEntry?
+        
+        switch indexPath.section {
+        case 0:
+            if let breakfast = foodLog.breakfast {
+                foodEntry = breakfast[indexPath.row]
+            }
+        case 1:
+            if let allLunch = foodLog.lunch {
+                foodEntry = allLunch[indexPath.row]
+            }
+        case 2:
+            if let allDinner = foodLog.dinner {
+                foodEntry = allDinner[indexPath.row]
+            }
+        case 3:
+            if let allSnacks = foodLog.snack {
+                foodEntry = allSnacks[indexPath.row]
+            }
+        case 4:
+            if let allWater = foodLog.water {
+                foodEntry = allWater[indexPath.row]
+            }
+        default:
+            foodEntry = nil
+        }
 
+        guard let entry = foodEntry else { return }
+        
         if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
             detailVC.searchController = foodSearchController
-            detailVC.foodLogEntry = foodItem
+            detailVC.foodLogEntry = entry
             detailVC.fromLog = true
             detailVC.selectedFoodEntryIndex = indexPath.row
             detailVC.delegate = self
             
-            detailVC.title = "Today's \(foodItem.mealType)"
+            detailVC.title = "Today's \(entry.mealType.capitalized)"
             
             detailVC.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(detailVC, animated: true)
@@ -192,7 +216,7 @@ class FoodLogTableViewController: UITableViewController {
     }
     
     
-    private func updateFoodLog() {
+    @objc private func updateFoodLog() {
         guard let date = selectedDateForLogs else { return }
         
         FoodLogController.shared.getFoodLogEntriesForDate(date: date) { (result) in
@@ -200,6 +224,7 @@ class FoodLogTableViewController: UITableViewController {
             case .success(let foodLog):
                 self.foodLog = foodLog
                 self.tableView.reloadData()
+                self.reloadFoodLogTableView()
             default:
                 return
             }

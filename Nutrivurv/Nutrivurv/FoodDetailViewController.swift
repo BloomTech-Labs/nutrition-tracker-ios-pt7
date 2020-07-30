@@ -129,14 +129,6 @@ class FoodDetailViewController: UIViewController {
         super.viewDidLoad()
         self.foodImageView.layer.cornerRadius = 8.0
 
-        if let foodItem = foodItem {
-            // If coming from search to explore/log a new food
-            self.setUpViewForNewEntry(with: foodItem)
-        } else {
-            // If coming from existing food log, with data provided by backend
-            self.getFoodDetails()
-        }
-        
         self.qtyTextField.delegate = self
         
         self.servingSizePickerView.delegate = self
@@ -148,6 +140,15 @@ class FoodDetailViewController: UIViewController {
         self.setUpUserInputBackgroundView()
         self.qtyTextField.font = UIFont(name: "QuattrocentoSans-Bold", size: 14)
         self.addFoodButton.layer.cornerRadius = 6.0
+        
+        if let foodItem = foodItem {
+            // If coming from search to explore/log a new food
+            self.setUpViewForNewEntry(with: foodItem)
+        } else {
+            // If coming from existing food log, with data provided by backend
+            self.setUpViewForExistingEntry()
+            self.getFoodDetails()
+        }
         
         if fromLog {
             addFoodButton.setTitle("Edit Entry", for: .normal)
@@ -181,6 +182,31 @@ class FoodDetailViewController: UIViewController {
         self.qtyTextField.text = "1.0"
         
         self.mealTypePickerView.selectRow(0, inComponent: 0, animated: true)
+    }
+    
+    private func setUpViewForExistingEntry() {
+        guard let foodLogEntry = foodLogEntry else { return }
+        self.foodNameLabel.text = foodLogEntry.foodName.capitalized
+        self.foodCategoryLabel.isHidden = true
+        
+        self.qtyTextField.text = "\(foodLogEntry.quantity)"
+        
+        switch foodLogEntry.mealType {
+        case "breakfast":
+            self.mealTypePickerView.selectRow(0, inComponent: 0, animated: true)
+        case "lunch":
+            self.mealTypePickerView.selectRow(1, inComponent: 0, animated: true)
+        case "dinner":
+            self.mealTypePickerView.selectRow(2, inComponent: 0, animated: true)
+        case "snack":
+            self.mealTypePickerView.selectRow(3, inComponent: 0, animated: true)
+        case "water":
+            self.mealTypePickerView.selectRow(4, inComponent: 0, animated: true)
+        default:
+            self.mealTypePickerView.selectRow(0, inComponent: 0, animated: true)
+        }
+        
+        // TODO: Fix selected serving sizes not showing up once back end is updated
     }
     
     private func updateViews() {
@@ -559,7 +585,7 @@ class FoodDetailViewController: UIViewController {
 //                    default:
 //                        break
 //                    }
-                    
+                    NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
                     self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
                 }
                 
@@ -609,7 +635,7 @@ extension FoodDetailViewController: UIPickerViewDelegate {
             label.styleForPickerView(title: title, font: font)
             return label
         default:
-            let title = self.mealTypes[row].rawValue
+            let title = self.mealTypes[row].rawValue.capitalized
             let label = UILabel()
             label.styleForPickerView(title: title, font: font)
             return label
