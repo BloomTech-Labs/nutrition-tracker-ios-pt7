@@ -30,7 +30,7 @@ class DashboardViewController: UIViewController {
     // Subviews
     @IBOutlet weak var dailyVibeStackView: UIStackView!
     @IBOutlet weak var foodLogLabel: UILabel!
-    @IBOutlet weak var foodLogTableView: UIView!
+    @IBOutlet weak var foodLogTableView: FadedFoodLogBackgroundView!
     
     let userController = ProfileCreationController()
     
@@ -189,9 +189,6 @@ class DashboardViewController: UIViewController {
         self.foodLogTableView.translatesAutoresizingMaskIntoConstraints = false
         self.foodLogTableView.alpha = 0
         self.foodLogTableView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
-        self.foodLogTableView.roundCorners(corners: [.topRight, .topLeft], radius: 22.0)
-        self.foodLogTableView.layer.cornerCurve = .continuous
-        self.foodLogTableView.layer.masksToBounds = true
     }
     
     private func animatePrimaryViewsForEntry() {

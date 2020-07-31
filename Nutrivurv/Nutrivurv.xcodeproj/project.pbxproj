@@ -201,6 +201,7 @@
 		511285E324D3689B0080127B /* Custom Global Views */ = {
 			isa = PBXGroup;
 			children = (
+				51363F9D24A975F5001432F7 /* FadedScrollViews.swift */,
 				511285E424D368C30080127B /* MealTypeHeaderLabel.swift */,
 				D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */,
 				D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */,
@@ -231,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				5130B83224A7043F00946B41 /* NutritionLabel.swift */,
-				51363F9D24A975F5001432F7 /* FadedScrollViews.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
