@@ -12,8 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let navBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Catamaran-Bold", size: 16)!]
-        let navBarBtnAttrs = [NSAttributedString.Key.font: UIFont(name: "Catamaran-Bold", size: 14)!]
+        let navBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Gaoel", size: 13)!]
+        let navBarBtnAttrs = [NSAttributedString.Key.font: UIFont(name: "Gaoel", size: 10)!]
         let tabBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Catamaran-SemiBold", size: 10)!]
         
         UINavigationBar.appearance().titleTextAttributes = navBarAttrs

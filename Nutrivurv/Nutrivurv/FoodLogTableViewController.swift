@@ -62,7 +62,7 @@ class FoodLogTableViewController: UITableViewController {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height))
         let messageLabel = UILabel(frame: rect)
         messageLabel.text = message
-        messageLabel.textColor = UIColor(named: "nutrivurv-blue")
+        messageLabel.textColor = UIColor(named: "nutrivurv-blue-new")
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.font = UIFont(name: "QuattrocentoSans-Italic", size: 16)
