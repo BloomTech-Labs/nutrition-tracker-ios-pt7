@@ -29,7 +29,7 @@ class DashboardViewController: UIViewController {
     
     // Subviews
     @IBOutlet weak var dailyVibeStackView: UIStackView!
-    @IBOutlet weak var foodLogLabel: UILabel!
+//    @IBOutlet weak var foodLogLabel: UILabel!
     @IBOutlet weak var foodLogTableView: FadedFoodLogBackgroundView!
     
     let userController = ProfileCreationController()
@@ -182,9 +182,9 @@ class DashboardViewController: UIViewController {
         self.dailyVibeStackView.alpha = 0
         self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         
-        self.foodLogLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.foodLogLabel.alpha = 0
-        self.foodLogLabel.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+//        self.foodLogLabel.translatesAutoresizingMaskIntoConstraints = false
+//        self.foodLogLabel.alpha = 0
+//        self.foodLogLabel.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         
         self.foodLogTableView.translatesAutoresizingMaskIntoConstraints = false
         self.foodLogTableView.alpha = 0
@@ -214,8 +214,8 @@ class DashboardViewController: UIViewController {
         })
         
         UIView.animate(withDuration: 0.45, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
-            self.foodLogLabel.alpha = 1
-            self.foodLogLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+//            self.foodLogLabel.alpha = 1
+//            self.foodLogLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
         
         UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.65, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
