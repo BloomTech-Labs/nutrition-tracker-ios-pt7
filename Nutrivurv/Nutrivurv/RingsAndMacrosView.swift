@@ -152,7 +152,7 @@ struct MacrosDetailView: View {
                 Text(label)
                     .font(Font.custom("Gaoel", size: 9.5))
                     .foregroundColor(Color.white)
-                    .frame(minWidth: 48)
+                    .frame(minWidth: 48, minHeight: 18)
                 
                 if self.showMacrosDetail {
                     Text("\(count) • \(progressPercent)")
