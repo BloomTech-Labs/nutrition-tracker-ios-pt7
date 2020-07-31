@@ -29,13 +29,13 @@ class DashboardViewController: UIViewController {
     
     // Subviews
     @IBOutlet weak var dailyVibeStackView: UIStackView!
-//    @IBOutlet weak var foodLogLabel: UILabel!
+    @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var foodLogTableView: FadedFoodLogBackgroundView!
-    
-    let userController = ProfileCreationController()
     
     @IBOutlet weak var ringsAndMacrosContainerView: UIView!
     var ringsAndMacrosHostingController: UIViewController!
+    
+    let userController = ProfileCreationController()
     
     var dailyMacrosModel = FoodLogController.shared.dailyMacrosModel
     
@@ -45,7 +45,7 @@ class DashboardViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = UIColor(named: "daily-vibe")
         view.layer.cornerRadius = 14.0
-        view.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
+        view.layer.shadowColor = UIColor(named: "daily-vibe-shadow")?.cgColor
         view.layer.shadowOpacity = 0.8
         view.layer.shadowOffset = CGSize(width: 1.3, height: 1.3)
         view.layer.shadowRadius = 9.0
@@ -59,18 +59,19 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.updateLoginStreakLabel()
-        
+        updateLoginStreakLabel()
         addActivityRingsProgressView()
         
-        self.prepareForEntranceAnimations()
-        self.animatePrimaryViewsForEntry()
+        prepareForEntranceAnimations()
+        animatePrimaryViewsForEntry()
         
-        let contentView = setUpNavBarImageView()
+        setupDateView()
+        
+        let contentView = setupNavBarImageView()
         self.navigationItem.titleView = contentView
         
-        let dashboardNavBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-ExtraBold", size: 18)!]
-        self.navigationController?.navigationBar.titleTextAttributes = dashboardNavBarAttrs
+//        let dashboardNavBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-ExtraBold", size: 18)!]
+//        self.navigationController?.navigationBar.titleTextAttributes = dashboardNavBarAttrs
         
         self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
@@ -81,7 +82,7 @@ class DashboardViewController: UIViewController {
                 case .success(let quote):
                     self.dailyVibeQuoteLabel.text = "\"\(quote.content)\""
                     self.dailyVibeAuthorLabel.text = quote.author
-                    self.setUpDailyVibeBackgroundView()
+                    self.setupDailyVibeBackgroundView()
                     self.animateSubviewsForEntry()
                     
                 default:
@@ -102,7 +103,7 @@ class DashboardViewController: UIViewController {
     
     // MARK: - Setup Subviews
     
-    private func setUpNavBarImageView() -> UIView {
+    private func setupNavBarImageView() -> UIView {
         let logoImage = UIImage(named: "dashboard-nav-logo")
         let logoImageView = UIImageView(image: logoImage)
         var frame = logoImageView.frame
@@ -132,11 +133,6 @@ class DashboardViewController: UIViewController {
         hostingController.view.pinWithNoPadding(to: ringsAndMacrosContainerView)
     }
     
-    private func setUpDailyVibeBackgroundView() {
-        dailyVibeStackView.insertSubview(self.dailyVibeBackgroundView, at: 0)
-        self.dailyVibeBackgroundView.pin(to: dailyVibeStackView)
-    }
-    
     private func updateLoginStreakLabel() {
         let streak = UserDefaults.getLoginStreak()
         if streak == 1 {
@@ -147,12 +143,31 @@ class DashboardViewController: UIViewController {
         streakCountLabel.text = "\(streak)"
     }
     
+    private func setupDailyVibeBackgroundView() {
+        dailyVibeStackView.insertSubview(self.dailyVibeBackgroundView, at: 0)
+        self.dailyVibeBackgroundView.pin(to: dailyVibeStackView)
+    }
+    
+    private func setupDateView() {
+        let height: CGFloat = 48
+        dateView.layer.cornerRadius = height / 2
+        dateView.layer.cornerCurve = .continuous
+        
+        dateView.layer.shadowColor = UIColor(named: "daily-vibe-shadow")?.cgColor
+        dateView.layer.shadowOpacity = 1.0
+        dateView.layer.shadowOffset = CGSize(width: 1.3, height: 1.3)
+        dateView.layer.shadowRadius = 10.0
+       
+        dateView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     
     // MARK: - Update Subviews
     
     // Need to manually update daily vibe shadow color when trait collections change, as cgColor is not dynamic like UIColor
     private func updateDailyVibeShadow() {
-        self.dailyVibeBackgroundView.layer.shadowColor = UIColor(named: "daily-vibe-shadow")!.cgColor
+        self.dailyVibeBackgroundView.layer.shadowColor = UIColor(named: "daily-vibe-shadow")?.cgColor
+        self.dateView.layer.shadowColor = UIColor(named: "daily-vibe-shadow")?.cgColor
     }
     
     // Called when trait collections are made, like switching between Light <-> Dark mode to enable changes
@@ -182,9 +197,8 @@ class DashboardViewController: UIViewController {
         self.dailyVibeStackView.alpha = 0
         self.dailyVibeStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         
-//        self.foodLogLabel.translatesAutoresizingMaskIntoConstraints = false
-//        self.foodLogLabel.alpha = 0
-//        self.foodLogLabel.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        self.dateView.alpha = 0
+        self.dateView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         
         self.foodLogTableView.translatesAutoresizingMaskIntoConstraints = false
         self.foodLogTableView.alpha = 0
@@ -214,8 +228,8 @@ class DashboardViewController: UIViewController {
         })
         
         UIView.animate(withDuration: 0.45, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
-//            self.foodLogLabel.alpha = 1
-//            self.foodLogLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.dateView.alpha = 1
+            self.dateView.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
         
         UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.65, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {

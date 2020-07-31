@@ -173,7 +173,7 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72" customClass="FadedFoodLogBackgroundView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="378" width="414" height="355"/>
+                                <rect key="frame" x="0.0" y="372" width="414" height="361"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -181,7 +181,7 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="36" y="270" width="342" height="69.5"/>
+                                <rect key="frame" x="36" y="269" width="342" height="69.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daily vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="13.5"/>
@@ -209,7 +209,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-9r-h9S" userLabel="Date View">
-                                <rect key="frame" x="137" y="368" width="140" height="48"/>
+                                <rect key="frame" x="137" y="364" width="140" height="48"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="zTr-e8-Tlv">
                                         <rect key="frame" x="16" y="10" width="108" height="28"/>
@@ -225,28 +225,28 @@
                                                 <rect key="frame" x="37" y="0.0" width="71" height="28"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ead-NY-Fem">
-                                                        <rect key="frame" x="0.0" y="0.0" width="71" height="12.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="71" height="14"/>
                                                         <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="8"/>
                                                         <color key="textColor" name="food-log-label-text"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4.4000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-xO-ojO">
-                                                        <rect key="frame" x="0.0" y="12.5" width="71" height="15.5"/>
+                                                        <rect key="frame" x="0.0" y="14" width="71" height="14"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4o-Oy-gKM">
-                                                                <rect key="frame" x="0.0" y="0.0" width="7" height="15.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="7" height="14"/>
                                                                 <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="10"/>
                                                                 <color key="textColor" name="food-log-label-text"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 31" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htc-TY-rj8">
-                                                                <rect key="frame" x="11.5" y="0.0" width="48" height="15.5"/>
-                                                                <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="13"/>
+                                                                <rect key="frame" x="11.5" y="0.0" width="48" height="14"/>
+                                                                <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="12"/>
                                                                 <color key="textColor" name="food-log-label-text"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17q-IU-UTc">
-                                                                <rect key="frame" x="64" y="0.0" width="7" height="15.5"/>
+                                                                <rect key="frame" x="64" y="0.0" width="7" height="14"/>
                                                                 <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="10"/>
                                                                 <color key="textColor" name="food-log-label-text"/>
                                                                 <nil key="highlightedColor"/>
@@ -281,13 +281,13 @@
                             <constraint firstItem="OxY-on-Jkc" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="7jV-zV-t47"/>
                             <constraint firstItem="Tmn-O8-MJJ" firstAttribute="leading" secondItem="2qp-en-orb" secondAttribute="trailing" constant="-105" id="Kf1-Fx-J6n"/>
                             <constraint firstItem="fsb-9r-h9S" firstAttribute="centerX" secondItem="2qp-en-orb" secondAttribute="centerX" id="NgN-4r-IX1"/>
-                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="fsb-9r-h9S" secondAttribute="bottom" constant="-38" id="Obm-58-7XP"/>
-                            <constraint firstItem="fsb-9r-h9S" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="134" id="QrF-Pd-fVu"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="fsb-9r-h9S" secondAttribute="bottom" constant="-40" id="Obm-58-7XP"/>
+                            <constraint firstItem="fsb-9r-h9S" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="130" id="QrF-Pd-fVu"/>
                             <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="36" id="TsD-7n-8qL"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="bottom" secondItem="vL2-nj-e72" secondAttribute="bottom" constant="-8" id="Ub9-zB-TMy"/>
                             <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="20" id="XF0-K1-hBY"/>
                             <constraint firstItem="2qp-en-orb" firstAttribute="centerX" secondItem="LNW-2j-u7j" secondAttribute="centerX" id="k2E-ss-pNb"/>
-                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="36" id="mYW-Sr-0IK"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="35" id="mYW-Sr-0IK"/>
                             <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="105" id="ofq-74-XCs"/>
                             <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" id="twQ-PQ-nZr"/>
                             <constraint firstItem="Tmn-O8-MJJ" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="zCw-fZ-SQz"/>
@@ -308,6 +308,7 @@
                         <outlet property="dailyVibeAuthorLabel" destination="e09-AN-MWp" id="00p-Mq-n6N"/>
                         <outlet property="dailyVibeQuoteLabel" destination="YAb-hN-fSe" id="ZS9-hF-Ns5"/>
                         <outlet property="dailyVibeStackView" destination="Ioa-4t-5oD" id="Ot9-JN-W47"/>
+                        <outlet property="dateView" destination="fsb-9r-h9S" id="7YY-bH-OlD"/>
                         <outlet property="foodLogTableView" destination="vL2-nj-e72" id="GjO-mj-dFh"/>
                         <outlet property="ringsAndMacrosContainerView" destination="UBn-fK-BvN" id="eMw-eo-llq"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
@@ -1068,7 +1069,7 @@
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="2" id="bM9-0c-rT8" customClass="FadedVerticalTableView" customModule="Nutrivurv" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="355"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="361"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="foodlog-bg"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
