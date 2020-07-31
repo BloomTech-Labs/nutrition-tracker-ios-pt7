@@ -56,8 +56,8 @@ class FadedVerticalScrollView: UIScrollView {
 }
 
 class FadedVerticalTableView: UITableView {
-    let topFadePct: Double = 0.05
-    let bottomFadePct: Double = 0.05
+    let topFadePct: Double = 0.12
+    let bottomFadePct: Double = 0.0
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -79,7 +79,7 @@ class FadedVerticalTableView: UITableView {
 }
 
 class FadedFoodLogBackgroundView: UIView {
-    let topFadePct: Double = 0.12
+    let topFadePct: Double = 0.08
     let bottomFadePct: Double = 0.0
     
     override func layoutSubviews() {
