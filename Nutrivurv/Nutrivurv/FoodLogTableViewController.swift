@@ -118,23 +118,23 @@ class FoodLogTableViewController: UITableViewController {
         switch section {
             case 0:
                 if foodLog.breakfast != nil {
-                    label.text = "Breakfast"
+                    label.text = "breakfast"
                 }
             case 1:
                 if foodLog.lunch != nil {
-                    label.text = "Lunch"
+                    label.text = "lunch"
                 }
             case 2:
                 if foodLog.dinner != nil {
-                    label.text = "Dinner"
+                    label.text = "dinner"
                 }
             case 3:
                 if foodLog.snack != nil {
-                    label.text = "Snacks"
+                    label.text = "snacks"
                 }
             case 4:
                 if foodLog.water != nil {
-                    label.text = "Water"
+                    label.text = "water"
                 }
             default:
                 label.text = nil

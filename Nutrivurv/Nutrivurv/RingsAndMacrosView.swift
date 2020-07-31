@@ -30,10 +30,10 @@ struct RingsAndMacrosView: View {
             HStack {
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(dailyMacrosModel.caloriesCount)) cal", progressPercent: "\(Int(dailyMacrosModel.caloriesPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "calories", count: "\(Int(dailyMacrosModel.caloriesCount)) cal", progressPercent: "\(Int(dailyMacrosModel.caloriesPercent))%")
                         .offset(x: showRings ? -78 : -50)
                         Spacer()
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(dailyMacrosModel.carbsCount))g", progressPercent: "\(Int(dailyMacrosModel.carbsPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "carbs", count: "\(Int(dailyMacrosModel.carbsCount))g", progressPercent: "\(Int(dailyMacrosModel.carbsPercent))%")
                         .offset(x: showRings ? -88 : -38)
                     
                 }
@@ -43,10 +43,10 @@ struct RingsAndMacrosView: View {
                 
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(dailyMacrosModel.proteinCount))g", progressPercent: "\(Int(dailyMacrosModel.proteinPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "protein", count: "\(Int(dailyMacrosModel.proteinCount))g", progressPercent: "\(Int(dailyMacrosModel.proteinPercent))%")
                         .offset(x: showRings ? 78 : 50)
                     Spacer()
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(dailyMacrosModel.fatCount))g", progressPercent: "\(Int(dailyMacrosModel.fatPercent))%")
+                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "fat", count: "\(Int(dailyMacrosModel.fatCount))g", progressPercent: "\(Int(dailyMacrosModel.fatPercent))%")
                         .offset(x: showRings ? 88 : 38)
                     
                 }
