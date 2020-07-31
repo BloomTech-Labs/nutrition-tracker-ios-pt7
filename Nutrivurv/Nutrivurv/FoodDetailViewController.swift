@@ -317,14 +317,14 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func getGreenLabelFor(_ string: String) -> NutritionLabel {
-        let color = UIColor(named: "nutrivurv-green-2")!
+        let color = UIColor(named: "nutrivurv-green-new")!
         let label = setupHealthAndWarningLabels(string, color: color)
         
         return label
     }
     
     private func getYellowLabelFor(_ string: String) -> NutritionLabel {
-        let color = UIColor(named: "nutrivurv-orange")!
+        let color = UIColor(named: "nutrivurv-orange-new")!
         let label = setupHealthAndWarningLabels(string, color: color)
         
         return label
@@ -495,7 +495,7 @@ class FoodDetailViewController: UIViewController {
             servingSizePickerView.isUserInteractionEnabled = true
             mealTypePickerView.isUserInteractionEnabled = true
             addFoodButton.setTitle("Save Entry", for: .normal)
-            addFoodButton.backgroundColor = UIColor(named: "nutrivurv-green-2")
+            addFoodButton.backgroundColor = UIColor(named: "nutrivurv-green-new")
             self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
             return
         }
@@ -701,7 +701,7 @@ extension UILabel {
     func styleForPickerView(title: String, font: UIFont) {
         self.text = title
         self.font = font
-        self.textColor = UIColor(named: "nutrivurv-blue")
+        self.textColor = UIColor(named: "nutrivurv-blue-new")
         self.textAlignment = .center
     }
 }

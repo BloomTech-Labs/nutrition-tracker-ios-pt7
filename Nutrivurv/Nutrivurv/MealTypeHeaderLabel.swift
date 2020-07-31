@@ -13,11 +13,11 @@ import UIKit
 class MealTypeHeaderLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(named: "nutrivurv-blue")
+        backgroundColor = UIColor(named: "nutrivurv-blue-new")
         textColor = .white
         textAlignment = .center
         translatesAutoresizingMaskIntoConstraints = false
-        font = UIFont(name: "Catamaran-Medium", size: 12.0)!
+        font = UIFont(name: "Gaoel", size: 10.0)!
     }
     
     required init?(coder: NSCoder) {
@@ -26,11 +26,16 @@ class MealTypeHeaderLabel: UILabel {
     
     override var intrinsicContentSize: CGSize {
         let orginalContentSize = super.intrinsicContentSize
-        let height = orginalContentSize.height + 8
+        let height = orginalContentSize.height + 12
         layer.cornerRadius = height / 2
         layer.cornerCurve = .continuous
         layer.masksToBounds = true
         
-        return CGSize(width: 75, height: height)
+        return CGSize(width: 84, height: height)
     }
+}
+
+
+class MacrosAndCaloriesSectionHeaderView: UIView {
+    
 }

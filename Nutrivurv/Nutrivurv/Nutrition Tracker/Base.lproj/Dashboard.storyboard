@@ -55,13 +55,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-UG-8Di">
                                                 <rect key="frame" x="0.0" y="0.0" width="47" height="33"/>
                                                 <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="28"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="lbs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-tc-n0m">
                                                 <rect key="frame" x="55" y="4.5" width="24" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="18"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -82,7 +82,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsg-oQ-N69">
                                                 <rect key="frame" x="24" y="0.0" width="55" height="16"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
@@ -127,13 +127,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
                                                 <rect key="frame" x="0.0" y="0.0" width="31.5" height="33"/>
                                                 <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="28"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMC-HY-f12">
                                                 <rect key="frame" x="39.5" y="4.5" width="38.5" height="28.5"/>
                                                 <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="18"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -154,7 +154,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgw-Mg-koP">
                                                 <rect key="frame" x="22" y="0.0" width="56" height="17"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -237,7 +237,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="UtJ-Bb-uF5">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="VSk-dh-8s0">
-                            <color key="tintColor" name="nutrivurv-blue"/>
+                            <color key="tintColor" name="nutrivurv-blue-new"/>
                             <connections>
                                 <action selector="logoutButtonTapped:" destination="vsF-rt-EXg" id="4bd-qj-xEx"/>
                             </connections>
@@ -1012,7 +1012,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="2" id="bM9-0c-rT8" customClass="FadedVerticalTableView" customModule="Nutrivurv" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="349"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="bg-color"/>
+                        <color key="backgroundColor" name="foodlog-bg"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
                         <color key="sectionIndexColor" name="light-label"/>
                         <color key="sectionIndexBackgroundColor" name="bg-color"/>
@@ -1035,12 +1035,13 @@
                                             <rect key="frame" x="20" y="38" width="48" height="16.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="14"/>
-                                            <color key="textColor" name="nutrivurv-blue"/>
+                                            <color key="textColor" name="nutrivurv-blue-new"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="tintColor" name="nutrivurv-blue-new"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="foodlog-bg"/>
+                                <color key="backgroundColor" name="bg-color"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1076,13 +1077,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6J-Nd-SLY">
-                                            <rect key="frame" x="8" y="8" width="151" height="23"/>
+                                            <rect key="frame" x="8" y="8" width="151" height="21"/>
                                             <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                             <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0PA-i1-VMB">
-                                            <rect key="frame" x="8" y="47" width="151" height="18"/>
+                                            <rect key="frame" x="8" y="45" width="151" height="16.5"/>
                                             <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -1175,13 +1176,16 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="foodlog-bg">
-            <color red="0.27058823529411763" green="0.45882352941176469" blue="0.70980392156862748" alpha="0.03800002282857895" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.27058823529411763" green="0.45882352941176469" blue="0.70980392156862748" alpha="0.037999998778104782" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="light-label">
             <color red="0.086274509803921567" green="0.086274509803921567" blue="0.086274509803921567" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="nutrivurv-blue">
             <color red="0.074509803921568626" green="0.42352941176470588" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="nutrivurv-blue-new">
+            <color red="0.37254901960784315" green="0.54509803921568623" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="nutrivurv-green">
             <color red="0.47843137254901963" green="0.80000000000000004" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

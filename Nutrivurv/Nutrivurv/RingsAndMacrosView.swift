@@ -15,10 +15,10 @@ struct RingsAndMacrosView: View {
     
     @ObservedObject var dailyMacrosModel: DailyMacros
     
-    var caloriesColor = UIColor(named: "nutrivurv-blue")!
-    var carbsColor = UIColor(named: "nutrivurv-green-2")!
-    var proteinColor = UIColor(named: "nutrivurv-orange")!
-    var fatColor = UIColor(named: "nutrivurv-red-2")!
+    var caloriesColor = UIColor(named: "nutrivurv-blue-new")!
+    var carbsColor = UIColor(named: "nutrivurv-green-new")!
+    var proteinColor = UIColor(named: "nutrivurv-orange-new")!
+    var fatColor = UIColor(named: "nutrivurv-red-new")!
     
     var body: some View {
         ZStack {
@@ -150,8 +150,9 @@ struct MacrosDetailView: View {
             
             VStack {
                 Text(label)
-                    .font(Font.custom("Catamaran-Bold", size: 12))
+                    .font(Font.custom("Gaoel", size: 9.5))
                     .foregroundColor(Color.white)
+                    .frame(minWidth: 48)
                 
                 if self.showMacrosDetail {
                     Text("\(count) • \(progressPercent)")

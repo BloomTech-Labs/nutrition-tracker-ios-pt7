@@ -24,6 +24,7 @@
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
 		512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE924CFD1B700B542B3 /* FoodLog.swift */; };
+		512F486A24D4AA0100EA128D /* Gaoel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 512F486924D4AA0100EA128D /* Gaoel.ttf */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
@@ -104,6 +105,7 @@
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
 		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
 		512C3FE924CFD1B700B542B3 /* FoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
+		512F486924D4AA0100EA128D /* Gaoel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaoel.ttf; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				512F486924D4AA0100EA128D /* Gaoel.ttf */,
 				5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */,
 				5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */,
 				5139532124A3E14E00CDF5F1 /* Muli-MediumItalic.ttf */,
@@ -557,6 +560,7 @@
 				4C89A9F72440134500348B5A /* SignIn.storyboard in Resources */,
 				5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */,
 				4C89A9F4244010E500348B5A /* Profile.storyboard in Resources */,
+				512F486A24D4AA0100EA128D /* Gaoel.ttf in Resources */,
 				D6A1CC2A24076FF000477429 /* Muli-ExtraLight.ttf in Resources */,
 				51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */,
 				D6A1CC2724076FF000477429 /* Muli-SemiBold.ttf in Resources */,
