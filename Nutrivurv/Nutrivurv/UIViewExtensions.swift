@@ -11,10 +11,10 @@ import Foundation
 public extension UIView {
     func pin(to view: UIView) {
         NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -14),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 14),
-            topAnchor.constraint(equalTo: view.topAnchor, constant: -14),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 14)
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -12),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 12),
+            topAnchor.constraint(equalTo: view.topAnchor, constant: -12),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 12)
         ])
     }
     
