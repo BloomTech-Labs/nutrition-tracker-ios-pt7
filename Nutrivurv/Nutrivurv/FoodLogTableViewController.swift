@@ -160,35 +160,37 @@ class FoodLogTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let foodLog = foodLog else { return 0 }
-        var headerSize: CGFloat = 0
+        var headerSize: CGFloat = 0.001
         
         switch section {
             case 0:
                 if foodLog.breakfast != nil {
-                    headerSize = 75
+                    headerSize = 60
                 }
             case 1:
                 if foodLog.lunch != nil {
-                    headerSize = 75
+                    headerSize = 60
                 }
             case 2:
                 if foodLog.dinner != nil {
-                    headerSize = 75
+                    headerSize = 60
                 }
             case 3:
                 if foodLog.snack != nil {
-                    headerSize = 75
+                    headerSize = 60
                 }
             case 4:
                 if foodLog.water != nil {
-                    headerSize = 75
+                    headerSize = 60
                 }
             default:
-                return 0
+                return 0.001
         }
         
         return headerSize
     }
+    
+    
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
