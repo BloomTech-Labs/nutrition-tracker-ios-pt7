@@ -28,6 +28,7 @@
 		512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F486B24D4BB1600EA128D /* DashboardDateView.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
+		5138FEFA24D4ED81008FC720 /* MacrosMealHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5138FEF924D4ED81008FC720 /* MacrosMealHeader.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
 		5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531E24A3D3F700CDF5F1 /* Quote.swift */; };
 		5139532224A3E14E00CDF5F1 /* Muli-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */; };
@@ -110,6 +111,7 @@
 		512F486B24D4BB1600EA128D /* DashboardDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDateView.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
+		5138FEF924D4ED81008FC720 /* MacrosMealHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosMealHeader.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
 		5139531E24A3D3F700CDF5F1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				512970C224B1324900315C7B /* RingsAndMacrosView.swift */,
 				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
+				5138FEF924D4ED81008FC720 /* MacrosMealHeader.swift */,
 			);
 			name = "SwiftUI Views and Models";
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				D631B2712415BB0900AE30C9 /* StandardBMIViewController.swift in Sources */,
 				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,
 				51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */,
+				5138FEFA24D4ED81008FC720 /* MacrosMealHeader.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
