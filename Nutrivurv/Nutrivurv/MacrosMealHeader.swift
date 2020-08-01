@@ -82,12 +82,12 @@ struct MacrosMealHeader: View {
                 }.frame(width: 88)
                 
                 HStack {
-                    Text("0 cals")
+                    Text("34 Cals")
                         .foregroundColor(labelColor)
                         .font(Font.custom("Gaoel", size: 10))
                 }.frame(width: 63, alignment: .center)
                 
-                Spacer(minLength: 14)
+                Spacer(minLength: 18)
                 
             }
             .frame(width: 156, height: 16, alignment: .center)
