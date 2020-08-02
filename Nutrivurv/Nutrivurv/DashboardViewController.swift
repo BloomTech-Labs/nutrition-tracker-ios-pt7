@@ -24,7 +24,6 @@ class DashboardViewController: UIViewController {
     
     // Primary Views
     @IBOutlet weak var weightStackView: UIStackView!
-    @IBOutlet weak var dailyIntakeLabel: UILabel!
     @IBOutlet weak var streakStackView: UIStackView!
     
     // Subviews
@@ -69,9 +68,6 @@ class DashboardViewController: UIViewController {
         
         let contentView = setupNavBarImageView()
         self.navigationItem.titleView = contentView
-        
-//        let dashboardNavBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Muli-ExtraBold", size: 18)!]
-//        self.navigationController?.navigationBar.titleTextAttributes = dashboardNavBarAttrs
         
         self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
@@ -124,7 +120,6 @@ class DashboardViewController: UIViewController {
     private func addActivityRingsProgressView() {
         let hostingController = UIHostingController(rootView: RingsAndMacrosView(dailyMacrosModel: self.dailyMacrosModel))
         hostingController.view.backgroundColor = UIColor.clear
-        
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         
         self.ringsAndMacrosHostingController = hostingController
@@ -185,10 +180,6 @@ class DashboardViewController: UIViewController {
         self.weightStackView.alpha = 0
         self.weightStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
         
-        self.dailyIntakeLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.dailyIntakeLabel.alpha = 0
-        self.dailyIntakeLabel.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
-        
         self.streakStackView.translatesAutoresizingMaskIntoConstraints = false
         self.streakStackView.alpha = 0
         self.streakStackView.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
@@ -209,9 +200,6 @@ class DashboardViewController: UIViewController {
         UIView.animate(withDuration: 0.45, delay: 0.1, usingSpringWithDamping: 0.82, initialSpringVelocity: 1.4, options: .curveEaseInOut, animations: {
             self.weightStackView.alpha = 1
             self.weightStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            
-            self.dailyIntakeLabel.alpha = 1
-            self.dailyIntakeLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
             
             self.streakStackView.alpha = 1
             self.streakStackView.transform = CGAffineTransform(scaleX: 1, y: 1)
