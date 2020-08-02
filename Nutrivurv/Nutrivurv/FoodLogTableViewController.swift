@@ -168,9 +168,6 @@ class FoodLogTableViewController: UITableViewController {
 
         horizontalStackView.addArrangedSubview(macrosHeaderView)
         
-        macrosHeaderView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 10).isActive = true
-        macrosHeaderView.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor).isActive = true
-        
         let mealTypeContainerView = UIView()
 
         mealTypeContainerView.addSubview(label)
