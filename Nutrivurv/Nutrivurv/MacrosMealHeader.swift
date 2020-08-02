@@ -29,7 +29,7 @@ struct MacrosMealHeader: View {
         return ZStack {
             RoundedRectangle(cornerRadius: bgHeight / 2, style: .continuous)
                 .foregroundColor(bgColor)
-                .shadow(color: bgShadowColor, radius: 8, x: 0, y: 0)
+                .shadow(color: bgShadowColor.opacity(0.85), radius: 9.0, x: 0, y: 0)
             
             HStack {
                 Spacer(minLength: 22)
@@ -82,9 +82,9 @@ struct MacrosMealHeader: View {
                 }.frame(width: 88)
                 
                 HStack {
-                    Text("34 Cals")
+                    Text("269 Cals")
                         .foregroundColor(labelColor)
-                        .font(Font.custom("Gaoel", size: 10))
+                        .font(Font.custom("Gaoel", size: 11))
                 }.frame(width: 63, alignment: .center)
                 
                 Spacer(minLength: 18)

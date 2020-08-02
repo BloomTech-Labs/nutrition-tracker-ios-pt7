@@ -50,7 +50,7 @@ struct RingsAndMacrosView: View {
                         .offset(x: showRings ? 88 : 38)
                     
                 }
-                .offset(y: -24)
+                .offset(y: -26)
                 .frame(maxHeight:  showMacrosDetail ? 105 : 52)
             }
         }

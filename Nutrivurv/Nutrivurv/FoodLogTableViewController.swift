@@ -167,7 +167,7 @@ class FoodLogTableViewController: UITableViewController {
 
         horizontalStackView.addArrangedSubview(macrosHeaderView)
         
-        macrosHeaderView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 8).isActive = true
+        macrosHeaderView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 5).isActive = true
         macrosHeaderView.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor).isActive = true
         
         let mealTypeContainerView = UIView()
@@ -177,8 +177,8 @@ class FoodLogTableViewController: UITableViewController {
         label.trailingAnchor.constraint(equalTo: mealTypeContainerView.trailingAnchor, constant: -12).isActive = true
 
         mealTypeContainerView.layer.shadowColor = UIColor.black.cgColor
-        mealTypeContainerView.layer.shadowOpacity = 0.2
-        mealTypeContainerView.layer.shadowRadius = 4.5
+        mealTypeContainerView.layer.shadowOpacity = 0.225
+        mealTypeContainerView.layer.shadowRadius = 8.0
         mealTypeContainerView.layer.shadowOffset = CGSize(width: 1.5, height: 2.5)
         
         horizontalStackView.addArrangedSubview(mealTypeContainerView)
