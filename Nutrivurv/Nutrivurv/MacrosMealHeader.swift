@@ -26,9 +26,9 @@ struct MacrosMealHeader: View {
     private var labelColor = Color(UIColor(named: "food-log-label-text")!)
     
     @State var caloriesCount = "269 cals"
-    @State var carbsCount = "64 grams"
-    @State var proteinCoiunt = "23 grams"
-    @State var fatCount = "13 grams"
+    @State var carbsCount = "647 grams"
+    @State var proteinCoiunt = "238 grams"
+    @State var fatCount = "1397 grams"
     
     @State var labelText = ""
     

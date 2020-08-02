@@ -161,13 +161,14 @@ class FoodLogTableViewController: UITableViewController {
         
         let horizontalStackView = UIStackView()
         horizontalStackView.axis = .horizontal
+        horizontalStackView.alignment = .center
 
         let macrosHeaderView = getTableviewHeaderMacrosView()
         macrosHeaderView.translatesAutoresizingMaskIntoConstraints = false
 
         horizontalStackView.addArrangedSubview(macrosHeaderView)
         
-        macrosHeaderView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 5).isActive = true
+        macrosHeaderView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 10).isActive = true
         macrosHeaderView.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor).isActive = true
         
         let mealTypeContainerView = UIView()
@@ -188,38 +189,39 @@ class FoodLogTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let foodLog = foodLog else { return 0 }
-        var headerSize: CGFloat = 0.001
+        var headerSize: CGFloat = 0
         
         switch section {
             case 0:
                 if foodLog.breakfast != nil {
-                    headerSize = 70
+                    headerSize = 68
                 }
             case 1:
                 if foodLog.lunch != nil {
-                    headerSize = 70
+                    headerSize = 68
                 }
             case 2:
                 if foodLog.dinner != nil {
-                    headerSize = 70
+                    headerSize = 68
                 }
             case 3:
                 if foodLog.snack != nil {
-                    headerSize = 70
+                    headerSize = 68
                 }
             case 4:
                 if foodLog.water != nil {
-                    headerSize = 70
+                    headerSize = 68
                 }
             default:
-                return 0.001
+                return 0
         }
         
         return headerSize
     }
     
-    
-    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 6
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodLogCell", for: indexPath)
