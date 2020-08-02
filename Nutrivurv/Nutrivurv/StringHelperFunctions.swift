@@ -15,4 +15,9 @@ extension String {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
     }
+    
+    func getNumbersfromString() -> String {
+        let decimals = Set("0123456789.")
+        return self.filter{ decimals.contains($0) }
+    }
 }

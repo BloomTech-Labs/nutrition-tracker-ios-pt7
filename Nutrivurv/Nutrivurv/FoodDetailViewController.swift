@@ -551,41 +551,6 @@ class FoodDetailViewController: UIViewController {
                     self.delegate?.update(foodLog: entry, at: index)
                 } else {
                     
-                    // TODO: Change these macros values - possibly use environment variable with Combine?
-                    let caloriesFloat = CGFloat(integerLiteral: calories)
-                    FoodLogController.shared.caloriesCount += caloriesFloat
-                    FoodLogController.shared.caloriesPct += (caloriesFloat / 2775) * 100
-                    
-                    guard let carbs = self.carbs, let carbsNumber = NumberFormatter().number(from: carbs) else { return }
-                    let carbsFloat = CGFloat(truncating: carbsNumber)
-                    FoodLogController.shared.carbsCount += carbsFloat
-                    FoodLogController.shared.carbsPct += (carbsFloat / 40) * 100
-                    
-                    guard let protein = self.protein, let proteinNumber = NumberFormatter().number(from: protein) else { return }
-                    let proteinFloat = CGFloat(truncating: proteinNumber)
-                    FoodLogController.shared.proteinCount += proteinFloat
-                    FoodLogController.shared.proteinPct += (proteinFloat / 170) * 100
-                    
-                    guard let fat = self.fat, let fatNumber = NumberFormatter().number(from: fat) else { return }
-                    let fatFloat = CGFloat(truncating: fatNumber)
-                    FoodLogController.shared.fatCount += fatFloat
-                    FoodLogController.shared.fatPct += (fatFloat / 215) * 100
-                    
-                    
-//                    switch entry.mealType {
-//                    case "breakfast":
-//                        FoodLogController.shared.foodLog.breakfast?.append(entry)
-//                    case "lunch":
-//                        FoodLogController.shared.foodLog.lunch?.append(entry)
-//                    case "dinner":
-//                        FoodLogController.shared.foodLog.dinner?.append(entry)
-//                    case "snack":
-//                        FoodLogController.shared.foodLog.snack?.append(entry)
-//                    case "water":
-//                        FoodLogController.shared.foodLog.water?.append(entry)
-//                    default:
-//                        break
-//                    }
                     NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
                     self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
                 }

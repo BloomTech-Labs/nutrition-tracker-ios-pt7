@@ -67,11 +67,109 @@ class FoodLogController {
            }
        }
     
-    var foodLog = FoodLog()
-    
-    func foodLogIsEmpty() -> Bool {
-        return foodLog.breakfast == nil && foodLog.lunch == nil && foodLog.dinner == nil && foodLog.snack == nil && foodLog.water == nil
+    var foodLog: FoodLog? {
+        didSet {
+            parseFoodLogEntries()
+        }
     }
+    
+    // MARK: - Calculating Macros
+    
+    func parseFoodLogEntries() {
+        guard let foodLog = foodLog else { return }
+        
+        var totalMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        
+        var breakfastMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        var lunchMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        var dinnerMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        var snacksMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        var waterMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+        
+        if let breakfast = foodLog.breakfast {
+            breakfastMacros = getMacrosTuple(for: breakfast)
+        }
+        
+        if let lunch = foodLog.lunch {
+            lunchMacros = getMacrosTuple(for: lunch)
+        }
+        
+        if let dinner = foodLog.dinner {
+            dinnerMacros = getMacrosTuple(for: dinner)
+        }
+        
+        if let snacks = foodLog.snack {
+            snacksMacros = getMacrosTuple(for: snacks)
+        }
+        
+        if let water = foodLog.water {
+            waterMacros = getMacrosTuple(for: water)
+        }
+        
+        for i in 0...3 {
+            switch i {
+            case 0:
+                totalMacros.0 = breakfastMacros.0 + lunchMacros.0 + dinnerMacros.0 + snacksMacros.0 + waterMacros.0
+            case 1:
+                totalMacros.1 = breakfastMacros.1 + lunchMacros.1 + dinnerMacros.1 + snacksMacros.1 + waterMacros.1
+            case 2:
+                totalMacros.2 = breakfastMacros.2 + lunchMacros.2 + dinnerMacros.2 + snacksMacros.2 + waterMacros.2
+            case 3:
+                totalMacros.3 = breakfastMacros.3 + lunchMacros.3 + dinnerMacros.3 + snacksMacros.3 + waterMacros.3
+            default:
+                continue
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.caloriesCount = totalMacros.0
+            self.carbsCount = totalMacros.1
+            self.proteinCount = totalMacros.2
+            self.fatCount = totalMacros.3
+            
+            if self.caloriesCount > 1 {
+                self.caloriesPct = (self.caloriesCount / 2775) * 100
+            }
+            
+            if self.carbsCount > 1 {
+                self.carbsPct = (self.carbsCount / 40) * 100
+            }
+            
+            if self.proteinCount > 1 {
+                self.proteinPct = (self.proteinCount / 170) * 100
+            }
+            
+            if self.fatCount > 1 {
+                 self.fatPct = (self.fatCount / 215) * 100
+            }
+        }
+    }
+    
+    private func getMacrosTuple(for meal: [FoodLogEntry]) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        var totalCalories = 0.0
+        var totalCarbs = 0.0
+        var totalProtein = 0.0
+        var totalFat = 0.0
+        
+        for entry in meal {
+            totalCalories += Double(entry.calories)
+            
+            if let carbs = Double(entry.carbs.getNumbersfromString()) {
+                totalCarbs += carbs
+            }
+            
+            if let protein = Double(entry.protein.getNumbersfromString()) {
+                totalProtein += protein
+            }
+            
+            if let fat = Double(entry.fat.getNumbersfromString()) {
+                totalFat += fat
+            }
+        }
+        
+        return (CGFloat(totalCalories), CGFloat(totalCarbs), CGFloat(totalProtein), CGFloat(totalFat))
+    }
+    
     
     
     // MARK: - FoodLogEntry CRUD and Networking Methods
@@ -183,11 +281,12 @@ class FoodLogController {
             }
             
             let decoder = JSONDecoder()
-            var foodLog = FoodLog()
+            var tempFoodLog = FoodLog()
             
             do {
                 let foodLogResponse = try decoder.decode(FoodLogResponse.self, from: data)
-                foodLog = foodLogResponse.meals
+                tempFoodLog = foodLogResponse.meals
+                self.foodLog = tempFoodLog
             } catch {
                 print("Error decoding food log from server: \(error)")
                 DispatchQueue.main.async {
@@ -196,9 +295,8 @@ class FoodLogController {
                 return
             }
             
-            print(foodLog)
             DispatchQueue.main.async {
-                completion(.success(foodLog))
+                completion(.success(tempFoodLog))
             }
         }.resume()
     }
