@@ -72,6 +72,21 @@ class FoodLogTableViewController: UITableViewController {
         tableView.separatorStyle = .none
     }
     
+    // MARK: - Custom View Setup
+    
+    private func getTableviewHeaderMacrosView() -> UIView {
+        let view = UIView()
+        
+        let hostingController = UIHostingController(rootView: MacrosMealHeader())
+        hostingController.view.backgroundColor = UIColor.clear
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(hostingController.view)
+        hostingController.view.pinWithNoPadding(to: view)
+        
+        return view
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -144,18 +159,31 @@ class FoodLogTableViewController: UITableViewController {
             return nil
         }
         
-        let containerView = UIView()
-        containerView.addSubview(label)
+        let horizontalStackView = UIStackView()
+        horizontalStackView.axis = .horizontal
+
+        let macrosHeaderView = getTableviewHeaderMacrosView()
+        macrosHeaderView.translatesAutoresizingMaskIntoConstraints = false
+
+        horizontalStackView.addArrangedSubview(macrosHeaderView)
         
-        label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12).isActive = true
+        macrosHeaderView.leadingAnchor.constraint(equalTo: horizontalStackView.leadingAnchor, constant: 8).isActive = true
+        macrosHeaderView.centerYAnchor.constraint(equalTo: horizontalStackView.centerYAnchor).isActive = true
         
-        containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOpacity = 0.2
-        containerView.layer.shadowRadius = 4.5
-        containerView.layer.shadowOffset = CGSize(width: 1.5, height: 2.5)
+        let mealTypeContainerView = UIView()
+
+        mealTypeContainerView.addSubview(label)
+        label.centerYAnchor.constraint(equalTo: mealTypeContainerView.centerYAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: mealTypeContainerView.trailingAnchor, constant: -12).isActive = true
+
+        mealTypeContainerView.layer.shadowColor = UIColor.black.cgColor
+        mealTypeContainerView.layer.shadowOpacity = 0.2
+        mealTypeContainerView.layer.shadowRadius = 4.5
+        mealTypeContainerView.layer.shadowOffset = CGSize(width: 1.5, height: 2.5)
         
-        return containerView
+        horizontalStackView.addArrangedSubview(mealTypeContainerView)
+        
+        return horizontalStackView
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -165,23 +193,23 @@ class FoodLogTableViewController: UITableViewController {
         switch section {
             case 0:
                 if foodLog.breakfast != nil {
-                    headerSize = 60
+                    headerSize = 70
                 }
             case 1:
                 if foodLog.lunch != nil {
-                    headerSize = 60
+                    headerSize = 70
                 }
             case 2:
                 if foodLog.dinner != nil {
-                    headerSize = 60
+                    headerSize = 70
                 }
             case 3:
                 if foodLog.snack != nil {
-                    headerSize = 60
+                    headerSize = 70
                 }
             case 4:
                 if foodLog.water != nil {
-                    headerSize = 60
+                    headerSize = 70
                 }
             default:
                 return 0.001
