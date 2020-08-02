@@ -9,23 +9,31 @@
 import SwiftUI
 
 struct MacrosMealHeader: View {
-    @State var blueFill: Bool = false
+    @State var blueFill: Bool = true
     @State var greenFill: Bool = false
     @State var orangeFill: Bool = false
     @State var redFill: Bool = false
     
     private var bgHeight: CGFloat = 34
     
-    private var blueColor = Color(UIColor(named: "nutrivurv-blue-new")!)
-    private var greenColor = Color(UIColor(named: "nutrivurv-green-new")!)
-    private var orangeColor = Color(UIColor(named: "nutrivurv-orange-new")!)
-    private var redColor = Color(UIColor(named: "nutrivurv-red-new")!)
+    private var blueColor = Color(UIColor(named: "nutrivurv-blue-new")!).opacity(0.7)
+    private var greenColor = Color(UIColor(named: "nutrivurv-green-new")!).opacity(0.7)
+    private var orangeColor = Color(UIColor(named: "nutrivurv-orange-new")!).opacity(0.7)
+    private var redColor = Color(UIColor(named: "nutrivurv-red-new")!).opacity(0.7)
     
     private var bgColor = Color(UIColor(named: "food-log-label-bg")!)
     private var bgShadowColor = Color(UIColor(named: "daily-vibe-shadow")!)
     private var labelColor = Color(UIColor(named: "food-log-label-text")!)
     
+    @State var caloriesCount = "269 cals"
+    @State var carbsCount = "64 grams"
+    @State var proteinCoiunt = "23 grams"
+    @State var fatCount = "13 grams"
+    
+    @State var labelText = ""
+    
     var body: some View {
+        
         return ZStack {
             RoundedRectangle(cornerRadius: bgHeight / 2, style: .continuous)
                 .foregroundColor(bgColor)
@@ -34,58 +42,83 @@ struct MacrosMealHeader: View {
             HStack {
                 Spacer(minLength: 22)
                 HStack {
+                    
                     Circle()
                         .overlay(
                             Circle()
-                                .stroke(blueColor, style: StrokeStyle(lineWidth: 4.0, lineCap: .round, lineJoin: .round)))
-                        .foregroundColor(blueFill ? blueColor : .clear)
+                                .stroke(blueFill ? .clear : blueColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
+                        .foregroundColor(blueFill ? blueColor: .clear)
                         .frame(width: 16, height: 16)
                         .onTapGesture {
-                            self.blueFill.toggle()
+                            self.blueFill = true
+                            self.labelText = self.caloriesCount
+                            self.greenFill = false
+                            self.orangeFill = false
+                            self.redFill = false
                     }
+                    .animation(.interactiveSpring())
                     
                     
                     
                     Circle()
                         .overlay(
                             Circle()
-                                .stroke(greenColor, style: StrokeStyle(lineWidth: 4.0, lineCap: .round, lineJoin: .round)))
+                                .stroke(greenFill ? .clear : greenColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
                         .foregroundColor(greenFill ? greenColor : .clear)
                         .frame(width: 16, height: 16)
                         .onTapGesture {
-                            self.greenFill.toggle()
+                            self.greenFill = true
+                            self.labelText = self.carbsCount
+                            self.blueFill = false
+                            self.orangeFill = false
+                            self.redFill = false
                     }
+                        .animation(.interactiveSpring())
                     
                     
                     
                     Circle()
                         .overlay(
                             Circle()
-                                .stroke(orangeColor, style: StrokeStyle(lineWidth: 4.0, lineCap: .round, lineJoin: .round)))
+                                .stroke(orangeFill ? .clear : orangeColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
                         .foregroundColor(orangeFill ? orangeColor : .clear)
                         .frame(width: 16, height: 16)
                         .onTapGesture {
-                            self.orangeFill.toggle()
+                            self.orangeFill = true
+                            self.labelText = self.proteinCoiunt
+                            self.blueFill = false
+                            self.greenFill = false
+                            self.redFill = false
                     }
+                    .animation(.interactiveSpring())
                     
                     
                     
                     Circle()
                         .overlay(
                             Circle()
-                                .stroke(redColor, style: StrokeStyle(lineWidth: 4.0, lineCap: .round, lineJoin: .round)))
+                                .stroke(redFill ? .clear : redColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
                         .foregroundColor(redFill ? redColor : .clear)
                         .frame(width: 16, height: 16)
                         .onTapGesture {
-                            self.redFill.toggle()
+                            self.redFill = true
+                            self.labelText = self.fatCount
+                            self.blueFill = false
+                            self.greenFill = false
+                            self.orangeFill = false
                     }
+                    .animation(.interactiveSpring())
+                    
                 }.frame(width: 88)
                 
                 HStack {
-                    Text("269 Cals")
+                    Text(labelText)
                         .foregroundColor(labelColor)
-                        .font(Font.custom("Gaoel", size: 11))
+                        .font(Font.custom("Gaoel", size: 10))
                 }.frame(width: 63, alignment: .center)
+                    .onAppear {
+                        self.labelText = self.caloriesCount
+                }
                 
                 Spacer(minLength: 18)
                 
