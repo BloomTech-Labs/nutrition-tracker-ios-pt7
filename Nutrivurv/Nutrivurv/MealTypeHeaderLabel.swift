@@ -35,7 +35,3 @@ class MealTypeHeaderLabel: UILabel {
     }
 }
 
-
-class MacrosAndCaloriesSectionHeaderView: UIView {
-    
-}
