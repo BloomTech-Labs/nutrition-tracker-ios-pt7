@@ -37,8 +37,8 @@ struct RingsAndMacrosView: View {
                         .offset(x: showRings ? -88 : -38)
                     
                 }
-                .offset(y: -24)
-                .frame(maxHeight: showMacrosDetail ? 105 : 52)
+                .offset(y: -26)
+                .frame(maxHeight: showMacrosDetail ? 99 : 52)
                 
                 
                 VStack {
@@ -51,7 +51,7 @@ struct RingsAndMacrosView: View {
                     
                 }
                 .offset(y: -26)
-                .frame(maxHeight:  showMacrosDetail ? 105 : 52)
+                .frame(maxHeight:  showMacrosDetail ? 99 : 52)
             }
         }
     }
@@ -145,7 +145,7 @@ struct MacrosDetailView: View {
         ZStack {
             RoundedRectangle(cornerRadius: showMacrosDetail ? 23 : 10.5, style: .continuous)
                 .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
-                .frame(width: showMacrosDetail ? 112 : 64, height: showMacrosDetail ? 46 : 21)
+                .frame(width: showMacrosDetail ? 112 : 64, height: showMacrosDetail ? 44 : 21)
                 .shadow(color: showMacrosDetail ? Color(uiColor).opacity(0.2) : Color.clear, radius: showMacrosDetail ? 3.5 : 0, x: 0, y: showMacrosDetail ? 4 : 0)
             
             VStack {
@@ -156,11 +156,11 @@ struct MacrosDetailView: View {
                 
                 if self.showMacrosDetail {
                     Text("\(count) • \(progressPercent)")
-                        .font(Font.custom("QuattrocentoSans-Italic", size: 14.0))
+                        .font(Font.custom("QuattrocentoSans-Italic", size: 13.0))
                         .foregroundColor(Color.white)
                         .animation(Animation.easeInOut(duration: 0.3).delay(0.4))
                 }
-            }.frame(minWidth: 58)
+            }.frame(minWidth: 64)
         }.onTapGesture {
             self.showMacrosDetail.toggle()
             self.showRings.toggle()
