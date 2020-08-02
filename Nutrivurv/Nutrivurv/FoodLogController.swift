@@ -67,18 +67,6 @@ class FoodLogController {
            }
        }
     
-    
-    let defaultMealTypes: [String] = ["Breakfast", "Lunch", "Dinner", "Dessert", "Snack"]
-    
-//    var foodLog: FoodLog? {
-//        didSet {
-//            DispatchQueue.main.async {
-//                print("New Item Logged")
-//                NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
-//            }
-//        }
-//    }
-    
     var foodLog = FoodLog()
     
     func foodLogIsEmpty() -> Bool {
