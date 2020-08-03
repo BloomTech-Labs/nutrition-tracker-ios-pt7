@@ -9,28 +9,27 @@
 import SwiftUI
 
 struct MacrosMealHeader: View {
-    @State var blueFill: Bool = true
-    @State var greenFill: Bool = false
-    @State var orangeFill: Bool = false
-    @State var redFill: Bool = false
+    @ObservedObject var dailyMacrosModel: DailyMacros
     
-    private var bgHeight: CGFloat = 34
+    @State var blueFill = true
+    @State var greenFill = false
+    @State var orangeFill = false
+    @State var redFill = false
     
-    private var blueColor = Color(UIColor(named: "nutrivurv-blue-new")!).opacity(0.7)
-    private var greenColor = Color(UIColor(named: "nutrivurv-green-new")!).opacity(0.7)
-    private var orangeColor = Color(UIColor(named: "nutrivurv-orange-new")!).opacity(0.7)
-    private var redColor = Color(UIColor(named: "nutrivurv-red-new")!).opacity(0.7)
+    var bgHeight: CGFloat = 34
     
-    private var bgColor = Color(UIColor(named: "food-log-label-bg")!)
-    private var bgShadowColor = Color(UIColor(named: "daily-vibe-shadow")!)
-    private var labelColor = Color(UIColor(named: "food-log-label-text")!)
+    var blueColor = Color(UIColor(named: "nutrivurv-blue-new")!).opacity(0.7)
+    var greenColor = Color(UIColor(named: "nutrivurv-green-new")!).opacity(0.7)
+    var orangeColor = Color(UIColor(named: "nutrivurv-orange-new")!).opacity(0.7)
+    var redColor = Color(UIColor(named: "nutrivurv-red-new")!).opacity(0.7)
     
-    @State var caloriesCount = "269 cals"
-    @State var carbsCount = "647 grams"
-    @State var proteinCoiunt = "238 grams"
-    @State var fatCount = "1397 grams"
+    var bgColor = Color(UIColor(named: "food-log-label-bg")!)
+    var bgShadowColor = Color(UIColor(named: "daily-vibe-shadow")!)
+    var labelColor = Color(UIColor(named: "food-log-label-text")!)
     
-    @State var labelText = ""
+    @State var labelText: String = ""
+    
+    @State var initialLoad = true
     
     var body: some View {
         
@@ -51,7 +50,7 @@ struct MacrosMealHeader: View {
                         .frame(width: 16, height: 16)
                         .onTapGesture {
                             self.blueFill = true
-                            self.labelText = self.caloriesCount
+                            self.labelText = "\(Int(self.dailyMacrosModel.caloriesCount)) cals"
                             self.greenFill = false
                             self.orangeFill = false
                             self.redFill = false
@@ -68,7 +67,7 @@ struct MacrosMealHeader: View {
                         .frame(width: 16, height: 16)
                         .onTapGesture {
                             self.greenFill = true
-                            self.labelText = self.carbsCount
+                            self.labelText = "\(Int(self.dailyMacrosModel.carbsCount)) grams"
                             self.blueFill = false
                             self.orangeFill = false
                             self.redFill = false
@@ -85,7 +84,7 @@ struct MacrosMealHeader: View {
                         .frame(width: 16, height: 16)
                         .onTapGesture {
                             self.orangeFill = true
-                            self.labelText = self.proteinCoiunt
+                            self.labelText = "\(Int(self.dailyMacrosModel.proteinCount)) grams"
                             self.blueFill = false
                             self.greenFill = false
                             self.redFill = false
@@ -102,7 +101,7 @@ struct MacrosMealHeader: View {
                         .frame(width: 16, height: 16)
                         .onTapGesture {
                             self.redFill = true
-                            self.labelText = self.fatCount
+                            self.labelText = "\(Int(self.dailyMacrosModel.fatCount)) grams"
                             self.blueFill = false
                             self.greenFill = false
                             self.orangeFill = false
@@ -112,13 +111,16 @@ struct MacrosMealHeader: View {
                 }.frame(width: 88)
                 
                 HStack {
-                    Text(labelText)
+                    Text(self.labelText)
                         .foregroundColor(labelColor)
                         .font(Font.custom("Gaoel", size: 10))
+                        .onAppear {
+                            if self.initialLoad {
+                                self.labelText = "\(Int(self.dailyMacrosModel.caloriesCount)) cals"
+                                self.initialLoad = false
+                            }
+                    }
                 }.frame(width: 63, alignment: .center)
-                    .onAppear {
-                        self.labelText = self.caloriesCount
-                }
                 
                 Spacer(minLength: 18)
                 
@@ -132,6 +134,6 @@ struct MacrosMealHeader: View {
 
 struct MacrosMealHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MacrosMealHeader()
+        MacrosMealHeader(dailyMacrosModel: DailyMacros())
     }
 }
