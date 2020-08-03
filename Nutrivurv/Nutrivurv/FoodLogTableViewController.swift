@@ -12,7 +12,6 @@ import Combine
 
 class FoodLogTableViewController: UITableViewController {
     
-    let foodLogController = FoodLogController.shared
     var foodLog: FoodLog? {
         didSet {
             self.tableView.reloadData()
@@ -74,10 +73,10 @@ class FoodLogTableViewController: UITableViewController {
     
     // MARK: - Custom View Setup
     
-    private func getTableviewHeaderMacrosView() -> UIView {
+    private func getTableviewHeaderMacrosView(using model: DailyMacros) -> UIView {
         let view = UIView()
         
-        let hostingController = UIHostingController(rootView: MacrosMealHeader())
+        let hostingController = UIHostingController(rootView: MacrosMealHeader(dailyMacrosModel: model))
         hostingController.view.backgroundColor = UIColor.clear
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -113,10 +112,10 @@ class FoodLogTableViewController: UITableViewController {
             if let snack = foodLog.snack {
                 return snack.count
             }
-        case 4:
-            if let water = foodLog.water {
-                return water.count
-            }
+//        case 4:
+//            if let water = foodLog.water {
+//                return water.count
+//            }
         default:
             break
         }
@@ -129,33 +128,38 @@ class FoodLogTableViewController: UITableViewController {
         guard let foodLog = foodLog else { return nil }
         
         let label = MealTypeHeaderLabel()
+        var macrosByMealModel: DailyMacros?
         
         switch section {
             case 0:
                 if foodLog.breakfast != nil {
                     label.text = "breakfast"
+                    macrosByMealModel = FoodLogController.shared.breakfastMacrosModel
                 }
             case 1:
                 if foodLog.lunch != nil {
                     label.text = "lunch"
+                    macrosByMealModel = FoodLogController.shared.lunchMacrosModel
                 }
             case 2:
                 if foodLog.dinner != nil {
                     label.text = "dinner"
+                    macrosByMealModel = FoodLogController.shared.dinnerMacrosModel
                 }
             case 3:
                 if foodLog.snack != nil {
                     label.text = "snacks"
+                    macrosByMealModel = FoodLogController.shared.snacksMacrosModel
                 }
-            case 4:
-                if foodLog.water != nil {
-                    label.text = "water"
-                }
+//            case 4:
+//                if foodLog.water != nil {
+//                    label.text = "water"
+//                }
             default:
                 label.text = nil
         }
         
-        if label.text == nil {
+        guard label.text != nil, let macrosModel = macrosByMealModel else {
             return nil
         }
         
@@ -163,7 +167,7 @@ class FoodLogTableViewController: UITableViewController {
         horizontalStackView.axis = .horizontal
         horizontalStackView.alignment = .center
 
-        let macrosHeaderView = getTableviewHeaderMacrosView()
+        let macrosHeaderView = getTableviewHeaderMacrosView(using: macrosModel)
         macrosHeaderView.translatesAutoresizingMaskIntoConstraints = false
 
         horizontalStackView.addArrangedSubview(macrosHeaderView)
@@ -205,10 +209,10 @@ class FoodLogTableViewController: UITableViewController {
                 if foodLog.snack != nil {
                     headerSize = 68
                 }
-            case 4:
-                if foodLog.water != nil {
-                    headerSize = 68
-                }
+//            case 4:
+//                if foodLog.water != nil {
+//                    headerSize = 68
+//                }
             default:
                 return 0
         }
@@ -225,40 +229,35 @@ class FoodLogTableViewController: UITableViewController {
         
         guard let foodLog = foodLog else { return cell }
         
+        var meal: FoodLogEntry?
+        
         switch indexPath.section {
         case 0:
             if let breakfast = foodLog.breakfast {
-                let breakfastEntry = breakfast[indexPath.row]
-                cell.textLabel?.text = breakfastEntry.foodName.capitalized
-                cell.detailTextLabel?.text = breakfastEntry.mealType.capitalized
+                meal = breakfast[indexPath.row]
             }
         case 1:
-            if let allLunch = foodLog.lunch {
-                let lunchEntry = allLunch[indexPath.row]
-                cell.textLabel?.text = lunchEntry.foodName.capitalized
-                cell.detailTextLabel?.text = lunchEntry.mealType.capitalized
+            if let lunch = foodLog.lunch {
+                meal = lunch[indexPath.row]
             }
         case 2:
-            if let allDinner = foodLog.dinner {
-                let dinnerEntry = allDinner[indexPath.row]
-                cell.textLabel?.text = dinnerEntry.foodName.capitalized
-                cell.detailTextLabel?.text = dinnerEntry.mealType.capitalized
+            if let dinner = foodLog.dinner {
+                meal = dinner[indexPath.row]
             }
         case 3:
-            if let allSnacks = foodLog.snack {
-                let snackEntry = allSnacks[indexPath.row]
-                cell.textLabel?.text = snackEntry.foodName.capitalized
-                cell.detailTextLabel?.text = snackEntry.mealType.capitalized
+            if let snacks = foodLog.snack {
+                meal = snacks[indexPath.row]
             }
-        case 4:
-            if let allWater = foodLog.water {
-                let waterEntry = allWater[indexPath.row]
-                cell.textLabel?.text = waterEntry.foodName.capitalized
-                cell.detailTextLabel?.text = waterEntry.mealType.capitalized
-            }
+//        case 4:
+//            if let allWater = foodLog.water {
+//                meal = allWater[indexPath.row]
+//            }
         default:
             break
         }
+        
+        cell.textLabel?.text = meal?.foodName.capitalized
+        cell.detailTextLabel?.text = meal?.mealType.capitalized
         
         return cell
     }
@@ -285,10 +284,10 @@ class FoodLogTableViewController: UITableViewController {
             if let allSnacks = foodLog.snack {
                 foodEntry = allSnacks[indexPath.row]
             }
-        case 4:
-            if let allWater = foodLog.water {
-                foodEntry = allWater[indexPath.row]
-            }
+//        case 4:
+//            if let allWater = foodLog.water {
+//                foodEntry = allWater[indexPath.row]
+//            }
         default:
             foodEntry = nil
         }
