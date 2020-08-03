@@ -16,56 +16,14 @@ class FoodLogController {
     
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/log")!
     
-    @ObservedObject var dailyMacrosModel = DailyMacros()
+    // Object used to publish value for activity rings and total macros view on user dashboard
+    @ObservedObject var totalDailyMacrosModel = DailyMacros()
     
-    // Each of these macros below communicate via Combine with SwiftUI to update activity and macros view
-    var caloriesCount: CGFloat = 0.0 {
-        didSet {
-            dailyMacrosModel.caloriesCount = caloriesCount
-        }
-    }
-    
-    var caloriesPct: CGFloat = 0.005 {
-        didSet {
-            dailyMacrosModel.caloriesPercent = caloriesPct
-        }
-    }
-    
-    var carbsCount: CGFloat = 0.0 {
-        didSet {
-            dailyMacrosModel.carbsCount = carbsCount
-        }
-    }
-    
-    var carbsPct: CGFloat = 0.005 {
-           didSet {
-               dailyMacrosModel.carbsPercent = carbsPct
-           }
-       }
-    
-    var proteinCount: CGFloat = 0.0 {
-        didSet {
-            dailyMacrosModel.proteinCount = proteinCount
-        }
-    }
-    
-    var proteinPct: CGFloat = 0.005 {
-           didSet {
-               dailyMacrosModel.proteinPercent = proteinPct
-           }
-       }
-    
-    var fatCount: CGFloat = 0.0 {
-        didSet {
-            dailyMacrosModel.fatCount = fatCount
-        }
-    }
-    
-    var fatPct: CGFloat = 0.005 {
-           didSet {
-               dailyMacrosModel.fatPercent = fatPct
-           }
-       }
+    // Separate individual objects for each meal to be used in the food log tableview header sections
+    @ObservedObject var breakfastMacrosModel = DailyMacros()
+    @ObservedObject var lunchMacrosModel = DailyMacros()
+    @ObservedObject var dinnerMacrosModel = DailyMacros()
+    @ObservedObject var snacksMacrosModel = DailyMacros()
     
     var foodLog: FoodLog? {
         didSet {
@@ -84,90 +42,125 @@ class FoodLogController {
         var lunchMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
         var dinnerMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
         var snacksMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
-        var waterMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+//        var waterMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0) // TODO: Water is a future release feature
         
         if let breakfast = foodLog.breakfast {
             breakfastMacros = getMacrosTuple(for: breakfast)
+            
+            DispatchQueue.main.async {
+                self.breakfastMacrosModel.caloriesCount = breakfastMacros.0
+                self.breakfastMacrosModel.carbsCount = breakfastMacros.1
+                self.breakfastMacrosModel.proteinCount = breakfastMacros.2
+                self.breakfastMacrosModel.fatCount = breakfastMacros.3
+            }
         }
         
         if let lunch = foodLog.lunch {
             lunchMacros = getMacrosTuple(for: lunch)
+            
+            DispatchQueue.main.async {
+                self.lunchMacrosModel.caloriesCount = lunchMacros.0
+                self.lunchMacrosModel.carbsCount = lunchMacros.1
+                self.lunchMacrosModel.proteinCount = lunchMacros.2
+                self.lunchMacrosModel.fatCount = lunchMacros.3
+            }
         }
         
         if let dinner = foodLog.dinner {
             dinnerMacros = getMacrosTuple(for: dinner)
+            
+            DispatchQueue.main.async {
+                self.dinnerMacrosModel.caloriesCount = dinnerMacros.0
+                self.dinnerMacrosModel.carbsCount = dinnerMacros.1
+                self.dinnerMacrosModel.proteinCount = dinnerMacros.2
+                self.dinnerMacrosModel.fatCount = dinnerMacros.3
+            }
         }
         
         if let snacks = foodLog.snack {
             snacksMacros = getMacrosTuple(for: snacks)
+            
+            DispatchQueue.main.async {
+                self.snacksMacrosModel.caloriesCount = snacksMacros.0
+                self.snacksMacrosModel.carbsCount = snacksMacros.1
+                self.snacksMacrosModel.proteinCount = snacksMacros.2
+                self.snacksMacrosModel.fatCount = snacksMacros.3
+            }
         }
         
-        if let water = foodLog.water {
-            waterMacros = getMacrosTuple(for: water)
-        }
+        // TODO: Water is a future release feature
+//        if let water = foodLog.water {
+//            let waterMacros = getMacrosTuple(for: water)
+//        }
         
         for i in 0...3 {
             switch i {
             case 0:
-                totalMacros.0 = breakfastMacros.0 + lunchMacros.0 + dinnerMacros.0 + snacksMacros.0 + waterMacros.0
+                totalMacros.0 = breakfastMacros.0 + lunchMacros.0 + dinnerMacros.0 + snacksMacros.0 // + waterMacros.0
             case 1:
-                totalMacros.1 = breakfastMacros.1 + lunchMacros.1 + dinnerMacros.1 + snacksMacros.1 + waterMacros.1
+                totalMacros.1 = breakfastMacros.1 + lunchMacros.1 + dinnerMacros.1 + snacksMacros.1 // + waterMacros.1
             case 2:
-                totalMacros.2 = breakfastMacros.2 + lunchMacros.2 + dinnerMacros.2 + snacksMacros.2 + waterMacros.2
+                totalMacros.2 = breakfastMacros.2 + lunchMacros.2 + dinnerMacros.2 + snacksMacros.2 // + waterMacros.2
             case 3:
-                totalMacros.3 = breakfastMacros.3 + lunchMacros.3 + dinnerMacros.3 + snacksMacros.3 + waterMacros.3
+                totalMacros.3 = breakfastMacros.3 + lunchMacros.3 + dinnerMacros.3 + snacksMacros.3 // + waterMacros.3
             default:
                 continue
             }
         }
         
         DispatchQueue.main.async {
-            self.caloriesCount = totalMacros.0
-            self.carbsCount = totalMacros.1
-            self.proteinCount = totalMacros.2
-            self.fatCount = totalMacros.3
-            
-            if self.caloriesCount > 1 {
-                self.caloriesPct = (self.caloriesCount / 2775) * 100
+            // Directly setting values of the observed object to update dashboard accordingly
+            self.totalDailyMacrosModel.caloriesCount = totalMacros.0
+            if totalMacros.0 > 1 {
+                // TODO: make 2775 an enviroment object (or use User Defaults) to change pct calculations based on user settings.
+                self.totalDailyMacrosModel.caloriesPercent = (totalMacros.0 / 2775) * 100
             }
             
-            if self.carbsCount > 1 {
-                self.carbsPct = (self.carbsCount / 40) * 100
+            self.totalDailyMacrosModel.carbsCount = totalMacros.1
+            if totalMacros.1 > 1 {
+                // TODO: make 40 an enviroment object, or use User Defaults
+                self.totalDailyMacrosModel.carbsPercent = (totalMacros.1 / 40) * 100
             }
             
-            if self.proteinCount > 1 {
-                self.proteinPct = (self.proteinCount / 170) * 100
+            
+            self.totalDailyMacrosModel.proteinCount = totalMacros.2
+            if totalMacros.2 > 1 {
+                // TODO: make 170 an enviroment object, or use User Defaults
+                self.totalDailyMacrosModel.proteinPercent = (totalMacros.2 / 170) * 100
             }
             
-            if self.fatCount > 1 {
-                 self.fatPct = (self.fatCount / 215) * 100
+            
+            self.totalDailyMacrosModel.fatCount = totalMacros.3
+            if totalMacros.3 > 1 {
+                // TODO: make 215 an enviroment object, or use User Defaults
+                self.totalDailyMacrosModel.fatPercent = (totalMacros.3 / 215) * 100
             }
         }
     }
     
     private func getMacrosTuple(for meal: [FoodLogEntry]) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
-        var totalCalories = 0.0
-        var totalCarbs = 0.0
-        var totalProtein = 0.0
-        var totalFat = 0.0
+        var totalCalories: CGFloat = 0.0
+        var totalCarbs: CGFloat = 0.0
+        var totalProtein: CGFloat = 0.0
+        var totalFat: CGFloat = 0.0
         
         for entry in meal {
-            totalCalories += Double(entry.calories)
+            totalCalories += CGFloat(entry.calories)
             
-            if let carbs = Double(entry.carbs.getNumbersfromString()) {
+            if let carbs = entry.carbs.getCGFloatfromString() {
                 totalCarbs += carbs
             }
             
-            if let protein = Double(entry.protein.getNumbersfromString()) {
+            if let protein = entry.protein.getCGFloatfromString() {
                 totalProtein += protein
             }
             
-            if let fat = Double(entry.fat.getNumbersfromString()) {
+            if let fat = entry.fat.getCGFloatfromString() {
                 totalFat += fat
             }
         }
         
-        return (CGFloat(totalCalories), CGFloat(totalCarbs), CGFloat(totalProtein), CGFloat(totalFat))
+        return (totalCalories, totalCarbs, totalProtein, totalFat)
     }
     
     

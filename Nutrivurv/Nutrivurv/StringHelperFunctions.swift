@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     func isValidEmail() -> Bool {
@@ -16,8 +17,12 @@ extension String {
         return emailPred.evaluate(with: self)
     }
     
-    func getNumbersfromString() -> String {
+    func getCGFloatfromString() -> CGFloat? {
         let decimals = Set("0123456789.")
-        return self.filter{ decimals.contains($0) }
+        let value = self.filter{ decimals.contains($0) }
+        
+        guard let double = Double(value) else { return 0.0 }
+        
+        return CGFloat(double)
     }
 }
