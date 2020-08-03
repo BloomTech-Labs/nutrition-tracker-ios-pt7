@@ -10,26 +10,20 @@ import SwiftUI
 
 struct MacrosMealHeader: View {
     @ObservedObject var dailyMacrosModel: DailyMacros
+    @State var selectedIndex: Int = 0
     
-    @State var blueFill = true
-    @State var greenFill = false
-    @State var orangeFill = false
-    @State var redFill = false
+    var bgHeight: CGFloat = 36
     
-    var bgHeight: CGFloat = 34
+    // Primary colors for circles/rings
+    var blueColor = Color(UIColor(named: "nutrivurv-blue-new")!)
+    var greenColor = Color(UIColor(named: "nutrivurv-green-new")!)
+    var orangeColor = Color(UIColor(named: "nutrivurv-orange-new")!)
+    var redColor = Color(UIColor(named: "nutrivurv-red-new")!)
     
-    var blueColor = Color(UIColor(named: "nutrivurv-blue-new")!).opacity(0.7)
-    var greenColor = Color(UIColor(named: "nutrivurv-green-new")!).opacity(0.7)
-    var orangeColor = Color(UIColor(named: "nutrivurv-orange-new")!).opacity(0.7)
-    var redColor = Color(UIColor(named: "nutrivurv-red-new")!).opacity(0.7)
-    
+    // Secondary colors for backgrounds & text
     var bgColor = Color(UIColor(named: "food-log-label-bg")!)
     var bgShadowColor = Color(UIColor(named: "daily-vibe-shadow")!)
     var labelColor = Color(UIColor(named: "food-log-label-text")!)
-    
-    @State var labelText: String = ""
-    
-    @State var initialLoad = true
     
     var body: some View {
         
@@ -41,99 +35,70 @@ struct MacrosMealHeader: View {
             HStack {
                 Spacer(minLength: 22)
                 HStack {
-                    
-                    Circle()
-                        .overlay(
-                            Circle()
-                                .stroke(blueFill ? .clear : blueColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
-                        .foregroundColor(blueFill ? blueColor: .clear)
-                        .frame(width: 16, height: 16)
-                        .onTapGesture {
-                            self.blueFill = true
-                            self.labelText = "\(Int(self.dailyMacrosModel.caloriesCount)) cals"
-                            self.greenFill = false
-                            self.orangeFill = false
-                            self.redFill = false
-                    }
-                    .animation(.interactiveSpring())
-                    
-                    
-                    
-                    Circle()
-                        .overlay(
-                            Circle()
-                                .stroke(greenFill ? .clear : greenColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
-                        .foregroundColor(greenFill ? greenColor : .clear)
-                        .frame(width: 16, height: 16)
-                        .onTapGesture {
-                            self.greenFill = true
-                            self.labelText = "\(Int(self.dailyMacrosModel.carbsCount)) grams"
-                            self.blueFill = false
-                            self.orangeFill = false
-                            self.redFill = false
-                    }
-                        .animation(.interactiveSpring())
-                    
-                    
-                    
-                    Circle()
-                        .overlay(
-                            Circle()
-                                .stroke(orangeFill ? .clear : orangeColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
-                        .foregroundColor(orangeFill ? orangeColor : .clear)
-                        .frame(width: 16, height: 16)
-                        .onTapGesture {
-                            self.orangeFill = true
-                            self.labelText = "\(Int(self.dailyMacrosModel.proteinCount)) grams"
-                            self.blueFill = false
-                            self.greenFill = false
-                            self.redFill = false
-                    }
-                    .animation(.interactiveSpring())
-                    
-                    
-                    
-                    Circle()
-                        .overlay(
-                            Circle()
-                                .stroke(redFill ? .clear : redColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round)))
-                        .foregroundColor(redFill ? redColor : .clear)
-                        .frame(width: 16, height: 16)
-                        .onTapGesture {
-                            self.redFill = true
-                            self.labelText = "\(Int(self.dailyMacrosModel.fatCount)) grams"
-                            self.blueFill = false
-                            self.greenFill = false
-                            self.orangeFill = false
-                    }
-                    .animation(.interactiveSpring())
-                    
-                }.frame(width: 88)
+                    MacroMealHeaderCircle(index: 0, color: blueColor, selected: $selectedIndex)
+                    MacroMealHeaderCircle(index: 1, color: greenColor, selected: $selectedIndex)
+                    MacroMealHeaderCircle(index: 2, color: orangeColor, selected: $selectedIndex)
+                    MacroMealHeaderCircle(index: 3, color: redColor, selected: $selectedIndex)
+                }.frame(width: 92)
                 
                 HStack {
-                    Text(self.labelText)
+                    Text(
+                        "\(getValueForMacro()) \(selectedIndex == 0 ? "Cals" : "Grams")"
+                    )
                         .foregroundColor(labelColor)
-                        .font(Font.custom("Gaoel", size: 10))
-                        .onAppear {
-                            if self.initialLoad {
-                                self.labelText = "\(Int(self.dailyMacrosModel.caloriesCount)) cals"
-                                self.initialLoad = false
-                            }
-                    }
-                }.frame(width: 63, alignment: .center)
+                        .font(Font.custom("Gaoel", size: 11))
+                }.frame(width: 82, alignment: .center)
                 
                 Spacer(minLength: 18)
-                
             }
-            .frame(width: 156, height: 16, alignment: .center)
-            
-        }.frame(width: 184, height: bgHeight)
-        
+            .frame(width: 156, height: 18, alignment: .center)
+        }
+        .frame(width: 204, height: bgHeight)
+    }
+    
+    func getValueForMacro() -> String {
+        switch selectedIndex {
+        case 0:
+            return "\(Int(self.dailyMacrosModel.caloriesCount))"
+        case 1:
+            return "\(Int(self.dailyMacrosModel.carbsCount))"
+        case 2:
+            return "\(Int(self.dailyMacrosModel.proteinCount))"
+        case 3:
+            return "\(Int(self.dailyMacrosModel.fatCount))"
+        default:
+            return "0"
+        }
     }
 }
 
 struct MacrosMealHeader_Previews: PreviewProvider {
     static var previews: some View {
         MacrosMealHeader(dailyMacrosModel: DailyMacros())
+    }
+}
+
+struct MacroMealHeaderCircle: View {
+    // Used to change opacity and animation properties if in dark mode for improved look
+    @Environment(\.colorScheme) var colorScheme
+    @State var index: Int
+    @State var color: Color
+    @Binding var selected: Int
+    
+    var body: some View {
+        let animation = Animation.interactiveSpring(response: colorScheme == .dark ? 0.3 : 0.16, dampingFraction: colorScheme == .dark ? 0.55 : 0.48, blendDuration: colorScheme == .dark ? 0.5 : 0.02)
+        
+        return Circle()
+            .overlay(
+                Circle()
+                    .stroke(selected == index ? .clear : color.opacity(colorScheme == .dark ? 1.0 : 0.8), style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round))
+                    .animation(animation.speed(1.25)))
+            .foregroundColor(selected == index ? color.opacity(colorScheme == .dark ? 1.0 : 0.8) : .clear)
+            .frame(width: 18, height: 18)
+            .onTapGesture {
+                self.selected = self.index
+        }
+        .scaleEffect(selected == index ? 0.95 : 1.0)
+        .animation(animation)
     }
 }
