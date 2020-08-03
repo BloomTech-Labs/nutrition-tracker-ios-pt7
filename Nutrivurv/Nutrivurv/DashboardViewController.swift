@@ -36,8 +36,6 @@ class DashboardViewController: UIViewController {
     
     let userController = ProfileCreationController()
     
-    var dailyMacrosModel = FoodLogController.shared.dailyMacrosModel
-    
     // MARK: Custom Views
     
     lazy var dailyVibeBackgroundView: UIView = {
@@ -118,7 +116,7 @@ class DashboardViewController: UIViewController {
     }
     
     private func addActivityRingsProgressView() {
-        let hostingController = UIHostingController(rootView: RingsAndMacrosView(dailyMacrosModel: self.dailyMacrosModel))
+        let hostingController = UIHostingController(rootView: RingsAndMacrosView(dailyMacrosModel: FoodLogController.shared.totalDailyMacrosModel))
         hostingController.view.backgroundColor = UIColor.clear
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         
