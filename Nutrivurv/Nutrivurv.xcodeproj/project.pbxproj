@@ -41,6 +41,7 @@
 		51503BEF24D287DE00643896 /* MealTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51503BEE24D287DE00643896 /* MealTypes.swift */; };
 		5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */; };
 		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
+		515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */; };
 		51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */; };
 		51C5742A24CBB9F900B211F8 /* Catamaran-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */; };
 		51C5742B24CBB9F900B211F8 /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */; };
@@ -124,6 +125,7 @@
 		51503BEE24D287DE00643896 /* MealTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypes.swift; sourceTree = "<group>"; };
 		5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTableViewController.swift; sourceTree = "<group>"; };
 		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
+		515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
 		51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
 		51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraLight.ttf"; sourceTree = "<group>"; };
 		51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				512970C224B1324900315C7B /* RingsAndMacrosView.swift */,
 				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
 				5138FEF924D4ED81008FC720 /* MacrosMealHeader.swift */,
+				515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */,
 			);
 			name = "SwiftUI Views and Models";
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */,
 				D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */,
 				5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */,
+				515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
 				4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */,
 				513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */,
