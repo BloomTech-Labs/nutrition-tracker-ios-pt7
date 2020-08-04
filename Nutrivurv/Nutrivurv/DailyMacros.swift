@@ -59,4 +59,18 @@ class DailyMacros: ObservableObject {
                self.objectWillChange.send(newValue)
            }
        }
+    
+    func resetMacros() {
+        self.caloriesCount = 0
+        self.caloriesPercent = 0.005
+        
+        self.carbsCount = 0
+        self.carbsPercent = 0.005
+        
+        self.proteinCount = 0
+        self.proteinPercent = 0.005
+        
+        self.fatCount = 0
+        self.fatPercent = 0.005
+    }
 }
