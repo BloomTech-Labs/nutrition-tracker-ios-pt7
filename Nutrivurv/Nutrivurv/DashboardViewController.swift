@@ -28,7 +28,11 @@ class DashboardViewController: UIViewController {
     
     // Subviews
     @IBOutlet weak var dailyVibeStackView: UIStackView!
+    
     @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var previousDateButton: UIButton!
+    @IBOutlet weak var nextDateButton: UIButton!
+    
     @IBOutlet weak var foodLogTableView: FadedFoodLogBackgroundView!
     
     @IBOutlet weak var ringsAndMacrosContainerView: UIView!
@@ -50,6 +54,12 @@ class DashboardViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    var selectedDate: Date = Date() {
+        didSet {
+            FoodLogController.shared.setNewSelectedDate(selectedDate)
+        }
+    }
     
     // MARK: - View Lifecycle Methods and Update Views
     
@@ -237,6 +247,23 @@ class DashboardViewController: UIViewController {
         viewController.modalTransitionStyle = .flipHorizontal
         self.present(viewController, animated: true, completion: nil)
     }
+    
+    @IBAction func previousDateButtonTapped(_ sender: Any) {
+        let currentDate = self.selectedDate
+        let newDate = currentDate.advanced(by: -86_400)
+        self.selectedDate = newDate
+    }
+    
+    @IBAction func nextDateButtonTapped(_ sender: Any) {
+        if Calendar.current.isDateInToday(selectedDate) {
+            return
+        }
+        
+        let currentDate = self.selectedDate
+        let newDate = currentDate.advanced(by: 86_400)
+        self.selectedDate = newDate
+    }
+    
 }
 
 // MARK: - Profile Completion Protocol Declaration & Delegate Conformance
