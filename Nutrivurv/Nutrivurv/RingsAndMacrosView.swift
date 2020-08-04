@@ -158,7 +158,9 @@ struct MacrosDetailView: View {
                     Text("\(count) • \(progressPercent)")
                         .font(Font.custom("QuattrocentoSans-Italic", size: 13.0))
                         .foregroundColor(Color.white)
-                        .animation(Animation.easeInOut(duration: 0.3).delay(0.4))
+                        .lineLimit(1)
+                        .frame(width: 112)
+                        .minimumScaleFactor(0.75)
                 }
             }.frame(minWidth: 64)
         }.onTapGesture {
