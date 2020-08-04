@@ -45,14 +45,30 @@ struct FoodDetailView: View {
                 }
                 .frame(width: 365, height: 60)
                 .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 21))
-                .offset(x: 0, y: -284)
+                .offset(x: 0, y: -280)
                 
                 
                 HStack {
-                    Rectangle().foregroundColor(.black)
+                    VStack{
+                        Text("Avocados")
+                            .font(Font.custom("Catamaran-Bold", size: 20))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .minimumScaleFactor(0.6)
+                            .lineLimit(1)
+                        
+                        Text("Generic Foods")
+                            .font(Font.custom("QuattrocentoSans-Italic", size: 15))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(EdgeInsets(top: -5, leading: 0, bottom: 0, trailing: 0))
+                    }
+                    
+                    Spacer()
+                    
+                    Image("heart-icon")
+                        .frame(width: 32, height: 29)
                 }
                 .frame(width: 354, height: 44)
-                .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12))
+                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
                 .offset(x: 0, y: -209)
                 
             }
