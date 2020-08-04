@@ -31,6 +31,18 @@ class FoodLogController {
         }
     }
     
+    var selectedDate: Date? {
+        didSet {
+            NotificationCenter.default.post(name: .selectedDateChanged, object: selectedDate)
+            // add observor to food log table view
+        }
+    }
+    
+    func setNewSelectedDate(_ date: Date) {
+        self.selectedDate = date
+    }
+    
+    
     // MARK: - Calculating Macros
     
     func parseFoodLogEntries() {

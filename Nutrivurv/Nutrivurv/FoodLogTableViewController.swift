@@ -23,7 +23,7 @@ class FoodLogTableViewController: UITableViewController {
     // A default message label displayed as table view bg view when the users food log is empty for the day
     var noFoodLoggedLabel: UILabel?
     
-    var selectedDateForLogs: String? {
+    var selectedDateAsString: String? {
         didSet {
             self.updateFoodLog()
         }
@@ -32,7 +32,14 @@ class FoodLogTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateFoodLog), name: .newFoodItemLogged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receivedDateFromController(_:)), name: .selectedDateChanged, object: nil)
         self.setDateForLogEntries()
+    }
+    
+    @objc func receivedDateFromController(_ notification: Notification) {
+        if let date = notification.object as? Date {
+            setDateForLogEntries(date)
+        }
     }
     
     @objc func reloadFoodLogTableView() {
@@ -49,12 +56,11 @@ class FoodLogTableViewController: UITableViewController {
         reloadFoodLogTableView()
     }
     
-    private func setDateForLogEntries() {
+    private func setDateForLogEntries(_ date: Date = Date()) {
         // TODO: Allow user to visit previous calendar dates to get log for that date
-        let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        self.selectedDateForLogs = dateFormatter.string(from: date)
+        self.selectedDateAsString = dateFormatter.string(from: date)
     }
     
     private func noFoodLoggedMessage(message:String) {
@@ -327,7 +333,7 @@ class FoodLogTableViewController: UITableViewController {
     
     
     @objc private func updateFoodLog() {
-        guard let date = selectedDateForLogs else { return }
+        guard let date = selectedDateAsString else { return }
         
         FoodLogController.shared.getFoodLogEntriesForDate(date: date) { (result) in
             switch result {
@@ -335,6 +341,10 @@ class FoodLogTableViewController: UITableViewController {
                 self.foodLog = foodLog
                 self.tableView.reloadData()
                 self.reloadFoodLogTableView()
+                
+                if self.foodLogIsEmpty() {
+                    FoodLogController.shared.totalDailyMacrosModel.resetMacros()
+                }
             default:
                 return
             }
