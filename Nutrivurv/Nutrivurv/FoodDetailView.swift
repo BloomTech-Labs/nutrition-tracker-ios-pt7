@@ -28,7 +28,7 @@ struct FoodDetailView: View {
             
             ZStack {
                 // Main card background view
-                RoundedRectangle(cornerRadius: 35.0)
+                RoundedRectangle(cornerRadius: 30.0, style: .continuous)
                 .foregroundColor(.blue)
                 
                 HStack {
