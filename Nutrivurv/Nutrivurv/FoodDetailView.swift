@@ -71,6 +71,10 @@ struct FoodDetailView: View {
                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
                 .offset(x: 0, y: -209)
                 
+                ServingSizeSelectionView()
+                    .frame(width: 300, height: 58)
+                    .offset(x: 0, y: -136)
+                
             }
             .frame(width: 415, height: 556, alignment: .bottom)
             .offset(x: 0, y: -36)
