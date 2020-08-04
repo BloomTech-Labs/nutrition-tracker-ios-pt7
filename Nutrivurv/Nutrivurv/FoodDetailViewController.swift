@@ -507,7 +507,6 @@ class FoodDetailViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"
         let date = Date()
-        
         let dateString = dateFormatter.string(from: date)
         
         let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
