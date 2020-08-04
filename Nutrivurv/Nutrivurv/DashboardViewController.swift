@@ -30,6 +30,8 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var dailyVibeStackView: UIStackView!
     
     @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var dateDescriptionLabel: UILabel!
+    @IBOutlet weak var selectedDateLabel: UILabel!
     @IBOutlet weak var previousDateButton: UIButton!
     @IBOutlet weak var nextDateButton: UIButton!
     
@@ -65,6 +67,7 @@ class DashboardViewController: UIViewController {
                 self.nextDateButton.isEnabled = true
                 self.nextDateButton.setTitleColor(UIColor(named: "food-log-label-text"), for: .normal)
             }
+            self.setSelectedDateLabelText(selectedDate)
         }
     }
     
@@ -82,6 +85,7 @@ class DashboardViewController: UIViewController {
         setupDateView()
         self.nextDateButton.isEnabled = false
         self.nextDateButton.setTitleColor(UIColor(named: "disabled-button-text"), for: .normal)
+        self.setSelectedDateLabelText()
         
         let contentView = setupNavBarImageView()
         self.navigationItem.titleView = contentView
@@ -186,6 +190,30 @@ class DashboardViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         self.updateDailyVibeShadow()
+    }
+    
+    private func setSelectedDateLabelText(_ date: Date = Date()) {
+        // TODO: Allow user to visit previous calendar dates to get log for that date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        self.selectedDateLabel.text = dateFormatter.string(from: date).lowercased()
+        setDateDescriptionLabelText()
+    }
+    
+    private func setDateDescriptionLabelText() {
+        var descriptionText = ""
+        
+        if Calendar.current.isDateInToday(selectedDate) {
+            descriptionText = "today"
+        } else if Calendar.current.isDateInYesterday(selectedDate) {
+            descriptionText = "yesterday"
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            descriptionText = dateFormatter.string(from: selectedDate).lowercased()
+        }
+        
+        self.dateDescriptionLabel.text = descriptionText
     }
     
     

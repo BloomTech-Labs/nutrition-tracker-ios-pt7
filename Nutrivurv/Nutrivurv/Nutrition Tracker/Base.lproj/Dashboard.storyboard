@@ -307,11 +307,13 @@
                         <outlet property="dailyVibeAuthorLabel" destination="e09-AN-MWp" id="00p-Mq-n6N"/>
                         <outlet property="dailyVibeQuoteLabel" destination="YAb-hN-fSe" id="ZS9-hF-Ns5"/>
                         <outlet property="dailyVibeStackView" destination="Ioa-4t-5oD" id="Ot9-JN-W47"/>
+                        <outlet property="dateDescriptionLabel" destination="Ead-NY-Fem" id="Vve-IU-xDZ"/>
                         <outlet property="dateView" destination="fsb-9r-h9S" id="7YY-bH-OlD"/>
                         <outlet property="foodLogTableView" destination="vL2-nj-e72" id="GjO-mj-dFh"/>
                         <outlet property="nextDateButton" destination="jfQ-yp-UAr" id="SXY-R0-qIf"/>
                         <outlet property="previousDateButton" destination="I0X-I0-lQb" id="Ki4-Q7-hCx"/>
                         <outlet property="ringsAndMacrosContainerView" destination="UBn-fK-BvN" id="eMw-eo-llq"/>
+                        <outlet property="selectedDateLabel" destination="htc-TY-rj8" id="Osy-da-YzK"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
                         <outlet property="streakStackView" destination="Tmn-O8-MJJ" id="U74-Gf-2bC"/>
                         <outlet property="streakUnitLabel" destination="qMC-HY-f12" id="1k6-Fq-mjO"/>
