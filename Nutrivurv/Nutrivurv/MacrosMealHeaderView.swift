@@ -1,5 +1,5 @@
 //
-//  MacrosMealHeader.swift
+//  MacrosMealHeaderView.swift
 //  Nutrivurv
 //
 //  Created by Dillon on 7/31/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MacrosMealHeader: View {
+struct MacrosMealHeaderView: View {
     @ObservedObject var dailyMacrosModel: DailyMacros
     @State var selectedIndex: Int = 0
     
@@ -74,7 +74,7 @@ struct MacrosMealHeader: View {
 
 struct MacrosMealHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MacrosMealHeader(dailyMacrosModel: DailyMacros())
+        MacrosMealHeaderView(dailyMacrosModel: DailyMacros())
     }
 }
 

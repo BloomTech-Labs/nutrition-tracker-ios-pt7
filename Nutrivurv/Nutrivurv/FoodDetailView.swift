@@ -32,7 +32,7 @@ struct FoodDetailView: View {
                 .foregroundColor(.blue)
                 
                 HStack {
-                    MacrosMealHeader(dailyMacrosModel: DailyMacros())
+                    MacrosMealHeaderView(dailyMacrosModel: DailyMacros())
                         .scaleEffect(1.08)
                         .frame(width: 245, height: 43)
                     
