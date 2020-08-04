@@ -60,7 +60,7 @@ class DashboardViewController: UIViewController {
             FoodLogController.shared.setNewSelectedDate(selectedDate)
             if Calendar.current.isDateInToday(selectedDate) {
                 self.nextDateButton.isEnabled = false
-                self.nextDateButton.setTitleColor(.systemGray, for: .normal)
+                self.nextDateButton.setTitleColor(UIColor(named: "disabled-button-text"), for: .normal)
             } else {
                 self.nextDateButton.isEnabled = true
                 self.nextDateButton.setTitleColor(UIColor(named: "food-log-label-text"), for: .normal)
@@ -81,7 +81,7 @@ class DashboardViewController: UIViewController {
         
         setupDateView()
         self.nextDateButton.isEnabled = false
-        self.nextDateButton.setTitleColor(.lightGray, for: .normal)
+        self.nextDateButton.setTitleColor(UIColor(named: "disabled-button-text"), for: .normal)
         
         let contentView = setupNavBarImageView()
         self.navigationItem.titleView = contentView
