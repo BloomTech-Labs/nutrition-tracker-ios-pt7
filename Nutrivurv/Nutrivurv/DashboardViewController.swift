@@ -10,6 +10,7 @@ import UIKit
 import KeychainSwift
 import SwiftUI
 import Combine
+import HealthKit
 
 class DashboardViewController: UIViewController {
     
@@ -41,6 +42,9 @@ class DashboardViewController: UIViewController {
     var ringsAndMacrosHostingController: UIViewController!
     
     let userController = ProfileCreationController()
+    
+    // Used to display the alert to prompt user for HealthKit access only once
+    private var displayedHKAccessAlert = false
     
     // MARK: Custom Views
     
@@ -78,6 +82,8 @@ class DashboardViewController: UIViewController {
         
         updateLoginStreakLabel()
         addActivityRingsProgressView()
+        
+        getCurrentWeight()
         
         prepareForEntranceAnimations()
         animatePrimaryViewsForEntry()
@@ -275,14 +281,15 @@ class DashboardViewController: UIViewController {
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
         // TODO: Fix bug where logout button font changes when tapping
-        let keychain = KeychainSwift()
-        keychain.clear()
-        FoodLogController.shared.foodLog = FoodLog()
-        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
-        viewController.modalPresentationStyle = .fullScreen
-        viewController.modalTransitionStyle = .flipHorizontal
-        self.present(viewController, animated: true, completion: nil)
+        // TODO: Delete login streak from user defaults when logging out
+//        let keychain = KeychainSwift()
+//        keychain.clear()
+//        FoodLogController.shared.foodLog = FoodLog()
+//        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
+//        viewController.modalPresentationStyle = .fullScreen
+//        viewController.modalTransitionStyle = .flipHorizontal
+//        self.present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func previousDateButtonTapped(_ sender: Any) {
@@ -301,6 +308,65 @@ class DashboardViewController: UIViewController {
         self.selectedDate = newDate
     }
     
+    
+    // MARK: - HealthKit Data Functionality
+    
+    private func getCurrentWeight() {
+        guard let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) else {
+            print("The weight sample type is not avaiable from HealtKit")
+            return
+        }
+        
+        HealthKitController.getMostRecentSample(for: weightSampleType) { (weightSample, error) in
+            if let error = error {
+                self.promptForHKAccessToWeight()
+                print("Error getting most recent weight sample form HealthKit: \(error)")
+                return
+            }
+            
+            guard let weightSample = weightSample else {
+                self.promptForHKAccessToWeight()
+                print("Failed to get weight sample data")
+                return
+            }
+            
+            let weightInPounds = weightSample.quantity.doubleValue(for: HKUnit.pound())
+            self.currentWeightLabel.text = String(format: "%.1f", weightInPounds)
+        }
+    }
+    
+    private func promptForHKAccessToWeight() {
+        let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, open the privacy settings within your settings app to allow access.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+            self.displayedHKAccessAlert = true
+            self.requestHealthKitAuthorization { (result) in
+                if result == true {
+                    self.getCurrentWeight()
+                }
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func requestHealthKitAuthorization(completion: @escaping (Bool) -> Void) {
+        if displayedHKAccessAlert == true {
+            return
+        }
+        
+        HealthKitController.authorizeHealthKit { (authorized, error) in
+            if let error = error {
+                print(error)
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        }
+    }
 }
 
 // MARK: - Profile Completion Protocol Declaration & Delegate Conformance
