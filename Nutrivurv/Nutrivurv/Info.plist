@@ -85,5 +85,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs permission to sync your calorie and nutrition information to the Health app.</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs permission to access your Health data in order to accurately calculate calories.</string>
 </dict>
 </plist>
