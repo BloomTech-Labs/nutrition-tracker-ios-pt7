@@ -10,8 +10,6 @@ import SwiftUI
 
 struct FoodDetailView: View {
     var body: some View {
-        
-        
         VStack {
             
             // Acts as the nav bar - ONLY for testing purposes
@@ -29,11 +27,13 @@ struct FoodDetailView: View {
             ZStack {
                 // Main card background view
                 RoundedRectangle(cornerRadius: 30.0, style: .continuous)
-                .foregroundColor(.blue)
+//                    .foregroundColor(Color(UIColor(named: "daily-vibe")!))
+                    .foregroundColor(.white)
+                    .shadow(color: Color(UIColor(named: "detail-view-card-shadow")!), radius: 8.0, x: 0, y: -3)
                 
                 HStack {
                     MacrosMealHeaderView(dailyMacrosModel: DailyMacros())
-                        .scaleEffect(1.08)
+                        .scaleEffect(1.10)
                         .frame(width: 245, height: 43)
                     
                     Spacer()
@@ -42,10 +42,11 @@ struct FoodDetailView: View {
                     Image("add-meal-button-icon")
                         .frame(width: 60, height: 60)
                         .scaleEffect(1.0)
+                        .shadow(color: Color(UIColor(named: "detail-view-card-shadow")!), radius: 8.0, x: 0, y: -3)
                 }
                 .frame(width: 365, height: 60)
                 .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 21))
-                .offset(x: 0, y: -280)
+                .offset(x: 0, y: -278)
                 
                 
                 HStack {
@@ -69,11 +70,14 @@ struct FoodDetailView: View {
                 }
                 .frame(width: 354, height: 44)
                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
-                .offset(x: 0, y: -209)
+                .offset(x: 0, y: -215)
                 
                 ServingSizeSelectionView()
                     .frame(width: 300, height: 58)
-                    .offset(x: 0, y: -136)
+                    .offset(x: 0, y: -145)
+                
+                ProgressSwitcherView()
+                .offset(x: 0, y: -62)
                 
             }
             .frame(width: 415, height: 556, alignment: .bottom)

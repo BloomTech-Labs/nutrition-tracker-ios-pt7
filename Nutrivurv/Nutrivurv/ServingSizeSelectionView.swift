@@ -49,7 +49,7 @@ struct FoodDetailsInputView: View {
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 4, trailing: 0))
             
             Text(input)
-                .font(Font.custom("Catamaran-SemiBold", size: 17))
+                .font(Font.custom("Catamaran-SemiBold", size: 16))
                 .frame(width: 90, height: 31)
             
             RoundedRectangle(cornerRadius: 1.0, style: .continuous)
