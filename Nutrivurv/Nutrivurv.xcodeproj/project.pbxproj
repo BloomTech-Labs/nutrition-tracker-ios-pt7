@@ -42,6 +42,7 @@
 		512FF46024DB597100F49FCB /* TabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45F24DB597100F49FCB /* TabBarItemContainer.swift */; };
 		512FF46224DB597500F49FCB /* TabBarItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF46124DB597500F49FCB /* TabBarItemContentView.swift */; };
 		512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */; };
+		512FF46C24DB60BD00F49FCB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 512FF46B24DB60BD00F49FCB /* Lottie */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */; };
@@ -217,6 +218,7 @@
 			files = (
 				D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */,
 				512CA6AB24DA4CE600B17010 /* HealthKit.framework in Frameworks */,
+				512FF46C24DB60BD00F49FCB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +597,7 @@
 			name = Nutrivurv;
 			packageProductDependencies = (
 				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
+				512FF46B24DB60BD00F49FCB /* Lottie */,
 			);
 			productName = "Nutrition Tracker";
 			productReference = D68C701A23F25400008AFDF0 /* Nutrivurv.app */;
@@ -627,6 +630,7 @@
 			mainGroup = D68C701123F25400008AFDF0;
 			packageReferences = (
 				D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = D68C701B23F25400008AFDF0 /* Products */;
 			projectDirPath = "";
@@ -822,6 +826,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -882,6 +887,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -911,6 +917,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = B22A9UYX67;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -937,6 +944,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = B22A9UYX67;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -979,6 +987,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
 		D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -990,6 +1006,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		512FF46B24DB60BD00F49FCB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		D60BA2D423FF79AD00B3E6BF /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */;
