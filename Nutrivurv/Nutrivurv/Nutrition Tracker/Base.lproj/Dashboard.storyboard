@@ -331,7 +331,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="aq5-6o-iga">
             <objects>
-                <tabBarController restorationIdentifier="DashboardTabBar" storyboardIdentifier="DashboardTabBar" id="Qan-C2-fkh" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="DashboardTabBar" storyboardIdentifier="DashboardTabBar" id="Qan-C2-fkh" customClass="ESTabBarController" customModule="ESTabBarController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" itemSpacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="uV9-wI-UMh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -349,10 +349,10 @@
             </objects>
             <point key="canvasLocation" x="9430" y="-547"/>
         </scene>
-        <!--food search-->
+        <!--Food Search-->
         <scene sceneID="FgN-cI-bhq">
             <objects>
-                <tableViewController id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FoodSearch" title="Food Search" id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1si-0W-cfy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,10 +452,10 @@
             </objects>
             <point key="canvasLocation" x="11141" y="542"/>
         </scene>
-        <!--nutrition info-->
+        <!--Nutrition Info-->
         <scene sceneID="WhU-tq-Pfb">
             <objects>
-                <viewController restorationIdentifier="FoodDetailViewController" storyboardIdentifier="FoodDetailViewController" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" id="U4e-Le-VaR" customClass="FoodDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FoodDetailViewController" storyboardIdentifier="FoodDetailViewController" title="Nutrition Info" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" id="U4e-Le-VaR" customClass="FoodDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hio-Jw-9GW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1182,7 +1182,7 @@
         <!--Navigation Controller-->
         <scene sceneID="O7p-ql-xAJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rYl-n3-f5W" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DashboardNavController" automaticallyAdjustsScrollViewInsets="NO" id="rYl-n3-f5W" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar-house" selectedImage="tabbar-house" id="oV9-2g-prE">
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
@@ -1205,7 +1205,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Hzh-E0-s3S">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ocA-CQ-44Y" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FoodSearchNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ocA-CQ-44Y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar-plate" selectedImage="tabbar-plate" id="GJU-hc-xQk">
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
