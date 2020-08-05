@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ESTabBarController
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,11 +20,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             var rootVC: UIViewController?
             
             if UserAuthController.isLoggedIn() {
-                guard let vc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "DashboardTabBar") as? UITabBarController else {
+                guard let tabBarVC = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "DashboardTabBar") as? ESTabBarController else {
                     print("Unable to instantiate dashboard")
                     return
                 }
-                rootVC = vc
+                
+                if let tabBar = tabBarVC.tabBar as? ESTabBar {
+                    tabBar.itemCustomPositioning = .fillIncludeSeparator
+                }
+                
+                guard let v1 = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "DashboardNavController") as? UINavigationController else {
+                    print("Error instatiating dashboard vc")
+                    return
+                }
+                
+                guard let v2 = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "FoodSearchNavController") as? UINavigationController else {
+                    print("Error instatiating food search vc")
+                    return
+                }
+                
+                let v1ContentView = ESTabBarItemContentView()
+                let v2ContentView = ESTabBarItemContentView()
+                
+                v1.tabBarItem = ESTabBarItem.init(v1ContentView, title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"), tag: 0)
+                v2.tabBarItem = ESTabBarItem.init(v2ContentView, title: nil, image: UIImage(named: "shop"), selectedImage: UIImage(named: "shop_1"), tag: 1)
+                
+                tabBarVC.viewControllers = [v1, v2]
+                
+                rootVC = tabBarVC
             } else {
                 guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MainAppWelcome") as? UINavigationController else {
                     print("Unable to instantiate main")
@@ -53,7 +77,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidEnterBackground(_ scene: UIScene) {
         UserDefaults.updateLoginDateAndStreak()
     }
-
-
 }
 
