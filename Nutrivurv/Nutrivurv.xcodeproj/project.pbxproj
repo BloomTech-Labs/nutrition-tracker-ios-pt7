@@ -60,6 +60,7 @@
 		51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */; };
 		51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */; };
 		51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */; };
+		51CBCFCB24DB1891007AB2AD /* ESTabBarController in Frameworks */ = {isa = PBXBuildFile; productRef = 51CBCFCA24DB1891007AB2AD /* ESTabBarController */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
@@ -192,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */,
+				51CBCFCB24DB1891007AB2AD /* ESTabBarController in Frameworks */,
 				512CA6AB24DA4CE600B17010 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +471,6 @@
 		D68C701C23F25400008AFDF0 /* Nutrivurv */ = {
 			isa = PBXGroup;
 			children = (
-				512CA6A824DA4CE600B17010 /* Nutrivurv.entitlements */,
 				51A186F824A3307400196C83 /* User Information */,
 				51A186FA24A3311600196C83 /* Login & Registration */,
 				4C89A9EF24400F9000348B5A /* Profile Creation */,
@@ -481,6 +482,7 @@
 				511285E324D3689B0080127B /* Custom Global Views */,
 				D68C703423F3AF07008AFDF0 /* Resources */,
 				D60BA2C423FCDEDA00B3E6BF /* Fonts */,
+				512CA6A824DA4CE600B17010 /* Nutrivurv.entitlements */,
 			);
 			path = Nutrivurv;
 			sourceTree = "<group>";
@@ -543,6 +545,7 @@
 			name = Nutrivurv;
 			packageProductDependencies = (
 				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
+				51CBCFCA24DB1891007AB2AD /* ESTabBarController */,
 			);
 			productName = "Nutrition Tracker";
 			productReference = D68C701A23F25400008AFDF0 /* Nutrivurv.app */;
@@ -575,6 +578,7 @@
 			mainGroup = D68C701123F25400008AFDF0;
 			packageReferences = (
 				D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				51CBCFC924DB1891007AB2AD /* XCRemoteSwiftPackageReference "ESTabBarController" */,
 			);
 			productRefGroup = D68C701B23F25400008AFDF0 /* Products */;
 			projectDirPath = "";
@@ -907,6 +911,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		51CBCFC924DB1891007AB2AD /* XCRemoteSwiftPackageReference "ESTabBarController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eggswift/ESTabBarController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
 		D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -918,6 +930,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		51CBCFCA24DB1891007AB2AD /* ESTabBarController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51CBCFC924DB1891007AB2AD /* XCRemoteSwiftPackageReference "ESTabBarController" */;
+			productName = ESTabBarController;
+		};
 		D60BA2D423FF79AD00B3E6BF /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */;
