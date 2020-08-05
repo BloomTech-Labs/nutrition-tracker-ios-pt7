@@ -30,6 +30,18 @@
 		512F486A24D4AA0100EA128D /* Gaoel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 512F486924D4AA0100EA128D /* Gaoel.ttf */; };
 		512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F486B24D4BB1600EA128D /* DashboardDateView.swift */; };
 		512FBB5124DA1D5C0055981F /* ServingSizeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */; };
+		512FF44E24DB551100F49FCB /* IrregularTabBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF44D24DB551100F49FCB /* IrregularTabBarContentView.swift */; };
+		512FF45024DB557300F49FCB /* BouncesContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF44F24DB557300F49FCB /* BouncesContentView.swift */; };
+		512FF45224DB55AC00F49FCB /* BasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45124DB55AC00F49FCB /* BasicContentView.swift */; };
+		512FF45424DB58D900F49FCB /* BackgroundContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45324DB58D900F49FCB /* BackgroundContentView.swift */; };
+		512FF45624DB58E200F49FCB /* HighlightableContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45524DB58E200F49FCB /* HighlightableContentView.swift */; };
+		512FF45824DB596000F49FCB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45724DB596000F49FCB /* TabBar.swift */; };
+		512FF45A24DB596500F49FCB /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45924DB596500F49FCB /* TabBarController.swift */; };
+		512FF45C24DB596900F49FCB /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45B24DB596900F49FCB /* TabBarItem.swift */; };
+		512FF45E24DB596E00F49FCB /* TabBarItemBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45D24DB596E00F49FCB /* TabBarItemBadgeView.swift */; };
+		512FF46024DB597100F49FCB /* TabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45F24DB597100F49FCB /* TabBarItemContainer.swift */; };
+		512FF46224DB597500F49FCB /* TabBarItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF46124DB597500F49FCB /* TabBarItemContentView.swift */; };
+		512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */; };
@@ -60,7 +72,6 @@
 		51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */; };
 		51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */; };
 		51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */; };
-		51CBCFCB24DB1891007AB2AD /* ESTabBarController in Frameworks */ = {isa = PBXBuildFile; productRef = 51CBCFCA24DB1891007AB2AD /* ESTabBarController */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
@@ -121,6 +132,18 @@
 		512F486924D4AA0100EA128D /* Gaoel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaoel.ttf; sourceTree = "<group>"; };
 		512F486B24D4BB1600EA128D /* DashboardDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDateView.swift; sourceTree = "<group>"; };
 		512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeSelectionView.swift; sourceTree = "<group>"; };
+		512FF44D24DB551100F49FCB /* IrregularTabBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrregularTabBarContentView.swift; sourceTree = "<group>"; };
+		512FF44F24DB557300F49FCB /* BouncesContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncesContentView.swift; sourceTree = "<group>"; };
+		512FF45124DB55AC00F49FCB /* BasicContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicContentView.swift; sourceTree = "<group>"; };
+		512FF45324DB58D900F49FCB /* BackgroundContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundContentView.swift; sourceTree = "<group>"; };
+		512FF45524DB58E200F49FCB /* HighlightableContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightableContentView.swift; sourceTree = "<group>"; };
+		512FF45724DB596000F49FCB /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		512FF45924DB596500F49FCB /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		512FF45B24DB596900F49FCB /* TabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		512FF45D24DB596E00F49FCB /* TabBarItemBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemBadgeView.swift; sourceTree = "<group>"; };
+		512FF45F24DB597100F49FCB /* TabBarItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemContainer.swift; sourceTree = "<group>"; };
+		512FF46124DB597500F49FCB /* TabBarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemContentView.swift; sourceTree = "<group>"; };
+		512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemMoreContentView.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSwitcherView.swift; sourceTree = "<group>"; };
@@ -193,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */,
-				51CBCFCB24DB1891007AB2AD /* ESTabBarController in Frameworks */,
 				512CA6AB24DA4CE600B17010 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +249,7 @@
 		511285E324D3689B0080127B /* Custom Global Views */ = {
 			isa = PBXGroup;
 			children = (
+				512FF44C24DB547E00F49FCB /* Custom Tab Bar */,
 				51363F9D24A975F5001432F7 /* FadedScrollViews.swift */,
 				511285E424D368C30080127B /* MealTypeHeaderLabel.swift */,
 				D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */,
@@ -269,6 +292,33 @@
 				512CA6AF24DA533200B17010 /* HealthKitController.swift */,
 			);
 			name = HealthKit;
+			sourceTree = "<group>";
+		};
+		512FF44C24DB547E00F49FCB /* Custom Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				512FF46524DB598B00F49FCB /* Components */,
+				512FF45524DB58E200F49FCB /* HighlightableContentView.swift */,
+				512FF45324DB58D900F49FCB /* BackgroundContentView.swift */,
+				512FF44D24DB551100F49FCB /* IrregularTabBarContentView.swift */,
+				512FF44F24DB557300F49FCB /* BouncesContentView.swift */,
+				512FF45124DB55AC00F49FCB /* BasicContentView.swift */,
+			);
+			name = "Custom Tab Bar";
+			sourceTree = "<group>";
+		};
+		512FF46524DB598B00F49FCB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */,
+				512FF46124DB597500F49FCB /* TabBarItemContentView.swift */,
+				512FF45F24DB597100F49FCB /* TabBarItemContainer.swift */,
+				512FF45D24DB596E00F49FCB /* TabBarItemBadgeView.swift */,
+				512FF45B24DB596900F49FCB /* TabBarItem.swift */,
+				512FF45724DB596000F49FCB /* TabBar.swift */,
+				512FF45924DB596500F49FCB /* TabBarController.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		5130B83124A7042200946B41 /* Custom Views */ = {
@@ -545,7 +595,6 @@
 			name = Nutrivurv;
 			packageProductDependencies = (
 				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
-				51CBCFCA24DB1891007AB2AD /* ESTabBarController */,
 			);
 			productName = "Nutrition Tracker";
 			productReference = D68C701A23F25400008AFDF0 /* Nutrivurv.app */;
@@ -578,7 +627,6 @@
 			mainGroup = D68C701123F25400008AFDF0;
 			packageReferences = (
 				D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */,
-				51CBCFC924DB1891007AB2AD /* XCRemoteSwiftPackageReference "ESTabBarController" */,
 			);
 			productRefGroup = D68C701B23F25400008AFDF0 /* Products */;
 			projectDirPath = "";
@@ -641,26 +689,34 @@
 				511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */,
 				D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */,
 				5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */,
+				512FF45E24DB596E00F49FCB /* TabBarItemBadgeView.swift in Sources */,
+				512FF45624DB58E200F49FCB /* HighlightableContentView.swift in Sources */,
 				515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */,
+				512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
 				4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */,
 				513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
+				512FF45A24DB596500F49FCB /* TabBarController.swift in Sources */,
 				512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */,
 				512CA6B224DA53BB00B17010 /* HealthKitError.swift in Sources */,
 				512CA6B024DA533200B17010 /* HealthKitController.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */,
+				512FF45C24DB596900F49FCB /* TabBarItem.swift in Sources */,
 				D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */,
 				512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */,
 				512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */,
 				514D57F624CA275B008DCEEF /* UIViewExtensions.swift in Sources */,
 				5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */,
+				512FF45424DB58D900F49FCB /* BackgroundContentView.swift in Sources */,
+				512FF45224DB55AC00F49FCB /* BasicContentView.swift in Sources */,
 				5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */,
 				4C82D27924529C1B005E83F2 /* NutrientDetails.swift in Sources */,
 				51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */,
 				4C39A980244E9DDA00AAA74E /* FoodSearchTableViewController.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */,
+				512FF44E24DB551100F49FCB /* IrregularTabBarContentView.swift in Sources */,
 				512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */,
 				D631B27F2418790100AE30C9 /* ActivityLevelViewController.swift in Sources */,
 				51503BEF24D287DE00643896 /* MealTypes.swift in Sources */,
@@ -681,13 +737,17 @@
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */,
 				51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */,
+				512FF46024DB597100F49FCB /* TabBarItemContainer.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
 				5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */,
+				512FF45824DB596000F49FCB /* TabBar.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */,
 				5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */,
 				51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */,
+				512FF45024DB557300F49FCB /* BouncesContentView.swift in Sources */,
 				D6A1CC3D240B601700477429 /* ProfileCreationController.swift in Sources */,
+				512FF46224DB597500F49FCB /* TabBarItemContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +912,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = B22A9UYX67;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -874,6 +938,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = B22A9UYX67;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Nutrivurv/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -911,14 +979,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		51CBCFC924DB1891007AB2AD /* XCRemoteSwiftPackageReference "ESTabBarController" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/eggswift/ESTabBarController.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.8.0;
-			};
-		};
 		D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -930,11 +990,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		51CBCFCA24DB1891007AB2AD /* ESTabBarController */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 51CBCFC924DB1891007AB2AD /* XCRemoteSwiftPackageReference "ESTabBarController" */;
-			productName = ESTabBarController;
-		};
 		D60BA2D423FF79AD00B3E6BF /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */;

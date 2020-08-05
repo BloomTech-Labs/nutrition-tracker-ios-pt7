@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import ESTabBarController
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
 
@@ -20,12 +19,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             var rootVC: UIViewController?
             
             if UserAuthController.isLoggedIn() {
-                guard let tabBarVC = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "DashboardTabBar") as? ESTabBarController else {
+                guard let tabBarVC = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "DashboardTabBar") as? TabBarController else {
                     print("Unable to instantiate dashboard")
                     return
                 }
                 
-                if let tabBar = tabBarVC.tabBar as? ESTabBar {
+                tabBarVC.delegate = self
+                
+                tabBarVC.tabBar.shadowImage = UIImage(named: "tb-transparent")
+                tabBarVC.tabBar.backgroundImage = UIImage(named: "tb-bg-dark")
+                tabBarVC.shouldHijackHandler = {
+                    tabbarController, viewController, index in
+                    if index == 2 {
+                        return true
+                    }
+                    return false
+                }
+                
+                
+                if let tabBar = tabBarVC.tabBar as? TabBar {
                     tabBar.itemCustomPositioning = .fillIncludeSeparator
                 }
                 
@@ -39,13 +51,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     return
                 }
                 
-                let v1ContentView = ESTabBarItemContentView()
-                let v2ContentView = ESTabBarItemContentView()
+                let v3 = UIViewController()
                 
-                v1.tabBarItem = ESTabBarItem.init(v1ContentView, title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"), tag: 0)
-                v2.tabBarItem = ESTabBarItem.init(v2ContentView, title: nil, image: UIImage(named: "shop"), selectedImage: UIImage(named: "shop_1"), tag: 1)
+                let v1ContentView = IrregularityBasicContentView()
+                let v2ContentView = IrregularityContentView()
+                let v3ContentView = IrregularityBasicContentView()
                 
-                tabBarVC.viewControllers = [v1, v2]
+                
+                v1.tabBarItem = TabBarItem.init(v1ContentView, title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"), tag: 0)
+                v2.tabBarItem = TabBarItem.init(v2ContentView, title: nil, image: UIImage(named: "shop"), selectedImage: UIImage(named: "shop_1"), tag: 1)
+                v3.tabBarItem = TabBarItem.init(v3ContentView, title: nil, image: UIImage(named: "favor"), selectedImage: UIImage(named: "favor_1"), tag: 2)
+                
+                tabBarVC.viewControllers = [v1, v2, v3]
                 
                 rootVC = tabBarVC
             } else {

@@ -10,10 +10,33 @@ import Foundation
 
 extension Date {
     public func getCurrentDate() -> String {
-        let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        return dateFormatter.string(from: date)
+        return dateFormatter.string(from: self)
+    }
+    
+    public func localToUTC(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-ddTh:mm a"
+        dateFormatter.calendar = NSCalendar.current
+        dateFormatter.timeZone = TimeZone.current
+
+        let dt = dateFormatter.date(from: date)
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-ddTH:mm:ss"
+
+        return dateFormatter.string(from: dt!)
+    }
+
+    public func UTCToLocal(date:String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-ddTH:mm:ss"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+
+        let dt = dateFormatter.date(from: date)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-ddTh:mm a"
+
+        return dateFormatter.string(from: dt!)
     }
 }

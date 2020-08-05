@@ -331,7 +331,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="aq5-6o-iga">
             <objects>
-                <tabBarController restorationIdentifier="DashboardTabBar" storyboardIdentifier="DashboardTabBar" id="Qan-C2-fkh" customClass="ESTabBarController" customModule="ESTabBarController" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="DashboardTabBar" storyboardIdentifier="DashboardTabBar" id="Qan-C2-fkh" customClass="TabBarController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" itemSpacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="uV9-wI-UMh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
