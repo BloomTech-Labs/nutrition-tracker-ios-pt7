@@ -21,6 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             if UserAuthController.isLoggedIn() {
                 
+                // Custom class that returns a tab bar to be used throughout app
+                // This tab bar is the primary view controller for the Dashboard.storyboard
                 let tabBarVC = CustomTabBar.getTabBar()
                 
                 rootVC = tabBarVC

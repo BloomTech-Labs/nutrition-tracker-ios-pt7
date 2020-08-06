@@ -281,15 +281,23 @@ class DashboardViewController: UIViewController {
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
         // TODO: Fix bug where logout button font changes when tapping
-        // TODO: Delete login streak from user defaults when logging out
-//        let keychain = KeychainSwift()
-//        keychain.clear()
-//        FoodLogController.shared.foodLog = FoodLog()
-//        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
-//        viewController.modalPresentationStyle = .fullScreen
-//        viewController.modalTransitionStyle = .flipHorizontal
-//        self.present(viewController, animated: true, completion: nil)
+        
+        let keychain = KeychainSwift()
+        
+        // Reset all necessary properties
+        keychain.clear()
+        FoodLogController.shared.foodLog = FoodLog()
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: "dailyLoginStreak")
+        userDefaults.removeObject(forKey: "previousLoginDate")
+        userDefaults.removeObject(forKey: "weightUnitPreference")
+        userDefaults.removeObject(forKey: "heightUnitPreference")
+      
+        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .flipHorizontal
+        self.present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func previousDateButtonTapped(_ sender: Any) {

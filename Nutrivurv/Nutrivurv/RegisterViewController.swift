@@ -66,7 +66,8 @@ class RegisterViewController: UIViewController {
             
             switch result {
             case .success(true):
-                self.performSegue(withIdentifier: "ToDashboard", sender: self)
+                guard let mainTabBarVC = CustomTabBar.getTabBar() else { return }
+                self.present(mainTabBarVC, animated: true, completion: nil)
             case .failure(.badAuth):
                 self.accountAlreadyExistsAlert()
             case .failure(.serverError):

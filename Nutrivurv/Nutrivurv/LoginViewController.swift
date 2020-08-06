@@ -53,7 +53,8 @@ class LoginViewController: UIViewController {
             // TODO: Update this switch statement with status codes from REST api once these are added
             switch result {
             case .success(true):
-                self.performSegue(withIdentifier: "LoginToDashboard", sender: self)
+                guard let mainTabBarVC = CustomTabBar.getTabBar() else { return }
+                self.present(mainTabBarVC, animated: true, completion: nil)
             case .failure(.badAuth):
                 self.incorrectCredentialsAlert()
             case .failure(.serverError):

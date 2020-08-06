@@ -29,6 +29,9 @@ class ActivityLevelViewController: UIViewController {
     
     // TODO: Refactor code to complete profile at this point
     
+    // May need to use the following code when profile setup is complete:
+    // guard let mainTabBarVC = CustomTabBar.getTabBar() else { return }
+    // self.present(mainTabBarVC, animated: true, completion: nil)
     
     // MARK: - Navigation
     
