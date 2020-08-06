@@ -15,6 +15,8 @@ class MetricBMIViewController: UIViewController {
     @IBOutlet public var heightMetricTextField: UITextField!
     @IBOutlet public var weightMetricTextField: UITextField!
     
+    var profileController: ProfileCreationController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,18 +45,25 @@ class MetricBMIViewController: UIViewController {
             return nil
         }
         
-        let newHeight = ((heightDouble) / 2.54)
-        ProfileCreationController.height = Int(newHeight)
-        let totalWeight = ((weightDouble) * 2.20462262185)
-        ProfileCreationController.weight = Int(totalWeight)
+        guard let profileController = profileController else { return nil }
         
-        let bmi = (totalWeight * 704.7) / (newHeight * newHeight)
+        let totalHeightInches = ((heightDouble) / 2.54)
+        let feet = Int((totalHeightInches / 12).rounded(.down))
+        let inches = Int(totalHeightInches) - (feet * 12)
+        
+        profileController.userProfile?.heightInches = inches
+        profileController.userProfile?.heightFeet = feet
+        
+        let totalWeight = weightDouble * 2.20462262185
+        profileController.userProfile?.weight = Int(totalWeight)
+        
+        let bmi = (totalWeight * 704.7) / (totalHeightInches * totalHeightInches)
         let roundedBMI = String(format: "%.2f", bmi)
         
-        if ProfileCreationController.bmi == roundedBMI {
+        if profileController.bmi == roundedBMI {
             return nil
         } else {
-            ProfileCreationController.bmi = roundedBMI
+            profileController.bmi = roundedBMI
         }
         
         return roundedBMI

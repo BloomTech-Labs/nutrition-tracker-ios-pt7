@@ -16,6 +16,8 @@ class StandardBMIViewController: UIViewController {
     @IBOutlet public var heightStandardInchesTextField: UITextField!
     @IBOutlet public var weightStandardTextField: UITextField!
     
+    var profileController: ProfileCreationController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,18 +50,21 @@ class StandardBMIViewController: UIViewController {
             return nil
         }
         
-        let height = ((feetDouble) * 12) + (inchesDouble)
-        ProfileCreationController.height = Int(height)
-        let totalWeight = weightDouble
-        ProfileCreationController.weight = Int(totalWeight)
+        guard let profileController = profileController else { return nil }
         
-        let bmi = (totalWeight * 704.7) / (height * height)
+        profileController.userProfile?.heightFeet = Int(feetDouble)
+        profileController.userProfile?.heightInches = Int(inchesDouble)
+        profileController.userProfile?.weight = Int(weightDouble)
+        
+        let totalHeightInches = ((feetDouble) * 12) + (inchesDouble)
+        
+        let bmi = (weightDouble * 704.7) / (totalHeightInches * totalHeightInches)
         let roundedBMI = String(format: "%.2f", bmi)
         
-        if ProfileCreationController.bmi == roundedBMI {
+        if profileController.bmi == roundedBMI {
             return nil
         } else {
-            ProfileCreationController.bmi = roundedBMI
+            profileController.bmi = roundedBMI
         }
         
         return roundedBMI
