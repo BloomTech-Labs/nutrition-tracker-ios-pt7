@@ -24,5 +24,6 @@ struct UserAuthResponse: Codable {
     let message: String?
     let token: String?
     let error: String?
+    let user: UserProfile
 }
 

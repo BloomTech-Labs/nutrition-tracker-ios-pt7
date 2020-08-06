@@ -13,6 +13,7 @@ class UserAuthController {
     static let shared = UserAuthController()
     
     static let authKeychainToken = "authorizationToken"
+    static let userPassToken = "userPassToken"
     static let keychain = KeychainSwift()
     
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/auth")!
@@ -94,7 +95,7 @@ class UserAuthController {
         }.resume()
     }
     
-    func registerUser(user: UserAuth, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func registerUser(user: UserAuth, completion: @escaping (Result<UserProfile?, NetworkError>) -> Void) {
         let registerURL = baseURL.appendingPathComponent("ios/register")
         var request = URLRequest(url: registerURL)
         
@@ -148,6 +149,7 @@ class UserAuthController {
             }
             
             let decoder = JSONDecoder()
+            var userProfile: UserProfile?
             
             do {
                 let authResponse = try decoder.decode(UserAuthResponse.self, from: data)
@@ -155,6 +157,10 @@ class UserAuthController {
                     UserAuthController.keychain.set(token, forKey: UserAuthController.authKeychainToken)
                 } else {
                     print("Error saving token in keychain")
+                }
+                
+                if let pass = UserAuthController.keychain.get(UserAuthController.userPassToken) {
+                    userProfile = UserProfile(id: authResponse.user.id, name: authResponse.user.name, email: authResponse.user.email, password: pass, fatPctRatio: authResponse.user.fatPctRatio, carbsPctRatio: authResponse.user.carbsPctRatio, proteinPctRatio: authResponse.user.proteinPctRatio)
                 }
             } catch {
                 print("Error decoding registration response data from server: \(error)")
@@ -165,7 +171,7 @@ class UserAuthController {
             }
             
             DispatchQueue.main.async {
-                completion(.success(true))
+                completion(.success(userProfile))
             }
             
         }.resume()
