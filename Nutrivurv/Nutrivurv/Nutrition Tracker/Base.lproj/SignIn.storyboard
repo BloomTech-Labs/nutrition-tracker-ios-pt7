@@ -33,7 +33,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lets start crushing those goals!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="eVf-aZ-RGJ">
                                 <rect key="frame" x="44" y="52" width="326" height="135"/>
                                 <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pdm-hf-GBs">
@@ -45,6 +45,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="ibT-SL-GId"/>
                                         </constraints>
+                                        <color key="textColor" name="light-label"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes" smartQuotesType="yes" textContentType="email"/>
                                     </textField>
@@ -54,6 +55,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="EHE-sI-CGO"/>
                                         </constraints>
+                                        <color key="textColor" name="light-label"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -66,7 +68,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IX-Uz-GvN">
@@ -93,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="56.5" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-kL-46l">
@@ -141,7 +143,7 @@
                                         <rect key="frame" x="92" y="0.0" width="44" height="26"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="12"/>
                                         <state key="normal" title="Sign Up">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" name="light-label"/>
                                         </state>
                                         <connections>
                                             <segue destination="9pD-sO-drT" kind="show" id="Bt9-mz-IWl"/>
