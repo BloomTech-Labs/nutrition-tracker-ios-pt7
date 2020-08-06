@@ -347,7 +347,6 @@ class DashboardViewController: UIViewController {
         let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, open the privacy settings within your settings app to allow access.", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
-            self.displayedHKAccessAlert = true
             self.requestHealthKitAuthorization { (result) in
                 if result == true {
                     self.getCurrentWeight()
@@ -364,6 +363,8 @@ class DashboardViewController: UIViewController {
         if displayedHKAccessAlert == true {
             return
         }
+        
+        self.displayedHKAccessAlert = true
         
         HealthKitController.authorizeHealthKit { (authorized, error) in
             if let error = error {
