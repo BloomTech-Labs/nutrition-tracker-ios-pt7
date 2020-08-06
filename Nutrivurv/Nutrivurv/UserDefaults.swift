@@ -53,11 +53,20 @@ extension UserDefaults {
     // Explicitly call upon app load
     class func getLoginStreak() -> Int {
         var currentLoginStreak = UserDefaults.standard.integer(forKey: UserDefaults.Keys.dailyLoginStreak)
+        
         if let differenceInDays = UserDefaults.differenceInDays() {
             switch differenceInDays {
             case 0:
-                // If last login was today, leave streak unchanged and return current streak
-                return currentLoginStreak
+                // If first time logging in then will be 0. Change it to one and seve to User Defaults.
+                if currentLoginStreak == 0 {
+                    currentLoginStreak = 1
+                    UserDefaults.standard.set(currentLoginStreak, forKey: UserDefaults.Keys.dailyLoginStreak)
+                    UserDefaults.setLoginDate()
+                    return currentLoginStreak
+                } else {
+                    // If last login was today, leave streak unchanged and return current streak
+                    return currentLoginStreak
+                }
             case 1:
                 // If last login was yesterday, iterate and update streak value, and update last login to today
                 currentLoginStreak += 1
