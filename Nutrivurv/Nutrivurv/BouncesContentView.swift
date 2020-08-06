@@ -11,8 +11,8 @@ import UIKit
 
 class BouncesContentView: BasicContentView {
 
-    public var duration = 0.175
-    public var animationScaleValues = [1.0, 1.1, 0.94, 1.08, 0.98, 1.02, 1.0]
+    public var duration = 0.185
+    public var animationScaleValues = [1.0, 1.09, 0.92, 1.07, 0.96, 1.04, 1.0]
 
     override init(frame: CGRect) {
         super.init(frame: frame)
