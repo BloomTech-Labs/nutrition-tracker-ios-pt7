@@ -12,6 +12,7 @@ import UIKit
 class BouncesContentView: BasicContentView {
 
     public var duration = 0.175
+    public var animationScaleValues = [1.0, 1.1, 0.94, 1.08, 0.98, 1.02, 1.0]
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +34,7 @@ class BouncesContentView: BasicContentView {
     
     func bounceAnimation() {
         let impliesAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
-        impliesAnimation.values = [1.0, 1.1, 0.94, 1.08, 0.98, 1.02, 1.0]
+        impliesAnimation.values = self.animationScaleValues
         impliesAnimation.duration = duration * 2
         impliesAnimation.calculationMode = CAAnimationCalculationMode.cubic
         imageView.layer.add(impliesAnimation, forKey: nil)
