@@ -248,6 +248,10 @@ class FoodLogController {
         }
         
         guard let entryID = entry.id else {
+            print("Unable to update entry: no ID associated with entry")
+            DispatchQueue.main.async {
+                completion(.failure(.otherError))
+            }
             return
         }
         
@@ -366,8 +370,48 @@ class FoodLogController {
     }
     
     
-    func deleteFoodLogEntry() {
-        // DELETE
+    func deleteFoodLogEntry(entry: FoodLogEntry, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        guard let token = getUserToken() else {
+            print("No token found for user")
+            DispatchQueue.main.async {
+                completion(.failure(.noAuth))
+            }
+            return
+        }
+        
+        guard let entryID = entry.id else {
+            print("Unable to update entry: no ID associated with entry")
+            DispatchQueue.main.async {
+                completion(.failure(.otherError))
+            }
+            return
+        }
+        
+        let requestURL = baseURL.appendingPathComponent("\(entryID)")
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let error = error {
+                print("Error with get food log for date data task: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(.otherError))
+                }
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    print("Error communicating with server. Response information: \(response), status code: \(response.statusCode)")
+                    DispatchQueue.main.async {
+                        completion(.failure(.serverError))
+                    }
+                    return
+                }
+            }
+        }
     }
     
     
