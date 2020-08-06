@@ -19,54 +19,44 @@ open class TabBarItemContentView: UIView {
     
     // MARK: - PROPERTY SETTING
 
-    /// 设置contentView的偏移
-    open var insets = UIEdgeInsets.zero
+    open var insets = UIEdgeInsets.init(top: 20, left: 0, bottom: 0, right: 0)
     
-    /// 是否被选中
     open var selected = false
     
-    /// 是否处于高亮状态
     open var highlighted = false
     
-    /// 是否支持高亮
     open var highlightEnabled = true
     
-    /// 文字颜色
     open var textColor = UIColor(white: 0.57254902, alpha: 1.0) {
         didSet {
             if !selected { titleLabel.textColor = textColor }
         }
     }
     
-    /// 高亮时文字颜色
     open var highlightTextColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
             if selected { titleLabel.textColor = highlightIconColor }
         }
     }
     
-    /// icon颜色
     open var iconColor = UIColor(white: 0.57254902, alpha: 1.0) {
         didSet {
             if !selected { imageView.tintColor = iconColor }
         }
     }
     
-    /// 高亮时icon颜色
     open var highlightIconColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
             if selected { imageView.tintColor = highlightIconColor }
         }
     }
     
-    /// 背景颜色
     open var backdropColor = UIColor.clear {
         didSet {
             if !selected { backgroundColor = backdropColor }
         }
     }
     
-    /// 高亮时背景颜色
     open var highlightBackdropColor = UIColor.clear {
         didSet {
             if selected { backgroundColor = highlightBackdropColor }
@@ -200,7 +190,12 @@ open class TabBarItemContentView: UIView {
             var s: CGFloat = 0.0 // image size
             var f: CGFloat = 0.0 // font
             var isLandscape = false
-            if let keyWindow = UIApplication.shared.keyWindow {
+            if let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first {
                 isLandscape = keyWindow.bounds.width > keyWindow.bounds.height
             }
             let isWide = isLandscape || traitCollection.horizontalSizeClass == .regular // is landscape or regular

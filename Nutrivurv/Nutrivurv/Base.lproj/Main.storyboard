@@ -101,7 +101,6 @@
                     <connections>
                         <outlet property="signInButton" destination="oZ9-lu-tFp" id="aFu-9O-gMM"/>
                         <outlet property="signUpButton" destination="86x-lr-i1v" id="bxs-iw-DNT"/>
-                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="ShowDashboard" modalPresentationStyle="fullScreen" id="kWR-IQ-0ni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HQ-uR-2t1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -128,16 +127,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDl-fY-gyO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-161" y="-777"/>
-        </scene>
-        <!--DashboardTabBar-->
-        <scene sceneID="B1y-9o-gmN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="DashboardTabBar" id="ILo-DN-Jd9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ntX-yz-6IM"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-40-IoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1229" y="-797"/>
         </scene>
         <!--Login-->
         <scene sceneID="FQM-2r-ytU">

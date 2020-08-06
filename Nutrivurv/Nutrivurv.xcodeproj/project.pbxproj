@@ -27,6 +27,7 @@
 		512CA6AB24DA4CE600B17010 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512CA6AA24DA4CE600B17010 /* HealthKit.framework */; };
 		512CA6B024DA533200B17010 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6AF24DA533200B17010 /* HealthKitController.swift */; };
 		512CA6B224DA53BB00B17010 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6B124DA53BB00B17010 /* HealthKitError.swift */; };
+		512ED17024DBB1CE000A702D /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED16F24DBB1CE000A702D /* CustomTabBar.swift */; };
 		512F486A24D4AA0100EA128D /* Gaoel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 512F486924D4AA0100EA128D /* Gaoel.ttf */; };
 		512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F486B24D4BB1600EA128D /* DashboardDateView.swift */; };
 		512FBB5124DA1D5C0055981F /* ServingSizeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */; };
@@ -130,6 +131,7 @@
 		512CA6AA24DA4CE600B17010 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		512CA6AF24DA533200B17010 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		512CA6B124DA53BB00B17010 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
+		512ED16F24DBB1CE000A702D /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		512F486924D4AA0100EA128D /* Gaoel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaoel.ttf; sourceTree = "<group>"; };
 		512F486B24D4BB1600EA128D /* DashboardDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDateView.swift; sourceTree = "<group>"; };
 		512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeSelectionView.swift; sourceTree = "<group>"; };
@@ -296,15 +298,24 @@
 			name = HealthKit;
 			sourceTree = "<group>";
 		};
-		512FF44C24DB547E00F49FCB /* Custom Tab Bar */ = {
+		512ED16E24DBB19B000A702D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				512FF46524DB598B00F49FCB /* Components */,
 				512FF45524DB58E200F49FCB /* HighlightableContentView.swift */,
 				512FF45324DB58D900F49FCB /* BackgroundContentView.swift */,
 				512FF44D24DB551100F49FCB /* IrregularTabBarContentView.swift */,
 				512FF44F24DB557300F49FCB /* BouncesContentView.swift */,
 				512FF45124DB55AC00F49FCB /* BasicContentView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		512FF44C24DB547E00F49FCB /* Custom Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				512ED16E24DBB19B000A702D /* Views */,
+				512FF46524DB598B00F49FCB /* Components */,
+				512ED16F24DBB1CE000A702D /* CustomTabBar.swift */,
 			);
 			name = "Custom Tab Bar";
 			sourceTree = "<group>";
@@ -704,6 +715,7 @@
 				512FF45A24DB596500F49FCB /* TabBarController.swift in Sources */,
 				512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */,
 				512CA6B224DA53BB00B17010 /* HealthKitError.swift in Sources */,
+				512ED17024DBB1CE000A702D /* CustomTabBar.swift in Sources */,
 				512CA6B024DA533200B17010 /* HealthKitController.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */,
 				512FF45C24DB596900F49FCB /* TabBarItem.swift in Sources */,

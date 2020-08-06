@@ -7,21 +7,19 @@
 
 import UIKit
 
-/// 是否需要自定义点击事件回调类型
+
 public typealias TabBarControllerShouldHijackHandler = ((_ tabBarController: UITabBarController, _ viewController: UIViewController, _ index: Int) -> (Bool))
-/// 自定义点击事件回调类型
+
 public typealias TabBarControllerDidHijackHandler = ((_ tabBarController: UITabBarController, _ viewController: UIViewController, _ index: Int) -> (Void))
 
 open class TabBarController: UITabBarController, TabBarDelegate {
     
-    /// 打印异常
     public static func printError(_ description: String) {
         #if DEBUG
             print("ERROR: TabBarController catch an error '\(description)' \n")
         #endif
     }
     
-    /// 当前tabBarController是否存在"More"tab
     public static func isShowingMore(_ tabBarController: UITabBarController?) -> Bool {
         return tabBarController?.moreNavigationController.parent != nil
     }

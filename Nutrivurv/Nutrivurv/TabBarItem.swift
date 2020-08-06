@@ -7,23 +7,6 @@
 
 import UIKit
 
-/*
- * ESTabBarItem继承自UITabBarItem，目的是为ESTabBarItemContentView提供UITabBarItem属性的设置。
- * 目前支持大多常用的属性，例如image, selectedImage, title, tag 等。
- *
- * Unsupport properties:
- *  MARK: UIBarItem properties
- *      1. var isEnabled: Bool
- *      2. var landscapeImagePhone: UIImage?
- *      3. var imageInsets: UIEdgeInsets
- *      4.  var landscapeImagePhoneInsets: UIEdgeInsets
- *      5. func setTitleTextAttributes(_ attributes: [String : Any]?, for state: UIControlState)
- *      6. func titleTextAttributes(for state: UIControlState) -> [String : Any]?
- *  MARK: UITabBarItem properties
- *      7. var titlePositionAdjustment: UIOffset
- *      8. func setBadgeTextAttributes(_ textAttributes: [String : Any]?, for state: UIControlState)
- *      9. func badgeTextAttributes(for state: UIControlState) -> [String : Any]?
- */
 @available(iOS 8.0, *)
 open class TabBarItem: UITabBarItem {
     

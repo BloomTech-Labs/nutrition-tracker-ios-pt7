@@ -13,13 +13,18 @@ class IrregularityBasicContentView: BouncesContentView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
-        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        highlightIconColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
-        backdropColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        highlightBackdropColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
+        self.insets = UIEdgeInsets.init(top: -12, left: 0, bottom: 0, right: 0)
+//        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+//        highlightIconColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
+        iconColor = UIColor(named: "nutrivurv-blue-new")!
+        highlightIconColor = UIColor(named: "nutrivurv-blue-new")!
+//        backdropColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
+//        highlightBackdropColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
+        backdropColor = .clear
+        highlightBackdropColor = .clear
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -32,9 +37,9 @@ class IrregularityContentView: TabBarItemContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.imageView.backgroundColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
+        self.imageView.backgroundColor = UIColor(named: "nutrivurv-blue-new")
         self.imageView.layer.borderWidth = 3.0
-        self.imageView.layer.borderColor = UIColor.init(white: 235 / 255.0, alpha: 1.0).cgColor
+        self.imageView.layer.borderColor = UIColor(named: "image-border")?.cgColor
         self.imageView.layer.cornerRadius = 35
         self.insets = UIEdgeInsets.init(top: -32, left: 0, bottom: 0, right: 0)
         let transform = CGAffineTransform.identity
@@ -70,11 +75,11 @@ class IrregularityContentView: TabBarItemContentView {
 //        view.layer.opacity = 0.5
 //        view.backgroundColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
 //        self.addSubview(view)
-//        playMaskAnimation(animateView: view, target: self.imageView, completion: {
-//            [weak view] in
-//            view?.removeFromSuperview()
-//            completion?()
-//        })
+////        playMaskAnimation(animateView: view, target: self.imageView, completion: {
+////            [weak view] in
+////            view?.removeFromSuperview()
+////            completion?()
+////        })
 //    }
 //
 //    public override func reselectAnimation(animated: Bool, completion: (() -> ())?) {
@@ -84,7 +89,7 @@ class IrregularityContentView: TabBarItemContentView {
 //    public override func deselectAnimation(animated: Bool, completion: (() -> ())?) {
 //        completion?()
 //    }
-//
+
 //    public override func highlightAnimation(animated: Bool, completion: (() -> ())?) {
 //        UIView.beginAnimations("small", context: nil)
 //        UIView.setAnimationDuration(0.2)

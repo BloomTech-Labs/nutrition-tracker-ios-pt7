@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qan-C2-fkh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -164,7 +164,7 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72" customClass="FadedFoodLogBackgroundView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="323.5" width="414" height="401.5"/>
+                                <rect key="frame" x="0.0" y="323.5" width="414" height="450.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -327,27 +327,6 @@
                 <exit id="7Nz-Uw-rj4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="11140.579710144928" y="-869.19642857142856"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="aq5-6o-iga">
-            <objects>
-                <tabBarController restorationIdentifier="DashboardTabBar" storyboardIdentifier="DashboardTabBar" id="Qan-C2-fkh" customClass="TabBarController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" itemSpacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="uV9-wI-UMh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="nutrivurv-blue-new"/>
-                        <color key="barTintColor" name="bg-color"/>
-                        <color key="selectedImageTintColor" name="nutrivurv-blue-new"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="rYl-n3-f5W" kind="relationship" relationship="viewControllers" id="AhP-zl-8zC"/>
-                        <segue destination="ocA-CQ-44Y" kind="relationship" relationship="viewControllers" id="qsQ-iz-htA"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3fB-EK-EOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9430" y="-547"/>
         </scene>
         <!--Food Search-->
         <scene sceneID="FgN-cI-bhq">
@@ -1072,7 +1051,7 @@
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="2" id="bM9-0c-rT8" customClass="FadedVerticalTableView" customModule="Nutrivurv" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="401"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="foodlog-bg"/>
                         <color key="tintColor" name="nutrivurv-blue"/>

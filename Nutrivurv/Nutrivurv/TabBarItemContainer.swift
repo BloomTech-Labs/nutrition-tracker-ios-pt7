@@ -16,7 +16,7 @@ internal class TabBarItemContainer: UIControl {
         self.addTarget(target, action: #selector(TabBar.highlightAction(_:)), for: .touchDown)
         self.addTarget(target, action: #selector(TabBar.highlightAction(_:)), for: .touchDragEnter)
         self.addTarget(target, action: #selector(TabBar.dehighlightAction(_:)), for: .touchDragExit)
-        self.backgroundColor = .clear
+        self.backgroundColor = UIColor(named: "bg-color")
         self.isAccessibilityElement = true
     }
     

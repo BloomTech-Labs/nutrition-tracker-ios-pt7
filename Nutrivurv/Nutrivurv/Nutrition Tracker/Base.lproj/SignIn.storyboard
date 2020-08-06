@@ -198,22 +198,11 @@
                         <outlet property="emailTextField" destination="Dd1-5A-BtE" id="Afs-rZ-HAC"/>
                         <outlet property="passwordTextField" destination="9FE-60-Y3d" id="IlK-XT-p31"/>
                         <outlet property="submitButton" destination="b43-dI-OzL" id="Wu6-Wc-le5"/>
-                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="LoginToDashboard" modalPresentationStyle="fullScreen" id="hva-qZ-piz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xf-44-lyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516" y="-1155"/>
-        </scene>
-        <!--DashboardTabBar-->
-        <scene sceneID="B1y-9o-gmN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="DashboardTabBar" id="ILo-DN-Jd9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ntX-yz-6IM"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-40-IoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2136" y="-1172"/>
         </scene>
         <!--Register-->
         <scene sceneID="jRt-Nc-cme">
