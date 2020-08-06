@@ -377,15 +377,3 @@ class DashboardViewController: UIViewController {
         }
     }
 }
-
-// MARK: - Profile Completion Protocol Declaration & Delegate Conformance
-
-extension DashboardViewController: CreateProfileCompletionDelegate {
-    func profileWasCreated() {
-//        self.loadProfile()
-    }
-}
-
-protocol CreateProfileCompletionDelegate {
-    func profileWasCreated()
-}
