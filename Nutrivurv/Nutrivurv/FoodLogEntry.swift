@@ -9,6 +9,7 @@
 import Foundation
 
 struct FoodLogEntry: Codable {
+    var id: Int?
     var date: String
     var mealType: MealType.RawValue
     var foodID: String
@@ -16,12 +17,12 @@ struct FoodLogEntry: Codable {
     var measurementName: String
     var allMeasurements: [Measurement]
     var foodName: String
-    var quantity: Int
+    var quantity: String
     var calories: Int
     var fat: String
     var carbs: String
     var protein: String
-    var imageURL: String
+    var imageURL: String?
     
     enum CodingKeys: String, CodingKey {
         case date
