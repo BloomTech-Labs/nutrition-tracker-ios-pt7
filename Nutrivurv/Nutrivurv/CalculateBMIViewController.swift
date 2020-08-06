@@ -17,14 +17,10 @@ class CalculateBMIViewController: UIViewController {
     @IBOutlet var metricUIView: UIView!
     @IBOutlet var currentBMILabel: UILabel!
     
-    var nutritionController: ProfileCreationController?
-    var createProfileDelegate: CreateProfileCompletionDelegate?
+    var profileController: ProfileCreationController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
-
-//        self.navigationItem.hidesBackButton = true
         self.styleSegmentControl()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .bmiUpdated, object: nil)
@@ -113,8 +109,7 @@ class CalculateBMIViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToGettingPersonal" {
             guard let gpVC = segue.destination as? GettingPersonalViewController else { return }
-            gpVC.nutritionController = self.nutritionController
-            gpVC.createProfileDelegate = self.createProfileDelegate
+            gpVC.profileController = self.profileController
         }
     }
 }

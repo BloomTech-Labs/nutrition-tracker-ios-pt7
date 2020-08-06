@@ -11,11 +11,12 @@ import UIKit
 class ProfileCreationController {
     
     // MARK: - Properties
+    var userProfile: UserProfile?
     
-    static var age: Int?
+    static var birthDate: String?
     static var weight: Int?
     static var height: Int?
-    static var gender: Bool?
+    static var biologicalSex: BiologicalSex.RawValue?
     static var goalWeight: Int?
     static var activityLevel: Int?
 

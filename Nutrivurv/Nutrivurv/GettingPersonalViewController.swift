@@ -13,23 +13,20 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     // MARK: - IBOutlets and Properties
 
-    @IBOutlet var genderPickerView: UIPickerView!
-    @IBOutlet var ageTextView: CustomTextField!
-    @IBOutlet var goalWeightTextView: CustomTextField!
+    @IBOutlet var biologicalSexPickerView: UIPickerView!
+    @IBOutlet var birthDateTextField: CustomTextField!
+    @IBOutlet var goalWeightTextField: CustomTextField!
     
-    var nutritionController: ProfileCreationController?
-    var createProfileDelegate: CreateProfileCompletionDelegate?
-    
-    var biologicalSex = ["Male", "Female"]
+    var profileController: ProfileCreationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.genderPickerView.delegate = self
-        self.genderPickerView.dataSource = self
+        self.biologicalSexPickerView.delegate = self
+        self.biologicalSexPickerView.dataSource = self
 
-        self.ageTextView.delegate = self
-        self.goalWeightTextView.delegate = self
+        self.birthDateTextField.delegate = self
+        self.goalWeightTextField.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
     }
     
@@ -37,20 +34,21 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
         super.viewWillAppear(animated)
         
         // If user has already completed information and is returning to a previous screen, this will set the info in view
-        if let ageInt = ProfileCreationController.age {
-            ageTextView.text = String(ageInt)
+        if let ageInt = ProfileCreationController.birthDate {
+            birthDateTextField.text = String(ageInt)
         }
         
         if let goalWeightInt = ProfileCreationController.goalWeight {
-            goalWeightTextView.text = String(goalWeightInt)
+            goalWeightTextField.text = String(goalWeightInt)
         }
         
-        if let gender = ProfileCreationController.gender {
-            switch gender {
-            case true:
-                genderPickerView.selectRow(0, inComponent: 0, animated: true)
-            case false:
-                genderPickerView.selectRow(1, inComponent: 0, animated: true)
+        if let biologicalSex = ProfileCreationController.biologicalSex {
+            switch biologicalSex {
+            case BiologicalSex.female.rawValue:
+                biologicalSexPickerView.selectRow(1, inComponent: 0, animated: true)
+            default:
+                // Defaults to male if unselected
+                biologicalSexPickerView.selectRow(0, inComponent: 0, animated: true)
             }
         }
     }
@@ -63,7 +61,7 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     }
     
     @IBAction func toActivityLevel(_ sender: Any) {
-        guard checkForAge() != nil, checkForGoalWeight() != nil else {
+        guard let birthDate = birthDateTextField.text, !birthDate.isEmpty, checkForGoalWeight() != nil else {
             return
         }
         self.performSegue(withIdentifier: "ToActivityLevel", sender: self)
@@ -72,16 +70,8 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     // MARK: - Helper Functions
     
-    @discardableResult private func checkForAge() -> Int? {
-        guard let age = self.ageTextView.text, !age.isEmpty, let ageInt = Int(age), ageInt > 0 else {
-            createAndDisplayAlertController(title: "Enter your age", message: "Please complete the age input field by entering a valid number.")
-            return nil
-        }
-        return ageInt
-    }
-    
     @discardableResult private func checkForGoalWeight() -> Int? {
-        guard let goalWeight = self.goalWeightTextView.text, !goalWeight.isEmpty, let goalWeightInt = Int(goalWeight), goalWeightInt > 0 else {
+        guard let goalWeight = self.goalWeightTextField.text, !goalWeight.isEmpty, let goalWeightInt = Int(goalWeight), goalWeightInt > 0 else {
             createAndDisplayAlertController(title: "Enter goal weight", message: "Please complete the goal weight input field by entering a valid number.")
             return nil
         }
@@ -102,10 +92,10 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToActivityLevel" {
-            guard let nutritionController = nutritionController,
+            guard let nutritionController = profileController,
                 let apVC = segue.destination as? ActivityLevelViewController else { return }
             
-            guard let ageInt = checkForAge() else {
+            guard let birthDate = birthDateTextField.text else {
                 return
             }
             
@@ -113,20 +103,19 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
                 return
             }
 
-            let genderSelection = self.genderPickerView.selectedRow(inComponent: 0)
+            let biologicalSexSelection = self.biologicalSexPickerView.selectedRow(inComponent: 0)
     
-            switch genderSelection {
+            switch biologicalSexSelection {
             case 0:
-                ProfileCreationController.gender = true
+                ProfileCreationController.biologicalSex = BiologicalSex.male.rawValue
             default:
-                ProfileCreationController.gender = false
+                ProfileCreationController.biologicalSex = BiologicalSex.female.rawValue
             }
             
-            ProfileCreationController.age = ageInt
+            ProfileCreationController.birthDate = birthDate
             ProfileCreationController.goalWeight = goalWeightInt
             
-            apVC.nutritionController = nutritionController
-            apVC.createProfileDelegate = self.createProfileDelegate
+            apVC.profileController = nutritionController
         }
     }
 }
@@ -140,11 +129,11 @@ extension GettingPersonalViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return biologicalSex.count
+        return BiologicalSex.allCases.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return biologicalSex[row]
+        return BiologicalSex.allCases[row].rawValue
     }
 }
 
@@ -154,9 +143,9 @@ extension GettingPersonalViewController: UIPickerViewDataSource {
 extension GettingPersonalViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case ageTextView:
-            goalWeightTextView.becomeFirstResponder()
-        case goalWeightTextView:
+        case birthDateTextField:
+            goalWeightTextField.becomeFirstResponder()
+        case goalWeightTextField:
             textField.resignFirstResponder()
             self.toActivityLevel(self)
         default:
@@ -167,7 +156,8 @@ extension GettingPersonalViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
-        textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
+//        textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor(named: "nutrivurv-blue-new")?.cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowColor = UIColor(red: 0, green: 0.455, blue: 0.722, alpha: 0.5).cgColor
         textField.layer.shadowOpacity = 1
