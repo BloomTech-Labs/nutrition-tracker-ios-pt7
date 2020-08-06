@@ -62,11 +62,10 @@ class RegisterViewController: UIViewController {
         
         UserAuthController.shared.registerUser(user: newUser) { (result) in
             
-            // TODO: update this switch statement once status response codes are implemented on backend
-            
             switch result {
             case .success(true):
                 guard let mainTabBarVC = CustomTabBar.getTabBar() else { return }
+                mainTabBarVC.modalPresentationStyle = .fullScreen
                 self.present(mainTabBarVC, animated: true, completion: nil)
             case .failure(.badAuth):
                 self.accountAlreadyExistsAlert()
