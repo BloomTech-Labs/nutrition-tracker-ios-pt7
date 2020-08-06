@@ -180,7 +180,7 @@ class FoodLogController {
     // MARK: - FoodLogEntry CRUD and Networking Methods
     
     func createFoodLogEntry(entry: FoodLogEntry, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
+        guard let token = getUserToken() else {
             print("No token found for user")
             DispatchQueue.main.async {
                 completion(.failure(.noAuth))
@@ -238,13 +238,72 @@ class FoodLogController {
         }.resume()
     }
     
-    func editFoodLogEntry() {
-        // PUT
+    func editFoodLogEntry(entry: FoodLogEntry, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        guard let token = getUserToken() else {
+            print("No token found for user")
+            DispatchQueue.main.async {
+                completion(.failure(.noAuth))
+            }
+            return
+        }
+        
+        guard let entryID = entry.id else {
+            return
+        }
+        
+        let requestURL = baseURL.appendingPathComponent("\(entryID)")
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.put.rawValue
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let encoder = JSONEncoder()
+        
+        do {
+            let data = try encoder.encode(entry)
+            request.httpBody = data
+        } catch {
+            print("Error encoding food item for upload to database: \(error)")
+            DispatchQueue.main.async {
+                completion(.failure(NetworkError.noEncode))
+            }
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if let error = error {
+                print("Error updating food log entry: \(error)")
+                DispatchQueue.main.async {
+                    completion(.failure(.otherError))
+                }
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 401 {
+                    print("Token no longer valid; please re-login")
+                    DispatchQueue.main.async {
+                        completion(.failure(.badAuth))
+                    }
+                    return
+                } else if response.statusCode != 201 {
+                    print("Unable to edit food log entry. Server response error: \(response.statusCode)")
+                    DispatchQueue.main.async {
+                        completion(.failure(NetworkError.serverError))
+                    }
+                    return
+                }
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(true))
+            }
+        }.resume()
     }
     
     func getFoodLogEntriesForDate(date: String, completion: @escaping (Result<FoodLog?, NetworkError>) -> Void) {
-        // GET
-        guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
+        guard let token = getUserToken() else {
             print("No token found for user")
             DispatchQueue.main.async {
                 completion(.failure(.noAuth))
@@ -309,6 +368,16 @@ class FoodLogController {
     
     func deleteFoodLogEntry() {
         // DELETE
+    }
+    
+    
+    // MARK: - Helper Functions
+    
+    private func getUserToken() -> String? {
+        guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
+            return nil
+        }
+        return token
     }
     
 }
