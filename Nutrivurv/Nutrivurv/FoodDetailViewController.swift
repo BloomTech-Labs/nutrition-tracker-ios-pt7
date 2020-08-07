@@ -189,7 +189,7 @@ class FoodDetailViewController: UIViewController {
         self.foodNameLabel.text = foodLogEntry.foodName.capitalized
         self.foodCategoryLabel.isHidden = true
         
-        self.qtyTextField.text = "\(foodLogEntry.quantity)"
+        self.qtyTextField.text = foodLogEntry.quantity
         
         switch foodLogEntry.mealType {
         case "breakfast":
@@ -207,6 +207,10 @@ class FoodDetailViewController: UIViewController {
         }
         
         // TODO: Fix selected serving sizes not showing up once back end is updated
+        
+        for measure in foodLogEntry.allMeasurements {
+            servingSizes.append(measure.label)
+        }
     }
     
     private func updateViews() {
@@ -449,7 +453,8 @@ class FoodDetailViewController: UIViewController {
             
         } else if let foodLogEntry = foodLogEntry {
             let measureURI = foodLogEntry.measurementURI
-            let quantity = foodLogEntry.quantity
+            let quantityString = foodLogEntry.quantity
+            guard let quantity = Double(quantityString) else { return }
             let edamamFoodId = foodLogEntry.foodID
             
             self.searchController?.searchForNutrients(qty: Double(quantity), measureURI: measureURI, foodId: edamamFoodId) { (nutrients) in
@@ -487,9 +492,10 @@ class FoodDetailViewController: UIViewController {
     }
     
     
-    // MARK: - IBActions & Food Logging
+    // MARK: - IBActions, Entry Logging & Updating
     
-    @IBAction func logFood(_ sender: Any) {
+    // TODO: Add a secondary method to separate logging/updating a food item
+    @IBAction func updateOrLogNewEntry(_ sender: Any) {
         if addFoodButton.titleLabel?.text == "Edit Entry" {
             qtyTextField.isEnabled = true
             servingSizePickerView.isUserInteractionEnabled = true
@@ -514,6 +520,7 @@ class FoodDetailViewController: UIViewController {
         
         let edamamID = foodItem.food.foodId
         
+        // TODO: Do this for when editing an item as the Measument type is different for backend (compared to Measure for Edamam)
         let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
         let measureURI = foodItem.measures[selectedServingSizeIndex].uri
         
@@ -522,17 +529,27 @@ class FoodDetailViewController: UIViewController {
         let foodName = foodItem.food.label
         
         guard let quantityInput = quantityInputValue else { return }
-        let quantity = Int(quantityInput)
-        guard quantity > 0 else {
+        guard quantityInput > 0 else {
             createAndDisplayAlertController(title: "Select a Quantity", message: "Please input a quantity greater than 0 for your meal.")
             return
         }
+        
+        let quantity = String(quantityInput)
         
         guard let calories = self.calories else { return }
         
         guard let fatCount = self.fat, let carbsCount = self.carbs, let proteinCount = self.protein else { return }
         
-        let entry = FoodLogEntry(date: dateString, mealType: mealType, foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount)
+        let imageURL = foodItem.food.image
+        
+        var measures: [Measurement] = []
+        
+        for item in foodItem.measures {
+            let measure = Measurement(uri: item.uri, label: item.label.lowercased())
+            measures.append(measure)
+        }
+        
+        let entry = FoodLogEntry(date: dateString, mealType: mealType, foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, allMeasurements: measures, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount, imageURL: imageURL)
         
         
         FoodLogController.shared.createFoodLogEntry(entry: entry) { response in
@@ -567,6 +584,14 @@ class FoodDetailViewController: UIViewController {
                 return
             }
         }
+    }
+    
+    private func logNewEntry() {
+        
+    }
+    
+    private func editExistingEntry() {
+        
     }
     
     @IBAction func qtyTextFieldValueChanged(_ sender: UITextField) {
