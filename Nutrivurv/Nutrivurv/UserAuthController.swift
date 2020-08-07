@@ -83,6 +83,8 @@ class UserAuthController {
                 } else {
                     print("error saving user token in keychain")
                 }
+                
+                self.userProfileData = authData.user
             } catch {
                 print("Error decoding login response data from server: \(error)")
                 DispatchQueue.main.async {

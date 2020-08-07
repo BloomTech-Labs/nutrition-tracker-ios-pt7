@@ -30,7 +30,7 @@ struct FoodLogEntry: Codable {
         case foodID = "edamam_food_id"
         case measurementURI = "measurement_uri"
         case measurementName = "measurement_name"
-        case allMeasurements = "all_measurements"
+        case allMeasurements = "measurements"
         case foodName = "food_name"
         case quantity
         case calories = "calories_kcal"

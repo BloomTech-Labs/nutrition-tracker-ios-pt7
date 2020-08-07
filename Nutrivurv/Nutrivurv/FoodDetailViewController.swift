@@ -209,7 +209,7 @@ class FoodDetailViewController: UIViewController {
         // TODO: Fix selected serving sizes not showing up once back end is updated
         
         for measure in foodLogEntry.allMeasurements {
-            servingSizes.append(measure.label)
+            servingSizes.append(measure.label.capitalized)
         }
     }
     
