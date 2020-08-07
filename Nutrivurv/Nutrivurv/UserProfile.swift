@@ -9,10 +9,10 @@
 import Foundation
 
 struct UserProfile: Codable {
-    var id: Int
-    var name: String
+    var id: Int?
+    var name: String?
     var email: String
-    var password: String
+    var password: String?
     var birthDate: String?
     var weight: Int?
     var heightFeet: Int?
@@ -21,37 +21,13 @@ struct UserProfile: Codable {
     var goalWeight: String?
     var activityLevel: String?
     var weeklyWeightChangeGoal: Int?
-    var fatPctRatio: String
+    var fatPctRatio: String?
     var fatBudget: Int?
-    var carbsPctRatio: String
+    var carbsPctRatio: String?
     var carbsBudget: Int?
-    var proteinPctRatio: String
+    var proteinPctRatio: String?
     var proteinBudget: Int?
     var caloricBudget: Int?
-        
-        init(id: Int, name: String, email: String, password: String, birthDate: String? = nil, weight: Int? = nil, heightFeet: Int? = nil, heightInches: Int? = nil, biologicalSex: BiologicalSex.RawValue? = nil, goalWeight: String? = nil, activityLevel: String? = nil, weeklyWeightChangeGoal: Int? = nil,
-        fatPctRatio: String, fatBudget: Int? = nil, carbsPctRatio: String, carbsBudget: Int? = nil, proteinPctRatio: String, proteinBudget: Int? = nil, caloricBudget: Int? = nil) {
-            
-            self.id = id
-            self.name = name
-            self.email = email
-            self.password = password
-            self.birthDate = birthDate
-            self.weight = weight
-            self.heightFeet = heightFeet
-            self.heightInches = heightInches
-            self.biologicalSex = biologicalSex
-            self.goalWeight = goalWeight
-            self.activityLevel = activityLevel
-            self.weeklyWeightChangeGoal = weeklyWeightChangeGoal
-            self.fatPctRatio = fatPctRatio
-            self.fatBudget = fatBudget
-            self.carbsPctRatio = carbsPctRatio
-            self.carbsBudget = carbsBudget
-            self.proteinPctRatio = proteinPctRatio
-            self.proteinBudget = proteinBudget
-            self.caloricBudget = caloricBudget
-        }
     
     enum CodingKeys: String, CodingKey {
         case id
