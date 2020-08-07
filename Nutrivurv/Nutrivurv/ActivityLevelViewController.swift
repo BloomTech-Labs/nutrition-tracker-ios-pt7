@@ -27,15 +27,32 @@ class ActivityLevelViewController: UIViewController {
     // MARK: - IBActions and Methods
     
     // TODO: Refactor code to complete profile at this point
-    
-    // May need to use the following code when profile setup is complete:
-    // guard let mainTabBarVC = CustomTabBar.getTabBar() else { return }
-    // self.present(mainTabBarVC, animated: true, completion: nil)
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // TODO: Return to main user dashboard
+    @IBAction func signupButtonTapped(_ sender: Any) {
+        guard let user = profileController?.userProfile else {
+            print("User profile missing from registration process")
+            return
+        }
+        
+        UserAuthController.shared.registerUser(user: user) { (result) in
+            switch result {
+            case .success(true):
+                print("Successfully registered")
+                
+                if let tabBarVC = CustomTabBar.getTabBar() {
+                    tabBarVC.modalPresentationStyle = .fullScreen
+                    tabBarVC.modalTransitionStyle = .coverVertical
+                    
+                    self.present(tabBarVC, animated: true, completion: nil)
+                }
+                
+            case .failure(.badAuth):
+                print("Email already in use")
+                // TODO: Alert user and prompt for new email/password
+            default:
+                print("Error with registration")
+                // TODO: Alert user to double check inputs and try again
+            }
+        }
     }
     
     // MARK: - AlertControllers
