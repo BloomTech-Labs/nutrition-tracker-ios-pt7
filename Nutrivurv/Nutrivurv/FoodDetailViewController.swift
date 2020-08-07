@@ -189,6 +189,10 @@ class FoodDetailViewController: UIViewController {
         self.foodNameLabel.text = foodLogEntry.foodName.capitalized
         self.foodCategoryLabel.isHidden = true
         
+        if let imageURL = foodLogEntry.imageURL {
+            getFoodImage(urlString: imageURL)
+        }
+        
         self.qtyTextField.text = foodLogEntry.quantity
         
         switch foodLogEntry.mealType {
@@ -461,6 +465,10 @@ class FoodDetailViewController: UIViewController {
                 self.nutrients = nutrients
             }
         }
+    }
+    
+    private func reloadNutrientDetails() {
+        // Update details when user updates quanity or serving size
     }
     
     @objc func delayedSearch() {
