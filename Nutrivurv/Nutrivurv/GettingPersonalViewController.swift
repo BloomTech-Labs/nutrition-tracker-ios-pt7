@@ -32,17 +32,17 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        guard let profileController = profileController else { return }
         // If user has already completed information and is returning to a previous screen, this will set the info in view
-        if let ageInt = ProfileCreationController.birthDate {
-            birthDateTextField.text = String(ageInt)
+        if let birthDate = profileController.userProfile?.birthDate {
+            birthDateTextField.text = birthDate
         }
         
-        if let goalWeightInt = ProfileCreationController.goalWeight {
+        if let goalWeightInt = profileController.userProfile?.goalWeight {
             goalWeightTextField.text = String(goalWeightInt)
         }
         
-        if let biologicalSex = ProfileCreationController.biologicalSex {
+        if let biologicalSex = profileController.userProfile?.biologicalSex {
             switch biologicalSex {
             case BiologicalSex.female.rawValue:
                 biologicalSexPickerView.selectRow(1, inComponent: 0, animated: true)
@@ -61,9 +61,6 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     }
     
     @IBAction func toActivityLevel(_ sender: Any) {
-        guard let birthDate = birthDateTextField.text, !birthDate.isEmpty, checkForGoalWeight() != nil else {
-            return
-        }
         self.performSegue(withIdentifier: "ToActivityLevel", sender: self)
     }
     
@@ -92,30 +89,34 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToActivityLevel" {
-            guard let nutritionController = profileController,
+            guard let profileController = profileController,
                 let apVC = segue.destination as? ActivityLevelViewController else { return }
             
+            apVC.modalPresentationStyle = .fullScreen
+            
             guard let birthDate = birthDateTextField.text else {
+                createAndDisplayAlertController(title: "Missing Birth Date", message: "Please enter your birth date to continue registration.")
                 return
             }
             
             guard let goalWeightInt = checkForGoalWeight() else {
+                createAndDisplayAlertController(title: "Missing Goal Weight", message: "Please enter a desired weight goal to continue registration.")
                 return
             }
 
             let biologicalSexSelection = self.biologicalSexPickerView.selectedRow(inComponent: 0)
     
             switch biologicalSexSelection {
-            case 0:
-                ProfileCreationController.biologicalSex = BiologicalSex.male.rawValue
+            case 1:
+                profileController.userProfile?.biologicalSex = BiologicalSex.female.rawValue
             default:
-                ProfileCreationController.biologicalSex = BiologicalSex.female.rawValue
+                profileController.userProfile?.biologicalSex = BiologicalSex.male.rawValue
             }
             
-            ProfileCreationController.birthDate = birthDate
-            ProfileCreationController.goalWeight = goalWeightInt
+            profileController.userProfile?.birthDate = birthDate
+            profileController.userProfile?.goalWeight = String(goalWeightInt)
             
-            apVC.profileController = nutritionController
+            apVC.profileController = profileController
         }
     }
 }
@@ -133,7 +134,7 @@ extension GettingPersonalViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return BiologicalSex.allCases[row].rawValue
+        return BiologicalSex.allCases[row].rawValue.capitalized
     }
 }
 
@@ -156,7 +157,6 @@ extension GettingPersonalViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
-//        textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
         textField.layer.borderColor = UIColor(named: "nutrivurv-blue-new")?.cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowColor = UIColor(red: 0, green: 0.455, blue: 0.722, alpha: 0.5).cgColor
@@ -167,7 +167,7 @@ extension GettingPersonalViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
     }
