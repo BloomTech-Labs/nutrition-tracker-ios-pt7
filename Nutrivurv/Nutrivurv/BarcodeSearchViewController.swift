@@ -95,7 +95,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     
     private func setUpActivityView() {
         activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor(named: "nutrivurv-blue")
+        activityIndicator.color = UIColor(named: "nutrivurv-blue-new")
         activityIndicator.hidesWhenStopped = true
         activityIndicator.center = loadingBlurView.center
         self.view.addSubview(activityIndicator)
@@ -104,7 +104,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     
     private func addBarcodeScannerFrameView() {
         barcodeScannerFrameView = UIView()
-        barcodeScannerFrameView.layer.borderColor = UIColor(named: "nutrivurv-blue")?.cgColor
+        barcodeScannerFrameView.layer.borderColor = UIColor(named: "nutrivurv-blue-new")?.cgColor
         barcodeScannerFrameView.layer.borderWidth = 2
         self.view.addSubview(barcodeScannerFrameView)
         self.view.bringSubviewToFront(barcodeScannerFrameView)
@@ -138,7 +138,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         let button = UIButton(frame: CGRect(x: 0, y: label.frame.height + 8, width: view.frame.width * 0.8, height: 35))
         button.layer.cornerRadius = 10
         button.setTitle("Grant Access", for: .normal)
-        button.backgroundColor = UIColor(named: "nutrivurv-blue")
+        button.backgroundColor = UIColor(named: "nutrivurv-blue-new")
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
         
