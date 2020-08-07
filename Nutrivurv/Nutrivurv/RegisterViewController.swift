@@ -17,7 +17,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet var passwordTextField: CustomTextField!
     @IBOutlet var confirmPasswordTextField: CustomTextField!
     @IBOutlet weak var registerButton: CustomButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class RegisterViewController: UIViewController {
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard)))
     }
-
+    
     // MARK: - IBActions and Methods
     
     @IBAction func registerButtonTapped(_ sender: Any) {
@@ -54,32 +53,24 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        let newUser = UserAuth(name: name, email: email, password: password)
+        let userProfile = UserProfile(name: name, email: email, password: password)
         
-        activityIndicator.startAnimating()
-        registerButton.isEnabled = false
-        registerButton.layer.opacity = 0.45
+        let profileController = ProfileCreationController()
+        profileController.userProfile = userProfile
         
-        UserAuthController.shared.registerUser(user: newUser) { (result) in
-            
-            switch result {
-            case .success(true):
-                guard let mainTabBarVC = CustomTabBar.getTabBar() else { return }
-                mainTabBarVC.modalPresentationStyle = .fullScreen
-                self.present(mainTabBarVC, animated: true, completion: nil)
-            case .failure(.badAuth):
-                self.accountAlreadyExistsAlert()
-            case .failure(.serverError):
-                self.serverErrorAlert()
-            default:
-                self.generalRegistrationError()
-            }
-            
-            self.registerButton.isEnabled = true
-            self.registerButton.layer.opacity = 1.0
-            self.activityIndicator.stopAnimating()
+        guard let nc = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "ProfileNavigationController") as? UINavigationController else {
+            print("Unable to instantiate profile creation navigation controller")
+            return
         }
+        nc.modalPresentationStyle = .fullScreen
+        
+        if let profileVC = nc.viewControllers.first as? CalculateBMIViewController {
+            profileVC.profileController = profileController
+        }
+        
+        self.present(nc, animated: true, completion: nil)
     }
+    
     
     // MARK: - AlertControllers
     
