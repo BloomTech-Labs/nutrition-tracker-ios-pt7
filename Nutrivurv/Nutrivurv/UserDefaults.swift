@@ -9,11 +9,10 @@
 import Foundation
 
 extension UserDefaults {
-    private struct Keys {
+    struct Keys {
         static let dailyLoginStreak = "dailyLoginStreak"
         static let previousLoginDate = "previousLoginDate"
-        static let weightUnitPreference = "weightUnitPreference"
-        static let heightUnitPreference = "heightUnitPreference"
+        static let userIdKey = "userIdKey"
     }
     
     private class var lastLoginDate: Date? {

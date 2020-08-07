@@ -13,10 +13,13 @@ class UserAuthController {
     static let shared = UserAuthController()
     
     static let authKeychainToken = "authorizationToken"
-    static let userPassToken = "userPassToken"
+    static let userPassKey = "userPassKey"
+    static let userEmailKey = "userEmailKey"
     static let keychain = KeychainSwift()
     
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/auth")!
+    
+    var userProfileData: UserProfile?
     
     func loginUser(user: UserAuth, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let loginURL = baseURL.appendingPathComponent("login")
@@ -95,7 +98,7 @@ class UserAuthController {
         }.resume()
     }
     
-    func registerUser(user: UserAuth, completion: @escaping (Result<UserProfile?, NetworkError>) -> Void) {
+    func registerUser(user: UserProfile, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let registerURL = baseURL.appendingPathComponent("ios/register")
         var request = URLRequest(url: registerURL)
         
@@ -149,19 +152,10 @@ class UserAuthController {
             }
             
             let decoder = JSONDecoder()
-            var userProfile: UserProfile?
+            var response: UserAuthResponse?
             
             do {
-                let authResponse = try decoder.decode(UserAuthResponse.self, from: data)
-                if let token = authResponse.token {
-                    UserAuthController.keychain.set(token, forKey: UserAuthController.authKeychainToken)
-                } else {
-                    print("Error saving token in keychain")
-                }
-                
-                if let pass = UserAuthController.keychain.get(UserAuthController.userPassToken) {
-                    userProfile = UserProfile(id: authResponse.user.id, name: authResponse.user.name, email: authResponse.user.email, password: pass, fatPctRatio: authResponse.user.fatPctRatio, carbsPctRatio: authResponse.user.carbsPctRatio, proteinPctRatio: authResponse.user.proteinPctRatio)
-                }
+                response = try decoder.decode(UserAuthResponse.self, from: data)
             } catch {
                 print("Error decoding registration response data from server: \(error)")
                 DispatchQueue.main.async {
@@ -170,8 +164,40 @@ class UserAuthController {
                 return
             }
             
+            guard let authResponse = response else {
+                print("Auth response returned nil")
+                DispatchQueue.main.async {
+                    completion(.failure(.otherError))
+                }
+                return
+            }
+            
+            if let token = authResponse.token {
+                UserAuthController.keychain.set(token, forKey: UserAuthController.authKeychainToken)
+            } else {
+                print("Error saving auth token in keychain")
+                DispatchQueue.main.async {
+                    completion(.failure(.noToken))
+                }
+                return
+            }
+            
+            if let password = user.password, let id = authResponse.user.id {
+                UserDefaults.standard.set(id, forKey: UserDefaults.Keys.userIdKey)
+                UserAuthController.keychain.set(user.email, forKey: UserAuthController.userEmailKey)
+                UserAuthController.keychain.set(password, forKey: UserAuthController.userPassKey)
+
+                self.userProfileData = UserProfile(id: authResponse.user.id, name: authResponse.user.name, email: authResponse.user.email, password: password, fatPctRatio: authResponse.user.fatPctRatio, carbsPctRatio: authResponse.user.carbsPctRatio, proteinPctRatio: authResponse.user.proteinPctRatio)
+            } else {
+                print("Error initializing new user profile")
+                DispatchQueue.main.async {
+                    completion(.failure(.objectInitFailed))
+                }
+                return
+            }
+            
             DispatchQueue.main.async {
-                completion(.success(userProfile))
+                completion(.success(true))
             }
             
         }.resume()
