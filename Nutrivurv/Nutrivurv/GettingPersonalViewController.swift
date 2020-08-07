@@ -99,6 +99,11 @@ class GettingPersonalViewController: UIViewController, UIPickerViewDelegate {
                 return
             }
             
+            if !birthDate.isValidBirthDate() {
+                createAndDisplayAlertController(title: "Birthdate Format Incorrect", message: "Please enter your birth date with the proper format: MM-DD-YYYY")
+                return
+            }
+            
             guard let goalWeightInt = checkForGoalWeight() else {
                 createAndDisplayAlertController(title: "Missing Goal Weight", message: "Please enter a desired weight goal to continue registration.")
                 return

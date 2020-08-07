@@ -25,4 +25,11 @@ extension String {
         
         return CGFloat(double)
     }
+    
+    func isValidBirthDate() -> Bool {
+        let birthDateRegex = "[0-9]{2}-[0-9]{2}-[0-9]{4}"
+        
+        let birthDatePred = NSPredicate(format: "SELF MATCHES %@", birthDateRegex)
+        return birthDatePred.evaluate(with: self)
+    }
 }
