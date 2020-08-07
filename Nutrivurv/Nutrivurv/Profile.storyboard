@@ -24,23 +24,23 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="yBG-gW-5N0" customClass="GettingPersonalViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A03-dq-lML">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="VXs-Ae-TAG">
-                                <rect key="frame" x="16" y="30" width="382" height="131.5"/>
+                                <rect key="frame" x="16" y="30" width="382" height="133.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HR3-dZ-2g6">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="131.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="133.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you Identify?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pR-Of-he3">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="20"/>
                                                 <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTc-ij-Gy0">
-                                                <rect key="frame" x="0.0" y="31.5" width="382" height="100"/>
+                                                <rect key="frame" x="0.0" y="33.5" width="382" height="100"/>
                                                 <color key="backgroundColor" name="bg-color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="6ge-Ib-MQv"/>
@@ -51,7 +51,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gID-ro-UPK" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="266" width="382" height="56"/>
+                                <rect key="frame" x="16" y="269.5" width="382" height="56"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="meK-VI-4Dc"/>
@@ -61,24 +61,24 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxd-Qs-TPB">
-                                <rect key="frame" x="25" y="259" width="84" height="14"/>
+                                <rect key="frame" x="25" y="262.5" width="88" height="15.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Goal Weight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXc-Ib-G5r">
-                                        <rect key="frame" x="0.0" y="0.0" width="69" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="15.5"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kly-3w-39T">
-                                        <rect key="frame" x="69" y="0.0" width="7" height="14"/>
+                                        <rect key="frame" x="72.5" y="0.0" width="6.5" height="15.5"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYo-rk-1Q4">
-                                        <rect key="frame" x="76" y="0.0" width="8" height="14"/>
+                                        <rect key="frame" x="79" y="0.0" width="9" height="15.5"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,7 +88,7 @@
                                 <color key="backgroundColor" name="bg-color"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g7-Uc-qv2" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="354" width="382" height="44"/>
+                                <rect key="frame" x="16" y="357.5" width="382" height="44"/>
                                 <color key="backgroundColor" name="nutrivurv-blue-new"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="iX2-1L-ir7"/>
@@ -108,7 +108,7 @@
                                 <color key="trackTintColor" name="disabled-button-text"/>
                             </progressView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM-DD-YYYY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHI-pp-D7x" customClass="CustomTextField" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="179" width="382" height="56"/>
+                                <rect key="frame" x="16" y="182.5" width="382" height="56"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="put-Jh-n9Q"/>
@@ -118,24 +118,24 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jx4-wC-GOW">
-                                <rect key="frame" x="25" y="173.5" width="79.5" height="14"/>
+                                <rect key="frame" x="25" y="175.5" width="84" height="15.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqc-V5-vhk">
-                                        <rect key="frame" x="0.0" y="0.0" width="68" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="71.5" height="15.5"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYy-Rv-ukW">
-                                        <rect key="frame" x="68" y="0.0" width="3.5" height="14"/>
+                                        <rect key="frame" x="71.5" y="0.0" width="3.5" height="15.5"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo8-hF-sCY">
-                                        <rect key="frame" x="71.5" y="0.0" width="8" height="14"/>
+                                        <rect key="frame" x="75" y="0.0" width="9" height="15.5"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,29 +192,29 @@
             <objects>
                 <viewController id="gC1-Ch-0S4" customClass="ActivityLevelViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="clm-uW-RoJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sfZ-0s-np7">
-                                <rect key="frame" x="0.0" y="84" width="414" height="390"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="410"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="390" id="VB4-7P-LWX"/>
+                                    <constraint firstAttribute="height" constant="410" id="VB4-7P-LWX"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" name="bg-color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActiveCell" id="ji5-mr-IPR" customClass="ActivityLevelTableViewCell" customModule="Nutrivurv" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="57"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="59.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ji5-mr-IPR" id="grk-QG-Kfh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="T4k-Zh-CGf">
-                                                    <rect key="frame" x="12" y="10" width="390" height="37"/>
+                                                    <rect key="frame" x="12" y="10" width="390" height="39.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzS-eP-QnY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="26" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="26" height="39.5"/>
                                                             <color key="backgroundColor" name="bg-color"/>
                                                             <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                             <color key="tintColor" name="nutrivurv-blue-new"/>
@@ -228,17 +228,17 @@
                                                             </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="S89-lX-5Ci">
-                                                            <rect key="frame" x="48" y="0.0" width="342" height="37"/>
+                                                            <rect key="frame" x="48" y="0.0" width="342" height="39.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAY-G8-cae">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="20.5"/>
                                                                     <color key="backgroundColor" name="bg-color"/>
                                                                     <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="16"/>
                                                                     <color key="textColor" name="light-label"/>
                                                                     <color key="highlightedColor" name="light-label"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="1AU-dt-916">
-                                                                    <rect key="frame" x="0.0" y="21.5" width="66.5" height="15.5"/>
+                                                                    <rect key="frame" x="0.0" y="23" width="68" height="16.5"/>
                                                                     <color key="backgroundColor" name="bg-color"/>
                                                                     <color key="tintColor" name="nutrivurv-blue-new"/>
                                                                     <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="13"/>
@@ -271,7 +271,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMa-R4-ERX" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="506" width="382" height="44"/>
+                                <rect key="frame" x="16" y="528" width="382" height="44"/>
                                 <color key="backgroundColor" name="nutrivurv-blue-new"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="CMe-zP-6X8"/>
@@ -283,7 +283,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How active are you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpC-LE-Rk2">
-                                <rect key="frame" x="107" y="30" width="200.5" height="26"/>
+                                <rect key="frame" x="102.5" y="30" width="209" height="28"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="22"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
@@ -324,7 +324,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileCreation" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uSu-Zd-iJo" customClass="CalculateBMIViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c64-zW-Sq4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33333299999999999" translatesAutoresizingMaskIntoConstraints="NO" id="rTs-Ub-10z">
@@ -353,16 +353,16 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-7E-IDk">
-                                <rect key="frame" x="30" y="217" width="205" height="22"/>
+                                <rect key="frame" x="30" y="217" width="214.5" height="23"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Height &amp; Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXg-US-Dgv">
-                                        <rect key="frame" x="0.0" y="0.0" width="177" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="23"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhM-p9-lUK">
-                                        <rect key="frame" x="185" y="0.0" width="20" height="22"/>
+                                        <rect key="frame" x="194.5" y="0.0" width="20" height="23"/>
                                         <color key="tintColor" name="nutrivurv-blue-new"/>
                                         <state key="normal" image="info.circle" catalog="system"/>
                                         <connections>
@@ -393,19 +393,19 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q7c-lO-gSx">
-                                <rect key="frame" x="10" y="324" width="394" height="25.5"/>
+                                <rect key="frame" x="10" y="324" width="394" height="27.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pTg-0C-1De">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="25.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Your BMI:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyD-X0-Pda">
-                                                <rect key="frame" x="0.0" y="0.0" width="79" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-Bl-eTX">
-                                                <rect key="frame" x="87" y="0.0" width="307" height="23.5"/>
+                                                <rect key="frame" x="86" y="0.0" width="308" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="20"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
@@ -413,7 +413,7 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="pcU-zG-6iS">
-                                        <rect key="frame" x="0.0" y="23.5" width="394" height="2"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="394" height="2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="Yef-G5-r4E"/>
                                         </constraints>
@@ -421,37 +421,37 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-89-eqE">
-                                <rect key="frame" x="30" y="363.5" width="354" height="137"/>
+                                <rect key="frame" x="30" y="365.5" width="354" height="147"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMI Categories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvj-Eo-ZPe">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="23"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uyN-lw-3Aq">
-                                        <rect key="frame" x="0.0" y="29" width="354" height="108"/>
+                                        <rect key="frame" x="0.0" y="31" width="354" height="116"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Underweight = &lt; 18.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coF-W6-n8C">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="23"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal weight = 18.5 – 24.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYJ-XG-Eng">
-                                                <rect key="frame" x="0.0" y="29" width="354" height="21"/>
+                                                <rect key="frame" x="0.0" y="31" width="354" height="23"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overweight = 25 – 29.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TI-U5-FkK">
-                                                <rect key="frame" x="0.0" y="58" width="354" height="21"/>
+                                                <rect key="frame" x="0.0" y="62" width="354" height="23"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obesity = BMI of 30 or greater " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyq-YB-1Aw">
-                                                <rect key="frame" x="0.0" y="87" width="354" height="21"/>
+                                                <rect key="frame" x="0.0" y="93" width="354" height="23"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="18"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
@@ -461,7 +461,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meK-tG-twa" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="532.5" width="382" height="44"/>
+                                <rect key="frame" x="16" y="544.5" width="382" height="44"/>
                                 <color key="backgroundColor" name="nutrivurv-blue-new"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FDo-CK-v3d"/>
@@ -558,14 +558,14 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Weight " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqu-tf-Zhd">
-                                <rect key="frame" x="221.5" y="-8" width="71" height="14"/>
+                                <rect key="frame" x="220" y="-9.5" width="74.5" height="15.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Height " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-6L-5Sp">
-                                <rect key="frame" x="122.5" y="-8" width="69.5" height="14"/>
+                                <rect key="frame" x="121.5" y="-9.5" width="71" height="15.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <color key="textColor" name="light-label"/>
@@ -645,14 +645,14 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Height " textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWV-BS-cK6">
-                                <rect key="frame" x="46" y="-2" width="69.5" height="14"/>
+                                <rect key="frame" x="45.5" y="-3.5" width="71" height="15.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Your Weight " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-If-KlM">
-                                <rect key="frame" x="299" y="-2" width="71" height="14"/>
+                                <rect key="frame" x="297.5" y="-3.5" width="74.5" height="15.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
                                 <color key="textColor" name="light-label"/>
