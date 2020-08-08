@@ -47,7 +47,7 @@
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */; };
-		5138FEFA24D4ED81008FC720 /* MacrosMealHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5138FEF924D4ED81008FC720 /* MacrosMealHeaderView.swift */; };
+		5138FEFA24D4ED81008FC720 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5138FEF924D4ED81008FC720 /* TableViewSectionHeader.swift */; };
 		5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531C24A3D10E00CDF5F1 /* QuoteController.swift */; };
 		5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139531E24A3D3F700CDF5F1 /* Quote.swift */; };
 		5139532224A3E14E00CDF5F1 /* Muli-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */; };
@@ -61,6 +61,7 @@
 		5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */; };
 		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
 		515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */; };
+		518F2CEB24DDEDFC00A438C4 /* MacrosDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */; };
 		51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */; };
 		51C5742A24CBB9F900B211F8 /* Catamaran-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */; };
 		51C5742B24CBB9F900B211F8 /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */; };
@@ -150,7 +151,7 @@
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSwitcherView.swift; sourceTree = "<group>"; };
-		5138FEF924D4ED81008FC720 /* MacrosMealHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosMealHeaderView.swift; sourceTree = "<group>"; };
+		5138FEF924D4ED81008FC720 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
 		5139531C24A3D10E00CDF5F1 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
 		5139531E24A3D3F700CDF5F1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -164,6 +165,7 @@
 		5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTableViewController.swift; sourceTree = "<group>"; };
 		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
 		515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
+		518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosDetailView.swift; sourceTree = "<group>"; };
 		51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
 		51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraLight.ttf"; sourceTree = "<group>"; };
 		51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
@@ -240,12 +242,9 @@
 		510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */ = {
 			isa = PBXGroup;
 			children = (
-				512970C224B1324900315C7B /* RingsAndMacrosView.swift */,
-				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
-				5138FEF924D4ED81008FC720 /* MacrosMealHeaderView.swift */,
-				515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */,
-				512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */,
-				51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */,
+				518F2CE924DDEDE900A438C4 /* Food Detail View */,
+				518F2CE824DDEDDF00A438C4 /* Models */,
+				518F2CE724DDEDC500A438C4 /* Dashboard */,
 			);
 			name = "SwiftUI Views and Models";
 			sourceTree = "<group>";
@@ -310,6 +309,16 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		512F461424DE1AFC0097F9B4 /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */,
+				512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */,
+				51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */,
+			);
+			name = "Sub Views";
+			sourceTree = "<group>";
+		};
 		512FF44C24DB547E00F49FCB /* Custom Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +366,32 @@
 				5151E6D224A7FB550071A609 /* FoodLogController.swift */,
 			);
 			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		518F2CE724DDEDC500A438C4 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				512970C224B1324900315C7B /* RingsAndMacrosView.swift */,
+				5138FEF924D4ED81008FC720 /* TableViewSectionHeader.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		518F2CE824DDEDDF00A438C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		518F2CE924DDEDE900A438C4 /* Food Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */,
+				512F461424DE1AFC0097F9B4 /* Sub Views */,
+			);
+			name = "Food Detail View";
 			sourceTree = "<group>";
 		};
 		51A186F424A32FD100196C83 /* View Controllers */ = {
@@ -749,7 +784,7 @@
 				D631B2712415BB0900AE30C9 /* StandardBMIViewController.swift in Sources */,
 				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,
 				51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */,
-				5138FEFA24D4ED81008FC720 /* MacrosMealHeaderView.swift in Sources */,
+				5138FEFA24D4ED81008FC720 /* TableViewSectionHeader.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */,
 				51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */,
@@ -762,6 +797,7 @@
 				5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */,
 				51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */,
 				512FF45024DB557300F49FCB /* BouncesContentView.swift in Sources */,
+				518F2CEB24DDEDFC00A438C4 /* MacrosDetailView.swift in Sources */,
 				D6A1CC3D240B601700477429 /* ProfileCreationController.swift in Sources */,
 				512FF46224DB597500F49FCB /* TabBarItemContentView.swift in Sources */,
 			);

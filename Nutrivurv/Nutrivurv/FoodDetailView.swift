@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct FoodDetailView: View {
+    @ObservedObject var dailyMacros: DailyMacros
+    @State var includingMeal: Bool = false
+    @State var currentProgresss: Bool = true
+    
     var body: some View {
         VStack {
             
@@ -27,18 +31,16 @@ struct FoodDetailView: View {
             ZStack {
                 // Main card background view
                 RoundedRectangle(cornerRadius: 30.0, style: .continuous)
-//                    .foregroundColor(Color(UIColor(named: "daily-vibe")!))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(UIColor(named: "detail-view-main-bg")!))
                     .shadow(color: Color(UIColor(named: "detail-view-card-shadow")!), radius: 8.0, x: 0, y: -3)
                 
                 HStack {
-                    MacrosMealHeaderView(dailyMacrosModel: DailyMacros())
+                    TableViewSectionHeader(dailyMacrosModel: DailyMacros())
                         .scaleEffect(1.10)
                         .frame(width: 245, height: 43)
                     
                     Spacer()
                     
-                    // Use the add meal icon
                     Image("add-meal-button-icon")
                         .frame(width: 60, height: 60)
                         .scaleEffect(1.0)
@@ -89,6 +91,6 @@ struct FoodDetailView: View {
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView()
+        FoodDetailView(dailyMacros: DailyMacros())
     }
 }
