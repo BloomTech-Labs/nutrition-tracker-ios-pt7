@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ProgressSwitcherView: View {
-    @State var currentProgress: Bool = true
+    @Binding var currentProgress: Bool
     
     var unselectedTextColor: Color = Color(UIColor(named: "unselected-progress-switcher")!)
     
@@ -25,8 +25,8 @@ struct ProgressSwitcherView: View {
                     .foregroundColor(Color(UIColor(named: "progress-switcher-bg")!))
                     .frame(width: 193, height: 28)
                     .onTapGesture {
-                        self.currentProgress.toggle()
-                }
+                            self.currentProgress.toggle()
+                    }
                 
                 RoundedRectangle(cornerRadius: 14.0, style: .continuous)
                     .foregroundColor(Color(UIColor(named: "nutrivurv-blue-new")!))
@@ -61,6 +61,6 @@ struct ProgressSwitcherView: View {
 
 struct ProgressSwitcherView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressSwitcherView()
+        ProgressSwitcherView(currentProgress: .constant(true))
     }
 }

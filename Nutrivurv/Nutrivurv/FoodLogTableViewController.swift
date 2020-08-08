@@ -82,7 +82,7 @@ class FoodLogTableViewController: UITableViewController {
     private func getTableviewHeaderMacrosView(using model: DailyMacros) -> UIView {
         let view = UIView()
         
-        let hostingController = UIHostingController(rootView: MacrosMealHeaderView(dailyMacrosModel: model))
+        let hostingController = UIHostingController(rootView: TableViewSectionHeader(dailyMacrosModel: model))
         hostingController.view.backgroundColor = UIColor.clear
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         

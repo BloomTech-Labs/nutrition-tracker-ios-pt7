@@ -1,5 +1,5 @@
 //
-//  MacrosMealHeaderView.swift
+//  TableViewSectionHeader.swift
 //  Nutrivurv
 //
 //  Created by Dillon on 7/31/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MacrosMealHeaderView: View {
+struct TableViewSectionHeader: View {
     @ObservedObject var dailyMacrosModel: DailyMacros
     @State var selectedIndex: Int = 0
     
@@ -35,10 +35,10 @@ struct MacrosMealHeaderView: View {
             HStack {
                 Spacer(minLength: 22)
                 HStack {
-                    MacroMealHeaderCircle(index: 0, color: blueColor, selected: $selectedIndex)
-                    MacroMealHeaderCircle(index: 1, color: greenColor, selected: $selectedIndex)
-                    MacroMealHeaderCircle(index: 2, color: orangeColor, selected: $selectedIndex)
-                    MacroMealHeaderCircle(index: 3, color: redColor, selected: $selectedIndex)
+                    MacrosTableView(index: 0, color: blueColor, selected: $selectedIndex)
+                    MacrosTableView(index: 1, color: greenColor, selected: $selectedIndex)
+                    MacrosTableView(index: 2, color: orangeColor, selected: $selectedIndex)
+                    MacrosTableView(index: 3, color: redColor, selected: $selectedIndex)
                 }.frame(width: 92)
                 
                 HStack {
@@ -74,11 +74,11 @@ struct MacrosMealHeaderView: View {
 
 struct MacrosMealHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MacrosMealHeaderView(dailyMacrosModel: DailyMacros())
+        TableViewSectionHeader(dailyMacrosModel: DailyMacros())
     }
 }
 
-struct MacroMealHeaderCircle: View {
+struct MacrosTableView: View {
     // Used to change opacity and animation properties if in dark mode for improved look
     @Environment(\.colorScheme) var colorScheme
     @State var index: Int
