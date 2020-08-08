@@ -15,6 +15,8 @@ struct BubbleView: View {
         Image("bubble")
             .resizable()
             .frame(width: 66, height: 60)
+            .scaleEffect(currentProgress ? 0.01 : 1.0)
+            .animation(Animation.easeInOut.delay(currentProgress ? 0 : 0.1).speed(currentProgress ? 1.5 : 1.1))
     }
 }
 

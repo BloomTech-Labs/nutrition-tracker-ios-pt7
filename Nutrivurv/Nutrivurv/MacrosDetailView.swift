@@ -15,11 +15,7 @@ struct MacrosDetailView: View {
     var width: CGFloat = 56
     var height: CGFloat = 56
     
-    var progressPercent: CGFloat
-    
-    
-    var initialRingAnimation = Animation.easeInOut(duration: 0.55).delay(0.2)
-//    var bounceAnimation = Animation.interpolatingSpring(mass: 0.26, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(7.0)
+    var ringAnimation = Animation.easeInOut(duration: 0.4)
     
     var body: some View {
         let multiplier = width / 100
@@ -40,8 +36,7 @@ struct MacrosDetailView: View {
             Circle()
                 .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 13.5)).grayscale(0.4).brightness(0.09)
                 .frame(width: width - 0.25, height: height - 0.25)
-                
-            .animation(initialRingAnimation)
+                .animation(ringAnimation)
             
             Circle()
                 .trim(from: progress, to: 1)
@@ -52,7 +47,7 @@ struct MacrosDetailView: View {
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: width, height: height)
                 .shadow(color: Color(uiColor).opacity(0.3), radius: 5 * multiplier, x: 2 * multiplier, y: 3 * multiplier)
-            .animation(initialRingAnimation)
+                .animation(ringAnimation)
         }
     }
 }

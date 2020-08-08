@@ -93,6 +93,7 @@ struct FoodDetailView: View {
                             MacrosDetailView(uiColor: UIColor(named: "nutrivurv-red-new")!, progressPercent: currentProgresss ? 63 : 88)
                         }
                         .frame(width: 348, height: 97, alignment: .center)
+                        .offset(y: currentProgresss ? -24 : 0)
                         
                         HStack {
                             BubbleView(currentProgress: $currentProgresss)

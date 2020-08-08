@@ -244,7 +244,6 @@
 		510F0D7624CE5E7400A5F312 /* SwiftUI Views & Models */ = {
 			isa = PBXGroup;
 			children = (
-				518F2CE924DDEDE900A438C4 /* Food Detail View */,
 				518F2CE824DDEDDF00A438C4 /* Models */,
 				518F2CE724DDEDC500A438C4 /* Dashboard */,
 			);
@@ -405,6 +404,7 @@
 		51A186F624A3302A00196C83 /* Edamam & Meal Logging */ = {
 			isa = PBXGroup;
 			children = (
+				9229361C24DF368A00324D95 /* SwiftUI Views & Models */,
 				5130B83124A7042200946B41 /* Custom Views */,
 				51257AEE24A3285E00C744B7 /* Models */,
 				51A186F724A3305500196C83 /* Model Controllers */,
@@ -496,6 +496,14 @@
 				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
 			);
 			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		9229361C24DF368A00324D95 /* SwiftUI Views & Models */ = {
+			isa = PBXGroup;
+			children = (
+				518F2CE924DDEDE900A438C4 /* Food Detail View */,
+			);
+			name = "SwiftUI Views & Models";
 			sourceTree = "<group>";
 		};
 		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
