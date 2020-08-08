@@ -53,11 +53,14 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        // Initialize new UserProfile instance in order to proceed with profile creation
         let userProfile = UserProfile(name: name, email: email, password: password)
         
+        // ProfileController holds userProfile object used throughout profile creation
         let profileController = ProfileCreationController()
         profileController.userProfile = userProfile
         
+        // Initialize navigation controller that manges profile creation
         guard let nc = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(identifier: "ProfileNavigationController") as? UINavigationController else {
             print("Unable to instantiate profile creation navigation controller")
             return

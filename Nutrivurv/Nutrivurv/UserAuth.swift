@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Model used solely for log in functionality
 struct UserAuth: Codable {
     let name: String?
     let email: String

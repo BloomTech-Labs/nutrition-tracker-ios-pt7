@@ -233,6 +233,7 @@
 		4C89A9EF24400F9000348B5A /* Profile Creation */ = {
 			isa = PBXGroup;
 			children = (
+				9229361A24DF209E00324D95 /* Models */,
 				51A186F524A3300200196C83 /* Model Controllers */,
 				D68C703723F3B01A008AFDF0 /* Custom Views */,
 				51A186F424A32FD100196C83 /* View Controllers */,
@@ -240,14 +241,14 @@
 			name = "Profile Creation";
 			sourceTree = "<group>";
 		};
-		510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */ = {
+		510F0D7624CE5E7400A5F312 /* SwiftUI Views & Models */ = {
 			isa = PBXGroup;
 			children = (
 				518F2CE924DDEDE900A438C4 /* Food Detail View */,
 				518F2CE824DDEDDF00A438C4 /* Models */,
 				518F2CE724DDEDC500A438C4 /* Dashboard */,
 			);
-			name = "SwiftUI Views and Models";
+			name = "SwiftUI Views & Models";
 			sourceTree = "<group>";
 		};
 		511285E324D3689B0080127B /* Custom Global Views */ = {
@@ -266,18 +267,11 @@
 		51257AEE24A3285E00C744B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4C9F30BE24528F1200CE14CA /* Food.swift */,
-				4C82D27824529C1B005E83F2 /* NutrientDetails.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		512C3FE824CFCD8100B542B3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
 				512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */,
 				512C3FE924CFD1B700B542B3 /* FoodLog.swift */,
 				51503BEE24D287DE00643896 /* MealTypes.swift */,
+				4C9F30BE24528F1200CE14CA /* Food.swift */,
+				4C82D27824529C1B005E83F2 /* NutrientDetails.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -362,14 +356,6 @@
 			name = "Daily Vibe Quote API";
 			sourceTree = "<group>";
 		};
-		5151E6D124A7FB3E0071A609 /* Model Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				5151E6D224A7FB550071A609 /* FoodLogController.swift */,
-			);
-			name = "Model Controllers";
-			sourceTree = "<group>";
-		};
 		518F2CE724DDEDC500A438C4 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,7 +402,7 @@
 			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
-		51A186F624A3302A00196C83 /* Edamam & Nutrition Info */ = {
+		51A186F624A3302A00196C83 /* Edamam & Meal Logging */ = {
 			isa = PBXGroup;
 			children = (
 				5130B83124A7042200946B41 /* Custom Views */,
@@ -424,32 +410,22 @@
 				51A186F724A3305500196C83 /* Model Controllers */,
 				51A186FC24A3319800196C83 /* View Controllers */,
 			);
-			name = "Edamam & Nutrition Info";
+			name = "Edamam & Meal Logging";
 			sourceTree = "<group>";
 		};
 		51A186F724A3305500196C83 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				4C9F30BC24528B8700CE14CA /* FoodSearchController.swift */,
+				5151E6D224A7FB550071A609 /* FoodLogController.swift */,
 			);
 			name = "Model Controllers";
-			sourceTree = "<group>";
-		};
-		51A186F824A3307400196C83 /* User Information */ = {
-			isa = PBXGroup;
-			children = (
-				51A186F924A3308700196C83 /* Models */,
-			);
-			name = "User Information";
 			sourceTree = "<group>";
 		};
 		51A186F924A3308700196C83 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				51257AEA24A2EE6600C744B7 /* UserAuth.swift */,
-				D631B286241891DD00AE30C9 /* UserProfile.swift */,
-				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
-				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -457,6 +433,7 @@
 		51A186FA24A3311600196C83 /* Login & Registration */ = {
 			isa = PBXGroup;
 			children = (
+				51A186F924A3308700196C83 /* Models */,
 				D68C703823F3B025008AFDF0 /* Model Controllers */,
 				51A186FB24A3315100196C83 /* View Controllers */,
 			);
@@ -483,16 +460,13 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		51A186FD24A331DC00196C83 /* Dashboard & In-App */ = {
+		51A186FD24A331DC00196C83 /* Dashboard & In-App Views */ = {
 			isa = PBXGroup;
 			children = (
-				512C3FE824CFCD8100B542B3 /* Models */,
-				5151E6D124A7FB3E0071A609 /* Model Controllers */,
-				510F0D7624CE5E7400A5F312 /* SwiftUI Views and Models */,
-				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
-				51A186FE24A331F400196C83 /* View Controllers */,
+				9229361B24DF20FA00324D95 /* Dashboard */,
+				51A186F624A3302A00196C83 /* Edamam & Meal Logging */,
 			);
-			name = "Dashboard & In-App";
+			name = "Dashboard & In-App Views";
 			sourceTree = "<group>";
 		};
 		51A186FE24A331F400196C83 /* View Controllers */ = {
@@ -502,6 +476,26 @@
 				5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9229361A24DF209E00324D95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D631B286241891DD00AE30C9 /* UserProfile.swift */,
+				D631B27C241878B100AE30C9 /* ActivityLevel.swift */,
+				D631B2742415BE7A00AE30C9 /* BMIType.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9229361B24DF20FA00324D95 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				510F0D7624CE5E7400A5F312 /* SwiftUI Views & Models */,
+				51A186FE24A331F400196C83 /* View Controllers */,
+				5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */,
+			);
+			name = Dashboard;
 			sourceTree = "<group>";
 		};
 		D60BA2C423FCDEDA00B3E6BF /* Fonts */ = {
@@ -571,13 +565,11 @@
 		D68C701C23F25400008AFDF0 /* Nutrivurv */ = {
 			isa = PBXGroup;
 			children = (
-				51A186F824A3307400196C83 /* User Information */,
+				D68C703523F3B006008AFDF0 /* All Storyboards */,
 				51A186FA24A3311600196C83 /* Login & Registration */,
 				4C89A9EF24400F9000348B5A /* Profile Creation */,
-				51A186FD24A331DC00196C83 /* Dashboard & In-App */,
+				51A186FD24A331DC00196C83 /* Dashboard & In-App Views */,
 				512CA6AC24DA52FF00B17010 /* HealthKit */,
-				51A186F624A3302A00196C83 /* Edamam & Nutrition Info */,
-				D68C703523F3B006008AFDF0 /* Storyboards */,
 				D631B2772417204000AE30C9 /* Utilities */,
 				511285E324D3689B0080127B /* Custom Global Views */,
 				D68C703423F3AF07008AFDF0 /* Resources */,
@@ -597,7 +589,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		D68C703523F3B006008AFDF0 /* Storyboards */ = {
+		D68C703523F3B006008AFDF0 /* All Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				D68C702823F25402008AFDF0 /* LaunchScreen.storyboard */,
@@ -607,7 +599,7 @@
 				4C89A9F3244010E500348B5A /* Profile.storyboard */,
 				4C89A9F02440105500348B5A /* Dashboard.storyboard */,
 			);
-			name = Storyboards;
+			name = "All Storyboards";
 			sourceTree = "<group>";
 		};
 		D68C703723F3B01A008AFDF0 /* Custom Views */ = {
