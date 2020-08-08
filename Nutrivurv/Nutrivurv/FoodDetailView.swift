@@ -14,15 +14,9 @@ struct FoodDetailView: View {
     
     var body: some View {
         VStack {
-            
-            // Acts as the nav bar - ONLY for testing purposes
-            Rectangle()
-                .frame(height: 118)
-                .foregroundColor(Color.gray.opacity(0.3))
-            
-            
+        
             Image("avocado")
-                .frame(height: 305, alignment: .top)
+                .frame(height: 320, alignment: .top)
                 .scaledToFill()
             
             ZStack {
@@ -45,36 +39,34 @@ struct FoodDetailView: View {
                             .scaleEffect(1.0)
                             .shadow(color: Color(UIColor(named: "detail-view-card-shadow")!), radius: 8.0, x: 0, y: -3)
                     }
-                    .frame(width: 365, height: 60)
-                    .padding(EdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 20))
+                    .frame(width: UIScreen.main.bounds.width - 24, height: 60)
                     
                     
                     HStack {
                         VStack{
                             Text("Avocados")
                                 .font(Font.custom("Catamaran-Bold", size: 20))
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .frame(alignment: .leading)
                                 .minimumScaleFactor(0.6)
                                 .lineLimit(1)
                             
                             Text("Generic Foods")
                                 .font(Font.custom("QuattrocentoSans-Italic", size: 15))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(EdgeInsets(top: -5, leading: 0, bottom: 0, trailing: 0))
+                                .frame(alignment: .leading)
+                                .padding(EdgeInsets(top: -5, leading: 4, bottom: 0, trailing: 0))
                         }
-                        
                         Spacer()
                         
                         Image("heart-icon")
                             .frame(width: 32, height: 29, alignment: .center)
                     }
-                    .frame(width: 354, height: 44, alignment: .center)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                    .frame(width: UIScreen.main.bounds.width - 40, height: 44, alignment: .center)
+                    .padding(EdgeInsets(top: -5, leading: 0, bottom: 8, trailing: 0))
                     
                     
                     ServingSizeSelectionView()
-                        .frame(width: 350, height: 58, alignment: .center)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
+                        .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 14, trailing: 0))
                     
                     
                     ProgressSwitcherView(currentProgress: $currentProgresss)
@@ -92,7 +84,7 @@ struct FoodDetailView: View {
                             Spacer()
                             MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
                         }
-                        .frame(width: 348, height: 97, alignment: .center)
+                        .frame(width: UIScreen.main.bounds.width - 60, height: 97, alignment: .center)
                         .offset(y: currentProgresss ? -24 : 0)
                         
                         HStack {
@@ -104,15 +96,16 @@ struct FoodDetailView: View {
                             Spacer()
                             BubbleView(currentProgress: $currentProgresss)
                         }
-                        .frame(width: 358, height: 46, alignment: .center)
+                        .frame(width: UIScreen.main.bounds.width - 48, height: 46, alignment: .center)
                         .padding(EdgeInsets(top: 0, leading: 36, bottom: 80, trailing: 0))
                         
                     }
                 }
-                .frame(width: 415, height: 556, alignment: .top)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                 .offset(x: 0, y: -30)
             }
-            .frame(width: 415, height: 556, alignment: .bottom)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .bottom)
+            .offset(y: -40)
         }
     }
 }
