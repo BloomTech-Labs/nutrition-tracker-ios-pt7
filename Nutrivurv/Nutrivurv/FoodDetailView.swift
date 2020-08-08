@@ -73,7 +73,7 @@ struct FoodDetailView: View {
                     
                     
                     ServingSizeSelectionView()
-                        .frame(width: 300, height: 58, alignment: .center)
+                        .frame(width: 350, height: 58, alignment: .center)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
                     
                     
@@ -84,13 +84,13 @@ struct FoodDetailView: View {
                     ZStack {
                         
                         HStack {
-                            MacrosDetailView(uiColor: UIColor(named: "nutrivurv-blue-new")!, progressPercent: currentProgresss ? 36 : 52)
+                            MacrosDetailView(count: dailyMacros.caloriesCount, progressPercent: dailyMacros.caloriesPercent, uiColor: UIColor(named: "nutrivurv-blue-new")!)
                             Spacer()
-                            MacrosDetailView(uiColor: UIColor(named: "nutrivurv-green-new")!, progressPercent: currentProgresss ? 44 : 63)
+                            MacrosDetailView(count: dailyMacros.carbsCount, progressPercent: dailyMacros.carbsPercent, uiColor: UIColor(named: "nutrivurv-green-new")!)
                             Spacer()
-                            MacrosDetailView(uiColor: UIColor(named: "nutrivurv-orange-new")!, progressPercent: currentProgresss ? 52 : 73)
+                            MacrosDetailView(count: dailyMacros.proteinCount, progressPercent: dailyMacros.proteinPercent, uiColor: UIColor(named: "nutrivurv-orange-new")!)
                             Spacer()
-                            MacrosDetailView(uiColor: UIColor(named: "nutrivurv-red-new")!, progressPercent: currentProgresss ? 63 : 88)
+                            MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
                         }
                         .frame(width: 348, height: 97, alignment: .center)
                         .offset(y: currentProgresss ? -24 : 0)

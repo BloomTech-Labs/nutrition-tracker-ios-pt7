@@ -19,14 +19,12 @@ struct ServingSizeSelectionView: View {
     
     var body: some View {
         HStack {
-            
             FoodDetailsInputView(label: quantityLabel, input: selectedQuantity)
             Spacer()
             FoodDetailsInputView(label: servingSizeLabel, input: selectedServingSize)
             Spacer()
             FoodDetailsInputView(label: mealTypeLabel, input: selectedMealType)
-            
-        }.frame(width: 300, height: 58)
+        }
     }
 }
 

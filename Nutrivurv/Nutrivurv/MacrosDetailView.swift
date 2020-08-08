@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct MacrosDetailView: View {
-//    @State var macrosIncludingMeal: Bool
+    var count: CGFloat
+    var progressPercent: CGFloat
     
     var uiColor: UIColor
     var width: CGFloat = 56
@@ -54,6 +55,6 @@ struct MacrosDetailView: View {
 
 struct FoodDetailMacros_Previews: PreviewProvider {
     static var previews: some View {
-        MacrosDetailView(uiColor: UIColor(named: "nutrivurv-blue-new")!, progressPercent: 73)
+        MacrosDetailView(count: 65, progressPercent: 24, uiColor: UIColor(named: "nutrivurv-blue-new")!)
     }
 }
