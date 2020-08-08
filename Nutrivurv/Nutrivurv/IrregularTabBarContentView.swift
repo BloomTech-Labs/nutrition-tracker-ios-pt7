@@ -33,8 +33,8 @@ class IrregularityContentView: BouncesContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.imageView.backgroundColor = UIColor(named: "nutrivurv-blue-new")
-        self.imageView.layer.borderWidth = 2.0
+        self.imageView.backgroundColor = UIColor(named: "nutrivurv-blue-new")!
+        self.imageView.layer.borderWidth = 2
         self.imageView.layer.borderColor = UIColor(named: "image-border")?.cgColor
         self.imageView.layer.cornerRadius = 35
         self.insets = UIEdgeInsets.init(top: -32, left: 0, bottom: 0, right: 0)
@@ -44,7 +44,7 @@ class IrregularityContentView: BouncesContentView {
 
         textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         highlightTextColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        iconColor = UIColor(named: "image-border")!
         highlightIconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         backdropColor = .clear
         highlightBackdropColor = .clear

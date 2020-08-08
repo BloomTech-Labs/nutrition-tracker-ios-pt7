@@ -40,7 +40,7 @@ class CustomTabBar {
         
         
         v1.tabBarItem = TabBarItem.init(v1ContentView, title: nil, image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"), tag: 0)
-        v2.tabBarItem = TabBarItem.init(v2ContentView, title: nil, image: UIImage(named: "food"), selectedImage: UIImage(named: "food_1"), tag: 1)
+        v2.tabBarItem = TabBarItem.init(v2ContentView, title: nil, image: UIImage(named: "meal_1"), selectedImage: UIImage(named: "meal_1"), tag: 1)
         v3.tabBarItem = TabBarItem.init(v3ContentView, title: nil, image: UIImage(named: "favor"), selectedImage: UIImage(named: "favor_1"), tag: 2)
         
         tabBarVC.viewControllers = [v1, v2, v3]

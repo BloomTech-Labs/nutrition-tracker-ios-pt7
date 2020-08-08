@@ -26,7 +26,7 @@ class ActivityLevelViewController: UIViewController {
     
     // MARK: - IBActions and Methods
     
-    // TODO: Refactor code to complete profile at this point
+    // TODO: Add ability to choose a weekly wight gain/loss goal
     @IBAction func signupButtonTapped(_ sender: Any) {
         guard let user = profileController?.userProfile else {
             print("User profile missing from registration process")
