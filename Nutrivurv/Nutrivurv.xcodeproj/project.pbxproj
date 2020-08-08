@@ -24,7 +24,6 @@
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
 		512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE924CFD1B700B542B3 /* FoodLog.swift */; };
-		512CA6AB24DA4CE600B17010 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512CA6AA24DA4CE600B17010 /* HealthKit.framework */; };
 		512CA6B024DA533200B17010 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6AF24DA533200B17010 /* HealthKitController.swift */; };
 		512CA6B224DA53BB00B17010 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6B124DA53BB00B17010 /* HealthKitError.swift */; };
 		512ED17024DBB1CE000A702D /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED16F24DBB1CE000A702D /* CustomTabBar.swift */; };
@@ -77,6 +76,7 @@
 		51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */; };
 		51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
+		9229361924DF1E5000324D95 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512CA6AA24DA4CE600B17010 /* HealthKit.framework */; };
 		D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */; };
 		D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60BA2D123FCF80D00B3E6BF /* CustomButton.swift */; };
 		D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D60BA2D423FF79AD00B3E6BF /* KeychainSwift */; };
@@ -129,7 +129,6 @@
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
 		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
 		512C3FE924CFD1B700B542B3 /* FoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
-		512CA6A824DA4CE600B17010 /* Nutrivurv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nutrivurv.entitlements; sourceTree = "<group>"; };
 		512CA6AA24DA4CE600B17010 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		512CA6AF24DA533200B17010 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		512CA6B124DA53BB00B17010 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
@@ -222,8 +221,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9229361924DF1E5000324D95 /* HealthKit.framework in Frameworks */,
 				D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */,
-				512CA6AB24DA4CE600B17010 /* HealthKit.framework in Frameworks */,
 				512FF46C24DB60BD00F49FCB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,7 +582,6 @@
 				511285E324D3689B0080127B /* Custom Global Views */,
 				D68C703423F3AF07008AFDF0 /* Resources */,
 				D60BA2C423FCDEDA00B3E6BF /* Fonts */,
-				512CA6A824DA4CE600B17010 /* Nutrivurv.entitlements */,
 			);
 			path = Nutrivurv;
 			sourceTree = "<group>";
