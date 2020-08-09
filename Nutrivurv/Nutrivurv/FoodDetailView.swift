@@ -101,13 +101,13 @@ struct FoodDetailView: View {
                         .offset(y: currentProgresss ? -20 : 0)
                         
                         HStack {
-                            BubbleView(currentProgress: $currentProgresss, index: 1)
+                            BubbleView(currentProgress: $currentProgresss, index: 1, percentDifference: 4)
                             Spacer()
-                            BubbleView(currentProgress: $currentProgresss, index: 2)
+                            BubbleView(currentProgress: $currentProgresss, index: 2, percentDifference: 12)
                             Spacer()
-                            BubbleView(currentProgress: $currentProgresss, index: 3)
+                            BubbleView(currentProgress: $currentProgresss, index: 3, percentDifference: 9)
                             Spacer()
-                            BubbleView(currentProgress: $currentProgresss, index: 4)
+                            BubbleView(currentProgress: $currentProgresss, index: 4, percentDifference: 2)
                         }
                         .frame(width: UIScreen.main.bounds.width - 60, height: 46, alignment: .center)
                         .padding(EdgeInsets(top: 0, leading: 36, bottom: 104, trailing: 0))
