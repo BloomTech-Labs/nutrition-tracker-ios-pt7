@@ -79,7 +79,7 @@ struct FoodDetailView: View {
                         .padding(EdgeInsets(top: 0, leading: 117, bottom: 2, trailing: 117))
                     
                     ZStack {
-                        HStack(spacing: 28){
+                        HStack(spacing: 20) {
                             //                            MacrosDetailView(count: dailyMacros.caloriesCount, progressPercent: dailyMacros.caloriesPercent, uiColor: UIColor(named: "nutrivurv-blue-new")!)
                             //                            Spacer()
                             //                            MacrosDetailView(count: dailyMacros.carbsCount, progressPercent: dailyMacros.carbsPercent, uiColor: UIColor(named: "nutrivurv-green-new")!)
@@ -92,25 +92,26 @@ struct FoodDetailView: View {
                             MacrosDetailView(count: currentProgresss ? 689 : 1178, progressPercent: currentProgresss ? 29 : 46, macroDescription: " cals", uiColor: caloriesColor)
                             
                             MacrosDetailView(count: currentProgresss ? 120 : 189, progressPercent: currentProgresss ? 48 : 73, macroDescription: "g carbs", uiColor: carbsColor)
-//                            Spacer()
+                            
                             MacrosDetailView(count: currentProgresss ? 98 : 126, progressPercent: currentProgresss ? 72 : 88,macroDescription: "g protein", uiColor: proteinColor)
                             
                             MacrosDetailView(count: currentProgresss ? 82 : 106, progressPercent: currentProgresss ? 28 : 54,macroDescription: "g fat", uiColor: fatColor)
+                            
                         }
-                        .frame(width: UIScreen.main.bounds.width - 42, height: 97, alignment: .center)
+                        .frame(width: UIScreen.main.bounds.width - 58, height: 97)
                         .offset(y: currentProgresss ? -20 : 0)
                         
-                        HStack {
+                        HStack(spacing: 6) {
                             BubbleView(currentProgress: $currentProgresss, index: 1, percentDifference: 4)
                             Spacer()
-                            BubbleView(currentProgress: $currentProgresss, index: 2, percentDifference: 12)
+                            BubbleView(currentProgress: $currentProgresss, index: 2, percentDifference: 3)
                             Spacer()
                             BubbleView(currentProgress: $currentProgresss, index: 3, percentDifference: 9)
                             Spacer()
                             BubbleView(currentProgress: $currentProgresss, index: 4, percentDifference: 2)
                         }
-                        .frame(width: UIScreen.main.bounds.width - 40, height: 46, alignment: .center)
-                        .padding(EdgeInsets(top: 0, leading: 36, bottom: 104, trailing: 0))
+                        .frame(width: UIScreen.main.bounds.width - 80, height: 46, alignment: .center)
+                        .padding(EdgeInsets(top: 0, leading: 37, bottom: 104, trailing: 0))
                     }     
                 }
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)

@@ -39,7 +39,7 @@ struct BubbleView: View {
             
             
         }
-        .frame(width: 66, height: 60)
+        .frame(width: 70, height: 60)
         .scaleEffect(currentProgress ? 0.00000001 : 1.0)
         .animation(Animation.interactiveSpring(response: currentProgress ? 0.1 : 0.4, dampingFraction: currentProgress ? 1.0 : 0.6, blendDuration: 0.2)
         .delay(currentProgress ? 0 : (0.2 * (index/3.5)))

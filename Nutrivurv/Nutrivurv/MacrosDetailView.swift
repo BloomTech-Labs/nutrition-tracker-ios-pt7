@@ -71,11 +71,11 @@ struct MacrosDetailView: View {
             }
             
             Text("\(String(format: "%.0f", count))\(macroDescription)")
-                .font(Font.custom("QuattrocentoSans-Italic", size: 15))
+                .font(Font.custom("QuattrocentoSans-Italic", size: 14))
                 .animation(ringAnimation)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
-        }
+        }.frame(width: 70)
     }
 }
 
