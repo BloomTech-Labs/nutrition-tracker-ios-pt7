@@ -71,7 +71,7 @@ struct MacrosDetailView: View {
             }
             
             Text("\(String(format: "%.0f", count))\(macroDescription)")
-                .font(Font.custom("QuattrocentoSans-BoldItalic", size: 12))
+                .font(Font.custom("QuattrocentoSans-Italic", size: 15))
                 .animation(ringAnimation)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)

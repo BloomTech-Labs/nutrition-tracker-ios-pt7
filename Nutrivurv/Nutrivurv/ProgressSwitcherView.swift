@@ -18,7 +18,7 @@ struct ProgressSwitcherView: View {
             Text("Today's Progress")
                 .font(Font.custom("Catamaran-Bold", size: 14))
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
-                .frame(height: 23)
+                .frame(width: 177, height: 23)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 14.0, style: .continuous)
