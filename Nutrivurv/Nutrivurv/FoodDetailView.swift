@@ -66,28 +66,36 @@ struct FoodDetailView: View {
                     
                     ServingSizeSelectionView()
                         .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 14, trailing: 0))
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                     
                     
                     ProgressSwitcherView(currentProgress: $currentProgresss)
                         .frame(width: 180, height: 60, alignment: .center)
-                        .padding(EdgeInsets(top: 0, leading: 117, bottom: 8, trailing: 117))
+                        .padding(EdgeInsets(top: 0, leading: 117, bottom: 2, trailing: 117))
                     
                     ZStack {
+                        HStack {
+                            //                            MacrosDetailView(count: dailyMacros.caloriesCount, progressPercent: dailyMacros.caloriesPercent, uiColor: UIColor(named: "nutrivurv-blue-new")!)
+                            //                            Spacer()
+                            //                            MacrosDetailView(count: dailyMacros.carbsCount, progressPercent: dailyMacros.carbsPercent, uiColor: UIColor(named: "nutrivurv-green-new")!)
+                            //                            Spacer()
+                            //                            MacrosDetailView(count: dailyMacros.proteinCount, progressPercent: dailyMacros.proteinPercent, uiColor: UIColor(named: "nutrivurv-orange-new")!)
+                            //                            Spacer()
+                            //                            MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
+                            
+                            
+                            MacrosDetailView(count: currentProgresss ? 689 : 1178, progressPercent: currentProgresss ? 29 : 46, macroDescription: " cals", uiColor: UIColor(named: "nutrivurv-blue-new")!)
+                            Spacer()
+                            MacrosDetailView(count: currentProgresss ? 120 : 189, progressPercent: currentProgresss ? 48 : 73, macroDescription: "g carbs", uiColor: UIColor(named: "nutrivurv-green-new")!)
+                            Spacer()
+                            MacrosDetailView(count: currentProgresss ? 98 : 126, progressPercent: currentProgresss ? 72 : 88,macroDescription: "g protein", uiColor: UIColor(named: "nutrivurv-orange-new")!)
+                            Spacer()
+                            MacrosDetailView(count: currentProgresss ? 82 : 106, progressPercent: currentProgresss ? 28 : 54,macroDescription: "g fat", uiColor: UIColor(named: "nutrivurv-red-new")!)
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 72, height: 97, alignment: .center)
+                        .offset(y: currentProgresss ? -20 : 0)
                         
                         HStack {
-                            MacrosDetailView(count: dailyMacros.caloriesCount, progressPercent: dailyMacros.caloriesPercent, uiColor: UIColor(named: "nutrivurv-blue-new")!)
-                            Spacer()
-                            MacrosDetailView(count: dailyMacros.carbsCount, progressPercent: dailyMacros.carbsPercent, uiColor: UIColor(named: "nutrivurv-green-new")!)
-                            Spacer()
-                            MacrosDetailView(count: dailyMacros.proteinCount, progressPercent: dailyMacros.proteinPercent, uiColor: UIColor(named: "nutrivurv-orange-new")!)
-                            Spacer()
-                            MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
-                        }
-                        .frame(width: UIScreen.main.bounds.width - 60, height: 97, alignment: .center)
-                        .offset(y: currentProgresss ? -24 : 0)
-                        
-                        HStack {
                             BubbleView(currentProgress: $currentProgresss)
                             Spacer()
                             BubbleView(currentProgress: $currentProgresss)
@@ -96,10 +104,9 @@ struct FoodDetailView: View {
                             Spacer()
                             BubbleView(currentProgress: $currentProgresss)
                         }
-                        .frame(width: UIScreen.main.bounds.width - 48, height: 46, alignment: .center)
-                        .padding(EdgeInsets(top: 0, leading: 36, bottom: 80, trailing: 0))
-                        
-                    }
+                        .frame(width: UIScreen.main.bounds.width - 60, height: 46, alignment: .center)
+                        .padding(EdgeInsets(top: 0, leading: 36, bottom: 104, trailing: 0))
+                    }     
                 }
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                 .offset(x: 0, y: -30)
