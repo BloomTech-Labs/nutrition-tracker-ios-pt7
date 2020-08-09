@@ -12,6 +12,11 @@ struct FoodDetailView: View {
     @ObservedObject var dailyMacros: DailyMacros
     @State var currentProgresss: Bool = true
     
+    var caloriesColor = UIColor(named: "nutrivurv-blue-new")!
+    var carbsColor = UIColor(named: "nutrivurv-green-new")!
+    var proteinColor = UIColor(named: "nutrivurv-orange-new")!
+    var fatColor = UIColor(named: "nutrivurv-red-new")!
+    
     var body: some View {
         VStack {
         
@@ -84,25 +89,25 @@ struct FoodDetailView: View {
                             //                            MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
                             
                             
-                            MacrosDetailView(count: currentProgresss ? 689 : 1178, progressPercent: currentProgresss ? 29 : 46, macroDescription: " cals", uiColor: UIColor(named: "nutrivurv-blue-new")!)
+                            MacrosDetailView(count: currentProgresss ? 689 : 1178, progressPercent: currentProgresss ? 29 : 46, macroDescription: " cals", uiColor: caloriesColor)
                             Spacer()
-                            MacrosDetailView(count: currentProgresss ? 120 : 189, progressPercent: currentProgresss ? 48 : 73, macroDescription: "g carbs", uiColor: UIColor(named: "nutrivurv-green-new")!)
+                            MacrosDetailView(count: currentProgresss ? 120 : 189, progressPercent: currentProgresss ? 48 : 73, macroDescription: "g carbs", uiColor: carbsColor)
                             Spacer()
-                            MacrosDetailView(count: currentProgresss ? 98 : 126, progressPercent: currentProgresss ? 72 : 88,macroDescription: "g protein", uiColor: UIColor(named: "nutrivurv-orange-new")!)
+                            MacrosDetailView(count: currentProgresss ? 98 : 126, progressPercent: currentProgresss ? 72 : 88,macroDescription: "g protein", uiColor: proteinColor)
                             Spacer()
-                            MacrosDetailView(count: currentProgresss ? 82 : 106, progressPercent: currentProgresss ? 28 : 54,macroDescription: "g fat", uiColor: UIColor(named: "nutrivurv-red-new")!)
+                            MacrosDetailView(count: currentProgresss ? 82 : 106, progressPercent: currentProgresss ? 28 : 54,macroDescription: "g fat", uiColor: fatColor)
                         }
                         .frame(width: UIScreen.main.bounds.width - 72, height: 97, alignment: .center)
                         .offset(y: currentProgresss ? -20 : 0)
                         
                         HStack {
-                            BubbleView(currentProgress: $currentProgresss)
+                            BubbleView(currentProgress: $currentProgresss, index: 1)
                             Spacer()
-                            BubbleView(currentProgress: $currentProgresss)
+                            BubbleView(currentProgress: $currentProgresss, index: 2)
                             Spacer()
-                            BubbleView(currentProgress: $currentProgresss)
+                            BubbleView(currentProgress: $currentProgresss, index: 3)
                             Spacer()
-                            BubbleView(currentProgress: $currentProgresss)
+                            BubbleView(currentProgress: $currentProgresss, index: 4)
                         }
                         .frame(width: UIScreen.main.bounds.width - 60, height: 46, alignment: .center)
                         .padding(EdgeInsets(top: 0, leading: 36, bottom: 104, trailing: 0))
