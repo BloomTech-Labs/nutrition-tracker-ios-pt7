@@ -19,6 +19,9 @@ struct FoodDetailView: View {
     var proteinColor = UIColor(named: "nutrivurv-orange-new")!
     var fatColor = UIColor(named: "nutrivurv-red-new")!
     
+    var shadowColor = UIColor(named: "detail-view-card-shadow")!
+    var bgColor = UIColor(named: "detail-view-main-bg")!
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -29,8 +32,8 @@ struct FoodDetailView: View {
                 ZStack {
                     // Main card background view
                     RoundedRectangle(cornerRadius: 30.0, style: .continuous)
-                        .foregroundColor(Color(UIColor(named: "detail-view-main-bg")!))
-                        .shadow(color: Color(UIColor(named: "detail-view-card-shadow")!), radius: 8.0, x: 0, y: -3)
+                        .foregroundColor(Color(bgColor))
+                        .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
                     
                     VStack {
                         
@@ -44,7 +47,7 @@ struct FoodDetailView: View {
                             Image("add-meal-button-icon")
                                 .frame(width: 60, height: 60)
                                 .scaleEffect(1.0)
-                                .shadow(color: Color(UIColor(named: "detail-view-card-shadow")!), radius: 8.0, x: 0, y: -3)
+                                .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
                         }
                         .frame(width: UIScreen.main.bounds.width - 24, height: 60)
                         

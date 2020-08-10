@@ -11,57 +11,58 @@ import SwiftUI
 struct NutritionFactsView: View {
     @Binding var showNutrients: Bool
     
+    var bgColor = UIColor(named: "nutrition-facts-bg")!
+    var shadowColor = UIColor(named: "detail-view-card-shadow")!
+    
     var body: some View {
         
         ZStack {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .fill(Color.blue)
+                .fill(Color(bgColor))
+                .shadow(color: Color(shadowColor), radius: 8, y: -3)
             
-            VStack(spacing: 6) {
+            VStack(spacing: 8) {
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .frame(width: 50, height: 6)
-                    .foregroundColor(Color.black.opacity(0.2))
+                    .foregroundColor(Color.black.opacity(0.08))
                     .offset(y: 10)
                 
-                ScrollView {
+                VStack(spacing: 10) {
+                    Text("nutrition Facts")
+                        .font(Font.custom("Gaoel", size: 16))
+                        .frame(width: UIScreen.main.bounds.width - 60, alignment: .leading)
+                    
+                    NutrientView(name: "Calories", count: 120, unit: "", pct: nil)
+                    
+                    Text("% Daily Value *")
+                        .font(Font.custom("QuattrocentoSans-Italic", size: 12))
+                        .frame(width: UIScreen.main.bounds.width - 60, alignment: .trailing)
+                    
+                    // Maximum of 10 components per view
                     VStack(spacing: 10) {
-                        Text("nutrition Facts")
-                            .font(Font.custom("Gaoel", size: 16))
-                            .frame(width: UIScreen.main.bounds.width - 60, alignment: .leading)
+                        NutrientView(name: "Total Fat", count: 0.4, unit: "g", pct: 0)
                         
-                        NutrientView(name: "Calories", count: 120, unit: "", pct: nil)
+                        NutrientView(name: "Sodium", count: 1.2, unit: "mg", pct: 0)
                         
-                        Text("% Daily Value *")
-                            .font(Font.custom("QuattrocentoSans-Italic", size: 12))
-                            .frame(width: UIScreen.main.bounds.width - 60, alignment: .trailing)
+                        NutrientView(name: "Total Carbohydrate", count: 26.4, unit: "g", pct: 8)
                         
-                        // Maximum of 10 components per view
-                        VStack(spacing: 10) {
-                            NutrientView(name: "Total Fat", count: 0.4, unit: "g", pct: 0)
-                            
-                            NutrientView(name: "Sodium", count: 1.2, unit: "mg", pct: 0)
-                            
-                            NutrientView(name: "Total Carbohydrate", count: 26.4, unit: "g", pct: 8)
-                            
-                            NutrientView(name: "Cholesterol", count: 0, unit: "mg", pct: 0)
-                            
-                            NutrientView(name: "Sugar", count: 14.2, unit: "g", pct: nil)
-                            
-                            NutrientView(name: "Protein", count: 1.3, unit: "g", pct: nil)
-                            
-                            NutrientView(name: "Vitamin D", count: 0, unit: "µg", pct: 0)
-                            
-                            NutrientView(name: "Calcium", count: 5.8, unit: "mg", pct: 0)
-                            
-                            NutrientView(name: "Iron", count: 0.3, unit: "mg", pct: 1)
-                            
-                            NutrientView(name: "Potassium", count: 414.2, unit: "mg", pct: 8)
-                        }
+                        NutrientView(name: "Cholesterol", count: 0, unit: "mg", pct: 0)
+                        
+                        NutrientView(name: "Sugar", count: 14.2, unit: "g", pct: nil)
+                        
+                        NutrientView(name: "Protein", count: 1.3, unit: "g", pct: nil)
+                        
+                        NutrientView(name: "Vitamin D", count: 0, unit: "µg", pct: 0)
+                        
+                        NutrientView(name: "Calcium", count: 5.8, unit: "mg", pct: 0)
+                        
+                        NutrientView(name: "Iron", count: 0.3, unit: "mg", pct: 1)
+                        
+                        NutrientView(name: "Potassium", count: 414.2, unit: "mg", pct: 8)
                     }
-                    Spacer()
-                }
-                .frame(alignment: .top)
-                .offset(y: 20)
+                }.frame(alignment: .top)
+                    .offset(y: 20)
+                Spacer()
             }
         }.onTapGesture {
             withAnimation(.easeInOut) {
