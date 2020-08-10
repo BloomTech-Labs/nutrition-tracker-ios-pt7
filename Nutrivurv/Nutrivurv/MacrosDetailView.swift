@@ -17,7 +17,7 @@ struct MacrosDetailView: View {
     var width: CGFloat = 56
     var height: CGFloat = 56
     
-    var ringAnimation = Animation.easeInOut(duration: 0.4)
+    var ringAnimation = Animation.easeInOut
     var fontColor = UIColor(displayP3Red: 68/255, green: 71/255, blue: 78/255, alpha: 1)
     
     var body: some View {

@@ -11,8 +11,8 @@ import SwiftUI
 struct FoodDetailView: View {
     @ObservedObject var dailyMacros: DailyMacros
     @State var currentProgresss: Bool = true
-    
     @State var showNutrients: Bool = false
+    @State var bottomCardState = CGSize.zero
     
     var caloriesColor = UIColor(named: "nutrivurv-blue-new")!
     var carbsColor = UIColor(named: "nutrivurv-green-new")!
@@ -121,10 +121,26 @@ struct FoodDetailView: View {
                     .offset(x: 0, y: -30)
                     
                     NutritionFactsView(showNutrients: $showNutrients)
-                        .offset(y: showNutrients ? 168 : 370)
+                        .offset(y: showNutrients ? 170 : 365)
+                        .offset(y: self.bottomCardState.height)
+                        .gesture(
+                            DragGesture().onChanged { value in
+                                self.bottomCardState = value.translation
+                                
+                                print(self.bottomCardState)
+                            }
+                            .onEnded { value in
+                                if self.bottomCardState.height < -120 {
+                                    self.showNutrients = true
+                                } else {
+                                    self.showNutrients = false
+                                }
+                                self.bottomCardState = .zero
+                        })
                 }
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .bottom)
                 .offset(y: showNutrients ? -180 : -40)
+                .animation(.easeInOut)
             }
         }.navigationBarTitle("Test", displayMode: .inline)
     }
