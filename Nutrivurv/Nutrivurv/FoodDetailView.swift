@@ -125,11 +125,31 @@ struct FoodDetailView: View {
                         .offset(y: self.bottomCardState.height)
                         .gesture(
                             DragGesture().onChanged { value in
+                                if self.showNutrients {
+                                    guard value.translation.height > -60 else {
+                                        self.bottomCardState = .zero
+                                        return
+                                    }
+                                    if self.bottomCardState.height > 180 {
+                                        self.bottomCardState = .zero
+                                        self.showNutrients.toggle()
+                                        return
+                                    }
+                                } else {
+                                    guard value.translation.height < 55 else { return }
+                                }
+                                
+                                
+                                
+                                if self.bottomCardState.height < -180 { return }
                                 self.bottomCardState = value.translation
                                 
                                 print(self.bottomCardState)
                             }
                             .onEnded { value in
+                                if self.showNutrients {
+                                    if value.translation.height < 0 { return }
+                                }
                                 if self.bottomCardState.height < -120 {
                                     self.showNutrients = true
                                 } else {
