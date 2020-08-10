@@ -76,7 +76,6 @@ struct FoodDetailView: View {
                         
                         ServingSizeSelectionView()
                             .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
                         
                         
                         ProgressSwitcherView(currentProgress: $currentProgresss)

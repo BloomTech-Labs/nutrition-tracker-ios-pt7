@@ -27,7 +27,7 @@ struct NutritionFactsView: View {
                     .foregroundColor(Color.black.opacity(0.08))
                     .offset(y: 10)
                 
-                VStack(spacing: 10) {
+                VStack(spacing: 8) {
                     Text("nutrition Facts")
                         .font(Font.custom("Gaoel", size: 16))
                         .frame(width: UIScreen.main.bounds.width - 60, alignment: .leading)
@@ -39,7 +39,7 @@ struct NutritionFactsView: View {
                         .frame(width: UIScreen.main.bounds.width - 60, alignment: .trailing)
                     
                     // Maximum of 10 components per view
-                    VStack(spacing: 10) {
+                    VStack(spacing: 8) {
                         NutrientView(name: "Total Fat", count: 0.4, unit: "g", pct: 0)
                         
                         NutrientView(name: "Sodium", count: 1.2, unit: "mg", pct: 0)
