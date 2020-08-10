@@ -44,6 +44,7 @@
 		512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */; };
 		512FF46C24DB60BD00F49FCB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 512FF46B24DB60BD00F49FCB /* Lottie */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
+		5133508B24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133508A24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */; };
 		5138FEFA24D4ED81008FC720 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5138FEF924D4ED81008FC720 /* TableViewSectionHeader.swift */; };
@@ -150,6 +151,7 @@
 		512FF46124DB597500F49FCB /* TabBarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemContentView.swift; sourceTree = "<group>"; };
 		512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemMoreContentView.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
+		5133508A24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIDetailViewController.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSwitcherView.swift; sourceTree = "<group>"; };
 		5138FEF924D4ED81008FC720 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				4C39A97F244E9DDA00AAA74E /* FoodSearchTableViewController.swift */,
 				4C89A9ED24400F1100348B5A /* FoodDetailViewController.swift */,
 				513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */,
+				5133508A24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */,
 				51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */,
 				9262EB2724DF77FB006AC540 /* NutritionFactsView.swift in Sources */,
+				5133508B24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift in Sources */,
 				512FF46024DB597100F49FCB /* TabBarItemContainer.swift in Sources */,
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
 				5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */,
