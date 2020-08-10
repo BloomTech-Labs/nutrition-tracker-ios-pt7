@@ -78,7 +78,7 @@ struct FoodDetailView: View {
                         
                         ProgressSwitcherView(currentProgress: $currentProgresss)
                             .frame(width: 180, height: 60, alignment: .center)
-                            .padding(EdgeInsets(top: 0, leading: 117, bottom: 2, trailing: 117))
+                            .padding(EdgeInsets(top: 0, leading: 117, bottom: 0, trailing: 117))
                         
                         ZStack {
                             HStack(spacing: 20) {
@@ -90,7 +90,6 @@ struct FoodDetailView: View {
                                 //                            Spacer()
                                 //                            MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
                                 
-                                
                                 MacrosDetailView(count: currentProgresss ? 689 : 1178, progressPercent: currentProgresss ? 29 : 46, macroDescription: " cals", uiColor: caloriesColor)
                                 
                                 MacrosDetailView(count: currentProgresss ? 120 : 189, progressPercent: currentProgresss ? 48 : 73, macroDescription: "g carbs", uiColor: carbsColor)
@@ -101,7 +100,7 @@ struct FoodDetailView: View {
                                 
                             }
                             .frame(width: UIScreen.main.bounds.width - 58, height: 97)
-                            .offset(y: currentProgresss ? -20 : 0)
+                            .offset(x: -4, y: currentProgresss ? -20 : 0)
                             
                             HStack(spacing: 6) {
                                 BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 1, percentDifference: 4)
@@ -119,27 +118,8 @@ struct FoodDetailView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                     .offset(x: 0, y: -30)
                     
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 30, style: .continuous)
-                            .fill(Color.blue)
-                        
-                        VStack {
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .frame(width: 50, height: 6)
-                                .foregroundColor(Color.black.opacity(0.2))
-                                .onTapGesture {
-                                    withAnimation(.easeInOut) {
-                                        self.showNutrients.toggle()
-                                    }
-                            }
-                            Spacer()
-                        }
-                        .frame(alignment: .top)
-                        .offset(y: 20)
-                        
-                    }
-                    .offset(y: showNutrients ? 175 : 370)
-
+                    NutritionFactsView(showNutrients: $showNutrients)
+                        .offset(y: showNutrients ? 168 : 370)
                 }
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .bottom)
                 .offset(y: showNutrients ? -180 : -40)
