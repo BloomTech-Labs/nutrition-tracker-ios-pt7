@@ -12,6 +12,8 @@ struct FoodDetailView: View {
     @ObservedObject var dailyMacros: DailyMacros
     @State var currentProgresss: Bool = true
     
+    @State var showNutrients: Bool = false
+    
     var caloriesColor = UIColor(named: "nutrivurv-blue-new")!
     var carbsColor = UIColor(named: "nutrivurv-green-new")!
     var proteinColor = UIColor(named: "nutrivurv-orange-new")!
@@ -102,13 +104,13 @@ struct FoodDetailView: View {
                             .offset(y: currentProgresss ? -20 : 0)
                             
                             HStack(spacing: 6) {
-                                BubbleView(currentProgress: $currentProgresss, index: 1, percentDifference: 4)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 1, percentDifference: 4)
                                 Spacer()
-                                BubbleView(currentProgress: $currentProgresss, index: 2, percentDifference: 3)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 2, percentDifference: 3)
                                 Spacer()
-                                BubbleView(currentProgress: $currentProgresss, index: 3, percentDifference: 9)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 3, percentDifference: 9)
                                 Spacer()
-                                BubbleView(currentProgress: $currentProgresss, index: 4, percentDifference: 2)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 4, percentDifference: 2)
                             }
                             .frame(width: UIScreen.main.bounds.width - 80, height: 46, alignment: .center)
                             .padding(EdgeInsets(top: 0, leading: 37, bottom: 104, trailing: 0))
@@ -116,9 +118,31 @@ struct FoodDetailView: View {
                     }
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                     .offset(x: 0, y: -30)
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 30, style: .continuous)
+                            .fill(Color.blue)
+                        
+                        VStack {
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .frame(width: 50, height: 6)
+                                .foregroundColor(Color.black.opacity(0.2))
+                                .onTapGesture {
+                                    withAnimation(.easeInOut) {
+                                        self.showNutrients.toggle()
+                                    }
+                            }
+                            Spacer()
+                        }
+                        .frame(alignment: .top)
+                        .offset(y: 20)
+                        
+                    }
+                    .offset(y: showNutrients ? 175 : 370)
+
                 }
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .bottom)
-                .offset(y: -40)
+                .offset(y: showNutrients ? -180 : -40)
             }
         }.navigationBarTitle("Test", displayMode: .inline)
     }

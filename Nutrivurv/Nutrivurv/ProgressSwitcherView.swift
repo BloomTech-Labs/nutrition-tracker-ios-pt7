@@ -25,14 +25,15 @@ struct ProgressSwitcherView: View {
                     .foregroundColor(Color(UIColor(named: "progress-switcher-bg")!))
                     .frame(width: 193, height: 28)
                     .onTapGesture {
+                        withAnimation(Animation.interactiveSpring(response: 0.24, dampingFraction: 0.74, blendDuration: 0.02)) {
                             self.currentProgress.toggle()
-                    }
+                        }
+                }
                 
                 RoundedRectangle(cornerRadius: 14.0, style: .continuous)
                     .foregroundColor(Color(UIColor(named: "nutrivurv-blue-new")!))
                     .frame(width: 100, height: 28)
                     .offset(x: currentProgress ? -47 : 47, y: 0)
-                    .animation(.interactiveSpring(response: 0.24, dampingFraction: 0.74, blendDuration: 0.02))
                 
                 HStack {
                     Text("currently")
