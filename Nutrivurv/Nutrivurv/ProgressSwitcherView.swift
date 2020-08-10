@@ -14,7 +14,7 @@ struct ProgressSwitcherView: View {
     var unselectedTextColor: Color = Color(UIColor(named: "unselected-progress-switcher")!)
     
     var body: some View {
-        VStack {
+        VStack(spacing: 12) {
             Text("Today's Progress")
                 .font(Font.custom("Catamaran-Bold", size: 14))
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
