@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UIBarButtonItem.appearance().setTitleTextAttributes(navBarBtnAttrs, for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes(navBarBtnAttrs, for: .highlighted)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttrs, for: .normal)
         UILabel.appearance(whenContainedInInstancesOf: [UITextField.self, UISearchBar.self]).font = UIFont(name: "Catamaran-SemiBold", size: 16)!
         
