@@ -37,9 +37,9 @@ class HealthKitController {
         }
     }
     
-    class func getMostRecentSample(for sampleType: HKSampleType, completion: @escaping (HKQuantitySample?, Error?) -> Swift.Void) {
+    class func getMostRecentSample(for sampleType: HKSampleType, withStart date: Date = Date.distantPast, completion: @escaping (HKQuantitySample?, Error?) -> Swift.Void) {
         
-        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date(), options: .strictEndDate)
+        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: date, end: Date(), options: .strictEndDate)
         
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
         
@@ -52,15 +52,49 @@ class HealthKitController {
             
             DispatchQueue.main.async {
                 
-                guard let samples = samples, let mostRecentSample = samples.first as? HKQuantitySample else {
+                guard let samples = samples else {
                     completion(nil, error)
                     return
                 }
                 
-                completion(mostRecentSample, nil)
+               
+                if let mostRecentSample = samples.first as? HKQuantitySample {
+                     completion(mostRecentSample, nil)
+                }
             }
         }
-        
         HKHealthStore().execute(sampleQuery)
     }
+    
+    class func getCumulativeSamples(for quantityType: HKQuantityType, startDate: Date = Date(), endDate: Date = Date(), options: HKStatisticsOptions = [], completion: @escaping (HKStatistics?, Error?) -> Void) {
+        var allSamplesForDatePredicate = NSPredicate()
+        let startOfFirstDay = Calendar.current.startOfDay(for: startDate)
+        
+        // Conditionally set the start/end time for date range
+        if Calendar.current.isDateInToday(endDate) {
+            // If the end date is today, get all readings up till this point in time for today
+            allSamplesForDatePredicate = HKQuery.predicateForSamples(withStart: startOfFirstDay, end: endDate, options: .strictEndDate)
+        } else {
+            // Else use the maximum possible time for the end date to get all readings
+            let endOfLastDay = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: endDate)
+            allSamplesForDatePredicate = HKQuery.predicateForSamples(withStart: startOfFirstDay, end: endOfLastDay, options: .strictEndDate)
+        }
+        
+        let cumulativeQuery = HKStatisticsQuery(quantityType: quantityType,
+                                                quantitySamplePredicate: allSamplesForDatePredicate,
+                                                options: options) { (_, stats, error) in
+            DispatchQueue.main.async {
+                guard let stats = stats else {
+                    print("Error getting health kit statistics query result")
+                    completion(nil, error)
+                    return
+                }
+                
+                completion(stats, nil)
+            }
+        }
+        HKHealthStore().execute(cumulativeQuery)
+    }
+    
+    
 }

@@ -84,6 +84,7 @@ class DashboardViewController: UIViewController {
         addActivityRingsProgressView()
         
         getCurrentWeight()
+        getActiveCaloriesBurned()
         
         prepareForEntranceAnimations()
         animatePrimaryViewsForEntry()
@@ -327,13 +328,13 @@ class DashboardViewController: UIViewController {
         
         HealthKitController.getMostRecentSample(for: weightSampleType) { (weightSample, error) in
             if let error = error {
-                self.promptForHKAccessToWeight()
+                self.promptForHKPermission()
                 print("Error getting most recent weight sample form HealthKit: \(error)")
                 return
             }
             
             guard let weightSample = weightSample else {
-                self.promptForHKAccessToWeight()
+                self.promptForHKPermission()
                 print("Failed to get weight sample data")
                 return
             }
@@ -343,7 +344,30 @@ class DashboardViewController: UIViewController {
         }
     }
     
-    private func promptForHKAccessToWeight() {
+    private func getActiveCaloriesBurned() {
+        guard let activeCalsSampleType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) else {
+            return
+        }
+        
+        HealthKitController.getCumulativeSamples(for: activeCalsSampleType, options: HKStatisticsOptions.cumulativeSum) { (stats, error) in
+            if let error = error {
+                self.promptForHKPermission()
+                print("Error getting cumulative active calories sum form HealthKit: \(error)")
+                return
+            }
+            
+            guard let activeCaloriesCumulativeSum = stats else {
+                return
+            }
+            
+            let caloiesSum = activeCaloriesCumulativeSum.sumQuantity()
+            let totalCalories = caloiesSum?.doubleValue(for: HKUnit.kilocalorie())
+            
+            print(totalCalories ?? 420.69)
+        }
+    }
+    
+    private func promptForHKPermission() {
         if displayedHKAccessAlert == true {
             return
         }
