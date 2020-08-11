@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct FoodDetailView: View {
-    @ObservedObject var dailyMacros: DailyMacros
+    @ObservedObject var currentDailyMacros: DailyMacros
+    @ObservedObject var newDailyMacros: DailyMacros
+    
     @State var currentProgresss: Bool = true
     @State var showNutrients: Bool = false
     @State var bottomCardState = CGSize.zero
@@ -174,7 +176,7 @@ struct FoodDetailView: View {
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(dailyMacros: DailyMacros())
+        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros())
     }
 }
 
