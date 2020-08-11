@@ -344,10 +344,16 @@ class DashboardViewController: UIViewController {
     }
     
     private func promptForHKAccessToWeight() {
+        if displayedHKAccessAlert == true {
+            return
+        }
+        
         let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, open the privacy settings within your settings app to allow access.", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
             self.requestHealthKitAuthorization { (result) in
+                self.displayedHKAccessAlert = true
+                
                 if result == true {
                     self.getCurrentWeight()
                 }
@@ -360,12 +366,6 @@ class DashboardViewController: UIViewController {
     }
     
     private func requestHealthKitAuthorization(completion: @escaping (Bool) -> Void) {
-        if displayedHKAccessAlert == true {
-            return
-        }
-        
-        self.displayedHKAccessAlert = true
-        
         HealthKitController.authorizeHealthKit { (authorized, error) in
             if let error = error {
                 print(error)
