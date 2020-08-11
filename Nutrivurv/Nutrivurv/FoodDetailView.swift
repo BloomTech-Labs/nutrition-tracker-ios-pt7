@@ -44,10 +44,16 @@ struct FoodDetailView: View {
                             
                             Spacer()
                             
-                            Image("add-meal-button-icon")
-                                .frame(width: 60, height: 60)
-                                .scaleEffect(1.0)
-                                .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
+                            Button(action: {
+                                // TODO: Add meal functionality
+                            }) {
+                                Image("add-meal-button-icon")
+                                    .renderingMode(.original)
+                                    .frame(width: 60, height: 60)
+                                    .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
+                            }
+                            .buttonStyle(ScaleButtonStyle())
+                            .animation(.easeInOut)
                         }
                         .frame(width: UIScreen.main.bounds.width - 24, height: 60)
                         
@@ -71,7 +77,7 @@ struct FoodDetailView: View {
                                 .frame(width: 32, height: 29, alignment: .center)
                         }
                         .frame(width: UIScreen.main.bounds.width - 40, height: 44, alignment: .center)
-                        .padding(EdgeInsets(top: -5, leading: 0, bottom: 8, trailing: 0))
+                        .padding(EdgeInsets(top: -5, leading: 0, bottom: 6, trailing: 0))
                         
                         
                         ServingSizeSelectionView()
@@ -80,7 +86,7 @@ struct FoodDetailView: View {
                         
                         ProgressSwitcherView(currentProgress: $currentProgresss)
                             .frame(width: 180, height: 60, alignment: .center)
-                            .padding(EdgeInsets(top: 0, leading: 117, bottom: 0, trailing: 117))
+                            .padding(EdgeInsets(top: -4, leading: 117, bottom: -2, trailing: 117))
                         
                         ZStack {
                             HStack(spacing: 20) {
@@ -121,7 +127,7 @@ struct FoodDetailView: View {
                     .offset(x: 0, y: -30)
                     
                     NutritionFactsView(showNutrients: $showNutrients)
-                        .offset(y: showNutrients ? 170 : 365)
+                        .offset(y: showNutrients ? 165 : 358)
                         .offset(y: self.bottomCardState.height)
                         .gesture(
                             DragGesture().onChanged { value in
@@ -169,5 +175,15 @@ struct FoodDetailView: View {
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
         FoodDetailView(dailyMacros: DailyMacros())
+    }
+}
+
+struct ScaleButtonStyle: ButtonStyle {
+    var shadowColor = UIColor(named: "detail-view-card-shadow")!
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.8 : 1)
+            .shadow(color: configuration.isPressed ? Color.black.opacity(0.6) : Color(shadowColor), radius: configuration.isPressed ? 6.0 : 8.0, x: 0, y: -3)
     }
 }
