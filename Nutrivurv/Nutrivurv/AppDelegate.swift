@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarAttrs = [NSAttributedString.Key.font: UIFont(name: "Catamaran-SemiBold", size: 10)!]
         
         UINavigationBar.appearance().titleTextAttributes = navBarAttrs
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UIBarButtonItem.appearance().setTitleTextAttributes(navBarBtnAttrs, for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttrs, for: .normal)
         UILabel.appearance(whenContainedInInstancesOf: [UITextField.self, UISearchBar.self]).font = UIFont(name: "Catamaran-SemiBold", size: 16)!
