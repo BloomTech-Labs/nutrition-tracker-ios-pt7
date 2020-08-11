@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "meal-log_1.png",
+      "filename" : "grocery.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "meal-log_1@2x.png",
+      "filename" : "grocery@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "meal-log_1@3x.png",
+      "filename" : "grocery@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
