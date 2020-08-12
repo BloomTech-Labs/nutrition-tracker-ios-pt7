@@ -54,6 +54,7 @@
 		5139532324A3E14E00CDF5F1 /* Muli-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532124A3E14E00CDF5F1 /* Muli-MediumItalic.ttf */; };
 		5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */; };
 		5139B8FC24E380850086802F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 5139B8FB24E380850086802F /* SwiftUICharts */; };
+		5139B8FE24E382330086802F /* HealthDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139B8FD24E382330086802F /* HealthDashboardView.swift */; };
 		513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */; };
 		51450F9F24D110880065E0F0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51450F9E24D110880065E0F0 /* UserDefaults.swift */; };
 		514D57F624CA275B008DCEEF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D57F524CA275B008DCEEF /* UIViewExtensions.swift */; };
@@ -161,6 +162,7 @@
 		5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-LightItalic.ttf"; sourceTree = "<group>"; };
 		5139532124A3E14E00CDF5F1 /* Muli-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		5139B8FD24E382330086802F /* HealthDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDashboardView.swift; sourceTree = "<group>"; };
 		513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeSearchViewController.swift; sourceTree = "<group>"; };
 		51450F9E24D110880065E0F0 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		514D57F524CA275B008DCEEF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		5131C39F24E3317C00740AA5 /* Health */ = {
 			isa = PBXGroup;
 			children = (
+				5139B8FD24E382330086802F /* HealthDashboardView.swift */,
 			);
 			name = Health;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */,
 				512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
+				5139B8FE24E382330086802F /* HealthDashboardView.swift in Sources */,
 				4C9F30BD24528B8700CE14CA /* FoodSearchController.swift in Sources */,
 				513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */,
 				D60BA2D223FCF80D00B3E6BF /* CustomButton.swift in Sources */,
