@@ -1030,7 +1030,7 @@
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69n-Q3-zjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11997" y="-1487"/>
+            <point key="canvasLocation" x="12905.797101449276" y="-1487.2767857142856"/>
         </scene>
         <!--Main-->
         <scene sceneID="grQ-MA-3ap">
@@ -1153,6 +1153,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adi-8H-2xX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="12951" y="-891"/>
+        </scene>
+        <!--Health Dashboard View Controller-->
+        <scene sceneID="iq8-ky-57y">
+            <objects>
+                <hostingController storyboardIdentifier="HealthDashboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cwe-Ao-7Ha" customClass="HealthDashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Img-OD-GC3"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqh-1k-LeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10348" y="-1558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O7p-ql-xAJ">

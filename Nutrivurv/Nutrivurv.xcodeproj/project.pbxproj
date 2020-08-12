@@ -27,6 +27,7 @@
 		512CA6B024DA533200B17010 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6AF24DA533200B17010 /* HealthKitController.swift */; };
 		512CA6B224DA53BB00B17010 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6B124DA53BB00B17010 /* HealthKitError.swift */; };
 		512ED17024DBB1CE000A702D /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED16F24DBB1CE000A702D /* CustomTabBar.swift */; };
+		512EEC2324E4779200416DB3 /* HealthDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EEC2224E4779200416DB3 /* HealthDashboardViewController.swift */; };
 		512F486A24D4AA0100EA128D /* Gaoel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 512F486924D4AA0100EA128D /* Gaoel.ttf */; };
 		512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F486B24D4BB1600EA128D /* DashboardDateView.swift */; };
 		512FBB5124DA1D5C0055981F /* ServingSizeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */; };
@@ -139,6 +140,7 @@
 		512CA6AF24DA533200B17010 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		512CA6B124DA53BB00B17010 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
 		512ED16F24DBB1CE000A702D /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		512EEC2224E4779200416DB3 /* HealthDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDashboardViewController.swift; sourceTree = "<group>"; };
 		512F486924D4AA0100EA128D /* Gaoel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaoel.ttf; sourceTree = "<group>"; };
 		512F486B24D4BB1600EA128D /* DashboardDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDateView.swift; sourceTree = "<group>"; };
 		512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeSelectionView.swift; sourceTree = "<group>"; };
@@ -316,6 +318,24 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		512EEC2424E4779700416DB3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				512EEC2224E4779200416DB3 /* HealthDashboardViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		512EEC2524E477A000416DB3 /* SwiftUI Views & Models */ = {
+			isa = PBXGroup;
+			children = (
+				5139B8FD24E382330086802F /* HealthDashboardView.swift */,
+				5139B90424E399E60086802F /* Sub Views */,
+				5139B8FF24E382F40086802F /* Models */,
+			);
+			name = "SwiftUI Views & Models";
+			sourceTree = "<group>";
+		};
 		512F461424DE1AFC0097F9B4 /* Sub Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,9 +382,8 @@
 		5131C39F24E3317C00740AA5 /* Health */ = {
 			isa = PBXGroup;
 			children = (
-				5139B8FD24E382330086802F /* HealthDashboardView.swift */,
-				5139B8FF24E382F40086802F /* Models */,
-				5139B90424E399E60086802F /* Sub Views */,
+				512EEC2524E477A000416DB3 /* SwiftUI Views & Models */,
+				512EEC2424E4779700416DB3 /* View Controllers */,
 			);
 			name = Health;
 			sourceTree = "<group>";
@@ -790,6 +809,7 @@
 				512FF45E24DB596E00F49FCB /* TabBarItemBadgeView.swift in Sources */,
 				512FF45624DB58E200F49FCB /* HighlightableContentView.swift in Sources */,
 				515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */,
+				512EEC2324E4779200416DB3 /* HealthDashboardViewController.swift in Sources */,
 				512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
 				5139B8FE24E382330086802F /* HealthDashboardView.swift in Sources */,

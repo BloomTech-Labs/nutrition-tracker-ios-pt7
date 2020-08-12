@@ -16,20 +16,31 @@ struct HealthDashboardView: View {
     
     var body: some View {
         
-        return NavigationView {
+        return VStack {
+            Text("your health")
+                .font(Font.custom("Gaoel", size: 13))
+                .foregroundColor(Color(UIColor(named: "light-label")!))
+                .padding(.top, 60)
+            
             ScrollView(.vertical, showsIndicators: false) {
+                
                 VStack {
+                    
                     CaloriesView(calories: activeCalories, title: "Active Calories", legend: "This Week", style: Styles.barChartStyleOrangeLight, form: ChartForm.extraLarge)
-                        
+                    
                     
                     HStack {
                         CaloriesView(calories: restingCalories, title: "Resting Calories", legend: "This Week", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
                         
                         CaloriesView(calories: caloriesConsumed, title: "Calories Consumed", legend: "This Week", style: Styles.barChartMidnightGreenLight, form: ChartForm.medium)
                     }
-                }.padding()
+                }.padding(.horizontal, 28)
+                    .padding(.top, 16)
             }
-        }.navigationBarTitle("your health dashboard", displayMode: .inline)
+            .background(Color(UIColor(named: "bg-color")!))
+            
+        }.background(Color(UIColor(named: "bg-color")!))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

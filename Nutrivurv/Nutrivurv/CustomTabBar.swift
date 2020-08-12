@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class CustomTabBar {
     static func getTabBar() -> TabBarController? {
@@ -32,7 +33,10 @@ class CustomTabBar {
             return nil
         }
         
-        let v3 = UIViewController()
+        guard let v3 = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "HealthDashboard") as? HealthDashboardViewController else {
+            print("Error instatiating health dashboard")
+            return nil
+        }
         
         let v1ContentView = IrregularityBasicContentView()
         let v2ContentView = IrregularityBasicContentView()
