@@ -17,17 +17,17 @@ struct HealthDashboardView: View {
     var body: some View {
         
         return NavigationView {
-            VStack {
-                CaloriesView(calories: activeCalories, title: "Active Calories", legend: "This Week", style: Styles.barChartStyleOrangeLight, form: ChartForm.extraLarge)
-                    .shadow(color: Color.gray.opacity(0.2), radius: 8, x: 0, y: 0)
-                
-                HStack {
-                    CaloriesView(calories: restingCalories, title: "Resting Calories", legend: "This Week", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
-                    .shadow(color: Color.gray.opacity(0.2), radius: 8, x: 0, y: 0)
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: "This Week", style: Styles.barChartStyleOrangeLight, form: ChartForm.extraLarge)
+                        
                     
-                    CaloriesView(calories: caloriesConsumed, title: "Calories Consumed", legend: "This Week", style: Styles.barChartMidnightGreenLight, form: ChartForm.medium)
-                    .shadow(color: Color.gray.opacity(0.2), radius: 8, x: 0, y: 0)
-                }
+                    HStack {
+                        CaloriesView(calories: restingCalories, title: "Resting Calories", legend: "This Week", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
+                        
+                        CaloriesView(calories: caloriesConsumed, title: "Calories Consumed", legend: "This Week", style: Styles.barChartMidnightGreenLight, form: ChartForm.medium)
+                    }
+                }.padding()
             }
         }.navigationBarTitle("your health dashboard", displayMode: .inline)
     }

@@ -21,11 +21,10 @@ struct CaloriesView: View {
     var valueSpecifier: String = "%.0f"
     
     var body: some View {
-        
         let caloriesData = ChartData(values: [("Sunday", calories.sundayCount), ("Monday", calories.mondayCount), ("Tuesday", calories.tuesdayCount), ("Wednesday", calories.wednesdayCount), ("Thursday", calories.thursdayCount), ("Friday", calories.fridayCount), ("Saturday", calories.saturdayCount)])
         
         return VStack {
-            BarChartView(data: caloriesData, title: title, legend: legend, style: style, form: form, dropShadow: false, cornerImage: image, valueSpecifier: valueSpecifier)
+            BarChartView(data: caloriesData, title: title, legend: legend, style: style, form: form, dropShadow: true, cornerImage: image, valueSpecifier: valueSpecifier)
         }
     }
 }
