@@ -37,7 +37,7 @@ class Calories: ObservableObject {
         }
     }
     
-    @Published var thursdayCount: Int = 0 {
+    @Published var thursdayCount: Int = 428 {
         willSet {
             self.objectWillChange.send(newValue)
         }
