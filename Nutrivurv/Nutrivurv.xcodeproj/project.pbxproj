@@ -53,6 +53,7 @@
 		5139532224A3E14E00CDF5F1 /* Muli-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532024A3E14E00CDF5F1 /* Muli-LightItalic.ttf */; };
 		5139532324A3E14E00CDF5F1 /* Muli-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532124A3E14E00CDF5F1 /* Muli-MediumItalic.ttf */; };
 		5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */; };
+		5139B8FC24E380850086802F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 5139B8FB24E380850086802F /* SwiftUICharts */; };
 		513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */; };
 		51450F9F24D110880065E0F0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51450F9E24D110880065E0F0 /* UserDefaults.swift */; };
 		514D57F624CA275B008DCEEF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D57F524CA275B008DCEEF /* UIViewExtensions.swift */; };
@@ -226,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9229361924DF1E5000324D95 /* HealthKit.framework in Frameworks */,
+				5139B8FC24E380850086802F /* SwiftUICharts in Frameworks */,
 				D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */,
 				512FF46C24DB60BD00F49FCB /* Lottie in Frameworks */,
 			);
@@ -350,6 +352,13 @@
 			name = "Custom Views";
 			sourceTree = "<group>";
 		};
+		5131C39F24E3317C00740AA5 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Health;
+			sourceTree = "<group>";
+		};
 		5139531B24A3D0DD00CDF5F1 /* Daily Vibe Quote API */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,7 +415,7 @@
 			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
-		51A186F624A3302A00196C83 /* Edamam & Meal Logging */ = {
+		51A186F624A3302A00196C83 /* Food Search */ = {
 			isa = PBXGroup;
 			children = (
 				9229361C24DF368A00324D95 /* SwiftUI Views & Models */,
@@ -415,7 +424,7 @@
 				51A186F724A3305500196C83 /* Model Controllers */,
 				51A186FC24A3319800196C83 /* View Controllers */,
 			);
-			name = "Edamam & Meal Logging";
+			name = "Food Search";
 			sourceTree = "<group>";
 		};
 		51A186F724A3305500196C83 /* Model Controllers */ = {
@@ -470,7 +479,8 @@
 			isa = PBXGroup;
 			children = (
 				9229361B24DF20FA00324D95 /* Dashboard */,
-				51A186F624A3302A00196C83 /* Edamam & Meal Logging */,
+				51A186F624A3302A00196C83 /* Food Search */,
+				5131C39F24E3317C00740AA5 /* Health */,
 			);
 			name = "Dashboard & In-App Views";
 			sourceTree = "<group>";
@@ -651,6 +661,7 @@
 			packageProductDependencies = (
 				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
 				512FF46B24DB60BD00F49FCB /* Lottie */,
+				5139B8FB24E380850086802F /* SwiftUICharts */,
 			);
 			productName = "Nutrition Tracker";
 			productReference = D68C701A23F25400008AFDF0 /* Nutrivurv.app */;
@@ -684,6 +695,7 @@
 			packageReferences = (
 				D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				5139B8FA24E380850086802F /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = D68C701B23F25400008AFDF0 /* Products */;
 			projectDirPath = "";
@@ -1053,6 +1065,14 @@
 				minimumVersion = 3.1.8;
 			};
 		};
+		5139B8FA24E380850086802F /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
 		D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -1068,6 +1088,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		5139B8FB24E380850086802F /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5139B8FA24E380850086802F /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
 		};
 		D60BA2D423FF79AD00B3E6BF /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
