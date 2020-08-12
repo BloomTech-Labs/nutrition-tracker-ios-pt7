@@ -55,6 +55,7 @@
 		5139532524A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */; };
 		5139B8FC24E380850086802F /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 5139B8FB24E380850086802F /* SwiftUICharts */; };
 		5139B8FE24E382330086802F /* HealthDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139B8FD24E382330086802F /* HealthDashboardView.swift */; };
+		5139B90124E3832F0086802F /* ActiveCaloriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139B90024E3832F0086802F /* ActiveCaloriesView.swift */; };
 		513B5802249703E600D127C6 /* BarcodeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */; };
 		51450F9F24D110880065E0F0 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51450F9E24D110880065E0F0 /* UserDefaults.swift */; };
 		514D57F624CA275B008DCEEF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D57F524CA275B008DCEEF /* UIViewExtensions.swift */; };
@@ -163,6 +164,8 @@
 		5139532124A3E14E00CDF5F1 /* Muli-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5139532424A3E16500CDF5F1 /* Muli-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		5139B8FD24E382330086802F /* HealthDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDashboardView.swift; sourceTree = "<group>"; };
+		5139B90024E3832F0086802F /* ActiveCaloriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveCaloriesView.swift; sourceTree = "<group>"; };
+		5139B90324E38A850086802F /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = ../../../../../../Downloads/ChartView; sourceTree = "<group>"; };
 		513B5801249703E600D127C6 /* BarcodeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeSearchViewController.swift; sourceTree = "<group>"; };
 		51450F9E24D110880065E0F0 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		514D57F524CA275B008DCEEF /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -358,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				5139B8FD24E382330086802F /* HealthDashboardView.swift */,
+				5139B8FF24E382F40086802F /* Models */,
 			);
 			name = Health;
 			sourceTree = "<group>";
@@ -369,6 +373,14 @@
 				5139531C24A3D10E00CDF5F1 /* QuoteController.swift */,
 			);
 			name = "Daily Vibe Quote API";
+			sourceTree = "<group>";
+		};
+		5139B8FF24E382F40086802F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5139B90024E3832F0086802F /* ActiveCaloriesView.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		518F2CE724DDEDC500A438C4 /* Dashboard */ = {
@@ -608,6 +620,7 @@
 		D68C703423F3AF07008AFDF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5139B90324E38A850086802F /* ChartView */,
 				D68C701D23F25400008AFDF0 /* AppDelegate.swift */,
 				D68C701F23F25400008AFDF0 /* SceneDelegate.swift */,
 				D68C702623F25402008AFDF0 /* Assets.xcassets */,
@@ -818,6 +831,7 @@
 				D69E8C6524207A2000B536A6 /* NetworkError.swift in Sources */,
 				5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */,
 				512FF45824DB596000F49FCB /* TabBar.swift in Sources */,
+				5139B90124E3832F0086802F /* ActiveCaloriesView.swift in Sources */,
 				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */,
 				5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */,
