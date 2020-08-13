@@ -21,7 +21,7 @@ struct HealthDashboardView: View {
             Text("your health")
                 .font(Font.custom("Gaoel", size: 13))
                 .foregroundColor(Color(UIColor(named: "light-label")!))
-                .padding(.top, UIScreen.main.bounds.height * 0.05)
+                .padding(.top, UIScreen.main.bounds.height * 0.065)
             
             ScrollView(.vertical, showsIndicators: false) {
                 
@@ -82,6 +82,8 @@ struct HealthDashboardView: View {
                         }
                     }
                     
+                    LineChartView(data: [172,178,171,169,170,168,169,165,163], title: "Weight", legend: "this month", form: ChartForm.large)
+                    
                     ZStack {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .foregroundColor(Color(UIColor(named: "bg-color")!))
@@ -107,7 +109,8 @@ struct HealthDashboardView: View {
                 }
                 .padding(.horizontal, 28)
                 .padding(.top, 16)
-                .padding(.bottom, 80)
+                .padding(.bottom, 90)
+                
             }
             .background(Color(UIColor(named: "bg-color")!))
             
