@@ -27,7 +27,7 @@ struct HealthDashboardView: View {
                 
                 VStack {
                     
-                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: "This Week", style: Styles.barChartStyleOrangeLight, form: ChartForm.extraLarge)
+                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: "This Week", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
                     
                     
                     HStack {
