@@ -38,7 +38,7 @@ struct HealthDashboardView: View {
                                 .foregroundColor(Color(UIColor(named: "bg-color")!))
                                 .shadow(color: Color(UIColor(named: "daily-vibe-shadow")!), radius: 8.0, x: 0, y: 0)
                             
-                            RingView(showRings: .constant(true), showMacrosDetail: .constant(true), uiColor: UIColor(named: "nutrivurv-blue-new")!, width: 100, height: 100, progressPercent: 88, lineWidth: 16).padding(.top, 13)
+                            RingView(showRings: .constant(true), showMacrosDetail: .constant(true), uiColor: UIColor(named: "nutrivurv-blue-new")!, width: 100, height: 100, progressPercent: dailyMacros.caloriesPercent, lineWidth: 16).padding(.top, 13)
                             
                             VStack{
                                 HStack {
@@ -70,7 +70,7 @@ struct HealthDashboardView: View {
                                     
                                     Spacer()
                                     
-                                    Text("2,579 cals")
+                                    Text("\(Int(dailyMacros.caloriesCount)) cals")
                                         .font(Font.custom("Gaoel", size: 12))
                                         .foregroundColor(Color.gray)
                                         .padding(.trailing, 6)
