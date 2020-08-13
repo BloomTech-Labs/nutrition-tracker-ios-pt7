@@ -76,6 +76,8 @@ struct RingView: View {
     var ringAnimation = Animation.easeInOut(duration: 0.55).delay(0.15)
     var bounceAnimation = Animation.interpolatingSpring(mass: 0.26, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(7.0)
     
+    var lineWidth: CGFloat = 13.5
+    
     var body: some View {
         let multiplier = width / 100
         var progress = 1 - (progressPercent / 100)
@@ -93,7 +95,7 @@ struct RingView: View {
         
         return ZStack {
             Circle()
-                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 13.5)).grayscale(0.4).brightness(0.09)
+                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: lineWidth)).grayscale(0.4).brightness(0.09)
                 .frame(width: width - 0.25, height: height - 0.25)
                 .onTapGesture {
                     self.showRings.toggle()
@@ -105,7 +107,7 @@ struct RingView: View {
                 .trim(from: showRings ? progress : 0.999, to: 1)
                 .stroke(
                     LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.45), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
-                    style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
+                    style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: width, height: height)
