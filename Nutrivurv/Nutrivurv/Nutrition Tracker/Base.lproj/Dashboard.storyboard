@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
-                                <rect key="frame" x="67" y="130.5" width="70" height="47.5"/>
+                                <rect key="frame" x="67" y="124.5" width="70" height="47.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q" userLabel="Measurement Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="29.5"/>
@@ -101,7 +101,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
-                                <rect key="frame" x="32" y="20" width="350" height="148"/>
+                                <rect key="frame" x="32" y="14" width="350" height="148"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-fK-BvN">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="148"/>
@@ -113,7 +113,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
-                                <rect key="frame" x="277" y="129.5" width="68" height="48.5"/>
+                                <rect key="frame" x="277" y="123.5" width="68" height="48.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy" userLabel="Number Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="68" height="29.5"/>
@@ -164,7 +164,7 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72" customClass="FadedFoodLogBackgroundView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="323.5" width="414" height="450.5"/>
+                                <rect key="frame" x="0.0" y="317.5" width="414" height="456.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
@@ -172,7 +172,7 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="36" y="210" width="342" height="69.5"/>
+                                <rect key="frame" x="36" y="204" width="342" height="69.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daily vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="12.5"/>
@@ -200,7 +200,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-9r-h9S" userLabel="Date View">
-                                <rect key="frame" x="132" y="305.5" width="150" height="48"/>
+                                <rect key="frame" x="132" y="299.5" width="150" height="48"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTr-e8-Tlv">
                                         <rect key="frame" x="16" y="10" width="130" height="28"/>
@@ -284,7 +284,7 @@
                             <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="Tmn-O8-MJJ" secondAttribute="bottom" constant="32" id="PZG-wv-p8w"/>
                             <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="36" id="TsD-7n-8qL"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="bottom" secondItem="vL2-nj-e72" secondAttribute="bottom" id="Ub9-zB-TMy"/>
-                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="20" id="XF0-K1-hBY"/>
+                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="14" id="XF0-K1-hBY"/>
                             <constraint firstItem="2qp-en-orb" firstAttribute="centerX" secondItem="LNW-2j-u7j" secondAttribute="centerX" id="k2E-ss-pNb"/>
                             <constraint firstItem="fsb-9r-h9S" firstAttribute="top" secondItem="Ioa-4t-5oD" secondAttribute="bottom" constant="26" id="ofY-Zu-Zd2"/>
                             <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="105" id="ofq-74-XCs"/>
@@ -1047,7 +1047,7 @@
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="2" id="bM9-0c-rT8" customClass="FadedVerticalTableView" customModule="Nutrivurv" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="456"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="foodlog-bg"/>
                         <color key="tintColor" name="nutrivurv-blue"/>

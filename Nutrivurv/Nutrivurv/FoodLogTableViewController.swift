@@ -44,7 +44,7 @@ class FoodLogTableViewController: UITableViewController {
     
     @objc func reloadFoodLogTableView() {
         if foodLogIsEmpty() {
-            noFoodLoggedMessage(message: "You haven't logged any foods yet,\n tap the utensils icon below to get started!")
+            noFoodLoggedMessage(message: "You haven't logged any foods yet,\n tap the grocery bag icon below to get started!")
         } else {
             tableView.backgroundView = .none
             tableView.separatorStyle = .singleLine
