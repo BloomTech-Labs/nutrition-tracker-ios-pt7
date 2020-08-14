@@ -97,7 +97,7 @@ class HealthKitController {
     }
     
     
-    class func getCumulativeSamplesCollectionForWeek(for quantityType: HKQuantityType, options: HKStatisticsOptions = [], completion: @escaping (HKStatisticsCollection?, Error?) -> Void) {
+    class func getCumulativeStatsCollectionUsingOneDayInterval(for quantityType: HKQuantityType, options: HKStatisticsOptions = [], completion: @escaping (HKStatisticsCollection?, Error?) -> Void) {
     
         var interval = DateComponents()
         interval.day = 1
