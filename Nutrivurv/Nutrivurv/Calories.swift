@@ -11,45 +11,80 @@ import Combine
 import SwiftUICharts
 
 class Calories: ObservableObject {
-    let objectWillChange = PassthroughSubject<Int, Never>()
+    let objectWillChange = PassthroughSubject<Any, Never>()
     
-    @Published var sundayCount: Int = 269 {
+    @Published var day1Label: String = "" {
+        willSet {
+            self.objectWillChange.send(newValue)
+        }
+    }
+    @Published var day1Count: Int = 0 {
         willSet {
             self.objectWillChange.send(newValue)
         }
     }
     
-    @Published var mondayCount: Int = 420 {
+    @Published var day2Label: String = "" {
+        willSet {
+            self.objectWillChange.send(newValue)
+        }
+    }
+    @Published var day2Count: Int = 0 {
         willSet {
             self.objectWillChange.send(newValue)
         }
     }
     
-    @Published var tuesdayCount: Int = 634 {
+    @Published var day3Label: String = "" {
+        willSet {
+            self.objectWillChange.send(newValue)
+        }
+    }
+    @Published var day3Count: Int = 0 {
         willSet {
             self.objectWillChange.send(newValue)
         }
     }
     
-    @Published var wednesdayCount: Int = 527 {
+    @Published var day4Label: String = "" {
+        willSet {
+            self.objectWillChange.send(newValue)
+        }
+    }
+    @Published var day4Count: Int = 0 {
         willSet {
             self.objectWillChange.send(newValue)
         }
     }
     
-    @Published var thursdayCount: Int = 428 {
+    @Published var day5Label: String = "" {
+        willSet {
+            self.objectWillChange.send(newValue)
+        }
+    }
+    @Published var day5Count: Int = 0 {
         willSet {
             self.objectWillChange.send(newValue)
         }
     }
     
-    @Published var fridayCount: Int = 783 {
+    @Published var day6Label: String = "" {
+        willSet {
+            self.objectWillChange.send(newValue)
+        }
+    }
+    @Published var day6Count: Int = 0 {
         willSet {
             self.objectWillChange.send(newValue)
         }
     }
     
-    @Published var saturdayCount: Int = 0 {
+    @Published var day7Label: String = "" {
+        willSet {
+            self.objectWillChange.send(newValue)
+        }
+    }
+    @Published var day7Count: Int = 0 {
         willSet {
             self.objectWillChange.send(newValue)
         }
