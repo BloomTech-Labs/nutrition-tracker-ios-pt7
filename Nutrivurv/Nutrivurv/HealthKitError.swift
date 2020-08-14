@@ -9,6 +9,7 @@
 import Foundation
 
 enum HealthKitError: Error {
+    case generalQueryError
     case dataNotAvailable
     case missingInformation
 }

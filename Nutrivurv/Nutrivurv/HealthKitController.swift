@@ -97,4 +97,37 @@ class HealthKitController {
     }
     
     
+    class func getCumulativeSamplesCollectionForWeek(for quantityType: HKQuantityType, options: HKStatisticsOptions = [], completion: @escaping (HKStatisticsCollection?, Error?) -> Void) {
+    
+        var interval = DateComponents()
+        interval.day = 1
+        
+        let anchorDate = Calendar.current.startOfDay(for: Date())
+        
+        let cumulativeCollectionQuery = HKStatisticsCollectionQuery(quantityType: quantityType, quantitySamplePredicate: nil, options: .cumulativeSum, anchorDate: anchorDate, intervalComponents: interval)
+        
+        cumulativeCollectionQuery.initialResultsHandler = { query, results, error in
+            if let error = error {
+                print("Error with collections query: \(error)")
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            
+            guard let statsCollection = results else {
+                print("Failed to get collection query results")
+                DispatchQueue.main.async {
+                    completion(nil, HealthKitError.generalQueryError)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(statsCollection, nil)
+            }
+        }
+        
+        HKHealthStore().execute(cumulativeCollectionQuery)
+    }
 }
