@@ -9,11 +9,12 @@
 import UIKit
 import SwiftUI
 import Combine
+import HealthKit
 
 class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), restingCalories: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel))
     }
 
     override func viewDidLoad() {
