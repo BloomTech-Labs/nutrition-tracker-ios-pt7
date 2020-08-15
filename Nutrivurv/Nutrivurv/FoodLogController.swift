@@ -331,6 +331,14 @@ class FoodLogController {
             }
             
             if let response = response as? HTTPURLResponse {
+                if response.statusCode == 401 {
+                    // User token is expired
+                    DispatchQueue.main.async {
+                        completion(.failure(.badAuth))
+                    }
+                    return
+                }
+                
                 if response.statusCode != 200 {
                     print("Error communicating with server. Response information: \(response), status code: \(response.statusCode)")
                     DispatchQueue.main.async {
