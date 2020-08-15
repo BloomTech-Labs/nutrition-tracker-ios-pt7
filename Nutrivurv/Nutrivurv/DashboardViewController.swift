@@ -281,12 +281,12 @@ class DashboardViewController: UIViewController {
     @IBAction func logoutButtonTapped(_ sender: Any) {
         // Reset all necessary properties
         UserController.keychain.clear()
-        FoodLogController.shared.foodLog = FoodLog()
+        FoodLogController.shared.foodLog = nil
         let userDefaults = UserDefaults.standard
         userDefaults.removeObject(forKey: "dailyLoginStreak")
         userDefaults.removeObject(forKey: "previousLoginDate")
-        userDefaults.removeObject(forKey: "weightUnitPreference")
-        userDefaults.removeObject(forKey: "heightUnitPreference")
+        userDefaults.removeObject(forKey: "userIdKey")
+        userDefaults.removeObject(forKey: "caloricBudget")
       
         let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController

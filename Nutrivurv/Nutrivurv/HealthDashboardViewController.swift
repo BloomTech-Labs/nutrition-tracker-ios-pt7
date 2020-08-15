@@ -192,51 +192,53 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
 //            return
 //        }
         
-        guard let activeCals = activeCalories, activeCals.count == 7, let consumedCals = consumedCalories, consumedCals.count == 7 else {
+        guard let activeCals = activeCalories, let consumedCals = consumedCalories else {
             return
         }
         
-        guard let userProfile = UserController.shared.userProfileData, let calorieBudget = userProfile.caloricBudget else {
-            print("The active users calorie budget data is not loading, cannot calculate budgets and deficits")
+        guard activeCals.count == 7, consumedCals.count == 7 else {
+            self.missingData = true
             return
         }
+        
+        let basalCalories = UserDefaults.standard.integer(forKey: "caloricBudget")
+        
+        guard basalCalories > 0 else {
+            print("Basal cals not loaading, prompt user to re-login")
+            return
+        }
+        
+        for i in 0...6 {
+            let dayOfWeek = activeCals[i].0
             
-            for i in 0...6 {
-                let dayOfWeek = activeCals[i].0
-                
-                // Will use once HealthKit is able to accurately gather basal energy information
-                // var deficit = (activeCals[i].1 + basalCals[i].1) - consumedCals[i].1
-                
-                var deficit = (activeCals[i].1 + calorieBudget) - consumedCals[i].1
-                
-                if consumedCals[i].1 == 0 {
-                    self.missingData = true
-                    deficit = 0
-                }
-                
-                self.caloricDeficits.append((dayOfWeek, deficit))
-            }
+            // Will use once HealthKit is able to accurately gather basal energy information
+            // var deficit = (activeCals[i].1 + basalCals[i].1) - consumedCals[i].1
             
-            self.rootView.caloricDeficit.day1Label = self.caloricDeficits[0].0
-            self.rootView.caloricDeficit.day1Count = self.caloricDeficits[0].1
+            let deficit = (basalCalories) - consumedCals[i].1
             
-            self.rootView.caloricDeficit.day2Label = self.caloricDeficits[1].0
-            self.rootView.caloricDeficit.day2Count = self.caloricDeficits[1].1
-            
-            self.rootView.caloricDeficit.day3Label = self.caloricDeficits[2].0
-            self.rootView.caloricDeficit.day3Count = self.caloricDeficits[2].1
-            
-            self.rootView.caloricDeficit.day4Label = self.caloricDeficits[3].0
-            self.rootView.caloricDeficit.day4Count = self.caloricDeficits[3].1
-            
-            self.rootView.caloricDeficit.day5Label = self.caloricDeficits[4].0
-            self.rootView.caloricDeficit.day5Count = self.caloricDeficits[4].1
-            
-            self.rootView.caloricDeficit.day6Label = self.caloricDeficits[5].0
-            self.rootView.caloricDeficit.day6Count = self.caloricDeficits[5].1
-            
-            self.rootView.caloricDeficit.day7Label = self.caloricDeficits[6].0
-            self.rootView.caloricDeficit.day7Count = self.caloricDeficits[6].1
+            self.caloricDeficits.append((dayOfWeek, deficit))
+        }
+        
+        self.rootView.caloricDeficit.day1Label = self.caloricDeficits[0].0
+        self.rootView.caloricDeficit.day1Count = self.caloricDeficits[0].1
+        
+        self.rootView.caloricDeficit.day2Label = self.caloricDeficits[1].0
+        self.rootView.caloricDeficit.day2Count = self.caloricDeficits[1].1
+        
+        self.rootView.caloricDeficit.day3Label = self.caloricDeficits[2].0
+        self.rootView.caloricDeficit.day3Count = self.caloricDeficits[2].1
+        
+        self.rootView.caloricDeficit.day4Label = self.caloricDeficits[3].0
+        self.rootView.caloricDeficit.day4Count = self.caloricDeficits[3].1
+        
+        self.rootView.caloricDeficit.day5Label = self.caloricDeficits[4].0
+        self.rootView.caloricDeficit.day5Count = self.caloricDeficits[4].1
+        
+        self.rootView.caloricDeficit.day6Label = self.caloricDeficits[5].0
+        self.rootView.caloricDeficit.day6Count = self.caloricDeficits[5].1
+        
+        self.rootView.caloricDeficit.day7Label = self.caloricDeficits[6].0
+        self.rootView.caloricDeficit.day7Count = self.caloricDeficits[6].1
         
     }
     

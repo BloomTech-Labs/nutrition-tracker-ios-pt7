@@ -19,7 +19,13 @@ class UserController {
     
     private let baseURL = URL(string: "https://nutrivurv-be.herokuapp.com/api/auth")!
     
-    var userProfileData: UserProfile?
+    var userProfileData: UserProfile? {
+        didSet {
+            if let caloricBudget = userProfileData?.caloricBudget {
+                UserDefaults.standard.set(caloricBudget, forKey: UserDefaults.Keys.caloricBudget)
+            }
+        }
+    }
     
     func loginUser(user: UserAuth, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let loginURL = baseURL.appendingPathComponent("login")
