@@ -38,6 +38,8 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel, userWeightData: Weight()))
     }
+    
+    //MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
             self.getCalorieStatsCollectionForWeek(using: consumedCals)
         }
         
+        getWeightForLast30Days()
         // Healthkit appears to be way overestimating basal energy, so replacing with the information returned from backend for now.
 //        if let basalCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.basalEnergyBurned) {
 //            self.getCalorieStatsCollectionForWeek(using: basalCalsBurned)
@@ -71,6 +74,45 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
         self.missingData = false
     }
     
+    // MARK: - HealthKit Fecthing Methods
+    
+    private func getWeightForLast30Days() {
+        guard let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) else {
+            print("The weight sample type is not avaiable from HealtKit")
+            return
+        }
+        
+        let endDate = Date()
+        
+        guard let startDate = Calendar.current.date(byAdding: .day, value: -29, to: endDate) else {
+            print("error getting start date for statistics collection")
+            return
+        }
+        
+        HealthKitController.getMostRecentSamples(for: weightSampleType, withStart: startDate, limit: 100) { (samples, error) in
+            if let error = error {
+                print("Error getting weight samples for health dashboard: \(error)")
+                return
+            }
+            
+            guard let samples = samples else {
+                return
+            }
+            
+            var weightReadings: [Double] = []
+            
+            for item in samples {
+                let weight = item.quantity.doubleValue(for: HKUnit.pound()).roundToDecimal(1)
+                weightReadings.append(weight)
+            }
+            
+            print(weightReadings)
+            
+            self.rootView.userWeightData.weightReadings = weightReadings
+        }
+    }
+            
+            
     private func getCalorieStatsCollectionForWeek(using quantityType: HKQuantityType) {
         HealthKitController.getCumulativeStatsCollectionUsingOneDayInterval(for: quantityType) { (statsCollection, error) in
             if let error = error {

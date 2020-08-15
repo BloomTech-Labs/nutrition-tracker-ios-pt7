@@ -37,13 +37,11 @@ class HealthKitController {
         }
     }
     
-    class func getMostRecentSample(for sampleType: HKSampleType, withStart date: Date = Date.distantPast, completion: @escaping (HKQuantitySample?, Error?) -> Swift.Void) {
+    class func getMostRecentSamples(for sampleType: HKSampleType, withStart date: Date = Date.distantPast, limit: Int = 1, completion: @escaping ([HKQuantitySample]?, Error?) -> Swift.Void) {
         
         let mostRecentPredicate = HKQuery.predicateForSamples(withStart: date, end: Date(), options: .strictEndDate)
         
-        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
-        
-        let limit = 1
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
         
         let sampleQuery = HKSampleQuery(sampleType: sampleType,
                                         predicate: mostRecentPredicate,
@@ -57,9 +55,8 @@ class HealthKitController {
                     return
                 }
                 
-               
-                if let mostRecentSample = samples.first as? HKQuantitySample {
-                     completion(mostRecentSample, nil)
+                if let quantitySamples = samples as? [HKQuantitySample] {
+                    completion(quantitySamples, nil)
                 }
             }
         }

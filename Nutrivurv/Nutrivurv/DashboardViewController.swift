@@ -320,14 +320,14 @@ class DashboardViewController: UIViewController {
             return
         }
         
-        HealthKitController.getMostRecentSample(for: weightSampleType) { (weightSample, error) in
+        HealthKitController.getMostRecentSamples(for: weightSampleType) { (samples, error) in
             if let error = error {
                 self.promptForHKPermission()
                 print("Error getting most recent weight sample form HealthKit: \(error)")
                 return
             }
             
-            guard let weightSample = weightSample else {
+            guard let samples = samples, let weightSample = samples.first else {
                 self.promptForHKPermission()
                 print("Failed to get weight sample data")
                 return
