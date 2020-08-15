@@ -36,7 +36,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     var missingData: Bool = false
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel, userWeightData: Weight()))
     }
 
     override func viewDidLoad() {

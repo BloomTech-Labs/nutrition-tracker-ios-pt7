@@ -45,6 +45,8 @@
 		512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */; };
 		512FF46C24DB60BD00F49FCB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 512FF46B24DB60BD00F49FCB /* Lottie */; };
 		5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5130B83224A7043F00946B41 /* NutritionLabel.swift */; };
+		5131BD2724E7817F007B94A0 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131BD2624E7817F007B94A0 /* DoubleExtension.swift */; };
+		5131BD2B24E7822D007B94A0 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5131BD2A24E7822D007B94A0 /* Weight.swift */; };
 		5133508B24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133508A24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift */; };
 		51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51363F9D24A975F5001432F7 /* FadedScrollViews.swift */; };
 		51371FD724DA275200FE48B6 /* ProgressSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */; };
@@ -157,6 +159,8 @@
 		512FF46124DB597500F49FCB /* TabBarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemContentView.swift; sourceTree = "<group>"; };
 		512FF46324DB597A00F49FCB /* TabBarItemMoreContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemMoreContentView.swift; sourceTree = "<group>"; };
 		5130B83224A7043F00946B41 /* NutritionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabel.swift; sourceTree = "<group>"; };
+		5131BD2624E7817F007B94A0 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		5131BD2A24E7822D007B94A0 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		5133508A24E0BD0B00A9B568 /* SwiftUIDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIDetailViewController.swift; sourceTree = "<group>"; };
 		51363F9D24A975F5001432F7 /* FadedScrollViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedScrollViews.swift; sourceTree = "<group>"; };
 		51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSwitcherView.swift; sourceTree = "<group>"; };
@@ -410,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				5139B90524E39A340086802F /* Calories.swift */,
+				5131BD2A24E7822D007B94A0 /* Weight.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -619,6 +624,7 @@
 				51450F9E24D110880065E0F0 /* UserDefaults.swift */,
 				514D57F524CA275B008DCEEF /* UIViewExtensions.swift */,
 				512CA6B124DA53BB00B17010 /* HealthKitError.swift */,
+				5131BD2624E7817F007B94A0 /* DoubleExtension.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -817,6 +823,7 @@
 				512FF45E24DB596E00F49FCB /* TabBarItemBadgeView.swift in Sources */,
 				512FF45624DB58E200F49FCB /* HighlightableContentView.swift in Sources */,
 				515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */,
+				5131BD2724E7817F007B94A0 /* DoubleExtension.swift in Sources */,
 				512EEC2324E4779200416DB3 /* HealthDashboardViewController.swift in Sources */,
 				512FF46424DB597A00F49FCB /* TabBarItemMoreContentView.swift in Sources */,
 				D60BA2DD2402F51A00B3E6BF /* DashboardViewController.swift in Sources */,
@@ -833,6 +840,7 @@
 				512FF45C24DB596900F49FCB /* TabBarItem.swift in Sources */,
 				D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */,
 				512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */,
+				5131BD2B24E7822D007B94A0 /* Weight.swift in Sources */,
 				512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */,
 				514D57F624CA275B008DCEEF /* UIViewExtensions.swift in Sources */,
 				5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */,

@@ -12,8 +12,8 @@ import SwiftUICharts
 struct HealthDashboardView: View {
     @ObservedObject var activeCalories: Calories
     @ObservedObject var caloricDeficit: Calories
-    
     @ObservedObject var dailyMacros: DailyMacros
+    @ObservedObject var userWeightData: Weight
     
     var body: some View {
         
@@ -82,7 +82,7 @@ struct HealthDashboardView: View {
                         }
                     }
                     
-                    LineChartView(data: [172,178,171,169,170,168,169,165,163], title: "Weight", legend: "this month", form: ChartForm.large)
+                    LineChartView(data: userWeightData.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -122,6 +122,6 @@ struct HealthDashboardView: View {
 
 struct HealthDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: DailyMacros())
+        HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: DailyMacros(), userWeightData: Weight())
     }
 }
