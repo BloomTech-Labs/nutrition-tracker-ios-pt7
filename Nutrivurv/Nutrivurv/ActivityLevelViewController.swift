@@ -33,7 +33,7 @@ class ActivityLevelViewController: UIViewController {
             return
         }
         
-        UserAuthController.shared.registerUser(user: user) { (result) in
+        UserController.shared.registerUser(user: user) { (result) in
             switch result {
             case .success(true):
                 print("Successfully registered")

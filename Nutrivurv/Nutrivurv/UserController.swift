@@ -1,5 +1,5 @@
 //
-//  UserAuthController.swift
+//  UserController.swift
 //  Nutrivurv
 //
 //  Created by Dillon P on 6/23/20.
@@ -9,8 +9,8 @@
 import Foundation
 import KeychainSwift
 
-class UserAuthController {
-    static let shared = UserAuthController()
+class UserController {
+    static let shared = UserController()
     
     static let authKeychainToken = "authorizationToken"
     static let userPassKey = "userPassKey"
@@ -79,7 +79,7 @@ class UserAuthController {
             do {
                 let authData = try decoder.decode(UserAuthResponse.self, from: data)
                 if let token = authData.token {
-                    UserAuthController.keychain.set(token, forKey: UserAuthController.authKeychainToken)
+                    UserController.keychain.set(token, forKey: UserController.authKeychainToken)
                 } else {
                     print("error saving user token in keychain")
                 }
@@ -175,7 +175,7 @@ class UserAuthController {
             }
             
             if let token = authResponse.token {
-                UserAuthController.keychain.set(token, forKey: UserAuthController.authKeychainToken)
+                UserController.keychain.set(token, forKey: UserController.authKeychainToken)
             } else {
                 print("Error saving auth token in keychain")
                 DispatchQueue.main.async {
@@ -186,8 +186,8 @@ class UserAuthController {
             
             if let password = user.password, let id = authResponse.user.id {
                 UserDefaults.standard.set(id, forKey: UserDefaults.Keys.userIdKey)
-                UserAuthController.keychain.set(user.email, forKey: UserAuthController.userEmailKey)
-                UserAuthController.keychain.set(password, forKey: UserAuthController.userPassKey)
+                UserController.keychain.set(user.email, forKey: UserController.userEmailKey)
+                UserController.keychain.set(password, forKey: UserController.userPassKey)
 
                 self.userProfileData = UserProfile(id: authResponse.user.id, name: authResponse.user.name, email: authResponse.user.email, password: password, fatPctRatio: authResponse.user.fatPctRatio, carbsPctRatio: authResponse.user.carbsPctRatio, proteinPctRatio: authResponse.user.proteinPctRatio)
             } else {

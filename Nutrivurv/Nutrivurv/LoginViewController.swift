@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
         submitButton.isEnabled = false
         submitButton.layer.opacity = 0.45
         
-        UserAuthController.shared.loginUser(user: user) { (result) in
+        UserController.shared.loginUser(user: user) { (result) in
             
             switch result {
             case .success(true):

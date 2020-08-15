@@ -19,7 +19,7 @@
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */; };
 		511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511285E424D368C30080127B /* MealTypeHeaderLabel.swift */; };
-		51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserAuthController.swift */; };
+		51257AE824A2E51200C744B7 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserController.swift */; };
 		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
@@ -131,7 +131,7 @@
 		4C9F30BE24528F1200CE14CA /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMacros.swift; sourceTree = "<group>"; };
 		511285E424D368C30080127B /* MealTypeHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeHeaderLabel.swift; sourceTree = "<group>"; };
-		51257AE724A2E51200C744B7 /* UserAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthController.swift; sourceTree = "<group>"; };
+		51257AE724A2E51200C744B7 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
 		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
@@ -377,6 +377,15 @@
 				5130B83224A7043F00946B41 /* NutritionLabel.swift */,
 			);
 			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		5131BD2524E76867007B94A0 /* User Information */ = {
+			isa = PBXGroup;
+			children = (
+				51A186FA24A3311600196C83 /* Login & Registration */,
+				4C89A9EF24400F9000348B5A /* Profile Creation */,
+			);
+			name = "User Information";
 			sourceTree = "<group>";
 		};
 		5131C39F24E3317C00740AA5 /* Health */ = {
@@ -635,8 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				D68C703523F3B006008AFDF0 /* All Storyboards */,
-				51A186FA24A3311600196C83 /* Login & Registration */,
-				4C89A9EF24400F9000348B5A /* Profile Creation */,
+				5131BD2524E76867007B94A0 /* User Information */,
 				51A186FD24A331DC00196C83 /* Dashboard & In-App Views */,
 				512CA6AC24DA52FF00B17010 /* HealthKit */,
 				D631B2772417204000AE30C9 /* Utilities */,
@@ -683,7 +691,7 @@
 		D68C703823F3B025008AFDF0 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				51257AE724A2E51200C744B7 /* UserAuthController.swift */,
+				51257AE724A2E51200C744B7 /* UserController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -832,7 +840,7 @@
 				512FF45224DB55AC00F49FCB /* BasicContentView.swift in Sources */,
 				5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */,
 				4C82D27924529C1B005E83F2 /* NutrientDetails.swift in Sources */,
-				51257AE824A2E51200C744B7 /* UserAuthController.swift in Sources */,
+				51257AE824A2E51200C744B7 /* UserController.swift in Sources */,
 				4C39A980244E9DDA00AAA74E /* FoodSearchTableViewController.swift in Sources */,
 				D631B2752415BE7A00AE30C9 /* BMIType.swift in Sources */,
 				D631B2732415BB1500AE30C9 /* MetricBMIViewController.swift in Sources */,

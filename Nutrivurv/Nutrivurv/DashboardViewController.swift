@@ -41,8 +41,6 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var ringsAndMacrosContainerView: UIView!
     var ringsAndMacrosHostingController: UIViewController!
     
-    let userController = ProfileCreationController()
-    
     // Used to display the alert to prompt user for HealthKit access only once
     private var displayedHKAccessAlert = false
     
@@ -99,7 +97,7 @@ class DashboardViewController: UIViewController {
         
         self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = false
         
-        if UserAuthController.isLoggedIn() {
+        if UserController.isLoggedIn() {
             self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
             QuoteController.shared.getRandomQuote { (result) in
                 switch result {
@@ -281,12 +279,8 @@ class DashboardViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
-        // TODO: Fix bug where logout button font changes when tapping
-        
-        let keychain = KeychainSwift()
-        
         // Reset all necessary properties
-        keychain.clear()
+        UserController.keychain.clear()
         FoodLogController.shared.foodLog = FoodLog()
         let userDefaults = UserDefaults.standard
         userDefaults.removeObject(forKey: "dailyLoginStreak")

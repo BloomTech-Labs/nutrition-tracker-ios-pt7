@@ -418,7 +418,7 @@ class FoodLogController {
     // MARK: - Helper Functions
     
     private func getUserToken() -> String? {
-        guard let token = UserAuthController.keychain.get(UserAuthController.authKeychainToken) else {
+        guard let token = UserController.keychain.get(UserController.authKeychainToken) else {
             return nil
         }
         return token
