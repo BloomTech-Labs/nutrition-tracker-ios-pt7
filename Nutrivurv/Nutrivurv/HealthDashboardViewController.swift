@@ -41,9 +41,6 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "bg-color")!
-        self.navigationController?.navigationBar.backgroundColor = UIColor(named: "bg-color")!
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "bg-color")!
         
         if let activeCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) {
             self.getCalorieStatsCollectionForWeek(using: activeCalsBurned)
@@ -56,6 +53,20 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
         if let basalCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.basalEnergyBurned) {
             self.getCalorieStatsCollectionForWeek(using: basalCalsBurned)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if missingData {
+            notEnoughDataAlert()
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Reset property to ensure the alert is only displayed once
+        self.missingData = false
     }
     
     private func getCalorieStatsCollectionForWeek(using quantityType: HKQuantityType) {
@@ -77,7 +88,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
                 return
             }
             
-            var activeCaloriesByDay: [(String, Int)] = []
+            var caloriesByDay: [(String, Int)] = []
             
             statsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
                 if let caloriesSum = statistics.sumQuantity() {
@@ -90,39 +101,39 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
                     let calorieDouble = caloriesSum.doubleValue(for: HKUnit.kilocalorie())
                     let calorieInt = Int(calorieDouble)
                     
-                    activeCaloriesByDay.append((weekDayString, calorieInt))
+                    caloriesByDay.append((weekDayString, calorieInt))
                 }
             }
             
             switch quantityType.identifier {
             case HKQuantityTypeIdentifier.activeEnergyBurned.rawValue:
-                self.activeCalories = activeCaloriesByDay
+                self.activeCalories = caloriesByDay
                 
-                self.rootView.activeCalories.day1Label = activeCaloriesByDay[0].0
-                self.rootView.activeCalories.day1Count = activeCaloriesByDay[0].1
+                self.rootView.activeCalories.day1Label = caloriesByDay[0].0
+                self.rootView.activeCalories.day1Count = caloriesByDay[0].1
                 
-                self.rootView.activeCalories.day2Label = activeCaloriesByDay[1].0
-                self.rootView.activeCalories.day2Count = activeCaloriesByDay[1].1
+                self.rootView.activeCalories.day2Label = caloriesByDay[1].0
+                self.rootView.activeCalories.day2Count = caloriesByDay[1].1
                 
-                self.rootView.activeCalories.day3Label = activeCaloriesByDay[2].0
-                self.rootView.activeCalories.day3Count = activeCaloriesByDay[2].1
+                self.rootView.activeCalories.day3Label = caloriesByDay[2].0
+                self.rootView.activeCalories.day3Count = caloriesByDay[2].1
                 
-                self.rootView.activeCalories.day4Label = activeCaloriesByDay[3].0
-                self.rootView.activeCalories.day4Count = activeCaloriesByDay[3].1
+                self.rootView.activeCalories.day4Label = caloriesByDay[3].0
+                self.rootView.activeCalories.day4Count = caloriesByDay[3].1
                 
-                self.rootView.activeCalories.day5Label = activeCaloriesByDay[4].0
-                self.rootView.activeCalories.day5Count = activeCaloriesByDay[4].1
+                self.rootView.activeCalories.day5Label = caloriesByDay[4].0
+                self.rootView.activeCalories.day5Count = caloriesByDay[4].1
                 
-                self.rootView.activeCalories.day6Label = activeCaloriesByDay[5].0
-                self.rootView.activeCalories.day6Count = activeCaloriesByDay[5].1
+                self.rootView.activeCalories.day6Label = caloriesByDay[5].0
+                self.rootView.activeCalories.day6Count = caloriesByDay[5].1
                 
-                self.rootView.activeCalories.day7Label = activeCaloriesByDay[6].0
-                self.rootView.activeCalories.day7Count = activeCaloriesByDay[6].1
+                self.rootView.activeCalories.day7Label = caloriesByDay[6].0
+                self.rootView.activeCalories.day7Count = caloriesByDay[6].1
                 
             case HKQuantityTypeIdentifier.basalEnergyBurned.rawValue:
-                self.basalCalories = activeCaloriesByDay
+                self.basalCalories = caloriesByDay
             case HKQuantityTypeIdentifier.dietaryEnergyConsumed.rawValue:
-                self.consumedCalories = activeCaloriesByDay
+                self.consumedCalories = caloriesByDay
             default:
                 return
             }
@@ -168,5 +179,17 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
         
         self.rootView.caloricDeficit.day7Label = self.caloricDeficits[6].0
         self.rootView.caloricDeficit.day7Count = self.caloricDeficits[6].1
+    }
+    
+    private func notEnoughDataAlert() {
+        let alertController = UIAlertController(title: "Missing Data", message: "In order to calculate your caloric deficits and get the most accurate depiction of your trends over time, you'll need to log at least one meal for any given day. Check back again after you've logged meals for 7 days straight!", preferredStyle: .alert)
+        
+        let alert = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(alert)
+        
+        self.present(alertController, animated: true) {
+            // Reset property to ensure the alert is only displayed once
+            self.missingData = false
+        }
     }
 }
