@@ -36,7 +36,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     var missingData: Bool = false
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel, userWeightData: Weight()))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), consumedCalories: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel, userWeightData: Weight()))
     }
     
     //MARK: - View Life Cycle
@@ -179,6 +179,28 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
 //                self.basalCalories = caloriesByDay
             case HKQuantityTypeIdentifier.dietaryEnergyConsumed.rawValue:
                 self.consumedCalories = caloriesByDay
+                
+                self.rootView.consumedCalories.day1Label = caloriesByDay[0].0
+                self.rootView.consumedCalories.day1Count = caloriesByDay[0].1
+                
+                self.rootView.consumedCalories.day2Label = caloriesByDay[1].0
+                self.rootView.consumedCalories.day2Count = caloriesByDay[1].1
+                
+                self.rootView.consumedCalories.day3Label = caloriesByDay[2].0
+                self.rootView.consumedCalories.day3Count = caloriesByDay[2].1
+                
+                self.rootView.consumedCalories.day4Label = caloriesByDay[3].0
+                self.rootView.consumedCalories.day4Count = caloriesByDay[3].1
+                
+                self.rootView.consumedCalories.day5Label = caloriesByDay[4].0
+                self.rootView.consumedCalories.day5Count = caloriesByDay[4].1
+                
+                self.rootView.consumedCalories.day6Label = caloriesByDay[5].0
+                self.rootView.consumedCalories.day6Count = caloriesByDay[5].1
+                
+                self.rootView.consumedCalories.day7Label = caloriesByDay[6].0
+                self.rootView.consumedCalories.day7Count = caloriesByDay[6].1
+                
             default:
                 return
             }

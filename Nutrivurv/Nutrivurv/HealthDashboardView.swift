@@ -12,6 +12,7 @@ import SwiftUICharts
 struct HealthDashboardView: View {
     @ObservedObject var activeCalories: Calories
     @ObservedObject var caloricDeficit: Calories
+    @ObservedObject var consumedCalories: Calories
     @ObservedObject var dailyMacros: DailyMacros
     @ObservedObject var userWeightData: Weight
     
@@ -29,9 +30,8 @@ struct HealthDashboardView: View {
                     
                     CaloriesView(calories: activeCalories, title: "Active Calories", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
                     
-                    
                     HStack {
-                        CaloriesView(calories: caloricDeficit, title: "Caloric Deficit", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
+                        CaloriesView(calories: consumedCalories, title: "Calories Consumed", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
                         
                         ZStack {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -82,7 +82,9 @@ struct HealthDashboardView: View {
                         }
                     }
                     
-                    LineChartView(data: userWeightData.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large)
+                    CaloriesView(calories: caloricDeficit, title: "Caloric Deficit", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
+                    
+                    LineChartView(data: userWeightData.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: -3)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -122,6 +124,6 @@ struct HealthDashboardView: View {
 
 struct HealthDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), dailyMacros: DailyMacros(), userWeightData: Weight())
+        HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), consumedCalories: Calories(), dailyMacros: DailyMacros(), userWeightData: Weight())
     }
 }
