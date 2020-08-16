@@ -37,6 +37,25 @@ class HealthKitController {
         }
     }
     
+    class func saveCalorieIntakeSample(calories: Double) {
+        guard let consumedCaloriesType = HKQuantityType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
+            print("Error with calorie intake save method")
+            return
+        }
+        
+        let calorieQuantity = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: calories)
+        
+        let calorieSample = HKQuantitySample(type: consumedCaloriesType, quantity: calorieQuantity, start: Date(), end: Date())
+        
+        HKHealthStore().save(calorieSample) { (success, error) in
+            if let error = error {
+                print("Error saving consumed calorie data to healthkit: \(error)")
+            } else {
+                print("Successfully saved calorie data to healthkit")
+            }
+        }
+    }
+    
     class func getMostRecentSamples(for sampleType: HKSampleType, withStart date: Date = Date.distantPast, limit: Int = 1, completion: @escaping ([HKQuantitySample]?, Error?) -> Swift.Void) {
         
         let mostRecentPredicate = HKQuery.predicateForSamples(withStart: date, end: Date(), options: .strictEndDate)
