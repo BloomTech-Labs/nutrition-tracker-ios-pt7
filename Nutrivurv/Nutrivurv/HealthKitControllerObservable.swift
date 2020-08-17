@@ -48,6 +48,64 @@ class HealthKitControllerObservable: ObservableObject {
     }
     
     
+    // MARK: - HealthKit Data Fetching Functionality
+    
+    private func getBodyCompStatsForLast30Days(using sampleType: HKSampleType) {
+        
+        let endDate = Date()
+        
+        guard let startDate = Calendar.current.date(byAdding: .day, value: -29, to: endDate) else {
+            print("error getting start date for statistics collection")
+            return
+        }
+        
+        HealthKitController.getMostRecentSamples(for: sampleType, withStart: startDate, limit: 100) { (samples, error) in
+            if let error = error {
+                print("Error getting weight samples for health dashboard: \(error)")
+                return
+            }
+            
+            guard let samples = samples else {
+                return
+            }
+
+            switch sampleType.identifier {
+            case HKQuantityTypeIdentifier.bodyMass.rawValue:
+                
+                for item in samples {
+                    let weight = item.quantity.doubleValue(for: HKUnit.pound()).roundToDecimal(1)
+                    self.weight.weightReadings.append(weight)
+                }
+                
+                if let inital = self.weight.weightReadings.first, let mostRecent = self.weight.weightReadings.last {
+                    var difference = mostRecent - inital
+                    difference = (difference / inital) * 100
+                    let rateChange = difference.roundToDecimal(2)
+                    self.weight.rateChange = rateChange
+                }
+                
+            case HKQuantityTypeIdentifier.bodyFatPercentage.rawValue:
+                
+                for item in samples {
+                    // HealthKit returns body fat percent as a decimal
+                    let bodyFatDecimal = item.quantity.doubleValue(for: HKUnit.percent()).roundToDecimal(4)
+                    let bodyFat = bodyFatDecimal * 100
+                    self.bodyFat.weightReadings.append(bodyFat)
+                }
+                
+                if let inital = self.bodyFat.weightReadings.first, let mostRecent = self.bodyFat.weightReadings.last {
+                    let difference = mostRecent - inital
+                    let rateChange = difference.roundToDecimal(2)
+                    self.bodyFat.rateChange = rateChange
+                }
+                
+            default:
+                return
+            }
+        }
+    }
+    
+    
     // MARK: - HealthKit Interfacing Methods
     
     class func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
