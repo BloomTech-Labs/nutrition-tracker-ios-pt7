@@ -113,9 +113,10 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
                 }
                 
                 if let inital = bodyCompStats.first, let mostRecent = bodyCompStats.last {
-                    let difference = mostRecent - inital
-                    let rateChange = (difference / inital) * 100
-                    self.rootView.userWeightData.rateChange = Int(rateChange)
+                    var difference = mostRecent - inital
+                    difference = (difference / inital) * 100
+                    let rateChange = difference.roundToDecimal(2)
+                    self.rootView.userWeightData.rateChange = rateChange
                 }
                 
                 self.rootView.userWeightData.weightReadings = bodyCompStats
@@ -131,8 +132,8 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
                 
                 if let inital = bodyCompStats.first, let mostRecent = bodyCompStats.last {
                     let difference = mostRecent - inital
-                    let rateChange = (difference / inital) * 100
-                    self.rootView.bodyFatData.rateChange = Int(rateChange)
+                    let rateChange = difference.roundToDecimal(2)
+                    self.rootView.bodyFatData.rateChange = rateChange
                 }
                 
                 self.rootView.bodyFatData.weightReadings = bodyCompStats

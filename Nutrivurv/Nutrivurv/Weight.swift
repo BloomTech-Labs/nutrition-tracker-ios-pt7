@@ -18,7 +18,7 @@ class Weight: ObservableObject {
         }
     }
     
-    @Published var rateChange: Int = 0 {
+    @Published var rateChange: Double = 0 {
         willSet {
             objectWillChange.send(newValue)
         }
