@@ -12,7 +12,7 @@ import SwiftUI
 class Weight: ObservableObject {
     let objectWillChange = PassthroughSubject<Any, Never>()
     
-    @Published var weightReadings: [Double] = [0,0,0] {
+    @Published var weightReadings: [Double] = [] {
         willSet {
             objectWillChange.send(newValue)
         }
