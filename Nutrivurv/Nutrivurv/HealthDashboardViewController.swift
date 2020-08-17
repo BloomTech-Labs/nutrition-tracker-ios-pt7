@@ -46,14 +46,21 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
         self.view.backgroundColor = .clear
         
         if let activeCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) {
-            self.getCalorieStatsCollectionForWeek(using: activeCalsBurned)
+            getCalorieStatsCollectionForWeek(using: activeCalsBurned)
         }
         
         if let consumedCals = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) {
-            self.getCalorieStatsCollectionForWeek(using: consumedCals)
+            getCalorieStatsCollectionForWeek(using: consumedCals)
         }
         
-        getWeightForLast30Days()
+        if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
+            getBodyCompStatsForLast30Days(using: weightSampleType)
+        }
+        
+        if let bodyFatSampleType = HKSampleType.quantityType(forIdentifier: .bodyFatPercentage) {
+            getBodyCompStatsForLast30Days(using: bodyFatSampleType)
+        }
+        
         // Healthkit appears to be way overestimating basal energy, so replacing with the information returned from backend for now.
 //        if let basalCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.basalEnergyBurned) {
 //            self.getCalorieStatsCollectionForWeek(using: basalCalsBurned)
@@ -76,11 +83,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     
     // MARK: - HealthKit Fecthing Methods
     
-    private func getWeightForLast30Days() {
-        guard let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) else {
-            print("The weight sample type is not avaiable from HealtKit")
-            return
-        }
+    private func getBodyCompStatsForLast30Days(using sampleType: HKSampleType) {
         
         let endDate = Date()
         
@@ -89,7 +92,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
             return
         }
         
-        HealthKitController.getMostRecentSamples(for: weightSampleType, withStart: startDate, limit: 100) { (samples, error) in
+        HealthKitController.getMostRecentSamples(for: sampleType, withStart: startDate, limit: 100) { (samples, error) in
             if let error = error {
                 print("Error getting weight samples for health dashboard: \(error)")
                 return
@@ -99,20 +102,44 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
                 return
             }
             
-            var weightReadings: [Double] = []
+            var bodyCompStats: [Double] = []
             
-            for item in samples {
-                let weight = item.quantity.doubleValue(for: HKUnit.pound()).roundToDecimal(1)
-                weightReadings.append(weight)
+            switch sampleType.identifier {
+            case HKQuantityTypeIdentifier.bodyMass.rawValue:
+                
+                for item in samples {
+                    let weight = item.quantity.doubleValue(for: HKUnit.pound()).roundToDecimal(1)
+                    bodyCompStats.append(weight)
+                }
+                
+                if let inital = bodyCompStats.first, let mostRecent = bodyCompStats.last {
+                    let difference = mostRecent - inital
+                    let rateChange = (difference / inital) * 100
+                    self.rootView.userWeightData.rateChange = Int(rateChange)
+                }
+                
+                self.rootView.userWeightData.weightReadings = bodyCompStats
+                
+            case HKQuantityTypeIdentifier.bodyFatPercentage.rawValue:
+                
+                for item in samples {
+                    // HealthKit returns body fat percent as a decimal
+                    let bodyFatDecimal = item.quantity.doubleValue(for: HKUnit.percent()).roundToDecimal(4)
+                    let bodyFat = bodyFatDecimal * 100
+                    bodyCompStats.append(bodyFat)
+                }
+                
+                if let inital = bodyCompStats.first, let mostRecent = bodyCompStats.last {
+                    let difference = mostRecent - inital
+                    let rateChange = (difference / inital) * 100
+                    self.rootView.bodyFatData.rateChange = Int(rateChange)
+                }
+                
+                self.rootView.bodyFatData.weightReadings = bodyCompStats
+                
+            default:
+                return
             }
-            
-            if let inital = weightReadings.first, let mostRecent = weightReadings.last {
-                let difference = mostRecent - inital
-                let rateChange = (difference / inital) * 100
-                self.rootView.userWeightData.rateChange = Int(rateChange)
-            }
-            
-            self.rootView.userWeightData.weightReadings = weightReadings
         }
     }
             
