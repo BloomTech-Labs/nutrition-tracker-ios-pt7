@@ -580,7 +580,7 @@ class FoodDetailViewController: UIViewController {
                 }
                 
                 if calories > 0 {
-                    HealthKitController.saveCalorieIntakeSample(calories: Double(calories))
+                    HealthKitControllerObservable.shared.saveCalorieIntakeSample(calories: Double(calories))
                 }
                 
                 return

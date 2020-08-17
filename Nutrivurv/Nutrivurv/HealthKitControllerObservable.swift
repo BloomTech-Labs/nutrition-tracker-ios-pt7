@@ -39,6 +39,12 @@ class HealthKitControllerObservable: ObservableObject {
         //        }
     }
     
+    var currentWeight: Double? {
+        didSet {
+            NotificationCenter.default.post(name: .currentWeightUpdated, object: nil)
+        }
+    }
+    
     var activeCalories = Calories()
     
     var consumedCalories = Calories()
@@ -60,7 +66,7 @@ class HealthKitControllerObservable: ObservableObject {
             return
         }
         
-        HealthKitController.getMostRecentSamples(for: sampleType, withStart: startDate, limit: 100) { (samples, error) in
+        getMostRecentSamples(for: sampleType, withStart: startDate, limit: 100) { (samples, error) in
             if let error = error {
                 print("Error getting weight samples for health dashboard: \(error)")
                 return
@@ -72,6 +78,10 @@ class HealthKitControllerObservable: ObservableObject {
             
             switch sampleType.identifier {
             case HKQuantityTypeIdentifier.bodyMass.rawValue:
+                
+                if let mostRecent = samples.last?.quantity.doubleValue(for: HKUnit.pound()) {
+                    self.currentWeight = mostRecent
+                }
                 
                 for item in samples {
                     let weight = item.quantity.doubleValue(for: HKUnit.pound()).roundToDecimal(1)
@@ -107,7 +117,7 @@ class HealthKitControllerObservable: ObservableObject {
     }
     
     private func getCalorieStatsCollectionForWeek(using quantityType: HKQuantityType) {
-        HealthKitController.getCumulativeStatsCollectionUsingOneDayInterval(for: quantityType) { (statsCollection, error) in
+        getCumulativeStatsCollectionUsingOneDayInterval(for: quantityType) { (statsCollection, error) in
             if let error = error {
                 print(error)
                 return
@@ -216,7 +226,7 @@ class HealthKitControllerObservable: ObservableObject {
     
     // MARK: - HealthKit Interfacing Methods
     
-    class func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
+    func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
             completion(false, HealthKitError.dataNotAvailable)
             return
@@ -243,7 +253,7 @@ class HealthKitControllerObservable: ObservableObject {
         }
     }
     
-    class func saveCalorieIntakeSample(calories: Double) {
+    func saveCalorieIntakeSample(calories: Double) {
         guard let consumedCaloriesType = HKQuantityType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
             print("Error with calorie intake save method")
             return
@@ -262,11 +272,9 @@ class HealthKitControllerObservable: ObservableObject {
         }
     }
     
-    class func getMostRecentSamples(for sampleType: HKSampleType, withStart date: Date = Date.distantPast, limit: Int = 1, completion: @escaping ([HKQuantitySample]?, Error?) -> Swift.Void) {
+    func getMostRecentSamples(for sampleType: HKSampleType, withStart date: Date = Date.distantPast, limit: Int = 1, sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true), completion: @escaping ([HKQuantitySample]?, Error?) -> Swift.Void) {
         
         let mostRecentPredicate = HKQuery.predicateForSamples(withStart: date, end: Date(), options: .strictEndDate)
-        
-        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
         
         let sampleQuery = HKSampleQuery(sampleType: sampleType,
                                         predicate: mostRecentPredicate,
@@ -288,7 +296,7 @@ class HealthKitControllerObservable: ObservableObject {
         HKHealthStore().execute(sampleQuery)
     }
     
-    class func getCumulativeSamples(for quantityType: HKQuantityType, startDate: Date = Date(), endDate: Date = Date(), options: HKStatisticsOptions = [], completion: @escaping (HKStatistics?, Error?) -> Void) {
+    func getCumulativeSamples(for quantityType: HKQuantityType, startDate: Date = Date(), endDate: Date = Date(), options: HKStatisticsOptions = [], completion: @escaping (HKStatistics?, Error?) -> Void) {
         var allSamplesForDatePredicate = NSPredicate()
         let startOfFirstDay = Calendar.current.startOfDay(for: startDate)
         
@@ -319,7 +327,7 @@ class HealthKitControllerObservable: ObservableObject {
     }
     
     
-    class func getCumulativeStatsCollectionUsingOneDayInterval(for quantityType: HKQuantityType, options: HKStatisticsOptions = [], completion: @escaping (HKStatisticsCollection?, Error?) -> Void) {
+    func getCumulativeStatsCollectionUsingOneDayInterval(for quantityType: HKQuantityType, options: HKStatisticsOptions = [], completion: @escaping (HKStatisticsCollection?, Error?) -> Void) {
         
         var interval = DateComponents()
         interval.day = 1

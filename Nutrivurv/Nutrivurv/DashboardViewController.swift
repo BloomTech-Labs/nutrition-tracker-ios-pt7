@@ -78,11 +78,10 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(getCurrentWeight), name: .currentWeightUpdated, object: nil)
+        
         updateLoginStreakLabel()
         addActivityRingsProgressView()
-        
-        getCurrentWeight()
-        getActiveCaloriesBurned()
         
         prepareForEntranceAnimations()
         animatePrimaryViewsForEntry()
@@ -314,95 +313,43 @@ class DashboardViewController: UIViewController {
     
     // MARK: - HealthKit Data Functionality
     
-    private func getCurrentWeight() {
-        guard let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) else {
-            print("The weight sample type is not avaiable from HealtKit")
-            return
-        }
-        
-        guard let startDate = Calendar.current.date(byAdding: .day, value: -6, to: Date()) else {
-            print("error getting start date for statistics collection")
-            return
-        }
-        
-        HealthKitController.getMostRecentSamples(for: weightSampleType, withStart: startDate, limit: 20) { (samples, error) in
-            if let error = error {
-                self.promptForHKPermission()
-                print("Error getting most recent weight sample form HealthKit: \(error)")
-                
-                return
-            }
-            
-            guard let samples = samples, let weightSample = samples.last else {
-                // Failing could be due to not having a recent weigh in within the last week. Present alert to prompt user to weigh in.
-                let alert = UIAlertController(title: "No Recent Weigh-Ins", message: "It looks like you haven't weighed in within the last week. Step on the scale and keep up the good work!", preferredStyle: .alert)
-                let prompt = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(prompt)
-                
-                self.present(alert, animated: true, completion: nil)
-                
-                return
-            }
-            
-            let weightInPounds = weightSample.quantity.doubleValue(for: HKUnit.pound())
+    @objc private func getCurrentWeight() {
+        if let weightInPounds = HealthKitControllerObservable.shared.currentWeight {
             self.currentWeightLabel.text = String(format: "%.1f", weightInPounds)
         }
     }
     
-    private func getActiveCaloriesBurned() {
-        guard let activeCalsSampleType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) else {
-            return
-        }
-        
-        HealthKitController.getCumulativeSamples(for: activeCalsSampleType, options: HKStatisticsOptions.cumulativeSum) { (stats, error) in
-            if let error = error {
-                self.promptForHKPermission()
-                print("Error getting cumulative active calories sum form HealthKit: \(error)")
-                return
-            }
-            
-            guard let activeCaloriesCumulativeSum = stats else {
-                return
-            }
-            
-            let caloiesSum = activeCaloriesCumulativeSum.sumQuantity()
-            let totalCalories = caloiesSum?.doubleValue(for: HKUnit.kilocalorie())
-            
-            print(totalCalories ?? 420.69)
-        }
-    }
-    
-    private func promptForHKPermission() {
-        if displayedHKAccessAlert == true {
-            return
-        }
-        
-        let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, open the privacy settings within your settings app to allow access.", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
-            self.requestHealthKitAuthorization { (result) in
-                self.displayedHKAccessAlert = true
-                
-                if result == true {
-                    self.getCurrentWeight()
-                }
-            }
-        }
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func requestHealthKitAuthorization(completion: @escaping (Bool) -> Void) {
-        HealthKitController.authorizeHealthKit { (authorized, error) in
-            if let error = error {
-                print(error)
-                completion(false)
-                return
-            }
-            
-            completion(true)
-        }
-    }
+//    private func promptForHKPermission() {
+//        if displayedHKAccessAlert == true {
+//            return
+//        }
+//
+//        let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, open the privacy settings within your settings app to allow access.", preferredStyle: .alert)
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+//            self.requestHealthKitAuthorization { (result) in
+//                self.displayedHKAccessAlert = true
+//
+//                if result == true {
+//                    self.getCurrentWeight()
+//                }
+//            }
+//        }
+//
+//        alertController.addAction(cancelAction)
+//        alertController.addAction(alertAction)
+//        self.present(alertController, animated: true, completion: nil)
+//    }
+//
+//    private func requestHealthKitAuthorization(completion: @escaping (Bool) -> Void) {
+//        HealthKitControllerObservable.shared.authorizeHealthKit { (authorized, error) in
+//            if let error = error {
+//                print(error)
+//                completion(false)
+//                return
+//            }
+//
+//            completion(true)
+//        }
+//    }
 }
