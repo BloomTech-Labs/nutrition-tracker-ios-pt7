@@ -84,7 +84,7 @@ struct HealthDashboardView: View {
                     
                     CaloriesView(calories: caloricDeficit, title: "Caloric Deficit", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
                     
-                    LineChartView(data: userWeightData.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: -3)
+                    LineChartView(data: userWeightData.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: userWeightData.rateChange)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)

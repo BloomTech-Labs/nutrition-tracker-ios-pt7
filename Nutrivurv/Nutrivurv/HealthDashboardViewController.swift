@@ -106,7 +106,11 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
                 weightReadings.append(weight)
             }
             
-            print(weightReadings)
+            if let inital = weightReadings.first, let mostRecent = weightReadings.last {
+                let difference = mostRecent - inital
+                let rateChange = (difference / inital) * 100
+                self.rootView.userWeightData.rateChange = Int(rateChange)
+            }
             
             self.rootView.userWeightData.weightReadings = weightReadings
         }
