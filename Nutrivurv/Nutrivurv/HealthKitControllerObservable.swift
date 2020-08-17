@@ -20,31 +20,30 @@ class HealthKitControllerObservable: ObservableObject {
         if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
             getBodyCompStatsForLast30Days(using: weightSampleType)
         }
-
+        
         if let bodyFatSampleType = HKSampleType.quantityType(forIdentifier: .bodyFatPercentage) {
             getBodyCompStatsForLast30Days(using: bodyFatSampleType)
         }
-    }
-    
-    let objectWillChange = PassthroughSubject<Any, Never>()
-    
-    @Published var activeCalories: Calories = Calories() {
-        willSet {
-            objectWillChange.send(newValue)
+        
+        if let activeCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) {
+            getCalorieStatsCollectionForWeek(using: activeCalsBurned)
         }
+        
+        if let consumedCals = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) {
+            getCalorieStatsCollectionForWeek(using: consumedCals)
+        }
+        
+        //        Healthkit appears to be way overestimating basal energy, so replacing with the information returned from backend for now.
+        //        if let basalCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.basalEnergyBurned) {
+        //            self.getCalorieStatsCollectionForWeek(using: basalCalsBurned)
+        //        }
     }
     
-    @Published var consumedCalories: Calories = Calories() {
-        willSet {
-            objectWillChange.send(newValue)
-        }
-    }
+    var activeCalories = Calories()
     
-    @Published var caloricDeficits: Calories = Calories() {
-        willSet {
-            objectWillChange.send(newValue)
-        }
-    }
+    var consumedCalories = Calories()
+    
+    var caloricDeficits = Calories()
     
     var weight = Weight()
     
@@ -70,7 +69,7 @@ class HealthKitControllerObservable: ObservableObject {
             guard let samples = samples else {
                 return
             }
-
+            
             switch sampleType.identifier {
             case HKQuantityTypeIdentifier.bodyMass.rawValue:
                 
@@ -107,6 +106,113 @@ class HealthKitControllerObservable: ObservableObject {
         }
     }
     
+    private func getCalorieStatsCollectionForWeek(using quantityType: HKQuantityType) {
+        HealthKitController.getCumulativeStatsCollectionUsingOneDayInterval(for: quantityType) { (statsCollection, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let statsCollection = statsCollection else {
+                print("error with stats collection data")
+                return
+            }
+            
+            let endDate = Date()
+            
+            guard let startDate = Calendar.current.date(byAdding: .day, value: -6, to: endDate) else {
+                print("error getting start date for statistics collection")
+                return
+            }
+            
+            var caloriesByDay: [(String, Int)] = []
+            
+            // Will be used to calculate average calories for week ignoring the current date as still in progress
+            var sixDayCalorieSum = 0
+            
+            statsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
+                if let caloriesSum = statistics.sumQuantity() {
+                    let date = statistics.startDate
+                    let weekDay = Calendar.current.component(.weekday, from: date)
+                    
+                    let dateFormatter = DateFormatter()
+                    let weekDayString = dateFormatter.weekdaySymbols[weekDay - 1]
+                    
+                    let calorieDouble = caloriesSum.doubleValue(for: HKUnit.kilocalorie())
+                    let calorieInt = Int(calorieDouble)
+                    
+                    caloriesByDay.append((weekDayString, calorieInt))
+                    
+                    if caloriesByDay.count < 7 {
+                        sixDayCalorieSum += calorieInt
+                    }
+                }
+            }
+            
+            let sixDayCalorieAverage = sixDayCalorieSum / 6
+            
+            switch quantityType.identifier {
+            case HKQuantityTypeIdentifier.activeEnergyBurned.rawValue:
+                
+                self.activeCalories.average = sixDayCalorieAverage
+                
+                self.activeCalories.day1Label = caloriesByDay[0].0
+                self.activeCalories.day1Count = caloriesByDay[0].1
+                
+                self.activeCalories.day2Label = caloriesByDay[1].0
+                self.activeCalories.day2Count = caloriesByDay[1].1
+                
+                self.activeCalories.day3Label = caloriesByDay[2].0
+                self.activeCalories.day3Count = caloriesByDay[2].1
+                
+                self.activeCalories.day4Label = caloriesByDay[3].0
+                self.activeCalories.day4Count = caloriesByDay[3].1
+                
+                self.activeCalories.day5Label = caloriesByDay[4].0
+                self.activeCalories.day5Count = caloriesByDay[4].1
+                
+                self.activeCalories.day6Label = caloriesByDay[5].0
+                self.activeCalories.day6Count = caloriesByDay[5].1
+                
+                self.activeCalories.day7Label = caloriesByDay[6].0
+                self.activeCalories.day7Count = caloriesByDay[6].1
+                
+                //                Temporarily using the data returned from back end for the daily calorie budget instead of basal energy
+                //            case HKQuantityTypeIdentifier.basalEnergyBurned.rawValue:
+                //                self.basalCalories = caloriesByDay
+                
+            case HKQuantityTypeIdentifier.dietaryEnergyConsumed.rawValue:
+                self.consumedCalories.average = sixDayCalorieAverage
+                
+                let count = caloriesByDay.count
+                
+                self.consumedCalories.day1Label = count > 0 ? caloriesByDay[0].0 : ""
+                self.consumedCalories.day1Count = count > 0 ? caloriesByDay[0].1 : 0
+                
+                self.consumedCalories.day2Label = count > 1 ? caloriesByDay[1].0 : ""
+                self.consumedCalories.day2Count = count > 1 ? caloriesByDay[1].1 : 0
+                
+                self.consumedCalories.day3Label = count > 2 ? caloriesByDay[2].0 : ""
+                self.consumedCalories.day3Count = count > 2 ? caloriesByDay[2].1 : 0
+                
+                self.consumedCalories.day4Label = count > 3 ? caloriesByDay[3].0 : ""
+                self.consumedCalories.day4Count = count > 3 ? caloriesByDay[3].1 : 0
+                
+                self.consumedCalories.day5Label = count > 4 ? caloriesByDay[4].0 : ""
+                self.consumedCalories.day5Count = count > 4 ? caloriesByDay[4].1 : 0
+                
+                self.consumedCalories.day6Label = count > 5 ? caloriesByDay[5].0 : ""
+                self.consumedCalories.day6Count = count > 5 ? caloriesByDay[5].1 : 0
+                
+                self.consumedCalories.day7Label = count > 6 ? caloriesByDay[6].0 : ""
+                self.consumedCalories.day7Count = count > 6 ? caloriesByDay[6].1 : 0
+                
+            default:
+                return
+            }
+        }
+    }
+    
     
     // MARK: - HealthKit Interfacing Methods
     
@@ -124,9 +230,9 @@ class HealthKitControllerObservable: ObservableObject {
             let protein = HKObjectType.quantityType(forIdentifier: .dietaryProtein),
             let weight = HKObjectType.quantityType(forIdentifier: .bodyMass),
             let bodyFat = HKObjectType.quantityType(forIdentifier: .bodyFatPercentage) else {
-                  completion(false, HealthKitError.missingInformation)
-                  return
-              }
+                completion(false, HealthKitError.missingInformation)
+                return
+        }
         
         let healthKitTypesToWrite: Set<HKSampleType> = [energyConsumed, carbs, fat, protein]
         
@@ -166,18 +272,18 @@ class HealthKitControllerObservable: ObservableObject {
                                         predicate: mostRecentPredicate,
                                         limit: limit,
                                         sortDescriptors: [sortDescriptor]) { (query, samples, error) in
-            
-            DispatchQueue.main.async {
-                
-                guard let samples = samples else {
-                    completion(nil, error)
-                    return
-                }
-                
-                if let quantitySamples = samples as? [HKQuantitySample] {
-                    completion(quantitySamples, nil)
-                }
-            }
+                                            
+                                            DispatchQueue.main.async {
+                                                
+                                                guard let samples = samples else {
+                                                    completion(nil, error)
+                                                    return
+                                                }
+                                                
+                                                if let quantitySamples = samples as? [HKQuantitySample] {
+                                                    completion(quantitySamples, nil)
+                                                }
+                                            }
         }
         HKHealthStore().execute(sampleQuery)
     }
@@ -199,22 +305,22 @@ class HealthKitControllerObservable: ObservableObject {
         let cumulativeQuery = HKStatisticsQuery(quantityType: quantityType,
                                                 quantitySamplePredicate: allSamplesForDatePredicate,
                                                 options: options) { (_, stats, error) in
-            DispatchQueue.main.async {
-                guard let stats = stats else {
-                    print("Error getting health kit statistics query result")
-                    completion(nil, error)
-                    return
-                }
-                
-                completion(stats, nil)
-            }
+                                                    DispatchQueue.main.async {
+                                                        guard let stats = stats else {
+                                                            print("Error getting health kit statistics query result")
+                                                            completion(nil, error)
+                                                            return
+                                                        }
+                                                        
+                                                        completion(stats, nil)
+                                                    }
         }
         HKHealthStore().execute(cumulativeQuery)
     }
     
     
     class func getCumulativeStatsCollectionUsingOneDayInterval(for quantityType: HKQuantityType, options: HKStatisticsOptions = [], completion: @escaping (HKStatisticsCollection?, Error?) -> Void) {
-    
+        
         var interval = DateComponents()
         interval.day = 1
         
