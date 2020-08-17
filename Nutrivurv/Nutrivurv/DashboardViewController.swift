@@ -320,16 +320,27 @@ class DashboardViewController: UIViewController {
             return
         }
         
-        HealthKitController.getMostRecentSamples(for: weightSampleType) { (samples, error) in
+        guard let startDate = Calendar.current.date(byAdding: .day, value: -6, to: Date()) else {
+            print("error getting start date for statistics collection")
+            return
+        }
+        
+        HealthKitController.getMostRecentSamples(for: weightSampleType, withStart: startDate, limit: 20) { (samples, error) in
             if let error = error {
                 self.promptForHKPermission()
                 print("Error getting most recent weight sample form HealthKit: \(error)")
+                
                 return
             }
             
-            guard let samples = samples, let weightSample = samples.first else {
-                self.promptForHKPermission()
-                print("Failed to get weight sample data")
+            guard let samples = samples, let weightSample = samples.last else {
+                // Failing could be due to not having a recent weigh in within the last week. Present alert to prompt user to weigh in.
+                let alert = UIAlertController(title: "No Recent Weigh-Ins", message: "It looks like you haven't weighed in within the last week. Step on the scale and keep up the good work!", preferredStyle: .alert)
+                let prompt = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(prompt)
+                
+                self.present(alert, animated: true, completion: nil)
+                
                 return
             }
             
