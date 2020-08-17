@@ -70,6 +70,7 @@
 		515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */; };
 		518F2CEB24DDEDFC00A438C4 /* MacrosDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */; };
 		51937F1024DE68C300E3C1A6 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51937F0F24DE68C300E3C1A6 /* BubbleView.swift */; };
+		51B89BE824EB0202001B6D98 /* HealthKitControllerObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B89BE724EB0202001B6D98 /* HealthKitControllerObservable.swift */; };
 		51C5742924CBB9F900B211F8 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */; };
 		51C5742A24CBB9F900B211F8 /* Catamaran-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */; };
 		51C5742B24CBB9F900B211F8 /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */; };
@@ -185,6 +186,7 @@
 		515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
 		518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosDetailView.swift; sourceTree = "<group>"; };
 		51937F0F24DE68C300E3C1A6 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		51B89BE724EB0202001B6D98 /* HealthKitControllerObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitControllerObservable.swift; sourceTree = "<group>"; };
 		51C5742024CBB9F900B211F8 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
 		51C5742124CBB9F900B211F8 /* Catamaran-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraLight.ttf"; sourceTree = "<group>"; };
 		51C5742224CBB9F900B211F8 /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				512CA6AF24DA533200B17010 /* HealthKitController.swift */,
+				51B89BE724EB0202001B6D98 /* HealthKitControllerObservable.swift */,
 			);
 			name = HealthKit;
 			sourceTree = "<group>";
@@ -888,6 +891,7 @@
 				51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */,
 				512FF45024DB557300F49FCB /* BouncesContentView.swift in Sources */,
 				518F2CEB24DDEDFC00A438C4 /* MacrosDetailView.swift in Sources */,
+				51B89BE824EB0202001B6D98 /* HealthKitControllerObservable.swift in Sources */,
 				D6A1CC3D240B601700477429 /* ProfileCreationController.swift in Sources */,
 				512FF46224DB597500F49FCB /* TabBarItemContentView.swift in Sources */,
 			);
