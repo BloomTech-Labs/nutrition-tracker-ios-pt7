@@ -24,7 +24,6 @@
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
 		512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE924CFD1B700B542B3 /* FoodLog.swift */; };
-		512CA6B024DA533200B17010 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6AF24DA533200B17010 /* HealthKitController.swift */; };
 		512CA6B224DA53BB00B17010 /* HealthKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512CA6B124DA53BB00B17010 /* HealthKitError.swift */; };
 		512ED17024DBB1CE000A702D /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED16F24DBB1CE000A702D /* CustomTabBar.swift */; };
 		512EEC2324E4779200416DB3 /* HealthDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EEC2224E4779200416DB3 /* HealthDashboardViewController.swift */; };
@@ -141,7 +140,6 @@
 		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
 		512C3FE924CFD1B700B542B3 /* FoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
 		512CA6AA24DA4CE600B17010 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		512CA6AF24DA533200B17010 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
 		512CA6B124DA53BB00B17010 /* HealthKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitError.swift; sourceTree = "<group>"; };
 		512ED16F24DBB1CE000A702D /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		512EEC2224E4779200416DB3 /* HealthDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDashboardViewController.swift; sourceTree = "<group>"; };
@@ -308,7 +306,6 @@
 		512CA6AC24DA52FF00B17010 /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
-				512CA6AF24DA533200B17010 /* HealthKitController.swift */,
 				51B89BE724EB0202001B6D98 /* HealthKitControllerObservable.swift */,
 			);
 			name = HealthKit;
@@ -840,7 +837,6 @@
 				512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */,
 				512CA6B224DA53BB00B17010 /* HealthKitError.swift in Sources */,
 				512ED17024DBB1CE000A702D /* CustomTabBar.swift in Sources */,
-				512CA6B024DA533200B17010 /* HealthKitController.swift in Sources */,
 				D68C706023FABE25008AFDF0 /* MainAppWelcomeViewController.swift in Sources */,
 				512FF45C24DB596900F49FCB /* TabBarItem.swift in Sources */,
 				D68C702223F25400008AFDF0 /* RegisterViewController.swift in Sources */,
