@@ -579,7 +579,9 @@ class FoodDetailViewController: UIViewController {
                     self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
                 }
                 
-                HealthKitController.saveCalorieIntakeSample(calories: Double(calories))
+                if calories > 0 {
+                    HealthKitController.saveCalorieIntakeSample(calories: Double(calories))
+                }
                 
                 return
             case .failure(.badAuth):
