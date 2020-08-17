@@ -8,12 +8,23 @@
 
 import Foundation
 import Combine
+import SwiftUI
 import HealthKit
 
 
 class HealthKitControllerObservable: ObservableObject {
     
     static let shared = HealthKitControllerObservable()
+    
+    public init() {
+        if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
+            getBodyCompStatsForLast30Days(using: weightSampleType)
+        }
+
+        if let bodyFatSampleType = HKSampleType.quantityType(forIdentifier: .bodyFatPercentage) {
+            getBodyCompStatsForLast30Days(using: bodyFatSampleType)
+        }
+    }
     
     let objectWillChange = PassthroughSubject<Any, Never>()
     
@@ -35,23 +46,14 @@ class HealthKitControllerObservable: ObservableObject {
         }
     }
     
-    @Published var weight: Weight = Weight() {
-        willSet {
-            objectWillChange.send(newValue)
-        }
-    }
+    var weight = Weight()
     
-    @Published var bodyFat: Weight = Weight() {
-        willSet {
-            objectWillChange.send(newValue)
-        }
-    }
+    var bodyFat = Weight()
     
     
     // MARK: - HealthKit Data Fetching Functionality
     
     private func getBodyCompStatsForLast30Days(using sampleType: HKSampleType) {
-        
         let endDate = Date()
         
         guard let startDate = Calendar.current.date(byAdding: .day, value: -29, to: endDate) else {

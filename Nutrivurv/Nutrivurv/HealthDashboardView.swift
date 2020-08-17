@@ -10,12 +10,14 @@ import SwiftUI
 import SwiftUICharts
 
 struct HealthDashboardView: View {
-    @ObservedObject var activeCalories: Calories
-    @ObservedObject var caloricDeficit: Calories
-    @ObservedObject var consumedCalories: Calories
-    @ObservedObject var dailyMacros: DailyMacros
-    @ObservedObject var userWeightData: Weight
-    @ObservedObject var bodyFatData: Weight
+//    @ObservedObject var activeCalories: Calories
+//    @ObservedObject var caloricDeficit: Calories
+//    @ObservedObject var consumedCalories: Calories
+//    @ObservedObject var dailyMacros: DailyMacros
+//    @ObservedObject var userWeightData: Weight
+//    @ObservedObject var bodyFatData: Weight
+    
+    @ObservedObject var healthKitController: HealthKitControllerObservable = .shared
     
     var body: some View {
         
@@ -29,65 +31,65 @@ struct HealthDashboardView: View {
                 
                 VStack {
                     
-                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: "Last 7 Days · avg \(activeCalories.average) cals", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
+//                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: "Last 7 Days · avg \(activeCalories.average) cals", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
+//
+//                    HStack {
+//                        CaloriesView(calories: consumedCalories, title: "Calories Consumed", legend: "Last 7 Days\navg \(consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
+//
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+//                                .foregroundColor(Color(UIColor(named: "bg-color")!))
+//                                .shadow(color: Color(UIColor(named: "daily-vibe-shadow")!), radius: 8.0, x: 0, y: 0)
+//
+//                            RingView(showRings: .constant(true), showMacrosDetail: .constant(true), uiColor: UIColor(named: "nutrivurv-blue-new")!, width: 100, height: 100, progressPercent: dailyMacros.caloriesPercent, lineWidth: 16).padding(.top, 13)
+//
+//                            VStack{
+//                                HStack {
+//                                    Text("calories consumed")
+//                                        .font(Font.custom("Gaoel", size: 14))
+//                                        .padding(.leading, 6)
+//
+//                                    Spacer()
+//
+//                                    Image("tableware")
+//                                        .renderingMode(.template)
+//                                        .foregroundColor(Color.gray)
+//                                        .padding(.trailing, 6)
+//
+//                                }.frame(width: 160, alignment: .leading)
+//
+//                                Spacer()
+//
+//                                Text("\(Int(dailyMacros.caloriesPercent)) %")
+//                                    .font(Font.custom("Gaoel", size: 18))
+//
+//                                Spacer()
+//
+//                                HStack {
+//                                    Text("today")
+//                                        .font(Font.custom("Gaoel", size: 12))
+//                                        .foregroundColor(Color.gray)
+//                                        .padding(.leading, 6)
+//
+//                                    Spacer()
+//
+//                                    Text("\(Int(dailyMacros.caloriesCount)) cals")
+//                                        .font(Font.custom("Gaoel", size: 12))
+//                                        .foregroundColor(Color.gray)
+//                                        .padding(.trailing, 6)
+//
+//                                }.frame(width: 160, alignment: .leading)
+//                            }
+//                            .padding(.vertical, 16)
+//                            .padding(.horizontal, 10)
+//                        }
+//                    }
+//
+//                    CaloriesView(calories: caloricDeficit, title: "Caloric Deficit", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
                     
-                    HStack {
-                        CaloriesView(calories: consumedCalories, title: "Calories Consumed", legend: "Last 7 Days\navg \(consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
-                        
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .foregroundColor(Color(UIColor(named: "bg-color")!))
-                                .shadow(color: Color(UIColor(named: "daily-vibe-shadow")!), radius: 8.0, x: 0, y: 0)
-                            
-                            RingView(showRings: .constant(true), showMacrosDetail: .constant(true), uiColor: UIColor(named: "nutrivurv-blue-new")!, width: 100, height: 100, progressPercent: dailyMacros.caloriesPercent, lineWidth: 16).padding(.top, 13)
-                            
-                            VStack{
-                                HStack {
-                                    Text("calories consumed")
-                                        .font(Font.custom("Gaoel", size: 14))
-                                        .padding(.leading, 6)
-                                    
-                                    Spacer()
-                                    
-                                    Image("tableware")
-                                        .renderingMode(.template)
-                                        .foregroundColor(Color.gray)
-                                        .padding(.trailing, 6)
-                                    
-                                }.frame(width: 160, alignment: .leading)
-                                
-                                Spacer()
-                                
-                                Text("\(Int(dailyMacros.caloriesPercent)) %")
-                                    .font(Font.custom("Gaoel", size: 18))
-                                
-                                Spacer()
-                                
-                                HStack {
-                                    Text("today")
-                                        .font(Font.custom("Gaoel", size: 12))
-                                        .foregroundColor(Color.gray)
-                                        .padding(.leading, 6)
-                                    
-                                    Spacer()
-                                    
-                                    Text("\(Int(dailyMacros.caloriesCount)) cals")
-                                        .font(Font.custom("Gaoel", size: 12))
-                                        .foregroundColor(Color.gray)
-                                        .padding(.trailing, 6)
-                                    
-                                }.frame(width: 160, alignment: .leading)
-                            }
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 10)
-                        }
-                    }
+                    LineChartView(data: healthKitController.weight.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: healthKitController.weight.rateChange)
                     
-                    CaloriesView(calories: caloricDeficit, title: "Caloric Deficit", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
-                    
-                    LineChartView(data: userWeightData.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: userWeightData.rateChange)
-                    
-                    LineChartView(data: bodyFatData.weightReadings, title: "% Body Fat", legend: "last 30 days", form: ChartForm.large, rateValue: bodyFatData.rateChange, valueSpecifier: "%.2f")
+                    LineChartView(data: healthKitController.bodyFat.weightReadings, title: "% Body Fat", legend: "last 30 days", form: ChartForm.large, rateValue: healthKitController.bodyFat.rateChange, valueSpecifier: "%.2f")
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -127,6 +129,6 @@ struct HealthDashboardView: View {
 
 struct HealthDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), consumedCalories: Calories(), dailyMacros: DailyMacros(), userWeightData: Weight(), bodyFatData: Weight())
+        HealthDashboardView(healthKitController: HealthKitControllerObservable.shared)
     }
 }
