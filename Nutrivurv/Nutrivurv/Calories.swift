@@ -89,4 +89,10 @@ class Calories: ObservableObject {
             self.objectWillChange.send(newValue)
         }
     }
+    
+    @Published var average: Int = 0 {
+        willSet {
+            objectWillChange.send(newValue)
+        }
+    }
 }

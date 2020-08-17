@@ -165,6 +165,9 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
             
             var caloriesByDay: [(String, Int)] = []
             
+            // Will be used to calculate average calories for week ignoring the current date as still in progress
+            var sixDayCalorieSum = 0
+            
             statsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
                 if let caloriesSum = statistics.sumQuantity() {
                     let date = statistics.startDate
@@ -177,12 +180,20 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
                     let calorieInt = Int(calorieDouble)
                     
                     caloriesByDay.append((weekDayString, calorieInt))
+                    
+                    if caloriesByDay.count < 7 {
+                        sixDayCalorieSum += calorieInt
+                    }
                 }
             }
+            
+            let sixDayCalorieAverage = sixDayCalorieSum / 6
             
             switch quantityType.identifier {
             case HKQuantityTypeIdentifier.activeEnergyBurned.rawValue:
                 self.activeCalories = caloriesByDay
+                
+                self.rootView.activeCalories.average = sixDayCalorieAverage
                 
                 self.rootView.activeCalories.day1Label = caloriesByDay[0].0
                 self.rootView.activeCalories.day1Count = caloriesByDay[0].1
@@ -210,6 +221,8 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
 //                self.basalCalories = caloriesByDay
             case HKQuantityTypeIdentifier.dietaryEnergyConsumed.rawValue:
                 self.consumedCalories = caloriesByDay
+                
+                self.rootView.consumedCalories.average = sixDayCalorieAverage
                 
                 let count = caloriesByDay.count
                 

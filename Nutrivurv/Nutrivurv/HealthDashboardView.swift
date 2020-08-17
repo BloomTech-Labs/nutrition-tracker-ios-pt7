@@ -29,10 +29,10 @@ struct HealthDashboardView: View {
                 
                 VStack {
                     
-                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
+                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: "Last 7 Days · avg \(activeCalories.average) cals", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
                     
                     HStack {
-                        CaloriesView(calories: consumedCalories, title: "Calories Consumed", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
+                        CaloriesView(calories: consumedCalories, title: "Calories Consumed", legend: "Last 7 Days\navg \(consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
                         
                         ZStack {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
