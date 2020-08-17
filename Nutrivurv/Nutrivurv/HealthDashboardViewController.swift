@@ -36,7 +36,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     var missingData: Bool = false
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), consumedCalories: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel, userWeightData: Weight()))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), consumedCalories: Calories(), dailyMacros: FoodLogController.shared.totalDailyMacrosModel, userWeightData: Weight(), bodyFatData: Weight()))
     }
     
     //MARK: - View Life Cycle
@@ -184,26 +184,28 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
             case HKQuantityTypeIdentifier.dietaryEnergyConsumed.rawValue:
                 self.consumedCalories = caloriesByDay
                 
-                self.rootView.consumedCalories.day1Label = caloriesByDay[0].0
-                self.rootView.consumedCalories.day1Count = caloriesByDay[0].1
+                let count = caloriesByDay.count
                 
-                self.rootView.consumedCalories.day2Label = caloriesByDay[1].0
-                self.rootView.consumedCalories.day2Count = caloriesByDay[1].1
+                self.rootView.consumedCalories.day1Label = count > 0 ? caloriesByDay[0].0 : ""
+                self.rootView.consumedCalories.day1Count = count > 0 ? caloriesByDay[0].1 : 0
                 
-                self.rootView.consumedCalories.day3Label = caloriesByDay[2].0
-                self.rootView.consumedCalories.day3Count = caloriesByDay[2].1
+                self.rootView.consumedCalories.day2Label = count > 1 ? caloriesByDay[1].0 : ""
+                self.rootView.consumedCalories.day2Count = count > 1 ? caloriesByDay[1].1 : 0
                 
-                self.rootView.consumedCalories.day4Label = caloriesByDay[3].0
-                self.rootView.consumedCalories.day4Count = caloriesByDay[3].1
+                self.rootView.consumedCalories.day3Label = count > 2 ? caloriesByDay[2].0 : ""
+                self.rootView.consumedCalories.day3Count = count > 2 ? caloriesByDay[2].1 : 0
                 
-                self.rootView.consumedCalories.day5Label = caloriesByDay[4].0
-                self.rootView.consumedCalories.day5Count = caloriesByDay[4].1
+                self.rootView.consumedCalories.day4Label = count > 3 ? caloriesByDay[3].0 : ""
+                self.rootView.consumedCalories.day4Count = count > 3 ? caloriesByDay[3].1 : 0
                 
-                self.rootView.consumedCalories.day6Label = caloriesByDay[5].0
-                self.rootView.consumedCalories.day6Count = caloriesByDay[5].1
+                self.rootView.consumedCalories.day5Label = count > 4 ? caloriesByDay[4].0 : ""
+                self.rootView.consumedCalories.day5Count = count > 4 ? caloriesByDay[4].1 : 0
                 
-                self.rootView.consumedCalories.day7Label = caloriesByDay[6].0
-                self.rootView.consumedCalories.day7Count = caloriesByDay[6].1
+                self.rootView.consumedCalories.day6Label = count > 5 ? caloriesByDay[5].0 : ""
+                self.rootView.consumedCalories.day6Count = count > 5 ? caloriesByDay[5].1 : 0
+                
+                self.rootView.consumedCalories.day7Label = count > 6 ? caloriesByDay[6].0 : ""
+                self.rootView.consumedCalories.day7Count = count > 6 ? caloriesByDay[6].1 : 0
                 
             default:
                 return

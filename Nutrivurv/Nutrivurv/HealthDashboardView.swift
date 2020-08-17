@@ -15,6 +15,7 @@ struct HealthDashboardView: View {
     @ObservedObject var consumedCalories: Calories
     @ObservedObject var dailyMacros: DailyMacros
     @ObservedObject var userWeightData: Weight
+    @ObservedObject var bodyFatData: Weight
     
     var body: some View {
         
@@ -86,6 +87,8 @@ struct HealthDashboardView: View {
                     
                     LineChartView(data: userWeightData.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: userWeightData.rateChange)
                     
+                    LineChartView(data: bodyFatData.weightReadings, title: "% Body Fat", legend: "last 30 days", form: ChartForm.large, rateValue: bodyFatData.rateChange, valueSpecifier: "%.2f")
+                    
                     ZStack {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .foregroundColor(Color(UIColor(named: "bg-color")!))
@@ -124,6 +127,6 @@ struct HealthDashboardView: View {
 
 struct HealthDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), consumedCalories: Calories(), dailyMacros: DailyMacros(), userWeightData: Weight())
+        HealthDashboardView(activeCalories: Calories(), caloricDeficit: Calories(), consumedCalories: Calories(), dailyMacros: DailyMacros(), userWeightData: Weight(), bodyFatData: Weight())
     }
 }

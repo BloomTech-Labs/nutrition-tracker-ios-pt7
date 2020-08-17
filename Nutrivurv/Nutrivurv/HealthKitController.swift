@@ -23,14 +23,15 @@ class HealthKitController {
             let carbs = HKObjectType.quantityType(forIdentifier: .dietaryCarbohydrates),
             let fat = HKObjectType.quantityType(forIdentifier: .dietaryFatTotal),
             let protein = HKObjectType.quantityType(forIdentifier: .dietaryProtein),
-            let weight = HKObjectType.quantityType(forIdentifier: .bodyMass) else {
+            let weight = HKObjectType.quantityType(forIdentifier: .bodyMass),
+            let bodyFat = HKObjectType.quantityType(forIdentifier: .bodyFatPercentage) else {
                   completion(false, HealthKitError.missingInformation)
                   return
               }
         
         let healthKitTypesToWrite: Set<HKSampleType> = [energyConsumed, carbs, fat, protein]
         
-        let healthKitTypesToRead: Set<HKObjectType> = [activeEnergy, basalEnergy, energyConsumed, carbs, fat, protein, weight]
+        let healthKitTypesToRead: Set<HKObjectType> = [activeEnergy, basalEnergy, energyConsumed, carbs, fat, protein, weight, bodyFat]
         
         HKHealthStore().requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (success, error) in
             completion(success, error)
