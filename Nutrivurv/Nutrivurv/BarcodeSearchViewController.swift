@@ -308,6 +308,9 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         self.present(alertController, animated: true, completion: nil)
     }
     
+    private func generalNetworkingErrorAlert() {
+        createAndDisplayAlertControllerAndStartCaptureSession(title: "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.")
+    }
     
     // MARK: - Search by UPC
     
@@ -316,8 +319,12 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) { (error) in
             self.hideLoadingIndicators()
             
-            if error != nil {
-                self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+            if let error = error as? NetworkError {
+                if error == .otherError {
+                    self.generalNetworkingErrorAlert()
+                } else {
+                    self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+                }
                 return
             }
             

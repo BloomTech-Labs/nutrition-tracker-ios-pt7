@@ -87,8 +87,12 @@ class FoodSearchTableViewController: UITableViewController {
         createAndDisplayAlertController(title: "No Foods Found", message: "We weren't able to find any foods matching your search. You may need to specify additional information, such as a brand name. Otherwise you can try scanning the food items barcode to find an exact match.")
     }
     
+    private func generalNetworkingErrorAlert() {
+        createAndDisplayAlertController(title: "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.")
+    }
+    
     // MARK: - Helper Search Function
-
+    
     @objc func delayedSearch() {
         guard let searchText = searchDelayTimer.userInfo as? String, !searchText.isEmpty else { return }
         searchDelayTimer.invalidate()
@@ -103,6 +107,8 @@ class FoodSearchTableViewController: UITableViewController {
             if let error = error as? NetworkError {
                 if error == .noDecode {
                     self.noFoodsFoundAlert()
+                } else if error == .otherError {
+                    self.generalNetworkingErrorAlert()
                 }
                 return
             }
@@ -133,6 +139,8 @@ extension FoodSearchTableViewController: UISearchBarDelegate {
             if let error = error as? NetworkError {
                 if error == .noDecode {
                     self.noFoodsFoundAlert()
+                } else if error == .otherError {
+                    self.generalNetworkingErrorAlert()
                 }
                 return
             }

@@ -42,7 +42,7 @@ class FoodSearchController {
             if let error = error {
                 print("Error fetching data: \(error)")
                 DispatchQueue.main.async {
-                    completion(error)
+                    completion(NetworkError.otherError)
                 }
                 return
             }
