@@ -83,6 +83,9 @@ class HealthKitController: ObservableObject {
             switch sampleType.identifier {
             case HKQuantityTypeIdentifier.bodyMass.rawValue:
                 
+                self.weight.weightReadings = []
+                self.weight.rateChange = 0
+                
                 if let mostRecent = samples.last?.quantity.doubleValue(for: HKUnit.pound()) {
                     self.currentWeight = mostRecent
                 }
@@ -100,6 +103,9 @@ class HealthKitController: ObservableObject {
                 }
                 
             case HKQuantityTypeIdentifier.bodyFatPercentage.rawValue:
+                
+                self.bodyFat.weightReadings = []
+                self.bodyFat.rateChange = 0
                 
                 for item in samples {
                     // HealthKit returns body fat percent as a decimal
