@@ -41,9 +41,6 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var ringsAndMacrosContainerView: UIView!
     var ringsAndMacrosHostingController: UIViewController!
     
-    // Used to display the alert to prompt user for HealthKit access only once
-    private var displayedHKAccessAlert = false
-    
     // MARK: Custom Views
     
     lazy var dailyVibeBackgroundView: UIView = {
@@ -79,6 +76,10 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(getCurrentWeight), name: .currentWeightUpdated, object: nil)
+        
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hkPermissionGranted) {
+            promptForHKPermission()
+        }
         
         updateLoginStreakLabel()
         addActivityRingsProgressView()
@@ -319,37 +320,33 @@ class DashboardViewController: UIViewController {
         }
     }
     
-//    private func promptForHKPermission() {
-//        if displayedHKAccessAlert == true {
-//            return
-//        }
-//
-//        let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, open the privacy settings within your settings app to allow access.", preferredStyle: .alert)
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
-//            self.requestHealthKitAuthorization { (result) in
-//                self.displayedHKAccessAlert = true
-//
-//                if result == true {
-//                    self.getCurrentWeight()
-//                }
-//            }
-//        }
-//
-//        alertController.addAction(cancelAction)
-//        alertController.addAction(alertAction)
-//        self.present(alertController, animated: true, completion: nil)
-//    }
-//
-//    private func requestHealthKitAuthorization(completion: @escaping (Bool) -> Void) {
-//        HealthKitControllerObservable.shared.authorizeHealthKit { (authorized, error) in
-//            if let error = error {
-//                print(error)
-//                completion(false)
-//                return
-//            }
-//
-//            completion(true)
-//        }
-//    }
+    private func promptForHKPermission() {
+        let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, visit the privacy settings page within your settings app to allow access.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+            self.requestHealthKitAuthorization { (result) in
+                if result == true {
+                    HealthKitControllerObservable.shared.updateValues()
+                }
+            }
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    private func requestHealthKitAuthorization(completion: @escaping (Bool) -> Void) {
+        HealthKitControllerObservable.shared.authorizeHealthKit { (authorized, error) in
+            if let error = error {
+                print(error)
+                completion(false)
+                return
+            }
+            
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.hkPermissionGranted)
+            
+            completion(true)
+        }
+    }
 }

@@ -17,6 +17,10 @@ class HealthKitControllerObservable: ObservableObject {
     static let shared = HealthKitControllerObservable()
     
     public init() {
+        updateValues()
+    }
+    
+    func updateValues() {
         if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
             getBodyCompStatsForLast30Days(using: weightSampleType)
         }
