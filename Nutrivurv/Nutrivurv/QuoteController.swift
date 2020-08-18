@@ -60,6 +60,5 @@ class QuoteController {
             }
             
         }.resume()
-        
     }
 }
