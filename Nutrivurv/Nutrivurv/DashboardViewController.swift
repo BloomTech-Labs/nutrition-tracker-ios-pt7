@@ -315,7 +315,7 @@ class DashboardViewController: UIViewController {
     // MARK: - HealthKit Data Functionality
     
     @objc private func getCurrentWeight() {
-        if let weightInPounds = HealthKitControllerObservable.shared.currentWeight {
+        if let weightInPounds = HealthKitController.shared.currentWeight {
             self.currentWeightLabel.text = String(format: "%.1f", weightInPounds)
         }
     }
@@ -326,7 +326,7 @@ class DashboardViewController: UIViewController {
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
             self.requestHealthKitAuthorization { (result) in
                 if result == true {
-                    HealthKitControllerObservable.shared.updateValues()
+                    HealthKitController.shared.updateValues()
                 }
             }
         }
@@ -337,7 +337,7 @@ class DashboardViewController: UIViewController {
     }
 
     private func requestHealthKitAuthorization(completion: @escaping (Bool) -> Void) {
-        HealthKitControllerObservable.shared.authorizeHealthKit { (authorized, error) in
+        HealthKitController.shared.authorizeHealthKit { (authorized, error) in
             if let error = error {
                 print(error)
                 completion(false)

@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 
     var window: UIWindow?
-    let healthKitController = HealthKitControllerObservable()
+    let healthKitController = HealthKitController()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // This code runs upon app load to determine which view to present to user based on logged in state

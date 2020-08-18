@@ -36,7 +36,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
 //    var missingData: Bool = false
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(dailyMacros: FoodLogController.shared.totalDailyMacrosModel, healthKitController: HealthKitControllerObservable.shared))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(dailyMacros: FoodLogController.shared.totalDailyMacrosModel, healthKitController: HealthKitController.shared))
     }
     
     //MARK: - View Life Cycle

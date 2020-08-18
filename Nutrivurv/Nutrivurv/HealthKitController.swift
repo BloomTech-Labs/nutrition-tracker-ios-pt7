@@ -1,5 +1,5 @@
 //
-//  HealthKitControllerObservable.swift
+//  HealthKitController.swift
 //  Nutrivurv
 //
 //  Created by Dillon P on 8/17/20.
@@ -12,9 +12,9 @@ import SwiftUI
 import HealthKit
 
 
-class HealthKitControllerObservable: ObservableObject {
+class HealthKitController: ObservableObject {
     
-    static let shared = HealthKitControllerObservable()
+    static let shared = HealthKitController()
     
     public init() {
         updateValues()

@@ -11,7 +11,7 @@ import SwiftUICharts
 
 struct HealthDashboardView: View {
     @ObservedObject var dailyMacros: DailyMacros
-    @ObservedObject var healthKitController: HealthKitControllerObservable = .shared
+    @ObservedObject var healthKitController: HealthKitController = .shared
     
     var body: some View {
         
@@ -123,6 +123,6 @@ struct HealthDashboardView: View {
 
 struct HealthDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthDashboardView(dailyMacros: FoodLogController.shared.totalDailyMacrosModel, healthKitController: HealthKitControllerObservable.shared)
+        HealthDashboardView(dailyMacros: FoodLogController.shared.totalDailyMacrosModel, healthKitController: HealthKitController.shared)
     }
 }
