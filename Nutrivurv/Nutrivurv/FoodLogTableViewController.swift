@@ -321,16 +321,22 @@ class FoodLogTableViewController: UITableViewController {
 //        }
 //    }
     
+    // MARK: - Alert Controllers
+    
+    private func createAndDisplayAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+     private func generalNetworkingErrorAlert() {
+         createAndDisplayAlertController(title: "Food Log Not Available", message: "We were unable to download your food log. Please check your internet connection and try again.")
+     }
     
     private func getEntriesByMeal(mealType: FoodLogEntry) {
         
     }
-    
-    private func foodLogIsEmpty() -> Bool {
-        guard let foodLog = foodLog else { return true }
-        return foodLog.breakfast == nil && foodLog.lunch == nil && foodLog.dinner == nil && foodLog.snack == nil && foodLog.water == nil
-    }
-    
     
     @objc private func updateFoodLog() {
         guard let date = selectedDateAsString else { return }
@@ -348,12 +354,17 @@ class FoodLogTableViewController: UITableViewController {
             case .failure(let error):
                 if error == .badAuth || error == .noAuth {
                     self.reauthorizeUser()
-                } else {
-                    print("Error loading the food log table view")
-                    return
+                } else if error == .otherError {
+                    self.generalNetworkingErrorAlert()
                 }
+                return
             }
         }
+    }
+    
+    private func foodLogIsEmpty() -> Bool {
+        guard let foodLog = foodLog else { return true }
+        return foodLog.breakfast == nil && foodLog.lunch == nil && foodLog.dinner == nil && foodLog.snack == nil && foodLog.water == nil
     }
     
     private func reauthorizeUser() {
