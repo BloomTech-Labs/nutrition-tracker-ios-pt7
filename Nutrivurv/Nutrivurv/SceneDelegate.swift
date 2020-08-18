@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 
     var window: UIWindow?
-    let healthKitController = HealthKitController()
+    let healthKitController = HealthKitController.shared
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // This code runs upon app load to determine which view to present to user based on logged in state
@@ -57,6 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        healthKitController.updateAllValues()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
