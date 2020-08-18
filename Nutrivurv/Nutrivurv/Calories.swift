@@ -95,4 +95,10 @@ class Calories: ObservableObject {
             objectWillChange.send(newValue)
         }
     }
+    
+    @Published var dailyProgressPercent: CGFloat = 0 {
+        willSet {
+            objectWillChange.send(newValue)
+        }
+    }
 }

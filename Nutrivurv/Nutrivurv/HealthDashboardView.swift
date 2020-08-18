@@ -25,17 +25,17 @@ struct HealthDashboardView: View {
                 
                 VStack {
                     
-                    CaloriesView(calories: healthKitController.activeCalories, title: "Active Calories", legend: "Last 7 Days · avg \(healthKitController.activeCalories.average) cals", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
+                    CaloriesView(calories: healthKitController.activeCalories, title: "Active Calories", legend: healthKitController.activeCalories.average == 0 ? "Last 7 Days" : "Last 7 Days · avg \(healthKitController.activeCalories.average) cals", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
 
                     HStack {
-                        CaloriesView(calories: healthKitController.consumedCalories, title: "Calories Consumed", legend: "Last 7 Days\navg \(healthKitController.consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
+                        CaloriesView(calories: healthKitController.consumedCalories, title: "Calories Consumed", legend: healthKitController.consumedCalories.average == 0 ? "Last 7 Days" : "Last 7 Days\navg \(healthKitController.consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
 
                         ZStack {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
                                 .foregroundColor(Color(UIColor(named: "bg-color")!))
                                 .shadow(color: Color(UIColor(named: "daily-vibe-shadow")!), radius: 8.0, x: 0, y: 0)
 
-                            RingView(showRings: .constant(true), showMacrosDetail: .constant(true), uiColor: UIColor(named: "nutrivurv-blue-new")!, width: 100, height: 100, progressPercent: dailyMacros.caloriesPercent, lineWidth: 16).padding(.top, 13)
+                            RingView(showRings: .constant(true), showMacrosDetail: .constant(true), uiColor: UIColor(named: "nutrivurv-blue-new")!, width: 100, height: 100, progressPercent: healthKitController.consumedCalories.dailyProgressPercent, lineWidth: 16).padding(.top, 13)
 
                             VStack{
                                 HStack {
@@ -54,7 +54,7 @@ struct HealthDashboardView: View {
 
                                 Spacer()
 
-                                Text("\(Int(dailyMacros.caloriesPercent)) %")
+                                Text("\(String(format: "%.1f", healthKitController.consumedCalories.dailyProgressPercent)) %")
                                     .font(Font.custom("Gaoel", size: 18))
 
                                 Spacer()
@@ -67,7 +67,7 @@ struct HealthDashboardView: View {
 
                                     Spacer()
 
-                                    Text("\(Int(dailyMacros.caloriesCount)) cals")
+                                    Text("\(healthKitController.consumedCalories.day7Count) cals")
                                         .font(Font.custom("Gaoel", size: 12))
                                         .foregroundColor(Color.gray)
                                         .padding(.trailing, 6)

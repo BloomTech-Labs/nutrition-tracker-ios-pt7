@@ -248,6 +248,13 @@ class HealthKitController: ObservableObject {
                 self.consumedCalories.day7Label = caloriesByDay[6].0
                 self.consumedCalories.day7Count = caloriesByDay[6].1
                 
+                let usersCaloricBudget = UserDefaults.standard.integer(forKey: UserDefaults.Keys.caloricBudget)
+                
+                if usersCaloricBudget > 0 {
+                    let progressPercent = (Double(self.consumedCalories.day7Count) / Double(usersCaloricBudget)) * 100
+                    self.consumedCalories.dailyProgressPercent = CGFloat(progressPercent)
+                }
+                
             default:
                 return
             }
