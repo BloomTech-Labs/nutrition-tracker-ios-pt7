@@ -83,6 +83,7 @@
 		51C5743724CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */; };
 		51C5743824CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */; };
 		51C5743924CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */; };
+		51DFE42124EB86A70029EA58 /* TodaysCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DFE42024EB86A70029EA58 /* TodaysCalorieView.swift */; };
 		51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */; };
 		9229361924DF1E5000324D95 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512CA6AA24DA4CE600B17010 /* HealthKit.framework */; };
 		9262EB2724DF77FB006AC540 /* NutritionFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9262EB2624DF77FB006AC540 /* NutritionFactsView.swift */; };
@@ -198,6 +199,7 @@
 		51C5743324CBBA5600B211F8 /* QuattrocentoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		51C5743424CBBA5600B211F8 /* QuattrocentoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Italic.ttf"; sourceTree = "<group>"; };
 		51C5743524CBBA5600B211F8 /* QuattrocentoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "QuattrocentoSans-Regular.ttf"; sourceTree = "<group>"; };
+		51DFE42024EB86A70029EA58 /* TodaysCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCalorieView.swift; sourceTree = "<group>"; };
 		51E4C49F24A1A781004834C8 /* StringHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelperFunctions.swift; sourceTree = "<group>"; };
 		9262EB2624DF77FB006AC540 /* NutritionFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionFactsView.swift; sourceTree = "<group>"; };
 		D60BA2CF23FCF4D700B3E6BF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				5139B90024E3832F0086802F /* CaloriesView.swift */,
+				51DFE42024EB86A70029EA58 /* TodaysCalorieView.swift */,
 			);
 			name = "Sub Views";
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */,
 				5131BD2B24E7822D007B94A0 /* Weight.swift in Sources */,
 				512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */,
+				51DFE42124EB86A70029EA58 /* TodaysCalorieView.swift in Sources */,
 				514D57F624CA275B008DCEEF /* UIViewExtensions.swift in Sources */,
 				5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */,
 				512FF45424DB58D900F49FCB /* BackgroundContentView.swift in Sources */,

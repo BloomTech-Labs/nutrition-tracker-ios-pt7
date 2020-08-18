@@ -63,7 +63,6 @@ class HealthKitController: ObservableObject {
         }
     }
     
-    
     var currentWeight: Double? {
         didSet {
             NotificationCenter.default.post(name: .currentWeightUpdated, object: nil)
@@ -73,6 +72,8 @@ class HealthKitController: ObservableObject {
     var activeCalories = Calories()
     
     var consumedCalories = Calories()
+    
+    var todaysCalorieConsumption = DailyMacros()
     
     var caloricDeficits = Calories()
     
@@ -251,8 +252,10 @@ class HealthKitController: ObservableObject {
                 let usersCaloricBudget = UserDefaults.standard.integer(forKey: UserDefaults.Keys.caloricBudget)
                 
                 if usersCaloricBudget > 0 {
-                    let progressPercent = (Double(self.consumedCalories.day7Count) / Double(usersCaloricBudget)) * 100
-                    self.consumedCalories.dailyProgressPercent = CGFloat(progressPercent)
+                    let todaysCount = self.consumedCalories.day7Count
+                    let progressPercent = (Double(todaysCount) / Double(usersCaloricBudget)) * 100
+                    self.todaysCalorieConsumption.caloriesCount = CGFloat(todaysCount)
+                    self.todaysCalorieConsumption.caloriesPercent = CGFloat(progressPercent)
                 }
                 
             default:

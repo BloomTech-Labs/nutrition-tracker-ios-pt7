@@ -36,7 +36,7 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
 //    var missingData: Bool = false
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(dailyMacros: FoodLogController.shared.totalDailyMacrosModel, healthKitController: HealthKitController.shared))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(healthKitController: HealthKitController.shared))
     }
     
     //MARK: - View Life Cycle
@@ -44,27 +44,6 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
-        
-//        if let activeCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) {
-//            getCalorieStatsCollectionForWeek(using: activeCalsBurned)
-//        }
-//
-//        if let consumedCals = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) {
-//            getCalorieStatsCollectionForWeek(using: consumedCals)
-//        }
-//
-//        if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
-//            getBodyCompStatsForLast30Days(using: weightSampleType)
-//        }
-//
-//        if let bodyFatSampleType = HKSampleType.quantityType(forIdentifier: .bodyFatPercentage) {
-//            getBodyCompStatsForLast30Days(using: bodyFatSampleType)
-//        }
-        
-        // Healthkit appears to be way overestimating basal energy, so replacing with the information returned from backend for now.
-//        if let basalCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.basalEnergyBurned) {
-//            self.getCalorieStatsCollectionForWeek(using: basalCalsBurned)
-//        }
     }
     
 //    override func viewWillAppear(_ animated: Bool) {

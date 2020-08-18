@@ -10,7 +10,6 @@ import SwiftUI
 import SwiftUICharts
 
 struct HealthDashboardView: View {
-    @ObservedObject var dailyMacros: DailyMacros
     @ObservedObject var healthKitController: HealthKitController = .shared
     
     var body: some View {
@@ -30,53 +29,7 @@ struct HealthDashboardView: View {
                     HStack {
                         CaloriesView(calories: healthKitController.consumedCalories, title: "Calories Consumed", legend: healthKitController.consumedCalories.average == 0 ? "Last 7 Days" : "Last 7 Days\navg \(healthKitController.consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
 
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .foregroundColor(Color(UIColor(named: "bg-color")!))
-                                .shadow(color: Color(UIColor(named: "daily-vibe-shadow")!), radius: 8.0, x: 0, y: 0)
-
-                            RingView(showRings: .constant(true), showMacrosDetail: .constant(true), uiColor: UIColor(named: "nutrivurv-blue-new")!, width: 100, height: 100, progressPercent: healthKitController.consumedCalories.dailyProgressPercent, lineWidth: 16).padding(.top, 13)
-
-                            VStack{
-                                HStack {
-                                    Text("calories consumed")
-                                        .font(Font.custom("Gaoel", size: 14))
-                                        .padding(.leading, 6)
-
-                                    Spacer()
-
-                                    Image("tableware")
-                                        .renderingMode(.template)
-                                        .foregroundColor(Color.gray)
-                                        .padding(.trailing, 6)
-
-                                }.frame(width: 160, alignment: .leading)
-
-                                Spacer()
-
-                                Text("\(String(format: "%.1f", healthKitController.consumedCalories.dailyProgressPercent)) %")
-                                    .font(Font.custom("Gaoel", size: 18))
-
-                                Spacer()
-
-                                HStack {
-                                    Text("today")
-                                        .font(Font.custom("Gaoel", size: 12))
-                                        .foregroundColor(Color.gray)
-                                        .padding(.leading, 6)
-
-                                    Spacer()
-
-                                    Text("\(healthKitController.consumedCalories.day7Count) cals")
-                                        .font(Font.custom("Gaoel", size: 12))
-                                        .foregroundColor(Color.gray)
-                                        .padding(.trailing, 6)
-
-                                }.frame(width: 160, alignment: .leading)
-                            }
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 10)
-                        }
+                        TodaysCalorieView(dailyMacros: healthKitController.todaysCalorieConsumption)
                     }
 
 //                    CaloriesView(calories: caloricDeficit, title: "Caloric Deficit", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
@@ -123,6 +76,6 @@ struct HealthDashboardView: View {
 
 struct HealthDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthDashboardView(dailyMacros: FoodLogController.shared.totalDailyMacrosModel, healthKitController: HealthKitController.shared)
+        HealthDashboardView(healthKitController: HealthKitController.shared)
     }
 }
