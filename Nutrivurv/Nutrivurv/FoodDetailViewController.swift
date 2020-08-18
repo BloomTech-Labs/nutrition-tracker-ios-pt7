@@ -582,19 +582,72 @@ class FoodDetailViewController: UIViewController {
                 if calories > 0 {
                     HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
                 }
-                
                 return
-            case .failure(.badAuth):
-                print("invalid token")
                 
-                // TODO: present alert to prompt user to relogin
-                // On okay completion/login successful, resumbit the entry to food log
-                return
+            case .failure(let error):
+                if error == .badAuth || error == .noAuth {
+                    self.reauthorizeUser()
+                } else {
+                    print("Error reauthorizing and updating food log entry")
+                    return
+                }
+                
             default:
                 print("General error occured")
                 return
             }
         }
+    }
+    
+    private func reauthorizeUser() {
+        let alertController = UIAlertController(title: "Session Expired", message: "Your login session has expired. Please enter your email and password to continue using the app, or sign out if desired.", preferredStyle: .alert)
+        
+        alertController.addTextField { (email) in
+            email.placeholder = "Email"
+        }
+        
+        alertController.addTextField { (password) in
+            password.placeholder = "Password"
+        }
+        
+        let signOut = UIAlertAction(title: "Sign out", style: .destructive) { (_) in
+            self.logoutOfApp()
+        }
+        let login = UIAlertAction(title: "Reaauthorize", style: .default) { (_) in
+            if let textFields = alertController.textFields, let email = textFields[0].text, let pass = textFields[1].text{
+                let user = UserAuth(email: email, password: pass)
+                
+                UserController.shared.loginUser(user: user) { (result) in
+                    if result == .success(true) {
+                        self.updateOrLogNewEntry(self)
+                    } else {
+                        print("Error reauthorizing user")
+                        return
+                    }
+                }
+            }
+        }
+        
+        alertController.addAction(signOut)
+        alertController.addAction(login)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func logoutOfApp() {
+        UserController.keychain.clear()
+        FoodLogController.shared.foodLog = FoodLog()
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: "dailyLoginStreak")
+        userDefaults.removeObject(forKey: "previousLoginDate")
+        userDefaults.removeObject(forKey: "weightUnitPreference")
+        userDefaults.removeObject(forKey: "heightUnitPreference")
+        
+        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .flipHorizontal
+        self.present(viewController, animated: true, completion: nil)
     }
     
     private func logNewEntry() {
