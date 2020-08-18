@@ -326,7 +326,7 @@ class DashboardViewController: UIViewController {
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
             self.requestHealthKitAuthorization { (result) in
                 if result == true {
-                    HealthKitController.shared.updateValues()
+                    HealthKitController.shared.updateAllValues()
                 }
             }
         }

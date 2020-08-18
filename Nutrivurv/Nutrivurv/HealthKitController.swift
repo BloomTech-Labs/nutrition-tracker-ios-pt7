@@ -17,10 +17,10 @@ class HealthKitController: ObservableObject {
     static let shared = HealthKitController()
     
     public init() {
-        updateValues()
+        updateAllValues()
     }
     
-    func updateValues() {
+    func updateAllValues() {
         if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
             getBodyCompStatsForLast30Days(using: weightSampleType)
         }
@@ -42,6 +42,27 @@ class HealthKitController: ObservableObject {
         //            self.getCalorieStatsCollectionForWeek(using: basalCalsBurned)
         //        }
     }
+    
+    func updateBodyCompStats() {
+        if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
+            getBodyCompStatsForLast30Days(using: weightSampleType)
+        }
+        
+        if let bodyFatSampleType = HKSampleType.quantityType(forIdentifier: .bodyFatPercentage) {
+            getBodyCompStatsForLast30Days(using: bodyFatSampleType)
+        }
+    }
+    
+    func updateAllCalorieData() {
+        if let activeCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) {
+            getCalorieStatsCollectionForWeek(using: activeCalsBurned)
+        }
+        
+        if let consumedCals = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) {
+            getCalorieStatsCollectionForWeek(using: consumedCals)
+        }
+    }
+    
     
     var currentWeight: Double? {
         didSet {
@@ -173,29 +194,30 @@ class HealthKitController: ObservableObject {
             
             switch quantityType.identifier {
             case HKQuantityTypeIdentifier.activeEnergyBurned.rawValue:
-                
                 self.activeCalories.average = sixDayCalorieAverage
                 
-                self.activeCalories.day1Label = caloriesByDay[0].0
-                self.activeCalories.day1Count = caloriesByDay[0].1
+                let count = caloriesByDay.count
                 
-                self.activeCalories.day2Label = caloriesByDay[1].0
-                self.activeCalories.day2Count = caloriesByDay[1].1
+                self.activeCalories.day1Label = count > 0 ? caloriesByDay[0].0 : ""
+                self.activeCalories.day1Count = count > 0 ? caloriesByDay[0].1 : 0
                 
-                self.activeCalories.day3Label = caloriesByDay[2].0
-                self.activeCalories.day3Count = caloriesByDay[2].1
+                self.activeCalories.day2Label = count > 1 ? caloriesByDay[1].0 : ""
+                self.activeCalories.day2Count = count > 1 ? caloriesByDay[1].1 : 0
                 
-                self.activeCalories.day4Label = caloriesByDay[3].0
-                self.activeCalories.day4Count = caloriesByDay[3].1
+                self.activeCalories.day3Label = count > 2 ? caloriesByDay[2].0 : ""
+                self.activeCalories.day3Count = count > 2 ? caloriesByDay[2].1 : 0
                 
-                self.activeCalories.day5Label = caloriesByDay[4].0
-                self.activeCalories.day5Count = caloriesByDay[4].1
+                self.activeCalories.day4Label = count > 3 ? caloriesByDay[3].0 : ""
+                self.activeCalories.day4Count = count > 3 ? caloriesByDay[3].1 : 0
                 
-                self.activeCalories.day6Label = caloriesByDay[5].0
-                self.activeCalories.day6Count = caloriesByDay[5].1
+                self.activeCalories.day5Label = count > 4 ? caloriesByDay[4].0 : ""
+                self.activeCalories.day5Count = count > 4 ? caloriesByDay[4].1 : 0
                 
-                self.activeCalories.day7Label = caloriesByDay[6].0
-                self.activeCalories.day7Count = caloriesByDay[6].1
+                self.activeCalories.day6Label = count > 5 ? caloriesByDay[5].0 : ""
+                self.activeCalories.day6Count = count > 5 ? caloriesByDay[5].1 : 0
+                
+                self.activeCalories.day7Label = count > 6 ? caloriesByDay[6].0 : ""
+                self.activeCalories.day7Count = count > 6 ? caloriesByDay[6].1 : 0
                 
                 //                Temporarily using the data returned from back end for the daily calorie budget instead of basal energy
                 //            case HKQuantityTypeIdentifier.basalEnergyBurned.rawValue:
