@@ -76,6 +76,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(getCurrentWeight), name: .currentWeightUpdated, object: nil)
+        getCurrentWeight()
         
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hkPermissionGranted) {
             promptForHKPermission()

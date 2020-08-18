@@ -16,10 +16,6 @@ class HealthKitController: ObservableObject {
     
     static let shared = HealthKitController()
     
-    public init() {
-        updateAllValues()
-    }
-    
     func updateAllValues() {
         if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
             getBodyCompStatsForLast30Days(using: weightSampleType)
@@ -146,13 +142,13 @@ class HealthKitController: ObservableObject {
                 self.weight.weightReadings = []
                 self.weight.rateChange = 0
                 
-                if let mostRecent = samples.last?.quantity.doubleValue(for: HKUnit.pound()) {
-                    self.currentWeight = mostRecent
-                }
-                
                 for item in samples {
                     let weight = item.quantity.doubleValue(for: HKUnit.pound()).roundToDecimal(1)
                     self.weight.weightReadings.append(weight)
+                }
+                
+                if let mostRecent = self.weight.weightReadings.last {
+                    self.currentWeight = mostRecent
                 }
                 
                 if let inital = self.weight.weightReadings.first, let mostRecent = self.weight.weightReadings.last {
