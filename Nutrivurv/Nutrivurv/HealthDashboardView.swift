@@ -32,7 +32,7 @@ struct HealthDashboardView: View {
                         TodaysCalorieView(dailyMacros: healthKitController.todaysCalorieConsumption)
                     }
 
-//                    CaloriesView(calories: caloricDeficit, title: "Caloric Deficit", legend: "Last 7 Days", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
+                    CaloriesView(calories: healthKitController.caloricDeficits, title: "Caloric Deficit", legend: healthKitController.caloricDeficits.totalSum == 0 ? "Last 7 Days" : "7 Day Total · \(healthKitController.caloricDeficits.totalSum) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
                     
                     LineChartView(data: healthKitController.weight.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: healthKitController.weight.rateChange)
                     

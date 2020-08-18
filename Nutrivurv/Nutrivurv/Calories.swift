@@ -13,6 +13,8 @@ import SwiftUICharts
 class Calories: ObservableObject {
     let objectWillChange = PassthroughSubject<Any, Never>()
     
+    var allDataIsLoaded: Bool = false
+    
     @Published var day1Label: String = "" {
         willSet {
             self.objectWillChange.send(newValue)
@@ -96,7 +98,7 @@ class Calories: ObservableObject {
         }
     }
     
-    @Published var dailyProgressPercent: CGFloat = 0 {
+    @Published var totalSum: Int = 0 {
         willSet {
             objectWillChange.send(newValue)
         }

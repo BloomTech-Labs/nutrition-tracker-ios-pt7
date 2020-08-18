@@ -82,6 +82,44 @@ class HealthKitController: ObservableObject {
     var bodyFat = Weight()
     
     
+    // MARK: - Manual Calculations
+    
+    private func calculateCaloricDeficits(with caloricBudget: Int) {
+        guard caloricBudget > 0, consumedCalories.allDataIsLoaded else { return }
+        
+        let deficitDay1 = consumedCalories.day1Count == 0 ? 0 : caloricBudget - consumedCalories.day1Count
+        let deficitDay2 = consumedCalories.day2Count == 0 ? 0 : caloricBudget - consumedCalories.day2Count
+        let deficitDay3 = consumedCalories.day3Count == 0 ? 0 : caloricBudget - consumedCalories.day3Count
+        let deficitDay4 = consumedCalories.day4Count == 0 ? 0 : caloricBudget - consumedCalories.day4Count
+        let deficitDay5 = consumedCalories.day5Count == 0 ? 0 : caloricBudget - consumedCalories.day5Count
+        let deficitDay6 = consumedCalories.day6Count == 0 ? 0 : caloricBudget - consumedCalories.day6Count
+        let deficitDay7 = consumedCalories.day7Count == 0 ? 0 : caloricBudget - consumedCalories.day7Count
+        
+        caloricDeficits.day1Label = consumedCalories.day1Label
+        caloricDeficits.day1Count = deficitDay1
+        
+        caloricDeficits.day2Label = consumedCalories.day2Label
+        caloricDeficits.day2Count = deficitDay2
+        
+        caloricDeficits.day3Label = consumedCalories.day3Label
+        caloricDeficits.day3Count = deficitDay3
+        
+        caloricDeficits.day4Label = consumedCalories.day4Label
+        caloricDeficits.day4Count = deficitDay4
+        
+        caloricDeficits.day5Label = consumedCalories.day5Label
+        caloricDeficits.day5Count = deficitDay5
+        
+        caloricDeficits.day6Label = consumedCalories.day6Label
+        caloricDeficits.day6Count = deficitDay6
+        
+        caloricDeficits.day7Label = consumedCalories.day7Label
+        caloricDeficits.day7Count = deficitDay7
+        
+        caloricDeficits.totalSum = deficitDay1 + deficitDay2 + deficitDay3 + deficitDay4 + deficitDay5 + deficitDay6 + deficitDay7
+    }
+    
+    
     // MARK: - HealthKit Data Fetching Functionality
     
     private func getBodyCompStatsForLast30Days(using sampleType: HKSampleType) {
@@ -249,7 +287,11 @@ class HealthKitController: ObservableObject {
                 self.consumedCalories.day7Label = caloriesByDay[6].0
                 self.consumedCalories.day7Count = caloriesByDay[6].1
                 
+                self.consumedCalories.allDataIsLoaded = true
+                
                 let usersCaloricBudget = UserDefaults.standard.integer(forKey: UserDefaults.Keys.caloricBudget)
+                
+                self.calculateCaloricDeficits(with: usersCaloricBudget)
                 
                 if usersCaloricBudget > 0 {
                     let todaysCount = self.consumedCalories.day7Count
