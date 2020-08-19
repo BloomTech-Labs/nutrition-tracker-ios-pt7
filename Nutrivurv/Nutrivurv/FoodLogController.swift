@@ -419,7 +419,12 @@ class FoodLogController {
                     return
                 }
             }
-        }
+            
+            DispatchQueue.main.async {
+                completion(.success(true))
+            }
+            
+        }.resume()
     }
     
     
