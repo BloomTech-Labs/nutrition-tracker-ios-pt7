@@ -25,6 +25,7 @@ struct FoodLogEntry: Codable {
     var imageURL: String?
     
     enum CodingKeys: String, CodingKey {
+        case id
         case date
         case mealType = "meal_type"
         case foodID = "edamam_food_id"
