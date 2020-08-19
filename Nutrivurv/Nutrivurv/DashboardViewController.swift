@@ -100,20 +100,16 @@ class DashboardViewController: UIViewController {
         
         if UserController.isLoggedIn() {
             self.navigationController?.navigationItem.leftBarButtonItem?.isEnabled = true
-            QuoteController.shared.getRandomQuote { (result) in
-                switch result {
-                case .success(let quote):
-                    self.dailyVibeQuoteLabel.text = "\"\(quote.content)\""
-                    self.dailyVibeAuthorLabel.text = quote.author
-                    
-                default:
-                    self.dailyVibeQuoteLabel.text = "What you get by acheiving your goals is not as important as what you become by acheiving your goals."
-                    self.dailyVibeAuthorLabel.text = "Zig Ziglar"
-                }
-                
-                self.setupDailyVibeBackgroundView()
-                self.animateSubviewsForEntry()
+            if let quote = QuoteController.shared.quote {
+                self.dailyVibeQuoteLabel.text = "\"\(quote.content)\""
+                self.dailyVibeAuthorLabel.text = quote.author
+            } else {
+                self.dailyVibeQuoteLabel.text = "\"What you get by acheiving your goals is not as important as what you become by acheiving your goals.\""
+                self.dailyVibeAuthorLabel.text = "Zig Ziglar"
             }
+            
+            self.setupDailyVibeBackgroundView()
+            self.animateSubviewsForEntry()
         } else {
             self.logoutButtonTapped(self)
         }

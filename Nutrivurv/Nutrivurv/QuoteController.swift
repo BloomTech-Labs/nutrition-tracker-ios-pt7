@@ -12,6 +12,8 @@ class QuoteController {
     static let shared = QuoteController()
     private let baseURL = URL(string: "https://api.quotable.io/random")!
     
+    var quote: Quote?
+    
     func getRandomQuote(completion: @escaping (Result<Quote, NetworkError>) -> Void) {
         
         var urlComponets = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
@@ -49,6 +51,7 @@ class QuoteController {
             
             do {
                 let quote = try decoder.decode(Quote.self, from: data)
+                self.quote = quote
                 DispatchQueue.main.async {
                     completion(.success(quote))
                 }

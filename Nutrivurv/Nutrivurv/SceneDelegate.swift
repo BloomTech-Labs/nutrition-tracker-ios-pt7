@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let healthKitController = HealthKitController.shared
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        QuoteController.shared.getRandomQuote { (_) in }
         // This code runs upon app load to determine which view to present to user based on logged in state
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -23,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
             window.makeKeyAndVisible()
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                 
                 if UserController.isLoggedIn() {
                     
