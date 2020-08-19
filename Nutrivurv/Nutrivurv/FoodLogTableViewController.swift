@@ -12,11 +12,7 @@ import Combine
 
 class FoodLogTableViewController: UITableViewController {
     
-    var foodLog: FoodLog? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    var foodLog: FoodLog?
     
     let foodSearchController = FoodSearchController()
     
@@ -254,10 +250,10 @@ class FoodLogTableViewController: UITableViewController {
             if let snacks = foodLog.snack {
                 meal = snacks[indexPath.row]
             }
-//        case 4:
-//            if let allWater = foodLog.water {
-//                meal = allWater[indexPath.row]
-//            }
+            //        case 4:
+            //            if let allWater = foodLog.water {
+            //                meal = allWater[indexPath.row]
+        //            }
         default:
             break
         }
@@ -275,8 +271,8 @@ class FoodLogTableViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            if let breakfast = foodLog.breakfast {
-                foodEntry = breakfast[indexPath.row]
+            if let allBreakfast = foodLog.breakfast {
+                foodEntry = allBreakfast[indexPath.row]
             }
         case 1:
             if let allLunch = foodLog.lunch {
@@ -290,14 +286,14 @@ class FoodLogTableViewController: UITableViewController {
             if let allSnacks = foodLog.snack {
                 foodEntry = allSnacks[indexPath.row]
             }
-//        case 4:
-//            if let allWater = foodLog.water {
-//                foodEntry = allWater[indexPath.row]
-//            }
+            //        case 4:
+            //            if let allWater = foodLog.water {
+            //                foodEntry = allWater[indexPath.row]
+        //            }
         default:
             foodEntry = nil
         }
-
+        
         guard let entry = foodEntry else { return }
         
         if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
@@ -315,11 +311,46 @@ class FoodLogTableViewController: UITableViewController {
     }
     
     // TODO: Implement another way to delete/reload table view as the food controller didSet is casuing app to crash, as the table view is trying to reload before deleting cell
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            foodLogController.foodLog.remove(at: indexPath.row)
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let foodLog = foodLog else { return }
+        var entry: FoodLogEntry?
+        
+        if editingStyle == .delete {
+            switch indexPath.section {
+            case 0:
+                if let allBreakfast = foodLog.breakfast {
+                    entry = allBreakfast[indexPath.row]
+                    self.foodLog?.breakfast?.remove(at: indexPath.row)
+                }
+            case 1:
+                if let allLunch = foodLog.lunch {
+                    entry = allLunch[indexPath.row]
+                    self.foodLog?.lunch?.remove(at: indexPath.row)
+                }
+            case 2:
+                if let allDinner = foodLog.dinner {
+                    entry = allDinner[indexPath.row]
+                    self.foodLog?.dinner?.remove(at: indexPath.row)
+                }
+            case 3:
+                if let allSnacks = foodLog.snack {
+                    entry = allSnacks[indexPath.row]
+                    self.foodLog?.snack?.remove(at: indexPath.row)
+                }
+            default:
+                entry = nil
+            }
+            
+            if let entry = entry {
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                FoodLogController.shared.deleteFoodLogEntry(entry: entry) { (result) in
+                    if result == .success(true) {
+                        self.updateFoodLog()
+                    }
+                }
+            }
+        }
+    }
     
     // MARK: - Alert Controllers
     
@@ -330,9 +361,9 @@ class FoodLogTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-     private func generalNetworkingErrorAlert() {
-         createAndDisplayAlertController(title: "Food Log Not Available", message: "We were unable to download your food log. Please check your internet connection and try again.")
-     }
+    private func generalNetworkingErrorAlert() {
+        createAndDisplayAlertController(title: "Food Log Not Available", message: "We were unable to download your food log. Please check your internet connection and try again.")
+    }
     
     private func getEntriesByMeal(mealType: FoodLogEntry) {
         
