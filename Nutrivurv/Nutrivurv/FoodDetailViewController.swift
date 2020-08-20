@@ -151,7 +151,8 @@ class FoodDetailViewController: UIViewController {
         }
         
         if fromLog {
-            addFoodButton.setTitle("Edit Entry", for: .normal)
+//            addFoodButton.setTitle("Edit Entry", for: .normal)
+            addFoodButton.isHidden = true
             qtyTextField.isEnabled = false
             servingSizePickerView.isUserInteractionEnabled = false
             mealTypePickerView.isUserInteractionEnabled = false
@@ -514,88 +515,10 @@ class FoodDetailViewController: UIViewController {
             return
         }
         
-        guard let foodItem = foodItem else {
-            return
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"
-        let date = Date()
-        let dateString = dateFormatter.string(from: date)
-        
-        let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
-        let mealType = self.mealTypes[selectedMealTypeIndex].rawValue
-        
-        let edamamID = foodItem.food.foodId
-        
-        // TODO: Do this for when editing an item as the Measument type is different for backend (compared to Measure for Edamam)
-        let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
-        let measureURI = foodItem.measures[selectedServingSizeIndex].uri
-        
-        let measurementName = self.servingSizes[selectedServingSizeIndex]
-        
-        let foodName = foodItem.food.label
-        
-        guard let quantityInput = quantityInputValue else { return }
-        guard quantityInput > 0 else {
-            createAndDisplayAlertController(title: "Select a Quantity", message: "Please input a quantity greater than 0 for your meal.")
-            return
-        }
-        
-        let quantity = String(quantityInput)
-        
-        guard let calories = self.calories else { return }
-        
-        guard let fatCount = self.fat, let carbsCount = self.carbs, let proteinCount = self.protein else { return }
-        
-        let imageURL = foodItem.food.image
-        
-        var measures: [Measurement] = []
-        
-        for item in foodItem.measures {
-            let measure = Measurement(uri: item.uri, label: item.label.lowercased())
-            measures.append(measure)
-        }
-        
-        let entry = FoodLogEntry(date: dateString, mealType: mealType, foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, allMeasurements: measures, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount, imageURL: imageURL)
-        
-        
-        FoodLogController.shared.createFoodLogEntry(entry: entry) { response in
-            switch response {
-            case .success(true):
-                print("Successful")
-                // Handle what to do if updating an entry vs creating one
-                
-                if self.addFoodButton.titleLabel?.text == "Save Entry" {
-                    guard let index = self.selectedFoodEntryIndex else {
-                        print("Error getting index for food entry")
-                        return
-                    }
-                    self.createAndDisplayAlertAndPopToRoot(title: "Entry Updated!", message: "You just updated this food entry! See all of your logged meals for the day from your main dashboard.")
-                    self.delegate?.update(foodLog: entry, at: index)
-                } else {
-                    
-                    NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
-                    self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
-                }
-                
-                if calories > 0 {
-                    HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
-                }
-                return
-                
-            case .failure(let error):
-                if error == .badAuth || error == .noAuth {
-                    self.reauthorizeUser()
-                } else {
-                    print("Error reauthorizing and updating food log entry")
-                    return
-                }
-                
-            default:
-                print("General error occured")
-                return
-            }
+        if foodLogEntry != nil {
+//            editExistingEntry()
+        } else {
+            logNewEntry()
         }
     }
     
@@ -651,12 +574,177 @@ class FoodDetailViewController: UIViewController {
     }
     
     private func logNewEntry() {
+        guard let foodItem = foodItem else {
+            return
+        }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
+        let mealType = self.mealTypes[selectedMealTypeIndex].rawValue
+        
+        let edamamID = foodItem.food.foodId
+        
+        // TODO: Do this for when editing an item as the Measument type is different for backend (compared to Measure for Edamam)
+        let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
+        let measureURI = foodItem.measures[selectedServingSizeIndex].uri
+        
+        let measurementName = self.servingSizes[selectedServingSizeIndex]
+        
+        let foodName = foodItem.food.label
+        
+        guard let quantityInput = quantityInputValue else { return }
+        guard quantityInput > 0 else {
+            createAndDisplayAlertController(title: "Select a Quantity", message: "Please input a quantity greater than 0 for your meal.")
+            return
+        }
+        
+        let quantity = String(quantityInput)
+        
+        guard let calories = self.calories else { return }
+        
+        guard let fatCount = self.fat, let carbsCount = self.carbs, let proteinCount = self.protein else { return }
+        
+        let imageURL = foodItem.food.image
+        
+        var measures: [Measurement] = []
+        
+        for item in foodItem.measures {
+            let measure = Measurement(uri: item.uri, label: item.label.lowercased())
+            measures.append(measure)
+        }
+        
+        let entry = FoodLogEntry(date: dateString, mealType: mealType, foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, allMeasurements: measures, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount, imageURL: imageURL)
+        
+        
+        FoodLogController.shared.createFoodLogEntry(entry: entry) { response in
+            switch response {
+            case .success(true):
+                print("Successful")
+                // Handle what to do if updating an entry vs creating one
+                
+//                if self.addFoodButton.titleLabel?.text == "Save Entry" {
+//                    guard let index = self.selectedFoodEntryIndex else {
+//                        print("Error getting index for food entry")
+//                        return
+//                    }
+//                    self.createAndDisplayAlertAndPopToRoot(title: "Entry Updated!", message: "You just updated this food entry! See all of your logged meals for the day from your main dashboard.")
+//                    self.delegate?.update(foodLog: entry, at: index)
+//                } else {
+                
+                HealthKitController.shared.updateAllValues()
+                NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
+                self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
+                //                }
+                
+                if calories > 0 {
+                    HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
+                }
+                return
+                
+            case .failure(let error):
+                if error == .badAuth || error == .noAuth {
+                    self.reauthorizeUser()
+                } else {
+                    print("Error reauthorizing and updating food log entry")
+                    return
+                }
+                
+            default:
+                print("General error occured")
+                return
+            }
+        }
     }
     
-    private func editExistingEntry() {
-        
-    }
+//    private func editExistingEntry() {
+//        guard let foodEntry = foodLogEntry else {
+//            print("No entry for item, unable to edit")
+//            return
+//        }
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"
+//        let date = Date()
+//        let dateString = dateFormatter.string(from: date)
+//
+//        let selectedMealTypeIndex = mealTypePickerView.selectedRow(inComponent: 0)
+//        let mealType = self.mealTypes[selectedMealTypeIndex].rawValue
+//
+//        let edamamID = foodEntry.foodID
+//
+//        // TODO: Do this for when editing an item as the Measument type is different for backend (compared to Measure for Edamam)
+//        let selectedServingSizeIndex = servingSizePickerView.selectedRow(inComponent: 0)
+//        let measurementName = self.servingSizes[selectedServingSizeIndex]
+//
+////        let foodName = foodItem.food.label
+//
+////        guard let quantityInput = quantityInputValue else { return }
+////        guard quantityInput > 0 else {
+////            createAndDisplayAlertController(title: "Select a Quantity", message: "Please input a quantity greater than 0 for your meal.")
+////            return
+////        }
+////
+////        let quantity = String(quantityInput)
+////
+////        guard let calories = self.calories else { return }
+////
+////        guard let fatCount = self.fat, let carbsCount = self.carbs, let proteinCount = self.protein else { return }
+////
+////        let imageURL = foodItem.food.image
+////
+////        var measures: [Measurement] = []
+////
+////        for item in foodItem.measures {
+////            let measure = Measurement(uri: item.uri, label: item.label.lowercased())
+////            measures.append(measure)
+////        }
+////
+////        let entry = FoodLogEntry(date: dateString, mealType: mealType, foodID: edamamID, measurementURI: measureURI, measurementName: measurementName, allMeasurements: measures, foodName: foodName, quantity: quantity, calories: calories, fat: fatCount, carbs: carbsCount, protein: proteinCount, imageURL: imageURL)
+////
+////
+////        FoodLogController.shared.createFoodLogEntry(entry: entry) { response in
+////            switch response {
+////            case .success(true):
+////                print("Successful")
+////                // Handle what to do if updating an entry vs creating one
+////
+////                if self.addFoodButton.titleLabel?.text == "Save Entry" {
+////                    guard let index = self.selectedFoodEntryIndex else {
+////                        print("Error getting index for food entry")
+////                        return
+////                    }
+////                    self.createAndDisplayAlertAndPopToRoot(title: "Entry Updated!", message: "You just updated this food entry! See all of your logged meals for the day from your main dashboard.")
+////                    self.delegate?.update(foodLog: entry, at: index)
+////                } else {
+////
+////                    NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
+////                    self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
+////                }
+////
+////                if calories > 0 {
+////                    HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
+////                }
+////                return
+////
+////            case .failure(let error):
+////                if error == .badAuth || error == .noAuth {
+////                    self.reauthorizeUser()
+////                } else {
+////                    print("Error reauthorizing and updating food log entry")
+////                    return
+////                }
+////
+////            default:
+////                print("General error occured")
+////                return
+////            }
+////        }
+//
+//    }
     
     @IBAction func qtyTextFieldValueChanged(_ sender: UITextField) {
         self.qtyTypeTimer.invalidate()
