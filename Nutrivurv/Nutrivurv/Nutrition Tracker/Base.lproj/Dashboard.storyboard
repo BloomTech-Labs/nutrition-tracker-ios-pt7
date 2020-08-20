@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qan-C2-fkh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -16,6 +17,9 @@
         </array>
         <array key="Catamaran-SemiBold.ttf">
             <string>Catamaran-SemiBold</string>
+        </array>
+        <array key="Gaoel.ttf">
+            <string>Gaoel-Regular</string>
         </array>
         <array key="Muli-Bold.ttf">
             <string>Muli-Bold</string>
@@ -41,26 +45,26 @@
         <scene sceneID="p96-mL-WQo">
             <objects>
                 <viewController restorationIdentifier="UserDashboard" storyboardIdentifier="UserDashboard" title="UserDashboard" id="vsF-rt-EXg" customClass="DashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="DhR-nl-cyM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="DhR-nl-cyM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
-                                <rect key="frame" x="143" y="164" width="79" height="55"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-on-Jkc" userLabel="Weight Stack View">
+                                <rect key="frame" x="79" y="124.5" width="58" height="47.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LjF-dR-a3Q" userLabel="Measurement Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="79" height="33"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="57.5" height="29.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="175" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-UG-8Di">
-                                                <rect key="frame" x="0.0" y="0.0" width="47" height="33"/>
-                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="28"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="---" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-UG-8Di">
+                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="29.5"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="25"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="lbs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-tc-n0m">
-                                                <rect key="frame" x="55" y="4.5" width="24" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="18"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <rect key="frame" x="37.5" y="4.5" width="20" height="25"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="15"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -69,7 +73,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dv1-tt-SWs" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="39" width="79" height="16"/>
+                                        <rect key="frame" x="0.0" y="31.5" width="58" height="16"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weight" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-zE-Kzx">
                                                 <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -79,9 +83,9 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsg-oQ-N69">
-                                                <rect key="frame" x="24" y="0.0" width="55" height="16"/>
-                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <rect key="frame" x="24" y="0.0" width="34" height="16"/>
+                                                <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="11"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
@@ -92,9 +96,12 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="dv1-tt-SWs" firstAttribute="centerX" secondItem="LjF-dR-a3Q" secondAttribute="centerX" id="YUL-lV-nVi"/>
+                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
-                                <rect key="frame" x="125" y="30" width="350" height="189"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="2qp-en-orb" userLabel="Daily Intake Stack View">
+                                <rect key="frame" x="32" y="14" width="350" height="148"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBn-fK-BvN">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="148"/>
@@ -103,33 +110,24 @@
                                             <constraint firstAttribute="width" constant="350" id="YpR-xy-DrA"/>
                                         </constraints>
                                     </containerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Intake" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-Ww-SR6">
-                                        <rect key="frame" x="0.0" y="170" width="350" height="19"/>
-                                        <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="16"/>
-                                        <color key="textColor" name="light-label"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="UBn-fK-BvN" firstAttribute="centerX" secondItem="ejI-Ww-SR6" secondAttribute="centerX" id="MLc-9O-lb9"/>
-                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
-                                <rect key="frame" x="378" y="163" width="78" height="56"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-O8-MJJ" userLabel="Daily Streak Stack View">
+                                <rect key="frame" x="277" y="123.5" width="59.5" height="48.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-5Q-fhy" userLabel="Number Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="29.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
-                                                <rect key="frame" x="0.0" y="0.0" width="31.5" height="33"/>
-                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="28"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="xIg-du-r6g">
+                                                <rect key="frame" x="0.0" y="0.0" width="19.5" height="29.5"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="25"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMC-HY-f12">
-                                                <rect key="frame" x="39.5" y="4.5" width="38.5" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="18"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <rect key="frame" x="27.5" y="4.5" width="32" height="25"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="15"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -137,8 +135,8 @@
                                             <constraint firstItem="qMC-HY-f12" firstAttribute="firstBaseline" secondItem="xIg-du-r6g" secondAttribute="firstBaseline" constant="-5" id="6ZD-tl-KYs"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-ou-bPs" userLabel="Description Stack View">
-                                        <rect key="frame" x="0.0" y="39" width="78" height="17"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-ou-bPs" userLabel="Description Stack View">
+                                        <rect key="frame" x="3" y="31.5" width="54" height="17"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="tIx-Zv-zVe">
                                                 <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -148,105 +146,183 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgw-Mg-koP">
-                                                <rect key="frame" x="20" y="0.0" width="58" height="17"/>
-                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
+                                                <rect key="frame" x="22" y="0.0" width="32" height="17"/>
+                                                <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="11"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="tIx-Zv-zVe" firstAttribute="centerY" secondItem="mgw-Mg-koP" secondAttribute="centerY" id="7QJ-Ie-XTP"/>
                                             <constraint firstItem="mgw-Mg-koP" firstAttribute="centerY" secondItem="v6T-ou-bPs" secondAttribute="centerY" id="Dxi-9Q-6VD"/>
+                                            <constraint firstItem="mgw-Mg-koP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tIx-Zv-zVe" secondAttribute="trailing" constant="5" id="hI1-Kv-qEq"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="v6T-ou-bPs" firstAttribute="centerX" secondItem="aA1-5Q-fhy" secondAttribute="centerX" id="NN8-ad-9Ze"/>
+                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
-                                <rect key="frame" x="36" y="257" width="528" height="73"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
-                                        <rect key="frame" x="0.0" y="0.0" width="528" height="19"/>
-                                        <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
-                                        <color key="textColor" name="light-label"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-WI-smU">
-                                        <rect key="frame" x="0.0" y="21" width="528" height="52"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.94999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-hN-fSe">
-                                                <rect key="frame" x="0.0" y="0.0" width="528" height="0.0"/>
-                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="14.5"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e09-AN-MWp">
-                                                <rect key="frame" x="0.0" y="2" width="528" height="50"/>
-                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="12.5"/>
-                                                <color key="textColor" name="nutrivurv-blue"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Food Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnl-L0-Jdx">
-                                <rect key="frame" x="18" y="362" width="564" height="20.5"/>
-                                <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="17.5"/>
-                                <color key="textColor" name="light-label"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72">
-                                <rect key="frame" x="3" y="382.5" width="579" height="124.5"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-nj-e72" customClass="FadedFoodLogBackgroundView" customModule="Nutrivurv" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="317.5" width="414" height="456.5"/>
                                 <color key="backgroundColor" name="bg-color"/>
                                 <color key="tintColor" name="nutrivurv-blue"/>
                                 <connections>
                                     <segue destination="ed8-w6-LEd" kind="embed" id="Obs-xC-s4c"/>
                                 </connections>
                             </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-4t-5oD" userLabel="Daily Vibe Stack View">
+                                <rect key="frame" x="36" y="204" width="342" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="daily vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y17-Xw-5W1">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="12.5"/>
+                                        <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="10.5"/>
+                                        <color key="textColor" name="food-log-label-text"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-WI-smU">
+                                        <rect key="frame" x="0.0" y="17.5" width="342" height="52"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.94999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-hN-fSe">
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="13.5"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e09-AN-MWp">
+                                                <rect key="frame" x="0.0" y="2" width="342" height="50"/>
+                                                <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="11.5"/>
+                                                <color key="textColor" name="nutrivurv-blue-new"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-9r-h9S" userLabel="Date View">
+                                <rect key="frame" x="132" y="299.5" width="150" height="48"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTr-e8-Tlv">
+                                        <rect key="frame" x="16" y="10" width="130" height="28"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-icon" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-VE-2aR">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="28" id="4Qo-a5-JUh"/>
+                                                    <constraint firstAttribute="width" secondItem="HVh-VE-2aR" secondAttribute="height" multiplier="1:1" id="xzY-x6-QeX"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="woy-Eq-86r">
+                                                <rect key="frame" x="28" y="0.0" width="102" height="28"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ead-NY-Fem">
+                                                        <rect key="frame" x="0.0" y="0.0" width="102" height="7.5"/>
+                                                        <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="8"/>
+                                                        <color key="textColor" name="food-log-label-text"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="GXk-xO-ojO">
+                                                        <rect key="frame" x="0.0" y="7.5" width="102" height="20.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0X-I0-lQb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="31.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="12"/>
+                                                                <state key="normal" title="&lt;">
+                                                                    <color key="titleColor" name="food-log-label-text"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="previousDateButtonTapped:" destination="vsF-rt-EXg" eventType="touchUpInside" id="0NN-2I-o9e"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="august 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="htc-TY-rj8">
+                                                                <rect key="frame" x="26.5" y="0.0" width="49" height="20.5"/>
+                                                                <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="12"/>
+                                                                <color key="textColor" name="food-log-label-text"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfQ-yp-UAr">
+                                                                <rect key="frame" x="70.5" y="0.0" width="31.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" name="Gaoel-Regular" family="Gaoel" pointSize="12"/>
+                                                                <state key="normal" title="&gt;">
+                                                                    <color key="titleColor" name="food-log-label-text"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="nextDateButtonTapped:" destination="vsF-rt-EXg" eventType="touchUpInside" id="Z44-1Y-wha"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="Jbn-Pt-U9m"/>
+                                                    <constraint firstItem="Ead-NY-Fem" firstAttribute="centerX" secondItem="htc-TY-rj8" secondAttribute="centerX" id="MzZ-HB-i0m"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="food-log-label-bg"/>
+                                <color key="tintColor" name="nutrivurv-blue-new"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="6VJ-Fa-nRh"/>
+                                    <constraint firstAttribute="width" constant="150" id="Ko0-DU-bSC"/>
+                                    <constraint firstItem="zTr-e8-Tlv" firstAttribute="leading" secondItem="fsb-9r-h9S" secondAttribute="leading" constant="16" id="Z5z-1r-ISs"/>
+                                    <constraint firstItem="zTr-e8-Tlv" firstAttribute="centerY" secondItem="fsb-9r-h9S" secondAttribute="centerY" id="e8W-SO-IU8"/>
+                                    <constraint firstAttribute="trailing" secondItem="zTr-e8-Tlv" secondAttribute="trailing" constant="4" id="lEt-If-g0t"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
                         <constraints>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="Ioa-4t-5oD" secondAttribute="trailing" constant="36" id="2SL-E7-vNE"/>
-                            <constraint firstItem="vL2-nj-e72" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" id="3Ko-jN-S92"/>
-                            <constraint firstItem="OxY-on-Jkc" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="7jV-zV-t47"/>
-                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="leading" secondItem="2qp-en-orb" secondAttribute="trailing" constant="-97" id="Kf1-Fx-J6n"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="trailing" secondItem="LNW-2j-u7j" secondAttribute="trailing" id="3Ko-jN-S92"/>
+                            <constraint firstItem="OxY-on-Jkc" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" constant="10" id="7jV-zV-t47"/>
+                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="leading" secondItem="2qp-en-orb" secondAttribute="trailing" constant="-105" id="Kf1-Fx-J6n"/>
+                            <constraint firstItem="fsb-9r-h9S" firstAttribute="centerX" secondItem="2qp-en-orb" secondAttribute="centerX" id="NgN-4r-IX1"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="fsb-9r-h9S" secondAttribute="bottom" constant="-30" id="Obm-58-7XP"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="Tmn-O8-MJJ" secondAttribute="bottom" constant="32" id="PZG-wv-p8w"/>
                             <constraint firstItem="Ioa-4t-5oD" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="36" id="TsD-7n-8qL"/>
                             <constraint firstItem="LNW-2j-u7j" firstAttribute="bottom" secondItem="vL2-nj-e72" secondAttribute="bottom" id="Ub9-zB-TMy"/>
-                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="30" id="XF0-K1-hBY"/>
-                            <constraint firstItem="vL2-nj-e72" firstAttribute="top" secondItem="mnl-L0-Jdx" secondAttribute="bottom" id="aMa-XR-14Y"/>
-                            <constraint firstItem="LNW-2j-u7j" firstAttribute="trailing" secondItem="mnl-L0-Jdx" secondAttribute="trailing" constant="18" id="g6h-9F-sFr"/>
-                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="18" id="hwj-av-4TK"/>
+                            <constraint firstItem="2qp-en-orb" firstAttribute="top" secondItem="LNW-2j-u7j" secondAttribute="top" constant="14" id="XF0-K1-hBY"/>
                             <constraint firstItem="2qp-en-orb" firstAttribute="centerX" secondItem="LNW-2j-u7j" secondAttribute="centerX" id="k2E-ss-pNb"/>
-                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="2qp-en-orb" secondAttribute="bottom" constant="38" id="mYW-Sr-0IK"/>
-                            <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="97" id="ofq-74-XCs"/>
-                            <constraint firstItem="mnl-L0-Jdx" firstAttribute="top" secondItem="Ioa-4t-5oD" secondAttribute="bottom" constant="32" id="pbq-BD-tRe"/>
-                            <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" constant="3" id="twQ-PQ-nZr"/>
-                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" id="zCw-fZ-SQz"/>
+                            <constraint firstItem="fsb-9r-h9S" firstAttribute="top" secondItem="Ioa-4t-5oD" secondAttribute="bottom" constant="26" id="ofY-Zu-Zd2"/>
+                            <constraint firstItem="OxY-on-Jkc" firstAttribute="trailing" secondItem="2qp-en-orb" secondAttribute="leading" constant="105" id="ofq-74-XCs"/>
+                            <constraint firstItem="vL2-nj-e72" firstAttribute="leading" secondItem="LNW-2j-u7j" secondAttribute="leading" id="twQ-PQ-nZr"/>
+                            <constraint firstItem="Ioa-4t-5oD" firstAttribute="top" secondItem="OxY-on-Jkc" secondAttribute="bottom" constant="32" id="wvC-vr-bzS"/>
+                            <constraint firstItem="Tmn-O8-MJJ" firstAttribute="bottom" secondItem="2qp-en-orb" secondAttribute="bottom" constant="10" id="zCw-fZ-SQz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LNW-2j-u7j"/>
                     </view>
                     <navigationItem key="navigationItem" id="UtJ-Bb-uF5">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VSk-dh-8s0">
-                            <color key="tintColor" name="nutrivurv-blue"/>
+                        <barButtonItem key="leftBarButtonItem" title="logout" id="VSk-dh-8s0">
+                            <color key="tintColor" name="nutrivurv-blue-new"/>
                             <connections>
                                 <action selector="logoutButtonTapped:" destination="vsF-rt-EXg" id="4bd-qj-xEx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="detail" id="s1u-Vz-NHU">
+                            <connections>
+                                <segue destination="HUf-V8-zA8" kind="show" id="aju-e5-j4B"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
-                        <outlet property="dailyIntakeLabel" destination="ejI-Ww-SR6" id="Xll-p8-4CW"/>
                         <outlet property="dailyVibeAuthorLabel" destination="e09-AN-MWp" id="00p-Mq-n6N"/>
                         <outlet property="dailyVibeQuoteLabel" destination="YAb-hN-fSe" id="ZS9-hF-Ns5"/>
                         <outlet property="dailyVibeStackView" destination="Ioa-4t-5oD" id="Ot9-JN-W47"/>
-                        <outlet property="foodLogLabel" destination="mnl-L0-Jdx" id="Bt9-Zc-kn8"/>
+                        <outlet property="dateDescriptionLabel" destination="Ead-NY-Fem" id="Vve-IU-xDZ"/>
+                        <outlet property="dateView" destination="fsb-9r-h9S" id="7YY-bH-OlD"/>
                         <outlet property="foodLogTableView" destination="vL2-nj-e72" id="GjO-mj-dFh"/>
+                        <outlet property="nextDateButton" destination="jfQ-yp-UAr" id="SXY-R0-qIf"/>
+                        <outlet property="previousDateButton" destination="I0X-I0-lQb" id="Ki4-Q7-hCx"/>
                         <outlet property="ringsAndMacrosContainerView" destination="UBn-fK-BvN" id="eMw-eo-llq"/>
+                        <outlet property="selectedDateLabel" destination="htc-TY-rj8" id="Osy-da-YzK"/>
                         <outlet property="streakCountLabel" destination="xIg-du-r6g" id="F0S-Ec-dYF"/>
                         <outlet property="streakStackView" destination="Tmn-O8-MJJ" id="U74-Gf-2bC"/>
+                        <outlet property="streakUnitLabel" destination="qMC-HY-f12" id="1k6-Fq-mjO"/>
                         <outlet property="weightStackView" destination="OxY-on-Jkc" id="ypB-wD-igz"/>
-                        <segue destination="6Qg-MS-wl4" kind="show" identifier="MissingProfile" id="r1z-2w-3mM"/>
                         <segue destination="7Nz-Uw-rj4" kind="unwind" identifier="Logout" unwindAction="unwind:" id="MrW-rM-Ff1"/>
                         <segue destination="dJb-ZH-wa0" kind="show" identifier="Logout" id="Jmd-UR-Ep9"/>
                     </connections>
@@ -256,33 +332,12 @@
             </objects>
             <point key="canvasLocation" x="11140.579710144928" y="-869.19642857142856"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="aq5-6o-iga">
-            <objects>
-                <tabBarController restorationIdentifier="DashboardTabBar" storyboardIdentifier="DashboardTabBar" id="Qan-C2-fkh" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" itemSpacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="uV9-wI-UMh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="nutrivurv-blue"/>
-                        <color key="barTintColor" name="bg-color"/>
-                        <color key="selectedImageTintColor" name="nutrivurv-blue"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="rYl-n3-f5W" kind="relationship" relationship="viewControllers" id="AhP-zl-8zC"/>
-                        <segue destination="ocA-CQ-44Y" kind="relationship" relationship="viewControllers" id="qsQ-iz-htA"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3fB-EK-EOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9430" y="-547"/>
-        </scene>
         <!--Food Search-->
         <scene sceneID="FgN-cI-bhq">
             <objects>
-                <tableViewController id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1si-0W-cfy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController storyboardIdentifier="FoodSearch" title="Food Search" id="XGk-MJ-f0l" customClass="FoodSearchTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1si-0W-cfy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
@@ -290,11 +345,11 @@
                         <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" name="bg-color"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="U18-G3-P3n">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <searchBar contentMode="redraw" text="" placeholder="Food name or brand" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-RE-Odx">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                     <color key="backgroundColor" name="bg-color"/>
                                     <color key="tintColor" name="nutrivurv-blue"/>
                                     <color key="barTintColor" name="bg-color"/>
@@ -316,14 +371,14 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FoodCell" textLabel="2bg-Ab-Vjz" rowHeight="68" style="IBUITableViewCellStyleDefault" id="vCA-6e-zWx">
-                                <rect key="frame" x="0.0" y="84" width="600" height="68"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vCA-6e-zWx" id="Lqr-MQ-L0w">
-                                    <rect key="frame" x="0.0" y="0.0" width="569" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2bg-Ab-Vjz">
-                                            <rect key="frame" x="20" y="0.0" width="541" height="68"/>
+                                            <rect key="frame" x="20" y="0.0" width="355" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                             <color key="textColor" name="light-label"/>
@@ -345,9 +400,9 @@
                             <outlet property="delegate" destination="XGk-MJ-f0l" id="0jc-lc-gj3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Food Search" id="OBS-bK-QCB">
-                        <barButtonItem key="rightBarButtonItem" image="camera-icon" id="lQL-JE-T3y">
-                            <color key="tintColor" name="nutrivurv-blue"/>
+                    <navigationItem key="navigationItem" title="food search" id="OBS-bK-QCB">
+                        <barButtonItem key="rightBarButtonItem" image="barcode" id="lQL-JE-T3y">
+                            <color key="tintColor" name="nutrivurv-blue-new"/>
                             <connections>
                                 <segue destination="4id-Vt-Jzy" kind="presentation" identifier="ShowBarcodeScanner" id="FFU-qE-PMB"/>
                             </connections>
@@ -366,7 +421,7 @@
             <objects>
                 <viewController id="4id-Vt-Jzy" customClass="BarcodeSearchViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
@@ -383,22 +438,22 @@
         <!--Nutrition Info-->
         <scene sceneID="WhU-tq-Pfb">
             <objects>
-                <viewController restorationIdentifier="FoodDetailViewController" storyboardIdentifier="FoodDetailViewController" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" id="U4e-Le-VaR" customClass="FoodDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FoodDetailViewController" storyboardIdentifier="FoodDetailViewController" title="Nutrition Info" extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" id="U4e-Le-VaR" customClass="FoodDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hio-Jw-9GW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
-                                <rect key="frame" x="14" y="62" width="448" height="44"/>
+                                <rect key="frame" x="14" y="106" width="262" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
-                                        <rect key="frame" x="0.0" y="0.0" width="448" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="262" height="23.5"/>
                                         <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="20"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRe-zE-eML">
-                                        <rect key="frame" x="0.0" y="27.5" width="448" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="262" height="16.5"/>
                                         <fontDescription key="fontDescription" name="QuattrocentoSans-BoldItalic" family="Quattrocento Sans" pointSize="14"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
@@ -406,7 +461,7 @@
                                 </subviews>
                             </stackView>
                             <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="8" y="120" width="268" height="21"/>
+                                <rect key="frame" x="8" y="164" width="268" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="900" height="21"/>
@@ -428,32 +483,32 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="usu-RS-26B"/>
                             </scrollView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zES-L2-3nD">
-                                <rect key="frame" x="14" y="154" width="55.5" height="15.5"/>
+                                <rect key="frame" x="14" y="198" width="55.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="13"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-basket" translatesAutoresizingMaskIntoConstraints="NO" id="f73-A3-Bna">
-                                <rect key="frame" x="484" y="74" width="100" height="100"/>
+                                <rect key="frame" x="298" y="118" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2yH-vl-ncA"/>
                                     <constraint firstAttribute="width" secondItem="f73-A3-Bna" secondAttribute="height" multiplier="1:1" id="56h-2D-tQd"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="905-xc-sQL">
-                                <rect key="frame" x="38" y="214" width="524" height="94"/>
+                                <rect key="frame" x="38" y="258" width="338" height="94"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-7t-Yqc">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="94"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="94"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0l-uS-47P">
-                                                <rect key="frame" x="0.0" y="0.0" width="248" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62" height="28"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="14"/>
                                                 <color key="textColor" name="nutrivurv-blue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SkT-Nt-tta">
-                                                <rect key="frame" x="0.0" y="38" width="248" height="56"/>
+                                                <rect key="frame" x="0.0" y="38" width="62" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="6KH-R6-l1a"/>
                                                     <constraint firstAttribute="height" constant="56" id="v7v-0Z-wQw"/>
@@ -468,7 +523,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dxv-Vj-uUi">
-                                        <rect key="frame" x="260" y="0.0" width="264" height="94"/>
+                                        <rect key="frame" x="74" y="0.0" width="264" height="94"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="xpg-1X-Nvu">
                                                 <rect key="frame" x="0.0" y="0.0" width="124" height="94"/>
@@ -514,22 +569,22 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
-                                <rect key="frame" x="16" y="340" width="568" height="21"/>
+                                <rect key="frame" x="16" y="384" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
-                                <rect key="frame" x="16" y="357" width="568" height="20"/>
+                                <rect key="frame" x="16" y="401" width="382" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
-                                        <rect key="frame" x="0.0" y="0.0" width="553" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="367" height="20"/>
                                         <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="17"/>
                                         <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKW-OS-l5Q">
-                                        <rect key="frame" x="561" y="0.0" width="7" height="20"/>
+                                        <rect key="frame" x="375" y="0.0" width="7" height="20"/>
                                         <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -537,25 +592,25 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Daily Value *" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYu-gN-Juf">
-                                <rect key="frame" x="16" y="383" width="572" height="16.5"/>
+                                <rect key="frame" x="16" y="427" width="386" height="16.5"/>
                                 <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="14"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV" customClass="FadedVerticalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="401.5" width="584" height="128.5"/>
+                                <rect key="frame" x="16" y="445.5" width="398" height="346.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
-                                        <rect key="frame" x="0.0" y="10" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="10" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rew-a8-kk4">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c75-oA-Iag">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUq-Aa-CEO">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -574,16 +629,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="70B-oM-YpM">
-                                        <rect key="frame" x="0.0" y="35" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="35" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sodium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgb-y7-idZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1TU-fX-zRM">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofa-EQ-HXG">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -602,16 +657,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Rm-Jz-7XS">
-                                        <rect key="frame" x="0.0" y="60" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="60" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Carbohydrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-aK-I7A">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d4s-wN-oIJ">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyi-Tm-VkD">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -630,16 +685,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9D5-Hr-JKu">
-                                        <rect key="frame" x="0.0" y="85" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="85" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cholesterol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws6-SC-Ahd">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Nbp-As-pAF">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4V-ov-qpf">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -658,16 +713,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CTG-YY-A80">
-                                        <rect key="frame" x="0.0" y="110" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="110" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sugar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne4-qG-2Qy">
-                                                <rect key="frame" x="0.0" y="0.0" width="557.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="371.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6Z-2J-wRn">
-                                                <rect key="frame" x="565.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="379.5" y="0.0" width="6.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -675,16 +730,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z7n-YO-afv">
-                                        <rect key="frame" x="0.0" y="135" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="135" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXR-MS-qCN">
-                                                <rect key="frame" x="0.0" y="0.0" width="557.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="371.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeL-Na-8Se">
-                                                <rect key="frame" x="565.5" y="0.0" width="6.5" height="19"/>
+                                                <rect key="frame" x="379.5" y="0.0" width="6.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="QuattrocentoSans" family="Quattrocento Sans" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -692,16 +747,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-D8-TmG">
-                                        <rect key="frame" x="0.0" y="160" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="160" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vitamin D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muJ-04-7LT">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bmN-Ol-Dc8">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dng-gm-clk">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -720,16 +775,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gaW-Lv-M4B">
-                                        <rect key="frame" x="0.0" y="185" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="185" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calcium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbE-Lp-mwb">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rsS-xv-cta">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-3R-sKa">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -748,16 +803,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eMl-Zj-YJB">
-                                        <rect key="frame" x="0.0" y="210" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="210" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iron" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-zF-vuC">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ST2-xz-BB9">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAR-GE-90k">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -776,16 +831,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uJS-kU-Tos">
-                                        <rect key="frame" x="0.0" y="235" width="572" height="19"/>
+                                        <rect key="frame" x="0.0" y="235" width="386" height="19"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Potassium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeR-yF-bYL">
-                                                <rect key="frame" x="0.0" y="0.0" width="522.5" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="336.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="Catamaran-Medium" family="Catamaran" pointSize="16"/>
                                                 <color key="textColor" name="light-label"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O4N-Sr-mcP">
-                                                <rect key="frame" x="530.5" y="0.0" width="41.5" height="19"/>
+                                                <rect key="frame" x="344.5" y="0.0" width="41.5" height="19"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXd-l3-sdU">
                                                         <rect key="frame" x="0.0" y="0.0" width="6.5" height="19"/>
@@ -850,7 +905,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="t2M-AU-808"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-GH-pEz">
-                                <rect key="frame" x="88" y="544" width="424" height="44"/>
+                                <rect key="frame" x="88" y="806" width="238" height="44"/>
                                 <color key="backgroundColor" name="nutrivurv-blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vDC-j5-aJd"/>
@@ -860,11 +915,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="logFood:" destination="U4e-Le-VaR" eventType="touchUpInside" id="oK1-WD-NNE"/>
+                                    <action selector="updateOrLogNewEntry:" destination="U4e-Le-VaR" eventType="touchUpInside" id="oK1-WD-NNE"/>
                                 </connections>
                             </button>
                             <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV8-21-SSQ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="72" y="151" width="204" height="21"/>
+                                <rect key="frame" x="72" y="195" width="204" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
                                         <rect key="frame" x="-14" y="0.0" width="268" height="21"/>
@@ -925,7 +980,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OXE-5N-6jG"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Nutrition Info" id="8qP-lX-g5g"/>
+                    <navigationItem key="navigationItem" title="nutrition info" id="8qP-lX-g5g"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addFoodButton" destination="c8X-GH-pEz" id="zRq-Pl-h9s"/>
@@ -967,13 +1022,15 @@
             </objects>
             <point key="canvasLocation" x="11957.971014492754" y="-190.17857142857142"/>
         </scene>
-        <!--Hosting Controller-->
+        <!--SwiftUI Detail View Controller-->
         <scene sceneID="3q0-no-ZbL">
             <objects>
-                <hostingController id="HUf-V8-zA8" sceneMemberID="viewController"/>
+                <hostingController id="HUf-V8-zA8" customClass="SwiftUIDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="95p-pI-CGg"/>
+                </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69n-Q3-zjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11788" y="-1513"/>
+            <point key="canvasLocation" x="12905.797101449276" y="-1487.2767857142856"/>
         </scene>
         <!--Main-->
         <scene sceneID="grQ-MA-3ap">
@@ -985,33 +1042,24 @@
             </objects>
             <point key="canvasLocation" x="11741" y="-1123"/>
         </scene>
-        <!--Profile-->
-        <scene sceneID="FsO-i6-9GQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="Profile" id="6Qg-MS-wl4" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="sIW-VN-rQ8"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XOo-4i-440" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="11709" y="-869"/>
-        </scene>
         <!--Food Log Table View Controller-->
         <scene sceneID="MXH-kM-V0v">
             <objects>
                 <tableViewController id="ed8-w6-LEd" customClass="FoodLogTableViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bM9-0c-rT8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="343"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="2" id="bM9-0c-rT8" customClass="FadedVerticalTableView" customModule="Nutrivurv" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="456"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="bg-color"/>
+                        <color key="backgroundColor" name="foodlog-bg"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
+                        <color key="separatorColor" name="daily-vibe-shadow"/>
                         <color key="sectionIndexColor" name="light-label"/>
                         <color key="sectionIndexBackgroundColor" name="bg-color"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="foodLogCell" textLabel="azd-hQ-dKT" detailTextLabel="hAv-tJ-Ac5" rowHeight="72" style="IBUITableViewCellStyleSubtitle" id="aJf-I4-b9X">
-                                <rect key="frame" x="0.0" y="28" width="393" height="72"/>
+                                <rect key="frame" x="20" y="55.5" width="374" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aJf-I4-b9X" id="EaL-eD-DY9">
-                                    <rect key="frame" x="0.0" y="0.0" width="362" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="azd-hQ-dKT">
@@ -1025,11 +1073,11 @@
                                             <rect key="frame" x="20" y="38" width="48" height="16.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="QuattrocentoSans-Italic" family="Quattrocento Sans" pointSize="14"/>
-                                            <color key="textColor" name="nutrivurv-blue"/>
+                                            <color key="textColor" name="nutrivurv-blue-new"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" name="bg-color"/>
+                                    <color key="tintColor" name="nutrivurv-blue-new"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" name="bg-color"/>
                             </tableViewCell>
@@ -1049,7 +1097,7 @@
             <objects>
                 <collectionViewController id="oNc-VA-CAf" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d2l-t7-mwT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZ4-TG-hpI">
@@ -1067,13 +1115,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6J-Nd-SLY">
-                                            <rect key="frame" x="8" y="8" width="151" height="21"/>
+                                            <rect key="frame" x="8" y="8" width="151" height="23"/>
                                             <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="18"/>
                                             <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0PA-i1-VMB">
-                                            <rect key="frame" x="8" y="45" width="151" height="16.5"/>
+                                            <rect key="frame" x="8" y="47" width="151" height="18"/>
                                             <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -1106,10 +1154,20 @@
             </objects>
             <point key="canvasLocation" x="12951" y="-891"/>
         </scene>
+        <!--Health Dashboard View Controller-->
+        <scene sceneID="iq8-ky-57y">
+            <objects>
+                <hostingController storyboardIdentifier="HealthDashboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cwe-Ao-7Ha" customClass="HealthDashboardViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Img-OD-GC3"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqh-1k-LeG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10348" y="-1558"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="O7p-ql-xAJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rYl-n3-f5W" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DashboardNavController" automaticallyAdjustsScrollViewInsets="NO" id="rYl-n3-f5W" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar-house" selectedImage="tabbar-house" id="oV9-2g-prE">
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
@@ -1132,7 +1190,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Hzh-E0-s3S">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ocA-CQ-44Y" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FoodSearchNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ocA-CQ-44Y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar-plate" selectedImage="tabbar-plate" id="GJU-hc-xQk">
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
@@ -1156,7 +1214,8 @@
     </scenes>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
-        <image name="camera-icon" width="21" height="18"/>
+        <image name="barcode" width="25" height="20"/>
+        <image name="calendar-icon" width="22" height="24"/>
         <image name="fire" width="40" height="52"/>
         <image name="food-basket" width="512" height="512"/>
         <image name="tabbar-house" width="28" height="28"/>
@@ -1165,11 +1224,26 @@
         <namedColor name="bg-color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="daily-vibe-shadow">
+            <color red="0.90600001811981201" green="0.90600001811981201" blue="0.90600001811981201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="food-log-label-bg">
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="food-log-label-text">
+            <color red="0.10196078431372549" green="0.11372549019607843" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="foodlog-bg">
+            <color red="0.27058823529411763" green="0.45882352941176469" blue="0.70980392156862748" alpha="0.037999998778104782" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="light-label">
             <color red="0.086274509803921567" green="0.086274509803921567" blue="0.086274509803921567" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="nutrivurv-blue">
             <color red="0.074509803921568626" green="0.42352941176470588" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="nutrivurv-blue-new">
+            <color red="0.37254901960784315" green="0.54509803921568623" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="nutrivurv-green">
             <color red="0.47843137254901963" green="0.80000000000000004" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

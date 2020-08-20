@@ -16,6 +16,8 @@ class StandardBMIViewController: UIViewController {
     @IBOutlet public var heightStandardInchesTextField: UITextField!
     @IBOutlet public var weightStandardTextField: UITextField!
     
+    var profileController: ProfileCreationController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,18 +50,21 @@ class StandardBMIViewController: UIViewController {
             return nil
         }
         
-        let height = ((feetDouble) * 12) + (inchesDouble)
-        ProfileCreationController.height = Int(height)
-        let totalWeight = weightDouble
-        ProfileCreationController.weight = Int(totalWeight)
+        guard let profileController = profileController else { return nil }
         
-        let bmi = (totalWeight * 704.7) / (height * height)
+        profileController.userProfile?.heightFeet = Int(feetDouble)
+        profileController.userProfile?.heightInches = Int(inchesDouble)
+        profileController.userProfile?.weight = Int(weightDouble)
+        
+        let totalHeightInches = ((feetDouble) * 12) + (inchesDouble)
+        
+        let bmi = (weightDouble * 704.7) / (totalHeightInches * totalHeightInches)
         let roundedBMI = String(format: "%.2f", bmi)
         
-        if ProfileCreationController.bmi == roundedBMI {
+        if profileController.bmi == roundedBMI {
             return nil
         } else {
-            ProfileCreationController.bmi = roundedBMI
+            profileController.bmi = roundedBMI
         }
         
         return roundedBMI
@@ -85,7 +90,7 @@ extension StandardBMIViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 2.0
-        textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor(named: "nutrivurv-blue-new")?.cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowColor = UIColor(red: 0, green: 0.455, blue: 0.722, alpha: 0.5).cgColor
         textField.layer.shadowOpacity = 1
@@ -95,7 +100,7 @@ extension StandardBMIViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor(red: 0.149, green: 0.196, blue: 0.22, alpha: 1).cgColor
+        textField.layer.borderColor = UIColor(red: 0, green: 0.259, blue: 0.424, alpha: 1).cgColor
         textField.layer.cornerRadius = 4
         textField.layer.shadowOpacity = 0
     }

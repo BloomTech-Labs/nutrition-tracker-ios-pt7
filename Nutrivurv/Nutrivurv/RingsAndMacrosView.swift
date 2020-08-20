@@ -15,10 +15,10 @@ struct RingsAndMacrosView: View {
     
     @ObservedObject var dailyMacrosModel: DailyMacros
     
-    var caloriesColor = UIColor(named: "nutrivurv-blue")!
-    var carbsColor = UIColor(named: "nutrivurv-green-2")!
-    var proteinColor = UIColor(named: "nutrivurv-orange")!
-    var fatColor = UIColor(named: "nutrivurv-red-2")!
+    var caloriesColor = UIColor(named: "nutrivurv-blue-new")!
+    var carbsColor = UIColor(named: "nutrivurv-green-new")!
+    var proteinColor = UIColor(named: "nutrivurv-orange-new")!
+    var fatColor = UIColor(named: "nutrivurv-red-new")!
     
     var body: some View {
         ZStack {
@@ -30,28 +30,28 @@ struct RingsAndMacrosView: View {
             HStack {
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "Calories", count: "\(Int(dailyMacrosModel.caloriesCount)) cal", progressPercent: "\(Int(dailyMacrosModel.caloriesPercent))%")
+                    MacrosDashboardView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: caloriesColor, label: "calories", count: "\(Int(dailyMacrosModel.caloriesCount)) cal", progressPercent: "\(Int(dailyMacrosModel.caloriesPercent))%")
                         .offset(x: showRings ? -78 : -50)
                         Spacer()
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "Carbs", count: "\(Int(dailyMacrosModel.carbsCount))g", progressPercent: "\(Int(dailyMacrosModel.carbsPercent))%")
+                    MacrosDashboardView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: carbsColor, label: "carbs", count: "\(Int(dailyMacrosModel.carbsCount))g", progressPercent: "\(Int(dailyMacrosModel.carbsPercent))%")
                         .offset(x: showRings ? -88 : -38)
                     
                 }
-                .offset(y: -20)
-                .frame(maxHeight: showMacrosDetail ? 105 : 52)
+                .offset(y: -26)
+                .frame(maxHeight: showMacrosDetail ? 99 : 52)
                 
                 
                 VStack {
                     
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "Protein", count: "\(Int(dailyMacrosModel.proteinCount))g", progressPercent: "\(Int(dailyMacrosModel.proteinPercent))%")
+                    MacrosDashboardView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: proteinColor, label: "protein", count: "\(Int(dailyMacrosModel.proteinCount))g", progressPercent: "\(Int(dailyMacrosModel.proteinPercent))%")
                         .offset(x: showRings ? 78 : 50)
                     Spacer()
-                    MacrosDetailView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "Fat", count: "\(Int(dailyMacrosModel.fatCount))g", progressPercent: "\(Int(dailyMacrosModel.fatPercent))%")
+                    MacrosDashboardView(showMacrosDetail: $showMacrosDetail, showRings: $showRings, uiColor: fatColor, label: "fat", count: "\(Int(dailyMacrosModel.fatCount))g", progressPercent: "\(Int(dailyMacrosModel.fatPercent))%")
                         .offset(x: showRings ? 88 : 38)
                     
                 }
-                .offset(y: -20)
-                .frame(maxHeight:  showMacrosDetail ? 105 : 52)
+                .offset(y: -26)
+                .frame(maxHeight:  showMacrosDetail ? 99 : 52)
             }
         }
     }
@@ -76,6 +76,8 @@ struct RingView: View {
     var ringAnimation = Animation.easeInOut(duration: 0.55).delay(0.15)
     var bounceAnimation = Animation.interpolatingSpring(mass: 0.26, stiffness: 1, damping: 0.775, initialVelocity: 1.8).speed(7.0)
     
+    var lineWidth: CGFloat = 13.5
+    
     var body: some View {
         let multiplier = width / 100
         var progress = 1 - (progressPercent / 100)
@@ -93,7 +95,7 @@ struct RingView: View {
         
         return ZStack {
             Circle()
-                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: 13.5)).grayscale(0.4).brightness(0.09)
+                .stroke(Color(uiColor).opacity(0.25), style: StrokeStyle(lineWidth: lineWidth)).grayscale(0.4).brightness(0.09)
                 .frame(width: width - 0.25, height: height - 0.25)
                 .onTapGesture {
                     self.showRings.toggle()
@@ -105,7 +107,7 @@ struct RingView: View {
                 .trim(from: showRings ? progress : 0.999, to: 1)
                 .stroke(
                     LinearGradient(gradient: Gradient(colors: [Color(uiColor).opacity(0.45), Color(uiColor)]), startPoint: .topTrailing, endPoint: .bottomLeading),
-                    style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
+                    style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .rotationEffect(.degrees(90))
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: width, height: height)
@@ -128,7 +130,7 @@ struct RingView: View {
 }
 
 
-struct MacrosDetailView: View {
+struct MacrosDashboardView: View {
     @Binding var showMacrosDetail: Bool
     @Binding var showRings: Bool
     
@@ -143,23 +145,26 @@ struct MacrosDetailView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 4.0)
+            RoundedRectangle(cornerRadius: showMacrosDetail ? 23 : 10.5, style: .continuous)
                 .fill(Color(uiColor).opacity(showMacrosDetail ? 0.95 : 0.85))
-                .frame(width: showMacrosDetail ? 112 : 64, height: showMacrosDetail ? 46 : 21)
+                .frame(width: showMacrosDetail ? 112 : 64, height: showMacrosDetail ? 44 : 21)
                 .shadow(color: showMacrosDetail ? Color(uiColor).opacity(0.2) : Color.clear, radius: showMacrosDetail ? 3.5 : 0, x: 0, y: showMacrosDetail ? 4 : 0)
             
             VStack {
                 Text(label)
-                    .font(Font.custom("Catamaran-Bold", size: 12))
+                    .font(Font.custom("Gaoel", size: 9.5))
                     .foregroundColor(Color.white)
+                    .frame(minWidth: 48, minHeight: 18)
                 
                 if self.showMacrosDetail {
                     Text("\(count) • \(progressPercent)")
-                        .font(Font.custom("QuattrocentoSans-Italic", size: 14.0))
+                        .font(Font.custom("QuattrocentoSans-Italic", size: 13.0))
                         .foregroundColor(Color.white)
-                        .animation(Animation.easeInOut(duration: 0.3).delay(0.4))
+                        .lineLimit(1)
+                        .frame(width: 112)
+                        .minimumScaleFactor(0.75)
                 }
-            }.frame(minWidth: 58)
+            }.frame(minWidth: 64)
         }.onTapGesture {
             self.showMacrosDetail.toggle()
             self.showRings.toggle()

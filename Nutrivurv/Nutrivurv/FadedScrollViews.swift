@@ -12,21 +12,21 @@ import UIKit
 class FadedHorizontalScrollView: UIScrollView {
     let startFadePercentage: Double = 0.03
     let endFadePercentage: Double = 0.10
-
+    
     override func layoutSubviews() {
-
+        
         super.layoutSubviews()
-
+        
         let transparent = UIColor.clear.cgColor
         let opaque = UIColor(named: "bg-color")!.cgColor
-
+        
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.colors = [transparent, opaque, opaque, transparent]
         gradient.locations = [0, NSNumber(floatLiteral: startFadePercentage), NSNumber(floatLiteral: 1 - endFadePercentage), 1]
-
+        
         self.layer.mask = gradient
     }
 }
@@ -41,15 +41,66 @@ class FadedVerticalScrollView: UIScrollView {
         
         let transparent = UIColor.clear.cgColor
         let opaque = UIColor(named: "bg-color")!.cgColor
-
+        
         let maskLayer = CALayer()
         maskLayer.frame = self.bounds
-
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: self.bounds.origin.x, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
         gradientLayer.colors = [transparent, opaque, opaque, transparent]
         gradientLayer.locations = [0, NSNumber(floatLiteral: topFadePct), NSNumber(floatLiteral: 1 - bottomFadePct), 1]
+        
+        maskLayer.addSublayer(gradientLayer)
+        self.layer.mask = maskLayer
+    }
+}
 
+class FadedVerticalTableView: UITableView {
+    let topFadePct: Double = 0.12
+    let bottomFadePct: Double = 0.0
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let transparent = UIColor.clear.cgColor
+        let opaque = UIColor(named: "bg-color")!.cgColor
+        
+        let maskLayer = CALayer()
+        maskLayer.frame = self.bounds
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: self.bounds.origin.x, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+        gradientLayer.colors = [transparent, opaque, opaque, transparent]
+        gradientLayer.locations = [0, NSNumber(floatLiteral: topFadePct), NSNumber(floatLiteral: 1 - bottomFadePct), 1]
+        
+        maskLayer.addSublayer(gradientLayer)
+        self.layer.mask = maskLayer
+    }
+}
+
+class FadedFoodLogBackgroundView: UIView {
+    let topFadePct: Double = 0.08
+    let bottomFadePct: Double = 0.0
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.roundCorners(corners: [.topRight, .topLeft], radius: 22.0)
+        self.layer.cornerCurve = .continuous
+        self.layer.masksToBounds = true
+        
+        let transparent = UIColor.clear.cgColor
+        let opaque = UIColor(named: "bg-color")!.cgColor
+        
+        let maskLayer = CALayer()
+        maskLayer.frame = self.bounds
+        
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = maskLayer.bounds
+        gradientLayer.colors = [transparent, opaque, opaque, transparent]
+        gradientLayer.locations = [0, NSNumber(floatLiteral: topFadePct), NSNumber(floatLiteral: 1 - bottomFadePct), 1]
+        
         maskLayer.addSublayer(gradientLayer)
         self.layer.mask = maskLayer
     }

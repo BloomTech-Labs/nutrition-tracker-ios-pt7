@@ -33,7 +33,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lets start crushing those goals!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="eVf-aZ-RGJ">
                                 <rect key="frame" x="44" y="52" width="326" height="135"/>
                                 <fontDescription key="fontDescription" name="Muli-Light" family="Muli" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pdm-hf-GBs">
@@ -45,6 +45,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="ibT-SL-GId"/>
                                         </constraints>
+                                        <color key="textColor" name="light-label"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes" smartQuotesType="yes" textContentType="email"/>
                                     </textField>
@@ -54,6 +55,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="EHE-sI-CGO"/>
                                         </constraints>
+                                        <color key="textColor" name="light-label"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -66,7 +68,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="33" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IX-Uz-GvN">
@@ -84,7 +86,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="bg-color"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RoR-Mj-q1F">
                                 <rect key="frame" x="24" y="296" width="71.5" height="14"/>
@@ -93,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="56.5" height="14"/>
                                         <color key="backgroundColor" name="bg-color"/>
                                         <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="light-label"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-kL-46l">
@@ -111,16 +113,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="bg-color"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b43-dI-OzL" customClass="CustomButton" customModule="Nutrivurv" customModuleProvider="target">
                                 <rect key="frame" x="44" y="407" width="326" height="32"/>
-                                <color key="backgroundColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="nutrivurv-blue-new"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="vx5-NO-OM7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="14"/>
-                                <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" name="nutrivurv-blue-new"/>
                                 <state key="normal" title="Lets Go!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -141,7 +143,7 @@
                                         <rect key="frame" x="92" y="0.0" width="44" height="26"/>
                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="12"/>
                                         <state key="normal" title="Sign Up">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" name="light-label"/>
                                         </state>
                                         <connections>
                                             <segue destination="9pD-sO-drT" kind="show" id="Bt9-mz-IWl"/>
@@ -198,22 +200,11 @@
                         <outlet property="emailTextField" destination="Dd1-5A-BtE" id="Afs-rZ-HAC"/>
                         <outlet property="passwordTextField" destination="9FE-60-Y3d" id="IlK-XT-p31"/>
                         <outlet property="submitButton" destination="b43-dI-OzL" id="Wu6-Wc-le5"/>
-                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="LoginToDashboard" modalPresentationStyle="fullScreen" id="hva-qZ-piz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xf-44-lyK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516" y="-1155"/>
-        </scene>
-        <!--DashboardTabBar-->
-        <scene sceneID="B1y-9o-gmN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="DashboardTabBar" id="ILo-DN-Jd9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ntX-yz-6IM"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-40-IoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2136" y="-1172"/>
         </scene>
         <!--Register-->
         <scene sceneID="jRt-Nc-cme">
@@ -237,6 +228,9 @@
         </namedColor>
         <namedColor name="nutrivurv-blue">
             <color red="0.074509803921568626" green="0.42352941176470588" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="nutrivurv-blue-new">
+            <color red="0.37254901960784315" green="0.54509803921568623" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

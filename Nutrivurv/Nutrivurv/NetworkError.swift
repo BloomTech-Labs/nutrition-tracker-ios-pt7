@@ -16,4 +16,6 @@ enum NetworkError: Error {
     case noEncode
     case noDecode
     case serverError
+    case noToken
+    case objectInitFailed
 }

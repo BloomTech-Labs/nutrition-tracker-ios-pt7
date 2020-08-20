@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     func isValidEmail() -> Bool {
@@ -14,5 +15,21 @@ extension String {
 
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: self)
+    }
+    
+    func getCGFloatfromString() -> CGFloat? {
+        let decimals = Set("0123456789.")
+        let value = self.filter{ decimals.contains($0) }
+        
+        guard let double = Double(value) else { return 0.0 }
+        
+        return CGFloat(double)
+    }
+    
+    func isValidBirthDate() -> Bool {
+        let birthDateRegex = "[0-9]{2}-[0-9]{2}-[0-9]{4}"
+        
+        let birthDatePred = NSPredicate(format: "SELF MATCHES %@", birthDateRegex)
+        return birthDatePred.evaluate(with: self)
     }
 }

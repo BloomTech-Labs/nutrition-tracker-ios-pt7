@@ -27,7 +27,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking your calories just got easier." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-A0-06q">
                                 <rect key="frame" x="28" y="26" width="319" height="65.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="28"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="options" translatesAutoresizingMaskIntoConstraints="NO" id="jRg-Tc-crl">
@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="width" secondItem="O7b-dr-800" secondAttribute="height" multiplier="279:40" id="tIy-SV-hgO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="KOb-lf-FI8">
@@ -101,7 +101,6 @@
                     <connections>
                         <outlet property="signInButton" destination="oZ9-lu-tFp" id="aFu-9O-gMM"/>
                         <outlet property="signUpButton" destination="86x-lr-i1v" id="bxs-iw-DNT"/>
-                        <segue destination="ILo-DN-Jd9" kind="presentation" identifier="ShowDashboard" modalPresentationStyle="fullScreen" id="kWR-IQ-0ni"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HQ-uR-2t1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -129,16 +128,6 @@
             </objects>
             <point key="canvasLocation" x="-161" y="-777"/>
         </scene>
-        <!--DashboardTabBar-->
-        <scene sceneID="B1y-9o-gmN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" referencedIdentifier="DashboardTabBar" id="ILo-DN-Jd9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ntX-yz-6IM"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-40-IoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1229" y="-797"/>
-        </scene>
         <!--Login-->
         <scene sceneID="FQM-2r-ytU">
             <objects>
@@ -165,6 +154,9 @@
         <image name="options" width="347" height="291"/>
         <namedColor name="bg-color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="light-label">
+            <color red="0.086274509803921567" green="0.086274509803921567" blue="0.086274509803921567" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="nutrivurv-blue">
             <color red="0.074509803921568626" green="0.42352941176470588" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
