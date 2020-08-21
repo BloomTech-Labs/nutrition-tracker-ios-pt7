@@ -635,7 +635,6 @@ class FoodDetailViewController: UIViewController {
 //                    self.delegate?.update(foodLog: entry, at: index)
 //                } else {
                 
-                HealthKitController.shared.updateAllValues()
                 NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
                 self.createAndDisplayAlertAndPopToRoot(title: "Food Added!", message: "You just logged this item! See all of your logged meals for the day from your main dashboard.")
                 //                }
@@ -643,6 +642,7 @@ class FoodDetailViewController: UIViewController {
                 if calories > 0 {
                     HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
                 }
+                HealthKitController.shared.updateAllValues()
                 return
                 
             case .failure(let error):

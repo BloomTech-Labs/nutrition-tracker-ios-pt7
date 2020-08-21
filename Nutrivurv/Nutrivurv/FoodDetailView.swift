@@ -12,6 +12,13 @@ struct FoodDetailView: View {
     @ObservedObject var currentDailyMacros: DailyMacros
     @ObservedObject var newDailyMacros: DailyMacros
     
+    var foodName: String = ""
+    var brandName: String = ""
+    
+    @State var quantity: Double = 1.0
+    @State var servingSize: String = "Serving"
+    @State var mealType: String = "Breakfast"
+    
     @State var currentProgresss: Bool = true
     @State var showNutrients: Bool = false
     @State var bottomCardState = CGSize.zero
@@ -62,13 +69,13 @@ struct FoodDetailView: View {
                         
                         HStack {
                             VStack{
-                                Text("Avocados")
+                                Text(foodName)
                                     .font(Font.custom("Catamaran-Bold", size: 20))
                                     .frame(alignment: .leading)
                                     .minimumScaleFactor(0.6)
                                     .lineLimit(1)
                                 
-                                Text("Generic Foods")
+                                Text(brandName)
                                     .font(Font.custom("QuattrocentoSans-Italic", size: 15))
                                     .frame(alignment: .leading)
                                     .padding(EdgeInsets(top: -5, leading: 4, bottom: 0, trailing: 0))
@@ -82,7 +89,7 @@ struct FoodDetailView: View {
                         .padding(EdgeInsets(top: -5, leading: 0, bottom: 6, trailing: 0))
                         
                         
-                        ServingSizeSelectionView()
+                        ServingSizeSelectionView(selectedQuantity: $quantity, selectedServingSize: $servingSize, selectedMealType: $mealType)
                             .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
                         
                         

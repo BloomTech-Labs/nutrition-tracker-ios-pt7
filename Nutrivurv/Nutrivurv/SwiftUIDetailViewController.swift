@@ -11,7 +11,12 @@ import SwiftUI
 
 class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     
+    // Coming from food log
     var foodLogEntry: FoodLogEntry?
+    
+    // Coming from food search
+    var foodItem: FoodItem?
+    
     
     required init?(coder aDecoder: NSCoder) {
         let currentMacros = FoodLogController.shared.totalDailyMacrosModel
@@ -35,11 +40,48 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
+        
+        if foodLogEntry != nil {
+            setupViewForExistingEntry()
+        } else {
+            setupViewForNewEntry()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    private func setupViewForExistingEntry() {
+        guard let foodLogEntry = foodLogEntry else {
+            print("Food log entry not loaded")
+            return
+        }
+        
+        rootView.foodName = foodLogEntry.foodName.capitalized
+        rootView.brandName = "Generic Brand"
+        
+        if let quantity = Double(foodLogEntry.quantity) {
+            rootView.quantity = quantity
+        }
+        
+        rootView.servingSize = foodLogEntry.measurementName.capitalized
+        
+        rootView.mealType = foodLogEntry.mealType.capitalized
+    }
+    
+    private func setupViewForNewEntry() {
+        guard let foodItem = foodItem else {
+            print("Food item not loaded")
+            return
+        }
+        
+        rootView.quantity = 1.0
+        if let servingSize = foodItem.measures.first?.label {
+            rootView.servingSize = servingSize.capitalized
+        }
+        rootView.mealType = "Breakfast"
     }
     
 
