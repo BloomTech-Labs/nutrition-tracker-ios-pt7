@@ -17,6 +17,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     // Coming from food search
     var foodItem: FoodItem?
     
+    var searchController: FoodSearchController?
+    
     
     required init?(coder aDecoder: NSCoder) {
         let currentMacros = FoodLogController.shared.totalDailyMacrosModel
@@ -47,6 +49,10 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         self.tabBarController?.tabBar.isHidden = true
         
         setupViewForExistingEntry()
+        
+        if let imageString = foodLogEntry?.imageURL {
+            self.getFoodImage(urlString: imageString)
+        }
     }
     
     private func setupViewForExistingEntry() {
@@ -92,15 +98,16 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         rootView.mealType = "Breakfast"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func getFoodImage(urlString: String) {
+        self.searchController?.getFoodImage(urlString: urlString) { (data) in
+            guard let data = data else {
+                print("Error getting food item image")
+                return
+            }
+            
+            if let image = UIImage(data: data) {
+                self.rootView.foodImage = image
+            }
+        }
     }
-    */
-
 }

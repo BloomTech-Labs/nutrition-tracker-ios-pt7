@@ -311,6 +311,7 @@ class FoodLogTableViewController: UITableViewController {
         
         if let detailvc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "SwiftUIFoodDetail") as? SwiftUIDetailViewController {
             detailvc.foodLogEntry = entry
+            detailvc.searchController = foodSearchController
             
             detailvc.modalPresentationStyle = .fullScreen
             navigationController?.pushViewController(detailvc, animated: true)

@@ -38,8 +38,9 @@ struct FoodDetailView: View {
         NavigationView {
             VStack {
                 Image(uiImage: foodImage)
-                    .frame(height: UIScreen.main.bounds.height / 3, alignment: .bottom)
-                    .scaledToFill()
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: UIScreen.main.bounds.height / 3, alignment: .center)
                 
                 ZStack {
                     // Main card background view
@@ -74,14 +75,19 @@ struct FoodDetailView: View {
                             VStack{
                                 Text(foodName)
                                     .font(Font.custom("Catamaran-Bold", size: 20))
-                                    .frame(alignment: .leading)
+                                    .frame(width: 160, alignment: .leading)
                                     .minimumScaleFactor(0.6)
                                     .lineLimit(1)
+                                    .multilineTextAlignment(.leading)
                                 
                                 Text(brandName)
                                     .font(Font.custom("QuattrocentoSans-Italic", size: 15))
-                                    .frame(alignment: .leading)
-                                    .padding(EdgeInsets(top: -5, leading: 4, bottom: 0, trailing: 0))
+                                    .frame(width: 160, alignment: .leading)
+                                    .minimumScaleFactor(0.6)
+                                    .lineLimit(1)
+                                    .padding(.top, -5)
+                                    .multilineTextAlignment(.leading)
+                                
                             }
                             Spacer()
                             
