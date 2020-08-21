@@ -20,6 +20,8 @@ struct FoodDetailView: View {
     @State var servingSize: String = "Serving"
     @State var mealType: String = "Breakfast"
     
+    var foodImage: UIImage = UIImage(named: "cutting-board")!
+    
     @State var currentProgresss: Bool = true
     @State var showNutrients: Bool = false
     @State var bottomCardState = CGSize.zero
@@ -35,7 +37,7 @@ struct FoodDetailView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Image("avocado")
+                Image(uiImage: foodImage)
                     .frame(height: UIScreen.main.bounds.height / 3, alignment: .bottom)
                     .scaledToFill()
                 
