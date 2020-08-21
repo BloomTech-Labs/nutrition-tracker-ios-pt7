@@ -13,8 +13,11 @@ extension UserDefaults {
         static let dailyLoginStreak = "dailyLoginStreak"
         static let previousLoginDate = "previousLoginDate"
         static let userIdKey = "userIdKey"
-        static let caloricBudget = "caloricBudget"
         static let hkPermissionGranted = "hkPermissionGranted"
+        static let caloricBudget = "caloricBudget"
+        static let carbsBudget = "carbsBudget"
+        static let proteinBudget = "proteinBudget"
+        static let fatBudget = "fatBudget"
     }
     
     private class var lastLoginDate: Date? {

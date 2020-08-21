@@ -24,6 +24,18 @@ class UserController {
             if let caloricBudget = userProfileData?.caloricBudget {
                 UserDefaults.standard.set(caloricBudget, forKey: UserDefaults.Keys.caloricBudget)
             }
+            
+            if let carbsBudget = userProfileData?.carbsBudget {
+                UserDefaults.standard.set(carbsBudget, forKey: UserDefaults.Keys.carbsBudget)
+            }
+            
+            if let proteinBudget = userProfileData?.proteinBudget {
+                UserDefaults.standard.set(proteinBudget, forKey: UserDefaults.Keys.proteinBudget)
+            }
+            
+            if let fatBudget = userProfileData?.fatBudget {
+                UserDefaults.standard.set(fatBudget, forKey: UserDefaults.Keys.fatBudget)
+            }
         }
     }
     
