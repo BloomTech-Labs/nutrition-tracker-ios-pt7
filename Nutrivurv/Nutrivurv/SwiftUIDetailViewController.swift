@@ -61,6 +61,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             return
         }
         
+        rootView.navigationBarTitle = "your \(foodLogEntry.mealType)"
+
         rootView.foodName = foodLogEntry.foodName.capitalized
         rootView.brandName = "Generic Brand"
         

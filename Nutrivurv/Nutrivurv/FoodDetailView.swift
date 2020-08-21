@@ -22,6 +22,8 @@ struct FoodDetailView: View {
     
     var foodImage: UIImage = UIImage(named: "cutting-board")!
     
+    var navigationBarTitle: String = ""
+    
     @State var currentProgresss: Bool = true
     @State var showNutrients: Bool = false
     @State var bottomCardState = CGSize.zero
@@ -184,7 +186,7 @@ struct FoodDetailView: View {
                 .offset(y: showNutrients ? -180 : -40)
                 .animation(.easeInOut)
             }
-        }.navigationBarTitle("Test", displayMode: .inline)
+        }.navigationBarTitle(Text(navigationBarTitle), displayMode: .inline)
     }
 }
 
