@@ -33,7 +33,7 @@ struct NutritionFactsView: View {
                         .font(Font.custom("Gaoel", size: 16))
                         .frame(width: UIScreen.main.bounds.width - 60, alignment: .leading)
                     
-                    NutrientView(name: "Calories", count: 120, unit: "", pct: nil)
+                    NutrientView(name: "Calories", count: nutritionFacts.calories, unit: "", pct: nil)
                     
                     Text("% Daily Value *")
                         .font(Font.custom("QuattrocentoSans-Italic", size: 12))

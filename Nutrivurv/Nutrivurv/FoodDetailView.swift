@@ -147,7 +147,7 @@ struct FoodDetailView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                     .offset(x: 0, y: -30)
                     
-                    NutritionFactsView(showNutrients: $showNutrients)
+                    NutritionFactsView(showNutrients: $showNutrients, nutritionFacts: nutritionFacts)
                         .offset(y: showNutrients ? 165 : 358)
                         .offset(y: self.bottomCardState.height)
                         .gesture(
