@@ -68,20 +68,37 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         rootView.foodItemMacros.caloriesCount = CGFloat(foodLogEntry.calories)
         rootView.newDailyMacros.caloriesCount += rootView.foodItemMacros.caloriesCount
+        if let caloriesBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.caloricBudget) as? Double {
+            // New macros containing the current daily progress + this item
+            let caloriePct = (rootView.newDailyMacros.caloriesCount / CGFloat(caloriesBudget)) * 100
+            rootView.newDailyMacros.caloriesPercent = caloriePct
+        }
         
         if let carbsCount = Double(foodLogEntry.carbs) {
             rootView.foodItemMacros.carbsCount = CGFloat(carbsCount)
             rootView.newDailyMacros.carbsCount += rootView.foodItemMacros.carbsCount
+            if let carbsBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.carbsBudget) as? Double {
+                let carbPct = (rootView.newDailyMacros.carbsCount / CGFloat(carbsBudget)) * 100
+                rootView.newDailyMacros.carbsPercent = carbPct
+            }
         }
         
         if let proteinCount = Double(foodLogEntry.protein) {
             rootView.foodItemMacros.proteinCount = CGFloat(proteinCount)
             rootView.newDailyMacros.proteinCount += rootView.foodItemMacros.proteinCount
+            if let proteinBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.proteinBudget) as? Double {
+                let proteinPct = (rootView.newDailyMacros.proteinCount / CGFloat(proteinBudget)) * 100
+                rootView.newDailyMacros.proteinPercent = proteinPct
+            }
         }
         
         if let fatCount = Double(foodLogEntry.fat) {
             rootView.foodItemMacros.fatCount = CGFloat(fatCount)
             rootView.newDailyMacros.fatCount += rootView.foodItemMacros.fatCount
+            if let fatBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.fatBudget) as? Double {
+                let fatPct = (rootView.newDailyMacros.fatCount / CGFloat(fatBudget)) * 100
+                rootView.newDailyMacros.fatPercent = fatPct
+            }
         }
         
         if let quantity = Double(foodLogEntry.quantity) {
