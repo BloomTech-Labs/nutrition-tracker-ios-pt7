@@ -36,7 +36,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         newMacros.fatCount = currentMacros.fatCount
         newMacros.fatPercent = currentMacros.fatPercent
         
-        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros, foodItemMacros: DailyMacros()))
+        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros, foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts()))
     }
 
     override func viewDidLoad() {
@@ -55,16 +55,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         }
     }
     
-    private func setupViewForExistingEntry() {
-        guard let foodLogEntry = foodLogEntry else {
-            print("Food log entry not loaded")
-            return
-        }
-        
-        rootView.navigationBarTitle = "your \(foodLogEntry.mealType)"
-
-        rootView.foodName = foodLogEntry.foodName.capitalized
-        rootView.brandName = "Generic Brand"
+    private func updateMacrosForExistingEntry() {
+        guard let foodLogEntry = foodLogEntry else { return }
         
         rootView.foodItemMacros.caloriesCount = CGFloat(foodLogEntry.calories)
         rootView.newDailyMacros.caloriesCount += rootView.foodItemMacros.caloriesCount
@@ -100,6 +92,20 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
                 rootView.newDailyMacros.fatPercent = fatPct
             }
         }
+    }
+    
+    private func setupViewForExistingEntry() {
+        guard let foodLogEntry = foodLogEntry else {
+            print("Food log entry not loaded")
+            return
+        }
+        
+        rootView.navigationBarTitle = "your \(foodLogEntry.mealType)"
+
+        rootView.foodName = foodLogEntry.foodName.capitalized
+        rootView.brandName = "Generic Brand"
+        
+        updateMacrosForExistingEntry()
         
         if let quantity = Double(foodLogEntry.quantity) {
             rootView.quantity = quantity

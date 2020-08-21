@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NutritionFactsView: View {
     @Binding var showNutrients: Bool
+    @ObservedObject var nutritionFacts: NutritionFacts
     
     var bgColor = UIColor(named: "nutrition-facts-bg")!
     var shadowColor = UIColor(named: "detail-view-card-shadow")!
@@ -40,25 +41,25 @@ struct NutritionFactsView: View {
                     
                     // Maximum of 10 components per view
                     VStack(spacing: 8) {
-                        NutrientView(name: "Total Fat", count: 0.4, unit: "g", pct: 0)
+                        NutrientView(name: "Total Fat", count: nutritionFacts.totalFat, unit: "g", pct: nutritionFacts.totalFatDailyPct)
                         
-                        NutrientView(name: "Sodium", count: 1.2, unit: "mg", pct: 0)
+                        NutrientView(name: "Sodium", count: nutritionFacts.sodium, unit: "mg", pct: nutritionFacts.sodiumDailyPct)
                         
-                        NutrientView(name: "Total Carbohydrate", count: 26.4, unit: "g", pct: 8)
+                        NutrientView(name: "Total Carbohydrate", count: nutritionFacts.totalCarb, unit: "g", pct: nil)
                         
-                        NutrientView(name: "Cholesterol", count: 0, unit: "mg", pct: 0)
+                        NutrientView(name: "Cholesterol", count: nutritionFacts.cholesterol, unit: "mg", pct: nutritionFacts.cholesterolDailyPct)
                         
-                        NutrientView(name: "Sugar", count: 14.2, unit: "g", pct: nil)
+                        NutrientView(name: "Sugar", count: nutritionFacts.sugar, unit: "g", pct: nil)
                         
-                        NutrientView(name: "Protein", count: 1.3, unit: "g", pct: nil)
+                        NutrientView(name: "Protein", count: nutritionFacts.protein, unit: "g", pct: nil)
                         
-                        NutrientView(name: "Vitamin D", count: 0, unit: "µg", pct: 0)
+                        NutrientView(name: "Vitamin D", count: nutritionFacts.vitaminD, unit: "µg", pct: nutritionFacts.vitaminDDailyPct)
                         
-                        NutrientView(name: "Calcium", count: 5.8, unit: "mg", pct: 0)
+                        NutrientView(name: "Calcium", count: nutritionFacts.calcium, unit: "mg", pct: nutritionFacts.calciumDailyPct)
                         
-                        NutrientView(name: "Iron", count: 0.3, unit: "mg", pct: 1)
+                        NutrientView(name: "Iron", count: nutritionFacts.iron, unit: "mg", pct: nutritionFacts.ironDailyPct)
                         
-                        NutrientView(name: "Potassium", count: 414.2, unit: "mg", pct: 8)
+                        NutrientView(name: "Potassium", count: nutritionFacts.potassium, unit: "mg", pct: nutritionFacts.potassiumDailyPct)
                     }
                 }.frame(alignment: .top)
                     .offset(y: 20)
@@ -75,7 +76,7 @@ struct NutritionFactsView: View {
 
 struct BottomSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        NutritionFactsView(showNutrients: .constant(true))
+        NutritionFactsView(showNutrients: .constant(true), nutritionFacts: NutritionFacts())
     }
 }
 

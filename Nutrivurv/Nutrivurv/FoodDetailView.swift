@@ -12,6 +12,7 @@ struct FoodDetailView: View {
     @ObservedObject var currentDailyMacros: DailyMacros
     @ObservedObject var newDailyMacros: DailyMacros
     @ObservedObject var foodItemMacros: DailyMacros
+    @ObservedObject var nutritionFacts: NutritionFacts
     
     var foodName: String = ""
     var brandName: String = ""
@@ -192,7 +193,7 @@ struct FoodDetailView: View {
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros(), foodItemMacros: DailyMacros())
+        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros(), foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts())
     }
 }
 
