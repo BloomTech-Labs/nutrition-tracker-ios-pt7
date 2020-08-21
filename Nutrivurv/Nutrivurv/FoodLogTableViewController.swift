@@ -296,17 +296,24 @@ class FoodLogTableViewController: UITableViewController {
         
         guard let entry = foodEntry else { return }
         
-        if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
-            detailVC.searchController = foodSearchController
-            detailVC.foodLogEntry = entry
-            detailVC.fromLog = true
-            detailVC.selectedFoodEntryIndex = indexPath.row
-            detailVC.delegate = self
+//        if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
+//            detailVC.searchController = foodSearchController
+//            detailVC.foodLogEntry = entry
+//            detailVC.fromLog = true
+//            detailVC.selectedFoodEntryIndex = indexPath.row
+//            detailVC.delegate = self
+//
+//            detailVC.title = "Today's \(entry.mealType.capitalized)"
+//
+//            detailVC.modalPresentationStyle = .fullScreen
+//            navigationController?.pushViewController(detailVC, animated: true)
+//        }
+        
+        if let detailvc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "SwiftUIFoodDetail") as? SwiftUIDetailViewController {
+            detailvc.foodLogEntry = entry
             
-            detailVC.title = "Today's \(entry.mealType.capitalized)"
-            
-            detailVC.modalPresentationStyle = .fullScreen
-            navigationController?.pushViewController(detailVC, animated: true)
+            detailvc.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(detailvc, animated: true)
         }
     }
     

@@ -301,11 +301,7 @@
                                 <action selector="logoutButtonTapped:" destination="vsF-rt-EXg" id="4bd-qj-xEx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="detail" id="s1u-Vz-NHU">
-                            <connections>
-                                <segue destination="HUf-V8-zA8" kind="show" id="aju-e5-j4B"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="detail" id="s1u-Vz-NHU"/>
                     </navigationItem>
                     <connections>
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
@@ -1025,12 +1021,12 @@
         <!--SwiftUI Detail View Controller-->
         <scene sceneID="3q0-no-ZbL">
             <objects>
-                <hostingController id="HUf-V8-zA8" customClass="SwiftUIDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <hostingController storyboardIdentifier="SwiftUIFoodDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HUf-V8-zA8" customClass="SwiftUIDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="95p-pI-CGg"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69n-Q3-zjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12905.797101449276" y="-1487.2767857142856"/>
+            <point key="canvasLocation" x="11958" y="-1526"/>
         </scene>
         <!--Main-->
         <scene sceneID="grQ-MA-3ap">

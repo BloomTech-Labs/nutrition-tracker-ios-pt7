@@ -69,7 +69,7 @@ struct FoodDetailsInputViewDouble: View {
                 .frame(height: 13)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 4, trailing: 0))
 
-            Text("\(inputDouble)")
+            Text("\(String(format: "%.1f", inputDouble))")
                 .font(Font.custom("Catamaran-SemiBold", size: 16))
                 .frame(width: 90, height: 31)
 

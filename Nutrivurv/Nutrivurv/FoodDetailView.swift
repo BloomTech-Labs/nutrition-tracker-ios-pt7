@@ -11,6 +11,7 @@ import SwiftUI
 struct FoodDetailView: View {
     @ObservedObject var currentDailyMacros: DailyMacros
     @ObservedObject var newDailyMacros: DailyMacros
+    @ObservedObject var foodItemMacros: DailyMacros
     
     var foodName: String = ""
     var brandName: String = ""
@@ -47,7 +48,7 @@ struct FoodDetailView: View {
                     VStack {
                         
                         HStack {
-                            TableViewSectionHeader(dailyMacrosModel: DailyMacros())
+                            TableViewSectionHeader(dailyMacrosModel: foodItemMacros)
                                 .scaleEffect(1.10)
                                 .frame(width: 245, height: 43)
                             
@@ -107,26 +108,26 @@ struct FoodDetailView: View {
                                 //                            Spacer()
                                 //                            MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
                                 
-                                MacrosDetailView(count: currentProgresss ? 689 : 1178, progressPercent: currentProgresss ? 29 : 46, macroDescription: " cals", uiColor: caloriesColor)
+                                MacrosDetailView(count: currentProgresss ? currentDailyMacros.caloriesCount : newDailyMacros.caloriesCount, progressPercent: currentProgresss ? currentDailyMacros.caloriesPercent : newDailyMacros.caloriesPercent, macroDescription: " cals", uiColor: caloriesColor)
                                 
-                                MacrosDetailView(count: currentProgresss ? 120 : 189, progressPercent: currentProgresss ? 48 : 73, macroDescription: "g carbs", uiColor: carbsColor)
+                                MacrosDetailView(count: currentProgresss ? currentDailyMacros.carbsCount : newDailyMacros.carbsCount, progressPercent: currentProgresss ? currentDailyMacros.carbsPercent : newDailyMacros.carbsPercent, macroDescription: "g carbs", uiColor: carbsColor)
                                 
-                                MacrosDetailView(count: currentProgresss ? 98 : 126, progressPercent: currentProgresss ? 72 : 88,macroDescription: "g protein", uiColor: proteinColor)
+                                MacrosDetailView(count: currentProgresss ? currentDailyMacros.proteinCount : newDailyMacros.proteinCount, progressPercent: currentProgresss ? currentDailyMacros.proteinPercent : newDailyMacros.proteinPercent, macroDescription: "g protein", uiColor: proteinColor)
                                 
-                                MacrosDetailView(count: currentProgresss ? 82 : 106, progressPercent: currentProgresss ? 28 : 54,macroDescription: "g fat", uiColor: fatColor)
+                                MacrosDetailView(count: currentProgresss ? currentDailyMacros.fatCount : newDailyMacros.fatCount, progressPercent: currentProgresss ? currentDailyMacros.fatPercent : newDailyMacros.fatPercent, macroDescription: "g fat", uiColor: fatColor)
                                 
                             }
                             .frame(width: UIScreen.main.bounds.width - 58, height: 97)
                             .offset(x: -4, y: currentProgresss ? -20 : 0)
                             
                             HStack(spacing: 6) {
-                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 1, percentDifference: 4)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 1, percentDifference: Int(newDailyMacros.caloriesPercent - currentDailyMacros.caloriesPercent))
                                 Spacer()
-                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 2, percentDifference: 3)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 2, percentDifference: Int(newDailyMacros.carbsPercent - currentDailyMacros.carbsPercent))
                                 Spacer()
-                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 3, percentDifference: 9)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 3, percentDifference: Int(newDailyMacros.proteinPercent - currentDailyMacros.proteinPercent))
                                 Spacer()
-                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 4, percentDifference: 2)
+                                BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 4, percentDifference: Int(newDailyMacros.fatPercent - currentDailyMacros.fatPercent))
                             }
                             .frame(width: UIScreen.main.bounds.width - 80, height: 46, alignment: .center)
                             .padding(EdgeInsets(top: 0, leading: 37, bottom: 104, trailing: 0))
@@ -158,8 +159,6 @@ struct FoodDetailView: View {
                                 
                                 if self.bottomCardState.height < -180 { return }
                                 self.bottomCardState = value.translation
-                                
-                                print(self.bottomCardState)
                             }
                             .onEnded { value in
                                 if self.showNutrients {
@@ -183,7 +182,7 @@ struct FoodDetailView: View {
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros())
+        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros(), foodItemMacros: DailyMacros())
     }
 }
 

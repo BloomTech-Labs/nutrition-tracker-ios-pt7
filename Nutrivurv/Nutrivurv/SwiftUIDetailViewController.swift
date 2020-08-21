@@ -34,23 +34,19 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         newMacros.fatCount = currentMacros.fatCount
         newMacros.fatPercent = currentMacros.fatPercent
         
-        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros))
+        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros, foodItemMacros: DailyMacros()))
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
-        
-        if foodLogEntry != nil {
-            setupViewForExistingEntry()
-        } else {
-            setupViewForNewEntry()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        
+        setupViewForExistingEntry()
     }
     
     private func setupViewForExistingEntry() {
@@ -62,12 +58,24 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         rootView.foodName = foodLogEntry.foodName.capitalized
         rootView.brandName = "Generic Brand"
         
+        rootView.foodItemMacros.caloriesCount = CGFloat(foodLogEntry.calories)
+        
+        if let carbsCount = Double(foodLogEntry.carbs) {
+            rootView.foodItemMacros.carbsCount = CGFloat(carbsCount)
+        }
+        
+        if let proteinCount = Double(foodLogEntry.protein) {
+            rootView.foodItemMacros.proteinCount = CGFloat(proteinCount)
+        }
+        
+        if let fatCount = Double(foodLogEntry.fat) {
+            rootView.foodItemMacros.fatCount = CGFloat(fatCount)
+        }
+        
         if let quantity = Double(foodLogEntry.quantity) {
             rootView.quantity = quantity
         }
-        
         rootView.servingSize = foodLogEntry.measurementName.capitalized
-        
         rootView.mealType = foodLogEntry.mealType.capitalized
     }
     
