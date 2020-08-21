@@ -67,17 +67,21 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         rootView.brandName = "Generic Brand"
         
         rootView.foodItemMacros.caloriesCount = CGFloat(foodLogEntry.calories)
+        rootView.newDailyMacros.caloriesCount += rootView.foodItemMacros.caloriesCount
         
         if let carbsCount = Double(foodLogEntry.carbs) {
             rootView.foodItemMacros.carbsCount = CGFloat(carbsCount)
+            rootView.newDailyMacros.carbsCount += rootView.foodItemMacros.carbsCount
         }
         
         if let proteinCount = Double(foodLogEntry.protein) {
             rootView.foodItemMacros.proteinCount = CGFloat(proteinCount)
+            rootView.newDailyMacros.proteinCount += rootView.foodItemMacros.proteinCount
         }
         
         if let fatCount = Double(foodLogEntry.fat) {
             rootView.foodItemMacros.fatCount = CGFloat(fatCount)
+            rootView.newDailyMacros.fatCount += rootView.foodItemMacros.fatCount
         }
         
         if let quantity = Double(foodLogEntry.quantity) {
