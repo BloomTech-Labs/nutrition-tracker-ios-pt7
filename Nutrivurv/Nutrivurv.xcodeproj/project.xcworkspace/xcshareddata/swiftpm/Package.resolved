@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "SwiftUICharts",
-        "repositoryURL": "https://github.com/AppPear/ChartView",
-        "state": {
-          "branch": null,
-          "revision": "4699847a9ac0c694666cea3acef133498952566e",
-          "version": "1.5.4"
-        }
-      },
-      {
         "package": "KeychainSwift",
         "repositoryURL": "https://github.com/evgenyneu/keychain-swift.git",
         "state": {
@@ -26,6 +17,24 @@
           "branch": null,
           "revision": "4e5877425dae5c10792fc9d22d53dc6bf6824dc1",
           "version": "3.1.8"
+        }
+      },
+      {
+        "package": "SkeletonUI",
+        "repositoryURL": "https://github.com/CSolanaM/SkeletonUI.git",
+        "state": {
+          "branch": null,
+          "revision": "66d5cb91c1067a0bbb0afae722252f60ecb10550",
+          "version": "1.0.4"
+        }
+      },
+      {
+        "package": "SnapshotTesting",
+        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing",
+        "state": {
+          "branch": null,
+          "revision": "c466812aa2e22898f27557e2e780d3aad7a27203",
+          "version": "1.8.2"
         }
       }
     ]

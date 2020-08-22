@@ -23,6 +23,7 @@
 		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
 		5127B4C424F0AC380099519A /* BottomSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5127B4C324F0AC380099519A /* BottomSheetModal.swift */; };
 		5127B4C724F0AC9B0099519A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5127B4C624F0AC9B0099519A /* ViewExtensions.swift */; };
+		5127B4CA24F0D6B40099519A /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5127B4C924F0D6B40099519A /* SkeletonUI */; };
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
 		512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE924CFD1B700B542B3 /* FoodLog.swift */; };
@@ -250,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5127B4CA24F0D6B40099519A /* SkeletonUI in Frameworks */,
 				9229361924DF1E5000324D95 /* HealthKit.framework in Frameworks */,
 				5139B8FC24E380850086802F /* SwiftUICharts in Frameworks */,
 				D60BA2D523FF79AD00B3E6BF /* KeychainSwift in Frameworks */,
@@ -763,6 +765,7 @@
 				D60BA2D423FF79AD00B3E6BF /* KeychainSwift */,
 				512FF46B24DB60BD00F49FCB /* Lottie */,
 				5139B8FB24E380850086802F /* SwiftUICharts */,
+				5127B4C924F0D6B40099519A /* SkeletonUI */,
 			);
 			productName = "Nutrition Tracker";
 			productReference = D68C701A23F25400008AFDF0 /* Nutrivurv.app */;
@@ -797,6 +800,7 @@
 				D60BA2D323FF79AC00B3E6BF /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				5139B8FA24E380850086802F /* XCRemoteSwiftPackageReference "ChartView" */,
+				5127B4C824F0D6B40099519A /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 			);
 			productRefGroup = D68C701B23F25400008AFDF0 /* Products */;
 			projectDirPath = "";
@@ -1169,6 +1173,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5127B4C824F0D6B40099519A /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 		512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -1196,6 +1208,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5127B4C924F0D6B40099519A /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5127B4C824F0D6B40099519A /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
 		512FF46B24DB60BD00F49FCB /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 512FF46A24DB60BD00F49FCB /* XCRemoteSwiftPackageReference "lottie-ios" */;
