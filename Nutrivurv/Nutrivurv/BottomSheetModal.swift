@@ -13,7 +13,7 @@ struct BottomSheetModal<Content: View>: View {
 
   private let modalHeight: CGFloat = 360
   private let modalWidth: CGFloat = UIScreen.main.bounds.width
-  private let modalCornerRadius: CGFloat = 10
+  private let modalCornerRadius: CGFloat = 30
   private let backgroundOpacity = 0.65
   private let dragIndicatorVerticalPadding: CGFloat = 20
 
@@ -80,13 +80,13 @@ struct BottomSheetModal<Content: View>: View {
 }
 
 struct DragIndicator: View {
-  private let width: CGFloat = 60
+  private let width: CGFloat = 40
   private let height: CGFloat = 6
-  private let cornerRadius: CGFloat = 4
+  private let cornerRadius: CGFloat = 3
 
   var body: some View {
     Rectangle()
-      .fill(Color.black)
+      .fill(Color.black.opacity(0.08))
       .frame(width: width, height: height)
       .cornerRadius(cornerRadius)
   }
