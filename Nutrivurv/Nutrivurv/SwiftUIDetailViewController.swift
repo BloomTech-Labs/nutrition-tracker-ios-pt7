@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import Combine
+import SkeletonUI
 
 class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     
@@ -108,7 +109,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         fetchNutrientDetails()
         
-        rootView.navigationBarTitle = "your \(foodLogEntry.mealType)"
+        rootView.navigationBarTitle = "\(foodLogEntry.mealType)"
 
         rootView.foodName = foodLogEntry.foodName.capitalized
         rootView.brandName = "Generic Brand"
@@ -148,6 +149,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     }
     
     private func fetchNutrientDetails() {
+        rootView.nutritionFacts.isLoading = true
+        
         if let foodItem = foodItem {
             print(foodItem)
 //            guard let servingSize = selectedServingSize, let quantity = quantityInputValue else {
@@ -230,6 +233,10 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         if let potassium = nutrientCounts.K?.quantity, let potassiumPct = dailyPcts.K?.quantity {
             rootView.nutritionFacts.potassium = potassium
             rootView.nutritionFacts.potassiumDailyPct = potassiumPct
+        }
+        
+        DispatchQueue.main.async {
+            self.rootView.nutritionFacts.isLoading = false
         }
     }
 }

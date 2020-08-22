@@ -365,7 +365,6 @@
 		512F461424DE1AFC0097F9B4 /* Sub Views */ = {
 			isa = PBXGroup;
 			children = (
-				5127B4C524F0AC730099519A /* Helpers & Extensions */,
 				518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */,
 				512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */,
 				51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */,
@@ -471,10 +470,11 @@
 		518F2CE924DDEDE900A438C4 /* Food Detail View */ = {
 			isa = PBXGroup;
 			children = (
-				51D5B97F24F02318008B67C9 /* Models */,
 				515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */,
 				9262EB2624DF77FB006AC540 /* NutritionFactsView.swift */,
 				512F461424DE1AFC0097F9B4 /* Sub Views */,
+				51D5B97F24F02318008B67C9 /* Models */,
+				5127B4C524F0AC730099519A /* Helpers & Extensions */,
 			);
 			name = "Food Detail View";
 			sourceTree = "<group>";
