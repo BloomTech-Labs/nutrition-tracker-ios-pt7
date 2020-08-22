@@ -196,7 +196,7 @@ struct FoodDetailView: View {
             
             BottomSheetModal(display: $showQuantityInputView) {
                 TextField("Quantity", text: self.$quantity)
-            }
+            }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
         }
     }
 }
