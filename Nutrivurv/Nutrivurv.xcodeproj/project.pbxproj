@@ -21,6 +21,8 @@
 		511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511285E424D368C30080127B /* MealTypeHeaderLabel.swift */; };
 		51257AE824A2E51200C744B7 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserController.swift */; };
 		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
+		5127B4C424F0AC380099519A /* BottomSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5127B4C324F0AC380099519A /* BottomSheetModal.swift */; };
+		5127B4C724F0AC9B0099519A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5127B4C624F0AC9B0099519A /* ViewExtensions.swift */; };
 		512970C324B1324900315C7B /* RingsAndMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512970C224B1324900315C7B /* RingsAndMacrosView.swift */; };
 		512C3FE724CFCD6C00B542B3 /* FoodLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */; };
 		512C3FEA24CFD1B700B542B3 /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C3FE924CFD1B700B542B3 /* FoodLog.swift */; };
@@ -139,6 +141,8 @@
 		511285E424D368C30080127B /* MealTypeHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeHeaderLabel.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		5127B4C324F0AC380099519A /* BottomSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetModal.swift; sourceTree = "<group>"; };
+		5127B4C624F0AC9B0099519A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		512970C224B1324900315C7B /* RingsAndMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsAndMacrosView.swift; sourceTree = "<group>"; };
 		512C3FE624CFCD6C00B542B3 /* FoodLogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogEntry.swift; sourceTree = "<group>"; };
 		512C3FE924CFD1B700B542B3 /* FoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
@@ -301,6 +305,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		5127B4C524F0AC730099519A /* Helpers & Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5127B4C324F0AC380099519A /* BottomSheetModal.swift */,
+				5127B4C624F0AC9B0099519A /* ViewExtensions.swift */,
+			);
+			name = "Helpers & Extensions";
+			sourceTree = "<group>";
+		};
 		512CA6A924DA4CE600B17010 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +363,7 @@
 		512F461424DE1AFC0097F9B4 /* Sub Views */ = {
 			isa = PBXGroup;
 			children = (
+				5127B4C524F0AC730099519A /* Helpers & Extensions */,
 				518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */,
 				512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */,
 				51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */,
@@ -889,6 +903,7 @@
 				D68C703B23F3B14D008AFDF0 /* LoginViewController.swift in Sources */,
 				514EF50424D00B2E0097C309 /* DateFormatter.swift in Sources */,
 				4C9F30BF24528F1200CE14CA /* Food.swift in Sources */,
+				5127B4C424F0AC380099519A /* BottomSheetModal.swift in Sources */,
 				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,
 				D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */,
 				D6A1CC33240B38E800477429 /* CalculateBMIViewController.swift in Sources */,
@@ -897,6 +912,7 @@
 				D631B2712415BB0900AE30C9 /* StandardBMIViewController.swift in Sources */,
 				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,
 				51E4C4A024A1A781004834C8 /* StringHelperFunctions.swift in Sources */,
+				5127B4C724F0AC9B0099519A /* ViewExtensions.swift in Sources */,
 				5138FEFA24D4ED81008FC720 /* TableViewSectionHeader.swift in Sources */,
 				D60BA2D023FCF4D700B3E6BF /* CustomTextField.swift in Sources */,
 				51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */,
