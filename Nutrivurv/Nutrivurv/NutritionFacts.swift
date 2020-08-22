@@ -112,4 +112,10 @@ class NutritionFacts: ObservableObject {
             objectWillChange.send(newValue)
         }
     }
+    
+    @Published var isLoading: Bool = true {
+        willSet {
+            objectWillChange.send(newValue)
+        }
+    }
 }

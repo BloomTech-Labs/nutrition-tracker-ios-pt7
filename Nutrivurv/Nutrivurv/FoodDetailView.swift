@@ -15,8 +15,6 @@ struct FoodDetailView: View {
     @ObservedObject var foodItemMacros: DailyMacros
     @ObservedObject var nutritionFacts: NutritionFacts
     
-    @State var loadingNutritionFacts: Bool = false
-    
     var foodName: String = ""
     var brandName: String = ""
     
@@ -60,6 +58,7 @@ struct FoodDetailView: View {
                         RoundedRectangle(cornerRadius: 30.0, style: .continuous)
                             .foregroundColor(Color(bgColor))
                             .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
+                            .animation(.easeInOut)
                         
                         VStack {
                             
@@ -121,14 +120,6 @@ struct FoodDetailView: View {
                             
                             ZStack {
                                 HStack(spacing: 20) {
-                                    //                            MacrosDetailView(count: dailyMacros.caloriesCount, progressPercent: dailyMacros.caloriesPercent, uiColor: UIColor(named: "nutrivurv-blue-new")!)
-                                    //                            Spacer()
-                                    //                            MacrosDetailView(count: dailyMacros.carbsCount, progressPercent: dailyMacros.carbsPercent, uiColor: UIColor(named: "nutrivurv-green-new")!)
-                                    //                            Spacer()
-                                    //                            MacrosDetailView(count: dailyMacros.proteinCount, progressPercent: dailyMacros.proteinPercent, uiColor: UIColor(named: "nutrivurv-orange-new")!)
-                                    //                            Spacer()
-                                    //                            MacrosDetailView(count: dailyMacros.fatCount, progressPercent: dailyMacros.fatPercent, uiColor: UIColor(named: "nutrivurv-red-new")!)
-                                    
                                     MacrosDetailView(count: currentProgresss ? currentDailyMacros.caloriesCount : newDailyMacros.caloriesCount, progressPercent: currentProgresss ? currentDailyMacros.caloriesPercent : newDailyMacros.caloriesPercent, macroDescription: " cals", uiColor: caloriesColor)
                                     
                                     MacrosDetailView(count: currentProgresss ? currentDailyMacros.carbsCount : newDailyMacros.carbsCount, progressPercent: currentProgresss ? currentDailyMacros.carbsPercent : newDailyMacros.carbsPercent, macroDescription: "g carbs", uiColor: carbsColor)
@@ -154,23 +145,27 @@ struct FoodDetailView: View {
                                 .padding(EdgeInsets(top: 0, leading: 37, bottom: 104, trailing: 0))
                             }
                         }
-                        .animation(.easeInOut)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                         .offset(x: 0, y: -30)
+                        .animation(.easeInOut)
                         
-                        NutritionFactsView(showNutrients: $showNutrients, nutritionFacts: nutritionFacts, loadingNutritionFacts: $loadingNutritionFacts)
+                        NutritionFactsView(showNutrients: $showNutrients, nutritionFacts: nutritionFacts)
                             .offset(y: showNutrients ? 165 : 358)
                             .offset(y: self.bottomCardState.height)
                             .gesture(
                                 DragGesture().onChanged { value in
                                     if self.showNutrients {
                                         guard value.translation.height > -60 else {
-                                            self.bottomCardState = .zero
+                                            withAnimation(.easeInOut) {
+                                                self.bottomCardState = .zero
+                                            }
                                             return
                                         }
                                         if self.bottomCardState.height > 180 {
-                                            self.bottomCardState = .zero
-                                            self.showNutrients.toggle()
+                                            withAnimation(.easeInOut) {
+                                                self.bottomCardState = .zero
+                                                self.showNutrients.toggle()
+                                            }
                                             return
                                         }
                                     } else {
@@ -178,18 +173,27 @@ struct FoodDetailView: View {
                                     }
 
                                     if self.bottomCardState.height < -180 { return }
-                                    self.bottomCardState = value.translation
+                                        withAnimation(.easeInOut) {
+                                        self.bottomCardState = value.translation
+                                    }
                                 }
                                 .onEnded { value in
                                     if self.showNutrients {
                                         if value.translation.height < 0 { return }
                                     }
                                     if self.bottomCardState.height < -120 {
-                                        self.showNutrients = true
+                                        withAnimation(.easeInOut) {
+                                            self.showNutrients = true
+                                        }
                                     } else {
-                                        self.showNutrients = false
+                                        withAnimation(.easeInOut) {
+                                            self.showNutrients = false
+                                        }
                                     }
-                                    self.bottomCardState = .zero
+                                    
+                                    withAnimation(.easeInOut) {
+                                        self.bottomCardState = .zero
+                                    }
                             })
                     }
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .bottom)
