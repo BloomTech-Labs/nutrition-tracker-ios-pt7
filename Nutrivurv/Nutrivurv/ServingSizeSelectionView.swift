@@ -27,9 +27,13 @@ struct ServingSizeSelectionView: View {
                 self.showQuantityInputView.toggle()
             }
             Spacer()
-            FoodDetailsInputViewString(label: servingSizeLabel, inputString: $selectedServingSize)
+            FoodDetailsInputViewString(label: servingSizeLabel, inputString: $selectedServingSize).onTapGesture {
+                self.showServingSizeInputView.toggle()
+            }
             Spacer()
-            FoodDetailsInputViewString(label: mealTypeLabel, inputString: $selectedMealType)
+            FoodDetailsInputViewString(label: mealTypeLabel, inputString: $selectedMealType).onTapGesture {
+                self.showMealTypeInputView.toggle()
+            }
         }
     }
 }

@@ -7,12 +7,15 @@
 //
 
 import SwiftUI
+import SkeletonUI
 
 struct FoodDetailView: View {
     @ObservedObject var currentDailyMacros: DailyMacros
     @ObservedObject var newDailyMacros: DailyMacros
     @ObservedObject var foodItemMacros: DailyMacros
     @ObservedObject var nutritionFacts: NutritionFacts
+    
+    @State var loadingNutritionFacts: Bool = false
     
     var foodName: String = ""
     var brandName: String = ""
@@ -24,6 +27,8 @@ struct FoodDetailView: View {
     @State var showQuantityInputView: Bool = false
     @State var showServingSizeInputView: Bool = false
     @State var showMealTypeInputView: Bool = false
+    
+    var servingSizes: [Measure] = []
     
     var foodImage: UIImage = UIImage(named: "cutting-board")!
     
@@ -149,10 +154,11 @@ struct FoodDetailView: View {
                                 .padding(EdgeInsets(top: 0, leading: 37, bottom: 104, trailing: 0))
                             }
                         }
+                        .animation(.easeInOut)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                         .offset(x: 0, y: -30)
                         
-                        NutritionFactsView(showNutrients: $showNutrients, nutritionFacts: nutritionFacts)
+                        NutritionFactsView(showNutrients: $showNutrients, nutritionFacts: nutritionFacts, loadingNutritionFacts: $loadingNutritionFacts)
                             .offset(y: showNutrients ? 165 : 358)
                             .offset(y: self.bottomCardState.height)
                             .gesture(
@@ -170,9 +176,7 @@ struct FoodDetailView: View {
                                     } else {
                                         guard value.translation.height < 55 else { return }
                                     }
-                                    
-                                    
-                                    
+
                                     if self.bottomCardState.height < -180 { return }
                                     self.bottomCardState = value.translation
                                 }
@@ -190,12 +194,19 @@ struct FoodDetailView: View {
                     }
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .bottom)
                     .offset(y: showNutrients ? -180 : -40)
-                    .animation(.easeInOut)
                 }
             }.navigationBarTitle(Text(navigationBarTitle), displayMode: .inline)
             
             BottomSheetModal(display: $showQuantityInputView) {
                 TextField("Quantity", text: self.$quantity)
+            }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+            
+            BottomSheetModal(display: $showServingSizeInputView) {
+                TextField("Serving Size", text: self.$quantity)
+            }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+            
+            BottomSheetModal(display: $showMealTypeInputView) {
+                TextField("Meal Type", text: self.$mealType)
             }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
         }
     }

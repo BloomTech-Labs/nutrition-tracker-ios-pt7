@@ -7,10 +7,12 @@
 //
 
 import SwiftUI
+import SkeletonUI
 
 struct NutritionFactsView: View {
     @Binding var showNutrients: Bool
     @ObservedObject var nutritionFacts: NutritionFacts
+    @Binding var loadingNutritionFacts: Bool
     
     var bgColor = UIColor(named: "nutrition-facts-bg")!
     var shadowColor = UIColor(named: "detail-view-card-shadow")!
@@ -34,6 +36,12 @@ struct NutritionFactsView: View {
                         .frame(width: UIScreen.main.bounds.width - 60, alignment: .leading)
                     
                     NutrientView(name: "Calories", count: nutritionFacts.calories, unit: "", pct: nil)
+                        .skeleton(with: loadingNutritionFacts)
+                        .shape(type: .capsule)
+                        .appearance(type: .gradient())
+                        .animation(type: .linear())
+                        .frame(width: UIScreen.main.bounds.width - 50, height: 26)
+                        
                     
                     Text("% Daily Value *")
                         .font(Font.custom("QuattrocentoSans-Italic", size: 12))
@@ -42,24 +50,74 @@ struct NutritionFactsView: View {
                     // Maximum of 10 components per view
                     VStack(spacing: 8) {
                         NutrientView(name: "Total Fat", count: nutritionFacts.totalFat, unit: "g", pct: nutritionFacts.totalFatDailyPct)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Sodium", count: nutritionFacts.sodium, unit: "mg", pct: nutritionFacts.sodiumDailyPct)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Total Carbohydrate", count: nutritionFacts.totalCarb, unit: "g", pct: nil)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Cholesterol", count: nutritionFacts.cholesterol, unit: "mg", pct: nutritionFacts.cholesterolDailyPct)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Sugar", count: nutritionFacts.sugar, unit: "g", pct: nil)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Protein", count: nutritionFacts.protein, unit: "g", pct: nil)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Vitamin D", count: nutritionFacts.vitaminD, unit: "µg", pct: nutritionFacts.vitaminDDailyPct)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Calcium", count: nutritionFacts.calcium, unit: "mg", pct: nutritionFacts.calciumDailyPct)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Iron", count: nutritionFacts.iron, unit: "mg", pct: nutritionFacts.ironDailyPct)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                         
                         NutrientView(name: "Potassium", count: nutritionFacts.potassium, unit: "mg", pct: nutritionFacts.potassiumDailyPct)
+                            .skeleton(with: loadingNutritionFacts)
+                            .shape(type: .capsule)
+                            .appearance(type: .gradient())
+                            .animation(type: .linear())
+                            .frame(width: UIScreen.main.bounds.width - 50, height: 26)
                     }
                 }.frame(alignment: .top)
                     .offset(y: 20)
@@ -76,7 +134,7 @@ struct NutritionFactsView: View {
 
 struct BottomSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        NutritionFactsView(showNutrients: .constant(true), nutritionFacts: NutritionFacts())
+        NutritionFactsView(showNutrients: .constant(true), nutritionFacts: NutritionFacts(), loadingNutritionFacts: .constant(true))
     }
 }
 
