@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     
@@ -114,9 +115,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         updateMacrosForExistingEntry()
         
-        if let quantity = Double(foodLogEntry.quantity) {
-            rootView.quantity = quantity
-        }
+        rootView.quantity = foodLogEntry.quantity
+        
         rootView.servingSize = foodLogEntry.measurementName.capitalized
         rootView.mealType = foodLogEntry.mealType.capitalized
     }
@@ -127,7 +127,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             return
         }
         
-        rootView.quantity = 1.0
+        rootView.quantity = "1.0"
         if let servingSize = foodItem.measures.first?.label {
             rootView.servingSize = servingSize.capitalized
         }
