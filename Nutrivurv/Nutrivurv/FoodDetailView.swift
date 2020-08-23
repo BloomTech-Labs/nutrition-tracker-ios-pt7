@@ -16,19 +16,18 @@ struct FoodDetailView: View {
     @ObservedObject var newDailyMacros: DailyMacros
     @ObservedObject var foodItemMacros: DailyMacros
     @ObservedObject var nutritionFacts: NutritionFacts
+    @ObservedObject var servingSizes: ServingSizes
     
     var foodName: String = ""
     var brandName: String = ""
     
     @State var quantity: String = "1.0"
-    @State var servingSize: String = "Serving"
+    @State var selectedServingSize: String = "Serving"
     @State var mealType: String = "Breakfast"
     
     @State var showQuantityInputView: Bool = false
     @State var showServingSizeInputView: Bool = false
     @State var showMealTypeInputView: Bool = false
-    
-    var servingSizes: [Measure] = []
     
     var foodImage: UIImage = UIImage(named: "cutting-board")!
     
@@ -120,7 +119,7 @@ struct FoodDetailView: View {
                             .padding(EdgeInsets(top: -5, leading: 0, bottom: 6, trailing: 0))
                             
                             
-                            MealDetailsSelectionView(selectedQuantity: $quantity, selectedServingSize: $servingSize, selectedMealType: $mealType, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
+                            MealDetailsSelectionView(selectedQuantity: $quantity, selectedServingSize: $selectedServingSize, selectedMealType: $mealType, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
                                 .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
                             
                             
@@ -212,11 +211,10 @@ struct FoodDetailView: View {
                 
                 QuantityInputView(showQuantity: $showQuantityInputView, showServingSizes: $showServingSizeInputView, quantity: $quantity)
                     .animation(self.springAnimation)
-                    
                 
-                BottomSheetModal(display: $showServingSizeInputView) {
-                    TextField("Serving Size", text: self.$servingSize)
-                }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+                
+                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, selectedServingSize: $selectedServingSize, servingSizes: servingSizes.measures)
+                    .animation(self.springAnimation)
                 
                 BottomSheetModal(display: $showMealTypeInputView) {
                     TextField("Meal Type", text: self.$mealType)
@@ -249,7 +247,7 @@ struct FoodDetailView: View {
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros(), foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts())
+        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros(), foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts(), servingSizes: ServingSizes())
     }
 }
 

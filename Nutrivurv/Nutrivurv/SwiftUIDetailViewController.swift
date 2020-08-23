@@ -43,7 +43,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         newMacros.fatCount = currentMacros.fatCount
         newMacros.fatPercent = currentMacros.fatPercent
         
-        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros, foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts()))
+        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros, foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts(), servingSizes: ServingSizes()))
     }
 
     override func viewDidLoad() {
@@ -128,7 +128,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         rootView.quantity = foodLogEntry.quantity
         
-        rootView.servingSize = foodLogEntry.measurementName.capitalized
+        rootView.selectedServingSize = foodLogEntry.measurementName.capitalized
         rootView.mealType = foodLogEntry.mealType.capitalized
     }
     
@@ -140,7 +140,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         rootView.quantity = "1.0"
         if let servingSize = foodItem.measures.first?.label {
-            rootView.servingSize = servingSize.capitalized
+            rootView.selectedServingSize = servingSize.capitalized
         }
         rootView.mealType = "Breakfast"
     }
@@ -244,6 +244,10 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             rootView.nutritionFacts.potassium = potassium
             rootView.nutritionFacts.potassiumDailyPct = potassiumPct
         }
+        
+        let servingSizes = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
+        
+        self.rootView.servingSizes.measures = servingSizes
         
         DispatchQueue.main.async {
             self.rootView.nutritionFacts.isLoading = false
