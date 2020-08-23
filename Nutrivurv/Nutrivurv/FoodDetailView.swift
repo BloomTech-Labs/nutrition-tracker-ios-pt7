@@ -210,9 +210,9 @@ struct FoodDetailView: View {
                     .offset(y: showNutrients ? -180 : -40)
                 }
                 
-                BottomSheetModal(display: $showQuantityInputView) {
-                    TextField("Quantity", text: self.$quantity)
-                }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+                QuantityInputView(showQuantity: $showQuantityInputView, showServingSizes: $showServingSizeInputView, quantity: $quantity)
+                    .animation(self.springAnimation)
+                    
                 
                 BottomSheetModal(display: $showServingSizeInputView) {
                     TextField("Serving Size", text: self.$quantity)
