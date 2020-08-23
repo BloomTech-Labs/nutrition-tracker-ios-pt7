@@ -16,6 +16,8 @@ struct NutritionFactsView: View {
     var bgColor = UIColor(named: "nutrition-facts-bg")!
     var shadowColor = UIColor(named: "detail-view-card-shadow")!
     
+    var multiplier = UIScreen.main.bounds.height / 750
+    
     var body: some View {
         
         ZStack {
@@ -39,7 +41,7 @@ struct NutritionFactsView: View {
                         .shape(type: .capsule)
                         .appearance(type: .gradient())
                         .animation(type: .linear())
-                        .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                        .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                     
                     Text("% Daily Value *")
@@ -54,70 +56,70 @@ struct NutritionFactsView: View {
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Sodium", count: nutritionFacts.sodium, unit: "mg", pct: nutritionFacts.sodiumDailyPct)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Total Carbohydrate", count: nutritionFacts.totalCarb, unit: "g", pct: nil)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Cholesterol", count: nutritionFacts.cholesterol, unit: "mg", pct: nutritionFacts.cholesterolDailyPct)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Sugar", count: nutritionFacts.sugar, unit: "g", pct: nil)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Protein", count: nutritionFacts.protein, unit: "g", pct: nil)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Vitamin D", count: nutritionFacts.vitaminD, unit: "µg", pct: nutritionFacts.vitaminDDailyPct)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Calcium", count: nutritionFacts.calcium, unit: "mg", pct: nutritionFacts.calciumDailyPct)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Iron", count: nutritionFacts.iron, unit: "mg", pct: nutritionFacts.ironDailyPct)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                         
                         NutrientView(name: "Potassium", count: nutritionFacts.potassium, unit: "mg", pct: nutritionFacts.potassiumDailyPct)
                             .skeleton(with: nutritionFacts.isLoading == true)
                             .shape(type: .capsule)
                             .appearance(type: .gradient())
                             .animation(type: .linear())
-                            .frame(width: UIScreen.main.bounds.width * 0.85, height: 18)
+                            .frame(width: UIScreen.main.bounds.width * 0.85, height: multiplier * 20)
                     }
                 }.frame(alignment: .top)
                     .offset(y: 20)
