@@ -109,7 +109,17 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         fetchNutrientDetails()
         
-        rootView.navigationBarTitle = "\(foodLogEntry.mealType)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
+        if let date = dateFormatter.date(from: foodLogEntry.date) {
+            dateFormatter.dateFormat = "E M/d"
+            let mealDate = dateFormatter.string(from: date)
+            rootView.navigationBarTitle = "\(foodLogEntry.mealType) - \(mealDate)"
+        } else {
+            rootView.navigationBarTitle = "\(foodLogEntry.mealType) details"
+        }
 
         rootView.foodName = foodLogEntry.foodName.capitalized
         rootView.brandName = "Generic Brand"

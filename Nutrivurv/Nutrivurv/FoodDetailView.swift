@@ -89,14 +89,14 @@ struct FoodDetailView: View {
                                 VStack{
                                     Text(foodName)
                                         .font(Font.custom("Catamaran-Bold", size: 20))
-                                        .frame(width: 160, alignment: .leading)
+                                        .frame(width: 280, alignment: .leading)
                                         .minimumScaleFactor(0.6)
                                         .lineLimit(1)
                                         .multilineTextAlignment(.leading)
                                     
                                     Text(brandName)
                                         .font(Font.custom("QuattrocentoSans-Italic", size: 15))
-                                        .frame(width: 160, alignment: .leading)
+                                        .frame(width: 280, alignment: .leading)
                                         .minimumScaleFactor(0.6)
                                         .lineLimit(1)
                                         .padding(.top, -5)
@@ -216,7 +216,7 @@ struct FoodDetailView: View {
                 
             }
         }
-        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarTitle(navigationBarTitle)
         .background(Color(UIColor(named: "bg-color")!))
         .statusBar(hidden: true)
     }
