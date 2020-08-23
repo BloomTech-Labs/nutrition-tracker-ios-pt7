@@ -27,6 +27,8 @@ struct FoodDetailView: View {
     @State var servingSizeIndex: Int = 0
     
     @State var mealType: String = "Breakfast"
+    @State var mealTypeIndex: Int = 0
+    var allMealTypes: [MealType] = MealType.allCases
     
     @State var showQuantityInputView: Bool = false
     @State var showServingSizeInputView: Bool = false
@@ -221,9 +223,8 @@ struct FoodDetailView: View {
                 ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $servingSizeIndex, servingSizes: servingSizes.measures, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
-                BottomSheetModal(display: $showMealTypeInputView) {
-                    TextField("Meal Type", text: self.$mealType)
-                }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+                MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $mealType, selectedMealIndex: $mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
+                    .animation(self.springAnimation)
                 
             }
         }
