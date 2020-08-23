@@ -25,7 +25,11 @@ struct BottomSheetModal<Content: View>: View {
   var body: some View {
     ZStack(alignment: .bottom) {
       if display {
-        background
+        background.onTapGesture {
+            if self.display {
+                self.display = false
+            }
+        }
         modal
       }
     }
