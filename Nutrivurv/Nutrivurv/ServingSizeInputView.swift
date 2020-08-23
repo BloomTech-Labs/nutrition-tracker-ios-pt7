@@ -11,6 +11,7 @@ import SwiftUI
 struct ServingSizeInputView: View {
     @Binding var showServingSizes: Bool
     @Binding var showQuantity: Bool
+    @Binding var showMealTypes: Bool
     
     @Binding var selectedServingSize: String
     @Binding var selectedIndex: Int
@@ -31,19 +32,32 @@ struct ServingSizeInputView: View {
                     .background(Color.white.opacity(0.8))
                     .offset(y: -55)
                     
-                    Button(action: {
-                        // Dismiss the keyboard when navigating to next view
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        self.showServingSizes.toggle()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.015) {
+                    HStack {
+                        Button(action: {
                             self.showQuantity.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.015) {
+                                self.showServingSizes.toggle()
+                            }
+                        }) {
+                            Text("< Quantity")
                         }
-                    }) {
-                        Text("Serving Sizes >")
-                    }
-                    .frame(width: 180, height: 40)
-                    .background(Color.white.opacity(0.8))
-                    .offset(y: 110)
+                        .frame(width: 180, height: 40)
+                        .background(Color.white.opacity(0.8))
+                        
+                        Button(action: {
+                            self.showMealTypes.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.015) {
+                                self.showServingSizes.toggle()
+                            }
+                        }) {
+                            Text("Meal Types >")
+                        }
+                        .frame(width: 180, height: 40)
+                        .background(Color.white.opacity(0.8))
+                        
+                    }.offset(y: 110)
+                    
+                    
                 }
                 .frame(alignment: .top)
                 .offset(y: -45)
@@ -56,6 +70,6 @@ struct ServingSizeInputView_Previews: PreviewProvider {
     static var previews: some View {
         let servingSizes = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
         
-        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), selectedServingSize: .constant("Serving"), selectedIndex: .constant(0), servingSizes: servingSizes)
+        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), showMealTypes: .constant(false), selectedServingSize: .constant("Serving"), selectedIndex: .constant(0), servingSizes: servingSizes)
     }
 }

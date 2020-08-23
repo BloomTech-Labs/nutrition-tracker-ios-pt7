@@ -216,7 +216,7 @@ struct FoodDetailView: View {
                     .animation(self.springAnimation)
                 
                 
-                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, selectedServingSize: $selectedServingSize, selectedIndex: $servingSizeIndex, servingSizes: servingSizes.measures)
+                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $servingSizeIndex, servingSizes: servingSizes.measures)
                     .animation(self.springAnimation)
                 
                 BottomSheetModal(display: $showMealTypeInputView) {
