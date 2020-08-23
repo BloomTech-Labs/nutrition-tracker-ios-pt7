@@ -46,6 +46,14 @@ struct FoodDetailView: View {
     var shadowColor = UIColor(named: "detail-view-card-shadow")!
     var bgColor = UIColor(named: "detail-view-main-bg")!
     
+    var screenWidth = UIScreen.main.bounds.width
+    var screenHeight = UIScreen.main.bounds.height
+    
+    @State var keyboardOffsetValue: CGFloat = 0
+    
+    var springAnimation = Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8)
+    var shiftViewAnimation = Animation.spring(response: 0.2, dampingFraction: 0.94, blendDuration: 1.0)
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -218,7 +226,24 @@ struct FoodDetailView: View {
         }
         .navigationBarTitle(navigationBarTitle)
         .background(Color(UIColor(named: "bg-color")!))
-        .statusBar(hidden: true)
+        .offset(y: -keyboardOffsetValue * 0.75)
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (notification) in
+                let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                let height = value.height
+                
+                withAnimation(self.shiftViewAnimation) {
+                    self.keyboardOffsetValue = height
+                }
+            }
+            
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (notification) in
+                
+                withAnimation(self.shiftViewAnimation) {
+                    self.keyboardOffsetValue = 0
+                }
+            }
+        }
     }
 }
 
