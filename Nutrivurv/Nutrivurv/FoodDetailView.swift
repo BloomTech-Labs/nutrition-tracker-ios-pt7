@@ -22,7 +22,10 @@ struct FoodDetailView: View {
     var brandName: String = ""
     
     @State var quantity: String = "1.0"
+    
     @State var selectedServingSize: String = "Serving"
+    @State var servingSizeIndex: Int = 0
+    
     @State var mealType: String = "Breakfast"
     
     @State var showQuantityInputView: Bool = false
@@ -213,7 +216,7 @@ struct FoodDetailView: View {
                     .animation(self.springAnimation)
                 
                 
-                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, selectedServingSize: $selectedServingSize, servingSizes: servingSizes.measures)
+                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, selectedServingSize: $selectedServingSize, selectedIndex: $servingSizeIndex, servingSizes: servingSizes.measures)
                     .animation(self.springAnimation)
                 
                 BottomSheetModal(display: $showMealTypeInputView) {

@@ -13,6 +13,7 @@ struct ServingSizeInputView: View {
     @Binding var showQuantity: Bool
     
     @Binding var selectedServingSize: String
+    @Binding var selectedIndex: Int
     var servingSizes: [Measure]
     
     var screenWidth = UIScreen.main.bounds.width
@@ -21,7 +22,7 @@ struct ServingSizeInputView: View {
         BottomSheetModal(display: $showServingSizes) {
             VStack {
                 ZStack {
-                    ServingSizePicker(selectedItem: self.$selectedServingSize, data: self.servingSizes)
+                    ServingSizePicker(selectedIndex: self.$selectedIndex, selectedItem: self.$selectedServingSize, data: self.servingSizes)
                     
                     Text("What's the measurement?")
                     .font(.custom("QuattrocentoSans-BoldItalic", size: 18))
@@ -55,6 +56,6 @@ struct ServingSizeInputView_Previews: PreviewProvider {
     static var previews: some View {
         let servingSizes = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
         
-        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), selectedServingSize: .constant("Serving"), servingSizes: servingSizes)
+        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), selectedServingSize: .constant("Serving"), selectedIndex: .constant(0), servingSizes: servingSizes)
     }
 }

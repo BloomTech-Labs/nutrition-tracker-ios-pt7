@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ServingSizePicker: UIViewRepresentable {
     
-    @State var selectedIndex: Int = 0
+    @Binding var selectedIndex: Int
     @Binding var selectedItem: String
     var data: [Measure] = []
     
