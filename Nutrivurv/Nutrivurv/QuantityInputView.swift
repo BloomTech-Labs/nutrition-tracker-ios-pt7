@@ -11,11 +11,8 @@ import SwiftUI
 struct QuantityInputView: View {
     @Binding var showQuantity: Bool
     @Binding var showServingSizes: Bool
-//    @Binding var showMealTypes: Bool
     
     @Binding var quantity: String
-//    @Binding var servingSize: String
-//    @Binding var mealType: String
     
     var screenWidth = UIScreen.main.bounds.width
     

@@ -120,7 +120,7 @@ struct FoodDetailView: View {
                             .padding(EdgeInsets(top: -5, leading: 0, bottom: 6, trailing: 0))
                             
                             
-                            ServingSizeSelectionView(selectedQuantity: $quantity, selectedServingSize: $servingSize, selectedMealType: $mealType, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
+                            MealDetailsSelectionView(selectedQuantity: $quantity, selectedServingSize: $servingSize, selectedMealType: $mealType, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
                                 .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
                             
                             
@@ -215,7 +215,7 @@ struct FoodDetailView: View {
                     
                 
                 BottomSheetModal(display: $showServingSizeInputView) {
-                    TextField("Serving Size", text: self.$quantity)
+                    TextField("Serving Size", text: self.$servingSize)
                 }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
                 
                 BottomSheetModal(display: $showMealTypeInputView) {

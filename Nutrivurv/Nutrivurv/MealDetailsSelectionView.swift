@@ -1,5 +1,5 @@
 //
-//  ServingSizeSelectionView.swift
+//  MealDetailsSelectionView.swift
 //  Nutrivurv
 //
 //  Created by Dillon on 8/4/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ServingSizeSelectionView: View {
+struct MealDetailsSelectionView: View {
     @Binding var selectedQuantity: String
     @Binding var selectedServingSize: String
     @Binding var selectedMealType: String
@@ -40,7 +40,7 @@ struct ServingSizeSelectionView: View {
 
 struct ServingSizeSelection_Previews: PreviewProvider {
     static var previews: some View {
-        ServingSizeSelectionView(selectedQuantity: .constant("1.0"), selectedServingSize: .constant("Whole"), selectedMealType: .constant("Breakfast"), showQuantityInputView: .constant(false), showServingSizeInputView: .constant(false), showMealTypeInputView: .constant(false))
+        MealDetailsSelectionView(selectedQuantity: .constant("1.0"), selectedServingSize: .constant("Whole"), selectedMealType: .constant("Breakfast"), showQuantityInputView: .constant(false), showServingSizeInputView: .constant(false), showMealTypeInputView: .constant(false))
     }
 }
 

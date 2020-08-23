@@ -32,7 +32,7 @@
 		512EEC2324E4779200416DB3 /* HealthDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EEC2224E4779200416DB3 /* HealthDashboardViewController.swift */; };
 		512F486A24D4AA0100EA128D /* Gaoel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 512F486924D4AA0100EA128D /* Gaoel.ttf */; };
 		512F486C24D4BB1600EA128D /* DashboardDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512F486B24D4BB1600EA128D /* DashboardDateView.swift */; };
-		512FBB5124DA1D5C0055981F /* ServingSizeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */; };
+		512FBB5124DA1D5C0055981F /* MealDetailsSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FBB5024DA1D5C0055981F /* MealDetailsSelectionView.swift */; };
 		512FF44E24DB551100F49FCB /* IrregularTabBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF44D24DB551100F49FCB /* IrregularTabBarContentView.swift */; };
 		512FF45024DB557300F49FCB /* BouncesContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF44F24DB557300F49FCB /* BouncesContentView.swift */; };
 		512FF45224DB55AC00F49FCB /* BasicContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FF45124DB55AC00F49FCB /* BasicContentView.swift */; };
@@ -71,6 +71,8 @@
 		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
 		515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */; };
 		5179C58D24F226ED00D9E264 /* QuantityInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C58C24F226ED00D9E264 /* QuantityInputView.swift */; };
+		5179C59024F23DAB00D9E264 /* ServingSizeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C58F24F23DAB00D9E264 /* ServingSizeInputView.swift */; };
+		5179C59224F23DEB00D9E264 /* MealTypeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C59124F23DEB00D9E264 /* MealTypeInputView.swift */; };
 		518F2CEB24DDEDFC00A438C4 /* MacrosDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */; };
 		51937F1024DE68C300E3C1A6 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51937F0F24DE68C300E3C1A6 /* BubbleView.swift */; };
 		51B89BE824EB0202001B6D98 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B89BE724EB0202001B6D98 /* HealthKitController.swift */; };
@@ -154,7 +156,7 @@
 		512EEC2224E4779200416DB3 /* HealthDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDashboardViewController.swift; sourceTree = "<group>"; };
 		512F486924D4AA0100EA128D /* Gaoel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gaoel.ttf; sourceTree = "<group>"; };
 		512F486B24D4BB1600EA128D /* DashboardDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDateView.swift; sourceTree = "<group>"; };
-		512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeSelectionView.swift; sourceTree = "<group>"; };
+		512FBB5024DA1D5C0055981F /* MealDetailsSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsSelectionView.swift; sourceTree = "<group>"; };
 		512FF44D24DB551100F49FCB /* IrregularTabBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrregularTabBarContentView.swift; sourceTree = "<group>"; };
 		512FF44F24DB557300F49FCB /* BouncesContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncesContentView.swift; sourceTree = "<group>"; };
 		512FF45124DB55AC00F49FCB /* BasicContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicContentView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,8 @@
 		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
 		515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
 		5179C58C24F226ED00D9E264 /* QuantityInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityInputView.swift; sourceTree = "<group>"; };
+		5179C58F24F23DAB00D9E264 /* ServingSizeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeInputView.swift; sourceTree = "<group>"; };
+		5179C59124F23DEB00D9E264 /* MealTypeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeInputView.swift; sourceTree = "<group>"; };
 		518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosDetailView.swift; sourceTree = "<group>"; };
 		51937F0F24DE68C300E3C1A6 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		51B89BE724EB0202001B6D98 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
@@ -367,11 +371,11 @@
 		512F461424DE1AFC0097F9B4 /* Sub Views */ = {
 			isa = PBXGroup;
 			children = (
+				5179C58E24F23D7900D9E264 /* Variable Meal Inputs */,
 				518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */,
-				512FBB5024DA1D5C0055981F /* ServingSizeSelectionView.swift */,
+				512FBB5024DA1D5C0055981F /* MealDetailsSelectionView.swift */,
 				51371FD624DA275200FE48B6 /* ProgressSwitcherView.swift */,
 				51937F0F24DE68C300E3C1A6 /* BubbleView.swift */,
-				5179C58C24F226ED00D9E264 /* QuantityInputView.swift */,
 			);
 			name = "Sub Views";
 			sourceTree = "<group>";
@@ -451,6 +455,16 @@
 				51DFE42024EB86A70029EA58 /* TodaysCalorieView.swift */,
 			);
 			name = "Sub Views";
+			sourceTree = "<group>";
+		};
+		5179C58E24F23D7900D9E264 /* Variable Meal Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				5179C58C24F226ED00D9E264 /* QuantityInputView.swift */,
+				5179C58F24F23DAB00D9E264 /* ServingSizeInputView.swift */,
+				5179C59124F23DEB00D9E264 /* MealTypeInputView.swift */,
+			);
+			name = "Variable Meal Inputs";
 			sourceTree = "<group>";
 		};
 		518F2CE724DDEDC500A438C4 /* Dashboard */ = {
@@ -864,6 +878,7 @@
 				51937F1024DE68C300E3C1A6 /* BubbleView.swift in Sources */,
 				D631B2792417205300AE30C9 /* Notifications.swift in Sources */,
 				51450F9F24D110880065E0F0 /* UserDefaults.swift in Sources */,
+				5179C59024F23DAB00D9E264 /* ServingSizeInputView.swift in Sources */,
 				511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */,
 				D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */,
 				5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */,
@@ -894,6 +909,7 @@
 				514D57F624CA275B008DCEEF /* UIViewExtensions.swift in Sources */,
 				5139531F24A3D3F700CDF5F1 /* Quote.swift in Sources */,
 				512FF45424DB58D900F49FCB /* BackgroundContentView.swift in Sources */,
+				5179C59224F23DEB00D9E264 /* MealTypeInputView.swift in Sources */,
 				512FF45224DB55AC00F49FCB /* BasicContentView.swift in Sources */,
 				5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */,
 				4C82D27924529C1B005E83F2 /* NutrientDetails.swift in Sources */,
@@ -914,7 +930,7 @@
 				4C9F30B92452804A00CE14CA /* HTTPMethod.swift in Sources */,
 				D631B27D241878B100AE30C9 /* ActivityLevel.swift in Sources */,
 				D6A1CC33240B38E800477429 /* CalculateBMIViewController.swift in Sources */,
-				512FBB5124DA1D5C0055981F /* ServingSizeSelectionView.swift in Sources */,
+				512FBB5124DA1D5C0055981F /* MealDetailsSelectionView.swift in Sources */,
 				D68C702023F25400008AFDF0 /* SceneDelegate.swift in Sources */,
 				D631B2712415BB0900AE30C9 /* StandardBMIViewController.swift in Sources */,
 				D6A1CC2D24077D8700477429 /* GettingPersonalViewController.swift in Sources */,
