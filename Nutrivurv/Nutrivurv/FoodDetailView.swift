@@ -10,6 +10,8 @@ import SwiftUI
 import SkeletonUI
 
 struct FoodDetailView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     @ObservedObject var currentDailyMacros: DailyMacros
     @ObservedObject var newDailyMacros: DailyMacros
     @ObservedObject var foodItemMacros: DailyMacros
@@ -45,8 +47,8 @@ struct FoodDetailView: View {
     var bgColor = UIColor(named: "detail-view-main-bg")!
     
     var body: some View {
-        ZStack {
-            NavigationView {
+        NavigationView {
+            ZStack {
                 VStack {
                     Image(uiImage: foodImage)
                         .resizable()
@@ -213,6 +215,9 @@ struct FoodDetailView: View {
                 TextField("Meal Type", text: self.$mealType)
             }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
         }
+        .navigationBarTitle("", displayMode: .inline)
+        .background(Color(UIColor(named: "bg-color")!))
+        .statusBar(hidden: true)
     }
 }
 

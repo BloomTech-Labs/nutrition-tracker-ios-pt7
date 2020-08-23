@@ -1168,10 +1168,10 @@
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="KTM-jy-1pm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="back-btn" backIndicatorTransitionMaskImage="back-btn" id="KTM-jy-1pm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="nutrivurv-blue"/>
+                        <color key="tintColor" name="nutrivurv-blue-new"/>
                         <color key="barTintColor" name="bg-color"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1191,7 +1191,7 @@
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="XFZ-qG-J0e">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="back-btn" backIndicatorTransitionMaskImage="back-btn" id="XFZ-qG-J0e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="bg-color"/>
@@ -1210,6 +1210,7 @@
     </scenes>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
+        <image name="back-btn" width="50" height="50"/>
         <image name="barcode" width="25" height="20"/>
         <image name="calendar-icon" width="22" height="24"/>
         <image name="fire" width="40" height="52"/>

@@ -26,6 +26,10 @@ class FoodSearchTableViewController: UITableViewController {
         super.viewDidLoad()
         foodSearchBar.delegate = self
         foodSearchBar.searchTextField.font = UIFont(name: "Catamaran-Medium", size: 14)
+        
+        // Removes the "back" text from navigation bar
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

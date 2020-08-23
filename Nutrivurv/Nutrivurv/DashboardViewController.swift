@@ -75,6 +75,10 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Removes the "back" text from navigation bar
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.isTranslucent = true
+        
         NotificationCenter.default.addObserver(self, selector: #selector(getCurrentWeight), name: .currentWeightUpdated, object: nil)
         getCurrentWeight()
         
