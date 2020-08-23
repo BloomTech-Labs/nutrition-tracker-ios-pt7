@@ -201,19 +201,20 @@ struct FoodDetailView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .bottom)
                     .offset(y: showNutrients ? -180 : -40)
                 }
-            }.navigationBarTitle(Text(navigationBarTitle), displayMode: .inline)
-            
-            BottomSheetModal(display: $showQuantityInputView) {
-                TextField("Quantity", text: self.$quantity)
-            }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
-            
-            BottomSheetModal(display: $showServingSizeInputView) {
-                TextField("Serving Size", text: self.$quantity)
-            }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
-            
-            BottomSheetModal(display: $showMealTypeInputView) {
-                TextField("Meal Type", text: self.$mealType)
-            }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+                
+                BottomSheetModal(display: $showQuantityInputView) {
+                    TextField("Quantity", text: self.$quantity)
+                }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+                
+                BottomSheetModal(display: $showServingSizeInputView) {
+                    TextField("Serving Size", text: self.$quantity)
+                }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+                
+                BottomSheetModal(display: $showMealTypeInputView) {
+                    TextField("Meal Type", text: self.$mealType)
+                }.animation(Animation.spring(response: 0.32, dampingFraction: 0.78, blendDuration: 0.8))
+                
+            }
         }
         .navigationBarTitle("", displayMode: .inline)
         .background(Color(UIColor(named: "bg-color")!))
