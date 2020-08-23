@@ -31,6 +31,8 @@ struct QuantityInputView: View {
                     .frame(width: 150, height: 2)
                     .foregroundColor(Color(UIColor(named: "nutrivurv-blue-new")!))
                 Button(action: {
+                    // Dismiss the keyboard when navigating to next view
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     self.showServingSizes.toggle()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.015) {
                         self.showQuantity.toggle()
