@@ -71,6 +71,7 @@ struct FoodDetailView: View {
                             .foregroundColor(Color(bgColor))
                             .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
                             .animation(.easeInOut)
+                            .offset(y: showQuantityInputView || showServingSizeInputView || showMealTypeInputView ? -20 : 0)
                         
                         VStack {
                             
@@ -160,6 +161,7 @@ struct FoodDetailView: View {
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                         .offset(x: 0, y: -30)
                         .animation(.easeInOut)
+                        .offset(y: showQuantityInputView || showServingSizeInputView || showMealTypeInputView ? -20 : 0)
                         
                         NutritionFactsView(showNutrients: $showNutrients, nutritionFacts: nutritionFacts)
                             .offset(y: showNutrients ? 165 : 358)
