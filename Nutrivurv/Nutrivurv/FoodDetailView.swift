@@ -226,7 +226,7 @@ struct FoodDetailView: View {
         }
         .navigationBarTitle(navigationBarTitle)
         .background(Color(UIColor(named: "bg-color")!))
-        .offset(y: -keyboardOffsetValue * 0.75)
+        .offset(y: -keyboardOffsetValue * 0.82)
         .onAppear {
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (notification) in
                 let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
