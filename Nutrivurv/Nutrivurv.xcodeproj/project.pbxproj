@@ -73,7 +73,7 @@
 		5179C58D24F226ED00D9E264 /* QuantityInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C58C24F226ED00D9E264 /* QuantityInputView.swift */; };
 		5179C59024F23DAB00D9E264 /* ServingSizeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C58F24F23DAB00D9E264 /* ServingSizeInputView.swift */; };
 		5179C59224F23DEB00D9E264 /* MealTypeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C59124F23DEB00D9E264 /* MealTypeInputView.swift */; };
-		5179C59524F242E600D9E264 /* ServingSizePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C59424F242E600D9E264 /* ServingSizePicker.swift */; };
+		5179C59524F242E600D9E264 /* CustomInputPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C59424F242E600D9E264 /* CustomInputPicker.swift */; };
 		5179C59724F261A100D9E264 /* ServingSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C59624F261A100D9E264 /* ServingSizes.swift */; };
 		518F2CEB24DDEDFC00A438C4 /* MacrosDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */; };
 		51937F1024DE68C300E3C1A6 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51937F0F24DE68C300E3C1A6 /* BubbleView.swift */; };
@@ -198,7 +198,7 @@
 		5179C58C24F226ED00D9E264 /* QuantityInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityInputView.swift; sourceTree = "<group>"; };
 		5179C58F24F23DAB00D9E264 /* ServingSizeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeInputView.swift; sourceTree = "<group>"; };
 		5179C59124F23DEB00D9E264 /* MealTypeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeInputView.swift; sourceTree = "<group>"; };
-		5179C59424F242E600D9E264 /* ServingSizePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizePicker.swift; sourceTree = "<group>"; };
+		5179C59424F242E600D9E264 /* CustomInputPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputPicker.swift; sourceTree = "<group>"; };
 		5179C59624F261A100D9E264 /* ServingSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizes.swift; sourceTree = "<group>"; };
 		518F2CEA24DDEDFC00A438C4 /* MacrosDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosDetailView.swift; sourceTree = "<group>"; };
 		51937F0F24DE68C300E3C1A6 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
@@ -475,7 +475,7 @@
 		5179C59324F2422E00D9E264 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				5179C59424F242E600D9E264 /* ServingSizePicker.swift */,
+				5179C59424F242E600D9E264 /* CustomInputPicker.swift */,
 			);
 			name = Subviews;
 			sourceTree = "<group>";
@@ -971,7 +971,7 @@
 				51D5B97E24F01518008B67C9 /* MockFoodLogEntry.swift in Sources */,
 				518F2CEB24DDEDFC00A438C4 /* MacrosDetailView.swift in Sources */,
 				51B89BE824EB0202001B6D98 /* HealthKitController.swift in Sources */,
-				5179C59524F242E600D9E264 /* ServingSizePicker.swift in Sources */,
+				5179C59524F242E600D9E264 /* CustomInputPicker.swift in Sources */,
 				D6A1CC3D240B601700477429 /* ProfileCreationController.swift in Sources */,
 				512FF46224DB597500F49FCB /* TabBarItemContentView.swift in Sources */,
 			);

@@ -25,7 +25,7 @@ struct ServingSizeInputView: View {
         BottomSheetModal(display: $showServingSizes) {
             VStack {
                 ZStack {
-                    ServingSizePicker(selectedIndex: self.$selectedIndex, selectedItem: self.$selectedServingSize, data: self.servingSizes)
+                    CustomInputPicker(selectedIndex: self.$selectedIndex, selectedItem: self.$selectedServingSize, measures: self.servingSizes)
                     
                     Text("What's the measurement?")
                     .font(.custom("QuattrocentoSans-BoldItalic", size: 18))

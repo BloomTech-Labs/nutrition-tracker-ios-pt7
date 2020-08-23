@@ -1,5 +1,5 @@
 //
-//  ServingSizePicker.swift
+//  CustomInputPicker.swift
 //  Nutrivurv
 //
 //  Created by Dillon P on 8/22/20.
@@ -8,17 +8,18 @@
 
 import SwiftUI
 
-struct ServingSizePicker: UIViewRepresentable {
+struct CustomInputPicker: UIViewRepresentable {
     
     @Binding var selectedIndex: Int
     @Binding var selectedItem: String
-    var data: [Measure] = []
+    var measures: [Measure] = []
+    var mealTypes: [MealType.RawValue] = []
     
-    func makeCoordinator() -> ServingSizePicker.Coordinator {
-        return ServingSizePicker.Coordinator(parent1: self)
+    func makeCoordinator() -> CustomInputPicker.Coordinator {
+        return CustomInputPicker.Coordinator(parent1: self)
     }
     
-    func makeUIView(context: UIViewRepresentableContext<ServingSizePicker>) -> UIPickerView {
+    func makeUIView(context: UIViewRepresentableContext<CustomInputPicker>) -> UIPickerView {
         let picker = UIPickerView()
         picker.dataSource = context.coordinator
         picker.delegate = context.coordinator
@@ -26,19 +27,23 @@ struct ServingSizePicker: UIViewRepresentable {
         return picker
     }
     
-    func updateUIView(_ uiView: UIPickerView, context: UIViewRepresentableContext<ServingSizePicker>) {
+    func updateUIView(_ uiView: UIPickerView, context: UIViewRepresentableContext<CustomInputPicker>) {
         uiView.selectRow(selectedIndex, inComponent: 0, animated: true)
     }
     
     class Coordinator: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
-        var parent: ServingSizePicker
+        var parent: CustomInputPicker
         
-        init(parent1: ServingSizePicker) {
+        init(parent1: CustomInputPicker) {
             parent = parent1
         }
         
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return self.parent.data.count
+            if !self.parent.measures.isEmpty {
+                return self.parent.measures.count
+            } else {
+                return self.parent.mealTypes.count
+            }
         }
         
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -50,7 +55,12 @@ struct ServingSizePicker: UIViewRepresentable {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.4, height: 36))
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
             
-            label.text = self.parent.data[row].label
+            if !self.parent.measures.isEmpty {
+                label.text = self.parent.measures[row].label
+            } else {
+                label.text = self.parent.mealTypes[row]
+            }
+            
             label.textAlignment = .center
             label.font = UIFont(name: "QuattrocentoSans-Bold", size: 18)
             label.textColor = .white
@@ -74,8 +84,15 @@ struct ServingSizePicker: UIViewRepresentable {
         }
         
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            guard !self.parent.data.isEmpty else { return }
-            self.parent.selectedItem = self.parent.data[row].label
+            guard !self.parent.measures.isEmpty else {
+                if !self.parent.mealTypes.isEmpty {
+                    self.parent.selectedItem = self.parent.mealTypes[row]
+                    self.parent.selectedIndex = row
+                }
+                return
+            }
+            
+            self.parent.selectedItem = self.parent.measures[row].label
             self.parent.selectedIndex = row
         }
     }
