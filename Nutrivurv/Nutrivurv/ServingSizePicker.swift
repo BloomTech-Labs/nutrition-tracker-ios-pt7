@@ -8,24 +8,11 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State var selectedItem: String = "Monday"
-    
-    var data = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    
-    var body: some View {
-        VStack {
-            Text(selectedItem)
-            
-            ServingSizePicker(selectedItem: $selectedItem, data: data)
-        }
-    }
-}
-
 struct ServingSizePicker: UIViewRepresentable {
     
+    @State var selectedIndex: Int = 0
     @Binding var selectedItem: String
-    var data: [String] = []
+    var data: [Measure] = []
     
     func makeCoordinator() -> ServingSizePicker.Coordinator {
         return ServingSizePicker.Coordinator(parent1: self)
@@ -40,7 +27,7 @@ struct ServingSizePicker: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIPickerView, context: UIViewRepresentableContext<ServingSizePicker>) {
-        
+        uiView.selectRow(selectedIndex, inComponent: 0, animated: true)
     }
     
     class Coordinator: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -60,10 +47,10 @@ struct ServingSizePicker: UIViewRepresentable {
         
         
         func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.4, height: 50))
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.4, height: 36))
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
             
-            label.text = self.parent.data[row]
+            label.text = self.parent.data[row].label
             label.textAlignment = .center
             label.font = UIFont(name: "QuattrocentoSans-Bold", size: 18)
             label.textColor = .white
@@ -83,17 +70,13 @@ struct ServingSizePicker: UIViewRepresentable {
         }
         
         func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-            return 50
+            return 40
         }
         
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            self.parent.selectedItem = self.parent.data[row]
+            guard !self.parent.data.isEmpty else { return }
+            self.parent.selectedItem = self.parent.data[row].label
+            self.parent.selectedIndex = row
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
