@@ -39,6 +39,7 @@ class FoodLogController {
     }
     
     func setNewSelectedDate(_ date: Date) {
+        totalDailyMacrosModel.resetMacros()
         self.selectedDate = date
     }
     
