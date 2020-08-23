@@ -13,7 +13,7 @@ struct CustomInputPicker: UIViewRepresentable {
     @Binding var selectedIndex: Int
     @Binding var selectedItem: String
     var measures: [Measure] = []
-    var mealTypes: [MealType.RawValue] = []
+    var mealTypes: [MealType] = []
     
     func makeCoordinator() -> CustomInputPicker.Coordinator {
         return CustomInputPicker.Coordinator(parent1: self)
@@ -58,7 +58,7 @@ struct CustomInputPicker: UIViewRepresentable {
             if !self.parent.measures.isEmpty {
                 label.text = self.parent.measures[row].label
             } else {
-                label.text = self.parent.mealTypes[row]
+                label.text = self.parent.mealTypes[row].rawValue.capitalized
             }
             
             label.textAlignment = .center
@@ -86,7 +86,7 @@ struct CustomInputPicker: UIViewRepresentable {
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             guard !self.parent.measures.isEmpty else {
                 if !self.parent.mealTypes.isEmpty {
-                    self.parent.selectedItem = self.parent.mealTypes[row]
+                    self.parent.selectedItem = self.parent.mealTypes[row].rawValue
                     self.parent.selectedIndex = row
                 }
                 return
