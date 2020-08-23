@@ -30,7 +30,7 @@ struct ServingSizeInputView: View {
                     Text("What's the measurement?")
                     .font(.custom("QuattrocentoSans-BoldItalic", size: 18))
                     .foregroundColor(Color(UIColor(named: "light-label")!))
-                    .frame(height: 70)
+                        .frame(width: self.screenWidth, height: 70)
                     .background(Color.white.opacity(0.8))
                     .offset(y: -55)
                     
@@ -57,7 +57,7 @@ struct ServingSizeInputView: View {
                         .frame(width: 180, height: 40)
                         .background(Color.white.opacity(0.8))
                         
-                    }.offset(y: 110)
+                    }.offset(y: 115)
                     
                     
                 }
