@@ -9,12 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedItem: String = "Monday"
+    
+    var data = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    
     var body: some View {
-        ServingSizePicker()
+        VStack {
+            Text(selectedItem)
+            
+            ServingSizePicker(selectedItem: $selectedItem, data: data)
+        }
     }
 }
 
 struct ServingSizePicker: UIViewRepresentable {
+    
+    @Binding var selectedItem: String
+    var data: [String] = []
     
     func makeCoordinator() -> ServingSizePicker.Coordinator {
         return ServingSizePicker.Coordinator(parent1: self)
@@ -40,7 +51,7 @@ struct ServingSizePicker: UIViewRepresentable {
         }
         
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return data.count
+            return self.parent.data.count
         }
         
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -52,7 +63,7 @@ struct ServingSizePicker: UIViewRepresentable {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.4, height: 50))
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
             
-            label.text = data[row]
+            label.text = self.parent.data[row]
             label.textAlignment = .center
             label.font = UIFont(name: "QuattrocentoSans-Bold", size: 18)
             label.textColor = .white
@@ -74,6 +85,10 @@ struct ServingSizePicker: UIViewRepresentable {
         func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
             return 50
         }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            self.parent.selectedItem = self.parent.data[row]
+        }
     }
 }
 
@@ -82,5 +97,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-var data = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
