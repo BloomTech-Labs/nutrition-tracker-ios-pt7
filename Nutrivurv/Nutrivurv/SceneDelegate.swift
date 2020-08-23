@@ -10,9 +10,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-
     var window: UIWindow?
-    let healthKitController = HealthKitController.shared
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         QuoteController.shared.getRandomQuote { (_) in }
@@ -58,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        healthKitController.updateAllValues()
+       HealthKitController.shared.updateAllValues()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
