@@ -24,6 +24,7 @@ struct ServingSizePicker: UIViewRepresentable {
         let picker = UIPickerView()
         picker.dataSource = context.coordinator
         picker.delegate = context.coordinator
+
         return picker
     }
     
@@ -46,8 +47,28 @@ struct ServingSizePicker: UIViewRepresentable {
             return 1
         }
         
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return data[row]
+        
+        func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.4, height: 50))
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+            
+            label.text = data[row]
+            label.textAlignment = .center
+            label.font = UIFont(name: "QuattrocentoSans-Bold", size: 18)
+            label.textColor = .white
+            
+            view.backgroundColor = UIColor(named: "nutrivurv-blue-new")
+            
+            view.addSubview(label)
+            
+            view.clipsToBounds = true
+            view.layer.cornerRadius = view.bounds.height / 2
+            view.layer.cornerCurve = .continuous
+            
+            pickerView.subviews[1].isHidden = true
+            pickerView.subviews[2].isHidden = true
+            
+            return view
         }
         
         func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
