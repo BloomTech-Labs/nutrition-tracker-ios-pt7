@@ -14,6 +14,8 @@ struct QuantityInputView: View {
     
     @Binding var quantity: String
     
+    @Binding var currentProgress: Bool
+    
     var screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -40,6 +42,11 @@ struct QuantityInputView: View {
                 }) {
                     Text("Serving Sizes >")
                 }.padding(.top, 10)
+            }.onAppear {
+                // Shows macros including this item
+                if self.showQuantity {
+                    self.currentProgress = false
+                }
             }
         }
     }
@@ -47,6 +54,6 @@ struct QuantityInputView: View {
 
 struct QuantityInputView_Previews: PreviewProvider {
     static var previews: some View {
-        QuantityInputView(showQuantity: .constant(true), showServingSizes: .constant(false), quantity: .constant("1.0"))
+        QuantityInputView(showQuantity: .constant(true), showServingSizes: .constant(false), quantity: .constant("1.0"), currentProgress: .constant(false))
     }
 }

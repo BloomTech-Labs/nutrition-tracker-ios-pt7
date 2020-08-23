@@ -71,7 +71,7 @@ struct FoodDetailView: View {
                             .foregroundColor(Color(bgColor))
                             .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
                             .animation(.easeInOut)
-                            .offset(y: showQuantityInputView || showServingSizeInputView || showMealTypeInputView ? -20 : 0)
+                            .offset(y: showQuantityInputView || showServingSizeInputView || showMealTypeInputView ? -30 : 0)
                         
                         VStack {
                             
@@ -161,7 +161,7 @@ struct FoodDetailView: View {
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 220, alignment: .top)
                         .offset(x: 0, y: -30)
                         .animation(.easeInOut)
-                        .offset(y: showQuantityInputView || showServingSizeInputView || showMealTypeInputView ? -20 : 0)
+                        .offset(y: showQuantityInputView || showServingSizeInputView || showMealTypeInputView ? -30 : 0)
                         
                         NutritionFactsView(showNutrients: $showNutrients, nutritionFacts: nutritionFacts)
                             .offset(y: showNutrients ? 165 : 358)
@@ -214,11 +214,11 @@ struct FoodDetailView: View {
                     .offset(y: showNutrients ? -180 : -40)
                 }
                 
-                QuantityInputView(showQuantity: $showQuantityInputView, showServingSizes: $showServingSizeInputView, quantity: $quantity)
+                QuantityInputView(showQuantity: $showQuantityInputView, showServingSizes: $showServingSizeInputView, quantity: $quantity, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
                 
-                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $servingSizeIndex, servingSizes: servingSizes.measures)
+                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $servingSizeIndex, servingSizes: servingSizes.measures, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
                 BottomSheetModal(display: $showMealTypeInputView) {

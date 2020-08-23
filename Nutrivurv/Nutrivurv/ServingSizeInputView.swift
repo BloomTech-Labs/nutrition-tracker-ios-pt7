@@ -17,6 +17,8 @@ struct ServingSizeInputView: View {
     @Binding var selectedIndex: Int
     var servingSizes: [Measure]
     
+    @Binding var currentProgress: Bool
+    
     var screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -61,6 +63,11 @@ struct ServingSizeInputView: View {
                 }
                 .frame(alignment: .top)
                 .offset(y: -45)
+            }.onAppear {
+                // Shows macros including this item
+                if self.showServingSizes {
+                    self.currentProgress = false
+                }
             }
         }
     }
@@ -70,6 +77,6 @@ struct ServingSizeInputView_Previews: PreviewProvider {
     static var previews: some View {
         let servingSizes = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
         
-        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), showMealTypes: .constant(false), selectedServingSize: .constant("Serving"), selectedIndex: .constant(0), servingSizes: servingSizes)
+        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), showMealTypes: .constant(false), selectedServingSize: .constant("Serving"), selectedIndex: .constant(0), servingSizes: servingSizes, currentProgress: .constant(false))
     }
 }
