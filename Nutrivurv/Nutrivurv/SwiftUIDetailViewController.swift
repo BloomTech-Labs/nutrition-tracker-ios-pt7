@@ -27,6 +27,12 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         }
     }
     
+    private var quantity: AnyCancellable!
+    
+    private var servingSize: AnyCancellable!
+    
+    private var mealType: AnyCancellable!
+    
     required init?(coder aDecoder: NSCoder) {
         let currentMacros = FoodLogController.shared.totalDailyMacrosModel
         let newMacros = DailyMacros()
@@ -43,7 +49,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         newMacros.fatCount = currentMacros.fatCount
         newMacros.fatPercent = currentMacros.fatPercent
         
-        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros, foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts(), servingSizes: ServingSizes()))
+        super.init(coder: aDecoder, rootView: FoodDetailView(currentDailyMacros: currentMacros, newDailyMacros: newMacros, foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts(), servingSizes: ServingSizes(), delegate: FoodDetailViewDelegate()))
     }
 
     override func viewDidLoad() {
@@ -138,7 +144,6 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             return
         }
         
-        rootView.quantity = "1.0"
         if let servingSize = foodItem.measures.first?.label {
             rootView.selectedServingSize = servingSize.capitalized
         }

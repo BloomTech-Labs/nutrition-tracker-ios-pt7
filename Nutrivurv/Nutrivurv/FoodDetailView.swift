@@ -8,6 +8,13 @@
 
 import SwiftUI
 import SkeletonUI
+import Combine
+
+class FoodDetailViewDelegate: ObservableObject {
+    @Published var quantity: String = "1.0"
+    @Published var servingSizeIndex: Int = 0
+    @Published var mealTypeIndex: Int = 0
+}
 
 struct FoodDetailView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -18,16 +25,16 @@ struct FoodDetailView: View {
     @ObservedObject var nutritionFacts: NutritionFacts
     @ObservedObject var servingSizes: ServingSizes
     
+    @ObservedObject var delegate: FoodDetailViewDelegate
+    
     var foodName: String = ""
     var brandName: String = ""
     
     @State var quantity: String = "1.0"
     
     @State var selectedServingSize: String = "Serving"
-    @State var servingSizeIndex: Int = 0
     
     @State var mealType: String = "Breakfast"
-    @State var mealTypeIndex: Int = 0
     var allMealTypes: [MealType] = MealType.allCases
     
     @State var showQuantityInputView: Bool = false
@@ -216,14 +223,14 @@ struct FoodDetailView: View {
                     .offset(y: showNutrients ? -180 : -40)
                 }
                 
-                QuantityInputView(showQuantity: $showQuantityInputView, showServingSizes: $showServingSizeInputView, quantity: $quantity, currentProgress: $currentProgresss)
+                QuantityInputView(showQuantity: $showQuantityInputView, showServingSizes: $showServingSizeInputView, quantity: $delegate.quantity, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
                 
-                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $servingSizeIndex, servingSizes: servingSizes.measures, currentProgress: $currentProgresss)
+                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $delegate.servingSizeIndex, servingSizes: servingSizes.measures, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
-                MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $mealType, selectedMealIndex: $mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
+                MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $mealType, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
                     .animation(self.springAnimation)
                 
             }
@@ -253,7 +260,7 @@ struct FoodDetailView: View {
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros(), foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts(), servingSizes: ServingSizes())
+        FoodDetailView(currentDailyMacros: DailyMacros(), newDailyMacros: DailyMacros(), foodItemMacros: DailyMacros(), nutritionFacts: NutritionFacts(), servingSizes: ServingSizes(), delegate: FoodDetailViewDelegate())
     }
 }
 
