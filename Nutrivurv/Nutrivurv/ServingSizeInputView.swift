@@ -15,7 +15,8 @@ struct ServingSizeInputView: View {
     
     @Binding var selectedServingSize: String
     @Binding var selectedIndex: Int
-    var servingSizes: [Measure]
+    var edamamMeasures: [Measure]
+    var nutrivurvBackendMeasurements: [Measurement]
     
     @Binding var currentProgress: Bool
     
@@ -25,7 +26,7 @@ struct ServingSizeInputView: View {
         BottomSheetModal(display: $showServingSizes) {
             VStack {
                 ZStack {
-                    CustomInputPicker(selectedIndex: self.$selectedIndex, selectedItem: self.$selectedServingSize, measures: self.servingSizes)
+                    CustomInputPicker(selectedIndex: self.$selectedIndex, selectedItem: self.$selectedServingSize, edamamMeasures: self.edamamMeasures, nutrivurvBackendMeasurements: self.nutrivurvBackendMeasurements)
                     
                     Text("What's the measurement?")
                     .font(.custom("QuattrocentoSans-BoldItalic", size: 18))
@@ -75,8 +76,9 @@ struct ServingSizeInputView: View {
 
 struct ServingSizeInputView_Previews: PreviewProvider {
     static var previews: some View {
-        let servingSizes = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
+        let edamamMeasures = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
+        let nutrivurvMeasurements = [Measurement(uri: "1", label: "Serving"), Measurement(uri: "2", label: "Whole"), Measurement(uri: "3", label: "Cup"), Measurement(uri: "4", label: "Ounce"), Measurement(uri: "5", label: "Gram")]
         
-        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), showMealTypes: .constant(false), selectedServingSize: .constant("Serving"), selectedIndex: .constant(0), servingSizes: servingSizes, currentProgress: .constant(false))
+        return ServingSizeInputView(showServingSizes: .constant(true), showQuantity: .constant(false), showMealTypes: .constant(false), selectedServingSize: .constant("Serving"), selectedIndex: .constant(0), edamamMeasures: edamamMeasures, nutrivurvBackendMeasurements: nutrivurvMeasurements, currentProgress: .constant(false))
     }
 }

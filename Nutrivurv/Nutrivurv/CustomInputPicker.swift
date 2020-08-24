@@ -7,16 +7,18 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CustomInputPicker: UIViewRepresentable {
     
     @Binding var selectedIndex: Int
     @Binding var selectedItem: String
-    var measures: [Measure] = []
+    var edamamMeasures: [Measure] = []
+    var nutrivurvBackendMeasurements: [Measurement] = []
     var mealTypes: [MealType] = []
     
     func makeCoordinator() -> CustomInputPicker.Coordinator {
-        return CustomInputPicker.Coordinator(parent1: self)
+        return CustomInputPicker.Coordinator(parent: self, selectedIndex: $selectedIndex)
     }
     
     func makeUIView(context: UIViewRepresentableContext<CustomInputPicker>) -> UIPickerView {
@@ -28,19 +30,27 @@ struct CustomInputPicker: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIPickerView, context: UIViewRepresentableContext<CustomInputPicker>) {
-        uiView.selectRow(selectedIndex, inComponent: 0, animated: true)
+        if context.coordinator.initialIndex != selectedIndex {
+            uiView.selectRow(selectedIndex, inComponent: 0, animated: true)
+            context.coordinator.initialIndex = selectedIndex
+        }
     }
     
     class Coordinator: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
         var parent: CustomInputPicker
+        var selectedIndex: Binding<Int>
+        var initialIndex: Int?
         
-        init(parent1: CustomInputPicker) {
-            parent = parent1
+        init(parent: CustomInputPicker, selectedIndex: Binding<Int>) {
+            self.parent = parent
+            self.selectedIndex = selectedIndex
         }
         
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            if !self.parent.measures.isEmpty {
-                return self.parent.measures.count
+            if !self.parent.edamamMeasures.isEmpty {
+                return self.parent.edamamMeasures.count
+            } else if !self.parent.nutrivurvBackendMeasurements.isEmpty {
+                return self.parent.nutrivurvBackendMeasurements.count
             } else {
                 return self.parent.mealTypes.count
             }
@@ -50,13 +60,14 @@ struct CustomInputPicker: UIViewRepresentable {
             return 1
         }
         
-        
         func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width * 0.4, height: 36))
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
             
-            if !self.parent.measures.isEmpty {
-                label.text = self.parent.measures[row].label
+            if !self.parent.edamamMeasures.isEmpty {
+                label.text = self.parent.edamamMeasures[row].label.capitalized
+            } else if !self.parent.nutrivurvBackendMeasurements.isEmpty {
+                label.text = self.parent.nutrivurvBackendMeasurements[row].label.capitalized
             } else {
                 label.text = self.parent.mealTypes[row].rawValue.capitalized
             }
@@ -84,15 +95,18 @@ struct CustomInputPicker: UIViewRepresentable {
         }
         
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            guard !self.parent.measures.isEmpty else {
+            guard !self.parent.edamamMeasures.isEmpty else {
                 if !self.parent.mealTypes.isEmpty {
                     self.parent.selectedItem = self.parent.mealTypes[row].rawValue
+                    self.parent.selectedIndex = row
+                } else if !self.parent.nutrivurvBackendMeasurements.isEmpty {
+                    self.parent.selectedItem = self.parent.nutrivurvBackendMeasurements[row].label
                     self.parent.selectedIndex = row
                 }
                 return
             }
             
-            self.parent.selectedItem = self.parent.measures[row].label
+            self.parent.selectedItem = self.parent.edamamMeasures[row].label
             self.parent.selectedIndex = row
         }
     }

@@ -11,9 +11,16 @@ import Combine
 import SwiftUI
 
 class ServingSizes: ObservableObject {
-    let objectWillChange = PassthroughSubject<[Measure], Never>()
+    let objectWillChange = PassthroughSubject<[Any], Never>()
     
-    @Published var measures: [Measure] = [] {
+    // The Measure type is the type returned when decoding from the Edamam API
+    @Published var edamamMeasures: [Measure] = [] {
+        willSet {
+            objectWillChange.send(newValue)
+        }
+    }
+    
+    @Published var nutrivurvBackendMeasurements: [Measurement] = [] {
         willSet {
             objectWillChange.send(newValue)
         }

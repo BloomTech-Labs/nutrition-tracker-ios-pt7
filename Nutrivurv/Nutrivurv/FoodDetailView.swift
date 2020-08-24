@@ -228,7 +228,7 @@ struct FoodDetailView: View {
                     .animation(self.springAnimation)
                 
                 
-                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $delegate.servingSizeIndex, servingSizes: servingSizes.measures, currentProgress: $currentProgresss)
+                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $delegate.servingSizeIndex, edamamMeasures: servingSizes.edamamMeasures, nutrivurvBackendMeasurements: servingSizes.nutrivurvBackendMeasurements, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
                 MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $mealType, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)

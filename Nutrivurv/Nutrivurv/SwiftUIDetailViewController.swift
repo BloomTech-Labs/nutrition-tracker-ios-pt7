@@ -174,7 +174,6 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             return
         }
         
-        fetchNutrientDetails()
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -196,7 +195,11 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         rootView.delegate.quantity = foodLogEntry.quantity
         
         rootView.selectedServingSize = foodLogEntry.measurementName.capitalized
+        rootView.servingSizes.nutrivurvBackendMeasurements = foodLogEntry.allMeasurements
         // TODO: - set correct serving size index on delegate
+        if let index = foodLogEntry.allMeasurements.firstIndex(where: {  $0.label.capitalized == foodLogEntry.measurementName }) {
+            rootView.delegate.servingSizeIndex = index
+        }
         
         rootView.mealType = foodLogEntry.mealType.capitalized
         // TODO: - Set correct meal type index on delegate
@@ -210,7 +213,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         if let servingSize = foodItem.measures.first?.label {
             rootView.selectedServingSize = servingSize.capitalized
-            rootView.servingSizes.measures = foodItem.measures
+            rootView.servingSizes.edamamMeasures = foodItem.measures
         }
         
         rootView.mealType = "Breakfast"
