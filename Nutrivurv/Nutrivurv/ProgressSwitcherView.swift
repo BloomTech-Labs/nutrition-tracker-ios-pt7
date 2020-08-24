@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ProgressSwitcherView: View {
     @Binding var currentProgress: Bool
+    @Binding var newMealEntry: Bool
     
     var unselectedTextColor: Color = Color(UIColor(named: "unselected-progress-switcher")!)
     
@@ -43,7 +44,7 @@ struct ProgressSwitcherView: View {
                         .lineLimit(1)
                         .frame(width: 64)
                     Spacer()
-                    Text("after this")
+                    Text(newMealEntry ? "after this" : "before this")
                         .font(Font.custom("Gaoel", size: 10))
                         .foregroundColor(currentProgress ? unselectedTextColor : .white)
                         .multilineTextAlignment(.center)
@@ -62,6 +63,6 @@ struct ProgressSwitcherView: View {
 
 struct ProgressSwitcherView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressSwitcherView(currentProgress: .constant(true))
+        ProgressSwitcherView(currentProgress: .constant(true), newMealEntry: .constant(true))
     }
 }

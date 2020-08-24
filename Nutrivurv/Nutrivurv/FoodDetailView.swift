@@ -14,6 +14,9 @@ class FoodDetailViewDelegate: ObservableObject {
     @Published var quantity: String = "1.0"
     @Published var servingSizeIndex: Int = 0
     @Published var mealTypeIndex: Int = 0
+    
+    // Update the progress view switcher and macros values based on whether this is a new item or this is an item already included in the food log
+    @Published var newEntry: Bool = true
 }
 
 struct FoodDetailView: View {
@@ -42,7 +45,7 @@ struct FoodDetailView: View {
     var foodImage: UIImage = UIImage(named: "cutting-board")!
     
     var navigationBarTitle: String = ""
-    
+
     @State var currentProgresss: Bool = true
     @State var showNutrients: Bool = false
     @State var bottomCardState = CGSize.zero
@@ -134,7 +137,7 @@ struct FoodDetailView: View {
                                 .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
                             
                             
-                            ProgressSwitcherView(currentProgress: $currentProgresss)
+                            ProgressSwitcherView(currentProgress: $currentProgresss, newMealEntry: $delegate.newEntry)
                                 .frame(width: 180, height: 60, alignment: .center)
                                 .padding(EdgeInsets(top: -4, leading: 117, bottom: -2, trailing: 117))
                             
@@ -153,13 +156,13 @@ struct FoodDetailView: View {
                                 .offset(x: -4, y: currentProgresss ? -20 : 0)
                                 
                                 HStack(spacing: 6) {
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 1, percentDifference: Int(newDailyMacros.caloriesPercent - currentDailyMacros.caloriesPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 1, percentDifference: Int(newDailyMacros.caloriesPercent - currentDailyMacros.caloriesPercent))
                                     Spacer()
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 2, percentDifference: Int(newDailyMacros.carbsPercent - currentDailyMacros.carbsPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 2, percentDifference: Int(newDailyMacros.carbsPercent - currentDailyMacros.carbsPercent))
                                     Spacer()
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 3, percentDifference: Int(newDailyMacros.proteinPercent - currentDailyMacros.proteinPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 3, percentDifference: Int(newDailyMacros.proteinPercent - currentDailyMacros.proteinPercent))
                                     Spacer()
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, index: 4, percentDifference: Int(newDailyMacros.fatPercent - currentDailyMacros.fatPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 4, percentDifference: Int(newDailyMacros.fatPercent - currentDailyMacros.fatPercent))
                                 }
                                 .frame(width: UIScreen.main.bounds.width - 80, height: 46, alignment: .center)
                                 .padding(EdgeInsets(top: 0, leading: 37, bottom: 104, trailing: 0))
