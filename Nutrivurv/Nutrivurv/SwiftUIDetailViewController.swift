@@ -31,10 +31,18 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     }
     
     private var quantitySubscriber: AnyCancellable!
-    private var quantity: String = "1.0"
+    private var quantity: String = "1.0" {
+        didSet {
+            fetchNutrientDetails()
+        }
+    }
     
     private var servingSizeSubscriber: AnyCancellable!
-    private var servingSizeIndex: Int = 0
+    private var servingSizeIndex: Int = 0 {
+        didSet {
+            fetchNutrientDetails()
+        }
+    }
     
     private var mealTypeSubscriber: AnyCancellable!
     private var mealTypeIndex: Int = 0
@@ -200,8 +208,6 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             return
         }
         
-        fetchNutrientDetails()
-        
         if let servingSize = foodItem.measures.first?.label {
             rootView.selectedServingSize = servingSize.capitalized
             rootView.servingSizes.measures = foodItem.measures
@@ -232,18 +238,17 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         if let foodItem = foodItem {
             print(foodItem)
             
-            let servingSizeIndex = rootView.delegate.servingSizeIndex
+            let servingSizeIndex = self.servingSizeIndex
             let servingSize = foodItem.measures[servingSizeIndex]
             let measureURI = servingSize.uri
             
-            guard let quantity = Double(self.rootView.delegate.quantity) else {
+            guard let quantity = Double(self.quantity) else {
                 return
             }
             
             let foodId = foodItem.food.foodId
 
             self.searchController?.searchForNutrients(qty: quantity, measureURI: measureURI, foodId: foodId) { (nutrients) in
-                guard let nutrients = nutrients else { return }
                 self.nutrients = nutrients
             }
             
