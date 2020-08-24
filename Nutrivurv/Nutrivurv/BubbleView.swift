@@ -14,7 +14,7 @@ struct BubbleView: View {
     @Binding var newMealEntry: Bool
     
     var index: Double // starting at one, used as a multiplier for the animation delay
-    var percentDifference: Int
+    var percentDifference: Double
     
     var body: some View {
         ZStack {
@@ -29,7 +29,7 @@ struct BubbleView: View {
                     .minimumScaleFactor(0.8)
                 }
                 
-                Text("\(percentDifference)")
+                Text("\(String(format: "%.0f", percentDifference))")
                     .font(Font.custom("QuattrocentoSans-Bold", size: 18))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)

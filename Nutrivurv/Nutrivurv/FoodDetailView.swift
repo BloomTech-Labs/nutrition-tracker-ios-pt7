@@ -157,13 +157,13 @@ struct FoodDetailView: View {
                                 .offset(x: -4, y: currentProgresss ? -20 : 0)
                                 
                                 HStack(spacing: 6) {
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 1, percentDifference: Int(newDailyMacros.caloriesPercent - currentDailyMacros.caloriesPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 1, percentDifference: Double(newDailyMacros.caloriesPercent - currentDailyMacros.caloriesPercent))
                                     Spacer()
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 2, percentDifference: Int(newDailyMacros.carbsPercent - currentDailyMacros.carbsPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 2, percentDifference: Double(newDailyMacros.carbsPercent - currentDailyMacros.carbsPercent))
                                     Spacer()
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 3, percentDifference: Int(newDailyMacros.proteinPercent - currentDailyMacros.proteinPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 3, percentDifference: Double(newDailyMacros.proteinPercent - currentDailyMacros.proteinPercent))
                                     Spacer()
-                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 4, percentDifference: Int(newDailyMacros.fatPercent - currentDailyMacros.fatPercent))
+                                    BubbleView(currentProgress: $currentProgresss, showNutrients: $showNutrients, newMealEntry: $delegate.newEntry, index: 4, percentDifference: Double(newDailyMacros.fatPercent - currentDailyMacros.fatPercent))
                                 }
                                 .frame(width: UIScreen.main.bounds.width - 80, height: 46, alignment: .center)
                                 .padding(EdgeInsets(top: 0, leading: 37, bottom: 104, trailing: 0))
