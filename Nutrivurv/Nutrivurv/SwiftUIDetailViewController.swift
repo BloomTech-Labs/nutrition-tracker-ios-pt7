@@ -24,14 +24,21 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
     var nutrients: Nutrients? {
         didSet {
             updateNutritionFactsValues()
+            if foodItem != nil {
+                updateMacrosForNewEntry()
+            }
         }
     }
     
-    private var quantity: AnyCancellable!
+    private var quantitySubscriber: AnyCancellable!
+    private var quantity: String = "1.0"
     
-    private var servingSize: AnyCancellable!
+    private var servingSizeSubscriber: AnyCancellable!
+    private var servingSizeIndex: Int = 0
     
-    private var mealType: AnyCancellable!
+    private var mealTypeSubscriber: AnyCancellable!
+    private var mealTypeIndex: Int = 0
+    
     
     required init?(coder aDecoder: NSCoder) {
         let currentMacros = FoodLogController.shared.totalDailyMacrosModel
@@ -61,11 +68,36 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         
-        setupViewForExistingEntry()
+        if foodLogEntry != nil {
+            setupViewForExistingEntry()
+            
+            if let imageString = foodLogEntry?.imageURL {
+                self.getFoodImage(urlString: imageString)
+            }
+            
+        } else if foodItem != nil {
+            setupViewForNewEntry()
+            
+            if let imageString = foodItem?.food.image {
+                self.getFoodImage(urlString: imageString)
+            }
+            
+        } else { return }
         
-        if let imageString = foodLogEntry?.imageURL {
-            self.getFoodImage(urlString: imageString)
-        }
+        self.quantitySubscriber = rootView.delegate.$quantity.sink(receiveValue: { (quantity) in
+            self.quantity = quantity
+            print(quantity)
+        })
+        
+        self.servingSizeSubscriber = rootView.delegate.$servingSizeIndex.sink(receiveValue: { (index) in
+            self.servingSizeIndex = index
+            print(index)
+        })
+        
+        self.mealTypeSubscriber = rootView.delegate.$mealTypeIndex.sink(receiveValue: { (index) in
+            self.mealTypeIndex = index
+            print(index)
+        })
     }
     
     private func updateMacrosForExistingEntry() {
@@ -107,6 +139,27 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         }
     }
     
+    private func updateMacrosForNewEntry() {
+        if let calories = nutrients?.calories {
+            rootView.foodItemMacros.caloriesCount = CGFloat(calories)
+        }
+        
+        if let carbs = nutrients?.totalNutrients.CHOCDF?.quantity {
+            let carbsDouble = Double(carbs)
+            rootView.foodItemMacros.carbsCount = CGFloat(carbsDouble)
+        }
+        
+        if let protein = nutrients?.totalNutrients.PROCNT?.quantity {
+            let proteinDouble = Double(protein)
+            rootView.foodItemMacros.proteinCount = CGFloat(proteinDouble)
+        }
+        
+        if let fat = nutrients?.totalNutrients.FAT?.quantity {
+            let fatDouble = Double(fat)
+            rootView.foodItemMacros.fatCount = CGFloat(fatDouble)
+        }
+    }
+    
     private func setupViewForExistingEntry() {
         guard let foodLogEntry = foodLogEntry else {
             print("Food log entry not loaded")
@@ -132,10 +185,13 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         updateMacrosForExistingEntry()
         
-        rootView.quantity = foodLogEntry.quantity
+        rootView.delegate.quantity = foodLogEntry.quantity
         
         rootView.selectedServingSize = foodLogEntry.measurementName.capitalized
+        // TODO: - set correct serving size index on delegate
+        
         rootView.mealType = foodLogEntry.mealType.capitalized
+        // TODO: - Set correct meal type index on delegate
     }
     
     private func setupViewForNewEntry() {
@@ -144,10 +200,17 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             return
         }
         
+        fetchNutrientDetails()
+        
         if let servingSize = foodItem.measures.first?.label {
             rootView.selectedServingSize = servingSize.capitalized
+            rootView.servingSizes.measures = foodItem.measures
         }
+        
         rootView.mealType = "Breakfast"
+        
+        rootView.foodName = foodItem.food.label.capitalized
+        rootView.brandName = foodItem.food.category
     }
     
     private func getFoodImage(urlString: String) {
@@ -168,17 +231,21 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         if let foodItem = foodItem {
             print(foodItem)
-//            guard let servingSize = selectedServingSize, let quantity = quantityInputValue else {
-//                return
-//            }
-//            
-//            let measureURI = foodItem.measures[servingSize].uri
-//            let foodId = foodItem.food.foodId
-//            
-//            self.searchController?.searchForNutrients(qty: quantity, measureURI: measureURI, foodId: foodId) { (nutrients) in
-//                guard let nutrients = nutrients else { return }
-//                self.nutrients = nutrients
-//            }
+            
+            let servingSizeIndex = rootView.delegate.servingSizeIndex
+            let servingSize = foodItem.measures[servingSizeIndex]
+            let measureURI = servingSize.uri
+            
+            guard let quantity = Double(self.rootView.delegate.quantity) else {
+                return
+            }
+            
+            let foodId = foodItem.food.foodId
+
+            self.searchController?.searchForNutrients(qty: quantity, measureURI: measureURI, foodId: foodId) { (nutrients) in
+                guard let nutrients = nutrients else { return }
+                self.nutrients = nutrients
+            }
             
         } else if let foodLogEntry = foodLogEntry {
             let measureURI = foodLogEntry.measurementURI
@@ -250,9 +317,9 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             rootView.nutritionFacts.potassiumDailyPct = potassiumPct
         }
         
-        let servingSizes = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
-        
-        self.rootView.servingSizes.measures = servingSizes
+//        let servingSizes = [Measure(uri: "1", label: "Serving"), Measure(uri: "2", label: "Whole"), Measure(uri: "3", label: "Cup"), Measure(uri: "4", label: "Ounce"), Measure(uri: "5", label: "Gram")]
+//
+//        self.rootView.servingSizes.measures = servingSizes
         
         DispatchQueue.main.async {
             self.rootView.nutritionFacts.isLoading = false
