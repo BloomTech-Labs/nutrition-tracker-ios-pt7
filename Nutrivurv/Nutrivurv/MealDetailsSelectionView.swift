@@ -17,6 +17,8 @@ struct MealDetailsSelectionView: View {
     @Binding var showServingSizeInputView: Bool
     @Binding var showMealTypeInputView: Bool
     
+    @Binding var newMealEntry: Bool
+    
     var quantityLabel = "Quantity"
     var servingSizeLabel = "Serving Size"
     var mealTypeLabel = "Meal Type"
@@ -24,15 +26,21 @@ struct MealDetailsSelectionView: View {
     var body: some View {
         HStack {
             FoodDetailsInputViewString(label: quantityLabel, inputString: $selectedQuantity).onTapGesture {
-                self.showQuantityInputView.toggle()
+                if self.newMealEntry {
+                    self.showQuantityInputView.toggle()
+                }
             }
             Spacer()
             FoodDetailsInputViewString(label: servingSizeLabel, inputString: $selectedServingSize).onTapGesture {
-                self.showServingSizeInputView.toggle()
+                if self.newMealEntry {
+                    self.showServingSizeInputView.toggle()
+                }
             }
             Spacer()
             FoodDetailsInputViewString(label: mealTypeLabel, inputString: $selectedMealType).onTapGesture {
-                self.showMealTypeInputView.toggle()
+                if self.newMealEntry {
+                    self.showMealTypeInputView.toggle()
+                }
             }
         }
     }
@@ -40,7 +48,7 @@ struct MealDetailsSelectionView: View {
 
 struct ServingSizeSelection_Previews: PreviewProvider {
     static var previews: some View {
-        MealDetailsSelectionView(selectedQuantity: .constant("1.0"), selectedServingSize: .constant("Whole"), selectedMealType: .constant("Breakfast"), showQuantityInputView: .constant(false), showServingSizeInputView: .constant(false), showMealTypeInputView: .constant(false))
+        MealDetailsSelectionView(selectedQuantity: .constant("1.0"), selectedServingSize: .constant("Whole"), selectedMealType: .constant("Breakfast"), showQuantityInputView: .constant(false), showServingSizeInputView: .constant(false), showMealTypeInputView: .constant(false), newMealEntry: .constant(true))
     }
 }
 

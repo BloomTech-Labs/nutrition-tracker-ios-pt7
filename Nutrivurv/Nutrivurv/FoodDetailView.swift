@@ -134,7 +134,7 @@ struct FoodDetailView: View {
                             .padding(EdgeInsets(top: -5, leading: 0, bottom: 6, trailing: 0))
                             
                             
-                            MealDetailsSelectionView(selectedQuantity: $delegate.quantity, selectedServingSize: $delegate.servingSizeName, selectedMealType: $delegate.mealTypeName, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
+                            MealDetailsSelectionView(selectedQuantity: $delegate.quantity, selectedServingSize: $delegate.servingSizeName, selectedMealType: $delegate.mealTypeName, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView, newMealEntry: $delegate.newEntry)
                                 .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
                             
                             
