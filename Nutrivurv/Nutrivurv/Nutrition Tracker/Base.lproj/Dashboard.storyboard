@@ -387,7 +387,7 @@
                                 <color key="backgroundColor" name="bg-color"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="U4e-Le-VaR" kind="show" identifier="FoodDetail" id="15w-qA-fVs"/>
+                                    <segue destination="HUf-V8-zA8" kind="show" identifier="FoodDetail" id="OtO-PX-sNo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -440,7 +440,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
-                                <rect key="frame" x="14" y="106" width="262" height="44"/>
+                                <rect key="frame" x="14" y="62" width="262" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
                                         <rect key="frame" x="0.0" y="0.0" width="262" height="23.5"/>
@@ -457,7 +457,7 @@
                                 </subviews>
                             </stackView>
                             <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="8" y="164" width="268" height="21"/>
+                                <rect key="frame" x="8" y="120" width="268" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="900" height="21"/>
@@ -479,20 +479,20 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="usu-RS-26B"/>
                             </scrollView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zES-L2-3nD">
-                                <rect key="frame" x="14" y="198" width="55.5" height="15.5"/>
+                                <rect key="frame" x="14" y="154" width="55.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="13"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-basket" translatesAutoresizingMaskIntoConstraints="NO" id="f73-A3-Bna">
-                                <rect key="frame" x="298" y="118" width="100" height="100"/>
+                                <rect key="frame" x="298" y="74" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2yH-vl-ncA"/>
                                     <constraint firstAttribute="width" secondItem="f73-A3-Bna" secondAttribute="height" multiplier="1:1" id="56h-2D-tQd"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="905-xc-sQL">
-                                <rect key="frame" x="38" y="258" width="338" height="94"/>
+                                <rect key="frame" x="38" y="214" width="338" height="94"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-7t-Yqc">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="94"/>
@@ -565,13 +565,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
-                                <rect key="frame" x="16" y="384" width="382" height="21"/>
+                                <rect key="frame" x="16" y="340" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
-                                <rect key="frame" x="16" y="401" width="382" height="20"/>
+                                <rect key="frame" x="16" y="357" width="382" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
                                         <rect key="frame" x="0.0" y="0.0" width="367" height="20"/>
@@ -588,13 +588,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Daily Value *" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYu-gN-Juf">
-                                <rect key="frame" x="16" y="427" width="386" height="16.5"/>
+                                <rect key="frame" x="16" y="383" width="386" height="16.5"/>
                                 <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="14"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV" customClass="FadedVerticalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="445.5" width="398" height="346.5"/>
+                                <rect key="frame" x="16" y="401.5" width="398" height="390.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
                                         <rect key="frame" x="0.0" y="10" width="386" height="19"/>
@@ -915,7 +915,7 @@
                                 </connections>
                             </button>
                             <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV8-21-SSQ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="72" y="195" width="204" height="21"/>
+                                <rect key="frame" x="72" y="151" width="204" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
                                         <rect key="frame" x="-14" y="0.0" width="268" height="21"/>

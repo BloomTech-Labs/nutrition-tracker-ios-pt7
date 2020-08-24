@@ -29,7 +29,6 @@ class FoodSearchTableViewController: UITableViewController {
         
         // Removes the "back" text from navigation bar
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,11 +59,12 @@ class FoodSearchTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FoodDetail" {
             guard let indexPath = self.tableView.indexPathForSelectedRow,
-                let fdVC = segue.destination as? FoodDetailViewController else { return }
+                let fdVC = segue.destination as? SwiftUIDetailViewController else { return }
             
             let foodItem = self.searchController.foods[indexPath.row]
             fdVC.searchController = self.searchController
             fdVC.foodItem = foodItem
+            fdVC.modalPresentationStyle = .fullScreen
         } else if segue.identifier == "ShowBarcodeScanner" {
             guard let barcodeScanVC = segue.destination as? BarcodeSearchViewController else {
                 print("Couldn't load barcode scanner")
