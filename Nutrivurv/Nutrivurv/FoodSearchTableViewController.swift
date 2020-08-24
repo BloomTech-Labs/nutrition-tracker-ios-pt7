@@ -36,6 +36,12 @@ class FoodSearchTableViewController: UITableViewController {
         self.tabBarController?.tabBar.isHidden = false
         foodSearchBar.searchTextField.text = foodSearchKeyword
         tableView.reloadData()
+        
+        if let dashboardNavController = self.tabBarController?.viewControllers?.first as? UINavigationController {
+            if let dashboardVC = dashboardNavController.viewControllers.first as? DashboardViewController {
+                dashboardVC.selectedDate = Date()
+            }
+        }
     }
 
 
