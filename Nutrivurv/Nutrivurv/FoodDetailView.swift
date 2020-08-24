@@ -12,8 +12,12 @@ import Combine
 
 class FoodDetailViewDelegate: ObservableObject {
     @Published var quantity: String = "1.0"
+    
     @Published var servingSizeIndex: Int = 0
+    @Published var servingSizeName: String = "Serving"
+    
     @Published var mealTypeIndex: Int = 0
+    @Published var mealTypeName: String = "Breakfast"
     
     // Update the progress view switcher and macros values based on whether this is a new item or this is an item already included in the food log
     @Published var newEntry: Bool = true
@@ -33,9 +37,6 @@ struct FoodDetailView: View {
     var foodName: String = ""
     var brandName: String = ""
     
-    @State var quantity: String = "1.0"
-    @State var selectedServingSize: String = "Serving"
-    @State var mealType: String = "Breakfast"
     var allMealTypes: [MealType] = MealType.allCases
     
     @State var showQuantityInputView: Bool = false
@@ -133,7 +134,7 @@ struct FoodDetailView: View {
                             .padding(EdgeInsets(top: -5, leading: 0, bottom: 6, trailing: 0))
                             
                             
-                            MealDetailsSelectionView(selectedQuantity: $delegate.quantity, selectedServingSize: $selectedServingSize, selectedMealType: $mealType, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
+                            MealDetailsSelectionView(selectedQuantity: $delegate.quantity, selectedServingSize: $delegate.servingSizeName, selectedMealType: $delegate.mealTypeName, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
                                 .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
                             
                             
@@ -228,10 +229,10 @@ struct FoodDetailView: View {
                     .animation(self.springAnimation)
                 
                 
-                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $selectedServingSize, selectedIndex: $delegate.servingSizeIndex, edamamMeasures: servingSizes.edamamMeasures, nutrivurvBackendMeasurements: servingSizes.nutrivurvBackendMeasurements, currentProgress: $currentProgresss)
+                ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $delegate.servingSizeName, selectedIndex: $delegate.servingSizeIndex, edamamMeasures: servingSizes.edamamMeasures, nutrivurvBackendMeasurements: servingSizes.nutrivurvBackendMeasurements, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
-                MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $mealType, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
+                MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $delegate.mealTypeName, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
                     .animation(self.springAnimation)
             }
         }

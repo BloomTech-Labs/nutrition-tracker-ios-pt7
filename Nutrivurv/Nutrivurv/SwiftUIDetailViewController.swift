@@ -194,15 +194,16 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         
         rootView.delegate.quantity = foodLogEntry.quantity
         
-        rootView.selectedServingSize = foodLogEntry.measurementName.capitalized
+        rootView.delegate.servingSizeName = foodLogEntry.measurementName.capitalized
         rootView.servingSizes.nutrivurvBackendMeasurements = foodLogEntry.allMeasurements
-        // TODO: - set correct serving size index on delegate
-        if let index = foodLogEntry.allMeasurements.firstIndex(where: {  $0.label.capitalized == foodLogEntry.measurementName }) {
-            rootView.delegate.servingSizeIndex = index
+        if let ssIndex = foodLogEntry.allMeasurements.firstIndex(where: {  $0.label.capitalized == foodLogEntry.measurementName }) {
+            rootView.delegate.servingSizeIndex = ssIndex
         }
         
-        rootView.mealType = foodLogEntry.mealType.capitalized
-        // TODO: - Set correct meal type index on delegate
+        rootView.delegate.mealTypeName = foodLogEntry.mealType.capitalized
+        if let mtIndex = MealType.allCases.firstIndex(where: {$0.rawValue == foodLogEntry.mealType.lowercased() }) {
+            rootView.delegate.mealTypeIndex = mtIndex
+        }
     }
     
     private func setupViewForNewEntry() {
@@ -212,11 +213,11 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         }
         
         if let servingSize = foodItem.measures.first?.label {
-            rootView.selectedServingSize = servingSize.capitalized
+            rootView.delegate.servingSizeName = servingSize.capitalized
             rootView.servingSizes.edamamMeasures = foodItem.measures
         }
         
-        rootView.mealType = "Breakfast"
+        rootView.delegate.mealTypeName = "Breakfast"
         
         rootView.foodName = foodItem.food.label.capitalized
         rootView.brandName = foodItem.food.category
