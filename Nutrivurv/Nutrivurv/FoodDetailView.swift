@@ -31,9 +31,7 @@ struct FoodDetailView: View {
     var brandName: String = ""
     
     @State var quantity: String = "1.0"
-    
     @State var selectedServingSize: String = "Serving"
-    
     @State var mealType: String = "Breakfast"
     var allMealTypes: [MealType] = MealType.allCases
     
@@ -132,7 +130,7 @@ struct FoodDetailView: View {
                             .padding(EdgeInsets(top: -5, leading: 0, bottom: 6, trailing: 0))
                             
                             
-                            MealDetailsSelectionView(selectedQuantity: $quantity, selectedServingSize: $selectedServingSize, selectedMealType: $mealType, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
+                            MealDetailsSelectionView(selectedQuantity: $delegate.quantity, selectedServingSize: $selectedServingSize, selectedMealType: $mealType, showQuantityInputView: $showQuantityInputView, showServingSizeInputView: $showServingSizeInputView, showMealTypeInputView: $showMealTypeInputView)
                                 .frame(width: UIScreen.main.bounds.width - 50, height: 58, alignment: .center)
                             
                             
@@ -232,7 +230,6 @@ struct FoodDetailView: View {
                 
                 MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $mealType, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
                     .animation(self.springAnimation)
-                
             }
         }
         .navigationBarTitle(navigationBarTitle)
