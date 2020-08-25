@@ -13,7 +13,7 @@ extension UserDefaults {
         case dailyLoginStreak = "dailyLoginStreak"
         case previousLoginDate = "previousLoginDate"
         case userIdKey = "userIdKey"
-        case hkPermissionGranted = "hkPermissionGranted"
+        case promptedForHKPermission = "promptedForHKPermission"
         case caloricBudget = "caloricBudget"
         case carbsBudget = "carbsBudget"
         case proteinBudget = "proteinBudget"
@@ -45,7 +45,7 @@ extension UserDefaults {
     }
     
     private class func hkDataAvailable() -> Bool {
-        return UserDefaults.standard.bool(forKey: Keys.hkPermissionGranted.rawValue)
+        return UserDefaults.standard.bool(forKey: Keys.promptedForHKPermission.rawValue)
     }
     
     // Explicitly call upon app close/enter background

@@ -81,7 +81,7 @@ class DashboardViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getCurrentWeight), name: .currentWeightUpdated, object: nil)
         getCurrentWeight()
         
-        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hkPermissionGranted.rawValue) {
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.promptedForHKPermission.rawValue) {
             promptForHKPermission()
         }
         
@@ -312,7 +312,7 @@ class DashboardViewController: UIViewController {
     }
     
     private func promptForHKPermission() {
-        let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, visit the privacy settings page within your settings app to allow access.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Health Access", message: "We need permission to access your health data to provide a more personalized experience. If you have previosuly declined access, you'll need to manually enable access within your Settings app. From the main page of your settings app, visit Privacy->Health->Nutrivurv to grant access.", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
             self.requestHealthKitAuthorization { (result) in
@@ -335,7 +335,7 @@ class DashboardViewController: UIViewController {
                 return
             }
             
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.hkPermissionGranted.rawValue)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.promptedForHKPermission.rawValue)
             
             completion(true)
         }
