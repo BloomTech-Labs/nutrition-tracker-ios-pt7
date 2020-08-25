@@ -93,18 +93,19 @@ struct FoodDetailView: View {
                                 
                                 Spacer()
                                 
-                                Button(action: {
-                                    // TODO: Add meal functionality
-                                }) {
-                                    Image("add-meal-button-icon")
-                                        .renderingMode(.original)
-                                        .frame(width: 60, height: 60)
-                                        .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
-                                }
-                                .buttonStyle(ScaleButtonStyle())
-                                .animation(.easeInOut)
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 24, height: 60)
+                                if delegate.newEntry {
+                                    Button(action: {
+                                            // TODO: Add meal functionality
+                                        }) {
+                                            Image("add-meal-button-icon")
+                                                .renderingMode(.original)
+                                                .frame(width: 60, height: 60)
+                                                .shadow(color: Color(shadowColor), radius: 8.0, x: 0, y: -3)
+                                        }
+                                        .buttonStyle(ScaleButtonStyle())
+                                        .animation(.easeInOut)
+                                    }
+                                }.frame(width: UIScreen.main.bounds.width - 24, height: 60)
                             
                             
                             HStack {

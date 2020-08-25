@@ -29,7 +29,7 @@ struct BubbleView: View {
                     .minimumScaleFactor(0.8)
                 }
                 
-                Text("\(String(format: "%.0f", percentDifference))")
+                Text(Int(percentDifference) == 0 ? "0" : "\(String(format: "%.0f", percentDifference))")
                     .font(Font.custom("QuattrocentoSans-Bold", size: 18))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
