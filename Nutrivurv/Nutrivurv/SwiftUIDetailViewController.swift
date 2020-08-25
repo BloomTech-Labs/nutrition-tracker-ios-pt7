@@ -99,7 +99,76 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
     }
     
     func addNewMeal() {
+        // Called from SwiftUI Button on detail view using protocol/delegate pattern
+        guard let foodItem = foodItem else {
+            print("No food item when attempting to log new entry")
+            return
+        }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        let meal = rootView.delegate.mealTypeName.lowercased()
+        
+        let edamamfoodID = foodItem.food.foodId
+        
+        let measurementName = rootView.delegate.servingSizeName
+        let measurementIndex = rootView.delegate.servingSizeIndex
+        let measurementURI = foodItem.measures[measurementIndex].uri
+        
+        let foodName = foodItem.food.label.capitalized
+        
+        let quantity = rootView.delegate.quantity
+        guard let quantityDouble = Double(quantity) else {
+            print("User entered quantity not a number")
+            return
+        }
+        guard quantityDouble > 0 else {
+            // TODO: - Alert user that to input a value greater than 0
+            return
+        }
+        
+        let calories = Int(rootView.nutritionFacts.calories)
+        let carbs = String(rootView.nutritionFacts.totalCarb.roundToDecimal(2))
+        let protein = String(rootView.nutritionFacts.protein.roundToDecimal(2))
+        let fat = String(rootView.nutritionFacts.totalFat.roundToDecimal(2))
+        
+        let imageURL = foodItem.food.image
+        
+        var allMeasurements: [Measurement] = []
+        for measure in rootView.servingSizes.edamamMeasures {
+            let measurement = Measurement(uri: measure.uri, label: measure.label)
+            allMeasurements.append(measurement)
+        }
+        
+        let newEntry = FoodLogEntry(date: dateString, mealType: meal, foodID: edamamfoodID, measurementURI: measurementURI, measurementName: measurementName, allMeasurements: allMeasurements, foodName: foodName, quantity: quantity, calories: calories, fat: fat, carbs: carbs, protein: protein, imageURL: imageURL)
+        
+        FoodLogController.shared.createFoodLogEntry(entry: newEntry) { (response) in
+            switch response {
+            case .success(true):
+                print("Successfully logged entry")
+                
+                NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
+                
+                if calories > 0 {
+                    HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
+                }
+                HealthKitController.shared.updateAllValues()
+                return
+            case .failure(let error):
+                if error == .badAuth || error == .noAuth {
+                    // TODO - Reauthorize user
+                } else {
+                    print("Error reauthorizing user and updating food log")
+                    return
+                }
+            default:
+                print("General error occured while atttempting to log new entry")
+                return
+            }
+        }
     }
     
     private func updateMacrosForExistingEntry() {
