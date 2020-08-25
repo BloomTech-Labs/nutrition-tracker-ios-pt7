@@ -69,6 +69,7 @@
 		51503BEF24D287DE00643896 /* MealTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51503BEE24D287DE00643896 /* MealTypes.swift */; };
 		5151E6D024A7FA330071A609 /* FoodLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */; };
 		5151E6D324A7FB550071A609 /* FoodLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5151E6D224A7FB550071A609 /* FoodLogController.swift */; };
+		51545FAA24F4E1A70046ABF0 /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51545FA924F4E1A70046ABF0 /* AlertControllerExtension.swift */; };
 		515F4FC924D9EB4F0026F4AE /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */; };
 		5179C58D24F226ED00D9E264 /* QuantityInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C58C24F226ED00D9E264 /* QuantityInputView.swift */; };
 		5179C59024F23DAB00D9E264 /* ServingSizeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5179C58F24F23DAB00D9E264 /* ServingSizeInputView.swift */; };
@@ -194,6 +195,7 @@
 		51503BEE24D287DE00643896 /* MealTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypes.swift; sourceTree = "<group>"; };
 		5151E6CF24A7FA330071A609 /* FoodLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogTableViewController.swift; sourceTree = "<group>"; };
 		5151E6D224A7FB550071A609 /* FoodLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogController.swift; sourceTree = "<group>"; };
+		51545FA924F4E1A70046ABF0 /* AlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
 		515F4FC824D9EB4F0026F4AE /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
 		5179C58C24F226ED00D9E264 /* QuantityInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityInputView.swift; sourceTree = "<group>"; };
 		5179C58F24F23DAB00D9E264 /* ServingSizeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeInputView.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				514D57F524CA275B008DCEEF /* UIViewExtensions.swift */,
 				512CA6B124DA53BB00B17010 /* HealthKitError.swift */,
 				5131BD2624E7817F007B94A0 /* DoubleExtension.swift */,
+				51545FA924F4E1A70046ABF0 /* AlertControllerExtension.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -965,6 +968,7 @@
 				4C89A9EE24400F1100348B5A /* FoodDetailViewController.swift in Sources */,
 				D631B2812418795300AE30C9 /* ActivityLevelTableViewCell.swift in Sources */,
 				5130B83324A7043F00946B41 /* NutritionLabel.swift in Sources */,
+				51545FAA24F4E1A70046ABF0 /* AlertControllerExtension.swift in Sources */,
 				51363F9E24A975F5001432F7 /* FadedScrollViews.swift in Sources */,
 				512FF45024DB557300F49FCB /* BouncesContentView.swift in Sources */,
 				5179C58D24F226ED00D9E264 /* QuantityInputView.swift in Sources */,
