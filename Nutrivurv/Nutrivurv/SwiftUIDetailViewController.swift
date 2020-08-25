@@ -126,7 +126,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
             return
         }
         guard quantityDouble > 0 else {
-            // TODO: - Alert user that to input a value greater than 0
+            let alert = UIAlertController.createAlert(title: "Enter Quantity", message: "Please a number greater than zero for the quantity and try again.", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
@@ -159,7 +160,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
                 return
             case .failure(let error):
                 if error == .badAuth || error == .noAuth {
-                    // TODO - Reauthorize user
+                    self.reauthorizeUser()
                 } else {
                     print("Error reauthorizing user and updating food log")
                     return
