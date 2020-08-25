@@ -147,27 +147,38 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         let newEntry = FoodLogEntry(date: dateString, mealType: meal, foodID: edamamfoodID, measurementURI: measurementURI, measurementName: measurementName, allMeasurements: allMeasurements, foodName: foodName, quantity: quantity, calories: calories, fat: fat, carbs: carbs, protein: protein, imageURL: imageURL)
         
         FoodLogController.shared.createFoodLogEntry(entry: newEntry) { (response) in
-            switch response {
-            case .success(true):
-                print("Successfully logged entry")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.rootView.delegate.isLoggingMeal = false
                 
-                NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
-                
-                if calories > 0 {
-                    HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
-                }
-                HealthKitController.shared.updateAllValues()
-                return
-            case .failure(let error):
-                if error == .badAuth || error == .noAuth {
-                    self.reauthorizeUser()
-                } else {
-                    print("Error reauthorizing user and updating food log")
+                switch response {
+                case .success(true):
+                    print("Successfully logged entry")
+                    
+                    NotificationCenter.default.post(name: .newFoodItemLogged, object: nil)
+                    
+                    if calories > 0 {
+                        HealthKitController.shared.saveCalorieIntakeSample(calories: Double(calories))
+                    }
+                    HealthKitController.shared.updateAllValues()
+                    
+                    let alert = UIAlertController.createAlertWithDefaultAction(title: "Success!", message: "This item was added to your food log. See your full log from the main dashboard.", style: .alert) { (_) in
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+
+                    self.present(alert, animated: true)
+                    return
+                case .failure(let error):
+                    if error == .badAuth || error == .noAuth {
+                        self.reauthorizeUser()
+                    } else {
+                        print("Error reauthorizing user and updating food log")
+                        return
+                    }
+                default:
+                    let alert = UIAlertController.createAlert(title: "Item Not Logged", message: "We ran into an issue logging this item for you. Please try again.", style: .alert)
+                    self.present(alert, animated: true)
                     return
                 }
-            default:
-                print("General error occured while atttempting to log new entry")
-                return
             }
         }
     }
