@@ -39,7 +39,9 @@ class FoodSearchTableViewController: UITableViewController {
         
         if let dashboardNavController = self.tabBarController?.viewControllers?.first as? UINavigationController {
             if let dashboardVC = dashboardNavController.viewControllers.first as? DashboardViewController {
-                dashboardVC.selectedDate = Date()
+                if !Calendar.current.isDateInToday(dashboardVC.selectedDate) {
+                    dashboardVC.selectedDate = Date()
+                }
             }
         }
     }
