@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 import SkeletonUI
 
-class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
+class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogDelegate {
     
     // Coming from food log
     var foodLogEntry: FoodLogEntry?
@@ -64,6 +64,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         
+        rootView.foodLogDelegate = self
+        
         if foodLogEntry != nil {
             setupViewForExistingEntry()
             rootView.delegate.newEntry = false
@@ -94,6 +96,10 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             self.mealTypeIndex = index
             print(index)
         })
+    }
+    
+    func addNewMeal() {
+        
     }
     
     private func updateMacrosForExistingEntry() {
@@ -220,6 +226,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView> {
             print("Food item not loaded")
             return
         }
+        
+        rootView.navigationBarTitle = "nutrition facts"
         
         if let servingSize = foodItem.measures.first?.label {
             rootView.delegate.servingSizeName = servingSize.capitalized
