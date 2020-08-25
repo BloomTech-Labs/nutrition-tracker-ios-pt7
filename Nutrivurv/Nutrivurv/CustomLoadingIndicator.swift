@@ -11,6 +11,7 @@ import UIKit
 
 struct LoadingView: View {
     @State var animate = false
+    @Binding var loadingText: String
     
     var startColor: Color = Color(UIColor(named: "nutrivurv-cyan")!)
     var endColor: Color = Color(UIColor(named: "nutrivurv-blue-new")!)
@@ -25,7 +26,9 @@ struct LoadingView: View {
                 .rotationEffect(.init(degrees: self.animate ? 360 : 0))
                 .animation(Animation.linear(duration: 0.7).repeatForever(autoreverses: false))
             
-            Text("Please Wait....").padding(.top)
+            Text(loadingText.lowercased() + "....").padding(.top)
+                .font(Font.custom("Gaoel", size: 12))
+                .frame(width: 100, alignment: .center)
         }
         .padding(20)
         .background(Color.white)
@@ -37,26 +40,19 @@ struct LoadingView: View {
 }
 
 struct CustomLoadingIndicator: View {
-    @State var show: Bool = false
+    @State var show: Bool = true
+    @State var loadingText: String = "Please Wait"
+    var bgOpacity: Double = 0.25
     
     var body: some View {
         ZStack {
-            Button(action: {
-                self.show.toggle()
-            }) {
-                Text("Custom Loading")
-            }
-            
             if self.show {
                 GeometryReader { geo in
                     VStack {
-                        LoadingView()
+                        LoadingView(loadingText: self.$loadingText)
                     }
                 }
-                .background(Color.black.opacity(0.25).edgesIgnoringSafeArea(.all))
-                .onTapGesture {
-                    self.show.toggle()
-                }
+                .background(Color.black.opacity(bgOpacity).edgesIgnoringSafeArea(.all))
             }
         }
     }
