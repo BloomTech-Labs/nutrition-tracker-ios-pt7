@@ -91,17 +91,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         loadingBlurView.isHidden = true
         self.view.addSubview(loadingBlurView)
         
-        setUpActivityView()
         addBarcodeScannerFrameView()
-    }
-    
-    private func setUpActivityView() {
-        activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor(named: "nutrivurv-blue-new")
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.center = loadingBlurView.center
-        self.view.addSubview(activityIndicator)
-        self.view.bringSubviewToFront(activityIndicator)
+        setupSwiftUILoadingIndicator()
     }
     
     private func addBarcodeScannerFrameView() {
@@ -112,15 +103,25 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         self.view.bringSubviewToFront(barcodeScannerFrameView)
     }
     
+    private func setupSwiftUILoadingIndicator() {
+        let hostingController = UIHostingController(rootView: CustomLoadingIndicator(loadingText: "Searching", bgOpacity: 0.5))
+        hostingController.view.backgroundColor = UIColor.clear
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.swiftUILoadingContainerView.addSubview(hostingController.view)
+        hostingController.view.pinWithNoPadding(to: swiftUILoadingContainerView)
+    }
+    
     private func showLoadingSubviews() {
         self.loadingBlurView.isHidden = false
-        self.activityIndicator.startAnimating()
+        self.view.bringSubviewToFront(self.swiftUILoadingContainerView)
+        self.swiftUILoadingContainerView.isHidden = false
     }
     
     private func hideLoadingIndicators() {
         // Update UI by removing blur view, stop activity indicator, hide scanner frame view
         self.barcodeScannerFrameView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        self.activityIndicator.stopAnimating()
+        self.swiftUILoadingContainerView.isHidden = true
     }
     
     private func hideLoadingBlurView() {
@@ -319,24 +320,26 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     // Uses the search controller object to initiate a search
     func searchForFoodByUPC(_ upc: String) {
         self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) { (error) in
-            self.hideLoadingIndicators()
-            
-            if let error = error as? NetworkError {
-                if error == .otherError {
-                    self.generalNetworkingErrorAlert()
-                } else {
-                    self.noFoodsFoundAlert()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.hideLoadingIndicators()
+                
+                if let error = error as? NetworkError {
+                    if error == .otherError {
+                        self.generalNetworkingErrorAlert()
+                    } else {
+                        self.noFoodsFoundAlert()
+                    }
+                    return
                 }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                if self.searchController?.foods.count == 0 {
-                    // Specialized alert controller that calls captureSession.startRunning() in the completion block
-                    self.noFoodsFoundAlert()
-                } else {
-                    self.barcodeSearchDelegate?.gotResultForFoodFromUPC()
-                    self.dismiss(animated: true)
+                
+                DispatchQueue.main.async {
+                    if self.searchController?.foods.count == 0 {
+                        // Specialized alert controller that calls captureSession.startRunning() in the completion block
+                        self.noFoodsFoundAlert()
+                    } else {
+                        self.barcodeSearchDelegate?.gotResultForFoodFromUPC()
+                        self.dismiss(animated: true)
+                    }
                 }
             }
         }
