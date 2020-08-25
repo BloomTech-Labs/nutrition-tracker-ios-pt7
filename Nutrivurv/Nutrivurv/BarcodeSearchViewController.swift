@@ -8,6 +8,7 @@
 
 import AVFoundation
 import UIKit
+import SwiftUI
 
 class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
@@ -22,7 +23,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     var notAuthorizedAlertContainerView: UIView!
     var barcodeScannerFrameView: UIView!
     var loadingBlurView: UIView!
-    var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var swiftUILoadingContainerView: UIView!
     
     var barcodeSearchDelegate: BarcodeSearchDelegate?
     var manualSearchDelegate: ManualSearchRequiredDelegate?
