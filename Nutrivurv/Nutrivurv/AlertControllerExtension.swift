@@ -10,9 +10,17 @@ import Foundation
 import UIKit
 
 extension UIAlertController {
-    class func createAlertWithDefaultAction(title: String, message: String, style: UIAlertController.Style) -> UIAlertController {
+    class func createAlert(title: String, message: String, style: UIAlertController.Style) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        
+        return alertController
+    }
+    
+    class func createAlertWithDefaultAction(title: String, message: String, style: UIAlertController.Style, defaultAction: ((UIAlertAction) -> Void)?) -> UIAlertController {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: defaultAction)
         alertController.addAction(alertAction)
         
         return alertController

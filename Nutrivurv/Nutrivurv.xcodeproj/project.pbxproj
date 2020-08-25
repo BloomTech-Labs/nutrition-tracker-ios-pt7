@@ -297,6 +297,7 @@
 		511285E324D3689B0080127B /* Custom Global Views */ = {
 			isa = PBXGroup;
 			children = (
+				5130B83224A7043F00946B41 /* NutritionLabel.swift */,
 				512FF44C24DB547E00F49FCB /* Custom Tab Bar */,
 				51363F9D24A975F5001432F7 /* FadedScrollViews.swift */,
 				511285E424D368C30080127B /* MealTypeHeaderLabel.swift */,
@@ -408,14 +409,6 @@
 				512FF45924DB596500F49FCB /* TabBarController.swift */,
 			);
 			name = Components;
-			sourceTree = "<group>";
-		};
-		5130B83124A7042200946B41 /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-				5130B83224A7043F00946B41 /* NutritionLabel.swift */,
-			);
-			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 		5131BD2524E76867007B94A0 /* User Information */ = {
@@ -535,7 +528,6 @@
 			isa = PBXGroup;
 			children = (
 				9229361C24DF368A00324D95 /* SwiftUI Views & Models */,
-				5130B83124A7042200946B41 /* Custom Views */,
 				51257AEE24A3285E00C744B7 /* Models */,
 				51A186F724A3305500196C83 /* Model Controllers */,
 				51A186FC24A3319800196C83 /* View Controllers */,

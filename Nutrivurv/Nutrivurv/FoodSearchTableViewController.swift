@@ -86,19 +86,14 @@ class FoodSearchTableViewController: UITableViewController {
     
     // MARK: - Alert Controllers
     
-    private func createAndDisplayAlertController(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     private func noFoodsFoundAlert() {
-        createAndDisplayAlertController(title: "No Foods Found", message: "We weren't able to find any foods matching your search. You may need to specify additional information, such as a brand name. Otherwise you can try scanning the food items barcode to find an exact match.")
+        let alert = UIAlertController.createAlert(title: "No Foods Found", message: "We weren't able to find any foods matching your search. You may need to specify additional information, such as a brand name. Otherwise you can try scanning the food items barcode to find an exact match.", style: .alert)
+        self.present(alert, animated: true)
     }
     
     private func generalNetworkingErrorAlert() {
-        createAndDisplayAlertController(title: "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.")
+        let alert = UIAlertController.createAlert(title: "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.", style: .alert)
+        self.present(alert, animated: true)
     }
     
     // MARK: - Helper Search Function
@@ -212,7 +207,8 @@ extension FoodSearchTableViewController: UITextFieldDelegate {
 
 extension FoodSearchTableViewController: ManualSearchRequiredDelegate {
     func unableToUseBarcodeScanningFeature() {
-        createAndDisplayAlertController(title: "Manual Search Required", message: "This device cannot be used to scan barcodes. Please search for food items manually. We apologize for the inconvience.")
+        let alert = UIAlertController.createAlert(title: "Manual Search Required", message: "This device cannot be used to scan barcodes. Please search for food items manually. We apologize for the inconvience.", style: .alert)
+        self.present(alert, animated: true)
     }
 }
 

@@ -220,7 +220,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         }
         
         guard let backCamera = backCamera else {
-            createAndDisplayAlertController(title: "Camera error", message: "We couldn't find a camera to use on your device")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "We couldn't find a camera to use on your device", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
@@ -230,14 +231,16 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         do {
             videoInput = try AVCaptureDeviceInput(device: backCamera)
         } catch {
-            createAndDisplayAlertController(title: "Camera error", message: "This camera cannot be used to scan food items")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "This camera cannot be used to scan food items", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
         if (captureSession.canAddInput(videoInput)) {
             captureSession.addInput(videoInput)
         } else {
-            createAndDisplayAlertController(title: "Camera error", message: "Video could not be retrieved from the device's camera.")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "Video could not be retrieved from the device's camera.", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
@@ -255,7 +258,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
             // Only these types of meta data will be forwarded to the delegate (self)
             metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
         } else {
-            createAndDisplayAlertController(title: "Camera output error", message: "An output could not be established for the camera.")
+            let alert = UIAlertController.createAlert(title: "Camera output error", message: "An output could not be established for the camera.", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
@@ -267,7 +271,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         cameraPreviewLayer?.backgroundColor = UIColor(named: "bg-color")?.cgColor
         
         guard let previewLayer = cameraPreviewLayer else {
-            createAndDisplayAlertController(title: "Camera error", message: "A preview couldn't be genrated for your device's camera")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "A preview couldn't be genrated for your device's camera", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         self.view.layer.addSublayer(previewLayer)
@@ -291,25 +296,20 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     
     // MARK: - Alert Controllers
     
-    private func createAndDisplayAlertController(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func createAndDisplayAlertControllerAndStartCaptureSession(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+    private func generalNetworkingErrorAlert() {
+        let alert = UIAlertController.createAlertWithDefaultAction(title:  "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.", style: .alert) { (_) in
             self.loadingBlurView.isHidden = true
             self.captureSession.startRunning()
         }
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alert, animated: true)
     }
     
-    private func generalNetworkingErrorAlert() {
-        createAndDisplayAlertControllerAndStartCaptureSession(title: "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.")
+    private func noFoodsFoundAlert() {
+        let alert = UIAlertController.createAlertWithDefaultAction(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.", style: .alert) { (_) in
+            self.loadingBlurView.isHidden = true
+            self.captureSession.startRunning()
+        }
+        self.present(alert, animated: true)
     }
     
     // MARK: - Search by UPC
@@ -323,7 +323,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
                 if error == .otherError {
                     self.generalNetworkingErrorAlert()
                 } else {
-                    self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+                    self.noFoodsFoundAlert()
                 }
                 return
             }
@@ -331,7 +331,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
             DispatchQueue.main.async {
                 if self.searchController?.foods.count == 0 {
                     // Specialized alert controller that calls captureSession.startRunning() in the completion block
-                    self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+                    self.noFoodsFoundAlert()
                 } else {
                     self.barcodeSearchDelegate?.gotResultForFoodFromUPC()
                     self.dismiss(animated: true)
