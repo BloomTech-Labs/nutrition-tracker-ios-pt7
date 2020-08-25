@@ -10,7 +10,12 @@ import SwiftUI
 import SwiftUICharts
 
 struct HealthDashboardView: View {
-    @ObservedObject var healthKitController: HealthKitController = .shared
+    @ObservedObject var healthKitController: HealthKitController
+    @ObservedObject var activeCalories: Calories
+    @ObservedObject var consumedCalories: Calories
+    @ObservedObject var caloricDeficits: Calories
+    @ObservedObject var weight: Weight
+    @ObservedObject var bodyFat: Weight
     
     var body: some View {
         
@@ -24,19 +29,19 @@ struct HealthDashboardView: View {
                 
                 VStack {
                     
-                    CaloriesView(calories: healthKitController.activeCalories, title: "Active Calories", legend: healthKitController.activeCalories.average == 0 ? "Last 7 Days" : "Last 7 Days · avg \(healthKitController.activeCalories.average) cals", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
+                    CaloriesView(calories: activeCalories, title: "Active Calories", legend: activeCalories.average == 0 ? "Last 7 Days" : "Last 7 Days · avg \(activeCalories.average) cals", style: Styles.barChartStyleNeonBlueLight , form: ChartForm.extraLarge)
 
                     HStack {
-                        CaloriesView(calories: healthKitController.consumedCalories, title: "Calories Consumed", legend: healthKitController.consumedCalories.average == 0 ? "Last 7 Days" : "Last 7 Days\navg \(healthKitController.consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
+                        CaloriesView(calories: consumedCalories, title: "Calories Consumed", legend: consumedCalories.average == 0 ? "Last 7 Days" : "Last 7 Days\navg \(consumedCalories.average) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.medium)
 
                         TodaysCalorieView(dailyMacros: healthKitController.todaysCalorieConsumption)
                     }
 
-                    CaloriesView(calories: healthKitController.caloricDeficits, title: "Caloric Deficit", legend: healthKitController.caloricDeficits.totalSum == 0 ? "Last 7 Days" : "7 Day Total · \(healthKitController.caloricDeficits.totalSum) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
+                    CaloriesView(calories: caloricDeficits, title: "Caloric Deficit", legend: caloricDeficits.totalSum == 0 ? "Last 7 Days" : "7 Day Total · \(caloricDeficits.totalSum) cals", style: Styles.barChartStyleNeonBlueLight, form: ChartForm.extraLarge)
                     
-                    LineChartView(data: healthKitController.weight.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: healthKitController.weight.rateChange)
+                    LineChartView(data: weight.weightReadings, title: "Weight", legend: "last 30 days", form: ChartForm.large, rateValue: healthKitController.weight.rateChange)
                     
-                    LineChartView(data: healthKitController.bodyFat.weightReadings, title: "% Body Fat", legend: "last 30 days", form: ChartForm.large, rateValue: healthKitController.bodyFat.rateChange, valueSpecifier: "%.2f")
+                    LineChartView(data: bodyFat.weightReadings, title: "% Body Fat", legend: "last 30 days", form: ChartForm.large, rateValue: healthKitController.bodyFat.rateChange, valueSpecifier: "%.2f")
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
@@ -76,6 +81,6 @@ struct HealthDashboardView: View {
 
 struct HealthDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        HealthDashboardView(healthKitController: HealthKitController.shared)
+        HealthDashboardView(healthKitController: HealthKitController.shared, activeCalories: Calories(), consumedCalories: Calories(), caloricDeficits: Calories(), weight: Weight(), bodyFat: Weight())
     }
 }

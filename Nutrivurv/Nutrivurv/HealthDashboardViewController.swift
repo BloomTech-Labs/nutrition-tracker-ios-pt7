@@ -14,7 +14,7 @@ import HealthKit
 class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(healthKitController: HealthKitController.shared))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(healthKitController: HealthKitController.shared, activeCalories: HealthKitController.shared.activeCalories, consumedCalories: HealthKitController.shared.consumedCalories, caloricDeficits: HealthKitController.shared.caloricDeficits, weight: HealthKitController.shared.weight, bodyFat: HealthKitController.shared.bodyFat))
     }
     
     //MARK: - View Life Cycle
