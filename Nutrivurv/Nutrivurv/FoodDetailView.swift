@@ -23,6 +23,10 @@ class FoodDetailViewDelegate: ObservableObject {
     @Published var newEntry: Bool = true
 }
 
+protocol FoodLogDelegate {
+    func addNewMeal()
+}
+
 struct FoodDetailView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
@@ -33,6 +37,7 @@ struct FoodDetailView: View {
     @ObservedObject var servingSizes: ServingSizes
     
     @ObservedObject var delegate: FoodDetailViewDelegate
+    var foodLogDelegate: FoodLogDelegate?
     
     var foodName: String = ""
     var brandName: String = ""
@@ -95,7 +100,7 @@ struct FoodDetailView: View {
                                 
                                 if delegate.newEntry {
                                     Button(action: {
-                                            // TODO: Add meal functionality
+                                        self.foodLogDelegate?.addNewMeal()
                                         }) {
                                             Image("add-meal-button-icon")
                                                 .renderingMode(.original)
