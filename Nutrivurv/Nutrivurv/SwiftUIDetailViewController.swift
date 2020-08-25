@@ -98,8 +98,8 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         })
     }
     
+    // Method that establishes protocol conformance to the FoodLogDelegate - Called from SwiftUI Button on detail view
     func addNewMeal() {
-        // Called from SwiftUI Button on detail view using protocol/delegate pattern
         guard let foodItem = foodItem else {
             print("No food item when attempting to log new entry")
             return
@@ -257,7 +257,6 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
             print("Food log entry not loaded")
             return
         }
-        
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

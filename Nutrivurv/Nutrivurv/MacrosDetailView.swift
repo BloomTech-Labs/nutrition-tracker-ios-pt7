@@ -35,6 +35,10 @@ struct MacrosDetailView: View {
             progress = 0
         }
         
+        if progressPercent == 0 {
+            progress = 0.999
+        }
+        
         return VStack(spacing: 14) {
             ZStack {
                 Circle()
