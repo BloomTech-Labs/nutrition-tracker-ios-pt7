@@ -81,7 +81,7 @@ class DashboardViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getCurrentWeight), name: .currentWeightUpdated, object: nil)
         getCurrentWeight()
         
-        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hkPermissionGranted) {
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hkPermissionGranted.rawValue) {
             promptForHKPermission()
         }
         
@@ -282,19 +282,9 @@ class DashboardViewController: UIViewController {
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
         // Reset all necessary properties
-        UserController.keychain.clear()
-        FoodLogController.shared.foodLog = nil
-        let userDefaults = UserDefaults.standard
-        userDefaults.removeObject(forKey: "dailyLoginStreak")
-        userDefaults.removeObject(forKey: "previousLoginDate")
-        userDefaults.removeObject(forKey: "userIdKey")
-        userDefaults.removeObject(forKey: "caloricBudget")
-      
-        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
-        viewController.modalPresentationStyle = .fullScreen
-        viewController.modalTransitionStyle = .flipHorizontal
-        self.present(viewController, animated: true, completion: nil)
+        let appHome = UserController.shared.prepareForLogout()
+
+        self.present(appHome, animated: true, completion: nil)
     }
     
     @IBAction func previousDateButtonTapped(_ sender: Any) {
@@ -346,7 +336,7 @@ class DashboardViewController: UIViewController {
                 return
             }
             
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.hkPermissionGranted)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.hkPermissionGranted.rawValue)
             
             completion(true)
         }

@@ -176,7 +176,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         
         rootView.foodItemMacros.caloriesCount = CGFloat(foodLogEntry.calories)
         rootView.newDailyMacros.caloriesCount = rootView.currentDailyMacros.caloriesCount - rootView.foodItemMacros.caloriesCount
-        if let caloriesBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.caloricBudget) as? Double {
+        if let caloriesBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.caloricBudget.rawValue) as? Double {
             // New macros containing the current daily progress + this item
             let caloriePct = (rootView.newDailyMacros.caloriesCount / CGFloat(caloriesBudget)) * 100
             rootView.newDailyMacros.caloriesPercent = caloriePct
@@ -185,7 +185,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         if let carbsCount = Double(foodLogEntry.carbs) {
             rootView.foodItemMacros.carbsCount = CGFloat(carbsCount)
             rootView.newDailyMacros.carbsCount = rootView.currentDailyMacros.carbsCount - rootView.foodItemMacros.carbsCount
-            if let carbsBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.carbsBudget) as? Double {
+            if let carbsBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.carbsBudget.rawValue) as? Double {
                 let carbPct = (rootView.newDailyMacros.carbsCount / CGFloat(carbsBudget)) * 100
                 rootView.newDailyMacros.carbsPercent = carbPct
             }
@@ -194,7 +194,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         if let proteinCount = Double(foodLogEntry.protein) {
             rootView.foodItemMacros.proteinCount = CGFloat(proteinCount)
             rootView.newDailyMacros.proteinCount = rootView.currentDailyMacros.proteinCount - rootView.foodItemMacros.proteinCount
-            if let proteinBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.proteinBudget) as? Double {
+            if let proteinBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.proteinBudget.rawValue) as? Double {
                 let proteinPct = (rootView.newDailyMacros.proteinCount / CGFloat(proteinBudget)) * 100
                 rootView.newDailyMacros.proteinPercent = proteinPct
             }
@@ -203,7 +203,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         if let fatCount = Double(foodLogEntry.fat) {
             rootView.foodItemMacros.fatCount = CGFloat(fatCount)
             rootView.newDailyMacros.fatCount = rootView.currentDailyMacros.fatCount - rootView.foodItemMacros.fatCount
-            if let fatBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.fatBudget) as? Double {
+            if let fatBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.fatBudget.rawValue) as? Double {
                 let fatPct = (rootView.newDailyMacros.fatCount / CGFloat(fatBudget)) * 100
                 rootView.newDailyMacros.fatPercent = fatPct
             }
@@ -214,7 +214,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         if let calories = nutrients?.calories {
             rootView.foodItemMacros.caloriesCount = CGFloat(calories)
             rootView.newDailyMacros.caloriesCount = rootView.currentDailyMacros.caloriesCount + rootView.foodItemMacros.caloriesCount
-            if let caloriesBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.caloricBudget) as? Double {
+            if let caloriesBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.caloricBudget.rawValue) as? Double {
                 // New macros containing the current daily progress + this item
                 let caloriePct = (rootView.newDailyMacros.caloriesCount / CGFloat(caloriesBudget)) * 100
                 rootView.newDailyMacros.caloriesPercent = caloriePct
@@ -225,7 +225,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
             let carbsDouble = Double(carbs)
             rootView.foodItemMacros.carbsCount = CGFloat(carbsDouble)
             rootView.newDailyMacros.carbsCount = rootView.currentDailyMacros.carbsCount + rootView.foodItemMacros.carbsCount
-            if let carbsBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.carbsBudget) as? Double {
+            if let carbsBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.carbsBudget.rawValue) as? Double {
                 let carbPct = (rootView.newDailyMacros.carbsCount / CGFloat(carbsBudget)) * 100
                 rootView.newDailyMacros.carbsPercent = carbPct
             }
@@ -235,7 +235,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
             let proteinDouble = Double(protein)
             rootView.foodItemMacros.proteinCount = CGFloat(proteinDouble)
             rootView.newDailyMacros.proteinCount = rootView.currentDailyMacros.proteinCount + rootView.foodItemMacros.proteinCount
-            if let proteinBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.proteinBudget) as? Double {
+            if let proteinBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.proteinBudget.rawValue) as? Double {
                 let proteinPct = (rootView.newDailyMacros.proteinCount / CGFloat(proteinBudget)) * 100
                 rootView.newDailyMacros.proteinPercent = proteinPct
             }
@@ -245,7 +245,7 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
             let fatDouble = Double(fat)
             rootView.foodItemMacros.fatCount = CGFloat(fatDouble)
             rootView.newDailyMacros.fatCount = rootView.currentDailyMacros.fatCount + rootView.foodItemMacros.fatCount
-            if let fatBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.fatBudget) as? Double {
+            if let fatBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.fatBudget.rawValue) as? Double {
                 let fatPct = (rootView.newDailyMacros.fatCount / CGFloat(fatBudget)) * 100
                 rootView.newDailyMacros.fatPercent = fatPct
             }
@@ -414,5 +414,48 @@ class SwiftUIDetailViewController: UIHostingController<FoodDetailView>, FoodLogD
         DispatchQueue.main.async {
             self.rootView.nutritionFacts.isLoading = false
         }
+    }
+    
+    // MARK: - Reauthorize User
+    
+    private func reauthorizeUser() {
+        let alertController = UIAlertController(title: "Session Expired", message: "Your login session has expired. Please enter your email and password to continue using the app, or sign out if desired.", preferredStyle: .alert)
+
+        alertController.addTextField { (email) in
+            email.placeholder = "Email"
+        }
+
+        alertController.addTextField { (password) in
+            password.placeholder = "Password"
+        }
+
+        let signOut = UIAlertAction(title: "Sign out", style: .destructive) { (_) in
+            self.logoutOfApp()
+        }
+        let login = UIAlertAction(title: "Reaauthorize", style: .default) { (_) in
+            if let textFields = alertController.textFields, let email = textFields[0].text, let pass = textFields[1].text{
+                let user = UserAuth(email: email, password: pass)
+
+                UserController.shared.loginUser(user: user) { (result) in
+                    if result == .success(true) {
+                        self.addNewMeal()
+                    } else {
+                        print("Error reauthorizing user")
+                        return
+                    }
+                }
+            }
+        }
+
+        alertController.addAction(signOut)
+        alertController.addAction(login)
+
+        self.present(alertController, animated: true)
+    }
+
+    private func logoutOfApp() {
+        let appHome = UserController.shared.prepareForLogout()
+
+        self.present(appHome, animated: true, completion: nil)
     }
 }

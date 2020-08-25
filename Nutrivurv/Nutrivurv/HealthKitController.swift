@@ -285,7 +285,7 @@ class HealthKitController: ObservableObject {
                 
                 self.consumedCalories.allDataIsLoaded = true
                 
-                let usersCaloricBudget = UserDefaults.standard.integer(forKey: UserDefaults.Keys.caloricBudget)
+                let usersCaloricBudget = UserDefaults.standard.integer(forKey: UserDefaults.Keys.caloricBudget.rawValue)
                 
                 self.calculateCaloricDeficits(with: usersCaloricBudget)
                 
