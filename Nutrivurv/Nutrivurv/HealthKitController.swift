@@ -78,6 +78,18 @@ class HealthKitController: ObservableObject {
         }
     }
     
+    var noData: Bool {
+        if noActiveCalsData && noConsumedCalsData && noWeightData && noBodyFatData {
+            return true
+        }
+        return false
+    }
+    
+    var noActiveCalsData: Bool = true
+    var noConsumedCalsData: Bool = true
+    var noWeightData = true
+    var noBodyFatData = true
+    
     var activeCalories = Calories()
     
     var consumedCalories = Calories()
@@ -207,6 +219,10 @@ class HealthKitController: ObservableObject {
                     self.weight.rateChange = rateChange
                 }
                 
+                if !self.weight.weightReadings.isEmpty {
+                    self.noWeightData = false
+                }
+                
                 self.stopLoadingFor(sampleType: sampleType)
                 
             case HKQuantityTypeIdentifier.bodyFatPercentage.rawValue:
@@ -225,6 +241,10 @@ class HealthKitController: ObservableObject {
                     let difference = mostRecent - inital
                     let rateChange = difference.roundToDecimal(2)
                     self.bodyFat.rateChange = rateChange
+                }
+                
+                if !self.bodyFat.weightReadings.isEmpty {
+                    self.noBodyFatData = false
                 }
                 
                 self.stopLoadingFor(sampleType: sampleType)
@@ -312,6 +332,10 @@ class HealthKitController: ObservableObject {
                 self.activeCalories.day7Label = caloriesByDay[6].0
                 self.activeCalories.day7Count = caloriesByDay[6].1
                 
+                if weeklyCalorieSum != 0 {
+                    self.noActiveCalsData = false
+                }
+                
                 self.stopLoadingFor(quantityType: quantityType)
                 //                Temporarily using the data returned from back end for the daily calorie budget instead of basal energy
                 //            case HKQuantityTypeIdentifier.basalEnergyBurned.rawValue:
@@ -342,6 +366,10 @@ class HealthKitController: ObservableObject {
                 self.consumedCalories.day7Count = caloriesByDay[6].1
                 
                 self.consumedCalories.allDataIsLoaded = true
+                
+                if weeklyCalorieSum != 0 {
+                    self.noConsumedCalsData = false
+                }
                 
                 let usersCaloricBudget = UserDefaults.standard.integer(forKey: UserDefaults.Keys.caloricBudget.rawValue)
                 
