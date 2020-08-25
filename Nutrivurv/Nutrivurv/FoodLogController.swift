@@ -55,7 +55,6 @@ class FoodLogController {
         var lunchMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
         var dinnerMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
         var snacksMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
-//        var waterMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0) // TODO: Water is a future release feature
         
         if let breakfast = foodLog.breakfast {
             breakfastMacros = getMacrosTuple(for: breakfast)

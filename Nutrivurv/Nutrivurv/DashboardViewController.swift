@@ -200,7 +200,6 @@ class DashboardViewController: UIViewController {
     }
     
     private func setSelectedDateLabelText(_ date: Date = Date()) {
-        // TODO: Allow user to visit previous calendar dates to get log for that date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d"
         self.selectedDateLabel.text = dateFormatter.string(from: date).lowercased()

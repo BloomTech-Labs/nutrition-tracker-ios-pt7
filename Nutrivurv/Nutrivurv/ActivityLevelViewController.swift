@@ -26,7 +26,6 @@ class ActivityLevelViewController: UIViewController {
     
     // MARK: - IBActions and Methods
     
-    // TODO: Add ability to choose a weekly wight gain/loss goal
     @IBAction func signupButtonTapped(_ sender: Any) {
         guard let user = profileController?.userProfile else {
             print("User profile missing from registration process")
@@ -47,10 +46,12 @@ class ActivityLevelViewController: UIViewController {
                 
             case .failure(.badAuth):
                 print("Email already in use")
-                // TODO: Alert user and prompt for new email/password
+                let alert = UIAlertController.createAlert(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please login to your dashboard.", style: .alert)
+                self.present(alert, animated: true)
             default:
                 print("Error with registration")
-                // TODO: Alert user to double check inputs and try again
+                let alert = UIAlertController.createAlert(title: "Registration failed", message: "We were unable to create an account for you. Please try again.", style: .alert)
+                self.present(alert, animated: true)
             }
         }
     }
