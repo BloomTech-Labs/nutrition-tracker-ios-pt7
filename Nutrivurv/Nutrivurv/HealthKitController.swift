@@ -17,20 +17,33 @@ class HealthKitController: ObservableObject {
     static let shared = HealthKitController()
     
     func updateAllValues() {
+        
         if let weightSampleType = HKSampleType.quantityType(forIdentifier: .bodyMass) {
-            getBodyCompStatsForLast30Days(using: weightSampleType)
+            if !weightIsLoading {
+                getBodyCompStatsForLast30Days(using: weightSampleType)
+                weightIsLoading = true
+            }
         }
         
         if let bodyFatSampleType = HKSampleType.quantityType(forIdentifier: .bodyFatPercentage) {
-            getBodyCompStatsForLast30Days(using: bodyFatSampleType)
+            if !bodyFatIsLoading {
+                getBodyCompStatsForLast30Days(using: bodyFatSampleType)
+                bodyFatIsLoading = true
+            }
         }
         
         if let activeCalsBurned = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) {
-            getCalorieStatsCollectionForWeek(using: activeCalsBurned)
+            if !activeCalsIsLoading {
+                getCalorieStatsCollectionForWeek(using: activeCalsBurned)
+                activeCalsIsLoading = true
+            }
         }
         
         if let consumedCals = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) {
-            getCalorieStatsCollectionForWeek(using: consumedCals)
+            if !consumedCalsIsLoading {
+                getCalorieStatsCollectionForWeek(using: consumedCals)
+                consumedCalsIsLoading = true
+            }
         }
         
         //        Healthkit appears to be way overestimating basal energy, so replacing with the information returned from backend for now.
@@ -77,6 +90,18 @@ class HealthKitController: ObservableObject {
     
     var bodyFat = Weight()
     
+    var isLoading: Bool {
+        if activeCalsIsLoading || consumedCalsIsLoading || weightIsLoading || bodyFatIsLoading {
+            return true
+        }
+        return false
+    }
+    
+    var activeCalsIsLoading: Bool = false
+    var consumedCalsIsLoading: Bool = false
+    var weightIsLoading: Bool = false
+    var bodyFatIsLoading: Bool = false
+    
     
     // MARK: - Manual Calculations
     
@@ -115,6 +140,27 @@ class HealthKitController: ObservableObject {
         caloricDeficits.totalSum = deficitDay1 + deficitDay2 + deficitDay3 + deficitDay4 + deficitDay5 + deficitDay6 + deficitDay7
     }
     
+    private func stopLoadingFor(sampleType: HKSampleType) {
+        if sampleType == HKSampleType.quantityType(forIdentifier: .bodyMass) {
+            self.weightIsLoading = false
+        }
+        
+        if sampleType == HKSampleType.quantityType(forIdentifier: .bodyFatPercentage) {
+            self.bodyFatIsLoading = false
+        }
+        
+        return
+    }
+    
+    private func stopLoadingFor(quantityType: HKQuantityType) {
+        if quantityType == HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned) {
+            self.activeCalsIsLoading = false
+        }
+        
+        if quantityType == HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryEnergyConsumed) {
+            self.consumedCalsIsLoading = false
+        }
+    }
     
     // MARK: - HealthKit Data Fetching Functionality
     
@@ -123,16 +169,19 @@ class HealthKitController: ObservableObject {
         
         guard let startDate = Calendar.current.date(byAdding: .day, value: -29, to: endDate) else {
             print("error getting start date for statistics collection")
+            stopLoadingFor(sampleType: sampleType)
             return
         }
         
         getMostRecentSamples(for: sampleType, withStart: startDate, limit: 100) { (samples, error) in
             if let error = error {
                 print("Error getting weight samples for health dashboard: \(error)")
+                self.stopLoadingFor(sampleType: sampleType)
                 return
             }
             
             guard let samples = samples else {
+                self.stopLoadingFor(sampleType: sampleType)
                 return
             }
             
@@ -158,6 +207,8 @@ class HealthKitController: ObservableObject {
                     self.weight.rateChange = rateChange
                 }
                 
+                self.stopLoadingFor(sampleType: sampleType)
+                
             case HKQuantityTypeIdentifier.bodyFatPercentage.rawValue:
                 
                 self.bodyFat.weightReadings = []
@@ -176,7 +227,10 @@ class HealthKitController: ObservableObject {
                     self.bodyFat.rateChange = rateChange
                 }
                 
+                self.stopLoadingFor(sampleType: sampleType)
+                
             default:
+                self.stopLoadingFor(sampleType: sampleType)
                 return
             }
         }
@@ -186,11 +240,13 @@ class HealthKitController: ObservableObject {
         getCumulativeStatsCollectionUsingOneDayInterval(for: quantityType) { (statsCollection, error) in
             if let error = error {
                 print(error)
+                self.stopLoadingFor(quantityType: quantityType)
                 return
             }
             
             guard let statsCollection = statsCollection else {
                 print("error with stats collection data")
+                self.stopLoadingFor(quantityType: quantityType)
                 return
             }
             
@@ -198,6 +254,7 @@ class HealthKitController: ObservableObject {
             
             guard let startDate = Calendar.current.date(byAdding: .day, value: -6, to: endDate) else {
                 print("error getting start date for statistics collection")
+                self.stopLoadingFor(quantityType: quantityType)
                 return
             }
             
@@ -255,6 +312,7 @@ class HealthKitController: ObservableObject {
                 self.activeCalories.day7Label = caloriesByDay[6].0
                 self.activeCalories.day7Count = caloriesByDay[6].1
                 
+                self.stopLoadingFor(quantityType: quantityType)
                 //                Temporarily using the data returned from back end for the daily calorie budget instead of basal energy
                 //            case HKQuantityTypeIdentifier.basalEnergyBurned.rawValue:
                 //                self.basalCalories = caloriesByDay
@@ -296,7 +354,9 @@ class HealthKitController: ObservableObject {
                     self.todaysCalorieConsumption.caloriesPercent = CGFloat(progressPercent)
                 }
                 
+                self.stopLoadingFor(quantityType: quantityType)
             default:
+                self.stopLoadingFor(quantityType: quantityType)
                 return
             }
         }
