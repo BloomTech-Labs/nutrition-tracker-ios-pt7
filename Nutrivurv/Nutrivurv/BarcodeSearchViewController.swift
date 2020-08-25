@@ -110,6 +110,7 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         
         self.swiftUILoadingContainerView.addSubview(hostingController.view)
         hostingController.view.pinWithNoPadding(to: swiftUILoadingContainerView)
+        self.swiftUILoadingContainerView.isHidden = true
     }
     
     private func showLoadingSubviews() {
