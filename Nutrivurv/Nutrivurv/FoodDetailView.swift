@@ -241,7 +241,7 @@ struct FoodDetailView: View {
                 ServingSizeInputView(showServingSizes: $showServingSizeInputView, showQuantity: $showQuantityInputView, showMealTypes: $showMealTypeInputView, selectedServingSize: $delegate.servingSizeName, selectedIndex: $delegate.servingSizeIndex, edamamMeasures: servingSizes.edamamMeasures, nutrivurvBackendMeasurements: servingSizes.nutrivurvBackendMeasurements, currentProgress: $currentProgresss)
                     .animation(self.springAnimation)
                 
-                MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $delegate.mealTypeName, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
+                MealTypeInputView(showMealTypes: $showMealTypeInputView, showServingSizes: $showServingSizeInputView, selectedMeal: $delegate.mealTypeName, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
                     .animation(self.springAnimation)
             
                 if delegate.isLoggingMeal {

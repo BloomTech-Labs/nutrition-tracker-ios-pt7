@@ -19,6 +19,7 @@
 		4C9F30BF24528F1200CE14CA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F30BE24528F1200CE14CA /* Food.swift */; };
 		510F0D7824CE5ECB00A5F312 /* DailyMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */; };
 		511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511285E424D368C30080127B /* MealTypeHeaderLabel.swift */; };
+		5122B9F124F5B30E00926960 /* CustomInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5122B9F024F5B30E00926960 /* CustomInputButton.swift */; };
 		51257AE824A2E51200C744B7 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AE724A2E51200C744B7 /* UserController.swift */; };
 		51257AEB24A2EE6600C744B7 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51257AEA24A2EE6600C744B7 /* UserAuth.swift */; };
 		5127B4C424F0AC380099519A /* BottomSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5127B4C324F0AC380099519A /* BottomSheetModal.swift */; };
@@ -148,6 +149,7 @@
 		5103133824E8DF78000CEFB0 /* ChartView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ChartView; path = ../../../../../ChartView; sourceTree = "<group>"; };
 		510F0D7724CE5ECB00A5F312 /* DailyMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMacros.swift; sourceTree = "<group>"; };
 		511285E424D368C30080127B /* MealTypeHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeHeaderLabel.swift; sourceTree = "<group>"; };
+		5122B9F024F5B30E00926960 /* CustomInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputButton.swift; sourceTree = "<group>"; };
 		51257AE724A2E51200C744B7 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		51257AEA24A2EE6600C744B7 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		5127B4C324F0AC380099519A /* BottomSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetModal.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				5179C59424F242E600D9E264 /* CustomInputPicker.swift */,
+				5122B9F024F5B30E00926960 /* CustomInputButton.swift */,
 			);
 			name = Subviews;
 			sourceTree = "<group>";
@@ -903,6 +906,7 @@
 				51450F9F24D110880065E0F0 /* UserDefaults.swift in Sources */,
 				5179C59024F23DAB00D9E264 /* ServingSizeInputView.swift in Sources */,
 				511285E524D368C30080127B /* MealTypeHeaderLabel.swift in Sources */,
+				5122B9F124F5B30E00926960 /* CustomInputButton.swift in Sources */,
 				D631B287241891DD00AE30C9 /* UserProfile.swift in Sources */,
 				5139531D24A3D10E00CDF5F1 /* QuoteController.swift in Sources */,
 				5139B90624E39A340086802F /* Calories.swift in Sources */,

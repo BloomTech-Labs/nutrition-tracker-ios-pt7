@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MealTypeInputView: View {
     @Binding var showMealTypes: Bool
+    @Binding var showServingSizes: Bool
     @Binding var selectedMeal: String
     @Binding var selectedMealIndex: Int
     
@@ -32,14 +33,16 @@ struct MealTypeInputView: View {
                         .background(Color.white.opacity(0.8))
                         .offset(y: -55)
                     
-                    Button(action: {
-                        self.showMealTypes.toggle()
-                    }) {
-                        Text("Done")
-                    }
-                    .frame(width: 180, height: 40)
-                    .background(Color.white.opacity(0.8))
-                    .offset(y: 115)
+                    HStack {
+                        CustomInputButton(showNext: self.$showServingSizes, showSelf: self.$showMealTypes, buttonText: "< Serving Sizes")
+                            .frame(width: 180, height: 40)
+                            .background(Color.white.opacity(0.8))
+                        
+                        CustomInputButton(showNext: self.$showMealTypes, showSelf: self.$showMealTypes, lastInputView: true, buttonText: "Done")
+                            .frame(width: 180, height: 40)
+                            .background(Color.white.opacity(0.8))
+                        
+                    }.offset(y: 115)
                 }
                 .frame(alignment: .top)
                 .offset(y: -45)
@@ -55,6 +58,6 @@ struct MealTypeInputView: View {
 
 struct MealTypeInputView_Previews: PreviewProvider {
     static var previews: some View {
-        return MealTypeInputView(showMealTypes: .constant(true), selectedMeal: .constant("Breakfast"), selectedMealIndex: .constant(0), currentProgress: .constant(false), mealTypes: MealType.allCases)
+        return MealTypeInputView(showMealTypes: .constant(true), showServingSizes: .constant(false), selectedMeal: .constant("Breakfast"), selectedMealIndex: .constant(0), currentProgress: .constant(false), mealTypes: MealType.allCases)
     }
 }

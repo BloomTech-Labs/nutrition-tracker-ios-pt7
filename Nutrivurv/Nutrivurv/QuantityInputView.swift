@@ -32,16 +32,8 @@ struct QuantityInputView: View {
                     .stroke(lineWidth: 2.0)
                     .frame(width: 150, height: 2)
                     .foregroundColor(Color(UIColor(named: "nutrivurv-blue-new")!))
-                Button(action: {
-                    // Dismiss the keyboard when navigating to next view
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    self.showServingSizes.toggle()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.015) {
-                        self.showQuantity.toggle()
-                    }
-                }) {
-                    Text("Serving Sizes >")
-                }.padding(.top, 10)
+                CustomInputButton(showNext: self.$showServingSizes, showSelf: self.$showQuantity, buttonText: "Serving Sizes >")
+                .padding(.top, 25)
             }.onAppear {
                 // Shows macros including this item
                 if self.showQuantity {

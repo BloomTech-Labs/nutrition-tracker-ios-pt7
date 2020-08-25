@@ -36,31 +36,15 @@ struct ServingSizeInputView: View {
                     .offset(y: -55)
                     
                     HStack {
-                        Button(action: {
-                            self.showQuantity.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.015) {
-                                self.showServingSizes.toggle()
-                            }
-                        }) {
-                            Text("< Quantity")
-                        }
-                        .frame(width: 180, height: 40)
-                        .background(Color.white.opacity(0.8))
+                        CustomInputButton(showNext: self.$showQuantity, showSelf: self.$showServingSizes, buttonText: "< Quantity")
+                            .frame(width: 180, height: 40)
+                            .background(Color.white.opacity(0.8))
                         
-                        Button(action: {
-                            self.showMealTypes.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.015) {
-                                self.showServingSizes.toggle()
-                            }
-                        }) {
-                            Text("Meal Types >")
-                        }
-                        .frame(width: 180, height: 40)
-                        .background(Color.white.opacity(0.8))
+                        CustomInputButton(showNext: self.$showMealTypes, showSelf: self.$showServingSizes, buttonText: "Meal Types >")
+                            .frame(width: 180, height: 40)
+                            .background(Color.white.opacity(0.8))
                         
                     }.offset(y: 115)
-                    
-                    
                 }
                 .frame(alignment: .top)
                 .offset(y: -45)
