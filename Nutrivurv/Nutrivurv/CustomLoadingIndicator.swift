@@ -28,8 +28,9 @@ struct LoadingView: View {
             
             Text(loadingText.lowercased() + "....").padding(.top)
                 .font(Font.custom("Gaoel", size: 12))
-                .frame(width: 100, alignment: .center)
+                .frame(width: 120, alignment: .center)
         }
+        .frame(width: 85, height: 85)
         .padding(20)
         .background(Color.white)
         .cornerRadius(20)
