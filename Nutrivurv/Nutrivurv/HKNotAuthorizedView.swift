@@ -25,7 +25,7 @@ struct HKNotAuthorizedView: View {
                         .multilineTextAlignment(.center)
                         .frame(width: 180)
                     
-                    Text("Grant Nutrivurv access to your health data in the settings app, then start logging your meals to track your proress!")
+                    Text("Grant Nutrivurv access to your health data in the settings app, then start logging your meals to track your progress!")
                         .font(Font.custom("QuattrocentoSans", size: 16))
                         .multilineTextAlignment(.center)
                         .frame(width: 210)
@@ -36,7 +36,7 @@ struct HKNotAuthorizedView: View {
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 60, style: .continuous))
             }
-            .background(Color.black.opacity(0.5))
+            .background(Color.black.opacity(0.4))
         }.edgesIgnoringSafeArea(.all)
     }
 }

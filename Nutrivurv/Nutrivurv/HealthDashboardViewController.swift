@@ -14,7 +14,7 @@ import HealthKit
 class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: HealthDashboardView(healthKitController: HealthKitController.shared, activeCalories: HealthKitController.shared.activeCalories, consumedCalories: HealthKitController.shared.consumedCalories, caloricDeficits: HealthKitController.shared.caloricDeficits, weight: HealthKitController.shared.weight, bodyFat: HealthKitController.shared.bodyFat))
+        super.init(coder: aDecoder, rootView: HealthDashboardView(healthKitController: HealthKitController.shared, activeCalories: HealthKitController.shared.activeCalories, consumedCalories: HealthKitController.shared.consumedCalories, caloricDeficits: HealthKitController.shared.caloricDeficits, weight: HealthKitController.shared.weight, bodyFat: HealthKitController.shared.bodyFat, delegate: HealthDashboardDelegate()))
     }
     
     //MARK: - View Life Cycle
@@ -22,5 +22,14 @@ class HealthDashboardViewController: UIHostingController<HealthDashboardView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if HealthKitController.shared.noData {
+            rootView.delegate.noHealthData = true
+        } else {
+            rootView.delegate.noHealthData = false
+        }
     }
 }
