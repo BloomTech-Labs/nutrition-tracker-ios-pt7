@@ -21,6 +21,8 @@ class FoodDetailViewDelegate: ObservableObject {
     
     // Update the progress view switcher and macros values based on whether this is a new item or this is an item already included in the food log
     @Published var newEntry: Bool = true
+    
+    @Published var isLoggingMeal: Bool = false
 }
 
 protocol FoodLogDelegate {
@@ -100,6 +102,7 @@ struct FoodDetailView: View {
                                 
                                 if delegate.newEntry {
                                     Button(action: {
+                                        self.delegate.isLoggingMeal = true
                                         self.foodLogDelegate?.addNewMeal()
                                         }) {
                                             Image("add-meal-button-icon")
@@ -240,6 +243,10 @@ struct FoodDetailView: View {
                 
                 MealTypeInputView(showMealTypes: $showMealTypeInputView, selectedMeal: $delegate.mealTypeName, selectedMealIndex: $delegate.mealTypeIndex, currentProgress: $currentProgresss, mealTypes: allMealTypes)
                     .animation(self.springAnimation)
+            
+                if delegate.isLoggingMeal {
+                    CustomLoadingIndicator(loadingText: "Logging")
+                }
             }
         }
         .navigationBarTitle(navigationBarTitle)
