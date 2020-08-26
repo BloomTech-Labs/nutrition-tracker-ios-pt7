@@ -10,12 +10,12 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-
     var window: UIWindow?
-    let healthKitController = HealthKitController.shared
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         QuoteController.shared.getRandomQuote { (_) in }
+        HealthKitController.shared.updateAllValues()
+        
         // This code runs upon app load to determine which view to present to user based on logged in state
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -58,7 +58,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        healthKitController.updateAllValues()
+        if !HealthKitController.shared.isLoading {
+            HealthKitController.shared.updateAllValues()
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

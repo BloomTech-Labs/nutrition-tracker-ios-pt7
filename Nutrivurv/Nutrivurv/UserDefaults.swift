@@ -9,22 +9,25 @@
 import Foundation
 
 extension UserDefaults {
-    struct Keys {
-        static let dailyLoginStreak = "dailyLoginStreak"
-        static let previousLoginDate = "previousLoginDate"
-        static let userIdKey = "userIdKey"
-        static let caloricBudget = "caloricBudget"
-        static let hkPermissionGranted = "hkPermissionGranted"
+    enum Keys: String, CaseIterable {
+        case dailyLoginStreak = "dailyLoginStreak"
+        case previousLoginDate = "previousLoginDate"
+        case userIdKey = "userIdKey"
+        case promptedForHKPermission = "promptedForHKPermission"
+        case caloricBudget = "caloricBudget"
+        case carbsBudget = "carbsBudget"
+        case proteinBudget = "proteinBudget"
+        case fatBudget = "fatBudget"
     }
     
     private class var lastLoginDate: Date? {
-        guard let storedValue = UserDefaults.standard.value(forKey: Keys.previousLoginDate) as? Date else { return nil }
+        guard let storedValue = UserDefaults.standard.value(forKey: Keys.previousLoginDate.rawValue) as? Date else { return nil }
         
         return storedValue
     }
     
     private class var streak: Int {
-        return UserDefaults.standard.integer(forKey: Keys.dailyLoginStreak)
+        return UserDefaults.standard.integer(forKey: Keys.dailyLoginStreak.rawValue)
     }
     
     private class func differenceInDays() -> Int? {
@@ -38,26 +41,26 @@ extension UserDefaults {
         if differenceInDays() == 0 {
             return
         }
-        UserDefaults.standard.set(Date(), forKey: Keys.previousLoginDate)
+        UserDefaults.standard.set(Date(), forKey: Keys.previousLoginDate.rawValue)
     }
     
     private class func hkDataAvailable() -> Bool {
-        return UserDefaults.standard.bool(forKey: Keys.hkPermissionGranted)
+        return UserDefaults.standard.bool(forKey: Keys.promptedForHKPermission.rawValue)
     }
     
     // Explicitly call upon app close/enter background
     class func updateLoginDateAndStreak() {
         // If the date changed while user's app is running, this will ensure streak iterates properly
         if differenceInDays() == 1 {
-            let newStreak = UserDefaults.standard.integer(forKey: Keys.dailyLoginStreak) + 1
-            UserDefaults.standard.set(newStreak, forKey: Keys.dailyLoginStreak)
+            let newStreak = UserDefaults.standard.integer(forKey: Keys.dailyLoginStreak.rawValue) + 1
+            UserDefaults.standard.set(newStreak, forKey: Keys.dailyLoginStreak.rawValue)
         }
         setLoginDate()
     }
     
     // Explicitly call upon app load
     class func getLoginStreak() -> Int {
-        var currentLoginStreak = UserDefaults.standard.integer(forKey: Keys.dailyLoginStreak)
+        var currentLoginStreak = UserDefaults.standard.integer(forKey: Keys.dailyLoginStreak.rawValue)
         
         if let differenceInDays = differenceInDays() {
             switch differenceInDays {
@@ -65,7 +68,7 @@ extension UserDefaults {
                 // If first time logging in then will be 0. Change it to one and seve to User Defaults.
                 if currentLoginStreak == 0 {
                     currentLoginStreak = 1
-                    UserDefaults.standard.set(currentLoginStreak, forKey: Keys.dailyLoginStreak)
+                    UserDefaults.standard.set(currentLoginStreak, forKey: Keys.dailyLoginStreak.rawValue)
                     setLoginDate()
                     return currentLoginStreak
                 } else {
@@ -75,20 +78,20 @@ extension UserDefaults {
             case 1:
                 // If last login was yesterday, iterate and update streak value, and update last login to today
                 currentLoginStreak += 1
-                UserDefaults.standard.set(currentLoginStreak, forKey: Keys.dailyLoginStreak)
+                UserDefaults.standard.set(currentLoginStreak, forKey: Keys.dailyLoginStreak.rawValue)
                 setLoginDate()
                 return currentLoginStreak
             default:
                 // Streak has been broken, therefore reset it to 1 and return value
                 currentLoginStreak = 1
-                UserDefaults.standard.set(currentLoginStreak, forKey: Keys.dailyLoginStreak)
+                UserDefaults.standard.set(currentLoginStreak, forKey: Keys.dailyLoginStreak.rawValue)
                 setLoginDate()
                 return currentLoginStreak
             }
         }
         
         // If difference in days doesn't exist, set streak to 1, set login date, and return 1 for the current streak
-        UserDefaults.standard.set(1, forKey: Keys.dailyLoginStreak)
+        UserDefaults.standard.set(1, forKey: Keys.dailyLoginStreak.rawValue)
         setLoginDate()
         return 1
     }

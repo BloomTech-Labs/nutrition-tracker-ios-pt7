@@ -26,7 +26,6 @@ class ActivityLevelViewController: UIViewController {
     
     // MARK: - IBActions and Methods
     
-    // TODO: Add ability to choose a weekly wight gain/loss goal
     @IBAction func signupButtonTapped(_ sender: Any) {
         guard let user = profileController?.userProfile else {
             print("User profile missing from registration process")
@@ -47,12 +46,54 @@ class ActivityLevelViewController: UIViewController {
                 
             case .failure(.badAuth):
                 print("Email already in use")
-                // TODO: Alert user and prompt for new email/password
+                let alert = UIAlertController.createAlert(title: "Couldn't Complete Registration", message: "A user account matching your credentials already exists. Please login to your dashboard.", style: .alert)
+                let newUserNameAction = UIAlertAction(title: "Choose New Username", style: .default) { (_) in
+                    self.chooseNewUsernameAndPassword()
+                }
+                alert.addAction(newUserNameAction)
+                self.present(alert, animated: true)
             default:
                 print("Error with registration")
-                // TODO: Alert user to double check inputs and try again
+                let alert = UIAlertController.createAlert(title: "Registration Failed", message: "We were unable to create an account for you. Please try again.", style: .alert)
+                self.present(alert, animated: true)
             }
         }
+    }
+    
+    // MARK: - Helper Functions
+    
+    private func chooseNewUsernameAndPassword() {
+        let alertController = UIAlertController(title: "Enter New Credentials", message: "The username entered is already in use, please input a new username.", preferredStyle: .alert)
+        
+        alertController.addTextField { (email) in
+            email.placeholder = "Email"
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive) { (_) in
+            let appHome = UserController.shared.prepareForLogout()
+            self.present(appHome, animated: true)
+        }
+        
+        let createAccount = UIAlertAction(title: "Complete Registration", style: .default) { (_) in
+            if let textFields = alertController.textFields, let email = textFields[0].text {
+                guard email.isValidEmail() else {
+                    let alert = UIAlertController.createAlert(title: "Invalid Email", message: "Please enter a valid email.", style: .alert)
+                    self.present(alert, animated: true) {
+                        self.chooseNewUsernameAndPassword()
+                    }
+                    return
+                }
+                
+                self.profileController?.userProfile?.email = email
+                
+                self.signupButtonTapped(self)
+            }
+        }
+        
+        alertController.addAction(cancel)
+        alertController.addAction(createAccount)
+        
+        self.present(alertController, animated: true)
     }
     
     // MARK: - AlertControllers

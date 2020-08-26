@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import KeychainSwift
 
 class UserController {
@@ -22,7 +23,19 @@ class UserController {
     var userProfileData: UserProfile? {
         didSet {
             if let caloricBudget = userProfileData?.caloricBudget {
-                UserDefaults.standard.set(caloricBudget, forKey: UserDefaults.Keys.caloricBudget)
+                UserDefaults.standard.set(caloricBudget, forKey: UserDefaults.Keys.caloricBudget.rawValue)
+            }
+            
+            if let carbsBudget = userProfileData?.carbsBudget {
+                UserDefaults.standard.set(carbsBudget, forKey: UserDefaults.Keys.carbsBudget.rawValue)
+            }
+            
+            if let proteinBudget = userProfileData?.proteinBudget {
+                UserDefaults.standard.set(proteinBudget, forKey: UserDefaults.Keys.proteinBudget.rawValue)
+            }
+            
+            if let fatBudget = userProfileData?.fatBudget {
+                UserDefaults.standard.set(fatBudget, forKey: UserDefaults.Keys.fatBudget.rawValue)
             }
         }
     }
@@ -191,7 +204,7 @@ class UserController {
             }
             
             if let password = user.password, let id = authResponse.user.id {
-                UserDefaults.standard.set(id, forKey: UserDefaults.Keys.userIdKey)
+                UserDefaults.standard.set(id, forKey: UserDefaults.Keys.userIdKey.rawValue)
                 UserController.keychain.set(user.email, forKey: UserController.userEmailKey)
                 UserController.keychain.set(password, forKey: UserController.userPassKey)
 
@@ -209,6 +222,21 @@ class UserController {
             }
             
         }.resume()
+    }
+    
+    func prepareForLogout() -> UINavigationController {
+        UserController.keychain.clear()
+        FoodLogController.shared.foodLog = FoodLog()
+        let userDefaults = UserDefaults.standard
+        for key in UserDefaults.Keys.allCases {
+            userDefaults.removeObject(forKey: key.rawValue)
+        }
+        
+        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = main.instantiateViewController(withIdentifier: "MainAppWelcome") as! UINavigationController
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .flipHorizontal
+        return viewController
     }
     
     static func isLoggedIn() -> Bool {

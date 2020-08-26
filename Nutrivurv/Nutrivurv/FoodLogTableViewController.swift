@@ -16,7 +16,7 @@ class FoodLogTableViewController: UITableViewController {
     
     let foodSearchController = FoodSearchController()
     
-    // A default message label displayed as table view bg view when the users food log is empty for the day
+    // A default message label displayed as table view background view when users food log is empty for selected date
     var noFoodLoggedLabel: UILabel?
     
     var selectedDateAsString: String? {
@@ -53,7 +53,6 @@ class FoodLogTableViewController: UITableViewController {
     }
     
     private func setDateForLogEntries(_ date: Date = Date()) {
-        // TODO: Allow user to visit previous calendar dates to get log for that date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         self.selectedDateAsString = dateFormatter.string(from: date)
@@ -114,17 +113,12 @@ class FoodLogTableViewController: UITableViewController {
             if let snack = foodLog.snack {
                 return snack.count
             }
-//        case 4:
-//            if let water = foodLog.water {
-//                return water.count
-//            }
         default:
             break
         }
         
         return 0
     }
-    
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let foodLog = foodLog else { return nil }
@@ -153,10 +147,6 @@ class FoodLogTableViewController: UITableViewController {
                     label.text = "snacks"
                     macrosByMealModel = FoodLogController.shared.snacksMacrosModel
                 }
-//            case 4:
-//                if foodLog.water != nil {
-//                    label.text = "water"
-//                }
             default:
                 label.text = nil
         }
@@ -211,10 +201,6 @@ class FoodLogTableViewController: UITableViewController {
                 if foodLog.snack != nil {
                     headerSize = 68
                 }
-//            case 4:
-//                if foodLog.water != nil {
-//                    headerSize = 68
-//                }
             default:
                 return 0
         }
@@ -250,10 +236,6 @@ class FoodLogTableViewController: UITableViewController {
             if let snacks = foodLog.snack {
                 meal = snacks[indexPath.row]
             }
-            //        case 4:
-            //            if let allWater = foodLog.water {
-            //                meal = allWater[indexPath.row]
-        //            }
         default:
             break
         }
@@ -286,31 +268,21 @@ class FoodLogTableViewController: UITableViewController {
             if let allSnacks = foodLog.snack {
                 foodEntry = allSnacks[indexPath.row]
             }
-            //        case 4:
-            //            if let allWater = foodLog.water {
-            //                foodEntry = allWater[indexPath.row]
-        //            }
         default:
             foodEntry = nil
         }
         
         guard let entry = foodEntry else { return }
         
-        if let detailVC = storyboard?.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController {
-            detailVC.searchController = foodSearchController
-            detailVC.foodLogEntry = entry
-            detailVC.fromLog = true
-            detailVC.selectedFoodEntryIndex = indexPath.row
-            detailVC.delegate = self
+        if let detailvc = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewController(identifier: "SwiftUIFoodDetail") as? SwiftUIDetailViewController {
+            detailvc.foodLogEntry = entry
+            detailvc.searchController = foodSearchController
             
-            detailVC.title = "Today's \(entry.mealType.capitalized)"
-            
-            detailVC.modalPresentationStyle = .fullScreen
-            navigationController?.pushViewController(detailVC, animated: true)
+            detailvc.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(detailvc, animated: true)
         }
     }
     
-    // TODO: Implement another way to delete/reload table view as the food controller didSet is casuing app to crash, as the table view is trying to reload before deleting cell
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard let foodLog = foodLog else { return }
         var entry: FoodLogEntry?
@@ -354,19 +326,9 @@ class FoodLogTableViewController: UITableViewController {
     
     // MARK: - Alert Controllers
     
-    private func createAndDisplayAlertController(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     private func generalNetworkingErrorAlert() {
-        createAndDisplayAlertController(title: "Food Log Not Available", message: "We were unable to download your food log. Please check your internet connection and try again.")
-    }
-    
-    private func getEntriesByMeal(mealType: FoodLogEntry) {
-        
+        let alert = UIAlertController.createAlert(title: "Food Log Not Available", message: "We were unable to download your food log. Please check your internet connection and try again.", style: .alert)
+        self.present(alert, animated: true)
     }
     
     @objc private func updateFoodLog() {

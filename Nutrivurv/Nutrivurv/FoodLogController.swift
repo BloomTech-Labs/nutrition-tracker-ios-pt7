@@ -39,6 +39,7 @@ class FoodLogController {
     }
     
     func setNewSelectedDate(_ date: Date) {
+        totalDailyMacrosModel.resetMacros()
         self.selectedDate = date
     }
     
@@ -54,7 +55,6 @@ class FoodLogController {
         var lunchMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
         var dinnerMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
         var snacksMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
-//        var waterMacros: (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0) // TODO: Water is a future release feature
         
         if let breakfast = foodLog.breakfast {
             breakfastMacros = getMacrosTuple(for: breakfast)
@@ -100,11 +100,6 @@ class FoodLogController {
             }
         }
         
-        // TODO: Water is a future release feature
-//        if let water = foodLog.water {
-//            let waterMacros = getMacrosTuple(for: water)
-//        }
-        
         for i in 0...3 {
             switch i {
             case 0:
@@ -121,31 +116,34 @@ class FoodLogController {
         }
         
         DispatchQueue.main.async {
-            // Directly setting values of the observed object to update dashboard accordingly
             self.totalDailyMacrosModel.caloriesCount = totalMacros.0
             if totalMacros.0 > 1 {
-                // TODO: make 2775 an enviroment object (or use User Defaults) to change pct calculations based on user settings.
-                self.totalDailyMacrosModel.caloriesPercent = (totalMacros.0 / 2775) * 100
+                if let caloriesBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.caloricBudget.rawValue) as? CGFloat {
+                    self.totalDailyMacrosModel.caloriesPercent = (totalMacros.0 / caloriesBudget) * 100
+                }
             }
             
             self.totalDailyMacrosModel.carbsCount = totalMacros.1
             if totalMacros.1 > 1 {
-                // TODO: make 40 an enviroment object, or use User Defaults
-                self.totalDailyMacrosModel.carbsPercent = (totalMacros.1 / 40) * 100
+                if let carbsBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.carbsBudget.rawValue) as? CGFloat {
+                    self.totalDailyMacrosModel.carbsPercent = (totalMacros.1 / carbsBudget) * 100
+                }
             }
             
             
             self.totalDailyMacrosModel.proteinCount = totalMacros.2
             if totalMacros.2 > 1 {
-                // TODO: make 170 an enviroment object, or use User Defaults
-                self.totalDailyMacrosModel.proteinPercent = (totalMacros.2 / 170) * 100
+                if let proteinBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.proteinBudget.rawValue) as? CGFloat {
+                        self.totalDailyMacrosModel.proteinPercent = (totalMacros.2 / proteinBudget) * 100
+                }
             }
             
             
             self.totalDailyMacrosModel.fatCount = totalMacros.3
             if totalMacros.3 > 1 {
-                // TODO: make 215 an enviroment object, or use User Defaults
-                self.totalDailyMacrosModel.fatPercent = (totalMacros.3 / 215) * 100
+                if let fatBudget = UserDefaults.standard.value(forKey: UserDefaults.Keys.fatBudget.rawValue) as? CGFloat {
+                    self.totalDailyMacrosModel.fatPercent = (totalMacros.3 / fatBudget) * 100
+                }
             }
         }
     }

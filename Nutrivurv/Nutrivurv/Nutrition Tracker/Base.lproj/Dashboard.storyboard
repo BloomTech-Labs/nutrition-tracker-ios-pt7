@@ -301,11 +301,6 @@
                                 <action selector="logoutButtonTapped:" destination="vsF-rt-EXg" id="4bd-qj-xEx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="detail" id="s1u-Vz-NHU">
-                            <connections>
-                                <segue destination="HUf-V8-zA8" kind="show" id="aju-e5-j4B"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currentWeightLabel" destination="Ghs-UG-8Di" id="eoa-mt-ZO1"/>
@@ -391,7 +386,7 @@
                                 <color key="backgroundColor" name="bg-color"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="U4e-Le-VaR" kind="show" identifier="FoodDetail" id="15w-qA-fVs"/>
+                                    <segue destination="HUf-V8-zA8" kind="show" identifier="FoodDetail" id="OtO-PX-sNo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -423,17 +418,32 @@
                     <view key="view" contentMode="scaleToFill" id="9Dl-jI-6BU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zS-tP-Lih">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" name="bg-color"/>
                         <color key="tintColor" name="nutrivurv-blue"/>
+                        <constraints>
+                            <constraint firstItem="0zS-tP-Lih" firstAttribute="trailing" secondItem="M5B-qD-aKc" secondAttribute="trailing" id="9fw-Te-hRO"/>
+                            <constraint firstItem="0zS-tP-Lih" firstAttribute="top" secondItem="M5B-qD-aKc" secondAttribute="top" id="R2m-yv-OMR"/>
+                            <constraint firstAttribute="bottom" secondItem="0zS-tP-Lih" secondAttribute="bottom" id="Yby-lV-2BZ"/>
+                            <constraint firstItem="0zS-tP-Lih" firstAttribute="leading" secondItem="M5B-qD-aKc" secondAttribute="leading" id="i2Y-SC-UdL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M5B-qD-aKc"/>
                     </view>
                     <navigationItem key="navigationItem" id="nEi-mr-BhV"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="swiftUILoadingContainerView" destination="0zS-tP-Lih" id="46U-3M-m9b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Inq-xy-14D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11141" y="542"/>
+            <point key="canvasLocation" x="11140.579710144928" y="541.74107142857144"/>
         </scene>
         <!--Nutrition Info-->
         <scene sceneID="WhU-tq-Pfb">
@@ -444,7 +454,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-n4-yNw">
-                                <rect key="frame" x="14" y="106" width="262" height="44"/>
+                                <rect key="frame" x="14" y="62" width="262" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Food Item's Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="8gE-sJ-kJx">
                                         <rect key="frame" x="0.0" y="0.0" width="262" height="23.5"/>
@@ -461,7 +471,7 @@
                                 </subviews>
                             </stackView>
                             <scrollView autoresizesSubviews="NO" verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-Gc-KlZ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="8" y="164" width="268" height="21"/>
+                                <rect key="frame" x="8" y="120" width="268" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" preservesSuperviewLayoutMargins="YES" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="56o-eu-WiW" userLabel="Health Labels Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="900" height="21"/>
@@ -483,20 +493,20 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="usu-RS-26B"/>
                             </scrollView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contains:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zES-L2-3nD">
-                                <rect key="frame" x="14" y="198" width="55.5" height="15.5"/>
+                                <rect key="frame" x="14" y="154" width="55.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Catamaran-SemiBold" family="Catamaran" pointSize="13"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-basket" translatesAutoresizingMaskIntoConstraints="NO" id="f73-A3-Bna">
-                                <rect key="frame" x="298" y="118" width="100" height="100"/>
+                                <rect key="frame" x="298" y="74" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="2yH-vl-ncA"/>
                                     <constraint firstAttribute="width" secondItem="f73-A3-Bna" secondAttribute="height" multiplier="1:1" id="56h-2D-tQd"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="905-xc-sQL">
-                                <rect key="frame" x="38" y="258" width="338" height="94"/>
+                                <rect key="frame" x="38" y="214" width="338" height="94"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-7t-Yqc">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="94"/>
@@ -569,13 +579,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-tt-XQf">
-                                <rect key="frame" x="16" y="384" width="382" height="21"/>
+                                <rect key="frame" x="16" y="340" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Catamaran-Bold" family="Catamaran" pointSize="18"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-Sz-jNH">
-                                <rect key="frame" x="16" y="401" width="382" height="20"/>
+                                <rect key="frame" x="16" y="357" width="382" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGh-l6-Ycr">
                                         <rect key="frame" x="0.0" y="0.0" width="367" height="20"/>
@@ -592,13 +602,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Daily Value *" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYu-gN-Juf">
-                                <rect key="frame" x="16" y="427" width="386" height="16.5"/>
+                                <rect key="frame" x="16" y="383" width="386" height="16.5"/>
                                 <fontDescription key="fontDescription" name="QuattrocentoSans-Bold" family="Quattrocento Sans" pointSize="14"/>
                                 <color key="textColor" name="light-label"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-af-gHV" customClass="FadedVerticalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="16" y="445.5" width="398" height="346.5"/>
+                                <rect key="frame" x="16" y="401.5" width="398" height="390.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1fw-4w-otg">
                                         <rect key="frame" x="0.0" y="10" width="386" height="19"/>
@@ -919,7 +929,7 @@
                                 </connections>
                             </button>
                             <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV8-21-SSQ" customClass="FadedHorizontalScrollView" customModule="Nutrivurv" customModuleProvider="target">
-                                <rect key="frame" x="72" y="195" width="204" height="21"/>
+                                <rect key="frame" x="72" y="151" width="204" height="21"/>
                                 <subviews>
                                     <stackView autoresizesSubviews="NO" verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="SI4-sp-zOg" userLabel="Health Cautions Stack View">
                                         <rect key="frame" x="-14" y="0.0" width="268" height="21"/>
@@ -1025,12 +1035,12 @@
         <!--SwiftUI Detail View Controller-->
         <scene sceneID="3q0-no-ZbL">
             <objects>
-                <hostingController id="HUf-V8-zA8" customClass="SwiftUIDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
+                <hostingController storyboardIdentifier="SwiftUIFoodDetail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HUf-V8-zA8" customClass="SwiftUIDetailViewController" customModule="Nutrivurv" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="95p-pI-CGg"/>
                 </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69n-Q3-zjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12905.797101449276" y="-1487.2767857142856"/>
+            <point key="canvasLocation" x="11958" y="-1526"/>
         </scene>
         <!--Main-->
         <scene sceneID="grQ-MA-3ap">
@@ -1172,10 +1182,10 @@
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="KTM-jy-1pm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="back-btn" backIndicatorTransitionMaskImage="back-btn" id="KTM-jy-1pm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="nutrivurv-blue"/>
+                        <color key="tintColor" name="nutrivurv-blue-new"/>
                         <color key="barTintColor" name="bg-color"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1195,7 +1205,7 @@
                         <color key="badgeColor" name="nutrivurv-blue"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="XFZ-qG-J0e">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="back-btn" backIndicatorTransitionMaskImage="back-btn" id="XFZ-qG-J0e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="bg-color"/>
@@ -1214,6 +1224,7 @@
     </scenes>
     <color key="tintColor" red="0.0" green="0.25882352939999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
+        <image name="back-btn" width="50" height="50"/>
         <image name="barcode" width="25" height="20"/>
         <image name="calendar-icon" width="22" height="24"/>
         <image name="fire" width="40" height="52"/>

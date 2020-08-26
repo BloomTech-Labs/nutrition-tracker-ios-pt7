@@ -8,6 +8,7 @@
 
 import AVFoundation
 import UIKit
+import SwiftUI
 
 class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
@@ -22,7 +23,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     var notAuthorizedAlertContainerView: UIView!
     var barcodeScannerFrameView: UIView!
     var loadingBlurView: UIView!
-    var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var swiftUILoadingContainerView: UIView!
     
     var barcodeSearchDelegate: BarcodeSearchDelegate?
     var manualSearchDelegate: ManualSearchRequiredDelegate?
@@ -89,17 +91,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         loadingBlurView.isHidden = true
         self.view.addSubview(loadingBlurView)
         
-        setUpActivityView()
         addBarcodeScannerFrameView()
-    }
-    
-    private func setUpActivityView() {
-        activityIndicator = UIActivityIndicatorView()
-        activityIndicator.color = UIColor(named: "nutrivurv-blue-new")
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.center = loadingBlurView.center
-        self.view.addSubview(activityIndicator)
-        self.view.bringSubviewToFront(activityIndicator)
+        setupSwiftUILoadingIndicator()
     }
     
     private func addBarcodeScannerFrameView() {
@@ -110,15 +103,26 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         self.view.bringSubviewToFront(barcodeScannerFrameView)
     }
     
+    private func setupSwiftUILoadingIndicator() {
+        let hostingController = UIHostingController(rootView: CustomLoadingIndicator(loadingText: "Searching", bgOpacity: 0.5))
+        hostingController.view.backgroundColor = UIColor.clear
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.swiftUILoadingContainerView.addSubview(hostingController.view)
+        hostingController.view.pinWithNoPadding(to: swiftUILoadingContainerView)
+        self.swiftUILoadingContainerView.isHidden = true
+    }
+    
     private func showLoadingSubviews() {
         self.loadingBlurView.isHidden = false
-        self.activityIndicator.startAnimating()
+        self.view.bringSubviewToFront(self.swiftUILoadingContainerView)
+        self.swiftUILoadingContainerView.isHidden = false
     }
     
     private func hideLoadingIndicators() {
         // Update UI by removing blur view, stop activity indicator, hide scanner frame view
         self.barcodeScannerFrameView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        self.activityIndicator.stopAnimating()
+        self.swiftUILoadingContainerView.isHidden = true
     }
     
     private func hideLoadingBlurView() {
@@ -220,7 +224,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         }
         
         guard let backCamera = backCamera else {
-            createAndDisplayAlertController(title: "Camera error", message: "We couldn't find a camera to use on your device")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "We couldn't find a camera to use on your device", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
@@ -230,14 +235,16 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         do {
             videoInput = try AVCaptureDeviceInput(device: backCamera)
         } catch {
-            createAndDisplayAlertController(title: "Camera error", message: "This camera cannot be used to scan food items")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "This camera cannot be used to scan food items", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
         if (captureSession.canAddInput(videoInput)) {
             captureSession.addInput(videoInput)
         } else {
-            createAndDisplayAlertController(title: "Camera error", message: "Video could not be retrieved from the device's camera.")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "Video could not be retrieved from the device's camera.", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
@@ -255,7 +262,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
             // Only these types of meta data will be forwarded to the delegate (self)
             metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
         } else {
-            createAndDisplayAlertController(title: "Camera output error", message: "An output could not be established for the camera.")
+            let alert = UIAlertController.createAlert(title: "Camera output error", message: "An output could not be established for the camera.", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         
@@ -267,7 +275,8 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
         cameraPreviewLayer?.backgroundColor = UIColor(named: "bg-color")?.cgColor
         
         guard let previewLayer = cameraPreviewLayer else {
-            createAndDisplayAlertController(title: "Camera error", message: "A preview couldn't be genrated for your device's camera")
+            let alert = UIAlertController.createAlert(title: "Camera error", message: "A preview couldn't be genrated for your device's camera", style: .alert)
+            self.present(alert, animated: true)
             return
         }
         self.view.layer.addSublayer(previewLayer)
@@ -291,25 +300,20 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     
     // MARK: - Alert Controllers
     
-    private func createAndDisplayAlertController(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func createAndDisplayAlertControllerAndStartCaptureSession(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in
+    private func generalNetworkingErrorAlert() {
+        let alert = UIAlertController.createAlertWithDefaultAction(title:  "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.", style: .alert) { (_) in
             self.loadingBlurView.isHidden = true
             self.captureSession.startRunning()
         }
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alert, animated: true)
     }
     
-    private func generalNetworkingErrorAlert() {
-        createAndDisplayAlertControllerAndStartCaptureSession(title: "Search Not Available", message: "We were unable to complete a search for the food item. Please check your internet connection and try again.")
+    private func noFoodsFoundAlert() {
+        let alert = UIAlertController.createAlertWithDefaultAction(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.", style: .alert) { (_) in
+            self.loadingBlurView.isHidden = true
+            self.captureSession.startRunning()
+        }
+        self.present(alert, animated: true)
     }
     
     // MARK: - Search by UPC
@@ -317,24 +321,26 @@ class BarcodeSearchViewController: UIViewController, AVCapturePhotoCaptureDelega
     // Uses the search controller object to initiate a search
     func searchForFoodByUPC(_ upc: String) {
         self.searchController?.searchForFoodItemWithUPC(searchTerm: upc) { (error) in
-            self.hideLoadingIndicators()
-            
-            if let error = error as? NetworkError {
-                if error == .otherError {
-                    self.generalNetworkingErrorAlert()
-                } else {
-                    self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.hideLoadingIndicators()
+                
+                if let error = error as? NetworkError {
+                    if error == .otherError {
+                        self.generalNetworkingErrorAlert()
+                    } else {
+                        self.noFoodsFoundAlert()
+                    }
+                    return
                 }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                if self.searchController?.foods.count == 0 {
-                    // Specialized alert controller that calls captureSession.startRunning() in the completion block
-                    self.createAndDisplayAlertControllerAndStartCaptureSession(title: "No foods found", message: "We couldn't find any food matching this barcode. Please try again or search for this item manually.")
-                } else {
-                    self.barcodeSearchDelegate?.gotResultForFoodFromUPC()
-                    self.dismiss(animated: true)
+                
+                DispatchQueue.main.async {
+                    if self.searchController?.foods.count == 0 {
+                        // Specialized alert controller that calls captureSession.startRunning() in the completion block
+                        self.noFoodsFoundAlert()
+                    } else {
+                        self.barcodeSearchDelegate?.gotResultForFoodFromUPC()
+                        self.dismiss(animated: true)
+                    }
                 }
             }
         }

@@ -11,22 +11,28 @@ import SwiftUI
 struct BubbleView: View {
     @Binding var currentProgress: Bool
     @Binding var showNutrients: Bool
+    @Binding var newMealEntry: Bool
     
     var index: Double // starting at one, used as a multiplier for the animation delay
-    var percentDifference: Int
+    var percentDifference: Double
     
     var body: some View {
         ZStack {
             Image("bubble")
+                .renderingMode(.template)
                 .resizable()
+                .foregroundColor(Color(UIColor(named: "bubble-bg-color")!))
+                .shadow(color: Color(UIColor(named: "daily-vibe-shadow")!), radius: 1, x: 0, y: 0.5)
             
             HStack(spacing: 0) {
-                Text("+")
+                if newMealEntry {
+                    Text("+")
                     .font(Font.custom("QuattrocentoSans-Bold", size: 14))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
+                }
                 
-                Text("\(percentDifference)")
+                Text(Int(percentDifference) == 0 ? "0" : "\(String(format: "%.0f", percentDifference))")
                     .font(Font.custom("QuattrocentoSans-Bold", size: 18))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
@@ -50,6 +56,6 @@ struct BubbleView: View {
 
 struct BubbleView_Previews: PreviewProvider {
     static var previews: some View {
-        BubbleView(currentProgress: .constant(false), showNutrients: .constant(false), index: 1, percentDifference: 6)
+        BubbleView(currentProgress: .constant(false), showNutrients: .constant(false), newMealEntry: .constant(true), index: 1, percentDifference: 6)
     }
 }
