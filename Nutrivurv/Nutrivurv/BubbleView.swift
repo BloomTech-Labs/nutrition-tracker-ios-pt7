@@ -19,7 +19,10 @@ struct BubbleView: View {
     var body: some View {
         ZStack {
             Image("bubble")
+                .renderingMode(.template)
                 .resizable()
+                .foregroundColor(Color(UIColor(named: "bubble-bg-color")!))
+                .shadow(color: Color(UIColor(named: "daily-vibe-shadow")!), radius: 1, x: 0, y: 0.5)
             
             HStack(spacing: 0) {
                 if newMealEntry {

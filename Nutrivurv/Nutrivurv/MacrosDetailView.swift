@@ -18,7 +18,7 @@ struct MacrosDetailView: View {
     var height: CGFloat = 56
     
     var ringAnimation = Animation.easeInOut
-    var fontColor = UIColor(displayP3Red: 68/255, green: 71/255, blue: 78/255, alpha: 1)
+    var fontColor = UIColor(named: "macros-view-text")!
     
     var body: some View {
         let multiplier = width / 100

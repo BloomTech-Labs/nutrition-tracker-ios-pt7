@@ -94,7 +94,7 @@ struct FoodDetailView: View {
                         VStack {
                             
                             HStack {
-                                TableViewSectionHeader(dailyMacrosModel: foodItemMacros)
+                                TableViewSectionHeader(dailyMacrosModel: foodItemMacros, bgColor: Color(UIColor(named: "nutrition-facts-bg")!))
                                     .scaleEffect(1.10)
                                     .frame(width: 245, height: 43)
                                 

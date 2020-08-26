@@ -14,7 +14,7 @@ struct NutritionFactsView: View {
     @ObservedObject var nutritionFacts: NutritionFacts
     
     var bgColor = UIColor(named: "nutrition-facts-bg")!
-    var shadowColor = UIColor(named: "detail-view-card-shadow")!
+    var shadowColor = UIColor(named: "daily-vibe-shadow")!
     
     var multiplier = UIScreen.main.bounds.height / 750
     
