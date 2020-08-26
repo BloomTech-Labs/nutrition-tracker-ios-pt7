@@ -37,7 +37,7 @@ struct BottomSheetModal<Content: View>: View {
   }
 
   private var background: some View {
-    Color(UIColor(named: "bottom-sheet-modal-bg")!)
+    Color(UIColor(named: "bottom-sheet-modal-overlay")!)
       .fillParent()
       .opacity(backgroundOpacity)
       .animation(.spring())
@@ -49,7 +49,7 @@ struct BottomSheetModal<Content: View>: View {
       self.content()
     }
     .frame(width: modalWidth, height: modalHeight, alignment: .top)
-    .background(Color(UIColor(named: "bubble-bg-color")!))
+    .background(Color(UIColor(named: "bottom-sheet-modal-bg")!))
     .cornerRadius(modalCornerRadius)
     .offset(y: offset.height)
     .gesture(
@@ -90,7 +90,7 @@ struct DragIndicator: View {
 
   var body: some View {
     Rectangle()
-      .fill(Color(UIColor(named: "bg-color")!))
+      .fill(Color(UIColor(named: "modal-drag-indicator")!))
       .frame(width: width, height: height)
       .cornerRadius(cornerRadius)
   }

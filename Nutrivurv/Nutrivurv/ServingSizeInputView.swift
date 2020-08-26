@@ -32,17 +32,17 @@ struct ServingSizeInputView: View {
                     .font(.custom("QuattrocentoSans-BoldItalic", size: 18))
                     .foregroundColor(Color(UIColor(named: "light-label")!))
                         .frame(width: self.screenWidth, height: 70)
-                    .background(Color(UIColor(named: "bubble-bg-color")!))
+                    .background(Color(UIColor(named: "bottom-sheet-modal-bg")!))
                     .offset(y: -55)
                     
                     HStack {
                         CustomInputButton(showNext: self.$showQuantity, showSelf: self.$showServingSizes, buttonText: "< Quantity")
                             .frame(width: 180, height: 40)
-                            .background(Color(UIColor(named: "bubble-bg-color")!))
+                            .background(Color(UIColor(named: "bottom-sheet-modal-bg")!))
                         
                         CustomInputButton(showNext: self.$showMealTypes, showSelf: self.$showServingSizes, buttonText: "Meal Types >")
                             .frame(width: 180, height: 40)
-                            .background(Color(UIColor(named: "bubble-bg-color")!))
+                            .background(Color(UIColor(named: "bottom-sheet-modal-bg")!))
                         
                     }.offset(y: 115)
                 }

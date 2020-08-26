@@ -28,7 +28,7 @@ struct NutritionFactsView: View {
             VStack(spacing: 8) {
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .frame(width: 40, height: 6)
-                    .foregroundColor(Color.black.opacity(0.08))
+                    .foregroundColor(Color(UIColor(named: "modal-drag-indicator")!))
                     .padding(EdgeInsets(top: 14, leading: 0, bottom: -8, trailing: 0))
                 
                 VStack(spacing: 8) {
